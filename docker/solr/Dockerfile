@@ -1,7 +1,7 @@
 # start from an official solr base image
 FROM solr
 
-USER solr
+USER root
 
 # copy the empty solr indices
 COPY ./docker/solr/metadata/ /var/solr/data
@@ -12,5 +12,7 @@ COPY ./datastore/ /catalog
 
 # copy the init script
 COPY --chown=solr --chmod=0500 ./docker/solr/init.sh /init.sh
+
+USER solr
 
 ENTRYPOINT /init.sh
