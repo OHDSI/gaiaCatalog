@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    {% block head %}
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+                           integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <style>
+      .highlight-term {
+        background-color: #ffc;
+      }
+      .circle {
+        width: 10px;
+        height: 10px;
+        border-radius: 5px 5px 5px 5px;
+        margin-left: 5px;
+        margin-top: 5px;
+        position: absolute;
+        border-radius: 100%;
+        display: inline-block
+      }
+      .green-fill {
+        background: green;
+      }
+      .red-fill {                                          
+        background: red;
+        cursor: pointer;
+      }
+      .wrapScroll {
+        white-space: nowrap;
+        overflow-x: auto;
+        border: 1px solid grey;
+        border-radius: 4px;
+      }
+      @keyframes spin {
+          0% { transform: rotate(360deg); }
+          100% { transform: rotate(0deg); }
+      }
+      @-moz-keyframes spin {
+          0% { -moz-transform: rotate(360deg); }
+          100% { -moz-transform: rotate(0deg); }
+      }
+      @-webkit-keyframes spin {
+          0% {-webkit-transform: rotate(360deg); }
+          100% { -webkit-transform: rotate(0deg); }
+      }
+      @-o-keyframes spin {
+          0% { -o-transform: rotate(360deg); }
+          100% { -o-transform: rotate(0deg); }
+      }
+      .spin {
+          width: 10px;
+          height: 10px;
+          border-radius: 6px 6px 6px 6px;
+          overflow: hidden;
+          margin-left: 5px;
+          margin-top: 5px;
+          display: inline-block !important;
+          position: absolute;
+          animation: spin 2s linear 0s infinite reverse;
+          -moz-animation: 2s linear 0s reverse none infinite spin;
+          -webkit-animation: spin 2s linear 0s infinite reverse;
+          -0-animation: spin 2s linear 0s infinite reverse;
+          -webkit-animation-play-state: running;
+          -o-animation-play-state: running;
+          -moz-animation-play-state: running;
+          animation-play-state: running;
+      }
+      .yin-yang {
+          animation: spin 4s linear 0s infinite normal;
+          -moz-animation: 4s linear 0s normal none infinite spin;
+          -webkit-animation: spin 4s linear 0s infinite normal;
+          -0-animation: spin 4s linear 0s infinite normal;
+          width: 9px;
+          height: 4px;
+          background: #eee;
+          border-color: red;
+          border-style: solid;
+          border-width: 0px 0.5px 5px 0.5px;
+          border-radius: 100%;
+          position: relative;
+      }
+      .yin-yang:before {
+          content:"";
+          position: absolute;
+          top: 50%;
+          left: 0;
+          background: #eee;
+          border: 2px solid red;
+          border-radius: 100%;
+          width: 1px;
+          height: 1px;
+      }
+      .yin-yang:after {
+          content:"";
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          background: red;
+          border: 2px solid #eee;
+          border-radius:100%;
+          width: 1px;
+          height: 1px;
+      }
+    </style>
+    <title>{% block title %}{% endblock %}</title>
+    {% endblock %}
+  </head>
+  <body>
+    <div class="bg-image mb-5 p-5" style="background-image: url('/static/OHDSI-banner.png'); height: 150px;">
+      <div style="max-width: 700px; float: right; text-align: right;">
+        <a href="/" style="text-decoration: none;"><h1>GIS Workgroup</h1></a>
+        <a href="https://github.com/OHDSI/GIS" style="text-decoration: none;"><h3>https://github.com/OHDSI/GIS</h3></a>
+      </div>
+    </div>
+    <div id="content" class="container">
+    {% block content %}
+    {% endblock %}
+    </div>
+    <div id="footer" class="container text-center mb-4 mt-2">
+    {% block footer %}
+      <hr>
+      <a href="https://idsc.miami.edu/"><img src="/static/IDSC-wide.jpg" class="img-fluid w-50" style="max-width: 350px"></a>
+      <a href="https://www.library.miami.edu/"><img src="/static/Library-wide.jpg" class="img-fluid w-50" style="max-width: 350px"></a><br>
+      <span style="margin-left: -100px;">Powered by: <a href="https://gdsc.idsc.miami.edu" target="_blank">GDSC</a> - <a href="mailto:tnorris@miami.edu">contact</a><br>
+    {% endblock %}
+    </div>
+  </body>
+</html>
