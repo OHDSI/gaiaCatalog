@@ -207,7 +207,7 @@ def detail(name_id):
 def loadlayer(layer_id):
 
     response = {'load': layer_id}
-    scripts = os.listdir(f'/data/data/{layer_id}/etl/')
+    scripts = os.listdir(f'/data/{layer_id}/etl/')
     scripts = [x.split('_')[-1][:-3] for x in scripts if x not in ['processStep','.DS_Store']]
 
     for api in apis:
