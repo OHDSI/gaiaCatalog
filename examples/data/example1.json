@@ -1,0 +1,738 @@
+{
+    "@context": {
+        "@vocab": "https://schema.org/"
+    },
+    "@type": "Dataset",
+    "@id": "",
+    "name": "",
+    "mainEntity": {
+      "@type": "DefinedTerm",
+      "name": "Place",
+      "inDefinedTermSet": ["Place", "Person", "Household"]
+    },
+    "description": "Climate data for two localities in East Africa for use in GaiaCatalog. GaiaCatalog is a component in the OHDSI GIS Toolchain",
+    "includedInDataCatalog": {
+        "@type": "DataCatalog",
+        "name": "GaiaCatalog",
+        "description": "",
+        "conditionsOfAccess": "",
+        "url": ""
+    },
+    "dateCreated": "use to specify the date the dataset was initially generated (e.g., when a sensor recorded a value, when a model was run, or when data processing was completed)",
+    "dateModified": "use to specify the date the dataset was most recently updated or changed",
+    "datePublished": "use to specify the date when a dataset was made available to the public through a publication process",
+    "expires": "use to specify the date when the dataset expires and is no longer useful or available",
+    "url": "https://gdsc.idsc.miami.edu/detail/mdc_parcels_camp?collection=all&active=None&query=None",
+    "license": "This work is licensed under a  Creative Commons Attribution (CC-BY) 4.0 License",
+    "citation": "if there is one",
+    "version": "2021-04-24T06:34:56.000Z",
+    "isBasedOn": { 
+        "@type": "Dataset",
+        "name": "ERA5",
+        "description": "ERA5 is the fifth generation ECMWF reanalysis for the global climate and weather for the past 8 decades. Data is available from 1940 onwards. ERA5 replaces the ERA-Interim reanalysis.",
+        "producer": "https://climate.copernicus.eu", 
+        "url": "https://climate.copernicus.eu/climate-reanalysis"
+    },
+    "keywords": ["Kisesa", "Magu", "elevation", "Nairobi", "rainfall", "temperature"],
+    "subjectOf": [
+        {
+            "@type": "Claim",
+            "appearance": {
+                "@type": "article",
+                "publication": {
+                    "@type": "PublicationEvent",
+                    "publishedBy": {
+                        "@type": "Organization",
+                        "name": "Lancet HIV"
+                    }
+                },
+                "datePublished": "2024-02",
+                "creditText": "Editorial Staff",
+                "headline": "Effect of climate change on the HIV response",
+                "text": "Climate change [through a series of intervening variables] may increase the rates of HIV infection and worsen the health and wellbeing of people with HIV. Impacts on HIV programmes and people with HIV can manifest as reduced access to prevention, testing, and treatment services, poor adherence to treatment, poor nutrition,and reduced immunity. ",
+                "isPartOf": {
+                    "@type": "PublicationVolume",
+                    "volumeNumber": "11"
+                },
+                "identifier": {
+                    "@id": "https://doi.org/10.1016/S2352-3018(24)00009-2",
+                    "@type": "PropertyValue",
+                    "propertyID": "https://registry.identifiers.org/registry/doi",
+                    "value": "doi:10.1016/S2352-3018(24)00009-2",
+                    "url": "https://doi.org/10.1016/S2352-3018(24)00009-2"
+                }
+            },
+            "firstAppearance": {
+                "@type": "article",
+                "publication": {
+                    "@type": "PublicationEvent",
+                    "publishedBy": {
+                        "@type": "Organization",
+                        "name": "AIDS Behav."
+                    }
+                },
+                "datePublished": "2021-01-15",
+                "creditText": "Lieber M, Chin-Hong P, Whittle HJ, Hogg R, Weiser SD",
+                "headline": "The Synergistic Relationship Between Climate Change and the HIV/AIDS Epidemic: A Conceptual Framework",
+                "text": "Four pathways linking climate change with HIV/AIDS are summarized in Fig. 1. This model is based on an in-depth literature review of the interaction between climate change, food insecurity, infectious diseases, human migration, destruction of healthcare infrastructure, and HIV/AIDS performed between June 6 and June 27, 2019.",
+                "image": "https://www.ncbi.nlm.nih.gov/core/lw/2.0/html/tileshop_pmc/tileshop_pmc_inline.html?title=Click%20on%20image%20to%20zoom&p=PMC3&id=7810285_10461_2020_3155_Fig1_HTML.jpg",
+                "isPartOf": {
+                    "@type": "PublicationVolume",
+                    "volumeNumber": "2021 Jul;25(7):2266-2277"
+                },
+                "identifier": {
+                    "@id": "https://doi.org/10.1007/s10461-020-03155-y",
+                    "@type": "PropertyValue",
+                    "propertyID": "https://registry.identifiers.org/registry/doi",
+                    "value": "doi:10.1007/s10461-020-03155-y",
+                    "url": "https://doi.org/10.1007/s10461-020-03155-y"
+                }
+            }
+        }
+    ],
+    "spatialCoverage": {
+        "@type": "Place",
+        "name": "Magu/Nairobi",
+        "description": "HIV and Climate Change Study locations of interest",
+        "geo": [
+            {
+                "@type": "ItemList",
+                "name": "Lake Victoria Basin",
+                "description": "The Lake Victoria Basin is a vast, shared transboundary resource spanning portions of Kenya, Tanzania, Uganda, Rwanda, and Burundi. It encompasses the lake itself, the surrounding catchment area, and the numerous communities and ecosystems dependent on its water resources. The basin is a vital source of water, food, and livelihoods for millions of people and plays a significant role in regional economies and biodiversity",
+                "disambiguatingDescription": "The basin is an array of tiles aka grid. Each tile in a grid is a GeoShape.",
+                "itemListElement": {
+                    "@type": "ListItem",
+                    "item": {
+                        "@type": "GeoShape",
+                        "polygon": "A polygon is the area enclosed by a point-to-point path for which the starting and ending points are the same. A polygon is expressed as a series of four or more space delimited points where the first and final points are identical.",
+                        "image": "https://www.google.com/search?vsrid=CLmasdPHq-7FlAEQAhgBIiQ5ZWY3ZTg0OS0xZTBlLTQ2NmEtYWY1Ni1mM2NhYTJlNTY0YjI4sMTF7qLfjQM&vsint=CAIqDAoCCAcSAggKGAEgATojChYNAAAAPxUAAAA_HQAAgD8lAACAPzABEI0CGLwBJQAAgD8&udm=26&lns_mode=un&source=lns.web.gisivli&vsdim=269,188&gsessionid=lHF8vLrJxlmMj824BU74eiq2x32qLIV0XwoE9DpMxGzH1Cpvk5TzKQ&lsessionid=9jt42vZ5nPn41U2z7y2n9j0c3seVAlzZD69ZyLziKbEVOj_YyCwitA&lns_surface=19&lns_vfs=e&qsubts=1749297996752&biw=1176&bih=601&ved=0CBIQh6cGahcKEwj43ZCoot-NAxUAAAAAHQAAAAAQBA&tbnid=EK4V18j7mptWGM&ictx=2"
+                    }
+                },
+                "potentialAction": [
+                    {
+                        "@type": "Action",
+                        "actionProcess": {
+                            "@type": "HowTo",
+                            "tool": "Flood exceedance calculator",
+                            "yield": "Flood exceedance probability",
+                            "description": "",
+                            "disambiguatingDescription": "Uses NetCDF file format",
+                            "subjectOf": {
+                                "type": "Article",
+                                "url": ""
+                            },
+                            "url":
+                        }
+                    },
+                    {
+                        "@type": "Action",
+                        "actionProcess": {
+                            "@type": "HowTo",
+                            "tool": "Drought exceedance calculator",
+                            "yield": "Drought exceedance probability",
+                            "description": "",
+                            "disambiguatingDescription": "Uses Standardized Precipitation Index (SPI) and/or related drought indices",
+                            "subjectOf": {
+                                "type": "Article",
+                                "url": ""
+                            },
+                            "url":
+                        }
+                    }
+                ]
+            },
+            {
+                "@type": "GeoShape",
+                "name": "Magu",
+                "description": "schema.org expects lat long (Y X) coordinate order",
+                "polygon": "A polygon is the area enclosed by a point-to-point path for which the starting and ending points are the same. A polygon is expressed as a series of four or more space delimited points where the first and final points are identical.",
+                "image": ""
+            },
+            {
+                "@type": "GeoShape",
+                "name": "Nairobi",
+                "description": "schema.org expects lat long (Y X) coordinate order",
+                "polygon": "A polygon is the area enclosed by a point-to-point path for which the starting and ending points are the same. A polygon is expressed as a series of four or more space delimited points where the first and final points are identical.",
+                "image": "",
+            },
+            {
+                "@type": "GeoCoordinates",
+                "name": "Magu care site",
+                "description": "Main care site for HIV care in the Magu district",
+                "disambiguatingDescription": "Used in conjunction with the place of residence to determine distance to care",
+                "latitude": "",
+                "longitude": "",
+                "potentialAction": [
+                    {
+                        "@type": "CreateAction",
+                        "object": {
+                            "@type": "Place",
+                            "address": ""
+                        },
+                        "instrument": {
+                            "@type": "SoftwareApplication",
+                            "applicationCategory": "GeoCoder",
+                            "name": "a geocoder",
+                            "downloadUrl": "",
+                            "softwareVersion": ""
+                        },
+                        "result": {
+                            "@type": "Place"
+                            "name": "Place of residence"
+                            "geo": {
+                                "type": "GeoCoordinates",
+                                "latitude": "",
+                                "longitude": ""
+                            }
+                        }
+                    },
+                    {
+                        "@type": "TravelAction",
+                        "fromLocation": {
+                            "@type": "Place",
+                            "name": "Place of residence",
+                            "geo": {
+                                "type": "GeoCoordinates",
+                                "latitude": "",
+                                "longitude": ""
+                            }
+                        },
+                        "toLocation": {
+                            "@type": "Place",
+                            "name": "Magu care site"
+                            "geo": {
+                                "type": "GeoCoordinates",
+                                "latitude": "",
+                                "longitude": ""
+                            }
+                        }
+                    }
+                ]
+            },
+            {
+                "@type": "GeoCoordinates",
+                "name": "Nairobi care site",
+                "description": "Main care site for HIV care in the Nairobi district",
+                "disambiguatingDescription": "Used in conjunction with the place of residence to determine distance to care",
+                "latitude": "",
+                "longitude": "",
+                "potentialAction": [
+                    {
+                        "@type": "CreateAction",
+                        "object": {
+                            "@type": "Place",
+                            "address": ""
+                        },
+                        "instrument": {
+                            "@type": "SoftwareApplication",
+                            "applicationCategory": "GeoCoder",
+                            "name": "a geocoder",
+                            "downloadUrl": "",
+                            "softwareVersion": ""
+                        },
+                        "result": {
+                            "@type": "Place"
+                            "name": "Place of residence"
+                            "geo": {
+                                "type": "GeoCoordinates",
+                                "latitude": "",
+                                "longitude": ""
+                            }
+                        }
+                    },
+                    {
+                        "@type": "TravelAction",
+                        "fromLocation": {
+                            "@type": "Place",
+                            "name": "Place of residence",
+                            "geo": {
+                                "type": "GeoCoordinates",
+                                "latitude": "",
+                                "longitude": ""
+                            }
+                        },
+                        "toLocation": {
+                            "@type": "Place",
+                            "name": "Nairobi care site"
+                            "geo": {
+                                "type": "GeoCoordinates",
+                                "latitude": "",
+                                "longitude": ""
+                            }
+                        }
+                    }
+                ]
+            }
+        ],
+        "additionalProperty": {
+            "@type": "PropertyValue",
+            "propertyID": "https://dbpedia.org/page/Spatial_reference_system",
+            "value": "https://www.w3.org/2003/01/geo/wgs84_pos"
+        }
+    },
+    "temporalCoverage": "R20/1994/P1Y",
+    "measurementTechnique": "ERA5 Climate Reanalysis of Copernicus satellite data",
+    "measurementMethod": "https://climate.copernicus.eu/climate-reanalysis",
+    "publishingPrinciples": [
+        {
+            "@type": "CreativeWork",
+            "url": "http://example.org/pubprin.html",
+            "name": "Document related to principles related to the publishing of this information",
+            "description": "desription here "
+        }
+    ],
+    "distribution": {
+        "@type": "DataDownload",
+        "contentUrl": "http://example.org/archive.do?r=zd_1519",
+        "encodingFormat": "application/vnd.ms-excel"
+    },
+    "creator": [
+        {    
+            "@id": "https://www.sample-data-repository.org/person-role/472036",
+            "@type": "Role",
+            "roleName": "Principal Investigator",
+            "creator": {
+                "@id": "https://www.sample-data-repository.org/person/50663",
+                "@type": "Person",
+                "identifier": {
+                  "@id": "https://orcid.org/0000-0003-3432-2297",
+                  "@type": "PropertyValue",
+                  "propertyID": "https://registry.identifiers.org/registry/orcid",
+                  "url": "https://orcid.org/0000-0003-3432-2297",
+                  "value": "orcid:0000-0003-3432-2297"
+                },
+                "name": "Dr Mark Brzezinski",
+                "url": "https://www.sample-data-repository.org/person/50663"
+            }
+        }
+    ],
+    "funder": {
+        "@type": "Organization",
+        "name": "",
+        "description": ""
+    },
+    "provider": [
+        {
+            "@id": "06-1608361",
+            "@type": "Organization",
+            "legalName": "African Population and Health Research Center",
+            "name": "APHRC",
+            "url": "https://aphrc.org"
+        }
+    ],
+    "variableMeasured": [
+        {
+            "@id": "http://example.org/id/link/to/concept/of/exposure_definition",
+            "@type": "PropertyValue",
+            "name": "exposure_definition",
+            "description": "Definition of the calculated geospatial exposure metric",
+            "propertyID": [
+                "URL for the exposure metric concept within a vocabulary, e.g. http://purl.obolibrary.org/obo/ENVO_01001374",
+                "URL for the domain of an exposure metric concept within a vocabulary",
+                "URL for the class of an exposure metric concept within a vocabulary, e.g. https://gcmd.earthdata.nasa.gov/KeywordViewer/scheme/all/11aca777-8a01-42ce-b076-b3059c3d8cae?gtm_keyword=SEA%20STATE&gtm_scheme=Earth%20Science"
+            ],
+            "measurementMethod": "can be text",
+            "measurementTechnique": "can be text or, if standard measurement protocols are defined and registered, can be a URL",
+            "unitCode": "can be text or a URL that goes to a concept in a unit of measurement vocab",
+            "unitText": "can be the corresponding text",
+            "value": "",
+            "minValue": "",
+            "maxValue": "",
+            "valueReference": {
+                "@type": "PropertyValue",
+                "name": "analysisRole",    
+                "description": "",   
+                "rangeIncludes": {
+                    "@type":"DefinedTermSet",
+                    "@id":"",        
+                    "name":"",        
+                    "hasDefinedTerm": [
+                        {"@type": "DefinedTerm", "termCode":"Independent"},
+                        {"@type": "DefinedTerm", "termCode":"Dependent"},
+                        {"@type": "DefinedTerm", "termCode":"Intervening"},
+                        {"@type": "DefinedTerm", "termCode":"Control"}
+                    ]
+                },
+                "value": ""
+            }
+        },
+        {
+            "@id": "http://example.org/id/link/to/concept/of/exposure_definition",
+            "@type": "StatisticalVariable",
+            "name": "exposure_definition",
+            "description": "Definition of the calculated geospatial exposure metric",
+            "identifier": "http://example.org/id/link/to/concept/of/exposure_definition",
+            "measuredProperty": {
+                "@type": "Property",
+                "name": "name of property",
+                "description": "The measuredProperty of an Observation, typically via its StatisticalVariable. There are various kinds of applicable Property: a schema.org property, a property from other RDF-compatible systems, e.g. W3C RDF Data Cube, Data Commons, Wikidata, or schema.org extensions such as GS1's."
+            },
+            "measurementDenominator": {
+                "@type": "StatisticalVariable",
+                "name": "name of denominator variable if there is one",
+                "description": "Identifies the denominator variable when an observation represents a ratio or percentage."
+            },
+            "measurementMethod": "can be text",
+            "measurementQualifier":  {
+                "@type": "Enumeration",
+                "name": "name of class",
+                "description": "Provides additional qualification to an observation. For example, a GDP observation measures the Nominal value."
+            },
+            "measurementTechnique": "can be text",
+            "populationType": {
+                "@type": "Class",
+                "name": "name of class",
+                "identifier": "identifier for the class that defines the population type"
+            },
+            "statType": "can be text"
+        }
+    ],
+    "about": {
+        "@type": "Event",
+        "description": "describe the activity, might include name here too.",
+        "name": "Measurement of climate state",
+        "potentialAction": [
+            {
+                "@type": "Action",
+                "name": "Measurement of maximum temperature",
+                "object": {
+                    "@type": "Dataset",
+                    "name": "ERA5 Hourly Pressure Level",
+                    "description": "Contains variables representing atmospheric conditions at different pressure levels within the atmosphere. These variables are three-dimensional, with variations in latitude, longitude, and altitude (represented by pressure levels).",
+                    "spatialCoverage": {
+                        "@type": "Place",
+                        "geo": {
+                            "@type": "GeoShape",
+                            "description": "We used the geocoordinates of the centroid of the Magu HDSS and applied a 10 km buffer around it",
+                            "disambiguatingDescription": "This buffer helped account for potential inaccuracies in the centroid coordinates and the limited resolution of the climate data.",
+                            "polygon": "",
+                            "elevation": ""
+                        },
+                        "additionalProperty": {
+                            "@type": "PropertyValue",
+                            "propertyID":"http://dbpedia.org/resource/Spatial_reference_system",
+                            "value": "http://www.w3.org/2003/01/geo/wgs84_pos#lat_long"
+                        }
+                    },
+                    "temporalCoverage": "1992T00:00:00Z/2015T23:00:00Z",
+                    "url": "https://cds.climate.copernicus.eu/datasets/reanalysis-era5-pressure-levels?tab=download",
+                    "identifier": {
+                        "@id": "https://doi.org/10.24381/cds.bd0915c6",
+                        "@type": "PropertyValue",
+                        "propertyID": "https://registry.identifiers.org/registry/doi",
+                        "value": "doi:10.24381/cds.bd0915c6"
+                    },
+                    "subjectOf": {
+                        "@type": "WebPage",
+                        "name": "ERA5 hourly data on pressure levels from 1940 to present",
+                        "url": "https://cds.climate.copernicus.eu/datasets/reanalysis-era5-pressure-levels?tab=overview"
+                    }
+                },
+                "instrument": {
+                    "@type": "SoftwareApplication",
+                    "name": "Maximum temperature post-processing"
+                    "description": "The data was downloaded in NetCDF format to facilitate easy integration with both R and Python workflows. Post-processing of the NetCDF files was done using R to aggregate and calculate daily estimates for each climate variable, ensuring the data was in the correct format for further analysis.",
+                    "applicationCategory": "Container",
+                    "applicationSubCategory": "Docker Container",
+                    "applicationSuite": "Gaia Community Containers",
+                    "downloadUrl": "",
+                    "softwareVersion": "",
+                    "softwareAddOn": {
+                        "@type": "SoftwareApplication",
+                        "name": "Copernicus Climate Data Store maximum temperature ETL",
+                        "applicationCategory": "ETL pipeline",
+                        "applicationSubCategory": "R ETL pipeline",
+                        "identifier": "",
+                        "abstract": "",
+                        "author": "",
+                        "dateCreated": "",
+                        "dateModified": "",
+                        "downloadUrl": "",
+                        "softwareVersion": ""
+                    } 
+                },
+                "result": {
+                    "@type": "Dataset",
+                    "name": "Maximum temperature daily estimates",
+                    "description": "",
+                    "spatialCoverage": {
+                        "@type": "Place",
+                        "geo": {
+                            "@type": "GeoShape",
+                            "description": "We used the geocoordinates of the centroid of the Magu HDSS and applied a 10 km buffer around it",
+                            "disambiguatingDescription": "This buffer helped account for potential inaccuracies in the centroid coordinates and the limited resolution of the climate data.",
+                            "polygon": "",
+                            "elevation": ""
+                        },
+                        "additionalProperty": {
+                            "@type": "PropertyValue",
+                            "propertyID":"http://dbpedia.org/resource/Spatial_reference_system",
+                            "value": "http://www.w3.org/2003/01/geo/wgs84_pos#lat_long"
+                        }
+                    },
+                    "temporalCoverage": "1992-01-01/2014-12-31",
+                    "url": ""
+                },
+                "target": {
+                    "@type": "EntryPoint",
+                    "actionApplication": "A SoftwareApplication that can complete the request.", 
+                    "urlTemplate": "An url template (RFC6570) that will be used to construct the target of the execution of the action.",
+                    "httpMethod": ["GET", "POST"]
+                }
+            },
+            {
+                "@type": "Action",
+                "name": "Measurement of minimum temperature",
+                "object": {
+                    "@type": "Dataset",
+                    "name": "ERA5 Hourly Pressure Level",
+                    "description": "Contains variables representing atmospheric conditions at different pressure levels within the atmosphere. These variables are three-dimensional, with variations in latitude, longitude, and altitude (represented by pressure levels).",
+                    "spatialCoverage": {
+                        "@type": "Place",
+                        "geo": {
+                            "@type": "GeoShape",
+                            "description": "We used the geocoordinates of the centroid of the Magu HDSS and applied a 10 km buffer around it",
+                            "disambiguatingDescription": "This buffer helped account for potential inaccuracies in the centroid coordinates and the limited resolution of the climate data.",
+                            "polygon": "",
+                            "elevation": ""
+                        },
+                        "additionalProperty": {
+                            "@type": "PropertyValue",
+                            "propertyID":"http://dbpedia.org/resource/Spatial_reference_system",
+                            "value": "http://www.w3.org/2003/01/geo/wgs84_pos#lat_long"
+                        }
+                    },
+                    "temporalCoverage": "1992T00:00:00Z/2015T23:00:00Z",
+                    "url": "https://cds.climate.copernicus.eu/datasets/reanalysis-era5-pressure-levels?tab=download",
+                    "identifier": {
+                        "@id": "https://doi.org/10.24381/cds.bd0915c6",
+                        "@type": "PropertyValue",
+                        "propertyID": "https://registry.identifiers.org/registry/doi",
+                        "value": "doi:10.24381/cds.bd0915c6"
+                    },
+                    "subjectOf": {
+                        "@type": "WebPage",
+                        "name": "ERA5 hourly data on pressure levels from 1940 to present",
+                        "url": "https://cds.climate.copernicus.eu/datasets/reanalysis-era5-pressure-levels?tab=overview"
+                    }
+                },
+                "instrument": {
+                    "@type": "SoftwareApplication",
+                    "name": "Maximum temperature post-processing",
+                    "url": "in GitHub...",
+                    "description": "The data was downloaded in NetCDF format to facilitate easy integration with both R and Python workflows. Post-processing of the NetCDF files was done using R to aggregate and calculate daily estimates for each climate variable, ensuring the data was in the correct format for further analysis.",
+                    "softwareVersion": ""
+                },
+                "result": {
+                    "@type": "Dataset",
+                    "name": "Minimum temperature daily estimates",
+                    "description": "",
+                    "spatialCoverage": {
+                        "@type": "Place",
+                        "geo": {
+                            "@type": "GeoShape",
+                            "description": "We used the geocoordinates of the centroid of the Magu HDSS and applied a 10 km buffer around it",
+                            "disambiguatingDescription": "This buffer helped account for potential inaccuracies in the centroid coordinates and the limited resolution of the climate data.",
+                            "polygon": "",
+                            "elevation": ""
+                        },
+                        "additionalProperty": {
+                            "@type": "PropertyValue",
+                            "propertyID":"http://dbpedia.org/resource/Spatial_reference_system",
+                            "value": "http://www.w3.org/2003/01/geo/wgs84_pos#lat_long"
+                        }
+                    },
+                    "temporalCoverage": "1992-01-01/2014-12-31",
+                    "url": ""
+                },
+                "target": {
+                    "@type": "EntryPoint",
+                    "actionApplication": "A SoftwareApplication that can complete the request.", 
+                    "urlTemplate": "An url template (RFC6570) that will be used to construct the target of the execution of the action.",
+                    "httpMethod": ["GET", "POST"]
+                }
+            },
+            {
+                "@type": "Action",
+                "name": "Measurement of precipitation",
+                "object": {
+                    "@type": "Dataset",
+                    "name": "ERA5 Hourly Pressure Level",
+                    "description": "Contains variables representing atmospheric conditions at different pressure levels within the atmosphere. These variables are three-dimensional, with variations in latitude, longitude, and altitude (represented by pressure levels).",
+                    "spatialCoverage": {
+                        "@type": "Place",
+                        "geo": {
+                            "@type": "GeoShape",
+                            "description": "We used the geocoordinates of the centroid of the Magu HDSS and applied a 10 km buffer around it",
+                            "disambiguatingDescription": "This buffer helped account for potential inaccuracies in the centroid coordinates and the limited resolution of the climate data.",
+                            "polygon": "",
+                            "elevation": ""
+                        },
+                        "additionalProperty": {
+                            "@type": "PropertyValue",
+                            "propertyID":"http://dbpedia.org/resource/Spatial_reference_system",
+                            "value": "http://www.w3.org/2003/01/geo/wgs84_pos#lat_long"
+                        },
+                        "containsPlace": {
+                            "@type": "Place",
+                            "geo": {
+                                "@type": "GeoShape",
+                                "description": "Geocoordinates of the centroid of the Magu HDSS", 
+                                "polygon": "",
+                                "elevation": ""
+                            }
+                        }
+                    },
+                    "temporalCoverage": "1992T00:00:00Z/2015T23:00:00Z",
+                    "url": "https://cds.climate.copernicus.eu/datasets/reanalysis-era5-pressure-levels?tab=download",
+                    "identifier": {
+                        "@id": "https://doi.org/10.24381/cds.bd0915c6",
+                        "@type": "PropertyValue",
+                        "propertyID": "https://registry.identifiers.org/registry/doi",
+                        "value": "doi:10.24381/cds.bd0915c6"
+                    },
+                    "subjectOf": {
+                        "@type": "WebPage",
+                        "name": "ERA5 hourly data on pressure levels from 1940 to present",
+                        "url": "https://cds.climate.copernicus.eu/datasets/reanalysis-era5-pressure-levels?tab=overview"
+                    }
+                },
+                "instrument": {
+                    "@type": "SoftwareApplication",
+                    "name": "Maximum temperature post-processing",
+                    "url": "in GitHub...",
+                    "description": "The data was downloaded in NetCDF format to facilitate easy integration with both R and Python workflows. Post-processing of the NetCDF files was done using R to aggregate and calculate daily estimates for each climate variable, ensuring the data was in the correct format for further analysis.",
+                    "softwareVersion": ""
+                },
+                "result": {
+                    "@type": "Dataset",
+                    "name": "Precipitation daily estimates",
+                    "description": "",
+                    "spatialCoverage": {
+                        "@type": "Place",
+                        "geo": {
+                            "@type": "GeoShape",
+                            "description": "We used the geocoordinates of the centroid of the Magu HDSS and applied a 10 km buffer around it",
+                            "disambiguatingDescription": "This buffer helped account for potential inaccuracies in the centroid coordinates and the limited resolution of the climate data.",
+                            "polygon": "",
+                            "elevation": ""
+                        },
+                        "additionalProperty": {
+                            "@type": "PropertyValue",
+                            "propertyID":"http://dbpedia.org/resource/Spatial_reference_system",
+                            "value": "http://www.w3.org/2003/01/geo/wgs84_pos#lat_long"
+                        },
+                        "containsPlace": {
+                            "@type": "Place",
+                            "geo": {
+                                "@type": "GeoShape",
+                                "description": "Geocoordinates of the centroid of the Magu HDSS", 
+                                "polygon": "",
+                                "elevation": ""
+                            }
+                        }
+                    },
+                    "temporalCoverage": "1992-01-01/2014-12-31",
+                    "url": ""
+                },
+                "target": {
+                    "@type": "EntryPoint",
+                    "actionApplication": "A SoftwareApplication that can complete the request.", 
+                    "urlTemplate": "An url template (RFC6570) that will be used to construct the target of the execution of the action.",
+                    "httpMethod": ["GET", "POST"]
+                }
+            },
+            {
+                "@type": "Action",
+                "name": "Measurement of relative humidity",
+                "object": {
+                    "@type": "Dataset",
+                    "name": "ERA5 Hourly Pressure Level",
+                    "description": "Contains variables representing atmospheric conditions at different pressure levels within the atmosphere. These variables are three-dimensional, with variations in latitude, longitude, and altitude (represented by pressure levels).",
+                    "disambiguatingDescription": "I chose the data at the 1000 hPa pressure level, corresponding to atmospheric conditions close to the Earth's surface (approximately 100–200 meters above sea level)",
+                    "spatialCoverage": {
+                        "@type": "Place",
+                        "geo": {
+                            "@type": "GeoShape",
+                            "description": "We used the geocoordinates of the centroid of the Magu HDSS and applied a 10 km buffer around it",
+                            "disambiguatingDescription": "This buffer helped account for potential inaccuracies in the centroid coordinates and the limited resolution of the climate data.",
+                            "polygon": "",
+                            "elevation": ""
+                        },
+                        "additionalProperty": {
+                            "@type": "PropertyValue",
+                            "propertyID":"http://dbpedia.org/resource/Spatial_reference_system",
+                            "value": "http://www.w3.org/2003/01/geo/wgs84_pos#lat_long"
+                        },
+                        "containsPlace": {
+                            "@type": "Place",
+                            "geo": {
+                                "@type": "GeoShape",
+                                "description": "Geocoordinates of the centroid of the Magu HDSS", 
+                                "polygon": "",
+                                "elevation": "100-200"
+                            }
+                        }
+                    },
+                    "temporalCoverage": "1992T00:00:00Z/2015T23:00:00Z",
+                    "url": "https://cds.climate.copernicus.eu/datasets/reanalysis-era5-pressure-levels?tab=download",
+                    "identifier": {
+                        "@id": "https://doi.org/10.24381/cds.bd0915c6",
+                        "@type": "PropertyValue",
+                        "propertyID": "https://registry.identifiers.org/registry/doi",
+                        "value": "doi:10.24381/cds.bd0915c6"
+                    },
+                    "subjectOf": {
+                        "@type": "WebPage",
+                        "name": "ERA5 hourly data on pressure levels from 1940 to present",
+                        "url": "https://cds.climate.copernicus.eu/datasets/reanalysis-era5-pressure-levels?tab=overview"
+                    }
+                },
+                "instrument": {
+                    "@type": "SoftwareApplication",
+                    "name": "Maximum temperature post-processing",
+                    "url": "in GitHub...",
+                    "description": "The data was downloaded in NetCDF format to facilitate easy integration with both R and Python workflows. Post-processing of the NetCDF files was done using R to aggregate and calculate daily estimates for each climate variable, ensuring the data was in the correct format for further analysis.",
+                    "softwareVersion": ""
+                },
+                "result": {
+                    "@type": "Dataset",
+                    "name": "Relative humidity daily estimates",
+                    "description": "",
+                    "spatialCoverage": {
+                        "@type": "Place",
+                        "geo": {
+                            "@type": "GeoShape",
+                            "description": "We used the geocoordinates of the centroid of the Magu HDSS and applied a 10 km buffer around it",
+                            "disambiguatingDescription": "This buffer helped account for potential inaccuracies in the centroid coordinates and the limited resolution of the climate data.",
+                            "polygon": "",
+                            "elevation": "100-200"
+                        },
+                        "additionalProperty": {
+                            "@type": "PropertyValue",
+                            "propertyID":"http://dbpedia.org/resource/Spatial_reference_system",
+                            "value": "http://www.w3.org/2003/01/geo/wgs84_pos#lat_long"
+                        },
+                        "containsPlace": {
+                            "@type": "Place",
+                            "geo": {
+                                "@type": "GeoShape",
+                                "description": "Geocoordinates of the centroid of the Magu HDSS", 
+                                "polygon": "",
+                                "elevation": ""
+                            }
+                        }
+                    },
+                    "temporalCoverage": "1992-01-01/2014-12-31",
+                    "url": ""
+                },
+                "target": {
+                    "@type": "EntryPoint",
+                    "actionApplication": "A SoftwareApplication that can complete the request.", 
+                    "urlTemplate": "An url template (RFC6570) that will be used to construct the target of the execution of the action.",
+                    "httpMethod": ["GET", "POST"]
+                }
+            }
+        ]
+    }
+}
