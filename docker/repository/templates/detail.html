@@ -78,7 +78,9 @@
                           <th scope="col">Description</th>
                           <th scope="col">Type</th>
                           <th scope="col">Unit</th>
-                          <th scope="col">Unit Concept ID</th>                          
+                          <th scope="col">Unit Concept ID</th>
+                          <th scope="col">Min Val</th>
+                          <th scope="col">Max Val</th>
                           <th scope="col">Start Date</th>
                           <th scope="col">End Date</th>
                           <th scope="col">Concept ID</th>
@@ -88,7 +90,7 @@
                         {% for attr in document['gdsc_attributes'] %}
                         <tr>
                           <td>
-                            {% if attr[9]|length > 0 %}
+                            {% if attr[11]|length > 0 %}
                             <div class="none">
                               <div id="variable-{{ attr[9] }}" class="circle red-fill"></div>
                             </div>
@@ -96,7 +98,7 @@
                               &nbsp;
                             {% endif %}
                           </td>
-                          <td>{{ attr[9] }}</td>
+                          <td>{{ attr[11] }}</td>
                           <td>{{ attr[0] }}</td>
                           <td>{{ attr[1] }}</td>
                           <td>{{ attr[3] }}</td>
@@ -105,6 +107,8 @@
                           <td>{% if attr[6] %}{{ attr[6] }}{% endif %}</td>
                           <td>{% if attr[7] %}{{ attr[7] }}{% endif %}</td>
                           <td>{% if attr[8] %}{{ attr[8] }}{% endif %}</td>
+                          <td>{% if attr[9] %}{{ attr[9] }}{% endif %}</td>
+                          <td>{% if attr[10] %}{{ attr[10] }}{% endif %}</td>
                         </tr>
                         {% endfor %}
                       </tbody>
