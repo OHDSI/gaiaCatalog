@@ -1,4 +1,9 @@
 {
+    "@context": {
+        "@vocab": "https://schema.org/"
+    },
+    "@type": "Dataset",
+    "@id": "https://gdsc.idsc.miami.edu/detail/tz_1984_copernicus_avg_temp",
     "name": "1984 Tanzania 2m Temperature Yearly Average (Copernicus)",
     "creator": [
         {
@@ -18,6 +23,9 @@
         "OHDSI"
     ],
     "license": "Open Data Commons Attribution License (ODC-By): http://opendatacommons.org/licenses/by/1.0/",
+    "spatialCoverage.name": [
+        "Tanzania"
+    ],
     "type": "Raster Dataset",
     "datePublished": "2025-06-01",
     "description": "A raster dataset with yearly averages of the 2m temperature from the Copernicus satellite sensors for Tanzania.",
@@ -25,7 +33,7 @@
         "Tanzania",
         "temperature"
     ],
-    "spatialCoverage": [
+    "spatialCoverage.geo": [
         "29",
         "-12",
         "41",
@@ -33,8 +41,9 @@
     ],
     "about": "TBD",
     "variableMeasured": [
-        "2m_temperature;Average yearly 2m temperature in Kelvin from Copernicus reanalysis era5 sinagle levels;Copernicus;float;Kelvin"
+        "2m_temperature;Average yearly 2m temperature in Kelvin from Copernicus reanalysis era5 single levels;Copernicus;float;Kelvin;9523;287.315857;301.010986;1984-01-01;1984-12-31;2m_temperature@tz_1984_copernicus_avg_temp"
     ],
-    "distribution": "TBD",
-    "dateModified": "2025-06-01"
+    "distribution": "https://github.com/tibbben/copernicus_aggregate.git",
+    "dateModified": "2025-06-01",
+    "version": "TBD"
 }
