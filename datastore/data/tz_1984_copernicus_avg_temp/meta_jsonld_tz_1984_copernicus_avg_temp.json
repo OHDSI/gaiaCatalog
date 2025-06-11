@@ -41,7 +41,7 @@
     ],
     "about": "TBD",
     "variableMeasured": [
-        "2m_temperature;Average yearly 2m temperature in Kelvin from Copernicus reanalysis era5 single levels;Copernicus;float;Kelvin;9523;287.315857;301.010986;1984-01-01;1984-12-31;2m_temperature@tz_1984_copernicus_avg_temp"
+        "2m_temperature;Average yearly 2m temperature in Kelvin from Copernicus reanalysis era5 single levels;Copernicus;float;Kelvin;9523;287.315857;301.010986;1984-01-01;1984-12-31;;2m_temperature@tz_1984_copernicus_avg_temp"
     ],
     "distribution": "https://github.com/tibbben/copernicus_aggregate.git",
     "dateModified": "2025-06-01",
