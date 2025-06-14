@@ -144,8 +144,9 @@
             {
                 "@type": "GeoShape",
                 "name": "Magu",
-                "description": "schema.org expects lat long (Y X) coordinate order",
-                "polygon": "A polygon is the area enclosed by a point-to-point path for which the starting and ending points are the same. A polygon is expressed as a series of four or more space delimited points where the first and final points are identical.",
+                "description": "We used the geocoordinates of the centroid of the Magu HDSS and applied a 10 km buffer around it ",
+                "disambiguatingDescription": "This buffer helped account for potential inaccuracies in the centroid coordinates and the limited resolution of the climate data",
+                "circle": "A circle is the circular region of a specified radius centered at a specified latitude and longitude. A circle is expressed as a pair followed by a radius in meters.",
                 "image": ""
             },
             {
@@ -270,7 +271,7 @@
             "value": "https://www.w3.org/2003/01/geo/wgs84_pos"
         }
     },
-    "temporalCoverage": "R20/1994/P1Y",
+    "temporalCoverage": "R20/1994/P1M",
     "measurementTechnique": "ERA5 Climate Reanalysis of Copernicus satellite data",
     "measurementMethod": "https://climate.copernicus.eu/climate-reanalysis",
     "publishingPrinciples": [
@@ -324,20 +325,17 @@
         {
             "@id": "http://example.org/id/link/to/concept/of/exposure_definition",
             "@type": "PropertyValue",
-            "name": "exposure_definition",
+            "name": "Average maximum temperature -- January 1994",
             "description": "Definition of the calculated geospatial exposure metric",
             "propertyID": [
-                "URL for the exposure metric concept within a vocabulary, e.g. http://purl.obolibrary.org/obo/ENVO_01001374",
-                "URL for the domain of an exposure metric concept within a vocabulary",
-                "URL for the class of an exposure metric concept within a vocabulary, e.g. https://gcmd.earthdata.nasa.gov/KeywordViewer/scheme/all/11aca777-8a01-42ce-b076-b3059c3d8cae?gtm_keyword=SEA%20STATE&gtm_scheme=Earth%20Science"
+                "http://gisextension.ohdsi.org/exposome/nnn",
+                "URL for the exposome type in a vocabulary",
+                "URL for the exposome subtype in the same vocabulary"
             ],
-            "measurementMethod": "can be text",
-            "measurementTechnique": "can be text or, if standard measurement protocols are defined and registered, can be a URL",
-            "unitCode": "can be text or a URL that goes to a concept in a unit of measurement vocab",
-            "unitText": "can be the corresponding text",
-            "value": "",
-            "minValue": "",
-            "maxValue": "",
+            "measurementMethod": "Hourly data from the Copernicus ERA5 reanalysis dataset was downloaded in NetCDF format. Post-processing of the NetCDF files was done using R to aggregate and calculate menthly estimates for each climate variable",
+            "measurementTechnique": "A URL that references the code in a repo developed by Flavian and Tim that implements the measurement method.",
+            "unitCode": "http://athena.ohdsi.org/ucum/44777658",
+            "unitText": "/mo",
             "valueReference": {
                 "@type": "PropertyValue",
                 "name": "analysisRole",    
