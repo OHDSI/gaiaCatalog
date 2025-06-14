@@ -353,36 +353,6 @@
                 },
                 "value": ""
             }
-        },
-        {
-            "@id": "http://example.org/id/link/to/concept/of/exposure_definition",
-            "@type": "StatisticalVariable",
-            "name": "exposure_definition",
-            "description": "Definition of the calculated geospatial exposure metric",
-            "identifier": "http://example.org/id/link/to/concept/of/exposure_definition",
-            "measuredProperty": {
-                "@type": "Property",
-                "name": "name of property",
-                "description": "The measuredProperty of an Observation, typically via its StatisticalVariable. There are various kinds of applicable Property: a schema.org property, a property from other RDF-compatible systems, e.g. W3C RDF Data Cube, Data Commons, Wikidata, or schema.org extensions such as GS1's."
-            },
-            "measurementDenominator": {
-                "@type": "StatisticalVariable",
-                "name": "name of denominator variable if there is one",
-                "description": "Identifies the denominator variable when an observation represents a ratio or percentage."
-            },
-            "measurementMethod": "can be text",
-            "measurementQualifier":  {
-                "@type": "Enumeration",
-                "name": "name of class",
-                "description": "Provides additional qualification to an observation. For example, a GDP observation measures the Nominal value."
-            },
-            "measurementTechnique": "can be text",
-            "populationType": {
-                "@type": "Class",
-                "name": "name of class",
-                "identifier": "identifier for the class that defines the population type"
-            },
-            "statType": "can be text"
         }
     ],
     "about": {
