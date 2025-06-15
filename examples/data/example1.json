@@ -167,7 +167,19 @@
                 "description": "We used the geocoordinates of the centroid of the Nairobi HDSS and applied a 10 km buffer around it ",
                 "disambiguatingDescription": "This buffer helped account for potential inaccuracies in the centroid coordinates and the limited resolution of the climate data",
                 "circle": "A circle is the circular region of a specified radius centered at a specified latitude and longitude. A circle is expressed as a pair followed by a radius in meters.",
-                "image": ""
+                "image": "",
+                "potentialAction": {
+                    "@type": "CreateAction",
+                    "description": "Determines the Copernicus polygon at ground level in which the Nairobi circle mostly lies",
+                    "result": {
+                        "@type": "GeoShape",
+                        "polygon": ""
+                    },
+                    "instrument": {
+                        "@type": "SoftwareApplication",
+                        "url": ""
+                    }
+                }
             },
             {
                 "@type": "GeoCoordinates",
