@@ -104,7 +104,7 @@
                     "@type": "ListItem",
                     "item": {
                         "@type": "GeoShape",
-                        "polygon": "A polygon is the area enclosed by a point-to-point path for which the starting and ending points are the same. A polygon is expressed as a series of four or more space delimited points where the first and final points are identical.",
+                        "box": "A box is the area enclosed by the rectangle formed by two points. The first point is the lower corner, the second point is the upper corner. A box is expressed as two points separated by a space character",
                         "image": "https://www.google.com/search?vsrid=CLmasdPHq-7FlAEQAhgBIiQ5ZWY3ZTg0OS0xZTBlLTQ2NmEtYWY1Ni1mM2NhYTJlNTY0YjI4sMTF7qLfjQM&vsint=CAIqDAoCCAcSAggKGAEgATojChYNAAAAPxUAAAA_HQAAgD8lAACAPzABEI0CGLwBJQAAgD8&udm=26&lns_mode=un&source=lns.web.gisivli&vsdim=269,188&gsessionid=lHF8vLrJxlmMj824BU74eiq2x32qLIV0XwoE9DpMxGzH1Cpvk5TzKQ&lsessionid=9jt42vZ5nPn41U2z7y2n9j0c3seVAlzZD69ZyLziKbEVOj_YyCwitA&lns_surface=19&lns_vfs=e&qsubts=1749297996752&biw=1176&bih=601&ved=0CBIQh6cGahcKEwj43ZCoot-NAxUAAAAAHQAAAAAQBA&tbnid=EK4V18j7mptWGM&ictx=2"
                     }
                 },
@@ -150,14 +150,29 @@
                 "image": "",
                 "potentialAction": {
                     "@type": "CreateAction",
-                    "description": "Determines the Copernicus polygon at ground level in which the Magu circle mostly lies",
-                    "result": {
-                        "@type": "GeoShape",
-                        "polygon": ""
-                    },
+                    "description": "Determines the Copernicus tile at ground level in which the Magu circle mostly lies",
+                    "disambiguatingDescription": "Alternatively, I would still suggest using village locations to join the environmental data to the patient data",
+                    "result": [
+                        {
+                            "@type": "Place",
+                            "geo": {
+                                "@type": "GeoShape",
+                                "description": "Use for joining patient location with a Copernicus tile corresponding to the circle",
+                                "box": "A box is the area enclosed by the rectangle formed by two points. The first point is the lower corner, the second point is the upper corner. A box is expressed as two points separated by a space character"
+                            },
+                        },
+                        {
+                            "@type": "Place",
+                            "geo": {
+                                "@type": "GeoShape",
+                                "description": "Use for joining patient location with a Copernicus tile corresponding to a Magu village",
+                                "box": "A box is the area enclosed by the rectangle formed by two points. The first point is the lower corner, the second point is the upper corner. A box is expressed as two points separated by a space character"
+                            }
+                        }
+                    ],
                     "instrument": {
                         "@type": "SoftwareApplication",
-                        "url": ""
+                        "url": "https://github.com/tibbben/copernicus_aggregate"
                     }
                 }
             },
@@ -170,11 +185,25 @@
                 "image": "",
                 "potentialAction": {
                     "@type": "CreateAction",
-                    "description": "Determines the Copernicus polygon at ground level in which the Nairobi circle mostly lies",
-                    "result": {
-                        "@type": "GeoShape",
-                        "polygon": ""
-                    },
+                    "description": "Determines the Copernicus square at ground level in which the Nairobi circle mostly lies",
+                    "result": [
+                        {
+                            "@type": "Place",
+                            "geo": {
+                                "@type": "GeoShape",
+                                "description": "Use for joining patient location with a Copernicus tile corresponding to the circle",
+                                "box": "A box is the area enclosed by the rectangle formed by two points. The first point is the lower corner, the second point is the upper corner. A box is expressed as two points separated by a space character"
+                            },
+                        },
+                        {
+                            "@type": "Place",
+                            "geo": {
+                                "@type": "GeoShape",
+                                "description": "Use for joining patient location with a Copernicus tile corresponding to a Nairobi community",
+                                "box": "A box is the area enclosed by the rectangle formed by two points. The first point is the lower corner, the second point is the upper corner. A box is expressed as two points separated by a space character"
+                            }
+                        }
+                    ],
                     "instrument": {
                         "@type": "SoftwareApplication",
                         "url": ""
