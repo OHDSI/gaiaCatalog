@@ -215,8 +215,8 @@
                 "name": "Magu care site",
                 "description": "Main care site for HIV care in the Magu district",
                 "disambiguatingDescription": "Used in conjunction with the place of residence to determine distance to care",
-                "latitude": "",
-                "longitude": "",
+                "latitude": "The latitude of a location",
+                "longitude": "The longitude of a location",
                 "potentialAction": [
                     {
                         "@type": "CreateAction",
@@ -236,8 +236,8 @@
                             "name": "Place of residence"
                             "geo": {
                                 "type": "GeoCoordinates",
-                                "latitude": "",
-                                "longitude": ""
+                                "latitude": "The latitude of a location",
+                                "longitude": "The longitude of a location"
                             }
                         }
                     },
@@ -248,8 +248,8 @@
                             "name": "Place of residence",
                             "geo": {
                                 "type": "GeoCoordinates",
-                                "latitude": "",
-                                "longitude": ""
+                                "latitude": "The latitude of a location",
+                                "longitude": "The longitude of a location"
                             }
                         },
                         "toLocation": {
@@ -257,8 +257,8 @@
                             "name": "Magu care site"
                             "geo": {
                                 "type": "GeoCoordinates",
-                                "latitude": "",
-                                "longitude": ""
+                                "latitude": "The latitude of a location",
+                                "longitude": "The longitude of a location"
                             }
                         }
                     }
@@ -290,8 +290,8 @@
                             "name": "Place of residence"
                             "geo": {
                                 "type": "GeoCoordinates",
-                                "latitude": "",
-                                "longitude": ""
+                                "latitude": "The latitude of a location",
+                                "longitude": "The longitude of a location"
                             }
                         }
                     },
@@ -302,8 +302,8 @@
                             "name": "Place of residence",
                             "geo": {
                                 "type": "GeoCoordinates",
-                                "latitude": "",
-                                "longitude": ""
+                                "latitude": "The latitude of a location",
+                                "longitude": "The longitude of a location"
                             }
                         },
                         "toLocation": {
@@ -311,8 +311,8 @@
                             "name": "Nairobi care site"
                             "geo": {
                                 "type": "GeoCoordinates",
-                                "latitude": "",
-                                "longitude": ""
+                                "latitude": "The latitude of a location",
+                                "longitude": "The longitude of a location"
                             }
                         }
                     }
