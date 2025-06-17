@@ -325,6 +325,7 @@
             "value": "https://www.w3.org/2003/01/geo/wgs84_pos"
         }
     },
+    "temporal": "The monthly average (P1M) beginning in 1994 every year for 20 years (R20). temporalCoverge is a shorthand for temporal using ISO 8601. See https://en.wikipedia.org/wiki/ISO_8601",
     "temporalCoverage": "R20/1994/P1M",
     "measurementTechnique": "ERA5 Climate Reanalysis of Copernicus satellite data",
     "measurementMethod": "https://climate.copernicus.eu/climate-reanalysis",
