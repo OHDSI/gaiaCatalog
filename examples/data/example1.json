@@ -206,7 +206,7 @@
                     ],
                     "instrument": {
                         "@type": "SoftwareApplication",
-                        "url": ""
+                        "url": "https://github.com/tibbben/copernicus_aggregate"
                     }
                 }
             },
