@@ -121,7 +121,7 @@
                                 "type": "Article",
                                 "url": ""
                             },
-                            "url":
+                            "url": ""
                         }
                     },
                     {
@@ -395,7 +395,7 @@
             "valueReference": {
                 "@type": "PropertyValue",
                 "name": "analysisRole",    
-                "description": "",   
+                "value": "",   
                 "rangeIncludes": {
                     "@type":"DefinedTermSet",
                     "@id":"",        
