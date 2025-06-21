@@ -155,17 +155,25 @@
                     "result": [
                         {
                             "@type": "Place",
+                            "additionalProperty": {
+                                "@type": "PropertyValue",
+                                "measurementMethod": "Calculated"
+                            },
                             "geo": {
                                 "@type": "GeoShape",
-                                "description": "Use for joining patient location with a Copernicus tile corresponding to the circle",
+                                "description": "Finds a Copernicus tile in which the circle tht buffers the centroid of the Magu village mostly lies",
                                 "box": "A box is the area enclosed by the rectangle formed by two points. The first point is the lower corner, the second point is the upper corner. A box is expressed as two points separated by a space character"
-                            },
+                            }
                         },
                         {
                             "@type": "Place",
+                            "additionalProperty": {
+                                "@type": "PropertyValue",
+                                "measurementMethod": "Observed"
+                            },
                             "geo": {
                                 "@type": "GeoShape",
-                                "description": "Use for joining patient location with a Copernicus tile corresponding to a Magu village",
+                                "description": "Finds a Copernicus tile in which a Magu village mostly lies",
                                 "box": "A box is the area enclosed by the rectangle formed by two points. The first point is the lower corner, the second point is the upper corner. A box is expressed as two points separated by a space character"
                             }
                         }
