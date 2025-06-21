@@ -197,6 +197,10 @@
                     "result": [
                         {
                             "@type": "Place",
+                            "additionalProperty": {
+                                "@type": "PropertyValue",
+                                "measurementMethod": "Calculated"
+                            },
                             "geo": {
                                 "@type": "GeoShape",
                                 "description": "Use for joining patient location with a Copernicus tile corresponding to the circle",
@@ -205,6 +209,10 @@
                         },
                         {
                             "@type": "Place",
+                            "additionalProperty": {
+                                "@type": "PropertyValue",
+                                "measurementMethod": "Observed"
+                            },
                             "geo": {
                                 "@type": "GeoShape",
                                 "description": "Use for joining patient location with a Copernicus tile corresponding to a Nairobi community",
