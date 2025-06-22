@@ -8,7 +8,7 @@
     "mainEntity": {
       "@type": "DefinedTerm",
       "name": "Place",
-      "inDefinedTermSet": ["Place", "Person", "Household", "Establishment", "Entanglement"]
+      "inDefinedTermSet": ["Place", "Person", "Household", "Establishment", "Entangled"]
     },
     "description": "Climate data for two localities in East Africa for use in GaiaCatalog. GaiaCatalog is a component in the OHDSI GIS Toolchain",
     "includedInDataCatalog": {
@@ -136,7 +136,7 @@
                                 "type": "Article",
                                 "url": ""
                             },
-                            "url":
+                            "url": ""
                         }
                     }
                 ]
@@ -180,7 +180,13 @@
                     ],
                     "instrument": {
                         "@type": "SoftwareApplication",
-                        "url": "https://github.com/tibbben/copernicus_aggregate"
+                        "featureList": "Features or modules provided by this application (and possibly required by other applications).",
+                        "memoryRequirements": "Minimum memory requirements.",
+                        "processorRequirements": "Processor architecture required to run the application (e.g. IA64).",
+                        "softwareRequirements": "Component dependency requirements for application. This includes runtime environments and shared libraries that are not included in the application distribution package, but required to run the application (examples: DirectX, Java or .NET runtime).",
+                        "softwareVersion": "Version of the software instance.",
+                        "releaseNotes": "Description of what changed in this version.",
+                        "downloadUrl": "https://github.com/tibbben/copernicus_aggregate"
                     }
                 }
             },
@@ -222,7 +228,13 @@
                     ],
                     "instrument": {
                         "@type": "SoftwareApplication",
-                        "url": "https://github.com/tibbben/copernicus_aggregate"
+                        "featureList": "Features or modules provided by this application (and possibly required by other applications).",
+                        "memoryRequirements": "Minimum memory requirements.",
+                        "processorRequirements": "Processor architecture required to run the application (e.g. IA64).",
+                        "softwareRequirements": "Component dependency requirements for application. This includes runtime environments and shared libraries that are not included in the application distribution package, but required to run the application (examples: DirectX, Java or .NET runtime).",
+                        "softwareVersion": "Version of the software instance.",
+                        "releaseNotes": "Description of what changed in this version.",
+                        "downloadUrl": "https://github.com/tibbben/copernicus_aggregate"
                     }
                 }
             },
