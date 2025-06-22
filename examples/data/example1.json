@@ -161,7 +161,7 @@
                             },
                             "geo": {
                                 "@type": "GeoShape",
-                                "description": "Finds a Copernicus tile in which the circle tht buffers the centroid of the Magu village mostly lies",
+                                "description": "Finds a Copernicus tile in which the circle that buffers the centroid of the Magu village mostly lies",
                                 "box": "A box is the area enclosed by the rectangle formed by two points. The first point is the lower corner, the second point is the upper corner. A box is expressed as two points separated by a space character"
                             }
                         },
