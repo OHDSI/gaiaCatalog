@@ -8,7 +8,7 @@
     "mainEntity": {
       "@type": "DefinedTerm",
       "name": "Place",
-      "inDefinedTermSet": ["Place", "Person", "Household"]
+      "inDefinedTermSet": ["Place", "Person", "Household", "Establishment", "Entanglement"]
     },
     "description": "Climate data for two localities in East Africa for use in GaiaCatalog. GaiaCatalog is a component in the OHDSI GIS Toolchain",
     "includedInDataCatalog": {
