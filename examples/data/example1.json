@@ -314,9 +314,14 @@
                         "instrument": {
                             "@type": "SoftwareApplication",
                             "applicationCategory": "GeoCoder",
-                            "name": "a geocoder",
-                            "downloadUrl": "",
-                            "softwareVersion": ""
+                            "name": "",
+                            "featureList": "Features or modules provided by this application (and possibly required by other applications).",
+                            "memoryRequirements": "Minimum memory requirements.",
+                            "processorRequirements": "Processor architecture required to run the application (e.g. IA64).",
+                            "softwareRequirements": "Component dependency requirements for application. This includes runtime environments and shared libraries that are not included in the application distribution package, but required to run the application (examples: DirectX, Java or .NET runtime).",
+                            "softwareVersion": "Version of the software instance.",
+                            "releaseNotes": "Description of what changed in this version.",
+                            "downloadUrl": "If the file can be downloaded, URL to download the binary."
                         },
                         "result": {
                             "@type": "Place"
