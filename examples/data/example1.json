@@ -426,8 +426,8 @@
                 "URL for the exposome type in a vocabulary",
                 "URL for the exposome subtype in the same vocabulary"
             ],
-            "measurementMethod": "Hourly data from the Copernicus ERA5 reanalysis dataset was downloaded in NetCDF format. Post-processing of the NetCDF files was done using R to aggregate and calculate menthly estimates for each climate variable",
-            "measurementTechnique": "A URL that references the code in a repo developed by Flavian and Tim that implements the measurement method.",
+            "measurementMethod": "https://confluence.ecmwf.int/pages/viewpage.action?pageId=74764925",
+            "measurementTechnique": "https://www.ecmwf.int/en/forecasts/dataset/ecmwf-reanalysis-v5",
             "unitCode": "http://athena.ohdsi.org/ucum/44777658",
             "unitText": "/mo",
             "valueReference": {
