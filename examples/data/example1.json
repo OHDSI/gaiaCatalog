@@ -150,7 +150,7 @@
                 "image": "",
                 "potentialAction": {
                     "@type": "CreateAction",
-                    "description": "Determines the Copernicus tile at ground level in which the Magu circle mostly lies",
+                    "description": "Determines the Copernicus cell at ground level in which the Magu circle mostly lies",
                     "disambiguatingDescription": "Alternatively, I would still suggest using village locations to join the environmental data to the patient data",
                     "result": [
                         {
@@ -161,7 +161,7 @@
                             },
                             "geo": {
                                 "@type": "GeoShape",
-                                "description": "Finds a Copernicus tile in which the circle that buffers the centroid of the Magu village mostly lies",
+                                "description": "Finds a Copernicus cell in which the circle that buffers the centroid of the Magu district mostly lies",
                                 "box": "A box is the area enclosed by the rectangle formed by two points. The first point is the lower corner, the second point is the upper corner. A box is expressed as two points separated by a space character"
                             }
                         },
@@ -173,7 +173,7 @@
                             },
                             "geo": {
                                 "@type": "GeoShape",
-                                "description": "Finds a Copernicus tile in which a Magu village mostly lies",
+                                "description": "Finds a Copernicus cell in which a person's Magu village mostly lies",
                                 "box": "A box is the area enclosed by the rectangle formed by two points. The first point is the lower corner, the second point is the upper corner. A box is expressed as two points separated by a space character"
                             }
                         }
@@ -199,7 +199,7 @@
                 "image": "",
                 "potentialAction": {
                     "@type": "CreateAction",
-                    "description": "Determines the Copernicus square at ground level in which the Nairobi circle mostly lies",
+                    "description": "Determines the Copernicus cell at ground level in which the buffered Nairobi HDSS mostly lies",
                     "result": [
                         {
                             "@type": "Place",
@@ -209,19 +209,7 @@
                             },
                             "geo": {
                                 "@type": "GeoShape",
-                                "description": "Use for joining patient location with a Copernicus tile corresponding to the circle",
-                                "box": "A box is the area enclosed by the rectangle formed by two points. The first point is the lower corner, the second point is the upper corner. A box is expressed as two points separated by a space character"
-                            },
-                        },
-                        {
-                            "@type": "Place",
-                            "additionalProperty": {
-                                "@type": "PropertyValue",
-                                "measurementMethod": "Observed"
-                            },
-                            "geo": {
-                                "@type": "GeoShape",
-                                "description": "Use for joining patient location with a Copernicus tile corresponding to a Nairobi community",
+                                "description": "Use for joining patient location with a Copernicus cell corresponding to the circle",
                                 "box": "A box is the area enclosed by the rectangle formed by two points. The first point is the lower corner, the second point is the upper corner. A box is expressed as two points separated by a space character"
                             }
                         }
