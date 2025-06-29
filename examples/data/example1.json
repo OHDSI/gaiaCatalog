@@ -187,6 +187,13 @@
                         "softwareVersion": "Version of the software instance.",
                         "releaseNotes": "Description of what changed in this version.",
                         "downloadUrl": "https://github.com/tibbben/copernicus_aggregate"
+                    },
+                    "target": {
+                        "@type": "EntryPoint",
+                        "actionApplication": "An application that can complete the request",
+                        "actionPlatform": "The high level platform(s) where the Action can be performed for the given URL",
+                        "httpMethod": "An HTTP method that specifies the appropriate HTTP method for a request to an HTTP EntryPoint",
+                        "urlTemplate": "An url template (RFC6570) that will be used to construct the target of the execution of the action."
                     }
                 }
             },
@@ -223,6 +230,13 @@
                         "softwareVersion": "Version of the software instance.",
                         "releaseNotes": "Description of what changed in this version.",
                         "downloadUrl": "https://github.com/tibbben/copernicus_aggregate"
+                    },
+                    "target": {
+                        "@type": "EntryPoint",
+                        "actionApplication": "An application that can complete the request",
+                        "actionPlatform": "The high level platform(s) where the Action can be performed for the given URL",
+                        "httpMethod": "An HTTP method that specifies the appropriate HTTP method for a request to an HTTP EntryPoint",
+                        "urlTemplate": "An url template (RFC6570) that will be used to construct the target of the execution of the action."
                     }
                 }
             },
@@ -251,6 +265,13 @@
                             "softwareVersion": "Version of the software instance.",
                             "releaseNotes": "Description of what changed in this version.",
                             "downloadUrl": "If the file can be downloaded, URL to download the binary."
+                        },
+                        "target": {
+                            "@type": "EntryPoint",
+                            "actionApplication": "An application that can complete the request",
+                            "actionPlatform": "The high level platform(s) where the Action can be performed for the given URL",
+                            "httpMethod": "An HTTP method that specifies the appropriate HTTP method for a request to an HTTP EntryPoint",
+                            "urlTemplate": "An url template (RFC6570) that will be used to construct the target of the execution of the action."
                         },
                         "result": {
                             "@type": "Place"
@@ -310,6 +331,13 @@
                             "softwareVersion": "Version of the software instance.",
                             "releaseNotes": "Description of what changed in this version.",
                             "downloadUrl": "If the file can be downloaded, URL to download the binary."
+                        },
+                        "target": {
+                            "@type": "EntryPoint",
+                            "actionApplication": "An application that can complete the request",
+                            "actionPlatform": "The high level platform(s) where the Action can be performed for the given URL",
+                            "httpMethod": "An HTTP method that specifies the appropriate HTTP method for a request to an HTTP EntryPoint",
+                            "urlTemplate": "An url template (RFC6570) that will be used to construct the target of the execution of the action."
                         },
                         "result": {
                             "@type": "Place"
