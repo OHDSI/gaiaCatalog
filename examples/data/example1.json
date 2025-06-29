@@ -99,7 +99,7 @@
                 "@type": "ItemList",
                 "name": "Lake Victoria Basin",
                 "description": "The Lake Victoria Basin is a vast, shared transboundary resource spanning portions of Kenya, Tanzania, Uganda, Rwanda, and Burundi. It encompasses the lake itself, the surrounding catchment area, and the numerous communities and ecosystems dependent on its water resources. The basin is a vital source of water, food, and livelihoods for millions of people and plays a significant role in regional economies and biodiversity",
-                "disambiguatingDescription": "The basin is an array of tiles aka grid. Each tile in a grid is a GeoShape.",
+                "disambiguatingDescription": "The basin covers a group of cells in a geospatial grid. Each cell in the grid is a GeoShape. The GeoShape is square",
                 "itemListElement": {
                     "@type": "ListItem",
                     "item": {
