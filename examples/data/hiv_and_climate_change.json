@@ -23,7 +23,7 @@
     "datePublished": "use to specify the date when a dataset was made available to the public through a publication process",
     "expires": "use to specify the date when the dataset expires and is no longer useful or available",
     "url": "https://gdsc.idsc.miami.edu/detail/mdc_parcels_camp?collection=all&active=None&query=None",
-    "license": "This work is licensed under a  Creative Commons Attribution (CC-BY) 4.0 License",
+    "license": "This work is licensed under a Creative Commons Attribution (CC-BY) 4.0 License",
     "citation": "if there is one",
     "version": "2021-04-24T06:34:56.000Z",
     "isBasedOn": { 
@@ -33,7 +33,7 @@
         "producer": "https://climate.copernicus.eu", 
         "url": "https://climate.copernicus.eu/climate-reanalysis"
     },
-    "keywords": ["Kisesa", "Magu", "elevation", "Nairobi", "rainfall", "temperature"],
+    "keywords": ["Magu", "Nairobi", "precipitation", "temperature", "drought", "flooding", "heat stress"],
     "subjectOf": [
         {
             "@type": "Claim",
@@ -96,149 +96,20 @@
         "description": "HIV and Climate Change Study locations of interest",
         "geo": [
             {
-                "@type": "ItemList",
-                "name": "Lake Victoria Basin",
-                "description": "The Lake Victoria Basin is a vast, shared transboundary resource spanning portions of Kenya, Tanzania, Uganda, Rwanda, and Burundi. It encompasses the lake itself, the surrounding catchment area, and the numerous communities and ecosystems dependent on its water resources. The basin is a vital source of water, food, and livelihoods for millions of people and plays a significant role in regional economies and biodiversity",
-                "disambiguatingDescription": "The basin covers a group of cells in a geospatial grid. Each cell in the grid is a GeoShape. The GeoShape is square",
-                "itemListElement": {
-                    "@type": "ListItem",
-                    "item": {
-                        "@type": "GeoShape",
-                        "box": "A box is the area enclosed by the rectangle formed by two points. The first point is the lower corner, the second point is the upper corner. A box is expressed as two points separated by a space character",
-                        "image": "https://www.google.com/search?vsrid=CLmasdPHq-7FlAEQAhgBIiQ5ZWY3ZTg0OS0xZTBlLTQ2NmEtYWY1Ni1mM2NhYTJlNTY0YjI4sMTF7qLfjQM&vsint=CAIqDAoCCAcSAggKGAEgATojChYNAAAAPxUAAAA_HQAAgD8lAACAPzABEI0CGLwBJQAAgD8&udm=26&lns_mode=un&source=lns.web.gisivli&vsdim=269,188&gsessionid=lHF8vLrJxlmMj824BU74eiq2x32qLIV0XwoE9DpMxGzH1Cpvk5TzKQ&lsessionid=9jt42vZ5nPn41U2z7y2n9j0c3seVAlzZD69ZyLziKbEVOj_YyCwitA&lns_surface=19&lns_vfs=e&qsubts=1749297996752&biw=1176&bih=601&ved=0CBIQh6cGahcKEwj43ZCoot-NAxUAAAAAHQAAAAAQBA&tbnid=EK4V18j7mptWGM&ictx=2"
-                    }
-                },
-                "potentialAction": [
-                    {
-                        "@type": "Action",
-                        "actionProcess": {
-                            "@type": "HowTo",
-                            "tool": "Flood exceedance calculator",
-                            "yield": "Flood exceedance probability",
-                            "description": "",
-                            "disambiguatingDescription": "Uses NetCDF file format",
-                            "subjectOf": {
-                                "type": "Article",
-                                "url": ""
-                            },
-                            "url": ""
-                        }
-                    },
-                    {
-                        "@type": "Action",
-                        "actionProcess": {
-                            "@type": "HowTo",
-                            "tool": "Drought exceedance calculator",
-                            "yield": "Drought exceedance probability",
-                            "description": "",
-                            "disambiguatingDescription": "Uses Standardized Precipitation Index (SPI) and/or related drought indices",
-                            "subjectOf": {
-                                "type": "Article",
-                                "url": ""
-                            },
-                            "url": ""
-                        }
-                    }
-                ]
-            },
-            {
                 "@type": "GeoShape",
                 "name": "Magu",
                 "description": "We used the geocoordinates of the centroid of the Magu HDSS and applied a 10 km buffer around it ",
                 "disambiguatingDescription": "This buffer helped account for potential inaccuracies in the centroid coordinates and the limited resolution of the climate data",
                 "circle": "A circle is the circular region of a specified radius centered at a specified latitude and longitude. A circle is expressed as a pair followed by a radius in meters.",
-                "image": "",
-                "potentialAction": {
-                    "@type": "CreateAction",
-                    "description": "Determines the Copernicus cell at ground level in which the Magu circle mostly lies",
-                    "disambiguatingDescription": "Alternatively, I would still suggest using village locations to join the environmental data to the patient data",
-                    "result": [
-                        {
-                            "@type": "Place",
-                            "additionalProperty": {
-                                "@type": "PropertyValue",
-                                "measurementMethod": "Calculated"
-                            },
-                            "geo": {
-                                "@type": "GeoShape",
-                                "description": "Finds a Copernicus cell in which the circle that buffers the centroid of the Magu district mostly lies",
-                                "box": "A box is the area enclosed by the rectangle formed by two points. The first point is the lower corner, the second point is the upper corner. A box is expressed as two points separated by a space character"
-                            }
-                        },
-                        {
-                            "@type": "Place",
-                            "additionalProperty": {
-                                "@type": "PropertyValue",
-                                "measurementMethod": "Observed"
-                            },
-                            "geo": {
-                                "@type": "GeoShape",
-                                "description": "Finds a Copernicus cell in which a person's Magu village mostly lies",
-                                "box": "A box is the area enclosed by the rectangle formed by two points. The first point is the lower corner, the second point is the upper corner. A box is expressed as two points separated by a space character"
-                            }
-                        }
-                    ],
-                    "instrument": {
-                        "@type": "SoftwareApplication",
-                        "featureList": "Features or modules provided by this application (and possibly required by other applications).",
-                        "memoryRequirements": "Minimum memory requirements.",
-                        "processorRequirements": "Processor architecture required to run the application (e.g. IA64).",
-                        "softwareRequirements": "Component dependency requirements for application. This includes runtime environments and shared libraries that are not included in the application distribution package, but required to run the application (examples: DirectX, Java or .NET runtime).",
-                        "softwareVersion": "Version of the software instance.",
-                        "releaseNotes": "Description of what changed in this version.",
-                        "downloadUrl": "https://github.com/tibbben/copernicus_aggregate"
-                    },
-                    "target": {
-                        "@type": "EntryPoint",
-                        "actionApplication": "An application that can complete the request",
-                        "actionPlatform": "The high level platform(s) where the Action can be performed for the given URL",
-                        "httpMethod": "An HTTP method that specifies the appropriate HTTP method for a request to an HTTP EntryPoint",
-                        "urlTemplate": "An url template (RFC6570) that will be used to construct the target of the execution of the action."
-                    }
-                }
+                "image": ""
             },
             {
                 "@type": "GeoShape",
                 "name": "Nairobi",
-                "description": "We used the geocoordinates of the centroid of the Nairobi HDSS and applied a 10 km buffer around it ",
+                "description": "We used the geocoordinates of the centroid of a Nairobi HDSS and applied a 10 km buffer around it ",
                 "disambiguatingDescription": "This buffer helped account for potential inaccuracies in the centroid coordinates and the limited resolution of the climate data",
                 "circle": "A circle is the circular region of a specified radius centered at a specified latitude and longitude. A circle is expressed as a pair followed by a radius in meters.",
-                "image": "",
-                "potentialAction": {
-                    "@type": "CreateAction",
-                    "description": "Determines the Copernicus cell at ground level in which the buffered Nairobi HDSS mostly lies",
-                    "result": [
-                        {
-                            "@type": "Place",
-                            "additionalProperty": {
-                                "@type": "PropertyValue",
-                                "measurementMethod": "Calculated"
-                            },
-                            "geo": {
-                                "@type": "GeoShape",
-                                "description": "Use for joining patient location with a Copernicus cell corresponding to the circle",
-                                "box": "A box is the area enclosed by the rectangle formed by two points. The first point is the lower corner, the second point is the upper corner. A box is expressed as two points separated by a space character"
-                            }
-                        }
-                    ],
-                    "instrument": {
-                        "@type": "SoftwareApplication",
-                        "featureList": "Features or modules provided by this application (and possibly required by other applications).",
-                        "memoryRequirements": "Minimum memory requirements.",
-                        "processorRequirements": "Processor architecture required to run the application (e.g. IA64).",
-                        "softwareRequirements": "Component dependency requirements for application. This includes runtime environments and shared libraries that are not included in the application distribution package, but required to run the application (examples: DirectX, Java or .NET runtime).",
-                        "softwareVersion": "Version of the software instance.",
-                        "releaseNotes": "Description of what changed in this version.",
-                        "downloadUrl": "https://github.com/tibbben/copernicus_aggregate"
-                    },
-                    "target": {
-                        "@type": "EntryPoint",
-                        "actionApplication": "An application that can complete the request",
-                        "actionPlatform": "The high level platform(s) where the Action can be performed for the given URL",
-                        "httpMethod": "An HTTP method that specifies the appropriate HTTP method for a request to an HTTP EntryPoint",
-                        "urlTemplate": "An url template (RFC6570) that will be used to construct the target of the execution of the action."
-                    }
-                }
+                "image": ""
             },
             {
                 "@type": "GeoCoordinates",
@@ -246,65 +117,7 @@
                 "description": "Main care site for HIV care in the Magu district",
                 "disambiguatingDescription": "Used in conjunction with the place of residence to determine distance to care",
                 "latitude": "The latitude of a location",
-                "longitude": "The longitude of a location",
-                "potentialAction": [
-                    {
-                        "@type": "CreateAction",
-                        "object": {
-                            "@type": "Place",
-                            "address": ""
-                        },
-                        "instrument": {
-                            "@type": "SoftwareApplication",
-                            "applicationCategory": "GeoCoder",
-                            "name": "",
-                            "featureList": "Features or modules provided by this application (and possibly required by other applications).",
-                            "memoryRequirements": "Minimum memory requirements.",
-                            "processorRequirements": "Processor architecture required to run the application (e.g. IA64).",
-                            "softwareRequirements": "Component dependency requirements for application. This includes runtime environments and shared libraries that are not included in the application distribution package, but required to run the application (examples: DirectX, Java or .NET runtime).",
-                            "softwareVersion": "Version of the software instance.",
-                            "releaseNotes": "Description of what changed in this version.",
-                            "downloadUrl": "If the file can be downloaded, URL to download the binary."
-                        },
-                        "target": {
-                            "@type": "EntryPoint",
-                            "actionApplication": "An application that can complete the request",
-                            "actionPlatform": "The high level platform(s) where the Action can be performed for the given URL",
-                            "httpMethod": "An HTTP method that specifies the appropriate HTTP method for a request to an HTTP EntryPoint",
-                            "urlTemplate": "An url template (RFC6570) that will be used to construct the target of the execution of the action."
-                        },
-                        "result": {
-                            "@type": "Place"
-                            "name": "Place of residence"
-                            "geo": {
-                                "type": "GeoCoordinates",
-                                "latitude": "The latitude of a location",
-                                "longitude": "The longitude of a location"
-                            }
-                        }
-                    },
-                    {
-                        "@type": "TravelAction",
-                        "fromLocation": {
-                            "@type": "Place",
-                            "name": "Place of residence",
-                            "geo": {
-                                "type": "GeoCoordinates",
-                                "latitude": "The latitude of a location",
-                                "longitude": "The longitude of a location"
-                            }
-                        },
-                        "toLocation": {
-                            "@type": "Place",
-                            "name": "Magu care site"
-                            "geo": {
-                                "type": "GeoCoordinates",
-                                "latitude": "The latitude of a location",
-                                "longitude": "The longitude of a location"
-                            }
-                        }
-                    }
-                ]
+                "longitude": "The longitude of a location"
             },
             {
                 "@type": "GeoCoordinates",
@@ -312,65 +125,7 @@
                 "description": "Main care site for HIV care in the Nairobi district",
                 "disambiguatingDescription": "Used in conjunction with the place of residence to determine distance to care",
                 "latitude": "",
-                "longitude": "",
-                "potentialAction": [
-                    {
-                        "@type": "CreateAction",
-                        "object": {
-                            "@type": "Place",
-                            "address": ""
-                        },
-                        "instrument": {
-                            "@type": "SoftwareApplication",
-                            "applicationCategory": "GeoCoder",
-                            "name": "",
-                            "featureList": "Features or modules provided by this application (and possibly required by other applications).",
-                            "memoryRequirements": "Minimum memory requirements.",
-                            "processorRequirements": "Processor architecture required to run the application (e.g. IA64).",
-                            "softwareRequirements": "Component dependency requirements for application. This includes runtime environments and shared libraries that are not included in the application distribution package, but required to run the application (examples: DirectX, Java or .NET runtime).",
-                            "softwareVersion": "Version of the software instance.",
-                            "releaseNotes": "Description of what changed in this version.",
-                            "downloadUrl": "If the file can be downloaded, URL to download the binary."
-                        },
-                        "target": {
-                            "@type": "EntryPoint",
-                            "actionApplication": "An application that can complete the request",
-                            "actionPlatform": "The high level platform(s) where the Action can be performed for the given URL",
-                            "httpMethod": "An HTTP method that specifies the appropriate HTTP method for a request to an HTTP EntryPoint",
-                            "urlTemplate": "An url template (RFC6570) that will be used to construct the target of the execution of the action."
-                        },
-                        "result": {
-                            "@type": "Place"
-                            "name": "Place of residence"
-                            "geo": {
-                                "type": "GeoCoordinates",
-                                "latitude": "The latitude of a location",
-                                "longitude": "The longitude of a location"
-                            }
-                        }
-                    },
-                    {
-                        "@type": "TravelAction",
-                        "fromLocation": {
-                            "@type": "Place",
-                            "name": "Place of residence",
-                            "geo": {
-                                "type": "GeoCoordinates",
-                                "latitude": "The latitude of a location",
-                                "longitude": "The longitude of a location"
-                            }
-                        },
-                        "toLocation": {
-                            "@type": "Place",
-                            "name": "Nairobi care site"
-                            "geo": {
-                                "type": "GeoCoordinates",
-                                "latitude": "The latitude of a location",
-                                "longitude": "The longitude of a location"
-                            }
-                        }
-                    }
-                ]
+                "longitude": ""
             }
         ],
         "additionalProperty": {
@@ -381,19 +136,13 @@
     },
     "temporal": "It may be we will want to support two or more temporal resolutions, depending upon the patterns that they surface. Two are specified in temporalCoverage. The first is the monthly average (P1M) beginning in 1994 every year for 20 years (R20). temporalCoverge is a shorthand for temporal using ISO 8601. See https://en.wikipedia.org/wiki/ISO_8601",
     "temporalCoverage": ["R20/1994/P1M", "R20/1994/P1W"],
-    "measurementTechnique": "ERA5 Climate Reanalysis of Copernicus satellite data",
+    "measurementTechnique": "Using the ERA5 Climate Reanalysis of Copernicus satellite data, hourly climate data for the Magu and Nairobi HDSS sites is aggregated monthly across the temporal coverage. Additional variables based on the Copernicus ERA5 satellite are also calculated",
     "measurementMethod": "https://climate.copernicus.eu/climate-reanalysis",
-    "publishingPrinciples": [
-        {
-            "@type": "CreativeWork",
-            "url": "http://example.org/pubprin.html",
-            "name": "Document related to principles related to the publishing of this information",
-            "description": "desription here "
-        }
-    ],
     "distribution": {
         "@type": "DataDownload",
-        "contentUrl": "http://example.org/archive.do?r=zd_1519",
+        "description": "Includes maximum temperature, minimum temperature, precipitation and relative humidity aggregated monthly",
+        "disambiguatingDescription": "Also includes climate events that envelop the Magu and Nairobi HDSS sites for drought, flooding and heat stress during the temporal coverage. Exposure to each climate event is a calculated variable based on temperature, precipitation and humidity",
+        "contentUrl": "a URL,
         "encodingFormat": "application/vnd.ms-excel"
     },
     "creator": [
@@ -464,5 +213,13 @@
                 "value": "Independent"
             }
         }
-    ]
+    ],
+    "about": {
+        "@type": "Event",
+        "description": "The provenance of each variable in this distribution is described here.",
+        "name": "Measurement of climate state",
+        "potentialAction": [
+            
+        ]
+    }
 }
