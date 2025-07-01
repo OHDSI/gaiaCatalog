@@ -142,7 +142,7 @@
         "@type": "DataDownload",
         "description": "Includes maximum temperature, minimum temperature, precipitation and relative humidity aggregated monthly",
         "disambiguatingDescription": "Also includes climate events that envelop the Magu and Nairobi HDSS sites for drought, flooding and heat stress during the temporal coverage. Exposure to each climate event is a calculated variable based on temperature, precipitation and humidity",
-        "contentUrl": "a URL,
+        "contentUrl": "a URL",
         "encodingFormat": "application/vnd.ms-excel"
     },
     "creator": [
