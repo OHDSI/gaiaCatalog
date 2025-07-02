@@ -216,7 +216,7 @@
     ],
     "about": {
         "@type": "Event",
-        "description": "The provenance of each variable in this distribution is described here.",
+        "description": "The provenance of each variable in this distribution is described here",
         "name": "Measurement of climate state",
         "potentialAction": [
             {
