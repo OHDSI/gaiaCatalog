@@ -228,6 +228,7 @@
                     "name": "ERA5",
                     "description": "ERA5 is the fifth generation ECMWF reanalysis for the global climate and weather for the past 8 decades. Data is available from 1940 onwards. ERA5 replaces the ERA-Interim reanalysis.",
                     "producer": "https://climate.copernicus.eu", 
+                    "conditionsOfAccess": "Conditions that affect the availability of, or method(s) of access to, an item.",
                     "url": "https://climate.copernicus.eu/climate-reanalysis"
                     "spatialCoverage": {
                         "@type": "Place",
@@ -272,7 +273,9 @@
                             "value": "http://www.w3.org/2003/01/geo/wgs84_pos#lat_long"
                         }
                     },
-                    "temporalCoverage": "1992-01-01/2014-12-31"
+                    "temporalCoverage": "1992-01-01/2014-12-31",
+                    "conditionsOfAccess": "Conditions that affect the availability of, or method(s) of access to, an item.",
+                    "url": ""
                 }
             },
             {
@@ -284,6 +287,7 @@
                     "name": "ERA5",
                     "description": "ERA5 is the fifth generation ECMWF reanalysis for the global climate and weather for the past 8 decades. Data is available from 1940 onwards. ERA5 replaces the ERA-Interim reanalysis.",
                     "producer": "https://climate.copernicus.eu", 
+                    "conditionsOfAccess": "Conditions that affect the availability of, or method(s) of access to, an item.",
                     "url": "https://climate.copernicus.eu/climate-reanalysis"
                     "spatialCoverage": {
                         "@type": "Place",
@@ -328,7 +332,9 @@
                             "value": "http://www.w3.org/2003/01/geo/wgs84_pos#lat_long"
                         }
                     },
-                    "temporalCoverage": "1992/2014"
+                    "temporalCoverage": "1992/2014",
+                    "conditionsOfAccess": "Conditions that affect the availability of, or method(s) of access to, an item.",
+                    "url": ""
                 }
             }   
         ]
