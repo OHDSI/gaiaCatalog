@@ -211,6 +211,19 @@
                     ]
                 },
                 "value": "Independent"
+            },
+            "potentialAction": {
+                "@type": "AddAction",
+                "targetCollection": {
+                    "@type": "Dataset",
+                    "name": "My OMOP CDM instance"
+                },
+                "actionProcess": {
+                    "@type": "HowTo",
+                    "tool": "The OHDSI GIS extension toolchain",
+                    "yield": "An external exposure occurrence"
+                    "url": "https://ohdsi.github.io/CommonDataModel/cdm54.html#external_exposure"
+                }
             }
         },
         {
@@ -253,8 +266,9 @@
                 },
                 "actionProcess": {
                     "@type": "HowTo",
-                    "tool": "OHDSI GIS extension",
-                    "url": ""
+                    "tool": "The OHDSI GIS extension toolchain",
+                    "yield": "An external exposure occurrence"
+                    "url": "https://ohdsi.github.io/CommonDataModel/cdm54.html#external_exposure"
                 }
             }
         }
