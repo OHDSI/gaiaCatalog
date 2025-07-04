@@ -183,7 +183,7 @@
         {
             "@id": "http://example.org/id/link/to/concept/of/exposure_definition",
             "@type": "PropertyValue",
-            "name": "Average maximum temperature - January 1994",
+            "name": "Average maximum temperature - [month] [year]",
             "description": "The maximum temperature for a month is calculated by averaging the daily high temperatures recorded during that month",
             "disambiguatingDescription": "This involves collecting the highest temperature recorded each day, summing those values, and then dividing by the total number of days in the month.", 
             "propertyID": [
@@ -216,7 +216,7 @@
         {
             "@id": "http://example.org/id/link/to/concept/of/exposure_definition",
             "@type": "PropertyValue",
-            "name": "Flood exceedance - [month] [year]",
+            "name": "Flood exceedance - [day] [month] [year]",
             "description": "A precipitation event over the 95th percentile counts as a flood exceedance.",
             "disambiguatingDescription": "Flood exceedances are associated with disruption in services and infrastructure.", 
             "propertyID": [
@@ -244,6 +244,18 @@
                     ]
                 },
                 "value": "Independent"
+            },
+            "potentialAction": {
+                "@type": "AddAction",
+                "targetCollection": {
+                    "@type": "Dataset",
+                    "name": "My OMOP CDM instance"
+                },
+                "actionProcess": {
+                    "@type": "HowTo",
+                    "tool": "OHDSI GIS extension",
+                    "url": ""
+                }
             }
         }
     ],
