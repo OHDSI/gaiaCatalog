@@ -23,7 +23,7 @@
     - A geo, in turn, takes:
       - [GeoCoordinates](https://schema.org/GeoCoordinates) and/or
       - [GeoShape](https://schema.org/GeoShape)
-    - Use [additionalProperty](https://schema.org/additionalProperty) to identify the spatial reference system (e.g. WGS84)
+    - Use [additionalProperty](https://schema.org/additionalProperty) to identify the spatial reference system (e.g. WGS84). See [here](https://github.com/ESIPFed/science-on-schema.org/blob/main/guides/Dataset.md#spatial-reference-systems) for an example
   - temporalCoverage
     - temporalCoverage is expressed in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format
   - distribution
