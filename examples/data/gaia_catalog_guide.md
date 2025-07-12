@@ -1,0 +1,30 @@
+- Dataset
+  - Standard properties include name, description, dateCreated, dateModified, datePublished, expires, license, [citation](https://schema.org/citation), version, [keywords](https://schema.org/keywords), [measurementTechnique](https://schema.org/measurementTechnique), [measurementMethod](https://schema.org/measurementMethod), creator, funder and provider
+  - mainEntity
+    - Indicates the primary entity described in some page or other CreativeWork
+    - TermSet: "Place", "Person", "Household", "Establishment", "Entangled"
+  - includedInDataCatalog
+    - A data catalog which contains this dataset
+    - GaiaCatalog
+  - isBasedOn
+    - A resource from which this work is derived or from which it is a modification or adaptation
+    - Can take the form of an array of resources
+  - subjectOf
+    - A [Claim](https://schema.org/Claim) about this Thing
+    - Think of a Dataset having a hypothesis in which a Claim has...
+      - An appearance that indicates an occurrence of a Claim in some CreativeWork
+      - A firstAppearance that indicates the first known occurrence of a Claim in some CreativeWork
+    - Can take the form of an array of claims
+  - spatialCoverage
+    - The spatialCoverage of a CreativeWork indicates the place(s) which are the focus of the content
+    - [Place](https://schema.org/Place)
+      - The geo cooordinates of the place
+        - geo takes either [GeoCoordinates](https://schema.org/GeoCoordinates) or [GeoShape](https://schema.org/GeoShape)
+    - Use [additionalProperty](https://schema.org/additionalProperty) to identify the spatial reference system (e.g. WGS84)
+  - temporalCoverage
+    - temporalCoverage is expressed in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format
+  - distribution
+    - A downloadable form of this dataset, at a specific location, in a specific format. This property can be repeated if different variations are available. There is no expectation that different downloadable distributions must contain exactly equivalent information. Different distributions might include or exclude different subsets of the entire dataset, for example
+    - Takes a [DataDownload](https://schema.org/DataDownload)
+    - Assume that each variableMeasured below is from this distribution
+  - variableMeasured
