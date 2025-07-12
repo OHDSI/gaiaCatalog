@@ -2,10 +2,10 @@
   - Standard properties include name, description, dateCreated, dateModified, datePublished, expires, license, [citation](https://schema.org/citation), version, [keywords](https://schema.org/keywords), [measurementTechnique](https://schema.org/measurementTechnique), [measurementMethod](https://schema.org/measurementMethod), creator, funder and provider
   - mainEntity
     - Indicates the primary entity described in some page or other CreativeWork
-    - TermSet: "Place", "Person", "Household", "Establishment", "Entangled"
+    - Has a controlled vocabulary: "Place", "Person", "Household", "Establishment", "Entangled"
   - includedInDataCatalog
     - A data catalog which contains this dataset
-    - GaiaCatalog
+    - Our data catalog is named the GaiaCatalog
   - isBasedOn
     - A resource from which this work is derived or from which it is a modification or adaptation
     - Can take the form of an array of resources
@@ -27,6 +27,7 @@
     - temporalCoverage is expressed in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format
   - distribution
     - A downloadable form of this dataset, at a specific location, in a specific format. This property can be repeated if different variations are available. There is no expectation that different downloadable distributions must contain exactly equivalent information. Different distributions might include or exclude different subsets of the entire dataset, for example
-    - Takes a [DataDownload](https://schema.org/DataDownload)
-    - Assume that each variableMeasured below is from this distribution
+    - Takes either a [DataDownload](https://schema.org/DataDownload) or a [SearchAction](https://schema.org/SearchAction)
+      - Takes a DataDownLoad when a distribution can be retrieved by a url
+      - Takes a SearchAction when the distribution is retrieved through a service [endpoint](https://schema.org/EntryPoint) that takes [query parameters](https://schema.org/PropertyValueSpecification))
   - variableMeasured
