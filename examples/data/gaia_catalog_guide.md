@@ -16,10 +16,9 @@
       - A firstAppearance that indicates the first known occurrence of a Claim in some CreativeWork
     - Can take the form of an array of claims
   - spatialCoverage
-    - The spatialCoverage of a CreativeWork indicates the place(s) which are the focus of the content
-    - [Place](https://schema.org/Place)
-      - The geo cooordinates of the place
-        - geo takes either [GeoCoordinates](https://schema.org/GeoCoordinates) or [GeoShape](https://schema.org/GeoShape)
+    - The spatialCoverage of a CreativeWork takes the place(s) which are the focus of the content
+    - [Place](https://schema.org/Place), in turn, takes a geo
+    - A geo, in turn, takes [GeoCoordinates](https://schema.org/GeoCoordinates) and/or [GeoShape](https://schema.org/GeoShape)
     - Use [additionalProperty](https://schema.org/additionalProperty) to identify the spatial reference system (e.g. WGS84)
   - temporalCoverage
     - temporalCoverage is expressed in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format
