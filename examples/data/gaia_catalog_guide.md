@@ -29,5 +29,5 @@
     - A downloadable form of this dataset, at a specific location, in a specific format. This property can be repeated if different variations are available. There is no expectation that different downloadable distributions must contain exactly equivalent information. Different distributions might include or exclude different subsets of the entire dataset, for example
     - Takes either a [DataDownload](https://schema.org/DataDownload) or a [SearchAction](https://schema.org/SearchAction)
       - Takes a DataDownLoad when a distribution can be retrieved by a url
-      - Takes a SearchAction when the distribution is retrieved through a service [endpoint](https://schema.org/EntryPoint) that takes [query parameters](https://schema.org/PropertyValueSpecification))
+      - Takes a SearchAction when the distribution is retrieved through a service [endpoint](https://schema.org/EntryPoint) that takes [query parameters](https://schema.org/PropertyValueSpecification). See [here](https://github.com/ESIPFed/science-on-schema.org/blob/main/guides/Dataset.md#accessing-data-through-a-service-endpoint) for an example
   - variableMeasured
