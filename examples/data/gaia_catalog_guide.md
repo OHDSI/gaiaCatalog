@@ -9,6 +9,7 @@
   - isBasedOn
     - A resource from which this work is derived or from which it is a modification or adaptation
     - Can take the form of an array of resources
+    - See [here](https://github.com/ESIPFed/science-on-schema.org/blob/main/guides/Dataset.md#indicating-a-source-dataset-schemaisbasedon-and-provwasderivedfrom) for an example
   - subjectOf
     - A [Claim](https://schema.org/Claim) about this Thing
     - Think of the Claim(s) a Dataset makes as its hypotheses. A claim has...
