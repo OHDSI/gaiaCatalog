@@ -17,8 +17,11 @@
     - Can take the form of an array of claims
   - spatialCoverage
     - The spatialCoverage of a CreativeWork takes the place(s) which are the focus of the content
-    - [Place](https://schema.org/Place), in turn, takes a geo
-    - A geo, in turn, takes [GeoCoordinates](https://schema.org/GeoCoordinates) and/or [GeoShape](https://schema.org/GeoShape)
+    - A spatialCoverage may take an array of [Place](https://schema.org/Place) when the scope of spatialCoverage includes more than one Place
+    - A Place, in turn, takes a name, a description and a [geo](https://schema.org/geo)
+    - A geo, in turn, takes:
+      - [GeoCoordinates](https://schema.org/GeoCoordinates) and/or
+      - [GeoShape](https://schema.org/GeoShape)
     - Use [additionalProperty](https://schema.org/additionalProperty) to identify the spatial reference system (e.g. WGS84)
   - temporalCoverage
     - temporalCoverage is expressed in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format
