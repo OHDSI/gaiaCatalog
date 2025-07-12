@@ -11,7 +11,7 @@
     - Can take the form of an array of resources
   - subjectOf
     - A [Claim](https://schema.org/Claim) about this Thing
-    - Think of a Dataset having a hypothesis in which a Claim has...
+    - Think of the Claim(s) a Dataset makes as its hypotheses. A claim has...
       - An appearance that indicates an occurrence of a Claim in some CreativeWork
       - A firstAppearance that indicates the first known occurrence of a Claim in some CreativeWork
     - Can take the form of an array of claims
