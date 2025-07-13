@@ -34,7 +34,7 @@
   - variableMeasured
     - Takes an array of [PropertyValue](https://schema.org/PropertyValue) following the [recommendation](https://github.com/ESIPFed/science-on-schema.org/blob/main/guides/Dataset.md#tier-2-names-of-variables-with-formal-property-types) of [science-on-schema-org](https://github.com/ESIPFed/science-on-schema.org/blob/main/guides/Dataset.md#describing-a-dataset)
     - Each PropertyValue in the array corresponds to an exposure definition
-    - Each PropertyValue includes one or more propertyIDs. A [propertyID](https://schema.org/propertyID) corresponds to a concept_id in an external vocabulary
+    - Each PropertyValue includes one or more propertyIDs. A [propertyID](https://schema.org/propertyID) corresponds to a concept_id in an external vocabulary. Take this propertyID for example: "http://gisextension.ohdsi.org/exposome/nnn"
     - Each PropertyValue includes an [AddAction](https://schema.org/AddAction) potentialAction through which an external exposure occurrence is added to the external_exposure OMOP CDM table
     - Each PropertyValue takes an analysisRole from a controlled vocabulary that includes "Independent", "Dependent", "Intervening" and "Control"
     - Not all PropertyValues are enumerated -- just the "main" ones
