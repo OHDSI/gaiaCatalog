@@ -150,13 +150,58 @@
     "temporalCoverage": ["R20/1994/P1M", "R20/1994/P1W"],
     "measurementTechnique": "Using the ERA5 Climate Reanalysis of Copernicus satellite data, hourly climate data for the Magu and Nairobi HDSS sites is aggregated monthly across the temporal coverage. Additional variables based on the Copernicus ERA5 satellite are also calculated",
     "measurementMethod": "https://climate.copernicus.eu/climate-reanalysis",
-    "distribution": {
-        "@type": "DataDownload",
-        "description": "Includes maximum temperature, minimum temperature, precipitation and relative humidity aggregated monthly",
-        "disambiguatingDescription": "Also includes climate events that envelop the Magu and Nairobi HDSS sites for drought, flooding and heat stress during the temporal coverage. Exposure to each climate event is a calculated variable based on temperature, precipitation and humidity",
-        "contentUrl": "a URL",
-        "encodingFormat": "application/vnd.ms-excel"
-    },
+    "distribution": [
+        {
+            "@type": "DataDownload",
+            "description": "Includes maximum temperature, minimum temperature, precipitation and relative humidity aggregated monthly",
+            "disambiguatingDescription": "Also includes climate events that envelop the Magu and Nairobi HDSS sites for drought, flooding and heat stress during the temporal coverage. Exposure to each climate event is a calculated variable based on temperature, precipitation and humidity",
+            "contentUrl": "a URL",
+            "encodingFormat": "application/vnd.ms-excel"
+        },
+        {
+            "@type": "SearchAction",
+            "description": "Includes maximum temperature, minimum temperature, precipitation and relative humidity aggregated monthly",
+            "disambiguatingDescription": "Also includes climate events that envelop the Magu and Nairobi HDSS sites for drought, flooding and heat stress during the temporal coverage. Exposure to each climate event is a calculated variable based on temperature, precipitation and humidity",
+            "target": {
+                "@type": "EntryPoint",
+                "contentType": ["application/x-netcdf", "text/tab-separated-values"],
+                "urlTemplate": "https://www.sample-data-repository.org/dataset/1234/download?format={format}&startDateTime={start}&endDateTime={end}&bounds={bbox}",
+                "description": "Download dataset 1234 based on the requested format, start/end dates and bounding box",
+                "httpMethod": ["GET", "POST"]
+            },
+            "query-input": [
+                {
+                    "@type": "PropertyValueSpecification",
+                    "valueName": "format",
+                    "description": "The desired format requested either 'application/x-netcdf' or 'text/tab-separated-values'",
+                    "valueRequired": true,
+                    "defaultValue": "application/x-netcdf",
+                    "valuePattern": "(application\/x-netcdf|text\/tab-separated-values)"
+                },
+                {
+                    "@type": "PropertyValueSpecification",
+                    "valueName": "start",
+                    "description": "A UTC ISO DateTime",
+                    "valueRequired": false,
+                    "valuePattern": "(-?(?:[1-9][0-9]*)?[0-9]{4})-(1[0-2]|0[1-9])-(3[01]|0[1-9]|[12][0-9])T(2[0-3]|[01][0-9]):([0-5][0-9]):([0-5][0-9])(.[0-9]+)?(Z)?"
+                },
+                {
+                    "@type": "PropertyValueSpecification",
+                    "valueName": "end",
+                    "description": "A UTC ISO DateTime",
+                    "valueRequired": false,
+                    "valuePattern": "(-?(?:[1-9][0-9]*)?[0-9]{4})-(1[0-2]|0[1-9])-(3[01]|0[1-9]|[12][0-9])T(2[0-3]|[01][0-9]):([0-5][0-9]):([0-5][0-9])(.[0-9]+)?(Z)?"
+                },
+                {
+                    "@type": "PropertyValueSpecification",
+                    "valueName": "bbox",
+                    "description": "Two points in decimal degrees that create a bounding box fomatted at 'lon,lat' of the lower-left corner and 'lon,lat' of the upper-right",
+                    "valueRequired": false,
+                    "valuePattern": "(-?[0-9]+(.[0-9]+)?),[ ]*(-?[0-9]+(.[0-9]+)?)[ ]*(-?[0-9]+(.[0-9]+)?),[ ]*(-?[0-9]+(.[0-9]+)?)"
+                }
+            ]
+        }
+    ],
     "creator": [
         {    
             "@id": "https://www.sample-data-repository.org/person-role/472036",
