@@ -38,7 +38,7 @@
     - Each PropertyValue includes one or more propertyIDs. A [propertyID](https://schema.org/propertyID) corresponds to a concept_id in an external vocabulary. Take this propertyID for example: "http://gisextension.ohdsi.org/exposome/concept_id"
     - Each PropertyValue includes an [AddAction](https://schema.org/AddAction) potentialAction through which an external exposure occurrence is added to the external_exposure OMOP CDM table
     - Each PropertyValue takes an analysisRole from a controlled vocabulary that includes "Independent", "Dependent", "Intervening" and "Control"
-    - Not all PropertyValues are enumerated -- just the "main" ones
+    - Not all PropertyValues are enumerated here -- just the "main" ones
       - In a Dataset each variable measured aka PropertyValue may occur in a time series
       - Think of the "main" ones as exposure definition templates
       - Each template can be specialized to create exposures in the time series in which an exposure defintion participates
