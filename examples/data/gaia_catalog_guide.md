@@ -1,5 +1,5 @@
-- Dataset
-  - Standard properties include name, description, dateCreated, dateModified, datePublished, expires, license, [citation](https://schema.org/citation), version, [keywords](https://schema.org/keywords), [measurementTechnique](https://schema.org/measurementTechnique), [measurementMethod](https://schema.org/measurementMethod), creator, funder and provider
+- [Dataset](https://schema.org/Dataset) has...
+  - standard properties including name, description, dateCreated, dateModified, datePublished, expires, license, [citation](https://schema.org/citation), version, [keywords](https://schema.org/keywords), [measurementTechnique](https://schema.org/measurementTechnique), [measurementMethod](https://schema.org/measurementMethod), creator, funder and provider
   - mainEntity
     - Indicates the primary entity described in some page or other CreativeWork
     - Has a controlled vocabulary: "Place", "Person", "Household", "Establishment", "Entangled"
@@ -12,17 +12,17 @@
     - See [here](https://github.com/ESIPFed/science-on-schema.org/blob/main/guides/Dataset.md#indicating-a-source-dataset-schemaisbasedon-and-provwasderivedfrom) for an example
   - subjectOf
     - A [Claim](https://schema.org/Claim) about this Thing
-    - Think of the Claim(s) a Dataset makes as its hypotheses. A claim has...
+    - Think of the Claim(s) a Dataset makes as its hypotheses. Minimally, a claim has...
       - An appearance that indicates an occurrence of a Claim in some CreativeWork
       - A firstAppearance that indicates the first known occurrence of a Claim in some CreativeWork
     - Can take the form of an array of claims
   - spatialCoverage
     - The spatialCoverage of a CreativeWork takes the place(s) which are the focus of the content
     - A spatialCoverage may take an array of [Place](https://schema.org/Place) when the scope of spatialCoverage includes more than one Place
-    - A Place, in turn, takes a name, a description and a [geo](https://schema.org/geo)
+    - A Place, in turn, takes minimally a name, a description and a [geo](https://schema.org/geo)
     - A geo, in turn, takes:
-      - [GeoCoordinates](https://schema.org/GeoCoordinates) and/or
-      - [GeoShape](https://schema.org/GeoShape)
+      - [GeoCoordinates](https://schema.org/GeoCoordinates) (see [here](https://github.com/ESIPFed/science-on-schema.org/blob/main/guides/Dataset.md#use-geocoordinates-for-point-locations) for an example) and/or
+      - [GeoShape](https://schema.org/GeoShape) (see [here](https://github.com/ESIPFed/science-on-schema.org/blob/main/guides/Dataset.md#use-geoshape-for-all-other-location-types) for an example)
     - Use [additionalProperty](https://schema.org/additionalProperty) to identify the spatial reference system (e.g. WGS84). See [here](https://github.com/ESIPFed/science-on-schema.org/blob/main/guides/Dataset.md#spatial-reference-systems) for an example
   - temporalCoverage
     - temporalCoverage is expressed in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format
