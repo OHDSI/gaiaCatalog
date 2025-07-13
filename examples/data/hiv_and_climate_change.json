@@ -166,7 +166,7 @@
                 "@type": "EntryPoint",
                 "contentType": ["application/x-netcdf", "text/tab-separated-values"],
                 "urlTemplate": "https://www.sample-data-repository.org/dataset/1234/download?format={format}&startDateTime={start}&endDateTime={end}&bounds={bbox}",
-                "description": "Download dataset 1234 based on the requested format, start/end dates and bounding box",
+                "description": "Downloads a dataset based, for example, on the requested format, start/end dates and bounding box. Actual request and query parameters to be determined with Tim N",
                 "httpMethod": ["GET", "POST"]
             },
             "query-input": [
