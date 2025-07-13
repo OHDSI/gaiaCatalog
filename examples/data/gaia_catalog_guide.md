@@ -3,6 +3,7 @@
   - mainEntity
     - Indicates the primary entity described in some page or other CreativeWork
     - Has a controlled vocabulary: "Place", "Person", "Household", "Establishment", "Entangled"
+    - See [here](https://www.researchobject.org/ro-crate/specification/1.2/crate-focus.html) for some examples
   - includedInDataCatalog
     - A data catalog which contains this dataset
     - Our data catalog is named the GaiaCatalog
