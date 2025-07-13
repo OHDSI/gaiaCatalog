@@ -32,3 +32,12 @@
       - Takes a DataDownLoad when a distribution can be retrieved by a url. See [here](https://github.com/ESIPFed/science-on-schema.org/blob/main/guides/Dataset.md#distributions) for an example
       - Takes a SearchAction when the distribution is retrieved through a service [endpoint](https://schema.org/EntryPoint) that takes [query parameters](https://schema.org/PropertyValueSpecification). See [here](https://github.com/ESIPFed/science-on-schema.org/blob/main/guides/Dataset.md#accessing-data-through-a-service-endpoint) for an example
   - variableMeasured
+    - Takes an array of [PropertyValue](https://schema.org/PropertyValue) following the [recommendation](https://github.com/ESIPFed/science-on-schema.org/blob/main/guides/Dataset.md#tier-2-names-of-variables-with-formal-property-types) of [science-on-schema-org](https://github.com/ESIPFed/science-on-schema.org/blob/main/guides/Dataset.md#describing-a-dataset)
+    - Each PropertyValue in the array corresponds to an exposure definition
+    - Each PropertyValue includes one or more propertyIDs. A [propertyID](https://schema.org/propertyID) corresponds to a concept_id in an external vocabulary
+    - Each PropertyValue includes an [AddAction](https://schema.org/AddAction) potentialAction through which an external exposure occurrence is added to the external_exposure OMOP CDM table
+    - Each PropertyValue takes an analysisRole from a controlled vocabulary that includes "Independent", "Dependent", "Intervening" and "Control"
+    - Not all PropertyValues are enumerated -- just the "main" ones
+      - In a Dataset each variable measured aka PropertyValue may occur in a time series
+      - Think of the "main" ones as exposure definition templates
+      - Each template can be specialized to create exposures in the time series in which an exposure defintion participates
