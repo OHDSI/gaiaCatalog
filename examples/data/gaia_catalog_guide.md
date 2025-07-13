@@ -42,10 +42,11 @@
       - Think of the "main" ones as exposure definition templates
       - Each template can be specialized to create exposures in the time series in which an exposure defintion participates
   - about
-    - about takes an Event
+    - about takes any Thing including an [Event](https://schema.org/Event)
     - The Event has a potentialAction
     - potentialAction takes an array of actions
     - Each Action in the array includes an [object](https://schema.org/object) of type Dataset, a [result](https://schema.org/result) of type Dataset and the [instrument](https://schema.org/instrument) that produces the result from the object
+    - Instrument takes [SoftwareApplication](https://schema.org/SoftwareApplication). Like [RO-Crate](https://www.researchobject.org/ro-crate/specification/1.2/provenance.html) here we use "instrument" to create datasets
     - Actions may form chains and chains may occur in parallel
     - So the array of actions taken by a potentialAction may trace the permutations that a Dataset traverses aka a [scientific workflow](https://jenkins-1.dataone.org/jenkins/view/Documentation%20Projects/job/ProvONE-Documentation-trunk/ws/provenance/ProvONE/v1/provone.html)
     - In the context of the OMOP CDM and the OHDSI analytics that runs on top of it, this scientific workflow is a preprocessing step sometimes called the Bridge2AI
