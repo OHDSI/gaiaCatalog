@@ -90,50 +90,62 @@
             }
         }
     ],
-    "spatialCoverage": {
-        "@type": "Place",
-        "name": "Magu/Nairobi",
-        "description": "HIV and Climate Change Study locations of interest",
-        "geo": [
-            {
+    "spatialCoverage": [
+        {
+            "@type": "Place",
+            "name": "Magu",
+            "description": "We used the geocoordinates of the centroid of the Magu HDSS and applied a 10 km buffer around it ",
+            "disambiguatingDescription": "This buffer helped account for potential inaccuracies in the centroid coordinates and the limited resolution of the climate data",
+            "geo": {
                 "@type": "GeoShape",
-                "name": "Magu",
-                "description": "We used the geocoordinates of the centroid of the Magu HDSS and applied a 10 km buffer around it ",
-                "disambiguatingDescription": "This buffer helped account for potential inaccuracies in the centroid coordinates and the limited resolution of the climate data",
                 "circle": "A circle is the circular region of a specified radius centered at a specified latitude and longitude. A circle is expressed as a pair followed by a radius in meters.",
                 "image": ""
             },
-            {
-                "@type": "GeoShape",
-                "name": "Nairobi",
-                "description": "We used the geocoordinates of the centroid of a Nairobi HDSS and applied a 10 km buffer around it ",
-                "disambiguatingDescription": "This buffer helped account for potential inaccuracies in the centroid coordinates and the limited resolution of the climate data",
-                "circle": "A circle is the circular region of a specified radius centered at a specified latitude and longitude. A circle is expressed as a pair followed by a radius in meters.",
-                "image": ""
-            },
-            {
-                "@type": "GeoCoordinates",
-                "name": "Magu care site",
-                "description": "Main care site for HIV care in the Magu district",
-                "disambiguatingDescription": "Used in conjunction with the place of residence to determine distance to care",
-                "latitude": "The latitude of a location",
-                "longitude": "The longitude of a location"
-            },
-            {
-                "@type": "GeoCoordinates",
-                "name": "Nairobi care site",
-                "description": "Main care site for HIV care in the Nairobi district",
-                "disambiguatingDescription": "Used in conjunction with the place of residence to determine distance to care",
-                "latitude": "",
-                "longitude": ""
+            "additionalProperty": {
+                "@type": "PropertyValue",
+                "propertyID": "https://dbpedia.org/page/Spatial_reference_system",
+                "value": "https://www.w3.org/2003/01/geo/wgs84_pos"
             }
-        ],
-        "additionalProperty": {
-            "@type": "PropertyValue",
-            "propertyID": "https://dbpedia.org/page/Spatial_reference_system",
-            "value": "https://www.w3.org/2003/01/geo/wgs84_pos"
-        }
-    },
+        },
+        {
+            "@type": "Place",
+            "name": "Nairobi",
+            "description": "We used the geocoordinates of the centroid of the Nairobi HDSS and applied a 10 km buffer around it ",
+            "disambiguatingDescription": "This buffer helped account for potential inaccuracies in the centroid coordinates and the limited resolution of the climate data",
+            "geo": {
+                "@type": "GeoShape",
+                "circle": "A circle is the circular region of a specified radius centered at a specified latitude and longitude. A circle is expressed as a pair followed by a radius in meters.",
+                "image": ""
+            },
+            "additionalProperty": {
+                "@type": "PropertyValue",
+                "propertyID": "https://dbpedia.org/page/Spatial_reference_system",
+                "value": "https://www.w3.org/2003/01/geo/wgs84_pos"
+            }
+        },
+        {
+            "@type": "Place",
+            "name": "Magu care site",
+            "description": "Main care site for HIV care in the Magu district",
+            "disambiguatingDescription": "Used in conjunction with the place of residence to determine distance to care",
+            "geo": {
+                "@type": "GeoCoordinates",
+                "latitude": "The latitude of a location",
+                "longitude": "The longitude of a location"  
+            }
+        },
+        {
+            "@type": "Place",
+            "name": "Nairobi care site",
+            "description": "Main care site for HIV care in the Nairobi district",
+            "disambiguatingDescription": "Used in conjunction with the place of residence to determine distance to care",
+            "geo": {
+                "@type": "GeoCoordinates",
+                "latitude": "The latitude of a location",
+                "longitude": "The longitude of a location"  
+            }
+        }        
+    ],
     "temporal": "It may be we will want to support two or more temporal resolutions, depending upon the patterns that they surface. Two are specified in temporalCoverage. The first is the monthly average (P1M) beginning in 1994 every year for 20 years (R20). temporalCoverge is a shorthand for temporal using ISO 8601. See https://en.wikipedia.org/wiki/ISO_8601",
     "temporalCoverage": ["R20/1994/P1M", "R20/1994/P1W"],
     "measurementTechnique": "Using the ERA5 Climate Reanalysis of Copernicus satellite data, hourly climate data for the Magu and Nairobi HDSS sites is aggregated monthly across the temporal coverage. Additional variables based on the Copernicus ERA5 satellite are also calculated",
