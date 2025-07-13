@@ -21,8 +21,8 @@
     - A spatialCoverage may take an array of [Place](https://schema.org/Place) when the scope of spatialCoverage includes more than one Place
     - A Place, in turn, takes minimally a name, a description and a [geo](https://schema.org/geo)
     - A geo, in turn, takes:
-      - [GeoCoordinates](https://schema.org/GeoCoordinates) (see [here](https://github.com/ESIPFed/science-on-schema.org/blob/main/guides/Dataset.md#use-geocoordinates-for-point-locations) for an example) and/or
-      - [GeoShape](https://schema.org/GeoShape) (see [here](https://github.com/ESIPFed/science-on-schema.org/blob/main/guides/Dataset.md#use-geoshape-for-all-other-location-types) for an example)
+      - [GeoCoordinates](https://schema.org/GeoCoordinates) (See [here](https://github.com/ESIPFed/science-on-schema.org/blob/main/guides/Dataset.md#use-geocoordinates-for-point-locations) for an example) and/or
+      - [GeoShape](https://schema.org/GeoShape) (See [here](https://github.com/ESIPFed/science-on-schema.org/blob/main/guides/Dataset.md#use-geoshape-for-all-other-location-types) for an example)
     - Use [additionalProperty](https://schema.org/additionalProperty) to identify the spatial reference system (e.g. WGS84). See [here](https://github.com/ESIPFed/science-on-schema.org/blob/main/guides/Dataset.md#spatial-reference-systems) for an example
   - temporalCoverage
     - temporalCoverage is expressed in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format
