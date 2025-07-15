@@ -1,4 +1,5 @@
 # GaiaCatalog entry guide
+## Entries are based on the schema.org Dataset
 - [Dataset](https://schema.org/Dataset) has...
   - standard properties including name, description, dateCreated, dateModified, datePublished, expires, license, [citation](https://schema.org/citation), version, [keywords](https://schema.org/keywords), [measurementTechnique](https://schema.org/measurementTechnique), [measurementMethod](https://schema.org/measurementMethod), creator, funder and provider. See [here](https://github.com/ESIPFed/science-on-schema.org/blob/main/guides/Dataset.md#roles-of-people) for an example of creator
   - mainEntity
@@ -53,3 +54,7 @@
     - Actions may form chains and chains may occur in parallel
     - So the array of actions taken by a potentialAction may trace the permutations that a Dataset traverses aka a [scientific workflow](https://jenkins-1.dataone.org/jenkins/view/Documentation%20Projects/job/ProvONE-Documentation-trunk/ws/provenance/ProvONE/v1/provone.html)
     - In the context of the OMOP CDM and the OHDSI analytics that runs on top of it, this scientific workflow is a preprocessing step sometimes called the Bridge2AI
+## A Bridge2AI
+- So far two scientific workflows are in development
+  - One workflow goes from the global Copernicus Climate Change Service to the construction of location and time specific variables for maximum temperature, minimum temperature, precipitation and humidity
+  - The other workflow goes from the global Copernicus Climate Change Service to the construction of location and time specific variables for “exceedances”. Exceedances are weather events that surpass a pre-defined limit or threshold
