@@ -54,8 +54,9 @@
     - A SoftwareApplication has many properties including [featureList](https://schema.org/featureList), softwareVersion, releaseNotes, permissions, [availableOnDevice](https://schema.org/availableOnDevice) and downloadURL
     - Actions may form chains and chains may occur in parallel
     - So the array of actions taken by a potentialAction may trace the permutations that a Dataset traverses aka a [scientific workflow](https://jenkins-1.dataone.org/jenkins/view/Documentation%20Projects/job/ProvONE-Documentation-trunk/ws/provenance/ProvONE/v1/provone.html)
-    - In the context of the OMOP CDM and the OHDSI analytics that runs on top of it, this scientific workflow is a preprocessing step sometimes called the Bridge2AI
-## A Bridge2AI
-- So far two scientific workflows are in development
+    - In the context of the OMOP CDM and the OHDSI analytics that runs on top of it, this scientific workflow is a preprocessing step through which exposures attach themselves to an OMOP Person by way of their locations over time and, from there, enter OHDSI analytics aka a machine learning AI
+    - We call this toolchain the Exposure2AI
+## Exposure2AI
+- So far two scientific workflows are in development across this toolchain
   - One workflow goes from the global Copernicus Climate Change Service to the construction of location and time specific variables for maximum temperature, minimum temperature, precipitation and humidity
   - The other workflow goes from the global Copernicus Climate Change Service to the construction of location and time specific variables for “exceedances”. Exceedances are weather events that surpass a pre-defined limit or threshold
