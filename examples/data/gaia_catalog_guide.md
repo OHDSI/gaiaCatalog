@@ -1,3 +1,4 @@
+# GaiaCatalog entry guide
 - [Dataset](https://schema.org/Dataset) has...
   - standard properties including name, description, dateCreated, dateModified, datePublished, expires, license, [citation](https://schema.org/citation), version, [keywords](https://schema.org/keywords), [measurementTechnique](https://schema.org/measurementTechnique), [measurementMethod](https://schema.org/measurementMethod), creator, funder and provider. See [here](https://github.com/ESIPFed/science-on-schema.org/blob/main/guides/Dataset.md#roles-of-people) for an example of creator
   - mainEntity
