@@ -1,5 +1,6 @@
 # GaiaCatalog entry guide
 ## Entries are based on the schema.org Dataset
+## We have still to say which elements of the schema.org Dataset type are necessary and which are optional here
 - [Dataset](https://schema.org/Dataset) has...
   - standard properties including name, description, dateCreated, dateModified, datePublished, expires, license, [citation](https://schema.org/citation), version, [keywords](https://schema.org/keywords), [measurementTechnique](https://schema.org/measurementTechnique), [measurementMethod](https://schema.org/measurementMethod), creator, funder and provider. See [here](https://github.com/ESIPFed/science-on-schema.org/blob/main/guides/Dataset.md#roles-of-people) for an example of creator
   - mainEntity
