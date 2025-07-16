@@ -1,6 +1,17 @@
-# GaiaCatalog entry guide
-## Entries are based on the schema.org Dataset
-## We have still to say which elements of the schema.org Dataset type are necessary and which are optional here
+# The Gaia DataCatalog Guide
+> [!NOTE]
+> **Entries have properties based on the schema.org Dataset type which borrows from Dublin Core, DCAT and other specifications**
+
+> [!TIP]
+> **Entries are just the metadata**
+
+> [!IMPORTANT]
+> **Entries may include instructions for retrieving the actual data**
+
+> [!WARNING]
+> **We have still to say which properties of the schema.org Dataset type are necessary and which are optional here**
+
+## Let's begin...
 - [Dataset](https://schema.org/Dataset) has...
   - standard properties including name, description, dateCreated, dateModified, datePublished, expires, license, [citation](https://schema.org/citation), version, [keywords](https://schema.org/keywords), [measurementTechnique](https://schema.org/measurementTechnique), [measurementMethod](https://schema.org/measurementMethod), creator, funder and provider. See [here](https://github.com/ESIPFed/science-on-schema.org/blob/main/guides/Dataset.md#roles-of-people) for an example of creator
   - mainEntity
@@ -58,5 +69,11 @@
     - We call this toolchain the Exposure2AI
 ## Exposure2AI
 - So far two scientific workflows are in development across this toolchain
-  - One workflow goes from the global Copernicus Climate Change Service to the construction of location and time specific variables for maximum temperature, minimum temperature, precipitation and humidity
-  - The other workflow goes from the global Copernicus Climate Change Service to the construction of location and time specific variables for “exceedances”. Exceedances are weather events that surpass a pre-defined limit or threshold
+  - One workflow goes from the Copernicus Climate Change Service to the construction of location and time specific variables for maximum temperature, minimum temperature, precipitation and humidity
+  - The other workflow goes from the Copernicus Climate Change Service to the construction of location and time specific variables for “exceedances”. Exceedances are weather events that surpass a pre-defined limit or threshold
+    
+> [!NOTE]
+> Variables are drawn from the [Copernicus ERA5 reanalysis dataset](https://climatedataguide.ucar.edu/climate-data/era5-atmospheric-reanalysis#:~:text=ERA5%2C%20the%20successor%20to%20ERA,timely%20monitoring%20of%20the%20climate.)
+
+> [!TIP]
+> The Copernicus ERA5 reanalysis dataset offers hourly data with a spatial resolution of 0.25 degrees by 0.25 degrees. This corresponds to approximately 31 kilometers at mid-latitudes. The data covers the globe and includes various atmospheric, land surface, and ocean-wave variables. 
