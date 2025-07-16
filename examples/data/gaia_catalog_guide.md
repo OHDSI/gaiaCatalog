@@ -65,10 +65,11 @@
     - A SoftwareApplication has many properties including [featureList](https://schema.org/featureList), softwareVersion, releaseNotes, permissions, [availableOnDevice](https://schema.org/availableOnDevice) and downloadURL
     - Actions may form chains and chains may occur in parallel
     - So the array of actions taken by a potentialAction may trace the permutations that a Dataset traverses aka a [scientific workflow](https://jenkins-1.dataone.org/jenkins/view/Documentation%20Projects/job/ProvONE-Documentation-trunk/ws/provenance/ProvONE/v1/provone.html)
-    - In the context of the OMOP CDM and the OHDSI analytics that runs on top of it, this scientific workflow is a preprocessing step through which exposures attach themselves to an OMOP Person by way of their locations over time and, from there, enter OHDSI analytics aka a machine learning AI
-    - We call this toolchain the Exposure2AI
+    - In the context of the OMOP CDM and the OHDSI analytics that runs on top of it, scientific workflows are a preprocessing step that produces place-based exposure occurrences for subsequent use in the Gaia toolchain
+    - Recall that downstream in the toolchain exposures attach themselves to an OMOP Person by way of their locations over time and, from there, enter OHDSI analytics aka a machine learning AI
+    - Ultimately, these scientific workflows go from Exposure2AI
 ## Exposure2AI
-- So far two scientific workflows are in development across this toolchain
+- So far two scientific workflows are in development as part of the HIV and Climate Change WG
   - One workflow goes from the Copernicus Climate Change Service to the construction of location and time specific variables for maximum temperature, minimum temperature, precipitation and humidity
   - The other workflow goes from the Copernicus Climate Change Service to the construction of location and time specific variables for “exceedances”. Exceedances are weather events that surpass a pre-defined limit or threshold
     
