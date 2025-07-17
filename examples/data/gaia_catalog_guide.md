@@ -67,7 +67,7 @@
     - So the array of actions taken by a potentialAction may trace the permutations that a Dataset traverses aka a [scientific workflow](https://jenkins-1.dataone.org/jenkins/view/Documentation%20Projects/job/ProvONE-Documentation-trunk/ws/provenance/ProvONE/v1/provone.html)
     - In the context of the OMOP CDM and the OHDSI analytics that runs on top of it, scientific workflows are a preprocessing step that produces place-based exposure occurrences for subsequent use in the Gaia toolchain
     - Recall that downstream in the toolchain exposures attach themselves to an OMOP Person by way of their locations over time and, from there, enter OHDSI analytics aka a machine learning AI
-    - Ultimately, these scientific workflows go from Exposure2AI
+    - Ultimately, these scientific workflows go from ***Exposure2AI***
 ## Exposure2AI
 > [!NOTE]
 > Variables are drawn from the [Copernicus ERA5 reanalysis dataset](https://climatedataguide.ucar.edu/climate-data/era5-atmospheric-reanalysis#:~:text=ERA5%2C%20the%20successor%20to%20ERA,timely%20monitoring%20of%20the%20climate.)
