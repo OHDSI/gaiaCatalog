@@ -238,6 +238,19 @@
     ],
     "variableMeasured": [
         {
+            "@type": "StatisticalVariable",
+            "name": "Average monthly maximum temperature",
+            "identifier": "http://gisextension.ohdsi.org/sdoh/nnn"
+            "measuredProperty": "Maximum temperature",
+            "statType": "mean",
+            "unitText": "°C",
+            "constraintProperty": {
+                "@type": "PropertyValue",
+                "name": "temporalConstraint",
+                "value": "R144/2014-01/P1M"
+            }
+        },
+        {
             "@id": "http://example.org/id/link/to/concept/of/exposure_definition",
             "@type": "PropertyValue",
             "name": "Average maximum temperature - [month] [year]",
