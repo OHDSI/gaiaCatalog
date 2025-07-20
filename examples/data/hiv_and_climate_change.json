@@ -240,7 +240,8 @@
         {
             "@type": "StatisticalVariable",
             "name": "Average monthly maximum temperature",
-            "identifier": "http://gisextension.ohdsi.org/sdoh/nnn"
+            "identifier": "http://gisextension.ohdsi.org/sdoh/nnn",
+            "populationType": "Gaia",
             "measuredProperty": "Maximum temperature",
             "statType": "mean",
             "unitText": "°C",
@@ -259,7 +260,7 @@
                     "description": "",
                     "value": {
                         "@type": "AdministrativeArea",
-                        "name": "an HDSS",
+                        "name": "an HDSS name",
                         "geo": {
                             "@type": "GeoShape",
                             "description": "We used the geocoordinates of the centroid of an HDSS and applied a 10 km buffer around it",
@@ -268,42 +269,10 @@
                             "elevation": "The elevation of a location (WGS 84)."
                         },
                     },
+                    "unitCode": "TBD",
                     "unitText": "by AdministrativeArea"
                 }
-            ]
-        },
-        {
-            "@id": "http://example.org/id/link/to/concept/of/exposure_definition",
-            "@type": "PropertyValue",
-            "name": "Average maximum temperature - [month] [year]",
-            "description": "The maximum temperature for a month is calculated by averaging the daily high temperatures recorded during that month",
-            "disambiguatingDescription": "This involves collecting the highest temperature recorded each day, summing those values, and then dividing by the total number of days in the month.", 
-            "propertyID": [
-                "http://gisextension.ohdsi.org/exposome/nnn",
-                "URL for the exposome type in a vocabulary",
-                "URL for the exposome subtype in the same vocabulary"
             ],
-            "measurementMethod": "https://confluence.ecmwf.int/pages/viewpage.action?pageId=74764925",
-            "measurementTechnique": "https://www.ecmwf.int/en/forecasts/dataset/ecmwf-reanalysis-v5",
-            "unitCode": "http://athena.ohdsi.org/ucum/44777658",
-            "unitText": "/mo",
-            "valueReference": {
-                "@type": "PropertyValue",
-                "name": "analysisRole",    
-                "value": "",   
-                "rangeIncludes": {
-                    "@type":"DefinedTermSet",
-                    "@id":"",        
-                    "name":"",        
-                    "hasDefinedTerm": [
-                        {"@type": "DefinedTerm", "termCode":"Independent"},
-                        {"@type": "DefinedTerm", "termCode":"Dependent"},
-                        {"@type": "DefinedTerm", "termCode":"Intervening"},
-                        {"@type": "DefinedTerm", "termCode":"Control"}
-                    ]
-                },
-                "value": "Independent"
-            },
             "potentialAction": {
                 "@type": "AddAction",
                 "targetCollection": {
