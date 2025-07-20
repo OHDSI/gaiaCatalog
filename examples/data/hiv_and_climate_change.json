@@ -244,11 +244,33 @@
             "measuredProperty": "Maximum temperature",
             "statType": "mean",
             "unitText": "°C",
-            "constraintProperty": {
-                "@type": "PropertyValue",
-                "name": "temporalConstraint",
-                "value": "R144/2014-01/P1M"
-            }
+            "constraintProperty": [
+                {
+                    "@type": "PropertyValue",
+                    "name": "timePeriod",
+                    "description": "timePeriod is specified in ISO 8601 format. It has a start date, an interval and an argument (Rn) that repeats the intervalbeginning at the start date",
+                    "value": "R144/2014-01/P1M"
+                    "unitCode": "http://athena.ohdsi.org/ucum/44777658",
+                    "unitText": "/mo"
+                },
+                {
+                    "@type": "PropertyValue",
+                    "name": "geographicalArea",
+                    "description": "",
+                    "value": {
+                        "@type": "AdministrativeArea",
+                        "name": "an HDSS",
+                        "geo": {
+                            "@type": "GeoShape",
+                            "description": "We used the geocoordinates of the centroid of an HDSS and applied a 10 km buffer around it",
+                            "disambiguatingDescription": "This buffer helped account for potential inaccuracies in the centroid coordinates and the limited resolution of the climate data.",
+                            "circle": "A circle is the circular region of a specified radius centered at a specified latitude and longitude. A circle is expressed as a pair followed by a radius in meters.",
+                            "elevation": "The elevation of a location (WGS 84)."
+                        },
+                    },
+                    "unitText": "by AdministrativeArea"
+                }
+            ]
         },
         {
             "@id": "http://example.org/id/link/to/concept/of/exposure_definition",
