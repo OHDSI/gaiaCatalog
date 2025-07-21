@@ -1,0 +1,475 @@
+{
+    "@context": {
+        "@vocab": "https://schema.org/"
+    },
+    "@type": "Dataset",
+    "@id": "",
+    "name": "",
+    "mainEntity": {
+      "@type": "DefinedTerm",
+      "name": "Place",
+      "inDefinedTermSet": ["Place", "Person", "Household", "Establishment", "Entangled"]
+    },
+    "description": "Climate data for two localities in East Africa for use in GaiaCatalog. GaiaCatalog is a component in the OHDSI GIS Toolchain",
+    "includedInDataCatalog": {
+        "@type": "DataCatalog",
+        "name": "GaiaCatalog",
+        "description": "",
+        "conditionsOfAccess": "",
+        "url": ""
+    },
+    "dateCreated": "use to specify the date the dataset was initially generated (e.g., when a sensor recorded a value, when a model was run, or when data processing was completed)",
+    "dateModified": "use to specify the date the dataset was most recently updated or changed",
+    "datePublished": "use to specify the date when a dataset was made available to the public through a publication process",
+    "expires": "use to specify the date when the dataset expires and is no longer useful or available",
+    "url": "https://gdsc.idsc.miami.edu/detail/mdc_parcels_camp?collection=all&active=None&query=None",
+    "license": "This work is licensed under a Creative Commons Attribution (CC-BY) 4.0 License",
+    "citation": "if there is one",
+    "version": "2021-04-24T06:34:56.000Z",
+    "isBasedOn": { 
+        "@type": "Dataset",
+        "name": "ERA5",
+        "description": "ERA5 is the fifth generation ECMWF reanalysis for the global climate and weather for the past 8 decades. Data is available from 1940 onwards. ERA5 replaces the ERA-Interim reanalysis.",
+        "producer": "https://climate.copernicus.eu", 
+        "url": "https://climate.copernicus.eu/climate-reanalysis"
+    },
+    "keywords": ["Magu", "Nairobi", "precipitation", "temperature", "drought", "flooding", "heat stress"],
+    "subjectOf": [
+        {
+            "@type": "Claim",
+            "appearance": {
+                "@type": "article",
+                "publication": {
+                    "@type": "PublicationEvent",
+                    "publishedBy": {
+                        "@type": "Organization",
+                        "name": "Lancet HIV"
+                    }
+                },
+                "datePublished": "2024-02",
+                "creditText": "Editorial Staff",
+                "headline": "Effect of climate change on the HIV response",
+                "text": "Climate change [through a series of intervening variables] may increase the rates of HIV infection and worsen the health and wellbeing of people with HIV. Impacts on HIV programmes and people with HIV can manifest as reduced access to prevention, testing, and treatment services, poor adherence to treatment, poor nutrition,and reduced immunity. ",
+                "isPartOf": {
+                    "@type": "PublicationVolume",
+                    "volumeNumber": "11"
+                },
+                "identifier": {
+                    "@id": "https://doi.org/10.1016/S2352-3018(24)00009-2",
+                    "@type": "PropertyValue",
+                    "propertyID": "https://registry.identifiers.org/registry/doi",
+                    "value": "doi:10.1016/S2352-3018(24)00009-2",
+                    "url": "https://doi.org/10.1016/S2352-3018(24)00009-2"
+                }
+            },
+            "firstAppearance": {
+                "@type": "article",
+                "publication": {
+                    "@type": "PublicationEvent",
+                    "publishedBy": {
+                        "@type": "Organization",
+                        "name": "AIDS Behav."
+                    }
+                },
+                "datePublished": "2021-01-15",
+                "creditText": "Lieber M, Chin-Hong P, Whittle HJ, Hogg R, Weiser SD",
+                "headline": "The Synergistic Relationship Between Climate Change and the HIV/AIDS Epidemic: A Conceptual Framework",
+                "text": "Four pathways linking climate change with HIV/AIDS are summarized in Fig. 1. This model is based on an in-depth literature review of the interaction between climate change, food insecurity, infectious diseases, human migration, destruction of healthcare infrastructure, and HIV/AIDS performed between June 6 and June 27, 2019.",
+                "image": "https://www.ncbi.nlm.nih.gov/core/lw/2.0/html/tileshop_pmc/tileshop_pmc_inline.html?title=Click%20on%20image%20to%20zoom&p=PMC3&id=7810285_10461_2020_3155_Fig1_HTML.jpg",
+                "isPartOf": {
+                    "@type": "PublicationVolume",
+                    "volumeNumber": "2021 Jul;25(7):2266-2277"
+                },
+                "identifier": {
+                    "@id": "https://doi.org/10.1007/s10461-020-03155-y",
+                    "@type": "PropertyValue",
+                    "propertyID": "https://registry.identifiers.org/registry/doi",
+                    "value": "doi:10.1007/s10461-020-03155-y",
+                    "url": "https://doi.org/10.1007/s10461-020-03155-y"
+                }
+            }
+        }
+    ],
+    "spatialCoverage": [
+        {
+            "@type": "Place",
+            "name": "Magu",
+            "description": "We used the geocoordinates of the centroid of the Magu HDSS and applied a 10 km buffer around it ",
+            "disambiguatingDescription": "This buffer helped account for potential inaccuracies in the centroid coordinates and the limited resolution of the climate data",
+            "geo": {
+                "@type": "GeoShape",
+                "circle": "A circle is the circular region of a specified radius centered at a specified latitude and longitude. A circle is expressed as a pair followed by a radius in meters.",
+                "image": ""
+            },
+            "additionalProperty": {
+                "@type": "PropertyValue",
+                "propertyID": "https://dbpedia.org/page/Spatial_reference_system",
+                "value": "https://www.w3.org/2003/01/geo/wgs84_pos"
+            }
+        },
+        {
+            "@type": "Place",
+            "name": "Nairobi",
+            "description": "We used the geocoordinates of the centroid of the Nairobi HDSS and applied a 10 km buffer around it ",
+            "disambiguatingDescription": "This buffer helped account for potential inaccuracies in the centroid coordinates and the limited resolution of the climate data",
+            "geo": {
+                "@type": "GeoShape",
+                "circle": "A circle is the circular region of a specified radius centered at a specified latitude and longitude. A circle is expressed as a pair followed by a radius in meters.",
+                "image": ""
+            },
+            "additionalProperty": {
+                "@type": "PropertyValue",
+                "propertyID": "https://dbpedia.org/page/Spatial_reference_system",
+                "value": "https://www.w3.org/2003/01/geo/wgs84_pos"
+            }
+        },
+        {
+            "@type": "Place",
+            "name": "Magu care site",
+            "description": "Main care site for HIV care in the Magu district",
+            "disambiguatingDescription": "Used in conjunction with the place of residence to determine distance to care",
+            "geo": {
+                "@type": "GeoCoordinates",
+                "latitude": "The latitude of a location",
+                "longitude": "The longitude of a location"  
+            }
+        },
+        {
+            "@type": "Place",
+            "name": "Nairobi care site",
+            "description": "Main care site for HIV care in the Nairobi district",
+            "disambiguatingDescription": "Used in conjunction with the place of residence to determine distance to care",
+            "geo": {
+                "@type": "GeoCoordinates",
+                "latitude": "The latitude of a location",
+                "longitude": "The longitude of a location"  
+            }
+        }        
+    ],
+    "temporal": "It may be we will want to support two or more  temporal resolutions, depending upon the patterns that they surface. Two are specified in temporalCoverage. The first is the monthly average (P1M) beginning in 1994 every year for 20 years (R20). temporalCoverge is a shorthand for temporal using ISO 8601. See https://en.wikipedia.org/wiki/ISO_8601",
+    "temporalCoverage": ["R20/1994/P1M", "R20/1994/P1W"],
+    "measurementTechnique": "Using the ERA5 Climate Reanalysis of Copernicus satellite data, hourly climate data for the Magu and Nairobi HDSS sites is aggregated monthly across the temporal coverage. Additional variables based on the Copernicus ERA5 satellite are also calculated",
+    "measurementMethod": "https://climate.copernicus.eu/climate-reanalysis",
+    "distribution": [
+        {
+            "@type": "DataDownload",
+            "description": "Includes maximum temperature, minimum temperature, precipitation and relative humidity aggregated monthly",
+            "disambiguatingDescription": "Also includes climate events that envelop the Magu and Nairobi HDSS sites for drought, flooding and heat stress during the temporal coverage. Exposure to each climate event is a calculated variable based on temperature, precipitation and humidity",
+            "contentUrl": "a URL",
+            "encodingFormat": "application/vnd.ms-excel"
+        },
+        {
+            "@type": "SearchAction",
+            "description": "Includes maximum temperature, minimum temperature, precipitation and relative humidity aggregated monthly",
+            "disambiguatingDescription": "Also includes climate events that envelop the Magu and Nairobi HDSS sites for drought, flooding and heat stress during the temporal coverage. Exposure to each climate event is a calculated variable based on temperature, precipitation and humidity",
+            "target": {
+                "@type": "EntryPoint",
+                "contentType": ["application/x-netcdf", "text/tab-separated-values"],
+                "urlTemplate": "https://www.sample-data-repository.org/dataset/1234/download?format={format}&startDateTime={start}&endDateTime={end}&bounds={bbox}",
+                "description": "Downloads a dataset based, for example, on the requested format, start/end dates and bounding box. Actual request and query parameters to be determined with Tim N",
+                "httpMethod": ["GET", "POST"]
+            },
+            "query-input": [
+                {
+                    "@type": "PropertyValueSpecification",
+                    "valueName": "format",
+                    "description": "The desired format requested either 'application/x-netcdf' or 'text/tab-separated-values'",
+                    "valueRequired": true,
+                    "defaultValue": "application/x-netcdf",
+                    "valuePattern": "(application\/x-netcdf|text\/tab-separated-values)"
+                },
+                {
+                    "@type": "PropertyValueSpecification",
+                    "valueName": "start",
+                    "description": "A UTC ISO DateTime",
+                    "valueRequired": false,
+                    "valuePattern": "(-?(?:[1-9][0-9]*)?[0-9]{4})-(1[0-2]|0[1-9])-(3[01]|0[1-9]|[12][0-9])T(2[0-3]|[01][0-9]):([0-5][0-9]):([0-5][0-9])(.[0-9]+)?(Z)?"
+                },
+                {
+                    "@type": "PropertyValueSpecification",
+                    "valueName": "end",
+                    "description": "A UTC ISO DateTime",
+                    "valueRequired": false,
+                    "valuePattern": "(-?(?:[1-9][0-9]*)?[0-9]{4})-(1[0-2]|0[1-9])-(3[01]|0[1-9]|[12][0-9])T(2[0-3]|[01][0-9]):([0-5][0-9]):([0-5][0-9])(.[0-9]+)?(Z)?"
+                },
+                {
+                    "@type": "PropertyValueSpecification",
+                    "valueName": "bbox",
+                    "description": "Two points in decimal degrees that create a bounding box fomatted at 'lon,lat' of the lower-left corner and 'lon,lat' of the upper-right",
+                    "valueRequired": false,
+                    "valuePattern": "(-?[0-9]+(.[0-9]+)?),[ ]*(-?[0-9]+(.[0-9]+)?)[ ]*(-?[0-9]+(.[0-9]+)?),[ ]*(-?[0-9]+(.[0-9]+)?)"
+                }
+            ]
+        }
+    ],
+    "creator": [
+        {    
+            "@id": "https://www.sample-data-repository.org/person-role/472036",
+            "@type": "Role",
+            "roleName": "Principal Investigator",
+            "creator": {
+                "@id": "https://www.sample-data-repository.org/person/50663",
+                "@type": "Person",
+                "identifier": {
+                  "@id": "https://orcid.org/0000-0003-3432-2297",
+                  "@type": "PropertyValue",
+                  "propertyID": "https://registry.identifiers.org/registry/orcid",
+                  "url": "https://orcid.org/0000-0003-3432-2297",
+                  "value": "orcid:0000-0003-3432-2297"
+                },
+                "name": "Dr Mark Brzezinski",
+                "url": "https://www.sample-data-repository.org/person/50663"
+            }
+        }
+    ],
+    "funder": {
+        "@type": "Organization",
+        "name": "",
+        "description": ""
+    },
+    "provider": [
+        {
+            "@id": "06-1608361",
+            "@type": "Organization",
+            "legalName": "African Population and Health Research Center",
+            "name": "APHRC",
+            "url": "https://aphrc.org"
+        }
+    ],
+    "variableMeasured": [
+        {
+            "@type": "StatisticalVariable",
+            "name": "Average monthly maximum temperature",
+            "identifier": "http://gisextension.ohdsi.org/sdoh/nnn",
+            "populationType": "Gaia",
+            "measuredProperty": "Maximum temperature",
+            "statType": "mean",
+            "unitText": "°C",
+            "constraintProperty": [
+                {
+                    "@type": "PropertyValue",
+                    "name": "timePeriod",
+                    "description": "timePeriod is specified in ISO 8601 format. It has a start date, an interval and an argument (Rn) that repeats the interval beginning at the start date",
+                    "value": "R144/2014-01/P1M"
+                    "unitCode": "http://athena.ohdsi.org/ucum/44777658",
+                    "unitText": "/mo"
+                },
+                {
+                    "@type": "PropertyValue",
+                    "name": "geographicalArea",
+                    "description": "",
+                    "value": {
+                        "@type": "AdministrativeArea",
+                        "name": "an HDSS name",
+                        "geo": {
+                            "@type": "GeoShape",
+                            "description": "We used the geocoordinates of the centroid of an HDSS and applied a 10 km buffer around it",
+                            "disambiguatingDescription": "This buffer helped account for potential inaccuracies in the centroid coordinates and the limited resolution of the climate data.",
+                            "circle": "A circle is the circular region of a specified radius centered at a specified latitude and longitude. A circle is expressed as a pair followed by a radius in meters.",
+                            "elevation": "The elevation of a location (WGS 84)."
+                        },
+                    },
+                    "unitCode": "TBD",
+                    "unitText": "by AdministrativeArea"
+                }
+            ],
+            "potentialAction": {
+                "@type": "AddAction",
+                "targetCollection": {
+                    "@type": "Dataset",
+                    "name": "My OMOP CDM instance"
+                },
+                "actionProcess": {
+                    "@type": "HowTo",
+                    "tool": "The OHDSI GIS extension toolchain",
+                    "yield": "An external exposure occurrence",
+                    "url": "https://ohdsi.github.io/CommonDataModel/cdm54.html#external_exposure"
+                }
+            }
+        },
+        {
+            "@type": "StatisticalVariable",
+            "name": "Flood exceedance event",
+            "identifier": "http://gisextension.ohdsi.org/sdoh/nnn",
+            "description": "A precipitation event over the 95th percentile counts as a flood exceedance.",
+            "disambiguatingDescription": "Flood exceedances are associated with disruption in services and infrastructure.", 
+            "populationType": "Gaia",
+            "measuredProperty": "Precipitation event",
+            "unitText": "mm/24 hrs",
+            "statType": "95th percentile of all recorded 24-hour rainfall events over a specific period",
+            "constraintProperty": [
+                {
+                    "@type": "PropertyValue",
+                    "name": "timePeriod",
+                    "description": "time period in scope for comparison events",
+                    "disambiguatingDescription": "timePeriod is specified in ISO 8601 format. It has a start date, an interval and an argument (Rn) that repeats the interval beginning at the start date",
+                    "value": "[P1Y, P5Y, P10Y]"
+                    "unitCode": "TBD",
+                    "unitText": "[past yr, past 5yr, past 10yr]"
+                },
+                {
+                    "@type": "PropertyValue",
+                    "name": "geographicalArea",
+                    "description": "",
+                    "value": {
+                        "@type": "AdministrativeArea",
+                        "name": "an HDSS name",
+                        "geo": {
+                            "@type": "GeoShape",
+                            "description": "We used the geocoordinates of the centroid of an HDSS and applied a 10 km buffer around it",
+                            "disambiguatingDescription": "This buffer helped account for potential inaccuracies in the centroid coordinates and the limited resolution of the climate data.",
+                            "circle": "A circle is the circular region of a specified radius centered at a specified latitude and longitude. A circle is expressed as a pair followed by a radius in meters.",
+                            "elevation": "The elevation of a location (WGS 84)."
+                        },
+                    },
+                    "unitCode": "TBD",
+                    "unitText": "by AdministrativeArea"
+                },
+                {
+                    "@type": "PropertyValue",
+                    "name": "calculationMethod",
+                    "description": "",
+                    "value": ""
+                }
+            ],
+            "potentialAction": {
+                "@type": "AddAction",
+                "targetCollection": {
+                    "@type": "Dataset",
+                    "name": "My OMOP CDM instance"
+                },
+                "actionProcess": {
+                    "@type": "HowTo",
+                    "tool": "The OHDSI GIS extension toolchain",
+                    "yield": "An external exposure occurrence",
+                    "url": "https://ohdsi.github.io/CommonDataModel/cdm54.html#external_exposure"
+                }
+            }
+        }
+    ],
+    "about": {
+        "@type": "Event",
+        "description": "The provenance of each variable in this distribution is described here",
+        "name": "Measurement of climate state",
+        "potentialAction": [
+            {
+                "@type": "Action",
+                "name": "Aggregation",
+                "description": "Aggregation creates Magu and Nairobi monthly maximum temperature, minimum temperature, precipitation and relative humidity variables from ERA5 hourly data"
+                "object": {
+                    "@type": "Dataset",
+                    "name": "ERA5",
+                    "description": "ERA5 is the fifth generation ECMWF reanalysis for the global climate and weather for the past 8 decades. Data is available from 1940 onwards. ERA5 replaces the ERA-Interim reanalysis.",
+                    "producer": "https://climate.copernicus.eu", 
+                    "conditionsOfAccess": "Conditions that affect the availability of, or method(s) of access to, an item.",
+                    "url": "https://climate.copernicus.eu/climate-reanalysis"
+                    "spatialCoverage": {
+                        "@type": "Place",
+                        "description": "ERA5 reanalysis covers the entire globe with a horizontal resolution of 0.25° x 0.25° (approximately 31km). It also has 137 vertical levels, reaching from the surface up to a height of 80km.",
+                        "additionalProperty": {
+                            "@type": "PropertyValue",
+                            "propertyID":"http://dbpedia.org/resource/Spatial_reference_system",
+                            "value": "http://www.w3.org/2003/01/geo/wgs84_pos#lat_long"
+                        }
+                    },
+                    "temporalCoverage": "1992T00:00:00Z/2015T23:00:00Z"
+                },
+                "instrument": {
+                    "@type": "SoftwareApplication",
+                    "featureList": "Features or modules provided by this application (and possibly required by other applications).",
+                    "memoryRequirements": "Minimum memory requirements.",
+                    "processorRequirements": "Processor architecture required to run the application (e.g. IA64).",
+                    "softwareRequirements": "Component dependency requirements for application. This includes runtime environments and shared libraries that are not included in the application distribution package, but required to run the application (examples: DirectX, Java or .NET runtime).",
+                    "softwareVersion": "Version of the software instance.",
+                    "releaseNotes": "Description of what changed in this version.",
+                    "permissions": "Permission(s) required to run the app",
+                    "availableOnDevice": "Docker container",
+                    "downloadUrl": "https://github.com/tibbben/copernicus_aggregate"
+                },
+                "result": {
+                    "@type": "Dataset",
+                    "name": "Magu and Nairobi climate variables aggregated monthly",
+                    "description": "Monthly averages for maximum temperature, minimum temperature, precipitation and relative humidity",
+                    "encodingFormat": "NetCDF",
+                    "spatialCoverage": {
+                        "@type": "Place",
+                        "geo": {
+                            "@type": "GeoShape",
+                            "description": "We used the geocoordinates of the centroid of the Magu HDSS and applied a 10 km buffer around it",
+                            "disambiguatingDescription": "This buffer helped account for potential inaccuracies in the centroid coordinates and the limited resolution of the climate data.",
+                            "circle": "A circle is the circular region of a specified radius centered at a specified latitude and longitude. A circle is expressed as a pair followed by a radius in meters.",
+                            "elevation": "The elevation of a location (WGS 84)."
+                        },
+                        "additionalProperty": {
+                            "@type": "PropertyValue",
+                            "propertyID":"http://dbpedia.org/resource/Spatial_reference_system",
+                            "value": "http://www.w3.org/2003/01/geo/wgs84_pos#lat_long"
+                        }
+                    },
+                    "temporalCoverage": "1992-01-01/2014-12-31",
+                    "conditionsOfAccess": "Conditions that affect the availability of, or method(s) of access to, an item.",
+                    "url": ""
+                }
+            },
+            {
+                "@type": "Action",
+                "name": "Exceedance derivation",
+                "description": "Derives Magu and Nairobi exceedances for flooding, drought and heat stress"
+                "object": {
+                    "@type": "Dataset",
+                    "name": "ERA5",
+                    "description": "ERA5 is the fifth generation ECMWF reanalysis for the global climate and weather for the past 8 decades. Data is available from 1940 onwards. ERA5 replaces the ERA-Interim reanalysis.",
+                    "producer": "https://climate.copernicus.eu", 
+                    "conditionsOfAccess": "Conditions that affect the availability of, or method(s) of access to, an item.",
+                    "url": "https://climate.copernicus.eu/climate-reanalysis"
+                    "spatialCoverage": {
+                        "@type": "Place",
+                        "description": "ERA5 reanalysis covers the entire globe with a horizontal resolution of 0.25° x 0.25° (approximately 31km). It also has 137 vertical levels, reaching from the surface up to a height of 80km.",
+                        "additionalProperty": {
+                            "@type": "PropertyValue",
+                            "propertyID":"http://dbpedia.org/resource/Spatial_reference_system",
+                            "value": "http://www.w3.org/2003/01/geo/wgs84_pos#lat_long"
+                        }
+                    },
+                    "temporalCoverage": "1992T00:00:00Z/2015T23:00:00Z"
+                },
+                "instrument": {
+                    "@type": "SoftwareApplication",
+                    "featureList": "Features or modules provided by this application (and possibly required by other applications).",
+                    "memoryRequirements": "Minimum memory requirements.",
+                    "processorRequirements": "Processor architecture required to run the application (e.g. IA64).",
+                    "softwareRequirements": "Component dependency requirements for application. This includes runtime environments and shared libraries that are not included in the application distribution package, but required to run the application (examples: DirectX, Java or .NET runtime).",
+                    "softwareVersion": "Version of the software instance.",
+                    "releaseNotes": "Description of what changed in this version.",
+                    "permissions": "Permission(s) required to run the app",
+                    "availableOnDevice": "Docker container",
+                    "downloadUrl": ""
+                },
+                "result": {
+                    "@type": "Dataset",
+                    "name": "Magu and Nairobi exceedance events",
+                    "description": "Exceedance events are calculated from maximum temperature, minimum temperature, precipitation, relative humidity and wind speed for droughts, floods and heat stress events",
+                    "encodingFormat": "NetCDF",
+                    "spatialCoverage": {
+                        "@type": "Place",
+                        "geo": {
+                            "@type": "GeoShape",
+                            "description": "We used the geocoordinates of the centroid of the Magu HDSS and applied a 10 km buffer around it",
+                            "disambiguatingDescription": "This buffer helped account for potential inaccuracies in the centroid coordinates and the limited resolution of the climate data.",
+                            "circle": "A circle is the circular region of a specified radius centered at a specified latitude and longitude. A circle is expressed as a pair followed by a radius in meters.",
+                            "elevation": "The elevation of a location (WGS 84)."
+                        },
+                        "additionalProperty": {
+                            "@type": "PropertyValue",
+                            "propertyID":"http://dbpedia.org/resource/Spatial_reference_system",
+                            "value": "http://www.w3.org/2003/01/geo/wgs84_pos#lat_long"
+                        }
+                    },
+                    "temporalCoverage": "1992/2014",
+                    "conditionsOfAccess": "Conditions that affect the availability of, or method(s) of access to, an item.",
+                    "url": ""
+                }
+            }   
+        ]
+    }
+}
