@@ -20,7 +20,7 @@ wget -O download/us_2018_svi_county.zip 'https://svi.cdc.gov/Documents/Data/2018
 # unzip to download directory if update flag is set
 if do_update == 1 then
 unzip -d download download/us_2018_svi_county.zip && rm download/us_2018_svi_county.zip
-'
+
 # load into postGIS with:
   ogr2ogr -lco GEOMETRY_NAME=geom -f PostgreSQL PG:"<postgres connection>" download/SVI2018_US_county.gdb -nlt multipolygon -nln us_2018_svi_county
 
@@ -28,8 +28,11 @@ unzip -d download download/us_2018_svi_county.zip && rm download/us_2018_svi_cou
 # Step 2 - SQL script (pseudo code):
 ####
 
-# remove duplicate points and make geometries valid:UPDATE us_2018_svi_county
-  SET geom=ST_MakeValid(ST_RemoveRepeatedPoints(geom));# add local geometry column and reproject existing geometries into local EPSG:
+# remove duplicate points and make geometries valid:
+UPDATE us_2018_svi_county
+  SET geom=ST_MakeValid(ST_RemoveRepeatedPoints(geom));
+
+# add local geometry column and reproject existing geometries into local EPSG:
 SELECT AddGeometryColumn (
   'us_2018_svi_county',
   'geom_local', 6350, 'multipolygon', 2
@@ -39,14 +42,15 @@ UPDATE us_2018_svi_county
 CREATE INDEX us_2018_svi_county_geom_local_idx
   ON us_2018_svi_county
   USING GIST (geom_local);
-NOTIFY pgrst, 'reload schema';"# Create derivative directory in data package on osgeo
+NOTIFY pgrst, 'reload schema';
+# Create derivative directory in data package on osgeo
 cd /data/us_2018_svi_county/
 mkdir -p derived
 
 # Create pg_dump of table SQL in derivate directory on postgis.
-pg_dump -d $POSTGRES_DB -U $POSTGRES_USER -p $POSTGRES_PORT -h postgis-k6u33c48d27lgap6 -t us_2018_svi_county > derived/us_2018_svi_county.sql
+pg_dump <postgres opts> -h gaia-db -t us_2018_svi_county > derived/us_2018_svi_county.sql
 
-Create downloadable tarfile of SQL in derivative directory on postgis
+# Create downloadable tarfile of SQL in derivative directory on postgis
 tar -czf derived/us_2018_svi_county.sql.tar.gz meta_dcat_us_2018_svi_county.json -C derived us_2018_svi_county.sql
 
 

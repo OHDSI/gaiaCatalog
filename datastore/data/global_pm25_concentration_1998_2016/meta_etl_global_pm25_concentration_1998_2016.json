@@ -12,9 +12,9 @@
   "download": "wget",
   "table": "global_pm25_concentration_1998_2016",
   "format": "shp",
-  "up": "false",
-  "podID": "postgis-1pvwkxoldzim6fs4",
-  "last_updated": "2025-06-02T12:51:47Z",
+  "up": "true",
+  "podID": "gaia-db",
+  "last_updated": "2025-05-23T08:47:15Z",
   "update_frequency": "As Needed",
   "checksum": "TBD",
   "extent": "POLYGON((-176.733337 -54.858002, 179.458313 -54.858002, 179.458313 78.274611, -176.733337 78.274611, -176.733337 -54.858002))"

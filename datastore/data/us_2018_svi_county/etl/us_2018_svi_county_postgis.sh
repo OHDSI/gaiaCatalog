@@ -6,7 +6,7 @@
 # Data source: https://svi.cdc.gov/Documents/Data/2018/db/states_counties/SVI_2018_US_county.zip
 # Destination postGIS table: us_2018_svi_county
 #
-# Created by etl() on 2025-05-16 13:23:58
+# Created by etl() on 2025-06-29 22:07:03
 # Do not edit directly
 
 # remove duplicate points and make geometries valid:
@@ -25,4 +25,5 @@ UPDATE us_2018_svi_county
 CREATE INDEX us_2018_svi_county_geom_local_idx
   ON us_2018_svi_county
   USING GIST (geom_local);
-NOTIFY pgrst, 'reload schema';"
+NOTIFY pgrst, 'reload schema';
+"

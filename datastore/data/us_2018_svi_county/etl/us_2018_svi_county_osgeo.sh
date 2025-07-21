@@ -6,7 +6,7 @@
 # Data source: https://svi.cdc.gov/Documents/Data/2018/db/states_counties/SVI_2018_US_county.zip
 # Destination postGIS table: us_2018_svi_county
 #
-# Created by etl() on 2025-05-16 13:23:58
+# Created by etl() on 2025-06-29 22:07:03
 # Do not edit directly
 
 # create directory structure and move into it
@@ -20,15 +20,15 @@ file=datestamp
 exists=$(test "${list#*$file}" != "$list" && echo 1)
 if [[ $exists ]]; then
 
-# check need for update based on update frequency
-update_frequency='Never'
-no_update='-- As Needed Never'
-no_update=$(test "${no_update#*$update_frequency}" != "$no_update" && echo 1)
-if [[ ! $no_update ]]; then
-last_update=$(date -d "$(cat datestamp)" '+%s')
-check_date="$(date -d '-'"$update_frequency" '+%s')"
-if [[ "$check_date -ge $last_update" ]]; then do_update=1; fi
-fi
+  # check need for update based on update frequency
+  update_frequency='Never'
+  no_update='-- As Needed Never'
+  no_update=$(test "${no_update#*$update_frequency}" != "$no_update" && echo 1)
+  if [[ ! $no_update ]]; then
+    last_update=$(date -d "$(cat datestamp)" '+%s')
+    check_date="$(date -d '-'"$update_frequency" '+%s')"
+    if [[ "$check_date -ge $last_update" ]]; then do_update=1; fi
+  fi
 
 # does not exist
 else do_update=1; fi
@@ -47,6 +47,6 @@ fi
 # load into postGIS
 (exit 1)
 until [[ "$?" == 0 ]]; do
-  ogr2ogr -lco GEOMETRY_NAME=geom -f PostgreSQL PG:"dbname=$POSTGRES_DB port=$POSTGRES_PORT user=$POSTGRES_USER password=$(cat $POSTGRES_PASSWORD_FILE) host='gaia-db'" download/SVI2018_US_county.gdb -nlt multipolygon -nln us_2018_svi_county
+  ogr2ogr -lco GEOMETRY_NAME=geom -f PostgreSQL PG:"dbname=$POSTGRES_DB port=$POSTGRES_PORT user=$POSTGRES_USER password=$POSTGRES_PASSWORD host='gaia-db'" download/SVI2018_US_county.gdb -nlt multipolygon -nln us_2018_svi_county
 done
 

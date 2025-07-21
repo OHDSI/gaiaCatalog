@@ -15,7 +15,7 @@ do_update=0 if date() < last_update + update_frequency else do_update = 1
 
 # clone a git repo and run the code# save netcdf as tif
 cd download
-gdal_translate -a_srs EPSG:4326 tz_1984_copernicus_avg_temp.nc tz_1984_copernicus_avg_temp.tif
+gdal_translate NETCDF:tz_1984_copernicus_avg_temp.nc:2m_temperature tz_1984_copernicus_avg_temp.tif
 cd ..
 
 
@@ -24,7 +24,7 @@ cd ..
 ####
 
 # load raster into postGIS with:
-    raster2pgsql -s 4326 -d -C -I tz_1984_copernicus_avg_temp.tif -F -t 256x256 tz_1984_copernicus_avg_temp > load_raster.sql
+    raster2pgsql -s 4326 -d -C -I -t auto tz_1984_copernicus_avg_temp.tif -F tz_1984_copernicus_avg_temp > load_raster.sql
 psql <connection options> < load_raster.sql
 rm load_raster.sql
 

@@ -6,9 +6,10 @@
 # Data source: https://svi.cdc.gov/Documents/Data/2018/db/states/Massachusetts.zip
 # Destination postGIS table: ma_2018_svi_tract
 #
-# Created by etl() on 2025-05-16 13:23:41
+# Created by etl() on 2025-06-30 18:24:58
 # Do not edit directly
 
+export POSTGRES_PASSWORD=$(cat $POSTGRES_PASSWORD_FILE)
 # remove duplicate points and make geometries valid:
 psql -d $POSTGRES_DB -U $POSTGRES_USER -p $POSTGRES_PORT -h gaia-db -c "
 UPDATE ma_2018_svi_tract
@@ -25,4 +26,5 @@ UPDATE ma_2018_svi_tract
 CREATE INDEX ma_2018_svi_tract_geom_local_idx
   ON ma_2018_svi_tract
   USING GIST (geom_local);
-NOTIFY pgrst, 'reload schema';"
+NOTIFY pgrst, 'reload schema';
+"

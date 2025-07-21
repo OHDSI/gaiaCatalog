@@ -6,7 +6,7 @@
 # Data source: https://github.com/tibbben/copernicus_aggregate.git
 # Destination postGIS table: tz_1984_copernicus_avg_temp
 #
-# Created by etl() on 2025-06-02 22:13:11
+# Created by etl() on 2025-06-29 21:32:26
 # Do not edit directly
 
 # create directory structure and move into it
@@ -23,15 +23,15 @@ file=datestamp
 exists=$(test "${list#*$file}" != "$list" && echo 1)
 if [[ $exists ]]; then
 
-# check need for update based on update frequency
-update_frequency='As Needed'
-no_update='-- As Needed Never'
-no_update=$(test "${no_update#*$update_frequency}" != "$no_update" && echo 1)
-if [[ ! $no_update ]]; then
-last_update=$(date -d "$(cat datestamp)" '+%s')
-check_date="$(date -d '-'"$update_frequency" '+%s')"
-if [[ "$check_date -ge $last_update" ]]; then do_update=1; fi
-fi
+  # check need for update based on update frequency
+  update_frequency='As Needed'
+  no_update='-- As Needed Never'
+  no_update=$(test "${no_update#*$update_frequency}" != "$no_update" && echo 1)
+  if [[ ! $no_update ]]; then
+    last_update=$(date -d "$(cat datestamp)" '+%s')
+    check_date="$(date -d '-'"$update_frequency" '+%s')"
+    if [[ "$check_date -ge $last_update" ]]; then do_update=1; fi
+  fi
 
 # does not exist
 else do_update=1; fi

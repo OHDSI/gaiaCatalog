@@ -1,49 +1,115 @@
 {
-    "@context": {
-        "@vocab": "https://schema.org/"
+  "@context": {
+    "@vocab": "https://schema.org/"
+  },
+  "@type": "Dataset",
+  "@id": "https://gdsc.idsc.miami.edu/detail/tz_1984_copernicus_avg_temp",
+  "name": "1984 Tanzania 2m Temperature Yearly Average (Copernicus)",
+  "creator": [
+    {
+      "@type": "Role",
+      "roleName": "Creator",
+      "creator": {
+        "@type": "Organization",
+        "identifier": {
+          "@id": "https://ror.org/00yafkq43",
+          "@type": "PropertyValue",
+          "propertyID": "https://registry.identifiers.org/registry/ror",
+          "url": "https://ror.org/00yafkq43",
+          "value": "ror:00yafkq43"
+        },
+        "name": "Copernicus",
+        "url": "TBD"
+      }
+    }
+  ],
+  "url": "https://cds.climate.copernicus.eu/datasets/reanalysis-era5-land",
+  "provider": [
+    "OHDSI"
+  ],
+  "license": "Open Data Commons Attribution License (ODC-By): http://opendatacommons.org/licenses/by/1.0/",
+  "spatialCoverage": [
+    {
+      "@id": "https://www.geonames.org/149590",
+      "@type": "Place",
+      "name": "Tanzania"
     },
-    "@type": "Dataset",
-    "@id": "https://gdsc.idsc.miami.edu/detail/tz_1984_copernicus_avg_temp",
-    "name": "1984 Tanzania 2m Temperature Yearly Average (Copernicus)",
-    "creator": [
+    {
+      "@type": "Place",
+      "name": "bbox",
+      "geo": {
+        "@type": "GeoShape",
+        "polygon": "29 -12 41 -12 41 -0.8 29 -0.8 29 -12"
+      }
+    }
+  ],
+  "temporalCoverage": "1984-01-01/1984-12-31",
+  "type": "Raster Dataset",
+  "datePublished": "2025-06-01",
+  "description": "A raster dataset with yearly averages of the 2m temperature from the ERA 5 renanalysis data from Copernicus satellite sensors for Tanzania. ERA5 is the fifth generation ECMWF reanalysis for the global climate and weather for the past 8 decades. Data is available from 1940 onwards. ERA5 replaces the ERA-Interim reanalysis.",
+  "keywords": [
+    "Tanzania",
+    "temperature"
+  ],
+  "about": [
+    {
+      "@type": "Event",
+      "description": "Copernicus",
+      "name": "ETL process for 1984 Tanzania 2m Temperature Yearly Average (Copernicus)",
+      "potentialAction": [
         {
-            "@id": "https://www.sample-data-repository.org/person-role/472036",
-            "@type": "Role",
-            "roleName": "Principal Investigator",
-            "creator": {
-                "@id": "https://www.sample-data-repository.org/person/50663",
-                "@type": "Person",
-                "name": "OHDSI",
-                "url": "TBD"
-            }
+          "@type": "Action",
+          "name": "github_code",
+          "description": "Custom ETL process for 1984 Tanzania 2m Temperature Yearly Average (Copernicus)",
+          "object": {
+            "@type": "Dataset",
+            "name": "Copernicus",
+            "producer": "Copernicus",
+            "url": "https://cds.climate.copernicus.eu/datasets/reanalysis-era5-land"
+          },
+          "instrument": {
+            "@type": "SoftwareApplication",
+            "@id": "https://github.com/tibbben/copernicus_aggregate",
+            "featureList": "python copernicus_aggregate.py json;table;extension;extent;attributes;bands;format 1984",
+            "downloadUrl": "https://github.com/tibbben/copernicus_aggregate.git"
+          },
+          "result": {
+            "@type": "Dataset",
+            "name": "1984 Tanzania 2m Temperature Yearly Average (Copernicus)",
+            "description": "A raster dataset with yearly averages of the 2m temperature from the ERA 5 renanalysis data from Copernicus satellite sensors for Tanzania. ERA5 is the fifth generation ECMWF reanalysis for the global climate and weather for the past 8 decades. Data is available from 1940 onwards. ERA5 replaces the ERA-Interim reanalysis.",
+            "encodingFormat": "tiff",
+            "url": "https://gdsc.idsc.miami.edu/download/data/tz_1984_copernicus_avg_temp/?file=tz_1984_copernicus_avg_temp&format=tiff"
+          }
         }
-    ],
-    "url": "https://cds.climate.copernicus.eu/datasets/reanalysis-era5-land?tab=overview",
-    "provider": [
-        "OHDSI"
-    ],
-    "license": "Open Data Commons Attribution License (ODC-By): http://opendatacommons.org/licenses/by/1.0/",
-    "spatialCoverage.name": [
-        "Tanzania"
-    ],
-    "type": "Raster Dataset",
-    "datePublished": "2025-06-01",
-    "description": "A raster dataset with yearly averages of the 2m temperature from the Copernicus satellite sensors for Tanzania.",
-    "keywords": [
-        "Tanzania",
-        "temperature"
-    ],
-    "spatialCoverage.geo": [
-        "29",
-        "-12",
-        "41",
-        "-0.8"
-    ],
-    "about": "TBD",
-    "variableMeasured": [
-        "2m_temperature;Average yearly 2m temperature in Kelvin from Copernicus reanalysis era5 single levels;Copernicus;float;Kelvin;9523;287.315857;301.010986;1984-01-01;1984-12-31;;2m_temperature@tz_1984_copernicus_avg_temp"
-    ],
-    "distribution": "https://github.com/tibbben/copernicus_aggregate.git",
-    "dateModified": "2025-06-01",
-    "version": "TBD"
+      ]
+    }
+  ],
+  "variableMeasured": [
+    {
+      "@type": "PropertyValue",
+      "name": "2m_temperature",
+      "description": "Average yearly 2m temperature in Kelvin from Copernicus reanalysis era5 single levels",
+      "propertyID": [
+        "35814756"
+      ],
+      "unitCode": "9523",
+      "unitText": "Kelvin",
+      "minValue": "287.315857",
+      "maxValue": "301.010986",
+      "startDate": "1984-01-01",
+      "endDate": "1984-12-31"
+    }
+  ],
+  "distribution": "https://github.com/tibbben/copernicus_aggregate.git",
+  "isBasedOn": [
+    {
+      "@type": "Dataset",
+      "name": "Copernicus",
+      "description": "A raster dataset with yearly averages of the 2m temperature from the ERA 5 renanalysis data from Copernicus satellite sensors for Tanzania. ERA5 is the fifth generation ECMWF reanalysis for the global climate and weather for the past 8 decades. Data is available from 1940 onwards. ERA5 replaces the ERA-Interim reanalysis.",
+      "producer": "Copernicus",
+      "url": "https://cds.climate.copernicus.eu/datasets/reanalysis-era5-land"
+    }
+  ],
+  "dateModified": "2025-06-01",
+  "version": "2025-07-21"
 }

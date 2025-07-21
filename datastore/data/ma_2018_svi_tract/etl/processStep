@@ -20,7 +20,7 @@ wget -O download/ma_2018_svi_tract.zip 'https://svi.cdc.gov/Documents/Data/2018/
 # unzip to download directory if update flag is set
 if do_update == 1 then
 unzip -d download download/ma_2018_svi_tract.zip && rm download/ma_2018_svi_tract.zip
-'
+
 # load into postGIS with:
   ogr2ogr -lco GEOMETRY_NAME=geom -f PostgreSQL PG:"<postgres connection>" download/SVI2018_MASSACHUSETTS_tract.gdb -nlt multipolygon -nln ma_2018_svi_tract
 
@@ -28,8 +28,11 @@ unzip -d download download/ma_2018_svi_tract.zip && rm download/ma_2018_svi_trac
 # Step 2 - SQL script (pseudo code):
 ####
 
-# remove duplicate points and make geometries valid:UPDATE ma_2018_svi_tract
-  SET geom=ST_MakeValid(ST_RemoveRepeatedPoints(geom));# add local geometry column and reproject existing geometries into local EPSG:
+# remove duplicate points and make geometries valid:
+UPDATE ma_2018_svi_tract
+  SET geom=ST_MakeValid(ST_RemoveRepeatedPoints(geom));
+
+# add local geometry column and reproject existing geometries into local EPSG:
 SELECT AddGeometryColumn (
   'ma_2018_svi_tract',
   'geom_local', 26986, 'multipolygon', 2
@@ -39,14 +42,15 @@ UPDATE ma_2018_svi_tract
 CREATE INDEX ma_2018_svi_tract_geom_local_idx
   ON ma_2018_svi_tract
   USING GIST (geom_local);
-NOTIFY pgrst, 'reload schema';"# Create derivative directory in data package on osgeo
+NOTIFY pgrst, 'reload schema';
+# Create derivative directory in data package on osgeo
 cd /data/ma_2018_svi_tract/
 mkdir -p derived
 
 # Create pg_dump of table SQL in derivate directory on postgis.
-pg_dump -d $POSTGRES_DB -U $POSTGRES_USER -p $POSTGRES_PORT -h postgis-5x3epnz6pwavarfh -t ma_2018_svi_tract > derived/ma_2018_svi_tract.sql
+pg_dump <postgres opts> -h gaia-db -t ma_2018_svi_tract > derived/ma_2018_svi_tract.sql
 
-Create downloadable tarfile of SQL in derivative directory on postgis
+# Create downloadable tarfile of SQL in derivative directory on postgis
 tar -czf derived/ma_2018_svi_tract.sql.tar.gz meta_dcat_ma_2018_svi_tract.json -C derived ma_2018_svi_tract.sql
 
 
