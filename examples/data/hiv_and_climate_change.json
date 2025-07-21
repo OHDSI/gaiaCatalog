@@ -249,7 +249,7 @@
                 {
                     "@type": "PropertyValue",
                     "name": "timePeriod",
-                    "description": "timePeriod is specified in ISO 8601 format. It has a start date, an interval and an argument (Rn) that repeats the intervalbeginning at the start date",
+                    "description": "timePeriod is specified in ISO 8601 format. It has a start date, an interval and an argument (Rn) that repeats the interval beginning at the start date",
                     "value": "R144/2014-01/P1M"
                     "unitCode": "http://athena.ohdsi.org/ucum/44777658",
                     "unitText": "/mo"
@@ -282,43 +282,50 @@
                 "actionProcess": {
                     "@type": "HowTo",
                     "tool": "The OHDSI GIS extension toolchain",
-                    "yield": "An external exposure occurrence"
+                    "yield": "An external exposure occurrence",
                     "url": "https://ohdsi.github.io/CommonDataModel/cdm54.html#external_exposure"
                 }
             }
         },
         {
-            "@id": "http://example.org/id/link/to/concept/of/exposure_definition",
-            "@type": "PropertyValue",
-            "name": "Flood exceedance - [day] [month] [year]",
+            "@type": "StatisticalVariable",
+            "name": "Flood exceedance event",
+            "identifier": "http://gisextension.ohdsi.org/sdoh/nnn",
             "description": "A precipitation event over the 95th percentile counts as a flood exceedance.",
             "disambiguatingDescription": "Flood exceedances are associated with disruption in services and infrastructure.", 
-            "propertyID": [
-                "http://gisextension.ohdsi.org/exposome/nnn",
-                "URL for the exposome type in a vocabulary",
-                "URL for the exposome subtype in the same vocabulary"
-            ],
-            "measurementMethod": "",
-            "measurementTechnique": "",
-            "unitCode": "",
-            "unitText": "",
-            "valueReference": {
-                "@type": "PropertyValue",
-                "name": "analysisRole",    
-                "value": "",   
-                "rangeIncludes": {
-                    "@type":"DefinedTermSet",
-                    "@id":"",        
-                    "name":"",        
-                    "hasDefinedTerm": [
-                        {"@type": "DefinedTerm", "termCode":"Independent"},
-                        {"@type": "DefinedTerm", "termCode":"Dependent"},
-                        {"@type": "DefinedTerm", "termCode":"Intervening"},
-                        {"@type": "DefinedTerm", "termCode":"Control"}
-                    ]
+            "populationType": "Gaia",
+            "measuredProperty": "Precipitation event",
+            "unitText": "mm/24 hrs",
+            "statType": "95% of all recorded 24-hour rainfall events over a specific period",
+            "constraintProperty": [
+                {
+                    "@type": "PropertyValue",
+                    "name": "timePeriod",
+                    "description": "time period in scope for comparison events",
+                    "disambiguatingDescription": "timePeriod is specified in ISO 8601 format. It has a start date, an interval and an argument (Rn) that repeats the interval beginning at the start date",
+                    "value": "[P1Y, P5Y, P10Y]"
+                    "unitCode": "TBD",
+                    "unitText": "[past yr, past 5yr, past 10yr]"
                 },
-                "value": "Independent"
-            },
+                {
+                    "@type": "PropertyValue",
+                    "name": "geographicalArea",
+                    "description": "",
+                    "value": {
+                        "@type": "AdministrativeArea",
+                        "name": "an HDSS name",
+                        "geo": {
+                            "@type": "GeoShape",
+                            "description": "We used the geocoordinates of the centroid of an HDSS and applied a 10 km buffer around it",
+                            "disambiguatingDescription": "This buffer helped account for potential inaccuracies in the centroid coordinates and the limited resolution of the climate data.",
+                            "circle": "A circle is the circular region of a specified radius centered at a specified latitude and longitude. A circle is expressed as a pair followed by a radius in meters.",
+                            "elevation": "The elevation of a location (WGS 84)."
+                        },
+                    },
+                    "unitCode": "TBD",
+                    "unitText": "by AdministrativeArea"
+                }
+            ],
             "potentialAction": {
                 "@type": "AddAction",
                 "targetCollection": {
@@ -328,7 +335,7 @@
                 "actionProcess": {
                     "@type": "HowTo",
                     "tool": "The OHDSI GIS extension toolchain",
-                    "yield": "An external exposure occurrence"
+                    "yield": "An external exposure occurrence",
                     "url": "https://ohdsi.github.io/CommonDataModel/cdm54.html#external_exposure"
                 }
             }
