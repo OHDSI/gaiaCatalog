@@ -51,11 +51,11 @@
       - Properties include a name, the statType (like a mean), the underlying measuredProperty of the statistic, the identifier (concept_id) of the underlying measuredProperty, the unitText of the underlying measuredProperty and a constraintProperty
       - Here constraintProperty takes an array of PropertyValue in which each PropertyValue qualifies the measuredProperty. As a rule, a measuredProperty has at least two PropertyValues -- a timePeriod and a geographicalArea.
       - Each constraint in the array has its own unitText so, for example, the unit of measurement of an exposure statistic is a concatenation of the unit of measurement of the measuredProperty and its qualifiers. Take, for example, [Mean] [maximum temperature] [by month] [by place]
-    - An exposure that is not a statistic takes a single [PropertyValue](https://schema.org/PropertyValue) following the [recommendation](https://github.com/ESIPFed/science-on-schema.org/blob/main/guides/Dataset.md#tier-2-names-of-variables-with-formal-property-types) of [science-on-schema-org](https://github.com/ESIPFed/science-on-schema.org/blob/main/guides/Dataset.md#describing-a-dataset)
-    - In addition to zero or more StatisticalVariables, variableMeasured can host zero or more of these exposures too
-    - Each of these PropertyValues in the variableMeasured array corresponds to an exposure definition
-    - Each of these PropertyValues includes a propertyID. A [propertyID](https://schema.org/propertyID) corresponds to a concept_id in an external vocabulary. Take this propertyID for example: "http://gisextension.ohdsi.org/exposome/nnn"
-    - Each of these PropertyValues includes an [AddAction](https://schema.org/AddAction) potentialAction through which an external exposure occurrence is added to the external_exposure OMOP CDM table
+    - In addition to zero or more StatisticalVariables, variableMeasured can host zero or more variables that are not statistics too
+      - An exposure that is not a statistic takes a single [PropertyValue](https://schema.org/PropertyValue) following the [recommendation](https://github.com/ESIPFed/science-on-schema.org/blob/main/guides/Dataset.md#tier-2-names-of-variables-with-formal-property-types) of [science-on-schema-org](https://github.com/ESIPFed/science-on-schema.org/blob/main/guides/Dataset.md#describing-a-dataset)  
+      - Each of these PropertyValues in the variableMeasured array corresponds to an exposure definition
+      - Each of these PropertyValues includes a propertyID. A [propertyID](https://schema.org/propertyID) corresponds to a concept_id in an external vocabulary. Take this propertyID for example: "http://gisextension.ohdsi.org/exposome/nnn"
+      - Each of these PropertyValues includes an [AddAction](https://schema.org/AddAction) potentialAction through which an external exposure occurrence is added to the external_exposure OMOP CDM table
   - about
     - about takes any Thing including an [Event](https://schema.org/Event)
     - The Event has a potentialAction
