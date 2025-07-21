@@ -296,7 +296,7 @@
             "populationType": "Gaia",
             "measuredProperty": "Precipitation event",
             "unitText": "mm/24 hrs",
-            "statType": "95% of all recorded 24-hour rainfall events over a specific period",
+            "statType": "95th percentile of all recorded 24-hour rainfall events over a specific period",
             "constraintProperty": [
                 {
                     "@type": "PropertyValue",
@@ -324,6 +324,12 @@
                     },
                     "unitCode": "TBD",
                     "unitText": "by AdministrativeArea"
+                },
+                {
+                    "@type": "PropertyValue",
+                    "name": "calculationMethod",
+                    "description": "",
+                    "value": ""
                 }
             ],
             "potentialAction": {
