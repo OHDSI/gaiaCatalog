@@ -9,7 +9,7 @@
 > **Entries may include instructions for retrieving the actual data**
 
 > [!WARNING]
-> **We have still to say which properties of the schema.org Dataset type are necessary and which are optional here**
+> **We are in the process of identifying which properties of the schema.org Dataset type are necessary and which are optional here. We have not completed this task yet**
 
 ## Let's begin...
 - [Dataset](https://schema.org/Dataset) has...
@@ -47,15 +47,15 @@
       - Takes a DataDownLoad when a distribution can be retrieved by a url. See [here](https://github.com/ESIPFed/science-on-schema.org/blob/main/guides/Dataset.md#distributions) for an example
       - Takes a SearchAction when the distribution is retrieved through a service [endpoint](https://schema.org/EntryPoint) that takes [query parameters](https://schema.org/PropertyValueSpecification). See [here](https://github.com/ESIPFed/science-on-schema.org/blob/main/guides/Dataset.md#accessing-data-through-a-service-endpoint) for an example
   - variableMeasured
-    - Takes an array of [PropertyValue](https://schema.org/PropertyValue) following the [recommendation](https://github.com/ESIPFed/science-on-schema.org/blob/main/guides/Dataset.md#tier-2-names-of-variables-with-formal-property-types) of [science-on-schema-org](https://github.com/ESIPFed/science-on-schema.org/blob/main/guides/Dataset.md#describing-a-dataset)
-    - Each PropertyValue in the array corresponds to an exposure definition
-    - Each PropertyValue includes one or more propertyIDs. A [propertyID](https://schema.org/propertyID) corresponds to a concept_id in an external vocabulary. Take this propertyID for example: "http://gisextension.ohdsi.org/exposome/concept_id"
-    - Each PropertyValue includes an [AddAction](https://schema.org/AddAction) potentialAction through which an external exposure occurrence is added to the external_exposure OMOP CDM table
-    - Each PropertyValue takes an analysisRole from a controlled vocabulary that includes "Independent", "Dependent", "Intervening" and "Control"
-    - Not all PropertyValues are enumerated here -- just the "main" ones
-      - In a Dataset each variable measured aka PropertyValue may occur in a time series
-      - Think of the "main" ones as exposure definition templates
-      - Each template can be specialized to create exposures in the time series in which an exposure defintion participates
+    - Takes a [StatisticalVariable](https://schema.org/StatisticalVariable) when the exposure is an aggregate
+      - Properties include a name, the statType (like a mean), the underlying measuredProperty of the statistic, the identifier (concept_id) of the underlying measuredProperty, the unitText of the underlying measuredProperty and a constraintProperty
+      - Here constraintProperty takes an array of PropertyValue in which each PropertyValue qualifies the measuredProperty. As a rule, a measuredProperty has at least two PropertyValues -- a timePeriod and a geographicalArea.
+      - Each constraint in the array has its own unitText so, for example, the unit of measurement of an exposure statistic is a concatenation of the unit of measurement of the measuredProperty and its qualifiers. Take, for example, [Mean] [maximum temperature] [by month] [by place]
+    - An exposure that is not a statistic takes a single [PropertyValue](https://schema.org/PropertyValue) following the [recommendation](https://github.com/ESIPFed/science-on-schema.org/blob/main/guides/Dataset.md#tier-2-names-of-variables-with-formal-property-types) of [science-on-schema-org](https://github.com/ESIPFed/science-on-schema.org/blob/main/guides/Dataset.md#describing-a-dataset)
+    - In addition to zero or more StatisticalVariables, variableMeasured can host zero or more of these exposures too
+    - Each of these PropertyValues in the variableMeasured array corresponds to an exposure definition
+    - Each of these PropertyValues includes a propertyID. A [propertyID](https://schema.org/propertyID) corresponds to a concept_id in an external vocabulary. Take this propertyID for example: "http://gisextension.ohdsi.org/exposome/nnn"
+    - Each of these PropertyValues includes an [AddAction](https://schema.org/AddAction) potentialAction through which an external exposure occurrence is added to the external_exposure OMOP CDM table
   - about
     - about takes any Thing including an [Event](https://schema.org/Event)
     - The Event has a potentialAction
