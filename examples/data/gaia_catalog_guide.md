@@ -39,6 +39,7 @@
       - [GeoCoordinates](https://schema.org/GeoCoordinates) (See [here](https://github.com/ESIPFed/science-on-schema.org/blob/main/guides/Dataset.md#use-geocoordinates-for-point-locations) for an example) and/or
       - [GeoShape](https://schema.org/GeoShape) (See [here](https://github.com/ESIPFed/science-on-schema.org/blob/main/guides/Dataset.md#use-geoshape-for-all-other-location-types) for an example)
     - Use [additionalProperty](https://schema.org/additionalProperty) to identify the spatial reference system (e.g. WGS84). See [here](https://github.com/ESIPFed/science-on-schema.org/blob/main/guides/Dataset.md#spatial-reference-systems) for an example
+    - There is a second additionalProperty for spatialResolution that takes a value and a unitText
   - temporalCoverage
     - temporalCoverage is expressed in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format
   - distribution
