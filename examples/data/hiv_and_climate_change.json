@@ -399,7 +399,7 @@
             "minValue": "",
             "maxValue": ""
         }
-    ]
+    ],
     "about": {
         "@type": "Event",
         "description": "The provenance of each variable in this distribution is described here",
