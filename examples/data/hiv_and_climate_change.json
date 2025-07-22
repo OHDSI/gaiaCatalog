@@ -101,11 +101,19 @@
                 "circle": "A circle is the circular region of a specified radius centered at a specified latitude and longitude. A circle is expressed as a pair followed by a radius in meters.",
                 "image": ""
             },
-            "additionalProperty": {
-                "@type": "PropertyValue",
-                "propertyID": "https://dbpedia.org/page/Spatial_reference_system",
-                "value": "https://www.w3.org/2003/01/geo/wgs84_pos"
-            }
+            "additionalProperty": [
+                {
+                    "@type": "PropertyValue",
+                    "propertyID": "https://dbpedia.org/page/Spatial_reference_system",
+                    "value": "https://www.w3.org/2003/01/geo/wgs84_pos"
+                },
+                {
+                    "@type": "PropertyValue",
+                    "name": "spatialResolution",
+                    "value": "30 km² grid cells",
+                    "unitText": "km²"
+                }
+            ]
         },
         {
             "@type": "Place",
@@ -117,11 +125,19 @@
                 "circle": "A circle is the circular region of a specified radius centered at a specified latitude and longitude. A circle is expressed as a pair followed by a radius in meters.",
                 "image": ""
             },
-            "additionalProperty": {
-                "@type": "PropertyValue",
-                "propertyID": "https://dbpedia.org/page/Spatial_reference_system",
-                "value": "https://www.w3.org/2003/01/geo/wgs84_pos"
-            }
+            "additionalProperty": [
+                {
+                    "@type": "PropertyValue",
+                    "propertyID": "https://dbpedia.org/page/Spatial_reference_system",
+                    "value": "https://www.w3.org/2003/01/geo/wgs84_pos"
+                },
+                {
+                    "@type": "PropertyValue",
+                    "name": "spatialResolution",
+                    "value": "30 km² grid cells",
+                    "unitText": "km²"
+                }
+            ]
         },
         {
             "@type": "Place",
@@ -148,7 +164,20 @@
     ],
     "temporal": "It may be we will want to support two or more  temporal resolutions, depending upon the patterns that they surface. Two are specified in temporalCoverage. The first is the monthly average (P1M) beginning in 1994 every year for 20 years (R20). temporalCoverge is a shorthand for temporal using ISO 8601. See https://en.wikipedia.org/wiki/ISO_8601",
     "temporalCoverage": ["R20/1994/P1M", "R20/1994/P1W"],
-    "measurementTechnique": "Using the ERA5 Climate Reanalysis of Copernicus satellite data, hourly climate data for the Magu and Nairobi HDSS sites is aggregated monthly across the temporal coverage. Additional variables based on the Copernicus ERA5 satellite are also calculated",
+    "measurementTechnique": {
+        "@type": "DefinedTerm",
+        "description": "Using the ERA5 Climate Reanalysis of Copernicus satellite data, hourly climate data for the Magu and Nairobi HDSS sites is aggregated monthly across the temporal coverage. Additional variables based on the Copernicus ERA5 satellite are also calculated",
+        "inDefinedTermSet": {
+            "@type":"DefinedTermSet",
+            "name":"DataRepresentation",        
+            "hasDefinedTerm": [
+                {"@type": "DefinedTerm", "termCode":"raster"},
+                {"@type": "DefinedTerm", "termCode":"vector"},
+                {"@type": "DefinedTerm", "termCode":"table"}
+            ]
+        },
+        "termCode": "raster"
+    }
     "measurementMethod": "https://climate.copernicus.eu/climate-reanalysis",
     "distribution": [
         {
@@ -347,6 +376,30 @@
             }
         }
     ],
+    "hasPart": [
+        {
+            "@type": "Observation",
+            "variableMeasured": "Average monthly maximum temperature",
+            "observationDate": {
+                "@type": "DateTime",
+                "startDate": "",
+                "endDate": ""
+            } 
+            "minValue": "",
+            "maxValue": ""
+        },
+        {
+            "@type": "Observation",
+            "variableMeasured": "Flood exceedance event",
+            "observationDate": {
+                "@type": "DateTime",
+                "startDate": "",
+                "endDate": ""
+            } 
+            "minValue": "",
+            "maxValue": ""
+        }
+    ]
     "about": {
         "@type": "Event",
         "description": "The provenance of each variable in this distribution is described here",
