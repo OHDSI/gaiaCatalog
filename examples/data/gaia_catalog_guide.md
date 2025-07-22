@@ -56,6 +56,10 @@
       - Each of these PropertyValues in the variableMeasured array corresponds to an exposure definition
       - Each of these PropertyValues includes a propertyID. A [propertyID](https://schema.org/propertyID) corresponds to a concept_id in an external vocabulary. Take this propertyID for example: "http://gisextension.ohdsi.org/exposome/nnn"
       - Each of these PropertyValues includes an [AddAction](https://schema.org/AddAction) potentialAction through which an external exposure occurrence is added to the external_exposure OMOP CDM table
+  - hasPart
+    - A StatisticalVariable specifies a metric that we construct on top of an observation. The metric may group the observation across several factors or dimensions. They are the constraintProperties of the StatisticalVariable.
+    - Typically we pair a StatisticalVariable with its Observation.
+    - The Observation for each StatisticalVariable is located in the hasPart array
   - about
     - about takes any Thing including an [Event](https://schema.org/Event)
     - The Event has a potentialAction
