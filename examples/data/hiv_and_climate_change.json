@@ -384,7 +384,7 @@
                 "@type": "DateTime",
                 "startDate": "",
                 "endDate": ""
-            } 
+            }, 
             "minValue": "",
             "maxValue": ""
         },
@@ -395,7 +395,7 @@
                 "@type": "DateTime",
                 "startDate": "",
                 "endDate": ""
-            } 
+            },
             "minValue": "",
             "maxValue": ""
         }
