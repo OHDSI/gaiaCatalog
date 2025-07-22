@@ -59,7 +59,7 @@
   - hasPart
     - A StatisticalVariable specifies a metric that we construct on top of an observation. The metric may group the observation across several factors or dimensions. They are the constraintProperties of the StatisticalVariable.
     - Typically we pair a StatisticalVariable with its Observation.
-    - The Observation for each StatisticalVariable is located in the hasPart array
+    - The Observation for each StatisticalVariable is located in the hasPart array. It has properties like minValue, maxValue, startDate and endDate.
   - about
     - about takes any Thing including an [Event](https://schema.org/Event)
     - The Event has a potentialAction
