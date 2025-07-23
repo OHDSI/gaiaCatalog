@@ -286,7 +286,7 @@
                         "@type": "DefinedTerm",
                         "name": "ConstraintPropertyType",
                         "description": "The ConstraintProperty type has one of two values -- 'dimension' or 'attribute'. Types take after SDMX and RDF Data Cube dimensions and attributes",
-                        "disambiguatingDescription": "In this context an attribute constrains the underlying measure to be drawn from a single category. A dimension breaks out a measure into a controlled vocabulary of many categories",
+                        "disambiguatingDescription": "Attributes give context to the underlying measure. A dimension breaks out a measure into a controlled vocabulary of one or more categories",
                         "termCode": "sdmx:Dimension",
                         "inDefinedTermSet": ["sdmx:Dimension", "sdmx:Attribute"]
                     }
@@ -312,7 +312,7 @@
                         "@type": "DefinedTerm",
                         "name": "ConstraintPropertyType",
                         "description": "The ConstraintProperty type has one of two values -- 'dimension' or 'attribute'. Types take after SDMX and RDF Data Cube dimensions and attributes",
-                        "disambiguatingDescription": "In this context an attribute constrains the underlying measure to be drawn from a single category. A dimension breaks out a measure into a controlled vocabulary of many categories",
+                        "disambiguatingDescription": "Attributes give context to the underlying measure. A dimension breaks out a measure into a controlled vocabulary of one or more categories",
                         "termCode": "sdmx:Attribute",
                         "inDefinedTermSet": ["sdmx:Dimension", "sdmx:Attribute"]
                     }
