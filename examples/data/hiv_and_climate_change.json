@@ -281,7 +281,14 @@
                     "description": "timePeriod is specified in ISO 8601 format. It has a start date, an interval and an argument (Rn) that repeats the interval beginning at the start date",
                     "value": "R144/2014-01/P1M"
                     "unitCode": "http://athena.ohdsi.org/ucum/44777658",
-                    "unitText": "/mo"
+                    "unitText": "/mo",
+                    "valueReference": {
+                        "@type": "DefinedTerm",
+                        "name": "ConstraintPropertyType",
+                        "description": "",
+                        "termCode": "sdmx:Dimension"
+                        "inDefinedTermSet": ["sdmx:Dimension", "sdmx:Attribute"]
+                    }
                 },
                 {
                     "@type": "PropertyValue",
@@ -299,7 +306,14 @@
                         },
                     },
                     "unitCode": "TBD",
-                    "unitText": "for the Magu administrative area"
+                    "unitText": "for the Magu administrative area",
+                    "valueReference": {
+                        "@type": "DefinedTerm",
+                        "name": "ConstraintPropertyType",
+                        "description": "",
+                        "termCode": "sdmx:Attribute"
+                        "inDefinedTermSet": ["sdmx:Dimension", "sdmx:Attribute"]
+                    }
                 }
             ],
             "potentialAction": {
