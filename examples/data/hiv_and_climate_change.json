@@ -289,7 +289,7 @@
                     "description": "",
                     "value": {
                         "@type": "AdministrativeArea",
-                        "name": "an HDSS name",
+                        "name": "Magu",
                         "geo": {
                             "@type": "GeoShape",
                             "description": "We used the geocoordinates of the centroid of an HDSS and applied a 10 km buffer around it",
@@ -299,7 +299,7 @@
                         },
                     },
                     "unitCode": "TBD",
-                    "unitText": "by AdministrativeArea"
+                    "unitText": "for the Magu administrative area"
                 }
             ],
             "potentialAction": {
@@ -342,7 +342,7 @@
                     "description": "",
                     "value": {
                         "@type": "AdministrativeArea",
-                        "name": "an HDSS name",
+                        "name": "Magu",
                         "geo": {
                             "@type": "GeoShape",
                             "description": "We used the geocoordinates of the centroid of an HDSS and applied a 10 km buffer around it",
@@ -352,13 +352,7 @@
                         },
                     },
                     "unitCode": "TBD",
-                    "unitText": "by AdministrativeArea"
-                },
-                {
-                    "@type": "PropertyValue",
-                    "name": "calculationMethod",
-                    "description": "",
-                    "value": ""
+                    "unitText": "for the Magu administrative area"
                 }
             ],
             "potentialAction": {
@@ -380,24 +374,16 @@
         {
             "@type": "Observation",
             "variableMeasured": "Average monthly maximum temperature",
-            "observationDate": {
-                "@type": "DateTime",
-                "startDate": "",
-                "endDate": ""
-            }, 
-            "minValue": "",
-            "maxValue": ""
+            "observationDate": "A combination of date and time of day in the form [-]CCYY-MM-DDThh:mm:ss[Z|(+|-)hh:mm] (see Chapter 5.4 of ISO 8601)",
+            "minValue": "the lower possible value of an observation",
+            "maxValue": "the upper possible value of an observation"
         },
         {
             "@type": "Observation",
             "variableMeasured": "Flood exceedance event",
-            "observationDate": {
-                "@type": "DateTime",
-                "startDate": "",
-                "endDate": ""
-            },
-            "minValue": "",
-            "maxValue": ""
+            "observationDate": "A combination of date and time of day in the form [-]CCYY-MM-DDThh:mm:ss[Z|(+|-)hh:mm] (see Chapter 5.4 of ISO 8601)",
+            "minValue": "the lower possible value of an observation",
+            "maxValue": "the upper possible value of an observation"
         }
     ],
     "about": {
