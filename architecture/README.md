@@ -30,6 +30,7 @@ Input --> Chunk --> Extraction --> Standardize --> Inference --> Use
     * Conversion from various formats to some set of input formats like Markdown
        * Tooling: docling / pymupdf / fitz
        * Store: LanceDB
+    * JSON-LD to NT and triplestore
 2) Chunk & embedding
    * Chunking strategies such as semantic and late chunking, the later being the one used in these examples.  For this section I am looking at the use of [docling chunking](https://docling-project.github.io/docling/examples/advanced_chunking_and_serialization/) vs [Chonkie](https://docs.chonkie.ai/python-sdk/chunkers/overview).
        * Tooling: Chonkie

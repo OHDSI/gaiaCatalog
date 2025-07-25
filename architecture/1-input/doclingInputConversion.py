@@ -4,12 +4,24 @@ from pathlib import Path
 
 
 def extract_document_to_markdown(source_path, output_file=None):
+    """
+    Extract document content and save as markdown file
+
+    Args:
+        source_path: Local file path or URL to document
+        output_file: Output markdown file path (optional)
+    """
+
     # Initialize converter
     converter = DocumentConverter()
 
     try:
         print(f"Processing document: {source_path}")
+
+        # Convert document
         result = converter.convert(source_path)
+
+        # Get markdown content
         markdown_content = result.document.export_to_markdown()
 
         # Determine output filename if not provided
@@ -43,6 +55,9 @@ def extract_document_to_markdown(source_path, output_file=None):
         return None, None
 
 def extract_tables_only(source_path, output_file=None):
+    """
+    Extract only tables from document and save as markdown
+    """
     converter = DocumentConverter()
 
     try:
@@ -105,7 +120,7 @@ def extract_tables_only(source_path, output_file=None):
 if __name__ == "__main__":
     # Example 1: Extract a full document
     # source_url = "https://arxiv.org/pdf/2408.09869"
-    source_url = "path/to/file"  # Docling Technical Report
+    source_url = "/home/fils/src/Projects/NIAID/domainAssessment/sof/source_docs/reports/BV_BRC_BriefSummary_OfBlueprintAlignment_Revised_.pdf"  # Docling Technical Report
     extract_document_to_markdown(source_url, "docling_paper.md")
 
     # Example 2: Extract only tables
