@@ -355,16 +355,16 @@
       "populationType": "Gaia",
       "measuredProperty": "Precipitation event",
       "unitText": "mm/24 hrs",
-      "statType": "95th percentile of all recorded 24-hour rainfall events over a specific period",
+      "statType": "95th percentile of all recorded 24-hour rainfall events",
       "constraintProperty": [
         {
           "@type": "PropertyValue",
           "name": "timePeriod",
           "description": "time period in scope for comparison events",
           "disambiguatingDescription": "timePeriod is specified in ISO 8601 format. It has a start date, an interval and an argument (Rn) that repeats the interval beginning at the start date",
-          "value": "[P1Y, P5Y, P10Y]",
+          "value": "P30Y",
           "unitCode": "TBD",
-          "unitText": "[past yr, past 5yr, past 10yr]"
+          "unitText": "past 30yr"
         },
         {
           "@type": "PropertyValue",
