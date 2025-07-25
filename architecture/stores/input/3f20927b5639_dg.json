@@ -1,0 +1,44 @@
+{
+    "@context": {
+        "@vocab": "https://schema.org/",
+        "ohdsi_gis": "https://ohdsi_gis.org/.well-known/genid/",
+        "geosparql": "http://www.opengis.net/ont/geosparql#"
+    },
+    "@id": "http://ohdsi_gis.org/id/3f20927b5639",
+    "@type": "Dataset",
+    "geosparql:hasGeometry": {
+        "@id": "ohdsi_gis:geo/3f20927b5639",
+        "@type": "http://www.opengis.net/ont/sf#Polygon",
+        "geosparql:asWKT": {
+            "@type": "geosparql:wktLiteral",
+            "@value": "POLYGON ((-80.88214060992922 25.226351125216798, -80.88214060992922 26.02477474034481, -80.10542270721719 26.02477474034481, -80.10542270721719 25.226351125216798, -80.88214060992922 25.226351125216798))"
+        }
+    },
+    "description": "This dataset is derived from the 2015 Miami-Dade County DEM 10ft layer found at https://gis-mdc.opendata.arcgis.com/documents/MDC::2015-miami-dade-county-dem-10ft/about. The original source data was resampled to a resolution of 30ft per pixel using the gdalwarp utility.\\n\\nThis source from Miami-Dade County a Digital Elevation Model (DEM) as a raster mosaic in ESRI float format 32bit representation on a 10ft grid created from the LiDAR collected for the 2015 ITD LiDAR project.\\n\\nBare-earth 10-foot DEM as 32-bit floating point raster format in ArcGIS GRID Raster format in compliance with USGS LIDAR Base Specifications: georeferencing information, delivered without overlap and with no edge artifacts or mismatched, \u201cNODATA\u201d value for void areas, bridges removed from the surface, etc.",
+    "keywords": [
+        "Environment",
+        "Miami-Dade County",
+        "Florida",
+        "Flood",
+        "MDC",
+        "Elevation",
+        "Public-Safety",
+        "DEM 30ft",
+        "Flood Hazard",
+        "Vulnerability"
+    ],
+    "license": "The University of Miami provides this data for use as is. The areas depicted by this map/data are approximate, and are not accurate to surveying or engineering standards. The maps/data shown here are for illustration purposes only and are not suitable for site-specific decision making. Information found here should not be used for making financial or any other commitments. The University of Miami provides this information with the understanding that it is not guaranteed to be accurate, correct or complete and conclusions drawn from such information are the sole responsibility of the user. While every effort has been made to ensure the accuracy, correctness and timeliness of materials presented, University of Miami assumes no responsibility for errors or omissions, even if University of Miami is advised of the possibility of such damage.",
+    "name": "2015 Miami-Dade County DEM 30ft ",
+    "publisher": {
+        "@type": "http://www.w3.org/2000/01/rdf-schema#Literal",
+        "@value": "University of Miami GDSC Public Domain"
+    },
+    "spatialCoverage": {
+        "@id": "ohdsi_gis:3f20927b5639",
+        "@type": "Place",
+        "name": [
+            "Miami-Dade County",
+            "Florida"
+        ]
+    }
+}

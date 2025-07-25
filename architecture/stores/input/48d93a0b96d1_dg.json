@@ -1,0 +1,151 @@
+{
+    "@context": {
+        "@vocab": "https://schema.org/",
+        "ohdsi_gis": "https://ohdsi_gis.org/.well-known/genid/",
+        "geosparql": "http://www.opengis.net/ont/geosparql#"
+    },
+    "@id": "http://ohdsi_gis.org/id/48d93a0b96d1",
+    "@type": "Dataset",
+    "geosparql:hasGeometry": {
+        "@id": "ohdsi_gis:geo/48d93a0b96d1",
+        "@type": "http://www.opengis.net/ont/sf#Polygon",
+        "geosparql:asWKT": {
+            "@type": "geosparql:wktLiteral",
+            "@value": "POLYGON ((-80.8735841733116 25.1374268268493, -80.8735841733116 25.9794388977094, -80.0427593524206 25.9794388977094, -80.0427593524206 25.1374268268493, -80.8735841733116 25.1374268268493))"
+        }
+    },
+    "description": "A polygon feature class of Miami-Dade County Municipal Zoning Districts.\\n\\nUpdated: Annually\\n",
+    "keywords": [
+        "Property",
+        "Miami-Dade County",
+        "Florida",
+        "Zoning",
+        "Municipal",
+        "MDC"
+    ],
+    "license": "Miami-Dade County provides this data for use as is. The areas depicted by this map/data are approximate, and are not accurate to surveying or engineering standards. The maps/data shown here are for illustration purposes only and are not suitable for site-specific decision making. Information found here should not be used for making financial or any other commitments. Miami-Dade County provides this information with the understanding that it is not guaranteed to be accurate, correct or complete and conclusions drawn from such information are the sole responsibility of the user. While every effort has been made to ensure the accuracy, correctness and timeliness of materials presented, Miami-Dade County assumes no responsibility for errors or omissions, even if Miami-Dade County is advised of the possibility of such damage.",
+    "name": "Miami-Dade Municipal Zoning",
+    "publisher": {
+        "@type": "http://www.w3.org/2000/01/rdf-schema#Literal",
+        "@value": "Miami Dade County Public Domain"
+    },
+    "spatialCoverage": {
+        "@id": "ohdsi_gis:48d93a0b96d1",
+        "@type": "Place",
+        "name": "Miami-Dade County"
+    },
+    "variableMeasured": [
+        {
+            "@id": "ohdsi_gis:48d93a0b96d1/munic_name",
+            "@type": "PropertyValue",
+            "additionalType": "varchar",
+            "description": "Name of the municipality",
+            "measurementMethod": "MDC",
+            "name": "munic_name"
+        },
+        {
+            "@id": "ohdsi_gis:48d93a0b96d1/munic_id",
+            "@type": "PropertyValue",
+            "additionalType": "varchar",
+            "description": "Municipal ID",
+            "measurementMethod": "MDC",
+            "name": "munic_id"
+        },
+        {
+            "@id": "ohdsi_gis:48d93a0b96d1/short_desc",
+            "@type": "PropertyValue",
+            "additionalType": "varchar",
+            "description": "Short description of the zone",
+            "measurementMethod": "MDC",
+            "name": "short_desc"
+        },
+        {
+            "@id": "ohdsi_gis:48d93a0b96d1/min_lot_width",
+            "@type": "PropertyValue",
+            "additionalType": "int4",
+            "description": "Minimum lot width",
+            "measurementMethod": "MDC",
+            "name": "min_lot_width"
+        },
+        {
+            "@id": "ohdsi_gis:48d93a0b96d1/mix_use",
+            "@type": "PropertyValue",
+            "additionalType": "boolean",
+            "description": "Mixed use flag",
+            "measurementMethod": "MDC",
+            "name": "mix_use"
+        },
+        {
+            "@id": "ohdsi_gis:48d93a0b96d1/zone",
+            "@type": "PropertyValue",
+            "additionalType": "varchar",
+            "description": "Zone as code",
+            "measurementMethod": "MDC",
+            "name": "zone"
+        },
+        {
+            "@id": "ohdsi_gis:48d93a0b96d1/min_lot_size",
+            "@type": "PropertyValue",
+            "additionalType": "varchar",
+            "description": "Minimum lot size",
+            "measurementMethod": "MDC",
+            "name": "min_lot_size"
+        },
+        {
+            "@id": "ohdsi_gis:48d93a0b96d1/max_height",
+            "@type": "PropertyValue",
+            "additionalType": "int4",
+            "description": "Maximum height",
+            "measurementMethod": "MDC",
+            "name": "max_height"
+        },
+        {
+            "@id": "ohdsi_gis:48d93a0b96d1/zone_desc",
+            "@type": "PropertyValue",
+            "additionalType": "varchar",
+            "description": "Description of the zone",
+            "measurementMethod": "MDC",
+            "name": "zone_desc"
+        },
+        {
+            "@id": "ohdsi_gis:48d93a0b96d1/general_lu_type",
+            "@type": "PropertyValue",
+            "additionalType": "varchar",
+            "description": "Main type of use permitted for each zoning district",
+            "measurementMethod": "MDC",
+            "name": "general_lu_type"
+        },
+        {
+            "@id": "ohdsi_gis:48d93a0b96d1/max_lot_cov",
+            "@type": "PropertyValue",
+            "additionalType": "int4",
+            "description": "Maximum lot coverage",
+            "measurementMethod": "MDC",
+            "name": "max_lot_cov"
+        },
+        {
+            "@id": "ohdsi_gis:48d93a0b96d1/dev_code",
+            "@type": "PropertyValue",
+            "additionalType": "varchar",
+            "description": "Land developmental code",
+            "measurementMethod": "MDC",
+            "name": "dev_code"
+        },
+        {
+            "@id": "ohdsi_gis:48d93a0b96d1/density",
+            "@type": "PropertyValue",
+            "additionalType": "varchar",
+            "description": "Number of developed units in a specific area of land",
+            "measurementMethod": "MDC",
+            "name": "density"
+        },
+        {
+            "@id": "ohdsi_gis:48d93a0b96d1/floor_area_ration",
+            "@type": "PropertyValue",
+            "additionalType": "varchar",
+            "description": "Measurement of a building's floor area in relation to the size of the lot/parcel that the building is located on",
+            "measurementMethod": "MDC",
+            "name": "floor_area_ration"
+        }
+    ]
+}

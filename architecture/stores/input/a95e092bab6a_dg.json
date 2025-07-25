@@ -1,0 +1,87 @@
+{
+    "@context": {
+        "@vocab": "https://schema.org/",
+        "ohdsi_gis": "https://ohdsi_gis.org/.well-known/genid/",
+        "geosparql": "http://www.opengis.net/ont/geosparql#"
+    },
+    "@id": "http://ohdsi_gis.org/id/a95e092bab6a",
+    "@type": "Dataset",
+    "geosparql:hasGeometry": {
+        "@id": "ohdsi_gis:geo/a95e092bab6a",
+        "@type": "http://www.opengis.net/ont/sf#Polygon",
+        "geosparql:asWKT": {
+            "@type": "geosparql:wktLiteral",
+            "@value": "POLYGON ((-80.2975160829999 25.705373207, -80.2975160829999 25.911448224, -80.118840819 25.911448224, -80.118840819 25.705373207, -80.2975160829999 25.705373207))"
+        }
+    },
+    "description": "The historical redlining grade from 143 cities across the United States. This dataset is the subset for Miami-Dade County in Florida.",
+    "keywords": [
+        "Redlining History",
+        "Miami-Dade County",
+        "Social Justice",
+        "Racial Inequality",
+        "Florida",
+        "MDC",
+        "Race",
+        "Property",
+        "Housing",
+        "HOLC"
+    ],
+    "name": "Miami-Dade Home Owner's Loan Corporation (HOLC) Neighborhood Redlining Grade",
+    "publisher": {
+        "@type": "http://www.w3.org/2000/01/rdf-schema#Literal",
+        "@value": "University of Richmond's Digital Scholarship Lab Use items owned by Esri in ArcGIS Online in conjunction with Esri software or an ArcGIS or Developer subscription for\\nprojects and applications that are both internal and external use\\n\\nUse the basemap data offline in the following manner\\n\u2022 The data may only be taken offline using Esri Content Packages\\n\u2022 The package can be used with any device as long as it is used exclusively with Esri software"
+    },
+    "spatialCoverage": {
+        "@id": "ohdsi_gis:a95e092bab6a",
+        "@type": "Place",
+        "name": "United States"
+    },
+    "variableMeasured": [
+        {
+            "@id": "ohdsi_gis:a95e092bab6a/city",
+            "@type": "PropertyValue",
+            "additionalType": "string",
+            "description": "City of polygon",
+            "name": "city"
+        },
+        {
+            "@id": "ohdsi_gis:a95e092bab6a/holc_grade",
+            "@type": "PropertyValue",
+            "additionalType": "string",
+            "description": "HOLC alphabetical system grade",
+            "measurementMethod": "HOLC",
+            "name": "holc_grade"
+        },
+        {
+            "@id": "ohdsi_gis:a95e092bab6a/citystate",
+            "@type": "PropertyValue",
+            "additionalType": "string",
+            "description": "City and state of polygon",
+            "name": "citystate"
+        },
+        {
+            "@id": "ohdsi_gis:a95e092bab6a/st",
+            "@type": "PropertyValue",
+            "additionalType": "string",
+            "description": "State of polygon",
+            "name": "st"
+        },
+        {
+            "@id": "ohdsi_gis:a95e092bab6a/code",
+            "@type": "PropertyValue",
+            "additionalType": "integer",
+            "description": "FIPS code",
+            "measurementMethod": "U.S. Census Bureau",
+            "name": "code"
+        },
+        {
+            "@id": "ohdsi_gis:a95e092bab6a/holc",
+            "@type": "PropertyValue",
+            "additionalType": "numeric",
+            "description": "HOLC numeric system grade",
+            "measurementMethod": "HOLC",
+            "name": "holc"
+        }
+    ]
+}

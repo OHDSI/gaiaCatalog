@@ -1,0 +1,171 @@
+{
+    "@context": {
+        "@vocab": "https://schema.org/",
+        "ohdsi_gis": "https://ohdsi_gis.org/.well-known/genid/",
+        "geosparql": "http://www.opengis.net/ont/geosparql#"
+    },
+    "@id": "http://ohdsi_gis.org/id/6b25eb44747f",
+    "@type": "Dataset",
+    "description": "The AirData Air Quality Index Summary Report displays an annual summary of Air Quality Index (AQI) values for counties or core based statistical areas (CBSA). Air Quality Index is an indicator of overall air quality, because it takes into account all of the criteria air pollutants measured within a geographic area. Although AQI includes all available pollutant measurements, you should be aware that many areas have monitoring stations for some, but not all, of the pollutants. Each row of the AQI Report lists summary values for one year for one county or CBSA. The summary values include both qualitative measures (days of the year having good air quality, for example) and descriptive statistics (median AQI value, for example).\\n\\nSummary statistics for the current year are incomplete because data are still being reported and quality assured. Data for the current year are considered preliminary until May 1 of the following year. Therefore, comparing reported values for the current year with previous years may not be valid.\\n\\nsee https://www.epa.gov/outdoor-air-quality-data/about-air-data-reports for more information.",
+    "keywords": [
+        "EPA",
+        "county",
+        "USA",
+        "annual",
+        "AQI"
+    ],
+    "license": "Unless otherwise specified, all data produced by the U.S EPA is by default in the public domain and is not subject to domestic copyright protection under 17 U.S.C. \u00a7 105 . More details on the U.S. Public Domain license are available here: \\n\\nhttp://www.usa.gov/publicdomain/label/1.0/ \\n\\nAdditionally, please be advised that although these data have been processed successfully on a computer system at the U.S. EPA, no warranty expressed or implied is made regarding the accuracy or utility of the data on any other system or for general or scientific purposes, nor shall the act of distribution constitute any such warranty.",
+    "name": "2022 US EPA Annual AQI by County ",
+    "publisher": {
+        "@type": "http://www.w3.org/2000/01/rdf-schema#Literal",
+        "@value": "US Environmental Protection Agency Public Domain"
+    },
+    "spatialCoverage": {
+        "@id": "ohdsi_gis:6b25eb44747f",
+        "@type": "Place",
+        "name": "USA"
+    },
+    "variableMeasured": [
+        {
+            "@id": "ohdsi_gis:6b25eb44747f/good_days",
+            "@type": "PropertyValue",
+            "additionalType": "int4",
+            "description": "Days with AQI measure from 0-50.",
+            "name": "good_days",
+            "unitsText": "days"
+        },
+        {
+            "@id": "ohdsi_gis:6b25eb44747f/days_pm2.5",
+            "@type": "PropertyValue",
+            "additionalType": "int4",
+            "description": "The number of days PM2.5 was the main pollutant used to calculate the AQI.",
+            "name": "days_pm2.5",
+            "unitsText": "days"
+        },
+        {
+            "@id": "ohdsi_gis:6b25eb44747f/state",
+            "@type": "PropertyValue",
+            "additionalType": "varchar",
+            "description": "The state name.",
+            "name": "state"
+        },
+        {
+            "@id": "ohdsi_gis:6b25eb44747f/year",
+            "@type": "PropertyValue",
+            "additionalType": "varchar",
+            "description": "The year.",
+            "name": "year"
+        },
+        {
+            "@id": "ohdsi_gis:6b25eb44747f/median_aqi",
+            "@type": "PropertyValue",
+            "additionalType": "int4",
+            "description": "Half of daily AQI values during the year were less than or equal to the median value, and half equaled or exceeded it.",
+            "name": "median_aqi",
+            "unitsText": "AQI"
+        },
+        {
+            "@id": "ohdsi_gis:6b25eb44747f/days_ozone",
+            "@type": "PropertyValue",
+            "additionalType": "int4",
+            "description": "The number of days Ozone was the main pollutant used to calculate the AQI.",
+            "name": "days_ozone",
+            "unitsText": "days"
+        },
+        {
+            "@id": "ohdsi_gis:6b25eb44747f/days_no2",
+            "@type": "PropertyValue",
+            "additionalType": "int4",
+            "description": "The number of days NO2 was the main pollutant used to calculate the AQI.",
+            "name": "days_no2",
+            "unitsText": "days"
+        },
+        {
+            "@id": "ohdsi_gis:6b25eb44747f/90th_percentile_aqi",
+            "@type": "PropertyValue",
+            "additionalType": "int4",
+            "description": "90 percent of daily AQI values during the year were less than or equal to the 90th percentile value.",
+            "name": "90th_percentile_aqi",
+            "unitsText": "AQI"
+        },
+        {
+            "@id": "ohdsi_gis:6b25eb44747f/very_unhealthy_days",
+            "@type": "PropertyValue",
+            "additionalType": "int4",
+            "description": "Days with AQI measure from 201-300.",
+            "name": "very_unhealthy_days",
+            "unitsText": "days"
+        },
+        {
+            "@id": "ohdsi_gis:6b25eb44747f/hazardous_days",
+            "@type": "PropertyValue",
+            "additionalType": "int4",
+            "description": "Days with AQI measure from 301-500.",
+            "name": "hazardous_days",
+            "unitsText": "days"
+        },
+        {
+            "@id": "ohdsi_gis:6b25eb44747f/max_aqi",
+            "@type": "PropertyValue",
+            "additionalType": "int4",
+            "description": "The maximum AQI in the county for the year.",
+            "name": "max_aqi",
+            "unitsText": "AQI"
+        },
+        {
+            "@id": "ohdsi_gis:6b25eb44747f/county",
+            "@type": "PropertyValue",
+            "additionalType": "varchar",
+            "description": "The county name.",
+            "name": "county"
+        },
+        {
+            "@id": "ohdsi_gis:6b25eb44747f/unhealthy_days",
+            "@type": "PropertyValue",
+            "additionalType": "int4",
+            "description": "Days with AQI measure from 151-200.",
+            "name": "unhealthy_days",
+            "unitsText": "days"
+        },
+        {
+            "@id": "ohdsi_gis:6b25eb44747f/moderate_days",
+            "@type": "PropertyValue",
+            "additionalType": "int4",
+            "description": "Days with AQI measure from 51-100.",
+            "name": "moderate_days",
+            "unitsText": "days"
+        },
+        {
+            "@id": "ohdsi_gis:6b25eb44747f/unhealthy_for_sensitive_groups_days",
+            "@type": "PropertyValue",
+            "additionalType": "int4",
+            "description": "Days with AQI measure from 101-150.",
+            "name": "unhealthy_for_sensitive_groups_days",
+            "unitsText": "days"
+        },
+        {
+            "@id": "ohdsi_gis:6b25eb44747f/days_co",
+            "@type": "PropertyValue",
+            "additionalType": "int4",
+            "description": "The number of days CO was the main pollutant used to calculate the AQI.",
+            "name": "days_co",
+            "unitsText": "days"
+        },
+        {
+            "@id": "ohdsi_gis:6b25eb44747f/days_with_aqi",
+            "@type": "PropertyValue",
+            "additionalType": "int4",
+            "description": "Days with valid AQI index calculated.",
+            "name": "days_with_aqi",
+            "unitsText": "days"
+        },
+        {
+            "@id": "ohdsi_gis:6b25eb44747f/days_pm10",
+            "@type": "PropertyValue",
+            "additionalType": "int4",
+            "description": "The number of days PM10 was the main pollutant used to calculate the AQI.",
+            "name": "days_pm10",
+            "unitsText": "days"
+        }
+    ]
+}

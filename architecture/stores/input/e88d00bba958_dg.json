@@ -1,0 +1,286 @@
+{
+    "@context": {
+        "@vocab": "https://schema.org/",
+        "ohdsi_gis": "https://ohdsi_gis.org/.well-known/genid/",
+        "geosparql": "http://www.opengis.net/ont/geosparql#"
+    },
+    "@id": "http://ohdsi_gis.org/id/e88d00bba958",
+    "@type": "Dataset",
+    "geosparql:hasGeometry": {
+        "@id": "ohdsi_gis:geo/e88d00bba958",
+        "@type": "http://www.opengis.net/ont/sf#Polygon",
+        "geosparql:asWKT": {
+            "@type": "geosparql:wktLiteral",
+            "@value": "POLYGON ((-80.5529312036867 25.4243845295874, -80.5529312036867 25.9724036593976, -80.1198399673143 25.9724036593976, -80.1198399673143 25.4243845295874, -80.5529312036867 25.4243845295874))"
+        }
+    },
+    "description": "A point feature class of Sexual Offenders and Predators within Miami-Dade County that is used by the Sexual Offender/Predator Residence Search Internet application.\\n",
+    "keywords": [
+        "Miami-Dade County",
+        "Florida",
+        "Sex Offenders",
+        "Crime",
+        "MDC",
+        "Police",
+        "Public-Safety",
+        "Population"
+    ],
+    "license": "Miami-Dade County provides this data for use as is. The areas depicted by this map/data are approximate, and are not accurate to surveying or engineering standards. The maps/data shown here are for illustration purposes only and are not suitable for site-specific decision making. Information found here should not be used for making financial or any other commitments. Miami-Dade County provides this information with the understanding that it is not guaranteed to be accurate, correct or complete and conclusions drawn from such information are the sole responsibility of the user. While every effort has been made to ensure the accuracy, correctness and timeliness of materials presented, Miami-Dade County assumes no responsibility for errors or omissions, even if Miami-Dade County is advised of the possibility of such damage.",
+    "name": "Miami-Dade Sex Offenders",
+    "publisher": {
+        "@type": "http://www.w3.org/2000/01/rdf-schema#Literal",
+        "@value": "Miami Dade County Public Domain"
+    },
+    "spatialCoverage": {
+        "@id": "ohdsi_gis:e88d00bba958",
+        "@type": "Place",
+        "name": "Miami-Dade County"
+    },
+    "variableMeasured": [
+        {
+            "@id": "ohdsi_gis:e88d00bba958/address",
+            "@type": "PropertyValue",
+            "additionalType": "string",
+            "description": "Location of offender",
+            "measurementMethod": "MDC",
+            "name": "address"
+        },
+        {
+            "@id": "ohdsi_gis:e88d00bba958/tran_addr2",
+            "@type": "PropertyValue",
+            "additionalType": "string",
+            "description": "Transfer address 2",
+            "measurementMethod": "MDC",
+            "name": "tran_addr2"
+        },
+        {
+            "@id": "ohdsi_gis:e88d00bba958/addr_typd",
+            "@type": "PropertyValue",
+            "additionalType": "string",
+            "description": "Address type",
+            "measurementMethod": "MDC",
+            "name": "addr_typd"
+        },
+        {
+            "@id": "ohdsi_gis:e88d00bba958/tran_zip4",
+            "@type": "PropertyValue",
+            "additionalType": "string",
+            "description": "Transfer zipcode (4 char)",
+            "measurementMethod": "MDC",
+            "name": "tran_zip4"
+        },
+        {
+            "@id": "ohdsi_gis:e88d00bba958/tran_zip5",
+            "@type": "PropertyValue",
+            "additionalType": "string",
+            "description": "Transfer zipcode",
+            "measurementMethod": "MDC",
+            "name": "tran_zip5"
+        },
+        {
+            "@id": "ohdsi_gis:e88d00bba958/x_coord",
+            "@type": "PropertyValue",
+            "additionalType": "string",
+            "description": "X-coordinate",
+            "measurementMethod": "MDC",
+            "name": "x_coord"
+        },
+        {
+            "@id": "ohdsi_gis:e88d00bba958/dob",
+            "@type": "PropertyValue",
+            "additionalType": "string",
+            "description": "Date of birth",
+            "measurementMethod": "MDC",
+            "name": "dob"
+        },
+        {
+            "@id": "ohdsi_gis:e88d00bba958/zip",
+            "@type": "PropertyValue",
+            "additionalType": "string",
+            "description": "Zipcode",
+            "measurementMethod": "MDC",
+            "name": "zip"
+        },
+        {
+            "@id": "ohdsi_gis:e88d00bba958/zip4",
+            "@type": "PropertyValue",
+            "additionalType": "string",
+            "description": "Zipcode (4 char)",
+            "measurementMethod": "MDC",
+            "name": "zip4"
+        },
+        {
+            "@id": "ohdsi_gis:e88d00bba958/tran_date",
+            "@type": "PropertyValue",
+            "additionalType": "string",
+            "description": "Transfer state",
+            "measurementMethod": "MDC",
+            "name": "tran_date"
+        },
+        {
+            "@id": "ohdsi_gis:e88d00bba958/city",
+            "@type": "PropertyValue",
+            "additionalType": "string",
+            "description": "City",
+            "measurementMethod": "MDC",
+            "name": "city"
+        },
+        {
+            "@id": "ohdsi_gis:e88d00bba958/tran_cnty",
+            "@type": "PropertyValue",
+            "additionalType": "string",
+            "description": "Transfer city",
+            "measurementMethod": "MDC",
+            "name": "tran_cnty"
+        },
+        {
+            "@id": "ohdsi_gis:e88d00bba958/eye_typd",
+            "@type": "PropertyValue",
+            "additionalType": "string",
+            "description": "Eye type",
+            "measurementMethod": "MDC",
+            "name": "eye_typd"
+        },
+        {
+            "@id": "ohdsi_gis:e88d00bba958/doc_nbr",
+            "@type": "PropertyValue",
+            "additionalType": "string",
+            "description": "Document number",
+            "measurementMethod": "MDC",
+            "name": "doc_nbr"
+        },
+        {
+            "@id": "ohdsi_gis:e88d00bba958/mname",
+            "@type": "PropertyValue",
+            "additionalType": "string",
+            "description": "Middle name of offender",
+            "measurementMethod": "MDC",
+            "name": "mname"
+        },
+        {
+            "@id": "ohdsi_gis:e88d00bba958/lname",
+            "@type": "PropertyValue",
+            "additionalType": "string",
+            "description": "Last name of offender",
+            "measurementMethod": "MDC",
+            "name": "lname"
+        },
+        {
+            "@id": "ohdsi_gis:e88d00bba958/fname",
+            "@type": "PropertyValue",
+            "additionalType": "string",
+            "description": "First name of offender",
+            "measurementMethod": "MDC",
+            "name": "fname"
+        },
+        {
+            "@id": "ohdsi_gis:e88d00bba958/race_typd",
+            "@type": "PropertyValue",
+            "additionalType": "string",
+            "description": "Race",
+            "measurementMethod": "MDC",
+            "name": "race_typd"
+        },
+        {
+            "@id": "ohdsi_gis:e88d00bba958/address2",
+            "@type": "PropertyValue",
+            "additionalType": "string",
+            "description": "Related address extra information",
+            "measurementMethod": "MDC",
+            "name": "address2"
+        },
+        {
+            "@id": "ohdsi_gis:e88d00bba958/hair_typd",
+            "@type": "PropertyValue",
+            "additionalType": "string",
+            "description": "Hair type",
+            "measurementMethod": "MDC",
+            "name": "hair_typd"
+        },
+        {
+            "@id": "ohdsi_gis:e88d00bba958/weight",
+            "@type": "PropertyValue",
+            "name": "weight"
+        },
+        {
+            "@id": "ohdsi_gis:e88d00bba958/image_id",
+            "@type": "PropertyValue",
+            "additionalType": "string",
+            "description": " Image ID",
+            "measurementMethod": "MDC",
+            "name": "image_id"
+        },
+        {
+            "@id": "ohdsi_gis:e88d00bba958/tran_state",
+            "@type": "PropertyValue",
+            "additionalType": "string",
+            "description": "Transfer state",
+            "measurementMethod": "MDC",
+            "name": "tran_state"
+        },
+        {
+            "@id": "ohdsi_gis:e88d00bba958/height",
+            "@type": "PropertyValue",
+            "additionalType": "string",
+            "description": "Height",
+            "measurementMethod": "MDC",
+            "name": "height"
+        },
+        {
+            "@id": "ohdsi_gis:e88d00bba958/tran_city",
+            "@type": "PropertyValue",
+            "additionalType": "string",
+            "description": "Transfer city",
+            "measurementMethod": "MDC",
+            "name": "tran_city"
+        },
+        {
+            "@id": "ohdsi_gis:e88d00bba958/y_coord",
+            "@type": "PropertyValue",
+            "additionalType": "string",
+            "description": "Y-coordinate",
+            "measurementMethod": "MDC",
+            "name": "y_coord"
+        },
+        {
+            "@id": "ohdsi_gis:e88d00bba958/sub_typd",
+            "@type": "PropertyValue",
+            "additionalType": "string",
+            "description": "Status resulting from conviction",
+            "measurementMethod": "MDC",
+            "name": "sub_typd"
+        },
+        {
+            "@id": "ohdsi_gis:e88d00bba958/sex",
+            "@type": "PropertyValue",
+            "additionalType": "string",
+            "description": "Sex",
+            "measurementMethod": "MDC",
+            "name": "sex"
+        },
+        {
+            "@id": "ohdsi_gis:e88d00bba958/sname",
+            "@type": "PropertyValue",
+            "additionalType": "string",
+            "description": "Suffix of offender",
+            "measurementMethod": "MDC",
+            "name": "sname"
+        },
+        {
+            "@id": "ohdsi_gis:e88d00bba958/tran_addr1",
+            "@type": "PropertyValue",
+            "additionalType": "string",
+            "description": "Transfer address 1",
+            "measurementMethod": "MDC",
+            "name": "tran_addr1"
+        },
+        {
+            "@id": "ohdsi_gis:e88d00bba958/status",
+            "@type": "PropertyValue",
+            "additionalType": "string",
+            "description": "Offender's status",
+            "measurementMethod": "MDC",
+            "name": "status"
+        }
+    ]
+}

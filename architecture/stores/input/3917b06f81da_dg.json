@@ -1,0 +1,32 @@
+{
+    "@context": {
+        "@vocab": "https://schema.org/",
+        "ohdsi_gis": "https://ohdsi_gis.org/.well-known/genid/",
+        "geosparql": "http://www.opengis.net/ont/geosparql#"
+    },
+    "@id": "http://ohdsi_gis.org/id/3917b06f81da",
+    "@type": "Dataset",
+    "geosparql:hasGeometry": {
+        "@id": "ohdsi_gis:geo/3917b06f81da",
+        "@type": "http://www.opengis.net/ont/sf#Polygon",
+        "geosparql:asWKT": {
+            "@type": "geosparql:wktLiteral",
+            "@value": "POLYGON ((-80.8747487800522 25.13422670508779, -80.8747487800522 25.982708455922573, -80.03580061225371 25.982708455922573, -80.03580061225371 25.13422670508779, -80.8747487800522 25.13422670508779))"
+        }
+    },
+    "description": "This data collection is comprised of statistical summary as an average from LST scenes (processed in ArcGIS) that were captured at 11 AM EDT/12 PM EST by the Landsat 8 satellite (2013-2022). Scenes are Level 2-1, retrieved from the USGS Earth Explorer. Processed LST rasters in TIFF format are composed of 30x30m pixels that contain a LST value in Celsius (\u00b0C) for that area. Each raster image is clipped to Miami-Dade County boundaries (downloaded from the Miami-Dade County Open Data Hub). ",
+    "keywords": [
+        "Miami-Dade County",
+        "LST"
+    ],
+    "name": "Miami-Dade Average Land Surface Temperature 2013-2022",
+    "publisher": {
+        "@type": "http://www.w3.org/2000/01/rdf-schema#Literal",
+        "@value": "University of Miami GDSC Public Domain"
+    },
+    "spatialCoverage": {
+        "@id": "ohdsi_gis:3917b06f81da",
+        "@type": "Place",
+        "name": "Miami-Dade County"
+    }
+}

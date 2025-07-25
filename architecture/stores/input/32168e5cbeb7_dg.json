@@ -1,0 +1,140 @@
+{
+    "@context": {
+        "@vocab": "https://schema.org/",
+        "ohdsi_gis": "https://ohdsi_gis.org/.well-known/genid/",
+        "geosparql": "http://www.opengis.net/ont/geosparql#"
+    },
+    "@id": "http://ohdsi_gis.org/id/32168e5cbeb7",
+    "@type": "Dataset",
+    "geosparql:hasGeometry": {
+        "@id": "ohdsi_gis:geo/32168e5cbeb7",
+        "@type": "http://www.opengis.net/ont/sf#Polygon",
+        "geosparql:asWKT": {
+            "@type": "geosparql:wktLiteral",
+            "@value": "POLYGON ((-87.4478987808508 24.5504202005215, -87.4478987808508 30.9984499378666, -80.051915202865 30.9984499378666, -80.051915202865 24.5504202005215, -87.4478987808508 24.5504202005215))"
+        }
+    },
+    "description": "Location of US Routes in the state of Florida as derived from even mapping",
+    "keywords": [
+        "Transportation",
+        "Infrastructure",
+        "Interstates",
+        "Florida",
+        "Highways",
+        "US Routes",
+        "Florida Department of Transportation",
+        "United States"
+    ],
+    "license": "NO WARRANTIES: This site and its content is made available by the Florida Department of Transportation on an as is, as available basis without warranties of any kind, express or implied. DISCLAIMER OF LIABILITY: The user of this application and data assumes all responsibility and risk for the use of both. Under no circumstances, including negligence, shall the Florida Department of Transportation, or its employees be liable for any DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY or CONSEQUENTIAL DAMAGES, or LOST PROFITS that result from the use, misuse or inability to use the application and data. Nor shall the Florida Department of Transportation, or its employees be liable for any damages resulting from or related to reliance; mistakes, omissions, interruptions, deletion of files, computer viruses, errors, defects, or any failure of performance, communications failure, theft, destruction or unauthorized access to the application and data.",
+    "name": "Florida US Highways",
+    "publisher": {
+        "@type": "http://www.w3.org/2000/01/rdf-schema#Literal",
+        "@value": "Florida Department of Transportation Public Domain"
+    },
+    "spatialCoverage": {
+        "@id": "ohdsi_gis:32168e5cbeb7",
+        "@type": "Place",
+        "name": [
+            "United States",
+            "Florida"
+        ]
+    },
+    "variableMeasured": [
+        {
+            "@id": "ohdsi_gis:32168e5cbeb7/route",
+            "@type": "PropertyValue",
+            "additionalType": "string",
+            "description": "US route number",
+            "measurementMethod": "Florida Department of Transportation, Transportation Data &Analytics Office",
+            "name": "route"
+        },
+        {
+            "@id": "ohdsi_gis:32168e5cbeb7/district",
+            "@type": "PropertyValue",
+            "additionalType": "string",
+            "description": "FDOT District Number",
+            "measurementMethod": "Florida Department of Transportation, Transportation Data & Analytics Office",
+            "name": "district"
+        },
+        {
+            "@id": "ohdsi_gis:32168e5cbeb7/rank",
+            "@type": "PropertyValue",
+            "additionalType": "string",
+            "description": "Indicates this county road segment's rank. A rank of 1 means that the segment is primary, a rank of 2 means that it is secondary. This ranking is pertinent where two county road designations overlap the same roadway.",
+            "measurementMethod": "Florida Department of Transportation, Transportation Data & Analytics Office",
+            "name": "rank"
+        },
+        {
+            "@id": "ohdsi_gis:32168e5cbeb7/begin_post",
+            "@type": "PropertyValue",
+            "additionalType": "double",
+            "description": "Denotes the lowest milepoint for the record",
+            "measurementMethod": "Florida Department of Transportation, Transportation Data & Analytics Office",
+            "name": "begin_post"
+        },
+        {
+            "@id": "ohdsi_gis:32168e5cbeb7/mng_dist",
+            "@type": "PropertyValue",
+            "additionalType": "string",
+            "description": "The District that manages the roadway (District 1, District 2, District 3, District 4, District 5, District 6, District 7, or Turnpike). Note that the Managing District may not be the same as the geographic district.  For example, roadway ID 08470001 is managed by Turnpike, but its geographic District is District 7. This is a 2-character representation of the Managing District.",
+            "measurementMethod": "Florida Department of Transportation, Transportation Data & Analytics Office",
+            "name": "mng_dist"
+        },
+        {
+            "@id": "ohdsi_gis:32168e5cbeb7/shape_leng",
+            "@type": "PropertyValue",
+            "additionalType": "double",
+            "description": "Length in meters of the geometry for the record",
+            "measurementMethod": "ESRI",
+            "name": "shape_leng"
+        },
+        {
+            "@id": "ohdsi_gis:32168e5cbeb7/roadway",
+            "@type": "PropertyValue",
+            "additionalType": "string",
+            "description": "A  unique 8-character identification number assigned to a roadway or section of a roadway either On or Off the State Highway System for which information is maintained in the Department's Roadway Characteristics Inventory (RCI)",
+            "measurementMethod": "Florida Department of Transportation, Transportation Data & Analytics Office",
+            "name": "roadway"
+        },
+        {
+            "@id": "ohdsi_gis:32168e5cbeb7/fid",
+            "@type": "PropertyValue",
+            "additionalType": "oid",
+            "description": "Sequential unique whole numbers that are automatically generated",
+            "measurementMethod": "ESRI",
+            "name": "fid"
+        },
+        {
+            "@id": "ohdsi_gis:32168e5cbeb7/countydot",
+            "@type": "PropertyValue",
+            "additionalType": "string",
+            "description": "Two-character Florida Department of Transportation county identifier.  The ROADWAY identifier's first 2 characters are the county identifier.",
+            "measurementMethod": "Florida Department of Transportation, Transportation Data & Analytics Office",
+            "name": "countydot"
+        },
+        {
+            "@id": "ohdsi_gis:32168e5cbeb7/county",
+            "@type": "PropertyValue",
+            "additionalType": "string",
+            "description": "The county that contains the roadway",
+            "measurementMethod": "Florida Department of Transportation, Transportation Data & Analytics Office",
+            "name": "county"
+        },
+        {
+            "@id": "ohdsi_gis:32168e5cbeb7/end_post",
+            "@type": "PropertyValue",
+            "additionalType": "double",
+            "description": "Denotes the highest milepoint for the record",
+            "measurementMethod": "Florida Department of Transportation, Transportation Data & Analytics Office",
+            "name": "end_post"
+        },
+        {
+            "@id": "ohdsi_gis:32168e5cbeb7/routenum",
+            "@type": "PropertyValue",
+            "additionalType": "string",
+            "description": "US route number (number only",
+            "measurementMethod": "Florida Department of Transportation, Transportation Data & Analytics Office",
+            "name": "routenum"
+        }
+    ]
+}

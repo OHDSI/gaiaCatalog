@@ -1,0 +1,57 @@
+{
+    "@context": {
+        "@vocab": "https://schema.org/",
+        "ohdsi_gis": "https://ohdsi_gis.org/.well-known/genid/",
+        "geosparql": "http://www.opengis.net/ont/geosparql#"
+    },
+    "@id": "http://ohdsi_gis.org/id/0a1b8d369227",
+    "@type": "Dataset",
+    "geosparql:hasGeometry": {
+        "@id": "ohdsi_gis:geo/0a1b8d369227",
+        "@type": "http://www.opengis.net/ont/sf#Polygon",
+        "geosparql:asWKT": {
+            "@type": "geosparql:wktLiteral",
+            "@value": "POLYGON ((-80.63512041632863 25.307892560215116, -80.63512041632863 25.974363596173845, -80.11999664787295 25.974363596173845, -80.11999664787295 25.307892560215116, -80.63512041632863 25.307892560215116))"
+        }
+    },
+    "description": "A point feature class of Commercial Business locations within Miami-Dade County",
+    "keywords": [
+        "Miami-Dade County",
+        "Property Characteristics\\n",
+        "Florida",
+        "MDC",
+        "Infrastrcture\\n ",
+        "Property",
+        "Commercial Property"
+    ],
+    "license": "Miami-Dade County provides this data for use as is. The areas depicted by this map/data are approximate, and are not accurate to surveying or engineering standards. The maps/data shown here are for illustration purposes only and are not suitable for site-specific decision making. Information found here should not be used for making financial or any other commitments. Miami-Dade County provides this information with the understanding that it is not guaranteed to be accurate, correct or complete and conclusions drawn from such information are the sole responsibility of the user. While every effort has been made to ensure the accuracy, correctness and timeliness of materials presented, Miami-Dade County assumes no responsibility for errors or omissions, even if Miami-Dade County is advised of the possibility of such damage.",
+    "name": "Miami-Dade Commercial Property",
+    "publisher": {
+        "@type": "http://www.w3.org/2000/01/rdf-schema#Literal",
+        "@value": "Miami-Dade County Public Domain"
+    },
+    "spatialCoverage": {
+        "@id": "ohdsi_gis:0a1b8d369227",
+        "@type": "Place",
+        "name": [
+            "United States",
+            "Miami Dade County",
+            "Florida"
+        ]
+    },
+    "variableMeasured": [
+        {
+            "@id": "ohdsi_gis:0a1b8d369227/ppfolio",
+            "@type": "PropertyValue",
+            "name": "ppfolio"
+        },
+        {
+            "@id": "ohdsi_gis:0a1b8d369227/objectid",
+            "@type": "PropertyValue",
+            "additionalType": "oid",
+            "description": "Internal feature number",
+            "measurementMethod": "Esri",
+            "name": "objectid"
+        }
+    ]
+}

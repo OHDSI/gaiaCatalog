@@ -1,0 +1,80 @@
+{
+    "@context": {
+        "@vocab": "https://schema.org/",
+        "ohdsi_gis": "https://ohdsi_gis.org/.well-known/genid/",
+        "geosparql": "http://www.opengis.net/ont/geosparql#"
+    },
+    "@id": "http://ohdsi_gis.org/id/89a2f63bbde0",
+    "@type": "Dataset",
+    "geosparql:hasGeometry": {
+        "@id": "ohdsi_gis:geo/89a2f63bbde0",
+        "@type": "http://www.opengis.net/ont/sf#Polygon",
+        "geosparql:asWKT": {
+            "@type": "geosparql:wktLiteral",
+            "@value": "POLYGON ((-80.8262659 25.1918454, -80.8262659 25.976005, -80.110192 25.976005, -80.110192 25.1918454, -80.8262659 25.1918454))"
+        }
+    },
+    "description": "A polygon feature tagged as place in Miami-Dade County sourced from OpenStreetMap.",
+    "keywords": [
+        "Miami-Dade County",
+        "municipality",
+        "neighborhood",
+        "place",
+        "OSM"
+    ],
+    "license": "OpenStreetMap\u00ae is open data, licensed under the [Open Data Commons Open Database License](https://opendatacommons.org/licenses/odbl/) (ODbL) by the [OpenStreetMap Foundation](https://osmfoundation.org/) (OSMF).",
+    "name": "Miami-Dade County Neighborhoods",
+    "publisher": {
+        "@type": "http://www.w3.org/2000/01/rdf-schema#Literal",
+        "@value": "OpenStreetMap You are free to copy, distribute, transmit and adapt our data, as long as you credit OpenStreetMap and its contributors. If you alter or build upon our data, you may distribute the result only under the same licence."
+    },
+    "spatialCoverage": {
+        "@id": "ohdsi_gis:89a2f63bbde0",
+        "@type": "Place",
+        "name": "Miami-Dade County"
+    },
+    "variableMeasured": [
+        {
+            "@id": "ohdsi_gis:89a2f63bbde0/name",
+            "@type": "PropertyValue",
+            "additionalType": "varchar",
+            "description": "Region name",
+            "name": "name"
+        },
+        {
+            "@id": "ohdsi_gis:89a2f63bbde0/other_tags",
+            "@type": "PropertyValue",
+            "additionalType": "varchar",
+            "description": "Any other OSM tags with values, first one is the ISO3166-2 code for the administrative region",
+            "name": "other_tags"
+        },
+        {
+            "@id": "ohdsi_gis:89a2f63bbde0/osm_id",
+            "@type": "PropertyValue",
+            "additionalType": "varchar",
+            "description": "OpenStreetMap (OSM) ID",
+            "name": "osm_id"
+        },
+        {
+            "@id": "ohdsi_gis:89a2f63bbde0/type",
+            "@type": "PropertyValue",
+            "additionalType": "varchar",
+            "description": "Type of boundary",
+            "name": "type"
+        },
+        {
+            "@id": "ohdsi_gis:89a2f63bbde0/admin_level",
+            "@type": "PropertyValue",
+            "additionalType": "varchar",
+            "description": "OSM Administrative level",
+            "name": "admin_level"
+        },
+        {
+            "@id": "ohdsi_gis:89a2f63bbde0/boundary",
+            "@type": "PropertyValue",
+            "additionalType": "varchar",
+            "description": "OSM boundary type",
+            "name": "boundary"
+        }
+    ]
+}

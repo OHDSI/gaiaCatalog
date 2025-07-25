@@ -1,0 +1,394 @@
+{
+    "@context": {
+        "@vocab": "https://schema.org/",
+        "ohdsi_gis": "https://ohdsi_gis.org/.well-known/genid/",
+        "geosparql": "http://www.opengis.net/ont/geosparql#"
+    },
+    "@id": "http://ohdsi_gis.org/id/62ec1e750084",
+    "@type": "Dataset",
+    "geosparql:hasGeometry": {
+        "@id": "ohdsi_gis:geo/62ec1e750084",
+        "@type": "http://www.opengis.net/ont/sf#Polygon",
+        "geosparql:asWKT": {
+            "@type": "geosparql:wktLiteral",
+            "@value": "POLYGON ((-80.5738417341196 25.2400487295463, -80.5738417341196 25.9753901482755, -80.1192837304904 25.9753901482755, -80.1192837304904 25.2400487295463, -80.5738417341196 25.2400487295463))"
+        }
+    },
+    "description": "A line feature class that represents all drainage pipes and conveyance systems such as outfalls, culverts, infiltration trenches, ditches in the drainage network within Miami-Dade County.\\n\\nA line feature class that represents all drainage features for the Unincorporated Miami-Dade County Service Area (UMSA), which can be represented by lines in a map, are represented in this layer, such as outfalls, culverts, infiltration trenches, ditches in the drainage network. The data was collected through permit files, surveys and as-built(?), representing the best available information for each location at the time the layer was published.",
+    "keywords": [
+        "Miami-Dade County",
+        "Stormwater Line"
+    ],
+    "license": "Miami-Dade County provides this data for use as is. The areas depicted by this map/data are approximate, and are not accurate to surveying or engineering standards. The maps/data shown here are for illustration purposes only and are not suitable for site-specific decision making. Information found here should not be used for making financial or any other commitments. Miami-Dade County provides this information with the understanding that it is not guaranteed to be accurate, correct or complete and conclusions drawn from such information are the sole responsibility of the user. While every effort has been made to ensure the accuracy, correctness and timeliness of materials presented, Miami-Dade County assumes no responsibility for errors or omissions, even if Miami-Dade County is advised of the possibility of such damage.",
+    "name": "Miami-Dade Stormwater Lines",
+    "publisher": {
+        "@type": "http://www.w3.org/2000/01/rdf-schema#Literal",
+        "@value": "University of Miami GDSC Public Domain"
+    },
+    "spatialCoverage": {
+        "@id": "ohdsi_gis:62ec1e750084",
+        "@type": "Place",
+        "name": "Miami-Dade County"
+    },
+    "variableMeasured": [
+        {
+            "@id": "ohdsi_gis:62ec1e750084/headwall",
+            "@type": "PropertyValue",
+            "additionalType": "string",
+            "description": "Type of headwall",
+            "measurementMethod": "Survey",
+            "name": "headwall"
+        },
+        {
+            "@id": "ohdsi_gis:62ec1e750084/vertical_datum",
+            "@type": "PropertyValue",
+            "additionalType": "string",
+            "description": "Vertical Datum (NAVD88)",
+            "measurementMethod": "Survey",
+            "name": "vertical_datum"
+        },
+        {
+            "@id": "ohdsi_gis:62ec1e750084/bottom_elevation",
+            "@type": "PropertyValue",
+            "additionalType": "string",
+            "description": "Elevation of the bottom",
+            "measurementMethod": "MDC",
+            "name": "bottom_elevation"
+        },
+        {
+            "@id": "ohdsi_gis:62ec1e750084/length",
+            "@type": "PropertyValue",
+            "additionalType": "string",
+            "description": "Length of Pipe",
+            "measurementMethod": "Survey",
+            "name": "length"
+        },
+        {
+            "@id": "ohdsi_gis:62ec1e750084/fdot_detail1",
+            "@type": "PropertyValue",
+            "additionalType": "string",
+            "description": "Detail 1 According to FDOT Standard Designs",
+            "measurementMethod": "Survey",
+            "name": "fdot_detail1"
+        },
+        {
+            "@id": "ohdsi_gis:62ec1e750084/skew_angle",
+            "@type": "PropertyValue",
+            "additionalType": "string",
+            "description": "Pipe horizontal skew angle in relation to the headwall",
+            "measurementMethod": "Survey",
+            "name": "skew_angle"
+        },
+        {
+            "@id": "ohdsi_gis:62ec1e750084/invert_z2",
+            "@type": "PropertyValue",
+            "additionalType": "string",
+            "description": "Downstream invertelevation of pipe",
+            "measurementMethod": "Survey",
+            "name": "invert_z2"
+        },
+        {
+            "@id": "ohdsi_gis:62ec1e750084/source",
+            "@type": "PropertyValue",
+            "additionalType": "string",
+            "description": "Source of Data /document Identifier",
+            "measurementMethod": "Miami-Dade County SWUPD Records",
+            "name": "source"
+        },
+        {
+            "@id": "ohdsi_gis:62ec1e750084/beam",
+            "@type": "PropertyValue",
+            "additionalType": "string",
+            "description": "Invert Elevation of Beam (NAVD88)",
+            "measurementMethod": "Survey",
+            "name": "beam"
+        },
+        {
+            "@id": "ohdsi_gis:62ec1e750084/exit_type",
+            "@type": "PropertyValue",
+            "additionalType": "string",
+            "description": "Type of Culvert Exit",
+            "measurementMethod": "Survey",
+            "name": "exit_type"
+        },
+        {
+            "@id": "ohdsi_gis:62ec1e750084/drainage_system_id",
+            "@type": "PropertyValue",
+            "additionalType": "string",
+            "description": "Drainage system ID",
+            "name": "drainage_system_id"
+        },
+        {
+            "@id": "ohdsi_gis:62ec1e750084/invert_z1",
+            "@type": "PropertyValue",
+            "additionalType": "string",
+            "description": "Upstream pipe invert",
+            "measurementMethod": "Survey",
+            "name": "invert_z1"
+        },
+        {
+            "@id": "ohdsi_gis:62ec1e750084/sw_pump_station",
+            "@type": "PropertyValue",
+            "additionalType": "string",
+            "description": "Stormwater Pump Station",
+            "measurementMethod": "Survey",
+            "name": "sw_pump_station"
+        },
+        {
+            "@id": "ohdsi_gis:62ec1e750084/weir_elevation",
+            "@type": "PropertyValue",
+            "additionalType": "string",
+            "description": "Weir Elevation, NAVD88",
+            "measurementMethod": "Survey",
+            "name": "weir_elevation"
+        },
+        {
+            "@id": "ohdsi_gis:62ec1e750084/from_x1y1",
+            "@type": "PropertyValue",
+            "additionalType": "string",
+            "description": "Unique identifier of the structure where the pipe or trench starts",
+            "measurementMethod": "Survey",
+            "name": "from_x1y1"
+        },
+        {
+            "@id": "ohdsi_gis:62ec1e750084/layer",
+            "@type": "PropertyValue",
+            "additionalType": "string",
+            "description": "Placeholder feature",
+            "measurementMethod": "Survey",
+            "name": "layer"
+        },
+        {
+            "@id": "ohdsi_gis:62ec1e750084/maintained_by",
+            "@type": "PropertyValue",
+            "additionalType": "string",
+            "description": "Maintenance deignee",
+            "measurementMethod": "MDC",
+            "name": "maintained_by"
+        },
+        {
+            "@id": "ohdsi_gis:62ec1e750084/type",
+            "@type": "PropertyValue",
+            "additionalType": "string",
+            "description": "Type of stormwater system",
+            "measurementMethod": "MDC",
+            "name": "type"
+        },
+        {
+            "@id": "ohdsi_gis:62ec1e750084/width",
+            "@type": "PropertyValue",
+            "additionalType": "string",
+            "description": "Trench width",
+            "measurementMethod": "MDC",
+            "name": "width"
+        },
+        {
+            "@id": "ohdsi_gis:62ec1e750084/treatment",
+            "@type": "PropertyValue",
+            "additionalType": "string",
+            "description": "Yes/No Field, identifying treatment by infiltration methods",
+            "measurementMethod": "Survey",
+            "name": "treatment"
+        },
+        {
+            "@id": "ohdsi_gis:62ec1e750084/fdot_type",
+            "@type": "PropertyValue",
+            "additionalType": "string",
+            "description": "Type according to FDOT Standard Designs",
+            "measurementMethod": "Survey",
+            "name": "fdot_type"
+        },
+        {
+            "@id": "ohdsi_gis:62ec1e750084/munic_nsme",
+            "@type": "PropertyValue",
+            "additionalType": "string",
+            "description": "Name of municipal",
+            "measurementMethod": "MDC",
+            "name": "munic_nsme"
+        },
+        {
+            "@id": "ohdsi_gis:62ec1e750084/label_survey",
+            "@type": "PropertyValue",
+            "additionalType": "string",
+            "description": "Label According to Survey",
+            "measurementMethod": "Survey",
+            "name": "label_survey"
+        },
+        {
+            "@id": "ohdsi_gis:62ec1e750084/sourcedate",
+            "@type": "PropertyValue",
+            "additionalType": "string",
+            "description": "Date of the date of the project permit, or survey",
+            "measurementMethod": "Miami-Dade County Records, SFWMD Permit records, Surveys",
+            "name": "sourcedate"
+        },
+        {
+            "@id": "ohdsi_gis:62ec1e750084/column_no",
+            "@type": "PropertyValue",
+            "additionalType": "string",
+            "description": "Number of the Bridge columns or posts",
+            "measurementMethod": "Generated by mapper",
+            "name": "column_no"
+        },
+        {
+            "@id": "ohdsi_gis:62ec1e750084/state_road",
+            "@type": "PropertyValue",
+            "additionalType": "string",
+            "description": "Identifies the State Roads",
+            "measurementMethod": "FDOT and PWWM Right-of-Way and Maintenance Agreement Records",
+            "name": "state_road"
+        },
+        {
+            "@id": "ohdsi_gis:62ec1e750084/fdot_detail2",
+            "@type": "PropertyValue",
+            "additionalType": "string",
+            "description": "Detail 2 According to FDOT Standard Designs",
+            "measurementMethod": "Survey",
+            "name": "fdot_detail2"
+        },
+        {
+            "@id": "ohdsi_gis:62ec1e750084/headwall_height",
+            "@type": "PropertyValue",
+            "additionalType": "string",
+            "description": "Height of headwall",
+            "measurementMethod": "MDC",
+            "name": "headwall_height"
+        },
+        {
+            "@id": "ohdsi_gis:62ec1e750084/entry_type",
+            "@type": "PropertyValue",
+            "additionalType": "string",
+            "description": "Type of entry",
+            "measurementMethod": "MDC",
+            "name": "entry_type"
+        },
+        {
+            "@id": "ohdsi_gis:62ec1e750084/id",
+            "@type": "PropertyValue",
+            "additionalType": "string",
+            "description": "Origin of id",
+            "measurementMethod": "MDC",
+            "name": "id"
+        },
+        {
+            "@id": "ohdsi_gis:62ec1e750084/last_modified_date",
+            "@type": "PropertyValue",
+            "additionalType": "string",
+            "description": "Last date modified by",
+            "measurementMethod": "Generated by mapper",
+            "name": "last_modified_date"
+        },
+        {
+            "@id": "ohdsi_gis:62ec1e750084/standard_detail",
+            "@type": "PropertyValue",
+            "additionalType": "string",
+            "description": "Standards detail",
+            "measurementMethod": "Public Works Manual and Survey",
+            "name": "standard_detail"
+        },
+        {
+            "@id": "ohdsi_gis:62ec1e750084/originally_drawn_by",
+            "@type": "PropertyValue",
+            "additionalType": "string",
+            "description": "Originally Drawing",
+            "measurementMethod": "Generated by Mapper",
+            "name": "originally_drawn_by"
+        },
+        {
+            "@id": "ohdsi_gis:62ec1e750084/material",
+            "@type": "PropertyValue",
+            "additionalType": "string",
+            "description": "Pipe Material",
+            "measurementMethod": "Survey",
+            "name": "material"
+        },
+        {
+            "@id": "ohdsi_gis:62ec1e750084/wing_angle_headwall",
+            "@type": "PropertyValue",
+            "additionalType": "string",
+            "description": "Angle of wingwall",
+            "measurementMethod": "MDC",
+            "name": "wing_angle_headwall"
+        },
+        {
+            "@id": "ohdsi_gis:62ec1e750084/control_structure",
+            "@type": "PropertyValue",
+            "additionalType": "string",
+            "description": "Control structure",
+            "measurementMethod": "Survey",
+            "name": "control_structure"
+        },
+        {
+            "@id": "ohdsi_gis:62ec1e750084/depth",
+            "@type": "PropertyValue",
+            "additionalType": "string",
+            "description": "Distance between grate elevation and bottom elevation",
+            "measurementMethod": "Survey",
+            "name": "depth"
+        },
+        {
+            "@id": "ohdsi_gis:62ec1e750084/to_x2y2",
+            "@type": "PropertyValue",
+            "additionalType": "string",
+            "description": "Unique identifier of the structure where the pipe or trench ends",
+            "measurementMethod": "Survey",
+            "name": "to_x2y2"
+        },
+        {
+            "@id": "ohdsi_gis:62ec1e750084/map_label",
+            "@type": "PropertyValue",
+            "additionalType": "string",
+            "description": "Label as it appears on map",
+            "measurementMethod": "MDC",
+            "name": "map_label"
+        },
+        {
+            "@id": "ohdsi_gis:62ec1e750084/basin",
+            "@type": "PropertyValue",
+            "additionalType": "string",
+            "description": "Name of Basin",
+            "measurementMethod": "Stormwater Management Masterplan",
+            "name": "basin"
+        },
+        {
+            "@id": "ohdsi_gis:62ec1e750084/canalname",
+            "@type": "PropertyValue",
+            "additionalType": "string",
+            "description": "Canal name",
+            "measurementMethod": "Survey",
+            "name": "canalname"
+        },
+        {
+            "@id": "ohdsi_gis:62ec1e750084/diameter",
+            "@type": "PropertyValue",
+            "additionalType": "string",
+            "description": "Diameter of pipe, inches",
+            "measurementMethod": "Survey",
+            "name": "diameter"
+        },
+        {
+            "@id": "ohdsi_gis:62ec1e750084/notes",
+            "@type": "PropertyValue",
+            "additionalType": "string",
+            "description": "Notes/comments by mapper",
+            "measurementMethod": "Generated by mapper",
+            "name": "notes"
+        },
+        {
+            "@id": "ohdsi_gis:62ec1e750084/pipe_shape",
+            "@type": "PropertyValue",
+            "additionalType": "string",
+            "description": "Shape of pipe",
+            "measurementMethod": "MDC",
+            "name": "pipe_shape"
+        },
+        {
+            "@id": "ohdsi_gis:62ec1e750084/last_modified_by",
+            "@type": "PropertyValue",
+            "additionalType": "string",
+            "description": "Last amendment by",
+            "measurementMethod": "Generated by mapper",
+            "name": "last_modified_by"
+        }
+    ]
+}

@@ -1,0 +1,125 @@
+{
+    "@context": {
+        "@vocab": "https://schema.org/",
+        "ohdsi_gis": "https://ohdsi_gis.org/.well-known/genid/",
+        "geosparql": "http://www.opengis.net/ont/geosparql#"
+    },
+    "@id": "http://ohdsi_gis.org/id/4d47a298679c",
+    "@type": "Dataset",
+    "geosparql:hasGeometry": {
+        "@id": "ohdsi_gis:geo/4d47a298679c",
+        "@type": "http://www.opengis.net/ont/sf#Polygon",
+        "geosparql:asWKT": {
+            "@type": "geosparql:wktLiteral",
+            "@value": "POLYGON ((-80.42292793833872 25.57101273429684, -80.42292793833872 25.920109708082844, -80.1549734589619 25.920109708082844, -80.1549734589619 25.57101273429684, -80.42292793833872 25.57101273429684))"
+        }
+    },
+    "description": "A point feature class of Miami-Dade County Operated Police Stations.",
+    "keywords": [
+        "Emergency",
+        "Crime",
+        "MDC",
+        "Police Station",
+        "Public-safety",
+        "Miami-Dade County",
+        "Infrastructure",
+        "Florida"
+    ],
+    "license": "Miami-Dade County provides this data for use as is. The areas depicted by this map/data are approximate, and are not accurate to surveying or engineering standards. The maps/data shown here are for illustration purposes only and are not suitable for site-specific decision making. Information found here should not be used for making financial or any other commitments. Miami-Dade County provides this information with the understanding that it is not guaranteed to be accurate, correct or complete and conclusions drawn from such information are the sole responsibility of the user. While every effort has been made to ensure the accuracy, correctness and timeliness of materials presented, Miami-Dade County assumes no responsibility for errors or omissions, even if Miami-Dade County is advised of the possibility of such damage.",
+    "name": "Miami-Dade Police Stations",
+    "publisher": {
+        "@type": "http://www.w3.org/2000/01/rdf-schema#Literal",
+        "@value": "Miami-Dade County Public Domain"
+    },
+    "spatialCoverage": {
+        "@id": "ohdsi_gis:4d47a298679c",
+        "@type": "Place",
+        "name": [
+            "United States",
+            "Miami Dade County",
+            "Florida"
+        ]
+    },
+    "variableMeasured": [
+        {
+            "@id": "ohdsi_gis:4d47a298679c/folio",
+            "@type": "PropertyValue",
+            "additionalType": "string",
+            "description": "Folio identifier",
+            "measurementMethod": "MDC",
+            "name": "folio"
+        },
+        {
+            "@id": "ohdsi_gis:4d47a298679c/objectid",
+            "@type": "PropertyValue",
+            "additionalType": "oid",
+            "description": "Internal feature number",
+            "measurementMethod": "Esri",
+            "name": "objectid"
+        },
+        {
+            "@id": "ohdsi_gis:4d47a298679c/lon",
+            "@type": "PropertyValue",
+            "additionalType": "double",
+            "description": "Longitude",
+            "measurementMethod": "MDC",
+            "name": "lon"
+        },
+        {
+            "@id": "ohdsi_gis:4d47a298679c/name",
+            "@type": "PropertyValue",
+            "additionalType": "string",
+            "description": "Name of police station",
+            "measurementMethod": "MDC",
+            "name": "name"
+        },
+        {
+            "@id": "ohdsi_gis:4d47a298679c/lat",
+            "@type": "PropertyValue",
+            "additionalType": "double",
+            "description": "Latitude",
+            "measurementMethod": "MDC",
+            "name": "lat"
+        },
+        {
+            "@id": "ohdsi_gis:4d47a298679c/zipcode",
+            "@type": "PropertyValue",
+            "additionalType": "integer",
+            "description": "Zipcode",
+            "measurementMethod": "MDC",
+            "name": "zipcode"
+        },
+        {
+            "@id": "ohdsi_gis:4d47a298679c/point_x",
+            "@type": "PropertyValue",
+            "additionalType": "double",
+            "description": "X-coordinate",
+            "measurementMethod": "MDC",
+            "name": "point_x"
+        },
+        {
+            "@id": "ohdsi_gis:4d47a298679c/point_y",
+            "@type": "PropertyValue",
+            "additionalType": "double",
+            "description": "Y-coordinate",
+            "measurementMethod": "MDC",
+            "name": "point_y"
+        },
+        {
+            "@id": "ohdsi_gis:4d47a298679c/address",
+            "@type": "PropertyValue",
+            "additionalType": "string",
+            "description": "Address",
+            "measurementMethod": "MDC",
+            "name": "address"
+        },
+        {
+            "@id": "ohdsi_gis:4d47a298679c/city",
+            "@type": "PropertyValue",
+            "additionalType": "string",
+            "description": "City",
+            "measurementMethod": "MDC",
+            "name": "city"
+        }
+    ]
+}

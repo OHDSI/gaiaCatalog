@@ -1,0 +1,122 @@
+{
+    "@context": {
+        "@vocab": "https://schema.org/",
+        "ohdsi_gis": "https://ohdsi_gis.org/.well-known/genid/",
+        "geosparql": "http://www.opengis.net/ont/geosparql#"
+    },
+    "@id": "http://ohdsi_gis.org/id/3eb31259068b",
+    "@type": "Dataset",
+    "geosparql:hasGeometry": {
+        "@id": "ohdsi_gis:geo/3eb31259068b",
+        "@type": "http://www.opengis.net/ont/sf#Polygon",
+        "geosparql:asWKT": {
+            "@type": "geosparql:wktLiteral",
+            "@value": "POLYGON ((-80.50241475719629 25.419523849756548, -80.50241475719629 25.943273276105636, -80.13202155375838 25.943273276105636, -80.13202155375838 25.419523849756548, -80.50241475719629 25.419523849756548))"
+        }
+    },
+    "description": "A point feature class of Federally Qualified Health Centers within Miami-Dade County.",
+    "keywords": [
+        "\\nPublic-Safety",
+        "MDC",
+        "Wellness",
+        "Health",
+        "Miami-Dade County",
+        "Infrastructure",
+        " Emergency",
+        "Florida",
+        "Medical",
+        "Federally Qualified Health Center"
+    ],
+    "license": "Miami-Dade County provides this data for use as is. The areas depicted by this map/data are approximate, and are not accurate to surveying or engineering standards. The maps/data shown here are for illustration purposes only and are not suitable for site-specific decision making. Information found here should not be used for making financial or any other commitments. Miami-Dade County provides this information with the understanding that it is not guaranteed to be accurate, correct or complete and conclusions drawn from such information are the sole responsibility of the user. While every effort has been made to ensure the accuracy, correctness and timeliness of materials presented, Miami-Dade County assumes no responsibility for errors or omissions, even if Miami-Dade County is advised of the possibility of such damage.",
+    "name": "Miami-Dade Federally Qualified Health Centers",
+    "publisher": {
+        "@type": "http://www.w3.org/2000/01/rdf-schema#Literal",
+        "@value": "Miami-Dade County Public Domain"
+    },
+    "spatialCoverage": {
+        "@id": "ohdsi_gis:3eb31259068b",
+        "@type": "Place",
+        "name": [
+            "United States",
+            "Miami Dade County",
+            "Florida"
+        ]
+    },
+    "variableMeasured": [
+        {
+            "@id": "ohdsi_gis:3eb31259068b/objectid",
+            "@type": "PropertyValue",
+            "additionalType": "oid",
+            "description": "Internal feature number",
+            "measurementMethod": "Esri",
+            "name": "objectid"
+        },
+        {
+            "@id": "ohdsi_gis:3eb31259068b/city",
+            "@type": "PropertyValue",
+            "additionalType": "string",
+            "description": "City of health center",
+            "measurementMethod": "MDC",
+            "name": "city"
+        },
+        {
+            "@id": "ohdsi_gis:3eb31259068b/provider",
+            "@type": "PropertyValue",
+            "additionalType": "string",
+            "description": "Provider of hospital",
+            "measurementMethod": "MDC",
+            "name": "provider"
+        },
+        {
+            "@id": "ohdsi_gis:3eb31259068b/zipcode",
+            "@type": "PropertyValue",
+            "description": "Zipcode of health center",
+            "measurementMethod": "integer",
+            "name": "zipcode"
+        },
+        {
+            "@id": "ohdsi_gis:3eb31259068b/point_y",
+            "@type": "PropertyValue",
+            "additionalType": "string",
+            "description": "Y-coordinate",
+            "measurementMethod": "MDC",
+            "name": "point_y",
+            "unitsText": "feet"
+        },
+        {
+            "@id": "ohdsi_gis:3eb31259068b/lon",
+            "@type": "PropertyValue",
+            "additionalType": "double",
+            "description": "Longitude",
+            "measurementMethod": "MDC",
+            "name": "lon",
+            "unitsText": "decimal degrees"
+        },
+        {
+            "@id": "ohdsi_gis:3eb31259068b/point_x",
+            "@type": "PropertyValue",
+            "additionalType": "double",
+            "description": "X-coordinate",
+            "measurementMethod": "MDC",
+            "name": "point_x",
+            "unitsText": "feet"
+        },
+        {
+            "@id": "ohdsi_gis:3eb31259068b/address",
+            "@type": "PropertyValue",
+            "additionalType": "string",
+            "description": "Location of health center",
+            "measurementMethod": "MDC",
+            "name": "address"
+        },
+        {
+            "@id": "ohdsi_gis:3eb31259068b/lat",
+            "@type": "PropertyValue",
+            "additionalType": "double",
+            "description": "Latitude",
+            "measurementMethod": "MDC",
+            "name": "lat",
+            "unitsText": "decimal degrees"
+        }
+    ]
+}

@@ -1,0 +1,43 @@
+{
+    "@context": {
+        "@vocab": "https://schema.org/",
+        "ohdsi_gis": "https://ohdsi_gis.org/.well-known/genid/",
+        "geosparql": "http://www.opengis.net/ont/geosparql#"
+    },
+    "@id": "http://ohdsi_gis.org/id/54407cf65b43",
+    "@type": "Dataset",
+    "geosparql:hasGeometry": {
+        "@id": "ohdsi_gis:geo/54407cf65b43",
+        "@type": "http://www.opengis.net/ont/sf#Polygon",
+        "geosparql:asWKT": {
+            "@type": "geosparql:wktLiteral",
+            "@value": "POLYGON ((-80.322761720181 25.6853176619177, -80.322761720181 25.8459107040506, -80.1954526811349 25.8459107040506, -80.1954526811349 25.6853176619177, -80.322761720181 25.6853176619177))"
+        }
+    },
+    "description": "Line feature class of the Miami-Dade Transit (MDT) Metrorail tracks",
+    "keywords": [
+        "Miami-Dade Transit",
+        "Florida",
+        "Metrorail",
+        "MDC",
+        "Infrastructure",
+        "Transportation",
+        "Miami-Dade County",
+        "Metro"
+    ],
+    "license": "Miami-Dade County provides this data for use as is. The areas depicted by this map/data are approximate, and are not accurate to surveying or engineering standards. The maps/data shown here are for illustration purposes only and are not suitable for site-specific decision making. Information found here should not be used for making financial or any other commitments. Miami-Dade County provides this information with the understanding that it is not guaranteed to be accurate, correct or complete and conclusions drawn from such information are the sole responsibility of the user. While every effort has been made to ensure the accuracy, correctness and timeliness of materials presented, Miami-Dade County assumes no responsibility for errors or omissions, even if Miami-Dade County is advised of the possibility of such damage.",
+    "name": "Miami-Dade Metrorail",
+    "publisher": {
+        "@type": "http://www.w3.org/2000/01/rdf-schema#Literal",
+        "@value": "Miami-Dade County Public Domain"
+    },
+    "spatialCoverage": {
+        "@id": "ohdsi_gis:54407cf65b43",
+        "@type": "Place",
+        "name": [
+            "United States",
+            "Miami Dade County",
+            "Florida"
+        ]
+    }
+}

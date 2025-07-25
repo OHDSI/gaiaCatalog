@@ -1,0 +1,416 @@
+{
+    "@context": {
+        "@vocab": "https://schema.org/",
+        "ohdsi_gis": "https://ohdsi_gis.org/.well-known/genid/",
+        "geosparql": "http://www.opengis.net/ont/geosparql#"
+    },
+    "@id": "http://ohdsi_gis.org/id/93a0e987e3a7",
+    "@type": "Dataset",
+    "geosparql:hasGeometry": {
+        "@id": "ohdsi_gis:geo/93a0e987e3a7",
+        "@type": "http://www.opengis.net/ont/sf#Polygon",
+        "geosparql:asWKT": {
+            "@type": "geosparql:wktLiteral",
+            "@value": "POLYGON ((-80.8736 25.13742, -80.8736 25.979434, -80.06279 25.979434, -80.06279 25.13742, -80.8736 25.13742))"
+        }
+    },
+    "description": "A special collection of aggregated columns from the 2021 5-year ACS variables at the census tract level selected for use with the Climate Resilience Academy. Please see the column metadata for the description of the columns.",
+    "keywords": [
+        "CRA",
+        "Climate Resilience",
+        "Tract",
+        "2021",
+        "5-Year Estimates",
+        "ACS",
+        "Census",
+        "Miami-Dade County",
+        "Population",
+        "Census Tract",
+        "Demographic"
+    ],
+    "license": "This Software was created by U.S. Government employees and therefore is not subject to copyright in the United States (17 U.S.C. \u00a7105). The United States/U.S.Department of Commerce (\u201cCommerce\u201d) reserve all rights to seek and obtain copyright protection in countries other than the United States. The United States/Commerce hereby grant to User a royalty-free, nonexclusive license to use, copy, and create derivative works of the Software outside of the United States.\\n\\nThe Software is provided to the User and those who may take by, through or under it, \u201cas is,\u201d without any warranty (whether express or implied) or representation whatsoever, including but not limited to any warranty of merchantability. The Software is taken hereunder without any right to support or to any improvements, extensions, or modifications, except as may be agreed to separately, in writing, by Commerce.\\n\\nUser, on behalf of itself and all others who take by, through or under it, hereby and forever waives, releases, and discharges the United States/Commerce and all its instrumentalities from any and all liabilities and obligations in connection with the use, application, sale or conveyance of the Software. User shall indemnify and hold harmless the United States/Commerce and its instrumentalities from all claims, liabilities, demands, damages, expenses, and losses arising from or in connection with User's use, application, sale or conveyance of the Software, including those who take by, through or under User whether or not User was directly involved. This provision will survive termination of this Agreement and will include any and all claims or liabilities arising under intellectual property rights, such as patents, copyrights, trademarks, and trade secrets. If User of software is an Executive Agency of the United States, this clause is not applicable.\\n\\nThe construction, validity, performance, and effect of this Agreement for all purposes will be governed by Federal law of the United States.\\n\\nUser agrees to make a good faith effort to use the Software in a way that does not cause damage, harm, or embarrassment to the United States/Commerce. The United States/Commerce expressly reserve all rights and remedies.",
+    "name": "2021 Miami-Dade ACS 5 Year Estimates - Tract Level - CRA",
+    "publisher": {
+        "@type": "http://www.w3.org/2000/01/rdf-schema#Literal",
+        "@value": "Department of Commerce|U.S. Census Bureau Public Domain"
+    },
+    "spatialCoverage": {
+        "@id": "ohdsi_gis:93a0e987e3a7",
+        "@type": "Place",
+        "name": [
+            "United States",
+            "Florida"
+        ]
+    },
+    "variableMeasured": [
+        {
+            "@id": "ohdsi_gis:93a0e987e3a7/age_17_years_and_younger",
+            "@type": "PropertyValue",
+            "additionalType": "integer",
+            "description": "Number of people with age of 17 and under",
+            "measurementMethod": "(B01001_003E:B01001_006E)+(B01001_027E:B01001_030E)",
+            "name": "age_17_years_and_younger",
+            "unitsText": "people"
+        },
+        {
+            "@id": "ohdsi_gis:93a0e987e3a7/households_with_income_15000_34999_per_year",
+            "@type": "PropertyValue",
+            "additionalType": "integer",
+            "description": "Number of households with income 5,000 to 4,999 per year",
+            "measurementMethod": "B19001_004E+B19001_005E+B19001_006E+B19001_007E",
+            "name": "households_with_income_15000_34999_per_year",
+            "unitsText": "households"
+        },
+        {
+            "@id": "ohdsi_gis:93a0e987e3a7/high_school_degree__ged_or_lower",
+            "@type": "PropertyValue",
+            "additionalType": "integer",
+            "description": "Number of people with high school degree, GED, or lower",
+            "measurementMethod": "B15003_002E:B15003_018E",
+            "name": "high_school_degree__ged_or_lower",
+            "unitsText": "people"
+        },
+        {
+            "@id": "ohdsi_gis:93a0e987e3a7/households_with_income_35000_49999_per_year",
+            "@type": "PropertyValue",
+            "additionalType": "integer",
+            "description": "Number of households with income 5,000 to 9,999 per year",
+            "measurementMethod": "B19001_008E+B19001_009E+B19001_010E",
+            "name": "households_with_income_35000_49999_per_year",
+            "unitsText": "households"
+        },
+        {
+            "@id": "ohdsi_gis:93a0e987e3a7/percentage_persons_living_below_poverty_line",
+            "@type": "PropertyValue",
+            "additionalType": "integer",
+            "description": "Percentage of persons living below poverty line",
+            "measurementMethod": "B17001_001E",
+            "name": "percentage_persons_living_below_poverty_line",
+            "unitsText": "percent"
+        },
+        {
+            "@id": "ohdsi_gis:93a0e987e3a7/overcrowded",
+            "@type": "PropertyValue",
+            "additionalType": "integer",
+            "description": "Number of households that are overcrowded",
+            "measurementMethod": "B25014_005E+B25014_011E",
+            "name": "overcrowded",
+            "unitsText": "households"
+        },
+        {
+            "@id": "ohdsi_gis:93a0e987e3a7/households_with_someone_18_or_under",
+            "@type": "PropertyValue",
+            "additionalType": "integer",
+            "description": "Number of households with someone 18 or under",
+            "measurementMethod": "B09002_001E",
+            "name": "households_with_someone_18_or_under",
+            "unitsText": "households"
+        },
+        {
+            "@id": "ohdsi_gis:93a0e987e3a7/graduate_professional_degree",
+            "@type": "PropertyValue",
+            "additionalType": "integer",
+            "description": "Number of people with graduate professional degree",
+            "measurementMethod": "B15003_023E:B15003_025E",
+            "name": "graduate_professional_degree",
+            "unitsText": "people"
+        },
+        {
+            "@id": "ohdsi_gis:93a0e987e3a7/total_housing_units",
+            "@type": "PropertyValue",
+            "additionalType": "integer",
+            "description": "Total number of housing units",
+            "measurementMethod": "B25001_001E",
+            "name": "total_housing_units",
+            "unitsText": "housing units"
+        },
+        {
+            "@id": "ohdsi_gis:93a0e987e3a7/overcrowded__owner_occupied",
+            "@type": "PropertyValue",
+            "additionalType": "integer",
+            "description": "Number of owner occupied households that are overcrowded",
+            "measurementMethod": "B25014_005E",
+            "name": "overcrowded__owner_occupied",
+            "unitsText": "households"
+        },
+        {
+            "@id": "ohdsi_gis:93a0e987e3a7/housing_units_with_no_vehicle_available",
+            "@type": "PropertyValue",
+            "additionalType": "integer",
+            "description": "Number of housing units with no vehicle available",
+            "measurementMethod": "B25044_003E",
+            "name": "housing_units_with_no_vehicle_available",
+            "unitsText": "housing units"
+        },
+        {
+            "@id": "ohdsi_gis:93a0e987e3a7/bachelors_degree",
+            "@type": "PropertyValue",
+            "additionalType": "integer",
+            "description": "Number of people with bachelors degree",
+            "measurementMethod": "B15003_022E",
+            "name": "bachelors_degree",
+            "unitsText": "people"
+        },
+        {
+            "@id": "ohdsi_gis:93a0e987e3a7/overcrowded__renter_occupied",
+            "@type": "PropertyValue",
+            "additionalType": "integer",
+            "description": "Number of renter occupied households that are overcrowded",
+            "measurementMethod": "B25014_011E",
+            "name": "overcrowded__renter_occupied",
+            "unitsText": "households"
+        },
+        {
+            "@id": "ohdsi_gis:93a0e987e3a7/households_with_income_less_than_15000_per_year",
+            "@type": "PropertyValue",
+            "additionalType": "integer",
+            "description": "Number of households with income less than 5,000 per year",
+            "measurementMethod": "B19001_002E+B19001_003E",
+            "name": "households_with_income_less_than_15000_per_year",
+            "unitsText": "households"
+        },
+        {
+            "@id": "ohdsi_gis:93a0e987e3a7/households_with_someone_over_65",
+            "@type": "PropertyValue",
+            "additionalType": "integer",
+            "description": "Number of households with someone over 65",
+            "measurementMethod": "B09020_002E",
+            "name": "households_with_someone_over_65",
+            "unitsText": "households"
+        },
+        {
+            "@id": "ohdsi_gis:93a0e987e3a7/owner_occupied_housing_units",
+            "@type": "PropertyValue",
+            "additionalType": "integer",
+            "description": "Number of owner occupied housing units",
+            "measurementMethod": "B25003_002E",
+            "name": "owner_occupied_housing_units",
+            "unitsText": "housing units"
+        },
+        {
+            "@id": "ohdsi_gis:93a0e987e3a7/median_monthly_renter_costs",
+            "@type": "PropertyValue",
+            "additionalType": "integer",
+            "description": "Median monthly renter costs in US dollars",
+            "measurementMethod": "B25058_001E",
+            "name": "median_monthly_renter_costs",
+            "unitsText": "usd"
+        },
+        {
+            "@id": "ohdsi_gis:93a0e987e3a7/persons_between_the_age_of_18_and_64",
+            "@type": "PropertyValue",
+            "additionalType": "integer",
+            "description": "Number of people between the age of 18 and 64",
+            "measurementMethod": "(B01001_007E:B01001_019E)+(B01001_031E:B01001_043E)",
+            "name": "persons_between_the_age_of_18_and_64",
+            "unitsText": "people"
+        },
+        {
+            "@id": "ohdsi_gis:93a0e987e3a7/median_monthly_housing_costs",
+            "@type": "PropertyValue",
+            "additionalType": "integer",
+            "description": "Median monthly housing costs in US dollars",
+            "measurementMethod": "B25105_001E",
+            "name": "median_monthly_housing_costs",
+            "unitsText": "usd"
+        },
+        {
+            "@id": "ohdsi_gis:93a0e987e3a7/cost_burdened_owner_occupied_housing_units_with_mortgage",
+            "@type": "PropertyValue",
+            "additionalType": "integer",
+            "description": "Number of cost burdened owner occupied housing units with mortgage",
+            "measurementMethod": "B25091_008E:B25091_011E",
+            "name": "cost_burdened_owner_occupied_housing_units_with_mortgage",
+            "unitsText": "housing units"
+        },
+        {
+            "@id": "ohdsi_gis:93a0e987e3a7/total_population",
+            "@type": "PropertyValue",
+            "additionalType": "integer",
+            "description": "Total population in census tract",
+            "measurementMethod": "B01001_001E",
+            "name": "total_population",
+            "unitsText": "people"
+        },
+        {
+            "@id": "ohdsi_gis:93a0e987e3a7/cost_burdened_owner_occupied_housing_units",
+            "@type": "PropertyValue",
+            "additionalType": "integer",
+            "description": "Number of cost burdened owner occupied housing units",
+            "measurementMethod": "(B25091_008E:B25091_011E)+(B25091_019E:B25091_022E)",
+            "name": "cost_burdened_owner_occupied_housing_units",
+            "unitsText": "housing units"
+        },
+        {
+            "@id": "ohdsi_gis:93a0e987e3a7/owner_occupied_housing_units_with_mortgage",
+            "@type": "PropertyValue",
+            "additionalType": "integer",
+            "description": "Number of owner occupied housing units with mortgage",
+            "measurementMethod": "B25027_002E",
+            "name": "owner_occupied_housing_units_with_mortgage",
+            "unitsText": "housing units"
+        },
+        {
+            "@id": "ohdsi_gis:93a0e987e3a7/vacant_housing_units",
+            "@type": "PropertyValue",
+            "additionalType": "integer",
+            "description": "Number of vacant housing units",
+            "measurementMethod": "B25004_001E",
+            "name": "vacant_housing_units",
+            "unitsText": "housing units"
+        },
+        {
+            "@id": "ohdsi_gis:93a0e987e3a7/severely_overcrowded",
+            "@type": "PropertyValue",
+            "additionalType": "integer",
+            "description": "Number of households that are severely overcrowded",
+            "measurementMethod": "B25014_006E+B25014_007E+B25014_012E+B25014_013E",
+            "name": "severely_overcrowded",
+            "unitsText": "households"
+        },
+        {
+            "@id": "ohdsi_gis:93a0e987e3a7/median_household_income",
+            "@type": "PropertyValue",
+            "additionalType": "integer",
+            "description": "Median household income in US dollars",
+            "measurementMethod": "B19013_001E",
+            "name": "median_household_income",
+            "unitsText": "usd"
+        },
+        {
+            "@id": "ohdsi_gis:93a0e987e3a7/persons_65_years_old_and_over",
+            "@type": "PropertyValue",
+            "additionalType": "integer",
+            "description": "Number of people 65 years old and over",
+            "measurementMethod": "(B01001_020E:B01001_025E)+(B01001_044E:B01001_049E)",
+            "name": "persons_65_years_old_and_over",
+            "unitsText": "people"
+        },
+        {
+            "@id": "ohdsi_gis:93a0e987e3a7/median_monthly_owner_costs__percent_household_income",
+            "@type": "PropertyValue",
+            "additionalType": "real",
+            "description": "Median monthly owner costs as percent household income",
+            "measurementMethod": "B25092_001E",
+            "name": "median_monthly_owner_costs__percent_household_income",
+            "unitsText": "percent"
+        },
+        {
+            "@id": "ohdsi_gis:93a0e987e3a7/lacking_complete_plumbing_facilities",
+            "@type": "PropertyValue",
+            "additionalType": "integer",
+            "description": "Number of households that lack complete plumbing facilities",
+            "measurementMethod": "B25047_003E",
+            "name": "lacking_complete_plumbing_facilities",
+            "unitsText": "households"
+        },
+        {
+            "@id": "ohdsi_gis:93a0e987e3a7/median_monthly_owner_costs",
+            "@type": "PropertyValue",
+            "additionalType": "integer",
+            "description": "Median monthly owner costs in US dollars",
+            "measurementMethod": "B25088_001E",
+            "name": "median_monthly_owner_costs",
+            "unitsText": "usd"
+        },
+        {
+            "@id": "ohdsi_gis:93a0e987e3a7/cost_burdened_owner_occupied_housing_units_without_mortgage",
+            "@type": "PropertyValue",
+            "additionalType": "integer",
+            "description": "Number of cost burdened owner occupied housing units without mortgage",
+            "measurementMethod": "B25091_019E:B25091_022E",
+            "name": "cost_burdened_owner_occupied_housing_units_without_mortgage",
+            "unitsText": "housing units"
+        },
+        {
+            "@id": "ohdsi_gis:93a0e987e3a7/female_persons_with_disability",
+            "@type": "PropertyValue",
+            "additionalType": "integer",
+            "description": "Number of female people with a disability",
+            "measurementMethod": "B18101_023E+B18101_026E+B18101_029E+B18101_032E+B18101_035E+B18101_038E",
+            "name": "female_persons_with_disability",
+            "unitsText": "people"
+        },
+        {
+            "@id": "ohdsi_gis:93a0e987e3a7/cost_burdened_renter_housing_units",
+            "@type": "PropertyValue",
+            "additionalType": "integer",
+            "description": "Number of cost burdened renter housing units",
+            "measurementMethod": "B25070_007E:B25070_010E",
+            "name": "cost_burdened_renter_housing_units",
+            "unitsText": "housing units"
+        },
+        {
+            "@id": "ohdsi_gis:93a0e987e3a7/male_persons_with_disability",
+            "@type": "PropertyValue",
+            "additionalType": "integer",
+            "description": "Number of male people with a disability",
+            "measurementMethod": "B18101_004E+B18101_007E+B18101_010E+B18101_013E+B18101_016E+B18101_019E",
+            "name": "male_persons_with_disability",
+            "unitsText": "people"
+        },
+        {
+            "@id": "ohdsi_gis:93a0e987e3a7/median_monthly_renter_costs__percent_household_income",
+            "@type": "PropertyValue",
+            "additionalType": "real",
+            "description": "Median monthly renter costs as percent household income",
+            "measurementMethod": "B25071_001E",
+            "name": "median_monthly_renter_costs__percent_household_income",
+            "unitsText": "percent"
+        },
+        {
+            "@id": "ohdsi_gis:93a0e987e3a7/occupied_housing_units",
+            "@type": "PropertyValue",
+            "additionalType": "integer",
+            "description": "Number of occupied housing units",
+            "measurementMethod": "B25002_002E",
+            "name": "occupied_housing_units",
+            "unitsText": "housing units"
+        },
+        {
+            "@id": "ohdsi_gis:93a0e987e3a7/renter_occupied_housing_units",
+            "@type": "PropertyValue",
+            "additionalType": "integer",
+            "description": "Number of renter occupied housing units",
+            "measurementMethod": "B25003_003E",
+            "name": "renter_occupied_housing_units",
+            "unitsText": "housing units"
+        },
+        {
+            "@id": "ohdsi_gis:93a0e987e3a7/limited_english_speaking_households",
+            "@type": "PropertyValue",
+            "additionalType": "integer",
+            "description": "Number of households with limited english spoken",
+            "measurementMethod": "C16002_004E+C16002_007E+C16002_010E+C16002_013E",
+            "name": "limited_english_speaking_households",
+            "unitsText": "households"
+        },
+        {
+            "@id": "ohdsi_gis:93a0e987e3a7/associates_degree",
+            "@type": "PropertyValue",
+            "additionalType": "integer",
+            "description": "Number of people with associates degree",
+            "measurementMethod": "B15003_021E",
+            "name": "associates_degree",
+            "unitsText": "people"
+        },
+        {
+            "@id": "ohdsi_gis:93a0e987e3a7/lacking_complete_kitchen_facilities",
+            "@type": "PropertyValue",
+            "additionalType": "integer",
+            "description": "Number of households that lack complete kitchen facilities",
+            "measurementMethod": "B25051_003E",
+            "name": "lacking_complete_kitchen_facilities",
+            "unitsText": "households"
+        },
+        {
+            "@id": "ohdsi_gis:93a0e987e3a7/some_college__no_degree",
+            "@type": "PropertyValue",
+            "additionalType": "integer",
+            "description": "Number of people with some college but no degree",
+            "measurementMethod": "B15003_019E:B15003_020E",
+            "name": "some_college__no_degree",
+            "unitsText": "people"
+        }
+    ]
+}

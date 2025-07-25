@@ -1,0 +1,80 @@
+{
+    "@context": {
+        "@vocab": "https://schema.org/",
+        "ohdsi_gis": "https://ohdsi_gis.org/.well-known/genid/",
+        "geosparql": "http://www.opengis.net/ont/geosparql#"
+    },
+    "@id": "http://ohdsi_gis.org/id/13594d3e6654",
+    "@type": "Dataset",
+    "geosparql:hasGeometry": {
+        "@id": "ohdsi_gis:geo/13594d3e6654",
+        "@type": "http://www.opengis.net/ont/sf#Polygon",
+        "geosparql:asWKT": {
+            "@type": "geosparql:wktLiteral",
+            "@value": "POLYGON ((-80.40056848194646 25.495520152265605, -80.40056848194646 25.924124462199504, -80.21027933357675 25.924124462199504, -80.21027933357675 25.495520152265605, -80.40056848194646 25.495520152265605))"
+        }
+    },
+    "description": "A point class of the superfund sites within Miami-Dade County.",
+    "keywords": [
+        "Health",
+        "Environment",
+        "Miami-Dade County",
+        "Contamination",
+        "Florida",
+        "Pollution",
+        "Superfund",
+        "Hazard",
+        "Safety",
+        "MDC",
+        "Public-Safety",
+        "Clean-Up Site",
+        "Superfund Site"
+    ],
+    "license": "Miami-Dade County provides this data for use as is. The areas depicted by this map/data are approximate, and are not accurate to surveying or engineering standards. The maps/data shown here are for illustration purposes only and are not suitable for site-specific decision making. Information found here should not be used for making financial or any other commitments. Miami-Dade County provides this information with the understanding that it is not guaranteed to be accurate, correct or complete and conclusions drawn from such information are the sole responsibility of the user. While every effort has been made to ensure the accuracy, correctness and timeliness of materials presented, Miami-Dade County assumes no responsibility for errors or omissions, even if Miami-Dade County is advised of the possibility of such damage.",
+    "name": "Miami-Dade Superfund Sites",
+    "publisher": {
+        "@type": "http://www.w3.org/2000/01/rdf-schema#Literal",
+        "@value": "Miami-Dade County Public Domain"
+    },
+    "spatialCoverage": {
+        "@id": "ohdsi_gis:13594d3e6654",
+        "@type": "Place",
+        "name": [
+            "United States",
+            "Miami Dade County",
+            "Florida"
+        ]
+    },
+    "variableMeasured": [
+        {
+            "@id": "ohdsi_gis:13594d3e6654/name",
+            "@type": "PropertyValue",
+            "name": "name"
+        },
+        {
+            "@id": "ohdsi_gis:13594d3e6654/address",
+            "@type": "PropertyValue",
+            "name": "address"
+        },
+        {
+            "@id": "ohdsi_gis:13594d3e6654/folio",
+            "@type": "PropertyValue",
+            "name": "folio"
+        },
+        {
+            "@id": "ohdsi_gis:13594d3e6654/weblink",
+            "@type": "PropertyValue",
+            "name": "weblink"
+        },
+        {
+            "@id": "ohdsi_gis:13594d3e6654/usepaid",
+            "@type": "PropertyValue",
+            "name": "usepaid"
+        },
+        {
+            "@id": "ohdsi_gis:13594d3e6654/dermpermit",
+            "@type": "PropertyValue",
+            "name": "dermpermit"
+        }
+    ]
+}

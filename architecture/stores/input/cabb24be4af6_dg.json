@@ -1,0 +1,257 @@
+{
+    "@context": {
+        "@vocab": "https://schema.org/",
+        "ohdsi_gis": "https://ohdsi_gis.org/.well-known/genid/",
+        "geosparql": "http://www.opengis.net/ont/geosparql#"
+    },
+    "@id": "http://ohdsi_gis.org/id/cabb24be4af6",
+    "@type": "Dataset",
+    "geosparql:hasGeometry": {
+        "@id": "ohdsi_gis:geo/cabb24be4af6",
+        "@type": "http://www.opengis.net/ont/sf#Polygon",
+        "geosparql:asWKT": {
+            "@type": "geosparql:wktLiteral",
+            "@value": "POLYGON ((-87.48612524359473 24.29999409023794, -87.48612524359473 31.000520804948813, -80.03530470518788 31.000520804948813, -80.03530470518788 24.29999409023794, -87.48612524359473 24.29999409023794))"
+        }
+    },
+    "description": "The Florida Natural Areas Inventory is the primary source for information on Florida's conservation lands. FNAI's database includes boundaries and statistics for more than 2,900 federal, state, local, and private managed areas, all provided directly by the managing agencies. National parks, state forests, wildlife management areas, local and private preserves are examples of the managed areas included. The shapefile is called FLMA for Florida Managed Areas; updated versions are published quarterly.\\n\\nFLORIDA CONSERVATION LANDS (layer name FLMA): This is a polygon data layer for public (and some private) lands that the Florida Natural Areas Inventory (FNAI) has identified as having natural resource value and that are being managed at least partially for conservation purposes. The term Managed Area refers to a managed conservation land.\\n",
+    "keywords": [
+        "Conservation Lands",
+        "FLMA",
+        "Florida",
+        "FNAI"
+    ],
+    "license": "Use of this data should be accompanied by proper citation of FNAI. Available for free download at: http://www.fnai.org/gis_data.cfm",
+    "name": "Florida Managed Areas",
+    "publisher": {
+        "@type": "http://www.w3.org/2000/01/rdf-schema#Literal",
+        "@value": "University of Miami GDSC Public Domain"
+    },
+    "spatialCoverage": {
+        "@id": "ohdsi_gis:cabb24be4af6",
+        "@type": "Place",
+        "name": "Florida"
+    },
+    "variableMeasured": [
+        {
+            "@id": "ohdsi_gis:cabb24be4af6/perimeter",
+            "@type": "PropertyValue",
+            "additionalType": "double",
+            "description": "Perimeter in meters.",
+            "measurementMethod": "FNAI",
+            "name": "perimeter",
+            "unitsText": "meters"
+        },
+        {
+            "@id": "ohdsi_gis:cabb24be4af6/desc1",
+            "@type": "PropertyValue",
+            "additionalType": "string",
+            "description": "General description of the Managed Area",
+            "measurementMethod": "FNAI",
+            "name": "desc1"
+        },
+        {
+            "@id": "ohdsi_gis:cabb24be4af6/mgrphone",
+            "@type": "PropertyValue",
+            "additionalType": "string",
+            "description": "Manager Phone",
+            "measurementMethod": "FNAI",
+            "name": "mgrphone"
+        },
+        {
+            "@id": "ohdsi_gis:cabb24be4af6/county",
+            "@type": "PropertyValue",
+            "additionalType": "string",
+            "description": "Abbreviation (the first four letters of the county name) for the county",
+            "measurementMethod": "FNAI",
+            "name": "county"
+        },
+        {
+            "@id": "ohdsi_gis:cabb24be4af6/totacres",
+            "@type": "PropertyValue",
+            "additionalType": "double",
+            "description": "Total number of acres within the Managed Area",
+            "measurementMethod": "The managing agency of the Managed Area",
+            "name": "totacres",
+            "unitsText": "acres"
+        },
+        {
+            "@id": "ohdsi_gis:cabb24be4af6/mgrcity",
+            "@type": "PropertyValue",
+            "additionalType": "string",
+            "description": "Manager City.",
+            "measurementMethod": "The managing agency of the Managed Area",
+            "name": "mgrcity"
+        },
+        {
+            "@id": "ohdsi_gis:cabb24be4af6/esmt_hold",
+            "@type": "PropertyValue",
+            "additionalType": "string",
+            "description": "Easement Holder",
+            "measurementMethod": "FNAI",
+            "name": "esmt_hold"
+        },
+        {
+            "@id": "ohdsi_gis:cabb24be4af6/comments1",
+            "@type": "PropertyValue",
+            "additionalType": "string",
+            "description": "General comments",
+            "measurementMethod": "FNAI",
+            "name": "comments1"
+        },
+        {
+            "@id": "ohdsi_gis:cabb24be4af6/prostat",
+            "@type": "PropertyValue",
+            "additionalType": "double",
+            "description": "Protection Status as 1, 2, or 3",
+            "measurementMethod": "The Nature Conservancy and FNAI. Synonymous with protection categories I, II, III",
+            "name": "prostat"
+        },
+        {
+            "@id": "ohdsi_gis:cabb24be4af6/ma_id",
+            "@type": "PropertyValue",
+            "additionalType": "double",
+            "description": "Managed Area ID, designed by NatureServe. Unique identifier for each Managed Area.",
+            "measurementMethod": "FNAI",
+            "name": "ma_id"
+        },
+        {
+            "@id": "ohdsi_gis:cabb24be4af6/managing_a",
+            "@type": "PropertyValue",
+            "additionalType": "string",
+            "description": "Name of the lead managing agency for the Managed Area.",
+            "measurementMethod": "FNAI",
+            "name": "managing_a"
+        },
+        {
+            "@id": "ohdsi_gis:cabb24be4af6/coowners",
+            "@type": "PropertyValue",
+            "additionalType": "string",
+            "description": "Name(s) of additional owner(s) of the managed area",
+            "measurementMethod": "FNAI",
+            "name": "coowners"
+        },
+        {
+            "@id": "ohdsi_gis:cabb24be4af6/ltf_acres",
+            "@type": "PropertyValue",
+            "additionalType": "double",
+            "description": "Number of acres within the Managed Area that are in less-than-fee ownership.",
+            "measurementMethod": "The managing agency of the Managed Area",
+            "name": "ltf_acres",
+            "unitsText": "acres"
+        },
+        {
+            "@id": "ohdsi_gis:cabb24be4af6/owner",
+            "@type": "PropertyValue",
+            "additionalType": "string",
+            "description": "Name of the main owner of the Managed Area",
+            "measurementMethod": "FNAI",
+            "name": "owner"
+        },
+        {
+            "@id": "ohdsi_gis:cabb24be4af6/macode_bcd",
+            "@type": "PropertyValue",
+            "additionalType": "string",
+            "description": "Managed Area Code",
+            "measurementMethod": "The Nature Conservancy",
+            "name": "macode_bcd"
+        },
+        {
+            "@id": "ohdsi_gis:cabb24be4af6/maname_ab",
+            "@type": "PropertyValue",
+            "additionalType": "string",
+            "description": "A shortened (abbreviated) name of the Managed Area",
+            "measurementMethod": "FNAI",
+            "name": "maname_ab"
+        },
+        {
+            "@id": "ohdsi_gis:cabb24be4af6/majorma",
+            "@type": "PropertyValue",
+            "additionalType": "string",
+            "description": "Official name of the Major Managed Area.  Major Managed Area refers to a larger Managed Area that contains the Managed Area in question.",
+            "measurementMethod": "FNAI",
+            "name": "majorma"
+        },
+        {
+            "@id": "ohdsi_gis:cabb24be4af6/comments2",
+            "@type": "PropertyValue",
+            "additionalType": "string",
+            "description": "Continued Description",
+            "measurementMethod": "FNAI",
+            "name": "comments2"
+        },
+        {
+            "@id": "ohdsi_gis:cabb24be4af6/mgrinst",
+            "@type": "PropertyValue",
+            "additionalType": "string",
+            "description": "Manager Institution",
+            "measurementMethod": "The managing agency of the Managed Area",
+            "name": "mgrinst"
+        },
+        {
+            "@id": "ohdsi_gis:cabb24be4af6/ma_website",
+            "@type": "PropertyValue",
+            "additionalType": "string",
+            "description": "Managed Area Web Site",
+            "measurementMethod": "FNAI",
+            "name": "ma_website"
+        },
+        {
+            "@id": "ohdsi_gis:cabb24be4af6/manager",
+            "@type": "PropertyValue",
+            "additionalType": "string",
+            "description": "Name and/or official job title of the current manager of the Managed Area.",
+            "measurementMethod": "The managing agency of the Managed Area",
+            "name": "manager"
+        },
+        {
+            "@id": "ohdsi_gis:cabb24be4af6/ownertypes",
+            "@type": "PropertyValue",
+            "additionalType": "string",
+            "description": "Owner Types",
+            "measurementMethod": "FNAI",
+            "name": "ownertypes"
+        },
+        {
+            "@id": "ohdsi_gis:cabb24be4af6/matype",
+            "@type": "PropertyValue",
+            "additionalType": "string",
+            "description": "Code for the Managed Area by lead managing agency. Each Managed Area has been coded as 1st byte = Managing Agency Category: F=Federal, S=State, L=Local, P=Private, 2nd and 3rd bytes = Managing Agency: (e.g., AF= US Air Force), 4th and 5th bytes = Managed Area Unit Type (e.g., AB= Air Force Base)",
+            "measurementMethod": "The Nature Conservancy and FNAI",
+            "name": "matype"
+        },
+        {
+            "@id": "ohdsi_gis:cabb24be4af6/desc2",
+            "@type": "PropertyValue",
+            "additionalType": "string",
+            "description": "Description",
+            "measurementMethod": "FNAI",
+            "name": "desc2"
+        },
+        {
+            "@id": "ohdsi_gis:cabb24be4af6/maname",
+            "@type": "PropertyValue",
+            "additionalType": "string",
+            "description": "Official name of the Managed Area (conservation land)",
+            "measurementMethod": "The managing agency of the Managed Area",
+            "name": "maname"
+        },
+        {
+            "@id": "ohdsi_gis:cabb24be4af6/area",
+            "@type": "PropertyValue",
+            "additionalType": "double",
+            "description": "Area in square meters.",
+            "measurementMethod": "FNAI",
+            "name": "area",
+            "unitsText": "square meters"
+        },
+        {
+            "@id": "ohdsi_gis:cabb24be4af6/matype2",
+            "@type": "PropertyValue",
+            "additionalType": "string",
+            "description": "Code for Managed Area by managing agency category.",
+            "measurementMethod": "FNAI",
+            "name": "matype2"
+        }
+    ]
+}

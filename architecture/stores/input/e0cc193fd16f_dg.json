@@ -1,0 +1,136 @@
+{
+    "@context": {
+        "@vocab": "https://schema.org/",
+        "ohdsi_gis": "https://ohdsi_gis.org/.well-known/genid/",
+        "geosparql": "http://www.opengis.net/ont/geosparql#"
+    },
+    "@id": "http://ohdsi_gis.org/id/e0cc193fd16f",
+    "@type": "Dataset",
+    "geosparql:hasGeometry": {
+        "@id": "ohdsi_gis:geo/e0cc193fd16f",
+        "@type": "http://www.opengis.net/ont/sf#Polygon",
+        "geosparql:asWKT": {
+            "@type": "geosparql:wktLiteral",
+            "@value": "POLYGON ((-87.634896 24.396308, -87.634896 31.000968, -79.974306 31.000968, -79.974306 24.396308, -87.634896 24.396308))"
+        }
+    },
+    "description": "A special collection of aggregated columns from the 2021 5-year ACS variables at the census tract level selected for use with the Florida Stroke Registry. Please see the column metadata for the description of the columns.",
+    "keywords": [
+        "Population",
+        "Florida",
+        "Census Tract",
+        "Demographic",
+        "ACS 2021",
+        "Tract",
+        "FSR",
+        "2021",
+        "5-Year Estimates",
+        "Census"
+    ],
+    "license": "This Software was created by U.S. Government employees and therefore is not subject to copyright in the United States (17 U.S.C. \u00a7105). The United States/U.S.Department of Commerce (\u201cCommerce\u201d) reserve all rights to seek and obtain copyright protection in countries other than the United States. The United States/Commerce hereby grant to User a royalty-free, nonexclusive license to use, copy, and create derivative works of the Software outside of the United States.\\n\\nThe Software is provided to the User and those who may take by, through or under it, \u201cas is,\u201d without any warranty (whether express or implied) or representation whatsoever, including but not limited to any warranty of merchantability. The Software is taken hereunder without any right to support or to any improvements, extensions, or modifications, except as may be agreed to separately, in writing, by Commerce.\\n\\nUser, on behalf of itself and all others who take by, through or under it, hereby and forever waives, releases, and discharges the United States/Commerce and all its instrumentalities from any and all liabilities and obligations in connection with the use, application, sale or conveyance of the Software. User shall indemnify and hold harmless the United States/Commerce and its instrumentalities from all claims, liabilities, demands, damages, expenses, and losses arising from or in connection with User's use, application, sale or conveyance of the Software, including those who take by, through or under User whether or not User was directly involved. This provision will survive termination of this Agreement and will include any and all claims or liabilities arising under intellectual property rights, such as patents, copyrights, trademarks, and trade secrets. If User of software is an Executive Agency of the United States, this clause is not applicable.\\n\\nThe construction, validity, performance, and effect of this Agreement for all purposes will be governed by Federal law of the United States.\\n\\nUser agrees to make a good faith effort to use the Software in a way that does not cause damage, harm, or embarrassment to the United States/Commerce. The United States/Commerce expressly reserve all rights and remedies.",
+    "name": "2021 Florida ACS 5 Year Estimates - Tract Level - FSR",
+    "publisher": {
+        "@type": "http://www.w3.org/2000/01/rdf-schema#Literal",
+        "@value": "Department of Commerce|U.S. Census Bureau Public Domain"
+    },
+    "spatialCoverage": {
+        "@id": "ohdsi_gis:e0cc193fd16f",
+        "@type": "Place",
+        "name": [
+            "United States",
+            "Florida"
+        ]
+    },
+    "variableMeasured": [
+        {
+            "@id": "ohdsi_gis:e0cc193fd16f/persons_between_the_age_of_20_and_64",
+            "@type": "PropertyValue",
+            "additionalType": "integer",
+            "description": "Number of people between the age of 20 and 65",
+            "measurementMethod": "(B01001_008E:B01001_019E)+(B01001_032E:B01001_043E)",
+            "name": "persons_between_the_age_of_20_and_64",
+            "unitsText": "people"
+        },
+        {
+            "@id": "ohdsi_gis:e0cc193fd16f/born_in_venezuela",
+            "@type": "PropertyValue",
+            "additionalType": "integer",
+            "description": "Number of people born in Venezuela",
+            "measurementMethod": "B05006_164E",
+            "name": "born_in_venezuela",
+            "unitsText": "people"
+        },
+        {
+            "@id": "ohdsi_gis:e0cc193fd16f/hispanic_population",
+            "@type": "PropertyValue",
+            "additionalType": "integer",
+            "description": "Number of people who identify as Hispanic or Latino any race",
+            "measurementMethod": "B01001I_001E",
+            "name": "hispanic_population",
+            "unitsText": "people"
+        },
+        {
+            "@id": "ohdsi_gis:e0cc193fd16f/age_of_5_and_19",
+            "@type": "PropertyValue",
+            "additionalType": "integer",
+            "description": "Number of people with age of 5 to 20",
+            "measurementMethod": "(B01001_004E:B01001_007E)+(B01001_028E:B01001_031E)",
+            "name": "age_of_5_and_19",
+            "unitsText": "people"
+        },
+        {
+            "@id": "ohdsi_gis:e0cc193fd16f/latin_america_born",
+            "@type": "PropertyValue",
+            "additionalType": "int4",
+            "description": "Number of people who migrated from Latin America and the Caribbean",
+            "measurementMethod": "B05007_048E+B05007_045E+B05007_051E+B05007_042E",
+            "name": "latin_america_born",
+            "unitsText": "people"
+        },
+        {
+            "@id": "ohdsi_gis:e0cc193fd16f/persons_4_years_old_and_younger",
+            "@type": "PropertyValue",
+            "additionalType": "integer",
+            "description": "Number of people 4 years old and younger",
+            "measurementMethod": "B01001_003E+B01001_027E",
+            "name": "persons_4_years_old_and_younger",
+            "unitsText": "people"
+        },
+        {
+            "@id": "ohdsi_gis:e0cc193fd16f/born_in_haiti",
+            "@type": "PropertyValue",
+            "additionalType": "integer",
+            "description": "Number of people born in Haiti",
+            "measurementMethod": "B05006_138E",
+            "name": "born_in_haiti",
+            "unitsText": "people"
+        },
+        {
+            "@id": "ohdsi_gis:e0cc193fd16f/total_population",
+            "@type": "PropertyValue",
+            "additionalType": "integer",
+            "description": "Total population in census tract",
+            "measurementMethod": "B01001_001E",
+            "name": "total_population",
+            "unitsText": "people"
+        },
+        {
+            "@id": "ohdsi_gis:e0cc193fd16f/persons_65_years_old_and_over",
+            "@type": "PropertyValue",
+            "additionalType": "integer",
+            "description": "Number of people 65 years old and over",
+            "measurementMethod": "(B01001_020E:B01001_025E)+(B01001_044E:B01001_049E)",
+            "name": "persons_65_years_old_and_over",
+            "unitsText": "people"
+        },
+        {
+            "@id": "ohdsi_gis:e0cc193fd16f/creole_speaking",
+            "@type": "PropertyValue",
+            "additionalType": "int4",
+            "description": "Number of Creole speaking people in the tract",
+            "measurementMethod": "C16001_008E",
+            "name": "creole_speaking",
+            "unitsText": "people"
+        }
+    ]
+}

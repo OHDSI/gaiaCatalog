@@ -1,0 +1,104 @@
+{
+    "@context": {
+        "@vocab": "https://schema.org/",
+        "ohdsi_gis": "https://ohdsi_gis.org/.well-known/genid/",
+        "geosparql": "http://www.opengis.net/ont/geosparql#"
+    },
+    "@id": "http://ohdsi_gis.org/id/c5126aa7f696",
+    "@type": "Dataset",
+    "geosparql:hasGeometry": {
+        "@id": "ohdsi_gis:geo/c5126aa7f696",
+        "@type": "http://www.opengis.net/ont/sf#Polygon",
+        "geosparql:asWKT": {
+            "@type": "geosparql:wktLiteral",
+            "@value": "POLYGON ((-87.37385040152557 25.797370886130086, -87.37385040152557 30.952510354365543, -80.17096108632146 30.952510354365543, -80.17096108632146 25.797370886130086, -87.37385040152557 25.797370886130086))"
+        }
+    },
+    "description": "Florida National Priority List (Superfund) Sites. Years ago there was less understanding of how dumping or improper management of chemical wastes might adversely affect public health and the environment. The result of such practices was that hazardous substances contaminated thousands of properties across the nation. Congress passed legislation in 1980 that established the Superfund Program in order to locate, investigate and cleanup these sites. The federal Environmental Protection Agency (EPA) administers the Superfund Program in cooperation with the individual States and tribal governments. The Hazard Ranking System (HRS) is the principal mechanism that EPA uses to evaluate sites for the National Priorities List (NPL). It is a numerically based screening system that uses information from initial, limited investigations the preliminary assessment and the site inspection to assess the potential of sites to pose a threat to human health or the environment. Sites are listed on the NPL upon completion of Hazard Ranking System screening, public solicitation of comments about the proposed site, and after all comments have been addressed. The responsible parties may clean up the Superfund site under an agreement with EPA\\| or, EPA may clean up the site under a cost-share agreement using federal and state funds. Complete information on the federal Superfund Program and individual Florida Superfund sites is available on the EPA Superfund Sites Website.",
+    "keywords": [
+        "Contamination",
+        "Florida",
+        "Safety",
+        "Pollution",
+        "Environmental Protection Agency",
+        "Superfund",
+        "Hazard",
+        "Clean-Up Site",
+        "Public-Safety",
+        "EPA",
+        "Superfund Site",
+        "Health",
+        "Environment"
+    ],
+    "license": "Because a variety of sources and methods were used to derive information for this data, the quality of the locations may vary accordingly. The data is undergoing review to improve accuracy. This data is intended to be used for general locational representation and should not be considered appropriate for legal and/or cadastral purposes.",
+    "name": "Florida State Funded Cleanup Sites",
+    "publisher": {
+        "@type": "http://www.w3.org/2000/01/rdf-schema#Literal",
+        "@value": "Florida Department of Environmental Protection, Division of Water Resource Management, State Revolving Fund Program Public Domain"
+    },
+    "spatialCoverage": {
+        "@id": "ohdsi_gis:c5126aa7f696",
+        "@type": "Place",
+        "name": [
+            "United States",
+            "Florida"
+        ]
+    },
+    "variableMeasured": [
+        {
+            "@id": "ohdsi_gis:c5126aa7f696/program",
+            "@type": "PropertyValue",
+            "name": "program"
+        },
+        {
+            "@id": "ohdsi_gis:c5126aa7f696/county",
+            "@type": "PropertyValue",
+            "name": "county"
+        },
+        {
+            "@id": "ohdsi_gis:c5126aa7f696/city",
+            "@type": "PropertyValue",
+            "name": "city"
+        },
+        {
+            "@id": "ohdsi_gis:c5126aa7f696/address",
+            "@type": "PropertyValue",
+            "name": "address"
+        },
+        {
+            "@id": "ohdsi_gis:c5126aa7f696/manager",
+            "@type": "PropertyValue",
+            "name": "manager"
+        },
+        {
+            "@id": "ohdsi_gis:c5126aa7f696/haz_arc_id",
+            "@type": "PropertyValue",
+            "name": "haz_arc_id"
+        },
+        {
+            "@id": "ohdsi_gis:c5126aa7f696/district",
+            "@type": "PropertyValue",
+            "name": "district"
+        },
+        {
+            "@id": "ohdsi_gis:c5126aa7f696/eric_id",
+            "@type": "PropertyValue",
+            "name": "eric_id"
+        },
+        {
+            "@id": "ohdsi_gis:c5126aa7f696/documents",
+            "@type": "PropertyValue",
+            "name": "documents"
+        },
+        {
+            "@id": "ohdsi_gis:c5126aa7f696/status",
+            "@type": "PropertyValue",
+            "name": "status"
+        },
+        {
+            "@id": "ohdsi_gis:c5126aa7f696/name",
+            "@type": "PropertyValue",
+            "name": "name"
+        }
+    ]
+}
