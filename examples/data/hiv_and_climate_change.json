@@ -293,6 +293,7 @@
           "@type": "PropertyValue",
           "name": "timePeriod",
           "description": "timePeriod is specified in ISO 8601 format. It has a start date, an interval and an argument (Rn) that repeats the interval beginning at the start date",
+          "propertyID": "",
           "value": "R144/2014-01/P1M",
           "unitCode": "http://athena.ohdsi.org/ucum/44777658",
           "unitText": "/mo",
