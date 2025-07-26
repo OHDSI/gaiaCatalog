@@ -60,8 +60,7 @@
       - Each of these PropertyValues includes a propertyID. A [propertyID](https://schema.org/propertyID) corresponds to a concept_id in an external vocabulary. Take this propertyID for example: "http://gisextension.ohdsi.org/exposome/nnn"
       - Each of these PropertyValues includes an [AddAction](https://schema.org/AddAction) potentialAction through which an external exposure occurrence is added to the external_exposure OMOP CDM table
   - hasPart
-    - A StatisticalVariable specifies a metric that we construct on top of an observation. The metric may group and/or qualify the observation across several factors or dimensions. They are the constraintProperties of the StatisticalVariable.
-    - Typically we pair a StatisticalVariable with its Observation.
+    - A StatisticalVariable describes a statistical metric. That includes its constraintProperties.  An Observation quantifies a StatisticalVariable breaking the Observation out across a time series, the place(s) a StatisticalVarable covers, demographic factors and other constraints.
     - The Observation for each StatisticalVariable is located in the hasPart array. It has properties like minValue, maxValue and DateTime. 
   - about
     - about takes any Thing including an [Event](https://schema.org/Event)
