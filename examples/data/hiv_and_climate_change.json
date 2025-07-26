@@ -310,6 +310,7 @@
           "@type": "PropertyValue",
           "name": "geographicalArea",
           "description": "",
+          "measurementTechnique": "Polygonize (Raster to Vector)",
           "value": {
             "@type": "AdministrativeArea",
             "name": "Magu",
@@ -371,6 +372,7 @@
           "@type": "PropertyValue",
           "name": "geographicalArea",
           "description": "",
+          "measurementTechnique": "Polygonize (Raster to Vector)",
           "value": {
             "@type": "AdministrativeArea",
             "name": "Magu",
