@@ -293,6 +293,7 @@
           "@type": "PropertyValue",
           "name": "timePeriod",
           "description": "timePeriod is specified in ISO 8601 format. It has a start date, an interval and an argument (Rn) that repeats the interval beginning at the start date",
+          "disambiguatingDescription": "This is a time series",
           "propertyID": "",
           "value": "R144/2014-01/P1M",
           "unitCode": "http://athena.ohdsi.org/ucum/44777658",
@@ -354,10 +355,12 @@
       "identifier": "http://gisextension.ohdsi.org/sdoh/nnn",
       "description": "A precipitation event over the 95th percentile counts as a flood exceedance.",
       "disambiguatingDescription": "Flood exceedances are associated with disruption in services and infrastructure.",
+      "measurementTechnique": "Empirical (non-parametric) method",
       "populationType": "Gaia",
       "measuredProperty": "Precipitation event",
       "unitText": "mm/24 hrs",
       "statType": "95th percentile of all recorded 24-hour rainfall events",
+      "additionalType": ["Annual Exceedance Probability of a 24-hour flood event", "Recurrence Interval of a 24-hour flood event"], 
       "constraintProperty": [
         {
           "@type": "PropertyValue",
