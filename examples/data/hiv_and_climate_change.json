@@ -356,6 +356,7 @@
       "description": "A precipitation event over the 95th percentile counts as a flood exceedance.",
       "disambiguatingDescription": "Flood exceedances are associated with disruption in services and infrastructure.",
       "measurementTechnique": "Empirical (non-parametric) method",
+      "measurementMethod": "https://github.com/OHDSI/gaiaCatalog/blob/main/examples/data/calculating_annual_exceedence_probability.md",
       "populationType": "Gaia",
       "measuredProperty": "Precipitation event",
       "unitText": "mm/24 hrs",
