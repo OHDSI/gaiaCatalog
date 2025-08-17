@@ -290,7 +290,10 @@
       "populationType": "Gaia",
       "measuredProperty": "Maximum temperature",
       "statType": "mean",
-      "codata:unitText": "°C",
+      "measurementQualifier": {
+        "@type": "Enumeration",
+        "identifier": ["degree celcius", "https://athena.ohdsi.org/search-terms/terms/586323"]
+      },
       "codata:constraintProperty": [
         {
           "@type": "PropertyValue",
@@ -375,7 +378,10 @@
       "measurementMethod": "https://github.com/OHDSI/gaiaCatalog/blob/main/examples/data/calculating_annual_exceedence_probability.md",
       "populationType": "Gaia",
       "measuredProperty": "Precipitation event",
-      "codata:unitText": "mm/24 hrs",
+      "measurementQualifier": {
+        "@type": "Enumeration",
+        "identifier": ["mm/24 hrs", "https://codata.org/units/term/mm24hr"]
+      },
       "statType": "95th percentile of all recorded 24-hour rainfall events",
       "additionalType": ["Annual Exceedance Probability of a 24-hour flood event", "Recurrence Interval of a 24-hour flood event"], 
       "codata:constraintProperty": [
