@@ -301,19 +301,28 @@
           "value": "R144/2014-01/P1M",
           "unitCode": "http://athena.ohdsi.org/ucum/44777658",
           "unitText": "/mo",
-          "valueReference": {
-            "@type": "DefinedTerm",
-            "name": "ConstraintPropertyType",
-            "description": "The ConstraintProperty type has one of two values -- 'dimension' or 'attribute'. Types take after SDMX and RDF Data Cube dimensions and attributes",
-            "disambiguatingDescription": "Attributes give context to the underlying measure. A dimension breaks out a measure into a controlled vocabulary of one or more categories",
-            "termCode": "sdmx:Dimension",
-            "inDefinedTermSet": ["sdmx:Dimension", "sdmx:Attribute"]
-          }
+          "valueReference": [
+            {
+              "@type": "DefinedTerm",
+              "name": "ConstraintPropertyType",
+              "description": "The ConstraintProperty type has one of two values -- 'dimension' or 'attribute'. Types take after SDMX and RDF Data Cube dimensions and attributes",
+              "disambiguatingDescription": "Attributes give context to the underlying measure. A dimension breaks out a measure into a controlled vocabulary of one or more categories",
+              "termCode": "sdmx:Dimension",
+              "inDefinedTermSet": ["sdmx:Dimension", "sdmx:Attribute"]
+            },
+            {
+              "@type": "Observation",
+              "marginOfError": "a human readable statement of the value margin of error",
+              "observationPeriod": "a human readable time period",
+              "maxValue": "the highest (recorded) value of an observation",
+              "minValue": "the lowest (recorded) value of an observation"
+            }
+          ]
         },
         {
           "@type": "PropertyValue",
           "name": "geographicalArea",
-          "description": "",
+          "description": "human readable description of geographicalArea",
           "measurementTechnique": "Polygonize (Raster to Vector)",
           "value": {
             "@type": "GeoShape",
@@ -324,14 +333,22 @@
           },
           "unitCode": "TBD",
           "codata:unitText": "for the Magu administrative area",
-          "valueReference": {
-            "@type": "DefinedTerm",
-            "name": "ConstraintPropertyType",
-            "description": "The ConstraintProperty type has one of two values -- 'dimension' or 'attribute'. Types take after SDMX and RDF Data Cube dimensions and attributes",
-            "disambiguatingDescription": "Attributes give context to the underlying measure. A dimension breaks out a measure into a controlled vocabulary of one or more categories",
-            "termCode": "sdmx:Attribute",
-            "inDefinedTermSet": ["sdmx:Dimension", "sdmx:Attribute"]
-          }
+          "valueReference": [
+            {
+              "@type": "DefinedTerm",
+              "name": "ConstraintPropertyType",
+              "description": "The ConstraintProperty type has one of two values -- 'dimension' or 'attribute'. Types take after SDMX and RDF Data Cube dimensions and attributes",
+              "disambiguatingDescription": "Attributes give context to the underlying measure. A dimension breaks out a measure into a controlled vocabulary of one or more categories",
+              "termCode": "sdmx:Attribute",
+              "inDefinedTermSet": ["sdmx:Dimension", "sdmx:Attribute"]
+            },
+            {
+              "@type": "Observation",
+              "marginOfError": "a human readable statement of the value margin of error",
+              "maxValue": "the highest (recorded) value of an observation",
+              "minValue": "the lowest (recorded) value of an observation"
+            }
+          ]
         }
       ],
       "potentialAction": {
@@ -374,7 +391,7 @@
         {
           "@type": "PropertyValue",
           "name": "geographicalArea",
-          "description": "",
+          "description": "human readable description of geographicalArea",
           "measurementTechnique": "Polygonize (Raster to Vector)",
           "value": {
             "@type": "GeoShape",
@@ -400,22 +417,6 @@
           "url": "https://ohdsi.github.io/CommonDataModel/cdm54.html#external_exposure"
         }
       }
-    }
-  ],
-  "hasPart": [
-    {
-      "@type": "Observation",
-      "variableMeasured": "Average monthly maximum temperature",
-      "observationDate": "A combination of date and time of day in the form [-]CCYY-MM-DDThh:mm:ss[Z|(+|-)hh:mm] (see Chapter 5.4 of ISO 8601)",
-      "minValue": "the lowest (recorded) value of an observation",
-      "maxValue": "the highest (recorded) value of an observation"
-    },
-    {
-      "@type": "Observation",
-      "variableMeasured": "Flood exceedance event",
-      "observationDate": "A combination of date and time of day in the form [-]CCYY-MM-DDThh:mm:ss[Z|(+|-)hh:mm] (see Chapter 5.4 of ISO 8601)",
-      "minValue": "the lowest (recorded) value of an observation",
-      "maxValue": "the highest (recorded) value of an observation"
     }
   ],
   "about": {
