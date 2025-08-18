@@ -14,9 +14,10 @@ input_dir = os.path.join(script_dir, '../stores/input')
 output_dir = script_dir
 
 # Define the output file path.
-output_file = os.path.join(output_dir, 'output.nt')
+output_file = os.path.join(output_dir, '../stores/output.nt')
 
 # Create an RDF graph to hold the combined data from all JSON-LD files.
+# pyoxigraph would be a better choice for this, but rdflib is simpler.
 g = Graph()
 
 # Iterate over all files in the input directory.

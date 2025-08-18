@@ -28,7 +28,6 @@ import torch
 import hashlib
 from lancedb.pydantic import LanceModel, Vector
 
-
 from gliner import GLiNER
 import datasets
 from tqdm import tqdm
@@ -117,23 +116,25 @@ def er_function(text):
 
 
 # set up elements
-uri = "../../stores/lance/db"
+uri = "../stores/lance/db"
 db = lancedb.connect(uri)
-table = db.open_table("chonkey")
+table = db.open_table("source")
 
 print(table.schema)   #  id, embeddings, text, docName
 df = table.to_pandas()
 
+print(df.head(10))
+
 df_b = pd.DataFrame()
 
 for index, row in df.iterrows():
-    result_dict = er_function(row["text"])
+    result_dict = er_function(row["description"])
     if result_dict:
         df_er = pd.DataFrame(result_dict)
         df_er["id"] = row["id"]
-        df_er["docName"] = row["docName"]
-        df_er["chunk"] = row["text"]
-        df_er["chunkid"] = hashlib.md5(row["text"].encode()).hexdigest()
+        df_er["docName"] = row["filename"]
+        df_er["chunk"] = row["description"]
+        df_er["chunkid"] = hashlib.md5(row["description"].encode()).hexdigest()
         df_b = pd.concat([df_b, df_er], ignore_index=True)
     print(len(df))
 
@@ -142,11 +143,10 @@ for index, row in df.iterrows():
 
 df_b.to_csv('original_dataframe.csv', index=False)
 
-
-db = lancedb.connect("../../stores/lance/db")
+db = lancedb.connect("../stores/lance/db")
 if "entities" in db.table_names():
     db.drop_table("entities")
 table = db.create_table("entities", schema=DocVector.to_arrow_schema())
 table.add(data=df_b)
 # table = db.create_table("chonkey", data=embeddings_df, mode="overwrite")
-table.create_fts_index(["text"], replace=True)  ## create the text index, replace it if it already exists
+# table.create_fts_index(["text"], replace=True)  ## create the text index, replace it if it already exists

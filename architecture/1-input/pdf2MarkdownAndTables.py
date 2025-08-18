@@ -69,7 +69,7 @@ def extract_tables_only(source_path, output_file=None):
         # You might need to adjust based on docling's specific table extraction methods
         full_markdown = result.document.export_to_markdown()
 
-        # Extract table sections (lines that look like markdown tables)
+        # Extract table sections (lines that look like Markdown tables)
         lines = full_markdown.split("\n")
         table_lines = []
         in_table = False
@@ -83,7 +83,7 @@ def extract_tables_only(source_path, output_file=None):
                 table_lines.append(line)  # Keep empty lines within tables
             elif in_table and "|" not in line:
                 in_table = False
-                table_lines.append("\n")  # Add separator between tables
+                table_lines.append("\n")  # Add a separator between tables
 
         tables_content = "\n".join(table_lines)
 

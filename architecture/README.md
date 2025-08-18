@@ -1,6 +1,6 @@
 # Architecture Flow
 
-> this work in flux... expect changes.
+> this work is in flux... expect changes.
 
 ## Notes
 
@@ -25,7 +25,16 @@ Conversely, Knowledge Graphs are
 ```mermaid
 flowchart LR
 
-Input --> Chunk --> Extraction --> Standardize --> Inference --> Use
+Input("1-Input \n Here we generate both a RDF file \nand also populate a LanceDB table")
+
+Input --> RDF["RDF File"]
+Input --> LDB["LanceDB"]
+
+LDB --> Chunk["Chunking"]
+RDF --> Chunk --> Extraction --> Standardize --> Inference --> Use
+
+
+
 ```
 
 1) Input

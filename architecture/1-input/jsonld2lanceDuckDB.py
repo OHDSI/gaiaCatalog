@@ -24,16 +24,15 @@ def lchunkText(full_text: str = None,):
         # min_characters_per_chunk=24,
         # min_sentences_per_chunk=1,
         # min_characters_per_sentence=12,
-        device="cpu",
+        device="cpu",   # set to 'cpu' if you don't have a cuda GPU or enough memory
     )
 
     lchunks = late_chunker(full_text)
-
     return lchunks
 
 def main():
     # Directory containing the JSON files
-    json_dir = './architecture/stores/input/'  # Change this to your directory
+    json_dir = '../stores/input/'  # Change this to your directory
     # json_dir = '../stores/input/'  # Change this to your directory
 
     # directly query a JSON file
@@ -46,7 +45,7 @@ def main():
     # Chunk the description text. This will create a list of chunks for each row.
     # TODO   this obviously isn't returning what I expect in this case!   look at the df.head() output
     # the lchunkText is returning chunks?  not embeddings?
-    df['embeddings'] = df['description'].apply(lchunkText)
+    df['embeddings'] = df['description'].apply(lambda x: lchunkText(x))
 
     # Explode the DataFrame to create a new row for each text chunk.
     # df = df.explode('embeddings').reset_index(drop=True)
@@ -56,7 +55,6 @@ def main():
     # Create the embeddings from the chunked descriptions
     # The tolist() is important for performance with sentence-transformers
     # df['embeddings'] = model.encode(df['description'].str, show_progress_bar=True).tolist()
-
 
     print(df.head())
 

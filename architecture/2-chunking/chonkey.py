@@ -68,6 +68,8 @@ def schunkText(full_text: str = None,):
 
 
 def main():
+
+    ## TODO  make this the set of JSON-LD documents in ../stores/input/
     SOURCES = [
         "source files",
         "more_source_files"
