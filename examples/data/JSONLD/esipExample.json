@@ -1,0 +1,32 @@
+{
+  "@context": {
+    "@vocab": "https://schema.org/",
+    "qudt": "http://qudt.org/schema/qudt/"
+  },
+  "@type": "DefinedTerm",
+  "@id": "urn:example:ex_variable0007",
+  "identifier": "http://astromat/parameters/0027",
+  "name": "calcAvg",
+  "alternateName": "can calculate average",
+  "description": "Value in sample data are 'Can be averaged', 'Cannot be averaged', 'It is average'",
+  "qudt:dataType": "https://schema.org/Text",
+  "inDefinedTermSet": {
+    "@type": "DefinedTermSet",
+    "@id": "https://www.astromat.org/vocab/calcavg",
+    "name": "calcAvg controlled vocabulary",
+    "hasDefinedTerm": [
+      {
+        "@type": "DefinedTerm",
+        "termCode": "Can be averaged"
+      },
+      {
+        "@type": "DefinedTerm",
+        "termCode": "Cannot be averaged"
+      },
+      {
+        "@type": "DefinedTerm",
+        "termCode": "It is average"
+      }
+    ]
+  }
+}
