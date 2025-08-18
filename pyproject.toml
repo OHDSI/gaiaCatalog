@@ -5,13 +5,18 @@ description = "Add your description here"
 readme = "README.md"
 requires-python = ">=3.13"
 dependencies = [
+    "baml-py==0.86.1",
     "chonkie>=1.1.1",
     "datasets>=4.0.0",
     "docling>=2.42.2",
     "duckdb>=1.3.2",
     "gliner>=0.2.21",
+    "gradio>=5.42.0",
+    "kuzu>=0.11.1",
     "lancedb>=0.24.2",
+    "ollama>=0.5.3",
     "pandas>=2.3.1",
+    "polars>=1.32.3",
     "pylance>=0.32.0",
     "pyld>=2.0.4",
     "qlever>=0.5.23",
