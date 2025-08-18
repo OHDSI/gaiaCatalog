@@ -284,6 +284,36 @@
   ],
   "variableMeasured": [
     {
+        "@id": "http://example.org/id/link/to/concept/of/unit_data",
+        "@type": "PropertyValue",
+        "name": "unit_data",
+        "description": "A variable description",
+        "propertyID": ["URL for the unit data concept within a vocabulary"],
+        "measurementMethod": "can be text",
+        "measurementTechnique": "can be text or, if standard measurement protocols are defined and registered, can be a URL",
+        "unitCode": "can be text or a URL that goes to a concept in a unit of measurement vocab",
+        "unitText": "can be the corresponding text",
+        "value": "",
+        "minValue": "",
+        "maxValue": "",
+        "valueReference": {
+            "@type": "PropertyValue",
+            "name": "analysisRole",    
+            "description": "",   
+            "rangeIncludes": {
+                "@type":"DefinedTermSet",
+                "@id":"",        
+                "name":"",        
+                "hasDefinedTerm": [
+                    {"@type": "DefinedTerm", "termCode":"Independent"},
+                    {"@type": "DefinedTerm", "termCode":"Dependent"},
+                    {"@type": "DefinedTerm", "termCode":"Intervening"},
+                    {"@type": "DefinedTerm", "termCode":"Control"}
+                ]
+            }
+        }
+    },
+    {
       "@type": "StatisticalVariable",
       "name": "Average monthly maximum temperature",
       "identifier": "http://gisextension.ohdsi.org/sdoh/nnn",
