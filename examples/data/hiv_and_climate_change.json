@@ -202,47 +202,50 @@
       "encodingFormat": "application/vnd.ms-excel"
     },
     {
-      "@type": "SearchAction",
-      "description": "Includes maximum temperature, minimum temperature, precipitation and relative humidity aggregated monthly",
-      "disambiguatingDescription": "Also includes climate events that envelop the Magu and Nairobi HDSS sites for drought, flooding and heat stress during the temporal coverage. Exposure to each climate event is a calculated variable based on temperature, precipitation and humidity",
-      "target": {
-        "@type": "EntryPoint",
-        "contentType": ["application/x-netcdf", "text/tab-separated-values"],
-        "urlTemplate": "https://www.sample-data-repository.org/dataset/1234/download?format={format}&startDateTime={start}&endDateTime={end}&bounds={bbox}",
-        "description": "Downloads a dataset based, for example, on the requested format, start/end dates and bounding box. Actual request and query parameters to be determined with Tim N",
-        "httpMethod": ["GET", "POST"]
-      },
-      "query-input": [
-        {
-          "@type": "PropertyValueSpecification",
-          "valueName": "format",
-          "description": "The desired format requested either 'application/x-netcdf' or 'text/tab-separated-values'",
-          "valueRequired": true,
-          "defaultValue": "application/x-netcdf",
-          "valuePattern": "(application\/x-netcdf|text\/tab-separated-values)"
+      "@type": "DataDownload",
+      "potentialAction": {
+        "@type": "SearchAction",
+        "description": "Includes maximum temperature, minimum temperature, precipitation and relative humidity aggregated monthly",
+        "disambiguatingDescription": "Also includes climate events that envelop the Magu and Nairobi HDSS sites for drought, flooding and heat stress during the temporal coverage. Exposure to each climate event is a calculated variable based on temperature, precipitation and humidity",
+        "target": {
+          "@type": "EntryPoint",
+          "contentType": ["application/x-netcdf", "text/tab-separated-values"],
+          "urlTemplate": "https://www.sample-data-repository.org/dataset/1234/download?format={format}&startDateTime={start}&endDateTime={end}&bounds={bbox}",
+          "description": "Downloads a dataset based, for example, on the requested format, start/end dates and bounding box. Actual request and query parameters to be determined with Tim N",
+          "httpMethod": ["GET", "POST"]
         },
-        {
-          "@type": "PropertyValueSpecification",
-          "valueName": "start",
-          "description": "A UTC ISO DateTime",
-          "valueRequired": false,
-          "valuePattern": "(-?(?:[1-9][0-9]*)?[0-9]{4})-(1[0-2]|0[1-9])-(3[01]|0[1-9]|[12][0-9])T(2[0-3]|[01][0-9]):([0-5][0-9]):([0-5][0-9])(.[0-9]+)?(Z)?"
-        },
-        {
-          "@type": "PropertyValueSpecification",
-          "valueName": "end",
-          "description": "A UTC ISO DateTime",
-          "valueRequired": false,
-          "valuePattern": "(-?(?:[1-9][0-9]*)?[0-9]{4})-(1[0-2]|0[1-9])-(3[01]|0[1-9]|[12][0-9])T(2[0-3]|[01][0-9]):([0-5][0-9]):([0-5][0-9])(.[0-9]+)?(Z)?"
-        },
-        {
-          "@type": "PropertyValueSpecification",
-          "valueName": "bbox",
-          "description": "Two points in decimal degrees that create a bounding box fomatted at 'lon,lat' of the lower-left corner and 'lon,lat' of the upper-right",
-          "valueRequired": false,
-          "valuePattern": "(-?[0-9]+(.[0-9]+)?),[ ]*(-?[0-9]+(.[0-9]+)?)[ ]*(-?[0-9]+(.[0-9]+)?),[ ]*(-?[0-9]+(.[0-9]+)?)"
-        }
-      ]
+        "query-input": [
+          {
+            "@type": "PropertyValueSpecification",
+            "valueName": "format",
+            "description": "The desired format requested either 'application/x-netcdf' or 'text/tab-separated-values'",
+            "valueRequired": true,
+            "defaultValue": "application/x-netcdf",
+            "valuePattern": "(application\/x-netcdf|text\/tab-separated-values)"
+          },
+          {
+            "@type": "PropertyValueSpecification",
+            "valueName": "start",
+            "description": "A UTC ISO DateTime",
+            "valueRequired": false,
+            "valuePattern": "(-?(?:[1-9][0-9]*)?[0-9]{4})-(1[0-2]|0[1-9])-(3[01]|0[1-9]|[12][0-9])T(2[0-3]|[01][0-9]):([0-5][0-9]):([0-5][0-9])(.[0-9]+)?(Z)?"
+          },
+          {
+            "@type": "PropertyValueSpecification",
+            "valueName": "end",
+            "description": "A UTC ISO DateTime",
+            "valueRequired": false,
+            "valuePattern": "(-?(?:[1-9][0-9]*)?[0-9]{4})-(1[0-2]|0[1-9])-(3[01]|0[1-9]|[12][0-9])T(2[0-3]|[01][0-9]):([0-5][0-9]):([0-5][0-9])(.[0-9]+)?(Z)?"
+          },
+          {
+            "@type": "PropertyValueSpecification",
+            "valueName": "bbox",
+            "description": "Two points in decimal degrees that create a bounding box fomatted at 'lon,lat' of the lower-left corner and 'lon,lat' of the upper-right",
+            "valueRequired": false,
+            "valuePattern": "(-?[0-9]+(.[0-9]+)?),[ ]*(-?[0-9]+(.[0-9]+)?)[ ]*(-?[0-9]+(.[0-9]+)?),[ ]*(-?[0-9]+(.[0-9]+)?)"
+          }
+        ]
+      }
     }
   ],
   "creator": [
@@ -281,55 +284,100 @@
   ],
   "variableMeasured": [
     {
+        "@id": "http://example.org/id/link/to/concept/of/unit_data",
+        "@type": "PropertyValue",
+        "name": "unit_data",
+        "description": "A variable description",
+        "propertyID": ["URL for the unit data concept within a vocabulary"],
+        "measurementMethod": "can be text",
+        "measurementTechnique": "can be text or, if standard measurement protocols are defined and registered, can be a URL",
+        "unitCode": "can be text or a URL that goes to a concept in a unit of measurement vocab",
+        "unitText": "can be the corresponding text",
+        "value": "",
+        "minValue": "",
+        "maxValue": "",
+        "valueReference": {
+            "@type": "PropertyValue",
+            "name": "analysisRole",    
+            "description": "",   
+            "rangeIncludes": {
+                "@type":"DefinedTermSet",
+                "@id":"",        
+                "name":"",        
+                "hasDefinedTerm": [
+                    {"@type": "DefinedTerm", "termCode":"Independent"},
+                    {"@type": "DefinedTerm", "termCode":"Dependent"},
+                    {"@type": "DefinedTerm", "termCode":"Intervening"},
+                    {"@type": "DefinedTerm", "termCode":"Control"}
+                ]
+            }
+        }
+    },
+    {
       "@type": "StatisticalVariable",
       "name": "Average monthly maximum temperature",
       "identifier": "http://gisextension.ohdsi.org/sdoh/nnn",
       "populationType": "Gaia",
       "measuredProperty": "Maximum temperature",
       "statType": "mean",
-      "unitText": "°C",
-      "constraintProperty": [
+      "measurementQualifier": [
+        {
+          "@type": "Enumeration",
+          "identifier": ["degree celcius", "https://athena.ohdsi.org/search-terms/terms/586323"]
+        },
+        {
+          "@type": "Observation",
+          "marginOfError": "a human readable statement of the value margin of error",
+          "observationPeriod": "a human readable time period",
+          "maxValue": "the highest (recorded) value of an observation",
+          "minValue": "the lowest (recorded) value of an observation"
+        }
+      ],
+      "codata:constraintProperty": [
         {
           "@type": "PropertyValue",
           "name": "timePeriod",
           "description": "timePeriod is specified in ISO 8601 format. It has a start date, an interval and an argument (Rn) that repeats the interval beginning at the start date",
+          "disambiguatingDescription": "This is a time series",
+          "propertyID": "",
           "value": "R144/2014-01/P1M",
           "unitCode": "http://athena.ohdsi.org/ucum/44777658",
           "unitText": "/mo",
-          "valueReference": {
-            "@type": "DefinedTerm",
-            "name": "ConstraintPropertyType",
-            "description": "The ConstraintProperty type has one of two values -- 'dimension' or 'attribute'. Types take after SDMX and RDF Data Cube dimensions and attributes",
-            "disambiguatingDescription": "Attributes give context to the underlying measure. A dimension breaks out a measure into a controlled vocabulary of one or more categories",
-            "termCode": "sdmx:Dimension",
-            "inDefinedTermSet": ["sdmx:Dimension", "sdmx:Attribute"]
-          }
+          "valueReference": [
+            {
+              "@type": "DefinedTerm",
+              "name": "ConstraintPropertyType",
+              "description": "The ConstraintProperty type has one of two values -- 'dimension' or 'attribute'. Types take after SDMX and RDF Data Cube dimensions and attributes",
+              "disambiguatingDescription": "Attributes give context to the underlying measure. A dimension breaks out a measure into a controlled vocabulary of one or more categories",
+              "termCode": "sdmx:Dimension",
+              "inDefinedTermSet": ["sdmx:Dimension", "sdmx:Attribute"]
+            }
+          ]
         },
         {
           "@type": "PropertyValue",
           "name": "geographicalArea",
-          "description": "",
+          "description": "human readable description of geographicalArea",
+          "measurementTechnique": "Polygonize (Raster to Vector)",
           "value": {
-            "@type": "AdministrativeArea",
-            "name": "Magu",
-            "geo": {
-              "@type": "GeoShape",
-              "description": "We used the geocoordinates of the centroid of an HDSS and applied a 10 km buffer around it",
-              "disambiguatingDescription": "This buffer helped account for potential inaccuracies in the centroid coordinates and the limited resolution of the climate data.",
-              "circle": "A circle is the circular region of a specified radius centered at a specified latitude and longitude. A circle is expressed as a pair followed by a radius in meters.",
-              "elevation": "The elevation of a location (WGS 84)."
-            }
+            "@type": "GeoShape",
+            "description": "We used the geocoordinates of the centroid of an HDSS and applied a 10 km buffer around it",
+            "disambiguatingDescription": "This buffer helped account for potential inaccuracies in the centroid coordinates and the limited resolution of the climate data.",
+            "circle": "A circle is the circular region of a specified radius centered at a specified latitude and longitude. A circle is expressed as a pair followed by a radius in meters.",
+            "elevation": "The elevation of a location (WGS 84)."
           },
           "unitCode": "TBD",
-          "unitText": "for the Magu administrative area",
-          "valueReference": {
-            "@type": "DefinedTerm",
-            "name": "ConstraintPropertyType",
-            "description": "The ConstraintProperty type has one of two values -- 'dimension' or 'attribute'. Types take after SDMX and RDF Data Cube dimensions and attributes",
-            "disambiguatingDescription": "Attributes give context to the underlying measure. A dimension breaks out a measure into a controlled vocabulary of one or more categories",
-            "termCode": "sdmx:Attribute",
-            "inDefinedTermSet": ["sdmx:Dimension", "sdmx:Attribute"]
-          }
+          "codata:unitText": "for the Magu administrative area",
+          "valueReference": [
+            {
+              "@type": "DefinedTerm",
+              "name": "ConstraintPropertyType",
+              "description": "The ConstraintProperty type has one of two values -- 'dimension' or 'attribute'. Types take after SDMX and RDF Data Cube dimensions and attributes",
+              "disambiguatingDescription": "Attributes give context to the underlying measure. A dimension breaks out a measure into a controlled vocabulary of one or more categories",
+              "termCode": "sdmx:Attribute",
+              "inDefinedTermSet": ["sdmx:Dimension", "sdmx:Attribute"]
+            }
+          ]
         }
       ],
       "potentialAction": {
@@ -352,11 +400,26 @@
       "identifier": "http://gisextension.ohdsi.org/sdoh/nnn",
       "description": "A precipitation event over the 95th percentile counts as a flood exceedance.",
       "disambiguatingDescription": "Flood exceedances are associated with disruption in services and infrastructure.",
+      "measurementTechnique": "Empirical (non-parametric) method",
+      "measurementMethod": "https://github.com/OHDSI/gaiaCatalog/blob/main/examples/data/calculating_annual_exceedence_probability.md",
       "populationType": "Gaia",
       "measuredProperty": "Precipitation event",
-      "unitText": "mm/24 hrs",
+      "measurementQualifier": [
+        {
+          "@type": "Enumeration",
+          "identifier": ["mm/24 hrs", "https://codata.org/units/term/mm24hr"]
+        },
+        {
+          "@type": "Observation",
+          "marginOfError": "a human readable statement of the value margin of error",
+          "observationPeriod": "a human readable time period",
+          "maxValue": "the highest (recorded) value of an observation",
+          "minValue": "the lowest (recorded) value of an observation"
+        }
+      ],
       "statType": "95th percentile of all recorded 24-hour rainfall events",
-      "constraintProperty": [
+      "additionalType": ["Annual Exceedance Probability of a 24-hour flood event", "Recurrence Interval of a 24-hour flood event"], 
+      "codata:constraintProperty": [
         {
           "@type": "PropertyValue",
           "name": "timePeriod",
@@ -369,17 +432,14 @@
         {
           "@type": "PropertyValue",
           "name": "geographicalArea",
-          "description": "",
+          "description": "human readable description of geographicalArea",
+          "measurementTechnique": "Polygonize (Raster to Vector)",
           "value": {
-            "@type": "AdministrativeArea",
-            "name": "Magu",
-            "geo": {
-              "@type": "GeoShape",
-              "description": "We used the geocoordinates of the centroid of an HDSS and applied a 10 km buffer around it",
-              "disambiguatingDescription": "This buffer helped account for potential inaccuracies in the centroid coordinates and the limited resolution of the climate data.",
-              "circle": "A circle is the circular region of a specified radius centered at a specified latitude and longitude. A circle is expressed as a pair followed by a radius in meters.",
-              "elevation": "The elevation of a location (WGS 84)."
-            }
+            "@type": "GeoShape",
+            "description": "We used the geocoordinates of the centroid of an HDSS and applied a 10 km buffer around it",
+            "disambiguatingDescription": "This buffer helped account for potential inaccuracies in the centroid coordinates and the limited resolution of the climate data.",
+            "circle": "A circle is the circular region of a specified radius centered at a specified latitude and longitude. A circle is expressed as a pair followed by a radius in meters.",
+            "elevation": "The elevation of a location (WGS 84)."
           },
           "unitCode": "TBD",
           "unitText": "for the Magu administrative area"
@@ -398,22 +458,6 @@
           "url": "https://ohdsi.github.io/CommonDataModel/cdm54.html#external_exposure"
         }
       }
-    }
-  ],
-  "hasPart": [
-    {
-      "@type": "Observation",
-      "variableMeasured": "Average monthly maximum temperature",
-      "observationDate": "A combination of date and time of day in the form [-]CCYY-MM-DDThh:mm:ss[Z|(+|-)hh:mm] (see Chapter 5.4 of ISO 8601)",
-      "minValue": "the lowest (recorded) value of an observation",
-      "maxValue": "the highest (recorded) value of an observation"
-    },
-    {
-      "@type": "Observation",
-      "variableMeasured": "Flood exceedance event",
-      "observationDate": "A combination of date and time of day in the form [-]CCYY-MM-DDThh:mm:ss[Z|(+|-)hh:mm] (see Chapter 5.4 of ISO 8601)",
-      "minValue": "the lowest (recorded) value of an observation",
-      "maxValue": "the highest (recorded) value of an observation"
     }
   ],
   "about": {

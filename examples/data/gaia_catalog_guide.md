@@ -49,20 +49,20 @@
       - Takes a SearchAction when the distribution is retrieved through a service [endpoint](https://schema.org/EntryPoint) that takes [query parameters](https://schema.org/PropertyValueSpecification). See [here](https://github.com/ESIPFed/science-on-schema.org/blob/main/guides/Dataset.md#accessing-data-through-a-service-endpoint) for an example
   - variableMeasured
     - Takes a [StatisticalVariable](https://schema.org/StatisticalVariable) when the exposure is an aggregate
-      - Properties include a name, the statType (like a mean), the underlying measuredProperty of the statistic, the identifier (concept_id) of the underlying measuredProperty, the unitText of the underlying measuredProperty and a constraintProperty.
-      - Here constraintProperty takes an array of PropertyValue in which each PropertyValue qualifies the measuredProperty statistic.
+      - Properties include a name, the statType (like a mean), the underlying measuredProperty of the statistic, the identifier (concept_id) of the underlying measuredProperty, a measurementQualifier for the unit of measurement of the underlying measuredProperty,  and, finally, a constraintProperty.
+      - The measuredProperty the underlies a statistic may also have a minValue, a maxValue, the time span over which it was observed and this observation's margin of error.
+      - Here constraintProperty takes an array of PropertyValue in which each PropertyValue ***disaggregates*** the measuredProperty statistic into smaller, more specific categories or groups
       - Here constraintProperty corresponds to a DataStructureDefinition in an [SDMX](https://sdmx.org/wp-content/uploads/SDMX_3-1-0_SECTION_2_FINAL.pdf) data cube or [RDF Data Cube](https://www.w3.org/TR/vocab-data-cube/). There are constraintProperty instances (implemented as PropertyValues) for dimensions and measurement attributes
-      - As a rule, a StatisticalVariable has at least two constraints -- a timePeriod PropertyValue and a geographicalArea PropertyValue. timePeriod and geographicalArea constraints are both dimensions. They group the measuredProperty statistic, producing a statistic like average maximum temperature by month *for* an administrative area or, in the event there are more than one, *by* administrative area
+      - As a rule, a StatisticalVariable has at least two constraints -- a timePeriod PropertyValue and a geographicalArea PropertyValue.
+        - timePeriod may have a duration like "per month" that we repeatedly observe from a start date.
+        - geographicalArea might be a raster cell and/or a vector shape derived from one or more raster cells.
+      - Constraints disaggregate a measuredProperty (like maximum temperature or PM2.5), producing a statistic like average maximum temperature per month repeatedly or the count of PM2.5 exceedance days per year repeatedly ***for*** an administrative area represented as a grid cell or a vector shape or, in the event there are more than one, ***by*** administrative area. In this event in an administrative area there would be a collection of grid cells and/or vector shapes.
       - Each constraint in the collection has its own unitText so, for example, the unit of measurement of an exposure statistic is a concatenation of the unit of measurement of the measuredProperty and its qualifiers. Take, for example, [Mean] [maximum temperature] [by month] [for a place]
     - In addition to zero or more StatisticalVariables, variableMeasured can host zero or more variables that are not statistics too
       - An exposure that is not a statistic takes a single [PropertyValue](https://schema.org/PropertyValue) following the [recommendation](https://github.com/ESIPFed/science-on-schema.org/blob/main/guides/Dataset.md#tier-2-names-of-variables-with-formal-property-types) of [science-on-schema-org](https://github.com/ESIPFed/science-on-schema.org/blob/main/guides/Dataset.md#describing-a-dataset)  
       - Each of these PropertyValues in the variableMeasured array corresponds to an exposure definition
       - Each of these PropertyValues includes a propertyID. A [propertyID](https://schema.org/propertyID) corresponds to a concept_id in an external vocabulary. Take this propertyID for example: "http://gisextension.ohdsi.org/exposome/nnn"
       - Each of these PropertyValues includes an [AddAction](https://schema.org/AddAction) potentialAction through which an external exposure occurrence is added to the external_exposure OMOP CDM table
-  - hasPart
-    - A StatisticalVariable specifies a metric that we construct on top of an observation. The metric may group and/or qualify the observation across several factors or dimensions. They are the constraintProperties of the StatisticalVariable.
-    - Typically we pair a StatisticalVariable with its Observation.
-    - The Observation for each StatisticalVariable is located in the hasPart array. It has properties like minValue, maxValue and DateTime. 
   - about
     - about takes any Thing including an [Event](https://schema.org/Event)
     - The Event has a potentialAction
