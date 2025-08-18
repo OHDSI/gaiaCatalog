@@ -49,69 +49,71 @@ class DocVector(LanceModel):
     chunkid: str
 
 def er_function(text):
-
     labels = [
-        "Persistent Identifier",
-        "DOI",
-        "ORCID",
-        "Metadata",
-        "Data Repository",
-        "Search Engine",
-        "Data Catalog",
-        "Unique Identifier",
-        "Registry",
-        "Open Access",
-        "Data Access Protocol",
-        "Authentication System",
-        "Authorization",
-        "API",
-        "Data License",
-        "Access Control",
-        "HTTP Protocol",
-        "Secure Data Transfer",
-        "RDF",
-        "Ontology",
-        "Controlled Vocabulary",
-        "Data Standard",
-        "JSON-LD",
-        "XML",
-        "Semantic Web",
-        "Linked Data",
-        "Schema.org",
-        "Interoperability Framework",
-        "Creative Commons License",
-        "Data Provenance",
-        "Data Citation",
-        "Machine-Readable Format",
-        "Data Documentation",
-        "Usage Policy",
-        "Community Standard",
-        "Data Reuse",
-        "License Agreement",
-        "FAIR Principles",
-        "Data Management Plan",
-        "Data Steward",
-        "Research Data",
-        "Open Science",
-        "Data Sharing",
-        "FAIR Compliance",
-        "Data Infrastructure",
-        "Digital Repository",
-        "Data Quality",
-        "Author", "Researcher", "Scientist", "Corresponding Author", "Collaborator",
-        "Patient", "Study Participant", "Institution", "Research Institute", "University",
-        "Laboratory", "Company", "Funding Agency", "Consortium", "Hospital",
-        "Government Agency", "Gene", "Peptide", "Protein", "Enzyme", "Pathway", "Disease",
-        "Virus", "Bacteria", "Drug", "Compound", "Cell Type", "Tissue", "Organ",
-        "System", "Biomarker", "Mutation", "Phenotype", "Genotype", "Citation", "Journal",
-        "Publisher", "Article Title", "DOI", "Grant Number", "Ethics Committee",
-        "Study Type", "Software", "Algorithm", "Model", "Protocol",
-        "Experiment", "Figure", "Table", "Keyword", "Technology",
-        "Equipment", "Location", "Date", "Event", "Project", "Standard", "Metric",
-        "Method", "Result", "Failure", "Success"
+        # Basic named entities
+        "ORGANIZATION", "LOCATION", "GPE", "FACILITY", "EVENT", "LAW", "PRODUCT",
+        "WORK_OF_ART", "PERSON", "DATE", "TIME", "MONEY", "PERCENT", "QUANTITY",
+        "ORDINAL", "CARDINAL", "LANGUAGE", "NORP",
+
+        # Natural elements
+        "SUBSTANCE", "DISEASE", "CHEMICAL_SUBSTANCE", "BIOLOGICAL_ENTITY",
+        "NATURAL_PHENOMENON", "GEOGRAPHICAL_FEATURE", "SPECIES", "HABITAT",
+        "ECOSYSTEM", "BIODIVERSITY", "LAND_COVER", "SOIL_TYPE", "WATER_QUALITY",
+        "WATER_SOURCE",
+
+        # Built environment
+        "INFRASTRUCTURE", "TRANSPORTATION", "BUILDING", "VEHICLE", "WEAPON",
+        "TECHNOLOGY", "WEBSITE", "CONTACT_INFO", "IDENTIFIER", "DATASET",
+        "FILE_FORMAT", "SPATIAL_REFERENCE", "COORDINATE",
+
+        # Measurements and indicators
+        "UNIT_OF_MEASUREMENT", "STATISTICAL_MEASURE", "POLLUTANT",
+        "AIR_QUALITY_INDEX", "VULNERABILITY_INDEX",
+
+        # Land use and property
+        "ZONING_CODE", "LAND_USE", "PROPERTY_TYPE", "TAX_ASSESSMENT",
+        "AGRICULTURAL_AREA", "INDUSTRIAL_AREA", "COMMERCIAL_AREA", "RESIDENTIAL_AREA",
+
+        # Services and institutions
+        "EDUCATIONAL_INSTITUTION", "HEALTHCARE_PROVIDER", "EMERGENCY_SERVICE",
+        "PUBLIC_SERVICE", "COMMERCIAL_BUSINESS", "RECREATIONAL_AREA",
+
+        # Environmental factors
+        "ENVIRONMENTAL_HAZARD", "NATURAL_RESOURCE", "ENERGY_SOURCE",
+        "CONSERVATION_AREA", "POLLUTION_SOURCE", "CONTAMINATED_SITE",
+        "WASTE_MANAGEMENT_FACILITY",
+
+        # Demographics and social indicators
+        "DEMOGRAPHIC_GROUP", "INCOME_LEVEL", "POVERTY_STATUS", "EMPLOYMENT_STATUS",
+        "EDUCATIONAL_ATTAINMENT", "HOUSING_TYPE", "HOUSING_TENURE", "HOUSING_COST",
+        "VEHICLE_OWNERSHIP", "DISABILITY_STATUS", "HEALTH_INSURANCE_STATUS",
+        "LANGUAGE_SPOKEN", "NATIVITY_STATUS", "RACE_ETHNICITY", "AGE_GROUP",
+        "SEX_GENDER", "MARITAL_STATUS", "FAMILY_STRUCTURE", "VETERAN_STATUS",
+        "CITIZENSHIP_STATUS", "MIGRATION_STATUS",
+
+        # Geographic and administrative divisions
+        "GEOGRAPHIC_BOUNDARY", "ADMINISTRATIVE_DIVISION", "CENSUS_GEOGRAPHY",
+
+        # Hazard zones
+        "CLIMATE_ZONE", "FLOOD_ZONE", "STORM_SURGE_ZONE", "SEISMIC_ZONE",
+        "WILDFIRE_RISK_ZONE", "DROUGHT_AREA", "HEAT_ISLAND",
+
+        # Infrastructure networks
+        "TRANSPORTATION_NETWORK", "ROAD", "RAILWAY", "WATERWAY", "AIRPORT", "PORT",
+        "PUBLIC_TRANSIT", "ENERGY_INFRASTRUCTURE", "POWER_PLANT", "TRANSMISSION_LINE",
+        "PIPELINE", "COMMUNICATION_INFRASTRUCTURE", "BROADBAND_ACCESS", "CELL_TOWER",
+        "WATER_INFRASTRUCTURE", "DAM", "RESERVOIR", "TREATMENT_PLANT", "WASTEWATER_SYSTEM",
+
+        # Public facilities
+        "HEALTHCARE_INFRASTRUCTURE", "HOSPITAL", "CLINIC", "PHARMACY",
+        "EDUCATIONAL_INFRASTRUCTURE", "SCHOOL", "COLLEGE", "UNIVERSITY", "LIBRARY",
+        "PUBLIC_SAFETY_INFRASTRUCTURE", "POLICE_STATION", "FIRE_STATION",
+        "EMERGENCY_SHELTER", "GOVERNMENT_BUILDING", "COMMUNITY_CENTER",
+        "RELIGIOUS_BUILDING", "CULTURAL_VENUE", "SPORTS_FACILITY", "PARK",
+        "GREEN_SPACE", "HISTORICAL_SITE", "TOURIST_ATTRACTION"
     ]
 
-    entities = model.predict_entities(text, labels, threshold=0.6)
+    entities = model.predict_entities(text, labels, threshold=0.5)
     return entities
 
 
@@ -120,10 +122,10 @@ uri = "../stores/lance/db"
 db = lancedb.connect(uri)
 table = db.open_table("source")
 
-print(table.schema)   #  id, embeddings, text, docName
+# print(table.schema)   #  id, embeddings, text, docName
 df = table.to_pandas()
 
-print(df.head(10))
+# print(df.head(10))
 
 df_b = pd.DataFrame()
 
@@ -136,7 +138,7 @@ for index, row in df.iterrows():
         df_er["chunk"] = row["description"]
         df_er["chunkid"] = hashlib.md5(row["description"].encode()).hexdigest()
         df_b = pd.concat([df_b, df_er], ignore_index=True)
-    print(len(df))
+
 
 # print(df_b.head(10))
 # print(len(df_b))
