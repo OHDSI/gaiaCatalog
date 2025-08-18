@@ -1,4 +1,6 @@
-# AI Ops
+# Architecture Flow
+
+> this work in flux... expect changes.
 
 ## Notes
 
