@@ -290,10 +290,19 @@
       "populationType": "Gaia",
       "measuredProperty": "Maximum temperature",
       "statType": "mean",
-      "measurementQualifier": {
-        "@type": "Enumeration",
-        "identifier": ["degree celcius", "https://athena.ohdsi.org/search-terms/terms/586323"]
-      },
+      "measurementQualifier": [
+        {
+          "@type": "Enumeration",
+          "identifier": ["degree celcius", "https://athena.ohdsi.org/search-terms/terms/586323"]
+        },
+        {
+          "@type": "Observation",
+          "marginOfError": "a human readable statement of the value margin of error",
+          "observationPeriod": "a human readable time period",
+          "maxValue": "the highest (recorded) value of an observation",
+          "minValue": "the lowest (recorded) value of an observation"
+        }
+      ],
       "codata:constraintProperty": [
         {
           "@type": "PropertyValue",
@@ -312,13 +321,6 @@
               "disambiguatingDescription": "Attributes give context to the underlying measure. A dimension breaks out a measure into a controlled vocabulary of one or more categories",
               "termCode": "sdmx:Dimension",
               "inDefinedTermSet": ["sdmx:Dimension", "sdmx:Attribute"]
-            },
-            {
-              "@type": "Observation",
-              "marginOfError": "a human readable statement of the value margin of error",
-              "observationPeriod": "a human readable time period",
-              "maxValue": "the highest (recorded) value of an observation",
-              "minValue": "the lowest (recorded) value of an observation"
             }
           ]
         },
@@ -344,12 +346,6 @@
               "disambiguatingDescription": "Attributes give context to the underlying measure. A dimension breaks out a measure into a controlled vocabulary of one or more categories",
               "termCode": "sdmx:Attribute",
               "inDefinedTermSet": ["sdmx:Dimension", "sdmx:Attribute"]
-            },
-            {
-              "@type": "Observation",
-              "marginOfError": "a human readable statement of the value margin of error",
-              "maxValue": "the highest (recorded) value of an observation",
-              "minValue": "the lowest (recorded) value of an observation"
             }
           ]
         }
@@ -378,10 +374,19 @@
       "measurementMethod": "https://github.com/OHDSI/gaiaCatalog/blob/main/examples/data/calculating_annual_exceedence_probability.md",
       "populationType": "Gaia",
       "measuredProperty": "Precipitation event",
-      "measurementQualifier": {
-        "@type": "Enumeration",
-        "identifier": ["mm/24 hrs", "https://codata.org/units/term/mm24hr"]
-      },
+      "measurementQualifier": [
+        {
+          "@type": "Enumeration",
+          "identifier": ["mm/24 hrs", "https://codata.org/units/term/mm24hr"]
+        },
+        {
+          "@type": "Observation",
+          "marginOfError": "a human readable statement of the value margin of error",
+          "observationPeriod": "a human readable time period",
+          "maxValue": "the highest (recorded) value of an observation",
+          "minValue": "the lowest (recorded) value of an observation"
+        }
+      ],
       "statType": "95th percentile of all recorded 24-hour rainfall events",
       "additionalType": ["Annual Exceedance Probability of a 24-hour flood event", "Recurrence Interval of a 24-hour flood event"], 
       "codata:constraintProperty": [
