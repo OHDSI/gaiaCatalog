@@ -1,0 +1,250 @@
+{
+    "@context": {
+        "@vocab": "https://schema.org/",
+        "ohdsi_gis": "https://ohdsi_gis.org/.well-known/genid/",
+        "geosparql": "http://www.opengis.net/ont/geosparql#"
+    },
+    "@id": "http://ohdsi_gis.org/id/d2af193f16a7",
+    "@type": "Dataset",
+    "geosparql:hasGeometry": {
+        "@id": "ohdsi_gis:geo/d2af193f16a7",
+        "@type": "http://www.opengis.net/ont/sf#Polygon",
+        "geosparql:asWKT": {
+            "@type": "geosparql:wktLiteral",
+            "@value": "POLYGON ((-159.3662456482766 17.712474, -159.3662456482766 64.84593, -64.784868 64.84593, -64.784868 17.712474, -159.3662456482766 17.712474))"
+        }
+    },
+    "description": "Each daily summary file contains data for every monitor (sampled parameter) in our database for each day. These files are separated by parameter (or parameter group) to make the sizes more manageable.\\n\\nThis file will contain a daily summary record that is:\\n\\n1) The aggregate of all sub-daily measurements taken at the monitor.\\n\\n2) The single sample value if the monitor takes a single, daily sample (e.g., there is only one sample with a 24-hour duration). In this case, the mean and max daily sample will have the same value.\\n\\nThe daily summary files contain (at least) one record for each monitor that reported data for the given day. There may be multiple records for the monitor if:\\n\\nThere are calculated sample durations for the pollutant. For example, PM2.5 is sometimes reported as 1-hour samples and EPA calculates 24-hour averages.\\n\\nThere are multiple standards for the pollutant (q.v. pollutant standards).\\n\\nThere were exceptional events associated with some measurements that the monitoring agency has or may request be excluded from comparison to the standard.",
+    "keywords": [
+        "monitors",
+        "EPA",
+        "PM 2.5",
+        "particulate matter",
+        "USA",
+        "daily"
+    ],
+    "license": "Unless otherwise specified, all data produced by the U.S EPA is by default in the public domain and is not subject to domestic copyright protection under 17 U.S.C. \u00a7 105 . More details on the U.S. Public Domain license are available here: \\n\\nhttp://www.usa.gov/publicdomain/label/1.0/ \\n\\nAdditionally, please be advised that although these data have been processed successfully on a computer system at the U.S. EPA, no warranty expressed or implied is made regarding the accuracy or utility of the data on any other system or for general or scientific purposes, nor shall the act of distribution constitute any such warranty.",
+    "name": "2022 US EPA Daily Summary PM 2.5 FRM/FEM Mass (88101)",
+    "publisher": {
+        "@type": "http://www.w3.org/2000/01/rdf-schema#Literal",
+        "@value": "US Environmental Protection Agency Public Domain"
+    },
+    "spatialCoverage": {
+        "@id": "ohdsi_gis:d2af193f16a7",
+        "@type": "Place",
+        "name": "United States"
+    },
+    "variableMeasured": [
+        {
+            "@id": "ohdsi_gis:d2af193f16a7/observation_count",
+            "@type": "PropertyValue",
+            "additionalType": "int4",
+            "description": "The number of observations (samples) taken during the day.",
+            "name": "observation_count"
+        },
+        {
+            "@id": "ohdsi_gis:d2af193f16a7/arithmetic_mean",
+            "@type": "PropertyValue",
+            "additionalType": "float8",
+            "description": "The average (arithmetic mean) value for the day.",
+            "name": "arithmetic_mean",
+            "unitsText": "micrograms/cubic meter (LC)"
+        },
+        {
+            "@id": "ohdsi_gis:d2af193f16a7/method_name",
+            "@type": "PropertyValue",
+            "additionalType": "varchar",
+            "description": "A short description of the processes,equipment",
+            "name": "method_name"
+        },
+        {
+            "@id": "ohdsi_gis:d2af193f16a7/1st_max_hour",
+            "@type": "PropertyValue",
+            "additionalType": "int4",
+            "description": "The hour (on a 24-hour clock) when the highest value for the day (the previous field) was taken.",
+            "name": "1st_max_hour",
+            "unitsText": "hour"
+        },
+        {
+            "@id": "ohdsi_gis:d2af193f16a7/state_code",
+            "@type": "PropertyValue",
+            "additionalType": "int4",
+            "description": "The FIPS code of the state in which the monitor resides.",
+            "name": "state_code"
+        },
+        {
+            "@id": "ohdsi_gis:d2af193f16a7/parameter_name",
+            "@type": "PropertyValue",
+            "additionalType": "varchar",
+            "description": "The name or description assigned in AQS to the parameter measured by the monitor. Parameters may be pollutants or non-pollutants.",
+            "name": "parameter_name",
+            "unitsText": "PM2.5 - Local Conditions"
+        },
+        {
+            "@id": "ohdsi_gis:d2af193f16a7/county_name",
+            "@type": "PropertyValue",
+            "additionalType": "varchar",
+            "description": "The name of the county where the monitoring site is located.",
+            "name": "county_name"
+        },
+        {
+            "@id": "ohdsi_gis:d2af193f16a7/county_code",
+            "@type": "PropertyValue",
+            "additionalType": "int4",
+            "description": "The FIPS code of the county in which the monitor resides.",
+            "name": "county_code"
+        },
+        {
+            "@id": "ohdsi_gis:d2af193f16a7/date_of_last_change",
+            "@type": "PropertyValue",
+            "additionalType": "date",
+            "description": "The date the last time any numeric values in this record were updated in the AQS data system.",
+            "name": "date_of_last_change"
+        },
+        {
+            "@id": "ohdsi_gis:d2af193f16a7/city_name",
+            "@type": "PropertyValue",
+            "additionalType": "varchar",
+            "description": "The name of the city where the monitoring site is located. This represents the legal incorporated boundaries of cities and not urban areas.",
+            "name": "city_name"
+        },
+        {
+            "@id": "ohdsi_gis:d2af193f16a7/units_of_measure",
+            "@type": "PropertyValue",
+            "additionalType": "varchar",
+            "description": "The unit of measure for the parameter. QAD always returns data in the standard units for the parameter. Submitters are allowed to report data in any unit and EPA converts to a standard unit so that we may use the data in calculations.",
+            "name": "units_of_measure",
+            "unitsText": "micrograms/cubic meter (LC)"
+        },
+        {
+            "@id": "ohdsi_gis:d2af193f16a7/event_type",
+            "@type": "PropertyValue",
+            "additionalType": "varchar",
+            "description": "Indicates whether data measured during exceptional events are included in the summary. A wildfire is an example of an exceptional event, it is something that affects air quality, but the local agency has no control over. No Events means no events occurred. Events Included means events occurred and the data from them is included in the summary. Events Excluded means that events occurred but data form them is excluded from the summary. Concurred Events Excluded means that events occurred but only EPA concurred exclusions are removed from the summary. If an event occurred for the parameter in question",
+            "name": "event_type"
+        },
+        {
+            "@id": "ohdsi_gis:d2af193f16a7/site_num",
+            "@type": "PropertyValue",
+            "additionalType": "int4",
+            "description": "A unique number within the county identifying the site.",
+            "name": "site_num"
+        },
+        {
+            "@id": "ohdsi_gis:d2af193f16a7/longitude",
+            "@type": "PropertyValue",
+            "additionalType": "float8",
+            "description": "The monitoring site's angular distance east of the prime meridian measured in decimal degrees.",
+            "name": "longitude",
+            "unitsText": "decimal degrees"
+        },
+        {
+            "@id": "ohdsi_gis:d2af193f16a7/local_site_name",
+            "@type": "PropertyValue",
+            "additionalType": "varchar",
+            "description": "The name of the site (if any) given by the State, local",
+            "name": "local_site_name"
+        },
+        {
+            "@id": "ohdsi_gis:d2af193f16a7/parameter_code",
+            "@type": "PropertyValue",
+            "additionalType": "varchar",
+            "description": "The AQS code corresponding to the parameter measured by the monitor.",
+            "name": "parameter_code"
+        },
+        {
+            "@id": "ohdsi_gis:d2af193f16a7/observation_percent",
+            "@type": "PropertyValue",
+            "additionalType": "float8",
+            "description": "The percent representing the number of observations taken with respect to the number scheduled to be taken during the day. This is only calculated for monitors where measurements are required (e.g., only certain parameters).",
+            "name": "observation_percent"
+        },
+        {
+            "@id": "ohdsi_gis:d2af193f16a7/aqi",
+            "@type": "PropertyValue",
+            "additionalType": "int4",
+            "description": "The Air Quality Index for the day for the pollutant, if applicable.",
+            "name": "aqi",
+            "unitsText": "AQI index"
+        },
+        {
+            "@id": "ohdsi_gis:d2af193f16a7/pollutant_standard",
+            "@type": "PropertyValue",
+            "additionalType": "varchar",
+            "description": "A description of the ambient air quality standard rules used to aggregate statistics. (See description at beginning of document.)",
+            "name": "pollutant_standard"
+        },
+        {
+            "@id": "ohdsi_gis:d2af193f16a7/1st_max_value",
+            "@type": "PropertyValue",
+            "additionalType": "float8",
+            "description": "The highest value for the day.",
+            "name": "1st_max_value",
+            "unitsText": "micrograms/cubic meter (LC)"
+        },
+        {
+            "@id": "ohdsi_gis:d2af193f16a7/sample_duration",
+            "@type": "PropertyValue",
+            "additionalType": "varchar",
+            "description": "The length of time that air passes through the monitoring device before it is analyzed (measured). So, it can represent an averaging time of many samples (for example, a 1-hour value may be the average of four one-minute samples collected during each quarter of the hour)., it represents an averaging period in the atmosphere (for example",
+            "name": "sample_duration"
+        },
+        {
+            "@id": "ohdsi_gis:d2af193f16a7/poc",
+            "@type": "PropertyValue",
+            "additionalType": "varchar",
+            "description": "This is the Parameter Occurrence Code used to distinguish different instruments that measure the same parameter at the same site.",
+            "name": "poc"
+        },
+        {
+            "@id": "ohdsi_gis:d2af193f16a7/datum",
+            "@type": "PropertyValue",
+            "additionalType": "varchar",
+            "description": "The Datum associated with the Latitude and Longitude measures.",
+            "name": "datum"
+        },
+        {
+            "@id": "ohdsi_gis:d2af193f16a7/cbsa_name",
+            "@type": "PropertyValue",
+            "additionalType": "varchar",
+            "description": "The name of the core bases statistical area (metropolitan area) where the monitoring site is located.",
+            "name": "cbsa_name"
+        },
+        {
+            "@id": "ohdsi_gis:d2af193f16a7/method_code",
+            "@type": "PropertyValue",
+            "additionalType": "varchar",
+            "description": "An internal system code indicating the method (processes, equipment)",
+            "name": "method_code"
+        },
+        {
+            "@id": "ohdsi_gis:d2af193f16a7/date_local",
+            "@type": "PropertyValue",
+            "additionalType": "date",
+            "description": "The calendar date for the summary. All daily summaries are for the local standard day (midnight to midnight) at the monitor.",
+            "name": "date_local"
+        },
+        {
+            "@id": "ohdsi_gis:d2af193f16a7/state_name",
+            "@type": "PropertyValue",
+            "additionalType": "varchar",
+            "description": "The name of the state where the monitoring site is located.",
+            "name": "state_name"
+        },
+        {
+            "@id": "ohdsi_gis:d2af193f16a7/latitude",
+            "@type": "PropertyValue",
+            "additionalType": "float8",
+            "description": "The monitoring site's angular distance north of the equator measured in decimal degrees.",
+            "name": "latitude",
+            "unitsText": "decimal degrees"
+        },
+        {
+            "@id": "ohdsi_gis:d2af193f16a7/address",
+            "@type": "PropertyValue",
+            "additionalType": "varchar",
+            "description": "The approximate street address of the monitoring site.",
+            "name": "address"
+        }
+    ]
+}

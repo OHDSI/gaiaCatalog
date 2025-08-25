@@ -1,0 +1,18 @@
+2025-07-27 11:43:52.826 - INFO: [1mQLever Server, compiled on Tue Apr 29 10:52:48 UTC 2025 using git hash 20effa[22m
+2025-07-27 11:43:52.856 - INFO: Initializing server ...
+2025-07-27 11:43:52.861 - INFO: The git hash used to build this index was "20effa"
+2025-07-27 11:43:52.863 - INFO: Reading vocabulary from file gaiacatalog.vocabulary ...
+2025-07-27 11:43:52.867 - INFO: Done, number of words: 9
+2025-07-27 11:43:52.867 - INFO: Number of words in external vocabulary: 4,700
+2025-07-27 11:43:52.871 - INFO: Registered PSO permutation: #relations = 1, #blocks = 1, #triples = 1,870
+2025-07-27 11:43:52.871 - INFO: Registered PSO permutation: #relations = 18, #blocks = 1, #triples = 12,159
+2025-07-27 11:43:52.872 - INFO: Registered POS permutation: #relations = 1, #blocks = 1, #triples = 1,870
+2025-07-27 11:43:52.873 - INFO: Registered POS permutation: #relations = 18, #blocks = 1, #triples = 12,159
+2025-07-27 11:43:52.873 - INFO: Registered OPS permutation: #relations = 4,585, #blocks = 1, #triples = 12,159
+2025-07-27 11:43:52.874 - INFO: Registered OSP permutation: #relations = 4,585, #blocks = 1, #triples = 12,159
+2025-07-27 11:43:52.875 - INFO: Registered SPO permutation: #relations = 1,870, #blocks = 1, #triples = 12,159
+2025-07-27 11:43:52.875 - INFO: Registered SOP permutation: #relations = 1,870, #blocks = 1, #triples = 12,159
+2025-07-27 11:43:52.875 - INFO: Reading patterns from file gaiacatalog.index.patterns ...
+2025-07-27 11:43:52.876 - INFO: Sorting random result tables to estimate the sorting performance of this machine ...
+2025-07-27 11:43:52.887 - INFO: Access token for restricted API calls is "gaiacatalog_7643543846_6dMISzlPrD7i"
+2025-07-27 11:43:52.887 - INFO: The server is ready, listening for requests on port 7007 ...

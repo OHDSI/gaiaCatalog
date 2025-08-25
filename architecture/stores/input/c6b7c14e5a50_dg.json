@@ -1,0 +1,78 @@
+{
+    "@context": {
+        "@vocab": "https://schema.org/",
+        "ohdsi_gis": "https://ohdsi_gis.org/.well-known/genid/",
+        "geosparql": "http://www.opengis.net/ont/geosparql#"
+    },
+    "@id": "http://ohdsi_gis.org/id/c6b7c14e5a50",
+    "@type": "Dataset",
+    "geosparql:hasGeometry": {
+        "@id": "ohdsi_gis:geo/c6b7c14e5a50",
+        "@type": "http://www.opengis.net/ont/sf#Polygon",
+        "geosparql:asWKT": {
+            "@type": "geosparql:wktLiteral",
+            "@value": "POLYGON ((-62.0154447 10.0428154, -62.0154447 11.3467272, -60.5176038 11.3467272, -60.5176038 10.0428154, -62.0154447 10.0428154))"
+        }
+    },
+    "description": "A polygon feature set for the regions of Trindad and Tobago sourced from OpenStreetMap.",
+    "keywords": [
+        "Administrative Boundaries",
+        "Trinidad and Tobago",
+        "Regions"
+    ],
+    "license": "OpenStreetMap\u00ae is open data, licensed under the [Open Data Commons Open Database License](https://opendatacommons.org/licenses/odbl/) (ODbL) by the [OpenStreetMap Foundation](https://osmfoundation.org/) (OSMF).",
+    "name": "Trinidad and Tobago Regions",
+    "publisher": {
+        "@type": "http://www.w3.org/2000/01/rdf-schema#Literal",
+        "@value": "OpenStreetMap You are free to copy, distribute, transmit and adapt our data, as long as you credit OpenStreetMap and its contributors. If you alter or build upon our data, you may distribute the result only under the same licence."
+    },
+    "spatialCoverage": {
+        "@id": "ohdsi_gis:c6b7c14e5a50",
+        "@type": "Place",
+        "name": "Trinidad and Tobago"
+    },
+    "variableMeasured": [
+        {
+            "@id": "ohdsi_gis:c6b7c14e5a50/boundary",
+            "@type": "PropertyValue",
+            "additionalType": "varchar",
+            "description": "OSM boundary type",
+            "name": "boundary"
+        },
+        {
+            "@id": "ohdsi_gis:c6b7c14e5a50/type",
+            "@type": "PropertyValue",
+            "additionalType": "varchar",
+            "description": "Type of boundary",
+            "name": "type"
+        },
+        {
+            "@id": "ohdsi_gis:c6b7c14e5a50/other_tags",
+            "@type": "PropertyValue",
+            "additionalType": "varchar",
+            "description": "Any other OSM tags with values, first one is the ISO3166-2 code for the administrative region",
+            "name": "other_tags"
+        },
+        {
+            "@id": "ohdsi_gis:c6b7c14e5a50/osm_id",
+            "@type": "PropertyValue",
+            "additionalType": "varchar",
+            "description": "OpenStreetMap (OSM) ID",
+            "name": "osm_id"
+        },
+        {
+            "@id": "ohdsi_gis:c6b7c14e5a50/admin_level",
+            "@type": "PropertyValue",
+            "additionalType": "varchar",
+            "description": "OSM Administrative level",
+            "name": "admin_level"
+        },
+        {
+            "@id": "ohdsi_gis:c6b7c14e5a50/name",
+            "@type": "PropertyValue",
+            "additionalType": "varchar",
+            "description": "Region name",
+            "name": "name"
+        }
+    ]
+}

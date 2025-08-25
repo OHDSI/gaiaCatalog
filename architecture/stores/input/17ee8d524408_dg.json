@@ -1,0 +1,85 @@
+{
+    "@context": {
+        "@vocab": "https://schema.org/",
+        "ohdsi_gis": "https://ohdsi_gis.org/.well-known/genid/",
+        "geosparql": "http://www.opengis.net/ont/geosparql#"
+    },
+    "@id": "http://ohdsi_gis.org/id/17ee8d524408",
+    "@type": "Dataset",
+    "geosparql:hasGeometry": {
+        "@id": "ohdsi_gis:geo/17ee8d524408",
+        "@type": "http://www.opengis.net/ont/sf#Polygon",
+        "geosparql:asWKT": {
+            "@type": "geosparql:wktLiteral",
+            "@value": "POLYGON ((-80.925684894027 25.1309648040208, -80.925684894027 25.9838015308925, -80.0876866707578 25.9838015308925, -80.0876866707578 25.1309648040208, -80.925684894027 25.1309648040208))"
+        }
+    },
+    "description": "This feature class has been created to illustrate the water bodies within the Urban Development Boundary (UDB) and outside the UDB, approximately 938 square miles.\\n\\nA collection of vector polygon features for water bodies within the Urban Development Boundary (UDB) and outside the UDB, approximately 938 square miles. The planimetric layer for Miami-Dade County was previously digitized in 2001 by Woolpert, in 2012 by GPI Geospatial (GPI), and in 2020 by GPI. GPIs 2022 update utilized a Geodatabase provided by ITD for Miami-Dade County containing two layers to be updated: Water and Edge of Pavement. GPI used the recent set of county orthoimages, produced by Woolpert in 2022, to perform the update of the various feature classes. The feature classes were clipped into smaller blocks. Compilers made adjustments or recollected any missing features. The corresponding attributes were assigned to each separate shapefile as adjustments and new collection occurred. The shapefiles were then merged back together into a full file. Topological checks were performed to make sure the linework did not cross unexpectedly, ends dangled, or strange gaps exist in the collected features. Depending on the layer, different checks were done using the existing data layer to evaluate the completeness of the overall collection. The final layers were quality checked for formatting and file corruption before being sent to the client for review. Personnel that collected this data are either photogrammetrists trained in stereo collection or editors trained in ortho-photography based collection. Items included in the feature class WATER BODIES (Polygons) are: Water bodies and water-under-the-bridge features Definition of particular fields in the Water feature class: Water = {0,1} where 0 = Feature does not represent water; 1 = Water feature. Type = {'', 'B'} where B = Water under the bridge. Where '' marks water locations without bridges. Possible combinations of these fields are: 0,''; 1,'';1, 'B'.",
+    "keywords": [
+        "MDC",
+        "Miami-Dade County",
+        "Environment",
+        "Florida"
+    ],
+    "license": "Miami-Dade County provides this data for use as is. The areas depicted by this map/data are approximate, and are not accurate to surveying or engineering standards. The maps/data shown here are for illustration purposes only and are not suitable for site-specific decision making. Information found here should not be used for making financial or any other commitments. Miami-Dade County provides this information with the understanding that it is not guaranteed to be accurate, correct or complete and conclusions drawn from such information are the sole responsibility of the user. While every effort has been made to ensure the accuracy, correctness and timeliness of materials presented, Miami-Dade County assumes no responsibility for errors or omissions, even if Miami-Dade County is advised of the possibility of such damage.",
+    "name": "Miami-Dade Bodies of Water",
+    "publisher": {
+        "@type": "http://www.w3.org/2000/01/rdf-schema#Literal",
+        "@value": "Miami-Dade County Public Domain"
+    },
+    "spatialCoverage": {
+        "@id": "ohdsi_gis:17ee8d524408",
+        "@type": "Place",
+        "name": "Miami-Dade County"
+    },
+    "variableMeasured": [
+        {
+            "@id": "ohdsi_gis:17ee8d524408/water",
+            "@type": "PropertyValue",
+            "additionalType": "small integer",
+            "description": "Water = 0 for no water and 1 for water present",
+            "measurementMethod": "MDC",
+            "name": "water"
+        },
+        {
+            "@id": "ohdsi_gis:17ee8d524408/type",
+            "@type": "PropertyValue",
+            "additionalType": "string",
+            "description": "Type = for open water and 'B' for locations that water flows under structure  and is blocked from the orthos view",
+            "measurementMethod": "MDC",
+            "name": "type"
+        },
+        {
+            "@id": "ohdsi_gis:17ee8d524408/shape_length",
+            "@type": "PropertyValue",
+            "additionalType": "double",
+            "description": "length of feature",
+            "measurementMethod": "Esri",
+            "name": "shape_length"
+        },
+        {
+            "@id": "ohdsi_gis:17ee8d524408/shape_area",
+            "@type": "PropertyValue",
+            "additionalType": "double",
+            "description": "area of feature",
+            "measurementMethod": "Esri",
+            "name": "shape_area"
+        },
+        {
+            "@id": "ohdsi_gis:17ee8d524408/objectid",
+            "@type": "PropertyValue",
+            "additionalType": "oid",
+            "description": "Internal feature number",
+            "measurementMethod": "Esri",
+            "name": "objectid"
+        },
+        {
+            "@id": "ohdsi_gis:17ee8d524408/last_updated",
+            "@type": "PropertyValue",
+            "additionalType": "small integer",
+            "description": "Year date that feature was last revised",
+            "measurementMethod": "MDC",
+            "name": "last_updated"
+        }
+    ]
+}

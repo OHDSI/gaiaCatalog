@@ -1,0 +1,162 @@
+{
+    "@context": {
+        "@vocab": "https://schema.org/",
+        "ohdsi_gis": "https://ohdsi_gis.org/.well-known/genid/",
+        "geosparql": "http://www.opengis.net/ont/geosparql#"
+    },
+    "@id": "http://ohdsi_gis.org/id/b69933d7017a",
+    "@type": "Dataset",
+    "geosparql:hasGeometry": {
+        "@id": "ohdsi_gis:geo/b69933d7017a",
+        "@type": "http://www.opengis.net/ont/sf#Polygon",
+        "geosparql:asWKT": {
+            "@type": "geosparql:wktLiteral",
+            "@value": "POLYGON ((-80.8738950999944 25.1374650132093, -80.8738950999944 25.97948245004, -80.118296772149 25.97948245004, -80.118296772149 25.1374650132093, -80.8738950999944 25.1374650132093))"
+        }
+    },
+    "description": "A polygon feature class of the property ownership boundaries as defined by legal description and deeds.Used for Maintaining property boundaries throughout Miami-Dade County.\\n\\nA polygon feature class of the property ownership boundaries as defined by legal description and deeds. Used for Maintaining property boundaries throughout Miami-Dade County.\\n\\nUpdated: Weekly-Sat\\n\\nThe data was created using:\\nProjected Coordinate System: WGS_1984_Web_Mercator_Auxiliary_Sphere\\nProjection: Mercator_Auxiliary_Sphere",
+    "keywords": [
+        "Population",
+        "Miami-Dade County",
+        "Infrastructure ",
+        "Florida",
+        "Geography",
+        "MDC",
+        "Property",
+        "Housing",
+        "Parcels"
+    ],
+    "license": "Miami-Dade County provides this data for use as is. The areas depicted by this map/data are approximate, and are not accurate to surveying or engineering standards. The maps/data shown here are for illustration purposes only and are not suitable for site-specific decision making. Information found here should not be used for making financial or any other commitments. Miami-Dade County provides this information with the understanding that it is not guaranteed to be accurate, correct or complete and conclusions drawn from such information are the sole responsibility of the user. While every effort has been made to ensure the accuracy, correctness and timeliness of materials presented, Miami-Dade County assumes no responsibility for errors or omissions, even if Miami-Dade County is advised of the possibility of such damage.",
+    "name": "Miami-Dade Parcels",
+    "publisher": {
+        "@type": "http://www.w3.org/2000/01/rdf-schema#Literal",
+        "@value": "Miami Dade County Public Domain"
+    },
+    "spatialCoverage": {
+        "@id": "ohdsi_gis:b69933d7017a",
+        "@type": "Place",
+        "name": "Miami-Dade County"
+    },
+    "variableMeasured": [
+        {
+            "@id": "ohdsi_gis:b69933d7017a/mod_type",
+            "@type": "PropertyValue",
+            "additionalType": "string",
+            "description": "Type of last modification",
+            "measurementMethod": "MDC",
+            "name": "mod_type"
+        },
+        {
+            "@id": "ohdsi_gis:b69933d7017a/parcel",
+            "@type": "PropertyValue",
+            "additionalType": "string",
+            "description": "Individual parcel number",
+            "measurementMethod": "MDC",
+            "name": "parcel"
+        },
+        {
+            "@id": "ohdsi_gis:b69933d7017a/pid",
+            "@type": "PropertyValue",
+            "additionalType": "integer",
+            "description": "Property unique identifier",
+            "measurementMethod": "MDC",
+            "name": "pid"
+        },
+        {
+            "@id": "ohdsi_gis:b69933d7017a/subcode",
+            "@type": "PropertyValue",
+            "additionalType": "string",
+            "description": "subcode of parcel",
+            "measurementMethod": "MDC",
+            "name": "subcode"
+        },
+        {
+            "@id": "ohdsi_gis:b69933d7017a/parcel_strap",
+            "@type": "PropertyValue",
+            "additionalType": "string",
+            "description": "Parcel strap",
+            "measurementMethod": "MDC",
+            "name": "parcel_strap"
+        },
+        {
+            "@id": "ohdsi_gis:b69933d7017a/mod_date",
+            "@type": "PropertyValue",
+            "additionalType": "string",
+            "description": "Date of last modification",
+            "measurementMethod": "MDC",
+            "name": "mod_date"
+        },
+        {
+            "@id": "ohdsi_gis:b69933d7017a/modify_by",
+            "@type": "PropertyValue",
+            "additionalType": "string",
+            "description": "Name of last modifier",
+            "measurementMethod": "MDC",
+            "name": "modify_by"
+        },
+        {
+            "@id": "ohdsi_gis:b69933d7017a/modify_date",
+            "@type": "PropertyValue",
+            "additionalType": "string",
+            "description": "Date of last modifier",
+            "measurementMethod": "MDC",
+            "name": "modify_date"
+        },
+        {
+            "@id": "ohdsi_gis:b69933d7017a/folio",
+            "@type": "PropertyValue",
+            "additionalType": "string",
+            "description": "Folio identifier",
+            "measurementMethod": "MDC",
+            "name": "folio"
+        },
+        {
+            "@id": "ohdsi_gis:b69933d7017a/edit_date",
+            "@type": "PropertyValue",
+            "additionalType": "date",
+            "description": "Date of edit",
+            "measurementMethod": "MDC",
+            "name": "edit_date"
+        },
+        {
+            "@id": "ohdsi_gis:b69933d7017a/shape_area",
+            "@type": "PropertyValue",
+            "additionalType": "double",
+            "description": " area of polygon",
+            "measurementMethod": "Esri",
+            "name": "shape_area"
+        },
+        {
+            "@id": "ohdsi_gis:b69933d7017a/condoflg",
+            "@type": "PropertyValue",
+            "additionalType": "string",
+            "description": "Condo flag, indicates polys w/condos",
+            "measurementMethod": "MDC",
+            "name": "condoflg"
+        },
+        {
+            "@id": "ohdsi_gis:b69933d7017a/ttrrss",
+            "@type": "PropertyValue",
+            "additionalType": "string",
+            "description": "Township-range-section",
+            "measurementMethod": "MDC",
+            "name": "ttrrss"
+        },
+        {
+            "@id": "ohdsi_gis:b69933d7017a/editor_name",
+            "@type": "PropertyValue",
+            "additionalType": "string",
+            "description": "name of editor",
+            "measurementMethod": "MDC",
+            "name": "editor_name"
+        },
+        {
+            "@id": "ohdsi_gis:b69933d7017a/shape_length",
+            "@type": "PropertyValue",
+            "additionalType": "double",
+            "description": " length of polygon",
+            "measurementMethod": "Esri",
+            "name": "shape_length"
+        }
+    ]
+}

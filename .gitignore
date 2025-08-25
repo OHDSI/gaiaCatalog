@@ -1,4 +1,5 @@
 .DS_Store
+.idea/
 omop_vocab/files
 .env_local
 *.lic
@@ -7,3 +8,4 @@ phoebe/__MACOSX
 atlas/add_cdm
 .Rproj.user
 strategus/
+secret/

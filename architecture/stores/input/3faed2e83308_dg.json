@@ -1,0 +1,76 @@
+{
+    "@context": {
+        "@vocab": "https://schema.org/",
+        "ohdsi_gis": "https://ohdsi_gis.org/.well-known/genid/",
+        "geosparql": "http://www.opengis.net/ont/geosparql#"
+    },
+    "@id": "http://ohdsi_gis.org/id/3faed2e83308",
+    "@type": "Dataset",
+    "geosparql:hasGeometry": {
+        "@id": "ohdsi_gis:geo/3faed2e83308",
+        "@type": "http://www.opengis.net/ont/sf#Polygon",
+        "geosparql:asWKT": {
+            "@type": "geosparql:wktLiteral",
+            "@value": "POLYGON ((-80.4853437960693 25.4365652760877, -80.4853437960693 25.9745372629595, -80.1209099874803 25.9745372629595, -80.1209099874803 25.4365652760877, -80.4853437960693 25.4365652760877))"
+        }
+    },
+    "description": "A line feature class of the Miami-Dade County, Metropolitan Planning Organization (MPO) existing bike lanes",
+    "keywords": [
+        "Bike",
+        "Transportation",
+        "Infrastructure",
+        "Miami-Dade Transit",
+        "Florida",
+        "Bike Lane",
+        "MDC",
+        "Miami-Dade County"
+    ],
+    "license": "Miami-Dade County provides this data for use as is. The areas depicted by this map/data are approximate, and are not accurate to surveying or engineering standards. The maps/data shown here are for illustration purposes only and are not suitable for site-specific decision making. Information found here should not be used for making financial or any other commitments. Miami-Dade County provides this information with the understanding that it is not guaranteed to be accurate, correct or complete and conclusions drawn from such information are the sole responsibility of the user. While every effort has been made to ensure the accuracy, correctness and timeliness of materials presented, Miami-Dade County assumes no responsibility for errors or omissions, even if Miami-Dade County is advised of the possibility of such damage.",
+    "name": "Miami-Dade Bike Lanes",
+    "publisher": {
+        "@type": "http://www.w3.org/2000/01/rdf-schema#Literal",
+        "@value": "Miami-Dade County Public Domain"
+    },
+    "spatialCoverage": {
+        "@id": "ohdsi_gis:3faed2e83308",
+        "@type": "Place",
+        "name": [
+            "Florida",
+            "United States",
+            "Miami Dade County"
+        ]
+    },
+    "variableMeasured": [
+        {
+            "@id": "ohdsi_gis:3faed2e83308/name",
+            "@type": "PropertyValue",
+            "additionalType": "varchar",
+            "description": "name of path",
+            "name": "name"
+        },
+        {
+            "@id": "ohdsi_gis:3faed2e83308/limit",
+            "@type": "PropertyValue",
+            "additionalType": "varchar",
+            "description": "Description of FROM and TO limits",
+            "name": "limit"
+        },
+        {
+            "@id": "ohdsi_gis:3faed2e83308/length",
+            "@type": "PropertyValue",
+            "additionalType": "float8",
+            "description": "Length in miles",
+            "name": "length",
+            "unitsText": "miles"
+        },
+        {
+            "@id": "ohdsi_gis:3faed2e83308/shape_length",
+            "@type": "PropertyValue",
+            "additionalType": "float8",
+            "description": "Calculated length in EPSG 3857",
+            "measurementMethod": "ST_Length",
+            "name": "shape_length",
+            "unitsText": "meters"
+        }
+    ]
+}

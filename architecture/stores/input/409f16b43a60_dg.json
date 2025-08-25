@@ -1,0 +1,143 @@
+{
+    "@context": {
+        "@vocab": "https://schema.org/",
+        "ohdsi_gis": "https://ohdsi_gis.org/.well-known/genid/",
+        "geosparql": "http://www.opengis.net/ont/geosparql#"
+    },
+    "@id": "http://ohdsi_gis.org/id/409f16b43a60",
+    "@type": "Dataset",
+    "geosparql:hasGeometry": {
+        "@id": "ohdsi_gis:geo/409f16b43a60",
+        "@type": "http://www.opengis.net/ont/sf#Polygon",
+        "geosparql:asWKT": {
+            "@type": "geosparql:wktLiteral",
+            "@value": "POLYGON ((-80.4914324225549 25.418939785292526, -80.4914324225549 25.970045440636998, -80.13821264478014 25.970045440636998, -80.13821264478014 25.418939785292526, -80.4914324225549 25.418939785292526))"
+        }
+    },
+    "description": "A point feature class of the hospital facilities within Miami-Dade County.",
+    "keywords": [
+        "\\nMedical",
+        "Public-Safety",
+        "Wellness",
+        "Health",
+        "Miami-Dade County",
+        "Infrastructure",
+        " Emergency",
+        "Florida",
+        "MDC",
+        "Hospital"
+    ],
+    "license": "Miami-Dade County provides this data for use as is. The areas depicted by this map/data are approximate, and are not accurate to surveying or engineering standards. The maps/data shown here are for illustration purposes only and are not suitable for site-specific decision making. Information found here should not be used for making financial or any other commitments. Miami-Dade County provides this information with the understanding that it is not guaranteed to be accurate, correct or complete and conclusions drawn from such information are the sole responsibility of the user. While every effort has been made to ensure the accuracy, correctness and timeliness of materials presented, Miami-Dade County assumes no responsibility for errors or omissions, even if Miami-Dade County is advised of the possibility of such damage.",
+    "name": "Miami-Dade Hospitals",
+    "publisher": {
+        "@type": "http://www.w3.org/2000/01/rdf-schema#Literal",
+        "@value": "Miami-Dade County Public Domain"
+    },
+    "spatialCoverage": {
+        "@id": "ohdsi_gis:409f16b43a60",
+        "@type": "Place",
+        "name": [
+            "United States",
+            "Miami Dade County",
+            "Florida"
+        ]
+    },
+    "variableMeasured": [
+        {
+            "@id": "ohdsi_gis:409f16b43a60/phone",
+            "@type": "PropertyValue",
+            "additionalType": "string",
+            "description": "Phone number",
+            "measurementMethod": "MDC",
+            "name": "phone"
+        },
+        {
+            "@id": "ohdsi_gis:409f16b43a60/lat",
+            "@type": "PropertyValue",
+            "additionalType": "double",
+            "description": "Latitude",
+            "measurementMethod": "MDC",
+            "name": "lat"
+        },
+        {
+            "@id": "ohdsi_gis:409f16b43a60/objectid",
+            "@type": "PropertyValue",
+            "additionalType": "oid",
+            "description": "Internal feature number",
+            "measurementMethod": "Esri",
+            "name": "objectid"
+        },
+        {
+            "@id": "ohdsi_gis:409f16b43a60/lon",
+            "@type": "PropertyValue",
+            "additionalType": "double",
+            "description": "Longitude",
+            "measurementMethod": "MDC",
+            "name": "lon"
+        },
+        {
+            "@id": "ohdsi_gis:409f16b43a60/bed",
+            "@type": "PropertyValue",
+            "additionalType": "integer",
+            "description": "Amount of beds",
+            "measurementMethod": "MDC",
+            "name": "bed"
+        },
+        {
+            "@id": "ohdsi_gis:409f16b43a60/city",
+            "@type": "PropertyValue",
+            "additionalType": "string",
+            "description": "City",
+            "measurementMethod": "MDC",
+            "name": "city"
+        },
+        {
+            "@id": "ohdsi_gis:409f16b43a60/zipcode",
+            "@type": "PropertyValue",
+            "additionalType": "integer",
+            "description": "Zipcode",
+            "measurementMethod": "MDC",
+            "name": "zipcode"
+        },
+        {
+            "@id": "ohdsi_gis:409f16b43a60/folio",
+            "@type": "PropertyValue",
+            "additionalType": "string",
+            "description": "Folio identifier",
+            "measurementMethod": "MDC",
+            "name": "folio"
+        },
+        {
+            "@id": "ohdsi_gis:409f16b43a60/name",
+            "@type": "PropertyValue",
+            "additionalType": "string",
+            "description": "Name of hospital",
+            "measurementMethod": "MDC",
+            "name": "name"
+        },
+        {
+            "@id": "ohdsi_gis:409f16b43a60/point_y",
+            "@type": "PropertyValue",
+            "additionalType": "double",
+            "description": "Y-coordinate",
+            "measurementMethod": "MDC",
+            "name": "point_y"
+        },
+        {
+            "@id": "ohdsi_gis:409f16b43a60/point_x",
+            "@type": "PropertyValue",
+            "additionalType": "double",
+            "description": "X-coordinate",
+            "measurementMethod": "MDC",
+            "name": "point_x"
+        },
+        {
+            "@id": "ohdsi_gis:409f16b43a60/address",
+            "@type": "PropertyValue",
+            "additionalType": "string",
+            "description": "Address",
+            "measurementMethod": "MDC",
+            "name": "address"
+        }
+    ]
+}

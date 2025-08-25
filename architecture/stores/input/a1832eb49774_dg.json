@@ -1,0 +1,64 @@
+{
+    "@context": {
+        "@vocab": "https://schema.org/",
+        "ohdsi_gis": "https://ohdsi_gis.org/.well-known/genid/",
+        "geosparql": "http://www.opengis.net/ont/geosparql#"
+    },
+    "@id": "http://ohdsi_gis.org/id/a1832eb49774",
+    "@type": "Dataset",
+    "geosparql:hasGeometry": {
+        "@id": "ohdsi_gis:geo/a1832eb49774",
+        "@type": "http://www.opengis.net/ont/sf#Polygon",
+        "geosparql:asWKT": {
+            "@type": "geosparql:wktLiteral",
+            "@value": "POLYGON ((-61.7927875 10.2821958, -61.7927875 11.1817512, -60.7238938 11.1817512, -60.7238938 10.2821958, -61.7927875 10.2821958))"
+        }
+    },
+    "description": "A line feature set for ferry routes in Trinidad and Tobago.",
+    "keywords": [
+        "Trinidad and Tobago",
+        "ferry routes",
+        "transportation"
+    ],
+    "license": "OpenStreetMap\u00ae is open data, licensed under the [Open Data Commons Open Database License](https://opendatacommons.org/licenses/odbl/) (ODbL) by the [OpenStreetMap Foundation](https://osmfoundation.org/) (OSMF).",
+    "name": "Trinidad and Tobago Ferry Routes",
+    "publisher": {
+        "@type": "http://www.w3.org/2000/01/rdf-schema#Literal",
+        "@value": "OpenStreetMap You are free to copy, distribute, transmit and adapt our data, as long as you credit OpenStreetMap and its contributors. If you alter or build upon our data, you may distribute the result only under the same licence."
+    },
+    "spatialCoverage": {
+        "@id": "ohdsi_gis:a1832eb49774",
+        "@type": "Place",
+        "name": "Trinidad and Tobago"
+    },
+    "variableMeasured": [
+        {
+            "@id": "ohdsi_gis:a1832eb49774/osm_id",
+            "@type": "PropertyValue",
+            "additionalType": "varchar",
+            "description": "OpenStreetMap (OSM) ID",
+            "name": "osm_id"
+        },
+        {
+            "@id": "ohdsi_gis:a1832eb49774/other_tags",
+            "@type": "PropertyValue",
+            "additionalType": "varchar",
+            "description": "Any other OSM tags with values, can include values for oneway, from, to, operator, duration, charge",
+            "name": "other_tags"
+        },
+        {
+            "@id": "ohdsi_gis:a1832eb49774/name",
+            "@type": "PropertyValue",
+            "additionalType": "varchar",
+            "description": "Ferry route name name",
+            "name": "name"
+        },
+        {
+            "@id": "ohdsi_gis:a1832eb49774/route",
+            "@type": "PropertyValue",
+            "additionalType": "varchar",
+            "description": "kind of route (only ferry)",
+            "name": "route"
+        }
+    ]
+}

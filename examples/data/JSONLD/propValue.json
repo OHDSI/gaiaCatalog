@@ -1,0 +1,27 @@
+{
+  "@context": {
+    "@vocab": "https://schema.org/",
+    "qudt": "http://qudt.org/schema/qudt/"
+  },
+  "@type": "PropertyValue",
+  "name": "geographicalArea",
+  "description": "",
+  "measurementTechnique": "Polygonize (Raster to Vector)",
+  "value": {
+    "@type": "GeoShape",
+    "description": "We used the geocoordinates of the centroid of an HDSS and applied a 10 km buffer around it",
+    "disambiguatingDescription": "This buffer helped account for potential inaccuracies in the centroid coordinates and the limited resolution of the climate data.",
+    "circle": "A circle is the circular region of a specified radius centered at a specified latitude and longitude. A circle is expressed as a pair followed by a radius in meters.",
+    "elevation": "The elevation of a location (WGS 84)."
+  },
+  "unitCode": "TBD",
+  "unitText": "for the Magu administrative area",
+  "valueReference": {
+    "@type": "DefinedTerm",
+    "name": "ConstraintPropertyType",
+    "description": "The ConstraintProperty type has one of two values -- 'dimension' or 'attribute'. Types take after SDMX and RDF Data Cube dimensions and attributes",
+    "disambiguatingDescription": "Attributes give context to the underlying measure. A dimension breaks out a measure into a controlled vocabulary of one or more categories",
+    "termCode": "sdmx:Attribute",
+    "inDefinedTermSet": ["sdmx:Dimension", "sdmx:Attribute"]
+  }
+}

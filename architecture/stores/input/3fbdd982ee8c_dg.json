@@ -1,0 +1,495 @@
+{
+    "@context": {
+        "@vocab": "https://schema.org/",
+        "ohdsi_gis": "https://ohdsi_gis.org/.well-known/genid/",
+        "geosparql": "http://www.opengis.net/ont/geosparql#"
+    },
+    "@id": "http://ohdsi_gis.org/id/3fbdd982ee8c",
+    "@type": "Dataset",
+    "geosparql:hasGeometry": {
+        "@id": "ohdsi_gis:geo/3fbdd982ee8c",
+        "@type": "http://www.opengis.net/ont/sf#Polygon",
+        "geosparql:asWKT": {
+            "@type": "geosparql:wktLiteral",
+            "@value": "POLYGON ((-80.8738950999945 25.1374650123961, -80.8738950999945 25.97948245004, -80.1182967730473 25.97948245004, -80.1182967730473 25.1374650123961, -80.8738950999945 25.1374650123961))"
+        }
+    },
+    "description": "A polygon feature class of property boundaries in Miami-Dade county sourced from the Miami-Dade Open Data Portal and then augmented with elevation data, flood zone data, qualified opportunity zone boolean, water overlap as boolean, managed areas (parks), intersections with major roads, and both county and municipal zoning information. All of the augmentation is based on spatial joines. Please see the ETL and provenance documentation for more information.",
+    "keywords": [
+        "elevation",
+        "Miami-Dade County",
+        "property",
+        "land use",
+        "county zoning",
+        "qualified opportunity zones",
+        "DOR codes",
+        "flood zones",
+        "municipal zoning"
+    ],
+    "license": "Open Data Commons Attribution License (ODC-By): http://opendatacommons.org/licenses/by/1.0/",
+    "name": "Miami-Dade Parcels Augmented for CAMP",
+    "publisher": {
+        "@type": "http://www.w3.org/2000/01/rdf-schema#Literal",
+        "@value": "University of Miami Institute for Data Science and Computing Public Domain"
+    },
+    "spatialCoverage": {
+        "@id": "ohdsi_gis:3fbdd982ee8c",
+        "@type": "Place",
+        "name": "Miami-Dade County"
+    },
+    "variableMeasured": [
+        {
+            "@id": "ohdsi_gis:3fbdd982ee8c/mdc_municipal_zone_desc",
+            "@type": "PropertyValue",
+            "additionalType": "string",
+            "description": "Municipal zone description from mdc_municipal_zones provided by Miami-Dade county",
+            "measurementMethod": "derived from description from spatial join parcel",
+            "name": "mdc_municipal_zone_desc"
+        },
+        {
+            "@id": "ohdsi_gis:3fbdd982ee8c/mdc_qualified_opportunity_zones",
+            "@type": "PropertyValue",
+            "additionalType": "boolean",
+            "description": "Whether or not qualifed opportunity zones are within parcels",
+            "measurementMethod": "Extracted from mdc_qualified_opportunity_zones",
+            "name": "mdc_qualified_opportunity_zones"
+        },
+        {
+            "@id": "ohdsi_gis:3fbdd982ee8c/ttrrss",
+            "@type": "PropertyValue",
+            "additionalType": "string",
+            "description": "Township-range-section",
+            "measurementMethod": "MDC",
+            "name": "ttrrss"
+        },
+        {
+            "@id": "ohdsi_gis:3fbdd982ee8c/mdc_street_type",
+            "@type": "PropertyValue",
+            "additionalType": "varchar",
+            "description": "Street type",
+            "measurementMethod": "Appended from mdc_streets",
+            "name": "mdc_street_type"
+        },
+        {
+            "@id": "ohdsi_gis:3fbdd982ee8c/bathroom_count",
+            "@type": "PropertyValue",
+            "additionalType": "double",
+            "description": "Number of bathrooms",
+            "measurementMethod": "MDC",
+            "name": "bathroom_count",
+            "unitsText": "bathrooms"
+        },
+        {
+            "@id": "ohdsi_gis:3fbdd982ee8c/unit_count",
+            "@type": "PropertyValue",
+            "additionalType": "long integer",
+            "description": "Number of units",
+            "measurementMethod": "MDC",
+            "name": "unit_count",
+            "unitsText": "units"
+        },
+        {
+            "@id": "ohdsi_gis:3fbdd982ee8c/true_mailing_zip_code",
+            "@type": "PropertyValue",
+            "additionalType": "string",
+            "description": "True mailing zipcode",
+            "measurementMethod": "MDC",
+            "name": "true_mailing_zip_code"
+        },
+        {
+            "@id": "ohdsi_gis:3fbdd982ee8c/x_coord",
+            "@type": "PropertyValue",
+            "additionalType": "double",
+            "description": "X-coordinate",
+            "measurementMethod": "MDC",
+            "name": "x_coord"
+        },
+        {
+            "@id": "ohdsi_gis:3fbdd982ee8c/true_site_addr",
+            "@type": "PropertyValue",
+            "additionalType": "string",
+            "description": "Site address",
+            "measurementMethod": "MDC",
+            "name": "true_site_addr"
+        },
+        {
+            "@id": "ohdsi_gis:3fbdd982ee8c/true_mailing_state",
+            "@type": "PropertyValue",
+            "additionalType": "string",
+            "description": "True mailing state",
+            "measurementMethod": "MDC",
+            "name": "true_mailing_state"
+        },
+        {
+            "@id": "ohdsi_gis:3fbdd982ee8c/ogc_fid",
+            "@type": "PropertyValue",
+            "additionalType": "integer",
+            "description": "Unique identifier",
+            "measurementMethod": "ESRI",
+            "name": "ogc_fid"
+        },
+        {
+            "@id": "ohdsi_gis:3fbdd982ee8c/mdc_county_zone",
+            "@type": "PropertyValue",
+            "additionalType": "string",
+            "description": "County zone from mdc_county_zones provided by Miami-Dade County",
+            "measurementMethod": "spatial join parcel within mdc_county_zones",
+            "name": "mdc_county_zone"
+        },
+        {
+            "@id": "ohdsi_gis:3fbdd982ee8c/true_mailing_addr3",
+            "@type": "PropertyValue",
+            "additionalType": "string",
+            "description": "True mailing address 3",
+            "measurementMethod": "MDC",
+            "name": "true_mailing_addr3"
+        },
+        {
+            "@id": "ohdsi_gis:3fbdd982ee8c/elevation",
+            "@type": "PropertyValue",
+            "additionalType": "float",
+            "description": "relative elevation of area",
+            "measurementMethod": "Extracted from mdc_2015 dem provided by Miami-Dade county",
+            "name": "elevation",
+            "unitsText": "feet"
+        },
+        {
+            "@id": "ohdsi_gis:3fbdd982ee8c/lot_size",
+            "@type": "PropertyValue",
+            "additionalType": "double",
+            "description": "Land Lot Size - in Square Feet",
+            "measurementMethod": "MDC",
+            "name": "lot_size",
+            "unitsText": "square feet"
+        },
+        {
+            "@id": "ohdsi_gis:3fbdd982ee8c/building_heated_area",
+            "@type": "PropertyValue",
+            "additionalType": "double",
+            "description": "Heated area of building",
+            "measurementMethod": "MDC",
+            "name": "building_heated_area",
+            "unitsText": "square feet"
+        },
+        {
+            "@id": "ohdsi_gis:3fbdd982ee8c/shape_area",
+            "@type": "PropertyValue",
+            "additionalType": "double",
+            "description": " area of polygon",
+            "measurementMethod": "Esri",
+            "name": "shape_area"
+        },
+        {
+            "@id": "ohdsi_gis:3fbdd982ee8c/parent_folio",
+            "@type": "PropertyValue",
+            "additionalType": "string",
+            "description": "Parent folio identifier",
+            "measurementMethod": "MDC",
+            "name": "parent_folio"
+        },
+        {
+            "@id": "ohdsi_gis:3fbdd982ee8c/true_owner1",
+            "@type": "PropertyValue",
+            "additionalType": "string",
+            "description": " Owner's name 1",
+            "measurementMethod": "MDC",
+            "name": "true_owner1"
+        },
+        {
+            "@id": "ohdsi_gis:3fbdd982ee8c/building_actual_area",
+            "@type": "PropertyValue",
+            "additionalType": "double",
+            "description": "Actual area of building",
+            "measurementMethod": "MDC",
+            "name": "building_actual_area",
+            "unitsText": "square feet"
+        },
+        {
+            "@id": "ohdsi_gis:3fbdd982ee8c/mdc_municipal_park_name",
+            "@type": "PropertyValue",
+            "additionalType": "string",
+            "description": "Municipal park name from mdc_municipal_park_boundaries provided by Miami-Dade county",
+            "measurementMethod": "spatial join parcel within mdc_municipal_park_boundaries",
+            "name": "mdc_municipal_park_name"
+        },
+        {
+            "@id": "ohdsi_gis:3fbdd982ee8c/year_built",
+            "@type": "PropertyValue",
+            "additionalType": "short integer",
+            "description": "Year built",
+            "measurementMethod": "MDC",
+            "name": "year_built"
+        },
+        {
+            "@id": "ohdsi_gis:3fbdd982ee8c/objectid",
+            "@type": "PropertyValue",
+            "additionalType": "oid",
+            "description": "Internal feature number",
+            "measurementMethod": "Esri",
+            "name": "objectid"
+        },
+        {
+            "@id": "ohdsi_gis:3fbdd982ee8c/mdc_streetid",
+            "@type": "PropertyValue",
+            "additionalType": "numeric",
+            "description": "Street id provided by Miami-Dade county",
+            "measurementMethod": "derived from street id from spatial join",
+            "name": "mdc_streetid"
+        },
+        {
+            "@id": "ohdsi_gis:3fbdd982ee8c/true_owner2",
+            "@type": "PropertyValue",
+            "additionalType": "string",
+            "description": "Owner's name 2",
+            "measurementMethod": "MDC",
+            "name": "true_owner2"
+        },
+        {
+            "@id": "ohdsi_gis:3fbdd982ee8c/y_coord",
+            "@type": "PropertyValue",
+            "additionalType": "double",
+            "description": "Y-coordinate",
+            "measurementMethod": "MDC",
+            "name": "y_coord"
+        },
+        {
+            "@id": "ohdsi_gis:3fbdd982ee8c/pid",
+            "@type": "PropertyValue",
+            "additionalType": "integer",
+            "description": "Property unique identifier",
+            "measurementMethod": "MDC",
+            "name": "pid"
+        },
+        {
+            "@id": "ohdsi_gis:3fbdd982ee8c/bedroom_count",
+            "@type": "PropertyValue",
+            "additionalType": "long integer",
+            "description": " Number of bedrooms",
+            "measurementMethod": "MDC",
+            "name": "bedroom_count",
+            "unitsText": "bedrooms"
+        },
+        {
+            "@id": "ohdsi_gis:3fbdd982ee8c/true_site_unit",
+            "@type": "PropertyValue",
+            "additionalType": "string",
+            "description": " Site unit",
+            "measurementMethod": "MDC",
+            "name": "true_site_unit"
+        },
+        {
+            "@id": "ohdsi_gis:3fbdd982ee8c/flma_name",
+            "@type": "PropertyValue",
+            "additionalType": "string",
+            "description": "Florida managed area name",
+            "measurementMethod": "Florida Natural Areas Inventory",
+            "name": "flma_name"
+        },
+        {
+            "@id": "ohdsi_gis:3fbdd982ee8c/flma_type",
+            "@type": "PropertyValue",
+            "additionalType": "string",
+            "description": "Florida managed area type",
+            "measurementMethod": "Florida Natural Areas Inventory",
+            "name": "flma_type"
+        },
+        {
+            "@id": "ohdsi_gis:3fbdd982ee8c/dor_code_cur",
+            "@type": "PropertyValue",
+            "additionalType": "string",
+            "description": "Current DOR (Department of Revenue) Code that idenitifies the land use",
+            "measurementMethod": "DOR",
+            "name": "dor_code_cur"
+        },
+        {
+            "@id": "ohdsi_gis:3fbdd982ee8c/condo_flag",
+            "@type": "PropertyValue",
+            "additionalType": "string",
+            "description": "Condo flag",
+            "measurementMethod": "MDC",
+            "name": "condo_flag"
+        },
+        {
+            "@id": "ohdsi_gis:3fbdd982ee8c/true_site_city",
+            "@type": "PropertyValue",
+            "additionalType": "string",
+            "description": "Site city",
+            "measurementMethod": "MDC",
+            "name": "true_site_city"
+        },
+        {
+            "@id": "ohdsi_gis:3fbdd982ee8c/legal",
+            "@type": "PropertyValue",
+            "additionalType": "string",
+            "description": "Legal representation",
+            "name": "legal"
+        },
+        {
+            "@id": "ohdsi_gis:3fbdd982ee8c/true_mailing_country",
+            "@type": "PropertyValue",
+            "additionalType": "string",
+            "description": "True mailing country",
+            "measurementMethod": "MDC",
+            "name": "true_mailing_country"
+        },
+        {
+            "@id": "ohdsi_gis:3fbdd982ee8c/dos_1",
+            "@type": "PropertyValue",
+            "additionalType": "string",
+            "description": "Date of sale",
+            "name": "dos_1"
+        },
+        {
+            "@id": "ohdsi_gis:3fbdd982ee8c/assessed_val_cur",
+            "@type": "PropertyValue",
+            "additionalType": "double",
+            "description": "Current assessed value",
+            "measurementMethod": "MDC",
+            "name": "assessed_val_cur"
+        },
+        {
+            "@id": "ohdsi_gis:3fbdd982ee8c/mdc_municipal_zone",
+            "@type": "PropertyValue",
+            "additionalType": "string",
+            "description": "Municipal zone from mdc_municipal_zones provided by Miami-Dade county",
+            "measurementMethod": "spatial join parcel within mdc_municipal_zones",
+            "name": "mdc_municipal_zone"
+        },
+        {
+            "@id": "ohdsi_gis:3fbdd982ee8c/price_1",
+            "@type": "PropertyValue",
+            "additionalType": "double",
+            "description": "Price of sale",
+            "name": "price_1"
+        },
+        {
+            "@id": "ohdsi_gis:3fbdd982ee8c/half_bathroom_count",
+            "@type": "PropertyValue",
+            "additionalType": "long integer",
+            "description": "Number of half bathrooms",
+            "measurementMethod": "MDC",
+            "name": "half_bathroom_count",
+            "unitsText": "half bathrooms"
+        },
+        {
+            "@id": "ohdsi_gis:3fbdd982ee8c/floor_count",
+            "@type": "PropertyValue",
+            "additionalType": "long integer",
+            "description": "Number of floors",
+            "measurementMethod": "MDC",
+            "name": "floor_count",
+            "unitsText": "floors"
+        },
+        {
+            "@id": "ohdsi_gis:3fbdd982ee8c/true_mailing_addr2",
+            "@type": "PropertyValue",
+            "additionalType": "string",
+            "description": "True mailing address 2",
+            "measurementMethod": "MDC",
+            "name": "true_mailing_addr2"
+        },
+        {
+            "@id": "ohdsi_gis:3fbdd982ee8c/folio",
+            "@type": "PropertyValue",
+            "additionalType": "string",
+            "description": "Folio identifier",
+            "measurementMethod": "MDC",
+            "name": "folio"
+        },
+        {
+            "@id": "ohdsi_gis:3fbdd982ee8c/fema_flood_zone",
+            "@type": "PropertyValue",
+            "additionalType": "string",
+            "description": "flood zones from mdc_flood_hazard",
+            "measurementMethod": "Provided by Miami-Dade county",
+            "name": "fema_flood_zone"
+        },
+        {
+            "@id": "ohdsi_gis:3fbdd982ee8c/mdc_county_zone_desc",
+            "@type": "PropertyValue",
+            "additionalType": "string",
+            "description": "County zone description from mdc_county_zones provided by Miami-Dade county",
+            "measurementMethod": "derived from description from spatial join parcel",
+            "name": "mdc_county_zone_desc"
+        },
+        {
+            "@id": "ohdsi_gis:3fbdd982ee8c/true_mailing_addr1",
+            "@type": "PropertyValue",
+            "additionalType": "string",
+            "description": "True mailing address 1",
+            "measurementMethod": "MDC",
+            "name": "true_mailing_addr1"
+        },
+        {
+            "@id": "ohdsi_gis:3fbdd982ee8c/shape_length",
+            "@type": "PropertyValue",
+            "additionalType": "double",
+            "description": " length of polygon",
+            "measurementMethod": "Esri",
+            "name": "shape_length"
+        },
+        {
+            "@id": "ohdsi_gis:3fbdd982ee8c/true_mailing_city",
+            "@type": "PropertyValue",
+            "additionalType": "string",
+            "description": " True mailing city",
+            "measurementMethod": "MDC",
+            "name": "true_mailing_city"
+        },
+        {
+            "@id": "ohdsi_gis:3fbdd982ee8c/mdc_county_park_name",
+            "@type": "PropertyValue",
+            "additionalType": "string",
+            "description": "County park name from mdc_county_park_boundaries provided by Miami-Dade county",
+            "measurementMethod": "spatial join parcel within mdc_county_park_boundaries",
+            "name": "mdc_county_park_name"
+        },
+        {
+            "@id": "ohdsi_gis:3fbdd982ee8c/true_site_zip_code",
+            "@type": "PropertyValue",
+            "additionalType": "string",
+            "description": "Site zipcode",
+            "measurementMethod": "MDC",
+            "name": "true_site_zip_code"
+        },
+        {
+            "@id": "ohdsi_gis:3fbdd982ee8c/subdivision",
+            "@type": "PropertyValue",
+            "additionalType": "string",
+            "description": "Subdivision",
+            "name": "subdivision"
+        },
+        {
+            "@id": "ohdsi_gis:3fbdd982ee8c/dor_desc",
+            "@type": "PropertyValue",
+            "additionalType": "string",
+            "description": "Department of Revenue classification description",
+            "measurementMethod": "DOR",
+            "name": "dor_desc"
+        },
+        {
+            "@id": "ohdsi_gis:3fbdd982ee8c/true_owner3",
+            "@type": "PropertyValue",
+            "additionalType": "string",
+            "description": "Owner's name 3",
+            "measurementMethod": "MDC",
+            "name": "true_owner3"
+        },
+        {
+            "@id": "ohdsi_gis:3fbdd982ee8c/mdc_water_polygons",
+            "@type": "PropertyValue",
+            "additionalType": "boolean",
+            "description": "Whether or not bodies of water overlap with parcels",
+            "measurementMethod": "Extracted from mdc_water_polygons",
+            "name": "mdc_water_polygons"
+        },
+        {
+            "@id": "ohdsi_gis:3fbdd982ee8c/assessment_year_cur",
+            "@type": "PropertyValue",
+            "additionalType": "long integer",
+            "description": "Current assessment year",
+            "measurementMethod": "MDC",
+            "name": "assessment_year_cur"
+        }
+    ]
+}

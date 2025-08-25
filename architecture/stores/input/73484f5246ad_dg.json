@@ -1,0 +1,76 @@
+{
+    "@context": {
+        "@vocab": "https://schema.org/",
+        "ohdsi_gis": "https://ohdsi_gis.org/.well-known/genid/",
+        "geosparql": "http://www.opengis.net/ont/geosparql#"
+    },
+    "@id": "http://ohdsi_gis.org/id/73484f5246ad",
+    "@type": "Dataset",
+    "description": "This dataset is derived as annual aggregates from 2022 US EPA Daily Summary PM 2.5 FRM/FEM Mass (88101).",
+    "keywords": [
+        "monitors",
+        "PM 2.5",
+        "EPA",
+        "particulate matter",
+        "annual",
+        "USA"
+    ],
+    "license": "Unless otherwise specified, all data produced by the U.S EPA is by default in the public domain and is not subject to domestic copyright protection under 17 U.S.C. \u00a7 105 . More details on the U.S. Public Domain license are available here: \\n\\nhttp://www.usa.gov/publicdomain/label/1.0/ \\n\\nAdditionally, please be advised that although these data have been processed successfully on a computer system at the U.S. EPA, no warranty expressed or implied is made regarding the accuracy or utility of the data on any other system or for general or scientific purposes, nor shall the act of distribution constitute any such warranty.",
+    "name": "2022 US EPA Annual Estimates PM 2.5 FRM/FEM Mass (88101)",
+    "publisher": {
+        "@type": "http://www.w3.org/2000/01/rdf-schema#Literal",
+        "@value": "University of Miami Public Domain"
+    },
+    "spatialCoverage": {
+        "@id": "ohdsi_gis:73484f5246ad",
+        "@type": "Place",
+        "name": "United States"
+    },
+    "variableMeasured": [
+        {
+            "@id": "ohdsi_gis:73484f5246ad/observation_percent",
+            "@type": "PropertyValue",
+            "additionalType": "float8",
+            "description": "The percent representing the number of observations taken with respect to the number scheduled to be taken during the day. This is only calculated for monitors where measurements are required (e.g., only certain parameters).",
+            "name": "observation_percent",
+            "unitsText": "percent"
+        },
+        {
+            "@id": "ohdsi_gis:73484f5246ad/county_code",
+            "@type": "PropertyValue",
+            "additionalType": "int4",
+            "description": "The FIPS code of the county in which the monitor resides.",
+            "name": "county_code"
+        },
+        {
+            "@id": "ohdsi_gis:73484f5246ad/arithmetic_mean",
+            "@type": "PropertyValue",
+            "additionalType": "float8",
+            "description": "The average (arithmetic mean) value for all days observed in the year.",
+            "name": "arithmetic_mean",
+            "unitsText": "micrograms/cubic meter (LC)"
+        },
+        {
+            "@id": "ohdsi_gis:73484f5246ad/state_code",
+            "@type": "PropertyValue",
+            "additionalType": "int4",
+            "description": "The FIPS code of the state in which the monitor resides.",
+            "name": "state_code"
+        },
+        {
+            "@id": "ohdsi_gis:73484f5246ad/1st_max_value",
+            "@type": "PropertyValue",
+            "additionalType": "float8",
+            "description": "The highest value for the year.",
+            "name": "1st_max_value",
+            "unitsText": "micrograms/cubic meter (LC)"
+        },
+        {
+            "@id": "ohdsi_gis:73484f5246ad/site_num",
+            "@type": "PropertyValue",
+            "additionalType": "int4",
+            "description": "A unique number within the county identifying the site.",
+            "name": "site_num"
+        }
+    ]
+}

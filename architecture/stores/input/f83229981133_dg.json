@@ -1,0 +1,679 @@
+{
+    "@context": {
+        "@vocab": "https://schema.org/",
+        "ohdsi_gis": "https://ohdsi_gis.org/.well-known/genid/",
+        "geosparql": "http://www.opengis.net/ont/geosparql#"
+    },
+    "@id": "http://ohdsi_gis.org/id/f83229981133",
+    "@type": "Dataset",
+    "geosparql:hasGeometry": {
+        "@id": "ohdsi_gis:geo/f83229981133",
+        "@type": "http://www.opengis.net/ont/sf#Polygon",
+        "geosparql:asWKT": {
+            "@type": "geosparql:wktLiteral",
+            "@value": "POLYGON ((-80.76585584366745 25.39915655752511, -80.76585584366745 25.973894738100082, -80.11911266341254 25.973894738100082, -80.11911266341254 25.39915655752511, -80.76585584366745 25.39915655752511))"
+        }
+    },
+    "description": "A point feature class of all park facilities (County, Municipal, State or National) within Miami-Dade County. This layer was created merging the County Parks, Municipal Parks, State and Federal parks feature classes. ",
+    "keywords": [
+        "Wellness",
+        "Recreation",
+        "Miami-Dade County",
+        "Park Facility",
+        "Environment",
+        "Infrastructure",
+        "Florida",
+        "Parks",
+        "MDC",
+        "Open Spaces"
+    ],
+    "license": "Miami-Dade County provides this data for use as is. The areas depicted by this map/data are approximate, and are not accurate to surveying or engineering standards. The maps/data shown here are for illustration purposes only and are not suitable for site-specific decision making. Information found here should not be used for making financial or any other commitments. Miami-Dade County provides this information with the understanding that it is not guaranteed to be accurate, correct or complete and conclusions drawn from such information are the sole responsibility of the user. While every effort has been made to ensure the accuracy, correctness and timeliness of materials presented, Miami-Dade County assumes no responsibility for errors or omissions, even if Miami-Dade County is advised of the possibility of such damage.",
+    "name": "Miami-Dade Park Facilities",
+    "publisher": {
+        "@type": "http://www.w3.org/2000/01/rdf-schema#Literal",
+        "@value": "Miami-Dade County Public Domain"
+    },
+    "spatialCoverage": {
+        "@id": "ohdsi_gis:f83229981133",
+        "@type": "Place",
+        "name": [
+            "United States",
+            "Miami Dade County",
+            "Florida"
+        ]
+    },
+    "variableMeasured": [
+        {
+            "@id": "ohdsi_gis:f83229981133/objectid",
+            "@type": "PropertyValue",
+            "additionalType": "oid",
+            "description": "Internal feature number",
+            "measurementMethod": "Esri",
+            "name": "objectid"
+        },
+        {
+            "@id": "ohdsi_gis:f83229981133/basketball",
+            "@type": "PropertyValue",
+            "additionalType": "boolean",
+            "description": " Basketball (yes or no)",
+            "measurementMethod": "MDC",
+            "name": "basketball"
+        },
+        {
+            "@id": "ohdsi_gis:f83229981133/restroom",
+            "@type": "PropertyValue",
+            "additionalType": "boolean",
+            "description": "Restroom (yes or no)",
+            "measurementMethod": "MDC",
+            "name": "restroom"
+        },
+        {
+            "@id": "ohdsi_gis:f83229981133/sumcamp",
+            "@type": "PropertyValue",
+            "additionalType": "boolean",
+            "description": "Summer camp (yes or no)",
+            "measurementMethod": "MDC",
+            "name": "sumcamp"
+        },
+        {
+            "@id": "ohdsi_gis:f83229981133/actoldadlprg",
+            "@type": "PropertyValue",
+            "additionalType": "boolean",
+            "description": "Active Older Adult Program (yes or no)",
+            "measurementMethod": "MDC",
+            "name": "actoldadlprg"
+        },
+        {
+            "@id": "ohdsi_gis:f83229981133/endtime",
+            "@type": "PropertyValue",
+            "additionalType": "string",
+            "description": "End time",
+            "measurementMethod": "MDC",
+            "name": "endtime"
+        },
+        {
+            "@id": "ohdsi_gis:f83229981133/rollerhock",
+            "@type": "PropertyValue",
+            "additionalType": "boolean",
+            "description": "Roller hockey (yes or no)",
+            "measurementMethod": "MDC",
+            "name": "rollerhock"
+        },
+        {
+            "@id": "ohdsi_gis:f83229981133/volleyball",
+            "@type": "PropertyValue",
+            "additionalType": "boolean",
+            "description": "Volleyball (yes or no)",
+            "measurementMethod": "MDC",
+            "name": "volleyball"
+        },
+        {
+            "@id": "ohdsi_gis:f83229981133/class",
+            "@type": "PropertyValue",
+            "additionalType": "string",
+            "description": "Classification of park",
+            "measurementMethod": "MDC",
+            "name": "class"
+        },
+        {
+            "@id": "ohdsi_gis:f83229981133/swimming",
+            "@type": "PropertyValue",
+            "additionalType": "boolean",
+            "description": "Swimming (yes or no)",
+            "measurementMethod": "MDC",
+            "name": "swimming"
+        },
+        {
+            "@id": "ohdsi_gis:f83229981133/tennis",
+            "@type": "PropertyValue",
+            "additionalType": "boolean",
+            "description": "Tennis (yes or no)",
+            "measurementMethod": "MDC",
+            "name": "tennis"
+        },
+        {
+            "@id": "ohdsi_gis:f83229981133/campground",
+            "@type": "PropertyValue",
+            "additionalType": "boolean",
+            "description": " Campground (yes or no)",
+            "measurementMethod": "MDC",
+            "name": "campground"
+        },
+        {
+            "@id": "ohdsi_gis:f83229981133/created_date",
+            "@type": "PropertyValue",
+            "additionalType": "date",
+            "description": "Original creation date",
+            "measurementMethod": "MDC",
+            "name": "created_date"
+        },
+        {
+            "@id": "ohdsi_gis:f83229981133/last_edited_date",
+            "@type": "PropertyValue",
+            "additionalType": "date",
+            "description": "Date of last edit",
+            "measurementMethod": "MDC",
+            "name": "last_edited_date"
+        },
+        {
+            "@id": "ohdsi_gis:f83229981133/rvcampgrou",
+            "@type": "PropertyValue",
+            "additionalType": "boolean",
+            "description": "RV campground (yes or no)",
+            "measurementMethod": "MDC",
+            "name": "rvcampgrou"
+        },
+        {
+            "@id": "ohdsi_gis:f83229981133/auditorium",
+            "@type": "PropertyValue",
+            "additionalType": "boolean",
+            "description": "Auditorium (yes or no)",
+            "measurementMethod": "MDC",
+            "name": "auditorium"
+        },
+        {
+            "@id": "ohdsi_gis:f83229981133/fitnesszone",
+            "@type": "PropertyValue",
+            "additionalType": "boolean",
+            "description": " Fitness zone (yes or no)",
+            "measurementMethod": "MDC",
+            "name": "fitnesszone"
+        },
+        {
+            "@id": "ohdsi_gis:f83229981133/golfdrivin",
+            "@type": "PropertyValue",
+            "additionalType": "boolean",
+            "description": " Golf driving (yes or no)",
+            "measurementMethod": "MDC",
+            "name": "golfdrivin"
+        },
+        {
+            "@id": "ohdsi_gis:f83229981133/propnum",
+            "@type": "PropertyValue",
+            "additionalType": "double",
+            "description": "Property number",
+            "measurementMethod": "MDC",
+            "name": "propnum"
+        },
+        {
+            "@id": "ohdsi_gis:f83229981133/phone",
+            "@type": "PropertyValue",
+            "additionalType": "string",
+            "description": "Phone number of park",
+            "measurementMethod": "MDC",
+            "name": "phone"
+        },
+        {
+            "@id": "ohdsi_gis:f83229981133/name",
+            "@type": "PropertyValue",
+            "additionalType": "string",
+            "description": "Name of park",
+            "measurementMethod": "MDC",
+            "name": "name"
+        },
+        {
+            "@id": "ohdsi_gis:f83229981133/dogpark",
+            "@type": "PropertyValue",
+            "additionalType": "boolean",
+            "description": " Dog park (yes or no)",
+            "measurementMethod": "MDC",
+            "name": "dogpark"
+        },
+        {
+            "@id": "ohdsi_gis:f83229981133/globalid",
+            "@type": "PropertyValue",
+            "additionalType": "uuid",
+            "description": "A type of a universal unique identifier",
+            "measurementMethod": "Esri",
+            "name": "globalid"
+        },
+        {
+            "@id": "ohdsi_gis:f83229981133/skating",
+            "@type": "PropertyValue",
+            "additionalType": "boolean",
+            "description": "Skating (yes or no)",
+            "measurementMethod": "MDC",
+            "name": "skating"
+        },
+        {
+            "@id": "ohdsi_gis:f83229981133/facilityplan",
+            "@type": "PropertyValue",
+            "additionalType": "string",
+            "description": "Link to facility plan",
+            "measurementMethod": "MDC",
+            "name": "facilityplan"
+        },
+        {
+            "@id": "ohdsi_gis:f83229981133/shelter",
+            "@type": "PropertyValue",
+            "additionalType": "boolean",
+            "description": "Picnic shelter (yes or no)",
+            "measurementMethod": "MDC",
+            "name": "shelter"
+        },
+        {
+            "@id": "ohdsi_gis:f83229981133/onedaycamp",
+            "@type": "PropertyValue",
+            "additionalType": "boolean",
+            "description": "One day camp (yes or no)",
+            "measurementMethod": "MDC",
+            "name": "onedaycamp"
+        },
+        {
+            "@id": "ohdsi_gis:f83229981133/created_user",
+            "@type": "PropertyValue",
+            "additionalType": "string",
+            "description": "Original user",
+            "measurementMethod": "MDC",
+            "name": "created_user"
+        },
+        {
+            "@id": "ohdsi_gis:f83229981133/folio",
+            "@type": "PropertyValue",
+            "additionalType": "string",
+            "description": "Folio identifier",
+            "measurementMethod": "MDC",
+            "name": "folio"
+        },
+        {
+            "@id": "ohdsi_gis:f83229981133/wintcamp",
+            "@type": "PropertyValue",
+            "additionalType": "boolean",
+            "description": "Winter camp (yes or no)",
+            "measurementMethod": "MDC",
+            "name": "wintcamp"
+        },
+        {
+            "@id": "ohdsi_gis:f83229981133/football",
+            "@type": "PropertyValue",
+            "additionalType": "boolean",
+            "description": "Football (yes or no)",
+            "measurementMethod": "MDC",
+            "name": "football"
+        },
+        {
+            "@id": "ohdsi_gis:f83229981133/gunrange",
+            "@type": "PropertyValue",
+            "additionalType": "boolean",
+            "description": " Gun range (yes or no)",
+            "measurementMethod": "MDC",
+            "name": "gunrange"
+        },
+        {
+            "@id": "ohdsi_gis:f83229981133/gymnasium",
+            "@type": "PropertyValue",
+            "additionalType": "boolean",
+            "description": " Gymnasium (yes or no)",
+            "measurementMethod": "MDC",
+            "name": "gymnasium"
+        },
+        {
+            "@id": "ohdsi_gis:f83229981133/beach",
+            "@type": "PropertyValue",
+            "additionalType": "boolean",
+            "description": " Beach (yes or no)",
+            "measurementMethod": "MDC",
+            "name": "beach"
+        },
+        {
+            "@id": "ohdsi_gis:f83229981133/naturecent",
+            "@type": "PropertyValue",
+            "additionalType": "boolean",
+            "description": "Nature Center (yes or no)",
+            "measurementMethod": "MDC",
+            "name": "naturecent"
+        },
+        {
+            "@id": "ohdsi_gis:f83229981133/mountainbi",
+            "@type": "PropertyValue",
+            "additionalType": "boolean",
+            "description": "Mountain bike (yes or no)",
+            "measurementMethod": "MDC",
+            "name": "mountainbi"
+        },
+        {
+            "@id": "ohdsi_gis:f83229981133/naturetrai",
+            "@type": "PropertyValue",
+            "additionalType": "boolean",
+            "description": " Nature trail(yes or no)",
+            "measurementMethod": "MDC",
+            "name": "naturetrai"
+        },
+        {
+            "@id": "ohdsi_gis:f83229981133/totacre",
+            "@type": "PropertyValue",
+            "additionalType": "double",
+            "description": "Total acres",
+            "measurementMethod": "MDC",
+            "name": "totacre"
+        },
+        {
+            "@id": "ohdsi_gis:f83229981133/equestrian",
+            "@type": "PropertyValue",
+            "additionalType": "boolean",
+            "description": " Equestrian (yes or no)",
+            "measurementMethod": "MDC",
+            "name": "equestrian"
+        },
+        {
+            "@id": "ohdsi_gis:f83229981133/parkurl",
+            "@type": "PropertyValue",
+            "additionalType": "string",
+            "description": "Link to park",
+            "measurementMethod": "MDC",
+            "name": "parkurl"
+        },
+        {
+            "@id": "ohdsi_gis:f83229981133/municipal_",
+            "@type": "PropertyValue",
+            "additionalType": "string",
+            "description": "Municipal or county",
+            "measurementMethod": "MDC",
+            "name": "municipal_"
+        },
+        {
+            "@id": "ohdsi_gis:f83229981133/baseball",
+            "@type": "PropertyValue",
+            "additionalType": "boolean",
+            "description": "Baseball (yes or no)",
+            "measurementMethod": "MDC",
+            "name": "baseball"
+        },
+        {
+            "@id": "ohdsi_gis:f83229981133/id",
+            "@type": "PropertyValue",
+            "additionalType": "string",
+            "description": "Origin of id",
+            "measurementMethod": "MDC",
+            "name": "id"
+        },
+        {
+            "@id": "ohdsi_gis:f83229981133/art",
+            "@type": "PropertyValue",
+            "additionalType": "boolean",
+            "description": "Art (yes or no)",
+            "measurementMethod": "MDC",
+            "name": "art"
+        },
+        {
+            "@id": "ohdsi_gis:f83229981133/archery",
+            "@type": "PropertyValue",
+            "additionalType": "boolean",
+            "description": "Archery (yes or no)",
+            "measurementMethod": "MDC",
+            "name": "archery"
+        },
+        {
+            "@id": "ohdsi_gis:f83229981133/boatramp",
+            "@type": "PropertyValue",
+            "additionalType": "boolean",
+            "description": " Boat ramp (yes or no)",
+            "measurementMethod": "MDC",
+            "name": "boatramp"
+        },
+        {
+            "@id": "ohdsi_gis:f83229981133/biketrail",
+            "@type": "PropertyValue",
+            "additionalType": "boolean",
+            "description": " Bike trail (yes or no)",
+            "measurementMethod": "MDC",
+            "name": "biketrail"
+        },
+        {
+            "@id": "ohdsi_gis:f83229981133/raquetball",
+            "@type": "PropertyValue",
+            "additionalType": "boolean",
+            "description": " Raquetball/Handball (yes or no)",
+            "measurementMethod": "MDC",
+            "name": "raquetball"
+        },
+        {
+            "@id": "ohdsi_gis:f83229981133/frisbeegol",
+            "@type": "PropertyValue",
+            "additionalType": "boolean",
+            "description": " Frisbee (yes or no)",
+            "measurementMethod": "MDC",
+            "name": "frisbeegol"
+        },
+        {
+            "@id": "ohdsi_gis:f83229981133/startime",
+            "@type": "PropertyValue",
+            "additionalType": "string",
+            "description": "Start time",
+            "measurementMethod": "MDC",
+            "name": "startime"
+        },
+        {
+            "@id": "ohdsi_gis:f83229981133/zoo",
+            "@type": "PropertyValue",
+            "additionalType": "boolean",
+            "description": " Zoo (yes or no)",
+            "measurementMethod": "MDC",
+            "name": "zoo"
+        },
+        {
+            "@id": "ohdsi_gis:f83229981133/lrn2swim",
+            "@type": "PropertyValue",
+            "additionalType": "boolean",
+            "description": "Learn to Swim (yes or no)",
+            "measurementMethod": "MDC",
+            "name": "lrn2swim"
+        },
+        {
+            "@id": "ohdsi_gis:f83229981133/wetplaygro",
+            "@type": "PropertyValue",
+            "additionalType": "boolean",
+            "description": "Wet Playground (yes or no)",
+            "measurementMethod": "MDC",
+            "name": "wetplaygro"
+        },
+        {
+            "@id": "ohdsi_gis:f83229981133/soccer",
+            "@type": "PropertyValue",
+            "additionalType": "boolean",
+            "description": "Soccer (yes or no)",
+            "measurementMethod": "MDC",
+            "name": "soccer"
+        },
+        {
+            "@id": "ohdsi_gis:f83229981133/marina",
+            "@type": "PropertyValue",
+            "additionalType": "boolean",
+            "description": " Marina (yes or no)",
+            "measurementMethod": "MDC",
+            "name": "marina"
+        },
+        {
+            "@id": "ohdsi_gis:f83229981133/wifi",
+            "@type": "PropertyValue",
+            "additionalType": "boolean",
+            "description": "Wifi (yes or no)",
+            "measurementMethod": "MDC",
+            "name": "wifi"
+        },
+        {
+            "@id": "ohdsi_gis:f83229981133/last_edited_user",
+            "@type": "PropertyValue",
+            "additionalType": "string",
+            "description": "Last edited user",
+            "measurementMethod": "MDC",
+            "name": "last_edited_user"
+        },
+        {
+            "@id": "ohdsi_gis:f83229981133/aftschcamp",
+            "@type": "PropertyValue",
+            "additionalType": "boolean",
+            "description": "Afterschool camp (yes or no)",
+            "measurementMethod": "MDC",
+            "name": "aftschcamp"
+        },
+        {
+            "@id": "ohdsi_gis:f83229981133/sprcamp",
+            "@type": "PropertyValue",
+            "additionalType": "boolean",
+            "description": "Spring camp (yes or no)",
+            "measurementMethod": "MDC",
+            "name": "sprcamp"
+        },
+        {
+            "@id": "ohdsi_gis:f83229981133/lon",
+            "@type": "PropertyValue",
+            "additionalType": "double",
+            "description": "Logitude",
+            "measurementMethod": "MDC",
+            "name": "lon"
+        },
+        {
+            "@id": "ohdsi_gis:f83229981133/track400",
+            "@type": "PropertyValue",
+            "additionalType": "boolean",
+            "description": "Track (yes or no)",
+            "measurementMethod": "MDC",
+            "name": "track400"
+        },
+        {
+            "@id": "ohdsi_gis:f83229981133/fit2play",
+            "@type": "PropertyValue",
+            "additionalType": "boolean",
+            "description": "Fit 2 Play (yes or no)",
+            "measurementMethod": "MDC",
+            "name": "fit2play"
+        },
+        {
+            "@id": "ohdsi_gis:f83229981133/contact",
+            "@type": "PropertyValue",
+            "additionalType": "string",
+            "description": "Contact at park",
+            "measurementMethod": "MDC",
+            "name": "contact"
+        },
+        {
+            "@id": "ohdsi_gis:f83229981133/point_y",
+            "@type": "PropertyValue",
+            "additionalType": "double",
+            "description": "Y-coordinate",
+            "measurementMethod": "MDC",
+            "name": "point_y"
+        },
+        {
+            "@id": "ohdsi_gis:f83229981133/stadium",
+            "@type": "PropertyValue",
+            "additionalType": "boolean",
+            "description": "Stadium (yes or no)",
+            "measurementMethod": "MDC",
+            "name": "stadium"
+        },
+        {
+            "@id": "ohdsi_gis:f83229981133/city",
+            "@type": "PropertyValue",
+            "additionalType": "string",
+            "description": "City of location",
+            "measurementMethod": "MDC",
+            "name": "city"
+        },
+        {
+            "@id": "ohdsi_gis:f83229981133/playground",
+            "@type": "PropertyValue",
+            "additionalType": "boolean",
+            "description": " Playground (yes or no)",
+            "measurementMethod": "MDC",
+            "name": "playground"
+        },
+        {
+            "@id": "ohdsi_gis:f83229981133/canoe_launch",
+            "@type": "PropertyValue",
+            "additionalType": "boolean",
+            "description": " Canoe launch (yes or no)",
+            "measurementMethod": "MDC",
+            "name": "canoe_launch"
+        },
+        {
+            "@id": "ohdsi_gis:f83229981133/address",
+            "@type": "PropertyValue",
+            "additionalType": "string",
+            "description": "Address of location",
+            "measurementMethod": "MDC",
+            "name": "address"
+        },
+        {
+            "@id": "ohdsi_gis:f83229981133/amphitheat",
+            "@type": "PropertyValue",
+            "additionalType": "boolean",
+            "description": "Amphitheater (yes or no)",
+            "measurementMethod": "MDC",
+            "name": "amphitheat"
+        },
+        {
+            "@id": "ohdsi_gis:f83229981133/lat",
+            "@type": "PropertyValue",
+            "additionalType": "double",
+            "description": "Latitude",
+            "measurementMethod": "MDC",
+            "name": "lat"
+        },
+        {
+            "@id": "ohdsi_gis:f83229981133/zipcode",
+            "@type": "PropertyValue",
+            "additionalType": "integer",
+            "description": "Zipcode of location",
+            "measurementMethod": "MDC",
+            "name": "zipcode"
+        },
+        {
+            "@id": "ohdsi_gis:f83229981133/rec_center",
+            "@type": "PropertyValue",
+            "additionalType": "boolean",
+            "description": " Recreation center (yes or no)",
+            "measurementMethod": "MDC",
+            "name": "rec_center"
+        },
+        {
+            "@id": "ohdsi_gis:f83229981133/point_x",
+            "@type": "PropertyValue",
+            "additionalType": "double",
+            "description": "X-coordinate",
+            "measurementMethod": "MDC",
+            "name": "point_x"
+        },
+        {
+            "@id": "ohdsi_gis:f83229981133/type",
+            "@type": "PropertyValue",
+            "additionalType": "string",
+            "description": "Spatial type of park",
+            "measurementMethod": "MDC",
+            "name": "type"
+        },
+        {
+            "@id": "ohdsi_gis:f83229981133/golf",
+            "@type": "PropertyValue",
+            "additionalType": "boolean",
+            "description": " Golf (yes or no)",
+            "measurementMethod": "MDC",
+            "name": "golf"
+        },
+        {
+            "@id": "ohdsi_gis:f83229981133/totlot",
+            "@type": "PropertyValue",
+            "additionalType": "boolean",
+            "description": "Playground (yes or no)",
+            "measurementMethod": "MDC",
+            "name": "totlot"
+        },
+        {
+            "@id": "ohdsi_gis:f83229981133/trail",
+            "@type": "PropertyValue",
+            "additionalType": "boolean",
+            "description": "Trail (yes or no)",
+            "measurementMethod": "MDC",
+            "name": "trail"
+        },
+        {
+            "@id": "ohdsi_gis:f83229981133/mngtagcy",
+            "@type": "PropertyValue",
+            "additionalType": "string",
+            "description": "Managing agency",
+            "measurementMethod": "MDC",
+            "name": "mngtagcy"
+        }
+    ]
+}

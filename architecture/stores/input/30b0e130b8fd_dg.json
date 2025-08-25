@@ -1,0 +1,43 @@
+{
+    "@context": {
+        "@vocab": "https://schema.org/",
+        "ohdsi_gis": "https://ohdsi_gis.org/.well-known/genid/",
+        "geosparql": "http://www.opengis.net/ont/geosparql#"
+    },
+    "@id": "http://ohdsi_gis.org/id/30b0e130b8fd",
+    "@type": "Dataset",
+    "geosparql:hasGeometry": {
+        "@id": "ohdsi_gis:geo/30b0e130b8fd",
+        "@type": "http://www.opengis.net/ont/sf#Polygon",
+        "geosparql:asWKT": {
+            "@type": "geosparql:wktLiteral",
+            "@value": "POLYGON ((-80.3197168411198 25.7089774156468, -80.3197168411198 25.8557762799325, -80.1407395562956 25.8557762799325, -80.1407395562956 25.7089774156468, -80.3197168411198 25.7089774156468))"
+        }
+    },
+    "description": "City of Miami Neighborhoods Shapefile",
+    "keywords": [
+        "City of Miami",
+        "Neighborhoods"
+    ],
+    "name": "City of Miami Neighborhoods",
+    "publisher": {
+        "@type": "http://www.w3.org/2000/01/rdf-schema#Literal",
+        "@value": "City of Miami GIS Public Domain"
+    },
+    "spatialCoverage": {
+        "@id": "ohdsi_gis:30b0e130b8fd",
+        "@type": "Place",
+        "name": [
+            "Miami-Dade County",
+            "City of Miami"
+        ]
+    },
+    "variableMeasured": {
+        "@id": "ohdsi_gis:30b0e130b8fd/label",
+        "@type": "PropertyValue",
+        "additionalType": "string",
+        "description": "Name of neighborhood",
+        "measurementMethod": "City of Miami",
+        "name": "label"
+    }
+}

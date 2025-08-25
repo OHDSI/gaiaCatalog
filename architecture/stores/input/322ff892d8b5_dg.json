@@ -1,0 +1,94 @@
+{
+    "@context": {
+        "@vocab": "https://schema.org/",
+        "ohdsi_gis": "https://ohdsi_gis.org/.well-known/genid/",
+        "geosparql": "http://www.opengis.net/ont/geosparql#"
+    },
+    "@id": "http://ohdsi_gis.org/id/322ff892d8b5",
+    "@type": "Dataset",
+    "geosparql:hasGeometry": {
+        "@id": "ohdsi_gis:geo/322ff892d8b5",
+        "@type": "http://www.opengis.net/ont/sf#Polygon",
+        "geosparql:asWKT": {
+            "@type": "geosparql:wktLiteral",
+            "@value": "POLYGON ((-80.8813488387251 25.2324283334356, -80.8813488387251 25.9786089857966, -80.1185358327107 25.9786089857966, -80.1185358327107 25.2324283334356, -80.8813488387251 25.2324283334356))"
+        }
+    },
+    "description": "This feature class has been updated to illustrate the buildings planimetric in 2018 within the Urban Development Boundary (UDB) and outside the UDB, approximately 969 square miles.",
+    "keywords": [
+        "Building",
+        "Building Footprint",
+        "Miami-Dade County"
+    ],
+    "license": "Miami-Dade County provides this data for use as is. The areas depicted by this map/data are approximate, and are not accurate to surveying or engineering standards. The maps/data shown here are for illustration purposes only and are not suitable for site-specific decision making. Information found here should not be used for making financial or any other commitments. Miami-Dade County provides this information with the understanding that it is not guaranteed to be accurate, correct or complete and conclusions drawn from such information are the sole responsibility of the user. While every effort has been made to ensure the accuracy, correctness and timeliness of materials presented, Miami-Dade County assumes no responsibility for errors or omissions, even if Miami-Dade County is advised of the possibility of such damage.",
+    "name": "Miami-Dade Building Footprints",
+    "publisher": {
+        "@type": "http://www.w3.org/2000/01/rdf-schema#Literal",
+        "@value": "University of Miami GDSC Public Domain"
+    },
+    "spatialCoverage": {
+        "@id": "ohdsi_gis:322ff892d8b5",
+        "@type": "Place",
+        "name": "Miami-Dade County - Urban Development Boundary"
+    },
+    "variableMeasured": [
+        {
+            "@id": "ohdsi_gis:322ff892d8b5/shape_length",
+            "@type": "PropertyValue",
+            "additionalType": "double",
+            "description": "Building footprint length",
+            "name": "shape_length"
+        },
+        {
+            "@id": "ohdsi_gis:322ff892d8b5/type",
+            "@type": "PropertyValue",
+            "additionalType": "string",
+            "description": "Small or large building type",
+            "name": "type"
+        },
+        {
+            "@id": "ohdsi_gis:322ff892d8b5/source",
+            "@type": "PropertyValue",
+            "additionalType": "string",
+            "description": "Source for building footprints {L, P} where L = LiDAR, P = MDC Planimetric",
+            "measurementMethod": " LiDAR or MDC Planimetric",
+            "name": "source"
+        },
+        {
+            "@id": "ohdsi_gis:322ff892d8b5/uniqueid%3A%20Unique%20identifier%20for%20building",
+            "@type": "PropertyValue",
+            "description": "MDC",
+            "measurementMethod": "string",
+            "name": "uniqueid: Unique identifier for building"
+        },
+        {
+            "@id": "ohdsi_gis:322ff892d8b5/objectid",
+            "@type": "PropertyValue",
+            "additionalType": "oid",
+            "description": "Unique object identifer",
+            "measurementMethod": "Esri",
+            "name": "objectid"
+        },
+        {
+            "@id": "ohdsi_gis:322ff892d8b5/height",
+            "@type": "PropertyValue",
+            "additionalType": "double",
+            "description": "Height of building",
+            "name": "height"
+        },
+        {
+            "@id": "ohdsi_gis:322ff892d8b5/shape_area",
+            "@type": "PropertyValue",
+            "additionalType": "double",
+            "description": "Building footprint area",
+            "name": "shape_area"
+        },
+        {
+            "@id": "ohdsi_gis:322ff892d8b5/yearupdate",
+            "@type": "PropertyValue",
+            "additionalType": "small integer",
+            "description": "Year updated",
+            "name": "yearupdate"
+        }
+    ]
+}

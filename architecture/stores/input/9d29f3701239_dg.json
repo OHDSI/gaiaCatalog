@@ -1,0 +1,137 @@
+{
+    "@context": {
+        "@vocab": "https://schema.org/",
+        "ohdsi_gis": "https://ohdsi_gis.org/.well-known/genid/",
+        "geosparql": "http://www.opengis.net/ont/geosparql#"
+    },
+    "@id": "http://ohdsi_gis.org/id/9d29f3701239",
+    "@type": "Dataset",
+    "geosparql:hasGeometry": {
+        "@id": "ohdsi_gis:geo/9d29f3701239",
+        "@type": "http://www.opengis.net/ont/sf#Polygon",
+        "geosparql:asWKT": {
+            "@type": "geosparql:wktLiteral",
+            "@value": "POLYGON ((-80.674294290274 25.2349850435771, -80.674294290274 25.9751730281699, -80.1107922588419 25.9751730281699, -80.1107922588419 25.2349850435771, -80.674294290274 25.2349850435771))"
+        }
+    },
+    "description": "A polygon feature class of the county zoning boundaries and overlays derived from the zoning maps and other layers from the parcel model.\\n\\nThis dataset should not be used for applications requiring accurate plat survey information such as zone and overlay dimension and area.\\n\\nUpdated: Weekly-Sat",
+    "keywords": [
+        "Miami-Dade County",
+        "Infrastructure ",
+        "Florida",
+        "Geography",
+        "MDC",
+        "Zoning",
+        "Property",
+        "Housing"
+    ],
+    "license": "Miami-Dade County provides this data for use as is. The areas depicted by this map/data are approximate, and are not accurate to surveying or engineering standards. The maps/data shown here are for illustration purposes only and are not suitable for site-specific decision making. Information found here should not be used for making financial or any other commitments. Miami-Dade County provides this information with the understanding that it is not guaranteed to be accurate, correct or complete and conclusions drawn from such information are the sole responsibility of the user. While every effort has been made to ensure the accuracy, correctness and timeliness of materials presented, Miami-Dade County assumes no responsibility for errors or omissions, even if Miami-Dade County is advised of the possibility of such damage.",
+    "name": "Miami-Dade County Zoning",
+    "publisher": {
+        "@type": "http://www.w3.org/2000/01/rdf-schema#Literal",
+        "@value": "Miami Dade County Public Domain"
+    },
+    "spatialCoverage": {
+        "@id": "ohdsi_gis:9d29f3701239",
+        "@type": "Place",
+        "name": "Miami-Dade County"
+    },
+    "variableMeasured": [
+        {
+            "@id": "ohdsi_gis:9d29f3701239/short_desc",
+            "@type": "PropertyValue",
+            "additionalType": "string",
+            "description": "Zone description (5 char)",
+            "measurementMethod": "MDC",
+            "name": "short_desc"
+        },
+        {
+            "@id": "ohdsi_gis:9d29f3701239/zone",
+            "@type": "PropertyValue",
+            "additionalType": "string",
+            "description": "Zone code",
+            "measurementMethod": "MDC",
+            "name": "zone"
+        },
+        {
+            "@id": "ohdsi_gis:9d29f3701239/ovly",
+            "@type": "PropertyValue",
+            "additionalType": "string",
+            "description": "Municipal Code",
+            "measurementMethod": "MDC",
+            "name": "ovly"
+        },
+        {
+            "@id": "ohdsi_gis:9d29f3701239/created_date",
+            "@type": "PropertyValue",
+            "additionalType": "date",
+            "description": "Date of creation",
+            "measurementMethod": "MDC",
+            "name": "created_date"
+        },
+        {
+            "@id": "ohdsi_gis:9d29f3701239/zonemunc",
+            "@type": "PropertyValue",
+            "additionalType": "string",
+            "description": "Zone + munc",
+            "measurementMethod": "MDC",
+            "name": "zonemunc"
+        },
+        {
+            "@id": "ohdsi_gis:9d29f3701239/modified_by",
+            "@type": "PropertyValue",
+            "additionalType": "string",
+            "description": "Modifier",
+            "measurementMethod": "MDC",
+            "name": "modified_by"
+        },
+        {
+            "@id": "ohdsi_gis:9d29f3701239/modified_date",
+            "@type": "PropertyValue",
+            "additionalType": "date",
+            "description": "Date of modification",
+            "measurementMethod": "MDC",
+            "name": "modified_date"
+        },
+        {
+            "@id": "ohdsi_gis:9d29f3701239/zone_desc",
+            "@type": "PropertyValue",
+            "additionalType": "string",
+            "description": "Zone description (200 char)",
+            "measurementMethod": "MDC",
+            "name": "zone_desc"
+        },
+        {
+            "@id": "ohdsi_gis:9d29f3701239/created_by",
+            "@type": "PropertyValue",
+            "additionalType": "string",
+            "description": "Creator",
+            "measurementMethod": "MDC",
+            "name": "created_by"
+        },
+        {
+            "@id": "ohdsi_gis:9d29f3701239/ttrrss",
+            "@type": "PropertyValue",
+            "additionalType": "string",
+            "description": "Township-range-section",
+            "measurementMethod": "MDC",
+            "name": "ttrrss"
+        },
+        {
+            "@id": "ohdsi_gis:9d29f3701239/zone_id",
+            "@type": "PropertyValue",
+            "additionalType": "integer",
+            "description": "Unique zone ID",
+            "measurementMethod": "MDC",
+            "name": "zone_id"
+        },
+        {
+            "@id": "ohdsi_gis:9d29f3701239/munc",
+            "@type": "PropertyValue",
+            "additionalType": "string",
+            "description": "Munciipality Code",
+            "measurementMethod": "MDC",
+            "name": "munc"
+        }
+    ]
+}

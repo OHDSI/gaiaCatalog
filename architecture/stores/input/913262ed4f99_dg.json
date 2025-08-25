@@ -1,0 +1,212 @@
+{
+    "@context": {
+        "@vocab": "https://schema.org/",
+        "ohdsi_gis": "https://ohdsi_gis.org/.well-known/genid/",
+        "geosparql": "http://www.opengis.net/ont/geosparql#"
+    },
+    "@id": "http://ohdsi_gis.org/id/913262ed4f99",
+    "@type": "Dataset",
+    "geosparql:hasGeometry": {
+        "@id": "ohdsi_gis:geo/913262ed4f99",
+        "@type": "http://www.opengis.net/ont/sf#Polygon",
+        "geosparql:asWKT": {
+            "@type": "geosparql:wktLiteral",
+            "@value": "POLYGON ((-80.8743417755914 25.2111426969811, -80.8743417755914 25.9816456082343, -80.119295112145 25.9816456082343, -80.119295112145 25.2111426969811, -80.8743417755914 25.2111426969811))"
+        }
+    },
+    "description": "A line feature class of Miami-Dade County streets with seamless address ranges. Displays main roads including expressway ramps, expressways, highways, and major roads.\\n\\nA line feature class of Miami-Dade County streets with seamless address ranges. This feature class (FC) is one of a set of FC's derived from our main Streets FC, which were created to display street information.",
+    "keywords": [
+        "Florida",
+        "Miami-Dade County",
+        "MDC",
+        "Infrastructure"
+    ],
+    "license": "Miami-Dade County provides this data for use as is. The areas depicted by this map/data are approximate, and are not accurate to surveying or engineering standards. The maps/data shown here are for illustration purposes only and are not suitable for site-specific decision making. Information found here should not be used for making financial or any other commitments. Miami-Dade County provides this information with the understanding that it is not guaranteed to be accurate, correct or complete and conclusions drawn from such information are the sole responsibility of the user. While every effort has been made to ensure the accuracy, correctness and timeliness of materials presented, Miami-Dade County assumes no responsibility for errors or omissions, even if Miami-Dade County is advised of the possibility of such damage.",
+    "name": "Miami-Dade Major Roads",
+    "publisher": {
+        "@type": "http://www.w3.org/2000/01/rdf-schema#Literal",
+        "@value": "University of Miami GDSC Public Domain"
+    },
+    "spatialCoverage": {
+        "@id": "ohdsi_gis:913262ed4f99",
+        "@type": "Place",
+        "name": "Miami-Dade County"
+    },
+    "variableMeasured": [
+        {
+            "@id": "ohdsi_gis:913262ed4f99/r_add_from",
+            "@type": "PropertyValue",
+            "additionalType": "integer",
+            "description": "Start of the right address range",
+            "measurementMethod": "MDC",
+            "name": "r_add_from"
+        },
+        {
+            "@id": "ohdsi_gis:913262ed4f99/pre_dir",
+            "@type": "PropertyValue",
+            "additionalType": "string",
+            "description": "Street direction prefix",
+            "measurementMethod": "MDC",
+            "name": "pre_dir"
+        },
+        {
+            "@id": "ohdsi_gis:913262ed4f99/sname",
+            "@type": "PropertyValue",
+            "additionalType": "string",
+            "description": "Complete street name",
+            "measurementMethod": "MDC",
+            "name": "sname"
+        },
+        {
+            "@id": "ohdsi_gis:913262ed4f99/lmunic_name",
+            "@type": "PropertyValue",
+            "additionalType": "string",
+            "description": "Left municpality name",
+            "measurementMethod": "MDC",
+            "name": "lmunic_name"
+        },
+        {
+            "@id": "ohdsi_gis:913262ed4f99/rmunic_name",
+            "@type": "PropertyValue",
+            "additionalType": "string",
+            "description": "Right municpality name",
+            "measurementMethod": "MDC",
+            "name": "rmunic_name"
+        },
+        {
+            "@id": "ohdsi_gis:913262ed4f99/lmunic",
+            "@type": "PropertyValue",
+            "additionalType": "small integer",
+            "description": "Left municipality",
+            "measurementMethod": "MDC",
+            "name": "lmunic"
+        },
+        {
+            "@id": "ohdsi_gis:913262ed4f99/st_type",
+            "@type": "PropertyValue",
+            "additionalType": "string",
+            "description": "Street type",
+            "measurementMethod": "MDC",
+            "name": "st_type"
+        },
+        {
+            "@id": "ohdsi_gis:913262ed4f99/lzip",
+            "@type": "PropertyValue",
+            "additionalType": "integer",
+            "description": "Left zipcode",
+            "measurementMethod": "MDC",
+            "name": "lzip"
+        },
+        {
+            "@id": "ohdsi_gis:913262ed4f99/l_add_to",
+            "@type": "PropertyValue",
+            "additionalType": "integer",
+            "description": "End of the left address range",
+            "measurementMethod": "MDC",
+            "name": "l_add_to"
+        },
+        {
+            "@id": "ohdsi_gis:913262ed4f99/st_name",
+            "@type": "PropertyValue",
+            "additionalType": "string",
+            "description": "Name of street",
+            "measurementMethod": "MDC",
+            "name": "st_name"
+        },
+        {
+            "@id": "ohdsi_gis:913262ed4f99/to_from_imp",
+            "@type": "PropertyValue",
+            "additionalType": "string",
+            "description": "Length of the street arc, or -1 if traffic is not allowed going form the end of the arc to the beginning  as it was digitized",
+            "measurementMethod": "MDC",
+            "name": "to_from_imp"
+        },
+        {
+            "@id": "ohdsi_gis:913262ed4f99/suf_dir",
+            "@type": "PropertyValue",
+            "additionalType": "string",
+            "description": "Street direction suffix",
+            "measurementMethod": "MDC",
+            "name": "suf_dir"
+        },
+        {
+            "@id": "ohdsi_gis:913262ed4f99/l_add_from",
+            "@type": "PropertyValue",
+            "additionalType": "integer",
+            "description": "Start of the left address range",
+            "measurementMethod": "MDC",
+            "name": "l_add_from"
+        },
+        {
+            "@id": "ohdsi_gis:913262ed4f99/street_id_old",
+            "@type": "PropertyValue",
+            "additionalType": "integer",
+            "description": "Old street ID",
+            "measurementMethod": "MDC",
+            "name": "street_id_old"
+        },
+        {
+            "@id": "ohdsi_gis:913262ed4f99/r_add_to",
+            "@type": "PropertyValue",
+            "additionalType": "integer",
+            "description": "End of the right address range",
+            "measurementMethod": "MDC",
+            "name": "r_add_to"
+        },
+        {
+            "@id": "ohdsi_gis:913262ed4f99/rzip",
+            "@type": "PropertyValue",
+            "additionalType": "integer",
+            "description": "Right zipcode",
+            "measurementMethod": "MDC",
+            "name": "rzip"
+        },
+        {
+            "@id": "ohdsi_gis:913262ed4f99/streetid",
+            "@type": "PropertyValue",
+            "additionalType": "integer",
+            "description": "Street ID",
+            "measurementMethod": "MDC",
+            "name": "streetid"
+        },
+        {
+            "@id": "ohdsi_gis:913262ed4f99/from_to_imp",
+            "@type": "PropertyValue",
+            "additionalType": "double",
+            "description": "Length of street arc, or -1 if traffic is not allowed going form the begining of the arc to the end as it was digitized",
+            "measurementMethod": "MDC",
+            "name": "from_to_imp"
+        },
+        {
+            "@id": "ohdsi_gis:913262ed4f99/shape_length",
+            "@type": "PropertyValue",
+            "additionalType": "double",
+            "description": "Length of lines",
+            "name": "shape_length"
+        },
+        {
+            "@id": "ohdsi_gis:913262ed4f99/globalid",
+            "@type": "PropertyValue",
+            "additionalType": "global id",
+            "description": "Unique identifier",
+            "measurementMethod": "Esri",
+            "name": "globalid"
+        },
+        {
+            "@id": "ohdsi_gis:913262ed4f99/rmunic",
+            "@type": "PropertyValue",
+            "additionalType": "small integer",
+            "description": "Right municipality",
+            "measurementMethod": "MDC",
+            "name": "rmunic"
+        },
+        {
+            "@id": "ohdsi_gis:913262ed4f99/class",
+            "@type": "PropertyValue",
+            "additionalType": "string",
+            "description": "Road type classification       0 -- Expressway Ramp -- Access ramps to expressways only\\n  1 -- Expressway -- Limited access roadways\\n  2 -- Highway -- Non-Limited access highways examples: US 1, KROME AVE\\n  3 -- Major Road -- Major roads that serve a large volume of traffic",
+            "measurementMethod": "MDC",
+            "name": "class"
+        }
+    ]
+}

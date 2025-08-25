@@ -1,0 +1,88 @@
+{
+    "@context": {
+        "@vocab": "https://schema.org/",
+        "ohdsi_gis": "https://ohdsi_gis.org/.well-known/genid/",
+        "geosparql": "http://www.opengis.net/ont/geosparql#"
+    },
+    "@id": "http://ohdsi_gis.org/id/e2596f561243",
+    "@type": "Dataset",
+    "geosparql:hasGeometry": {
+        "@id": "ohdsi_gis:geo/e2596f561243",
+        "@type": "http://www.opengis.net/ont/sf#Polygon",
+        "geosparql:asWKT": {
+            "@type": "geosparql:wktLiteral",
+            "@value": "POLYGON ((-87.23826826795352 25.815579473401183, -87.23826826795352 30.728156264263806, -80.07366695113919 30.728156264263806, -80.07366695113919 25.815579473401183, -87.23826826795352 25.815579473401183))"
+        }
+    },
+    "description": "Point feature class of the superfund sites in Florida from the National Priority List (NPL).",
+    "keywords": [
+        "Public Health",
+        "Contamination",
+        "Superfund Waste Cleanup Site",
+        "Florida",
+        "Pollution",
+        "Safety",
+        "Superfund"
+    ],
+    "license": "Because a variety of sources and methods were used to derive information for this data, the quality of the locations may vary accordingly. The data is undergoing review to improve accuracy. This data is intended to be used for general locational representation and should not be considered appropriate for legal and/or cadastral purposes.",
+    "name": "Florida Superfund Waste Cleanup Sites",
+    "publisher": {
+        "@type": "http://www.w3.org/2000/01/rdf-schema#Literal",
+        "@value": "FDEP Open Data Administrator Public Domain"
+    },
+    "spatialCoverage": {
+        "@id": "ohdsi_gis:e2596f561243",
+        "@type": "Place",
+        "name": [
+            "United States",
+            "Florida"
+        ]
+    },
+    "variableMeasured": [
+        {
+            "@id": "ohdsi_gis:e2596f561243/name",
+            "@type": "PropertyValue",
+            "name": "name"
+        },
+        {
+            "@id": "ohdsi_gis:e2596f561243/city",
+            "@type": "PropertyValue",
+            "name": "city"
+        },
+        {
+            "@id": "ohdsi_gis:e2596f561243/program",
+            "@type": "PropertyValue",
+            "name": "program"
+        },
+        {
+            "@id": "ohdsi_gis:e2596f561243/manager",
+            "@type": "PropertyValue",
+            "name": "manager"
+        },
+        {
+            "@id": "ohdsi_gis:e2596f561243/status",
+            "@type": "PropertyValue",
+            "name": "status"
+        },
+        {
+            "@id": "ohdsi_gis:e2596f561243/district",
+            "@type": "PropertyValue",
+            "name": "district"
+        },
+        {
+            "@id": "ohdsi_gis:e2596f561243/eric_id",
+            "@type": "PropertyValue",
+            "name": "eric_id"
+        },
+        {
+            "@id": "ohdsi_gis:e2596f561243/address",
+            "@type": "PropertyValue",
+            "name": "address"
+        },
+        {
+            "@id": "ohdsi_gis:e2596f561243/county",
+            "@type": "PropertyValue",
+            "name": "county"
+        }
+    ]
+}

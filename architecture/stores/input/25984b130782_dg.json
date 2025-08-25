@@ -1,0 +1,214 @@
+{
+    "@context": {
+        "@vocab": "https://schema.org/",
+        "ohdsi_gis": "https://ohdsi_gis.org/.well-known/genid/",
+        "geosparql": "http://www.opengis.net/ont/geosparql#"
+    },
+    "@id": "http://ohdsi_gis.org/id/25984b130782",
+    "@type": "Dataset",
+    "geosparql:hasGeometry": {
+        "@id": "ohdsi_gis:geo/25984b130782",
+        "@type": "http://www.opengis.net/ont/sf#Polygon",
+        "geosparql:asWKT": {
+            "@type": "geosparql:wktLiteral",
+            "@value": "POLYGON ((-80.6499928118831 25.3016745563858, -80.6499928118831 25.9744015272306, -80.1193308632968 25.9744015272306, -80.1193308632968 25.3016745563858, -80.6499928118831 25.3016745563858))"
+        }
+    },
+    "description": "A collection of polygon features for all buildings within the Urban Development Boundary (UDB) and outside the UDB, approximately 938 square miles. The planimetric layer for Miami-Dade County was previously updated in 2015 byEarth Sciences and Resources Institute (ESRI). This feature class contains features extracted from LiDAR captured by GPI in 2018.",
+    "keywords": [
+        "Miami-Dade County",
+        "Septic Systems",
+        "Septic"
+    ],
+    "license": "Miami-Dade County provides this data for use as is. The areas depicted by this map/data are approximate, and are not accurate to surveying or engineering standards. The maps/data shown here are for illustration purposes only and are not suitable for site-specific decision making. Information found here should not be used for making financial or any other commitments. Miami-Dade County provides this information with the understanding that it is not guaranteed to be accurate, correct or complete and conclusions drawn from such information are the sole responsibility of the user. While every effort has been made to ensure the accuracy, correctness and timeliness of materials presented, Miami-Dade County assumes no responsibility for errors or omissions, even if Miami-Dade County is advised of the possibility of such damage.",
+    "name": "Miami-Dade Septic System",
+    "publisher": {
+        "@type": "http://www.w3.org/2000/01/rdf-schema#Literal",
+        "@value": "University of Miami GDSC Public Domain"
+    },
+    "spatialCoverage": {
+        "@id": "ohdsi_gis:25984b130782",
+        "@type": "Place",
+        "name": "Miami-Dade County"
+    },
+    "variableMeasured": [
+        {
+            "@id": "ohdsi_gis:25984b130782/acreage",
+            "@type": "PropertyValue",
+            "additionalType": "double",
+            "description": "Area of system",
+            "name": "acreage"
+        },
+        {
+            "@id": "ohdsi_gis:25984b130782/editor",
+            "@type": "PropertyValue",
+            "additionalType": "string",
+            "description": "Editor of system",
+            "name": "editor"
+        },
+        {
+            "@id": "ohdsi_gis:25984b130782/zipcode",
+            "@type": "PropertyValue",
+            "additionalType": "string",
+            "description": "Zipcode of system",
+            "measurementMethod": "DOH",
+            "name": "zipcode"
+        },
+        {
+            "@id": "ohdsi_gis:25984b130782/creationdate",
+            "@type": "PropertyValue",
+            "additionalType": "date",
+            "description": "Date of creation",
+            "name": "creationdate"
+        },
+        {
+            "@id": "ohdsi_gis:25984b130782/estimgpd",
+            "@type": "PropertyValue",
+            "additionalType": "integer",
+            "description": "Estimated GPD",
+            "name": "estimgpd"
+        },
+        {
+            "@id": "ohdsi_gis:25984b130782/geofolio",
+            "@type": "PropertyValue",
+            "additionalType": "string",
+            "description": "Geofolio number",
+            "name": "geofolio"
+        },
+        {
+            "@id": "ohdsi_gis:25984b130782/systaddr",
+            "@type": "PropertyValue",
+            "additionalType": "string",
+            "description": "System address",
+            "measurementMethod": "DOH",
+            "name": "systaddr"
+        },
+        {
+            "@id": "ohdsi_gis:25984b130782/point_x",
+            "@type": "PropertyValue",
+            "additionalType": "double",
+            "name": "point_x"
+        },
+        {
+            "@id": "ohdsi_gis:25984b130782/apno",
+            "@type": "PropertyValue",
+            "additionalType": "string",
+            "description": "System number",
+            "measurementMethod": "DOH",
+            "name": "apno"
+        },
+        {
+            "@id": "ohdsi_gis:25984b130782/editdate",
+            "@type": "PropertyValue",
+            "additionalType": "date",
+            "description": "Date of edits",
+            "name": "editdate"
+        },
+        {
+            "@id": "ohdsi_gis:25984b130782/creator",
+            "@type": "PropertyValue",
+            "additionalType": "string",
+            "description": "Creator of system",
+            "name": "creator"
+        },
+        {
+            "@id": "ohdsi_gis:25984b130782/lon",
+            "@type": "PropertyValue",
+            "additionalType": "double",
+            "description": "Longitude",
+            "name": "lon"
+        },
+        {
+            "@id": "ohdsi_gis:25984b130782/apprdate",
+            "@type": "PropertyValue",
+            "additionalType": "date",
+            "description": "Approval date",
+            "name": "apprdate"
+        },
+        {
+            "@id": "ohdsi_gis:25984b130782/lonorig",
+            "@type": "PropertyValue",
+            "additionalType": "double",
+            "description": "Longitude origin",
+            "name": "lonorig"
+        },
+        {
+            "@id": "ohdsi_gis:25984b130782/lat",
+            "@type": "PropertyValue",
+            "additionalType": "double",
+            "description": "Latitude",
+            "name": "lat"
+        },
+        {
+            "@id": "ohdsi_gis:25984b130782/point_y",
+            "@type": "PropertyValue",
+            "additionalType": "double",
+            "name": "point_y"
+        },
+        {
+            "@id": "ohdsi_gis:25984b130782/systtype",
+            "@type": "PropertyValue",
+            "additionalType": "string",
+            "description": "System type",
+            "measurementMethod": "DOH",
+            "name": "systtype"
+        },
+        {
+            "@id": "ohdsi_gis:25984b130782/city",
+            "@type": "PropertyValue",
+            "additionalType": "string",
+            "description": "City of system",
+            "measurementMethod": "DOH",
+            "name": "city"
+        },
+        {
+            "@id": "ohdsi_gis:25984b130782/finsysaprv",
+            "@type": "PropertyValue",
+            "additionalType": "string",
+            "description": "Final system approval",
+            "name": "finsysaprv"
+        },
+        {
+            "@id": "ohdsi_gis:25984b130782/folio",
+            "@type": "PropertyValue",
+            "additionalType": "string",
+            "description": "Folio number",
+            "name": "folio"
+        },
+        {
+            "@id": "ohdsi_gis:25984b130782/wsupltyp",
+            "@type": "PropertyValue",
+            "additionalType": "string",
+            "description": "Water supply type",
+            "name": "wsupltyp"
+        },
+        {
+            "@id": "ohdsi_gis:25984b130782/latorig",
+            "@type": "PropertyValue",
+            "additionalType": "double",
+            "description": "Latitude origin",
+            "name": "latorig"
+        },
+        {
+            "@id": "ohdsi_gis:25984b130782/comresid",
+            "@type": "PropertyValue",
+            "additionalType": "string",
+            "description": "Commercial or residential",
+            "name": "comresid"
+        },
+        {
+            "@id": "ohdsi_gis:25984b130782/finalinsp",
+            "@type": "PropertyValue",
+            "additionalType": "date",
+            "description": "Final inspection",
+            "name": "finalinsp"
+        },
+        {
+            "@id": "ohdsi_gis:25984b130782/stndaddr",
+            "@type": "PropertyValue",
+            "additionalType": "string",
+            "description": "Standard address",
+            "name": "stndaddr"
+        }
+    ]
+}

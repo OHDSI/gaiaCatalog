@@ -1,0 +1,111 @@
+{
+    "@context": {
+        "@vocab": "https://schema.org/",
+        "ohdsi_gis": "https://ohdsi_gis.org/.well-known/genid/",
+        "geosparql": "http://www.opengis.net/ont/geosparql#"
+    },
+    "@id": "http://ohdsi_gis.org/id/081b254df8d9",
+    "@type": "Dataset",
+    "geosparql:hasGeometry": {
+        "@id": "ohdsi_gis:geo/081b254df8d9",
+        "@type": "http://www.opengis.net/ont/sf#Polygon",
+        "geosparql:asWKT": {
+            "@type": "geosparql:wktLiteral",
+            "@value": "POLYGON ((-80.4416418992557 25.5063117198944, -80.4416418992557 25.9603968467233, -80.1207136561832 25.9603968467233, -80.1207136561832 25.5063117198944, -80.4416418992557 25.5063117198944))"
+        }
+    },
+    "description": "A point feature class with all of the cooling centers in Miami-Dade County. These sites consist of libraries and certain parks and recreation locations. These sites can be activated in case of a heat emergency. ",
+    "keywords": "Miami-Dade County",
+    "license": "Miami-Dade County provides this data for use as is. The areas depicted by this map/data are approximate, and are not accurate to surveying or engineering standards. The maps/data shown here are for illustration purposes only and are not suitable for site-specific decision making. Information found here should not be used for making financial or any other commitments. Miami-Dade County provides this information with the understanding that it is not guaranteed to be accurate, correct or complete and conclusions drawn from such information are the sole responsibility of the user. While every effort has been made to ensure the accuracy, correctness and timeliness of materials presented, Miami-Dade County assumes no responsibility for errors or omissions, even if Miami-Dade County is advised of the possibility of such damage.",
+    "name": "Miami-Dade County Cooling Centers",
+    "publisher": {
+        "@type": "http://www.w3.org/2000/01/rdf-schema#Literal",
+        "@value": "Miami-Dade County Public Domain"
+    },
+    "spatialCoverage": {
+        "@id": "ohdsi_gis:081b254df8d9",
+        "@type": "Place",
+        "name": "Miami-Dade County"
+    },
+    "variableMeasured": [
+        {
+            "@id": "ohdsi_gis:081b254df8d9/street",
+            "@type": "PropertyValue",
+            "additionalType": "string",
+            "description": "Street",
+            "measurementMethod": "MDC",
+            "name": "street"
+        },
+        {
+            "@id": "ohdsi_gis:081b254df8d9/phonenumbe",
+            "@type": "PropertyValue",
+            "additionalType": "string",
+            "description": "Phone number",
+            "measurementMethod": "MDC",
+            "name": "phonenumbe"
+        },
+        {
+            "@id": "ohdsi_gis:081b254df8d9/city",
+            "@type": "PropertyValue",
+            "additionalType": "string",
+            "description": "City",
+            "measurementMethod": "MDC",
+            "name": "city"
+        },
+        {
+            "@id": "ohdsi_gis:081b254df8d9/weblink",
+            "@type": "PropertyValue",
+            "additionalType": "string",
+            "description": "Link to website",
+            "measurementMethod": "MDC",
+            "name": "weblink"
+        },
+        {
+            "@id": "ohdsi_gis:081b254df8d9/state",
+            "@type": "PropertyValue",
+            "additionalType": "string",
+            "description": "State",
+            "measurementMethod": "MDC",
+            "name": "state"
+        },
+        {
+            "@id": "ohdsi_gis:081b254df8d9/objectid",
+            "@type": "PropertyValue",
+            "additionalType": "oid",
+            "description": "Unique object identifer",
+            "measurementMethod": "Esri",
+            "name": "objectid"
+        },
+        {
+            "@id": "ohdsi_gis:081b254df8d9/zip_code",
+            "@type": "PropertyValue",
+            "description": "Zipcode",
+            "measurementMethod": "MDC",
+            "name": "zip_code"
+        },
+        {
+            "@id": "ohdsi_gis:081b254df8d9/name",
+            "@type": "PropertyValue",
+            "additionalType": "string",
+            "description": "Name of cooling center",
+            "measurementMethod": "MDC",
+            "name": "name"
+        },
+        {
+            "@id": "ohdsi_gis:081b254df8d9/type",
+            "@type": "PropertyValue",
+            "additionalType": "string",
+            "description": "Classification of cooling center",
+            "measurementMethod": "MDC",
+            "name": "type"
+        },
+        {
+            "@id": "ohdsi_gis:081b254df8d9/operationalhours",
+            "@type": "PropertyValue",
+            "additionalType": "string",
+            "description": "Operational schedule",
+            "measurementMethod": "MDC",
+            "name": "operationalhours"
+        }
+    ]
+}

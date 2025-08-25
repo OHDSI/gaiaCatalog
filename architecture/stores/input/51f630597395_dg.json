@@ -1,0 +1,37 @@
+{
+    "@context": {
+        "@vocab": "https://schema.org/",
+        "ohdsi_gis": "https://ohdsi_gis.org/.well-known/genid/",
+        "geosparql": "http://www.opengis.net/ont/geosparql#"
+    },
+    "@id": "http://ohdsi_gis.org/id/51f630597395",
+    "@type": "Dataset",
+    "geosparql:hasGeometry": {
+        "@id": "ohdsi_gis:geo/51f630597395",
+        "@type": "http://www.opengis.net/ont/sf#Polygon",
+        "geosparql:asWKT": {
+            "@type": "geosparql:wktLiteral",
+            "@value": "POLYGON ((-159.58166700000004 20.76670000000005, -159.58166700000004 45.64126800000005, -69.671364 45.64126800000005, -69.671364 20.76670000000005, -159.58166700000004 20.76670000000005))"
+        }
+    },
+    "description": "Operable electric generating plants in the US by energy source (solar)",
+    "keywords": [
+        "United States",
+        "Solar Energy",
+        "Environment",
+        "Clean-Energy",
+        "Infrastructure",
+        "Energy"
+    ],
+    "license": "None (public use). Users are advised to thoroughly review the metadata to understand the appropriate use and limitations of the data. These data and related graphics, if available, are not legal documents and are not intended to be used as such. The information contained in these data is dynamic and may change over time. The U.S. Energy Information Administration gives no warranty, expressed or implied, as to the accuracy, reliability, or completeness of these data.",
+    "name": "US Solar Energy",
+    "publisher": {
+        "@type": "http://www.w3.org/2000/01/rdf-schema#Literal",
+        "@value": "Esri U.S. government publications are in the public domain and are not subject to copyright protection. You may use and/or distribute any of our data, files, databases, reports, graphs, charts, and other information products that are on our website or that you receive through our email distribution service. However, if you use or reproduce any of our information products, you should use an acknowledgment, which includes the publication date, such as: Source: U.S. Energy Information Administration (Oct 2008)."
+    },
+    "spatialCoverage": {
+        "@id": "ohdsi_gis:51f630597395",
+        "@type": "Place",
+        "name": "United States"
+    }
+}

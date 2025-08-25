@@ -1,0 +1,154 @@
+{
+    "@context": {
+        "@vocab": "https://schema.org/",
+        "ohdsi_gis": "https://ohdsi_gis.org/.well-known/genid/",
+        "geosparql": "http://www.opengis.net/ont/geosparql#"
+    },
+    "@id": "http://ohdsi_gis.org/id/0a2deae259df",
+    "@type": "Dataset",
+    "geosparql:hasGeometry": {
+        "@id": "ohdsi_gis:geo/0a2deae259df",
+        "@type": "http://www.opengis.net/ont/sf#Polygon",
+        "geosparql:asWKT": {
+            "@type": "geosparql:wktLiteral",
+            "@value": "POLYGON ((-80.48313290650954 25.44744105461827, -80.48313290650954 25.964957581168555, -80.12317968614848 25.964957581168555, -80.12317968614848 25.44744105461827, -80.48313290650954 25.44744105461827))"
+        }
+    },
+    "description": "A point feature class of Miami-Dade County Operated Fire and Rescue Stations that provide emergency or administrative services to the public.",
+    "keywords": [
+        "Fire",
+        "Public-Safety\\nInfrastructure",
+        "Miami-Dade County",
+        " Emergency",
+        "Florida",
+        "MDC",
+        "Fire Station"
+    ],
+    "license": "Miami-Dade County provides this data for use as is. The areas depicted by this map/data are approximate, and are not accurate to surveying or engineering standards. The maps/data shown here are for illustration purposes only and are not suitable for site-specific decision making. Information found here should not be used for making financial or any other commitments. Miami-Dade County provides this information with the understanding that it is not guaranteed to be accurate, correct or complete and conclusions drawn from such information are the sole responsibility of the user. While every effort has been made to ensure the accuracy, correctness and timeliness of materials presented, Miami-Dade County assumes no responsibility for errors or omissions, even if Miami-Dade County is advised of the possibility of such damage.",
+    "name": "Miami-Dade Fire Stations",
+    "publisher": {
+        "@type": "http://www.w3.org/2000/01/rdf-schema#Literal",
+        "@value": "Miami-Dade County Public Domain"
+    },
+    "spatialCoverage": {
+        "@id": "ohdsi_gis:0a2deae259df",
+        "@type": "Place",
+        "name": [
+            "Miami Dade County",
+            "Florida",
+            "United States"
+        ]
+    },
+    "variableMeasured": [
+        {
+            "@id": "ohdsi_gis:0a2deae259df/objectid",
+            "@type": "PropertyValue",
+            "additionalType": "oid",
+            "description": "Internal feature number",
+            "measurementMethod": "Esri",
+            "name": "objectid"
+        },
+        {
+            "@id": "ohdsi_gis:0a2deae259df/lat",
+            "@type": "PropertyValue",
+            "additionalType": "double",
+            "description": "Latitude",
+            "measurementMethod": "MDC",
+            "name": "lat"
+        },
+        {
+            "@id": "ohdsi_gis:0a2deae259df/zipcode",
+            "@type": "PropertyValue",
+            "additionalType": "integer",
+            "description": "Zipcode of fire station",
+            "measurementMethod": "MDC",
+            "name": "zipcode"
+        },
+        {
+            "@id": "ohdsi_gis:0a2deae259df/name",
+            "@type": "PropertyValue",
+            "additionalType": "string",
+            "description": "Name of fire station",
+            "measurementMethod": "MDC",
+            "name": "name"
+        },
+        {
+            "@id": "ohdsi_gis:0a2deae259df/folio",
+            "@type": "PropertyValue",
+            "additionalType": "string",
+            "description": "Folio identifier",
+            "measurementMethod": "MDC",
+            "name": "folio"
+        },
+        {
+            "@id": "ohdsi_gis:0a2deae259df/point_y",
+            "@type": "PropertyValue",
+            "additionalType": "double",
+            "description": "Y-coordinate",
+            "measurementMethod": "MDC",
+            "name": "point_y"
+        },
+        {
+            "@id": "ohdsi_gis:0a2deae259df/city",
+            "@type": "PropertyValue",
+            "additionalType": "string",
+            "description": "City of fire station",
+            "measurementMethod": "MDC",
+            "name": "city"
+        },
+        {
+            "@id": "ohdsi_gis:0a2deae259df/point_x",
+            "@type": "PropertyValue",
+            "additionalType": "double",
+            "description": "X-coordinate",
+            "measurementMethod": "MDC",
+            "name": "point_x"
+        },
+        {
+            "@id": "ohdsi_gis:0a2deae259df/lon",
+            "@type": "PropertyValue",
+            "additionalType": "double",
+            "description": "Longitude",
+            "measurementMethod": "MDC",
+            "name": "lon"
+        },
+        {
+            "@id": "ohdsi_gis:0a2deae259df/municid",
+            "@type": "PropertyValue",
+            "description": "Municipal code",
+            "name": "municid"
+        },
+        {
+            "@id": "ohdsi_gis:0a2deae259df/globalid",
+            "@type": "PropertyValue",
+            "additionalType": "global id",
+            "description": "Unique identifier",
+            "measurementMethod": "Esri",
+            "name": "globalid"
+        },
+        {
+            "@id": "ohdsi_gis:0a2deae259df/type",
+            "@type": "PropertyValue",
+            "additionalType": "string",
+            "description": "Station type:\\n        ( Fire Stations:\\n                              A = Air Rescue,\\n                                  B = Both Rescue \\n                       R = Rescue\\n                                              S = Suppression                &\\n                                   Other Facilities:\\n                                         H = Headquarters\\n                                                  L = Logistical Support\\n                                    T = Training Center)",
+            "measurementMethod": "MDC",
+            "name": "type"
+        },
+        {
+            "@id": "ohdsi_gis:0a2deae259df/id",
+            "@type": "PropertyValue",
+            "additionalType": "integer",
+            "description": "ID of fire station",
+            "measurementMethod": "MDC",
+            "name": "id"
+        },
+        {
+            "@id": "ohdsi_gis:0a2deae259df/address",
+            "@type": "PropertyValue",
+            "additionalType": "string",
+            "description": "Address of fire station",
+            "measurementMethod": "MDC",
+            "name": "address"
+        }
+    ]
+}

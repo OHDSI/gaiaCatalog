@@ -1,0 +1,103 @@
+{
+    "@context": {
+        "@vocab": "https://schema.org/",
+        "ohdsi_gis": "https://ohdsi_gis.org/.well-known/genid/",
+        "geosparql": "http://www.opengis.net/ont/geosparql#"
+    },
+    "@id": "http://ohdsi_gis.org/id/d33bb313828d",
+    "@type": "Dataset",
+    "geosparql:hasGeometry": {
+        "@id": "ohdsi_gis:geo/d33bb313828d",
+        "@type": "http://www.opengis.net/ont/sf#Polygon",
+        "geosparql:asWKT": {
+            "@type": "geosparql:wktLiteral",
+            "@value": "POLYGON ((-61.9147672 10.0439685, -61.9147672 11.3246857, -60.5329333 11.3246857, -60.5329333 10.0439685, -61.9147672 10.0439685))"
+        }
+    },
+    "description": "A line feature set for the primary and secondary roads of Trindad and Tobago sourced from OpenStreetMap.",
+    "keywords": [
+        "secondary",
+        "primary",
+        "transportation",
+        "Roads",
+        "Trinidad and Tobago"
+    ],
+    "license": "OpenStreetMap\u00ae is open data, licensed under the [Open Data Commons Open Database License](https://opendatacommons.org/licenses/odbl/) (ODbL) by the [OpenStreetMap Foundation](https://osmfoundation.org/) (OSMF).",
+    "name": "Trinidad and Tobago Main Roads",
+    "publisher": {
+        "@type": "http://www.w3.org/2000/01/rdf-schema#Literal",
+        "@value": "OpenStreetMap You are free to copy, distribute, transmit and adapt our data, as long as you credit OpenStreetMap and its contributors. If you alter or build upon our data, you may distribute the result only under the same licence."
+    },
+    "spatialCoverage": {
+        "@id": "ohdsi_gis:d33bb313828d",
+        "@type": "Place",
+        "name": "Trinidad and Tobago"
+    },
+    "variableMeasured": [
+        {
+            "@id": "ohdsi_gis:d33bb313828d/man_made",
+            "@type": "PropertyValue",
+            "additionalType": "boolean",
+            "name": "man_made"
+        },
+        {
+            "@id": "ohdsi_gis:d33bb313828d/barrier",
+            "@type": "PropertyValue",
+            "additionalType": "boolean",
+            "name": "barrier"
+        },
+        {
+            "@id": "ohdsi_gis:d33bb313828d/waterway",
+            "@type": "PropertyValue",
+            "additionalType": "boolean",
+            "name": "waterway"
+        },
+        {
+            "@id": "ohdsi_gis:d33bb313828d/osm_id",
+            "@type": "PropertyValue",
+            "additionalType": "varchar",
+            "description": "OpenStreetMap (OSM) ID",
+            "name": "osm_id"
+        },
+        {
+            "@id": "ohdsi_gis:d33bb313828d/name",
+            "@type": "PropertyValue",
+            "additionalType": "varchar",
+            "description": "Road name",
+            "name": "name"
+        },
+        {
+            "@id": "ohdsi_gis:d33bb313828d/railway",
+            "@type": "PropertyValue",
+            "additionalType": "boolean",
+            "name": "railway"
+        },
+        {
+            "@id": "ohdsi_gis:d33bb313828d/aerialway",
+            "@type": "PropertyValue",
+            "additionalType": "boolean",
+            "name": "aerialway"
+        },
+        {
+            "@id": "ohdsi_gis:d33bb313828d/other_tags",
+            "@type": "PropertyValue",
+            "additionalType": "varchar",
+            "description": "Any other OSM tags with values, can include values for oneway, est_width, foot, lanes, maxspeed, surface",
+            "name": "other_tags"
+        },
+        {
+            "@id": "ohdsi_gis:d33bb313828d/z_order",
+            "@type": "PropertyValue",
+            "additionalType": "int4",
+            "description": "Drawing order",
+            "name": "z_order"
+        },
+        {
+            "@id": "ohdsi_gis:d33bb313828d/highway",
+            "@type": "PropertyValue",
+            "additionalType": "varchar",
+            "description": "Type of road (primary, secondary, etc)",
+            "name": "highway"
+        }
+    ]
+}

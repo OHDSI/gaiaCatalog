@@ -1,0 +1,408 @@
+{
+    "@context": {
+        "@vocab": "https://schema.org/",
+        "ohdsi_gis": "https://ohdsi_gis.org/.well-known/genid/",
+        "geosparql": "http://www.opengis.net/ont/geosparql#"
+    },
+    "@id": "http://ohdsi_gis.org/id/898560ecf97e",
+    "@type": "Dataset",
+    "geosparql:hasGeometry": {
+        "@id": "ohdsi_gis:geo/898560ecf97e",
+        "@type": "http://www.opengis.net/ont/sf#Polygon",
+        "geosparql:asWKT": {
+            "@type": "geosparql:wktLiteral",
+            "@value": "POLYGON ((-80.87360000000001 25.13742, -80.87360000000001 25.979433999999998, -80.06278999999999 25.979433999999998, -80.06278999999999 25.13742, -80.87360000000001 25.13742))"
+        }
+    },
+    "description": "A special collection of aggregated columns from the 2020 5-year ACS variables at the census tract level selected for use with the Displacement Vulnerability Mitigation Tool (DVMT). Please see the column metadata for the description of the columns.",
+    "keywords": [
+        "Census",
+        "Miami-Dade County",
+        "Population",
+        "Census Tract",
+        "2020",
+        "ACS",
+        "Demographic",
+        "Tract",
+        "Property",
+        "Housing",
+        "5-Year Estimates",
+        "DVMT"
+    ],
+    "license": "This Software was created by U.S. Government employees and therefore is not subject to copyright in the United States (17 U.S.C. \u00a7105). The United States/U.S.Department of Commerce (\u201cCommerce\u201d) reserve all rights to seek and obtain copyright protection in countries other than the United States. The United States/Commerce hereby grant to User a royalty-free, nonexclusive license to use, copy, and create derivative works of the Software outside of the United States.\\n\\nThe Software is provided to the User and those who may take by, through or under it, \u201cas is,\u201d without any warranty (whether express or implied) or representation whatsoever, including but not limited to any warranty of merchantability. The Software is taken hereunder without any right to support or to any improvements, extensions, or modifications, except as may be agreed to separately, in writing, by Commerce.\\n\\nUser, on behalf of itself and all others who take by, through or under it, hereby and forever waives, releases, and discharges the United States/Commerce and all its instrumentalities from any and all liabilities and obligations in connection with the use, application, sale or conveyance of the Software. User shall indemnify and hold harmless the United States/Commerce and its instrumentalities from all claims, liabilities, demands, damages, expenses, and losses arising from or in connection with User's use, application, sale or conveyance of the Software, including those who take by, through or under User whether or not User was directly involved. This provision will survive termination of this Agreement and will include any and all claims or liabilities arising under intellectual property rights, such as patents, copyrights, trademarks, and trade secrets. If User of software is an Executive Agency of the United States, this clause is not applicable.\\n\\nThe construction, validity, performance, and effect of this Agreement for all purposes will be governed by Federal law of the United States.\\n\\nUser agrees to make a good faith effort to use the Software in a way that does not cause damage, harm, or embarrassment to the United States/Commerce. The United States/Commerce expressly reserve all rights and remedies.",
+    "name": "2020 Miami-Dade ACS 5 Year Estimates - Tract Level - DVMT",
+    "publisher": {
+        "@type": "http://www.w3.org/2000/01/rdf-schema#Literal",
+        "@value": "Department of Commerce|U.S. Census Bureau Public Domain"
+    },
+    "spatialCoverage": {
+        "@id": "ohdsi_gis:898560ecf97e",
+        "@type": "Place",
+        "name": [
+            "United States",
+            "Florida"
+        ]
+    },
+    "variableMeasured": [
+        {
+            "@id": "ohdsi_gis:898560ecf97e/hispanic_or_latino__any_race",
+            "@type": "PropertyValue",
+            "additionalType": "integer",
+            "description": "Number of people who identify as Hispanic or Latino any race",
+            "measurementMethod": "B01001I_001E",
+            "name": "hispanic_or_latino__any_race",
+            "unitsText": "people"
+        },
+        {
+            "@id": "ohdsi_gis:898560ecf97e/number_of_housing_structures_with_20_49_units",
+            "@type": "PropertyValue",
+            "additionalType": "integer",
+            "description": "Number of housing structures with 20 to 49 units",
+            "measurementMethod": "B25024_008E",
+            "name": "number_of_housing_structures_with_20_49_units",
+            "unitsText": "structures"
+        },
+        {
+            "@id": "ohdsi_gis:898560ecf97e/bachelors_degree",
+            "@type": "PropertyValue",
+            "additionalType": "integer",
+            "description": "Number of people with bachelors degree",
+            "measurementMethod": "B15003_022E",
+            "name": "bachelors_degree",
+            "unitsText": "people"
+        },
+        {
+            "@id": "ohdsi_gis:898560ecf97e/two_or_more_races",
+            "@type": "PropertyValue",
+            "additionalType": "integer",
+            "description": "Number of people who identify as two or more races",
+            "measurementMethod": "B01001G_001E",
+            "name": "two_or_more_races",
+            "unitsText": "people"
+        },
+        {
+            "@id": "ohdsi_gis:898560ecf97e/total_housing_units",
+            "@type": "PropertyValue",
+            "additionalType": "integer",
+            "description": "Total number of housing units",
+            "measurementMethod": "B25017_001E",
+            "name": "total_housing_units",
+            "unitsText": "housing units"
+        },
+        {
+            "@id": "ohdsi_gis:898560ecf97e/median_monthly_owner_costs__percent_household_income",
+            "@type": "PropertyValue",
+            "additionalType": "real",
+            "description": "Median monthly owner costs as percent household income",
+            "measurementMethod": "B25092_001E",
+            "name": "median_monthly_owner_costs__percent_household_income",
+            "unitsText": "percent"
+        },
+        {
+            "@id": "ohdsi_gis:898560ecf97e/some_other_race",
+            "@type": "PropertyValue",
+            "additionalType": "integer",
+            "description": "Number of people who identify as some other race",
+            "measurementMethod": "B01001F_001E",
+            "name": "some_other_race",
+            "unitsText": "people"
+        },
+        {
+            "@id": "ohdsi_gis:898560ecf97e/graduate_professional_degree",
+            "@type": "PropertyValue",
+            "additionalType": "integer",
+            "description": "Number of people with graduate professional degree",
+            "measurementMethod": "B15003_023E:B15003_025E",
+            "name": "graduate_professional_degree",
+            "unitsText": "people"
+        },
+        {
+            "@id": "ohdsi_gis:898560ecf97e/pacific_islander",
+            "@type": "PropertyValue",
+            "additionalType": "integer",
+            "description": "Number of people who identify as pacific islander",
+            "measurementMethod": "B01001E_001E",
+            "name": "pacific_islander",
+            "unitsText": "people"
+        },
+        {
+            "@id": "ohdsi_gis:898560ecf97e/total_duplex_multiple_units__less_than_10_units",
+            "@type": "PropertyValue",
+            "additionalType": "integer",
+            "description": "Total number of duplex multiple units with less than 10 units",
+            "measurementMethod": "B25024_003E:B25024_006E",
+            "name": "total_duplex_multiple_units__less_than_10_units",
+            "unitsText": "structures"
+        },
+        {
+            "@id": "ohdsi_gis:898560ecf97e/persons_between_the_age_of_20_and_64",
+            "@type": "PropertyValue",
+            "additionalType": "integer",
+            "description": "Number of people between the age of 20 and 65",
+            "measurementMethod": "(B01001_008E:B01001_019E)+(B01001_032E:B01001_043E)",
+            "name": "persons_between_the_age_of_20_and_64",
+            "unitsText": "people"
+        },
+        {
+            "@id": "ohdsi_gis:898560ecf97e/asian_alone",
+            "@type": "PropertyValue",
+            "additionalType": "integer",
+            "description": "Number of people who identify as Asian alone",
+            "measurementMethod": "B01001D_001E",
+            "name": "asian_alone",
+            "unitsText": "people"
+        },
+        {
+            "@id": "ohdsi_gis:898560ecf97e/median_monthly_housing_costs",
+            "@type": "PropertyValue",
+            "additionalType": "integer",
+            "description": "Median monthly housing costs in US dollars",
+            "measurementMethod": "B25105_001E",
+            "name": "median_monthly_housing_costs",
+            "unitsText": "usd"
+        },
+        {
+            "@id": "ohdsi_gis:898560ecf97e/housing_tenancy__renter_occupied_housing_units",
+            "@type": "PropertyValue",
+            "additionalType": "integer",
+            "description": "Number of renter occupied housing units",
+            "measurementMethod": "B25003_003E",
+            "name": "housing_tenancy__renter_occupied_housing_units",
+            "unitsText": "housing units"
+        },
+        {
+            "@id": "ohdsi_gis:898560ecf97e/medicare_recipients",
+            "@type": "PropertyValue",
+            "additionalType": "integer",
+            "description": "Number of people that are medicare recipients",
+            "measurementMethod": "C27006_004E+C27006_007E+C27006_010E+C27006_014E+C27006_017E+C27006_020E",
+            "name": "medicare_recipients",
+            "unitsText": "people"
+        },
+        {
+            "@id": "ohdsi_gis:898560ecf97e/households_below_poverty_level",
+            "@type": "PropertyValue",
+            "additionalType": "integer",
+            "description": "Number of households below poverty level",
+            "measurementMethod": "B17001_002E",
+            "name": "households_below_poverty_level",
+            "unitsText": "households"
+        },
+        {
+            "@id": "ohdsi_gis:898560ecf97e/number_of_housing_structures_with_10_19_units",
+            "@type": "PropertyValue",
+            "additionalType": "integer",
+            "description": "Number of housing structures with 10 to 19 units",
+            "measurementMethod": "B25024_007E",
+            "name": "number_of_housing_structures_with_10_19_units",
+            "unitsText": "structures"
+        },
+        {
+            "@id": "ohdsi_gis:898560ecf97e/total_population",
+            "@type": "PropertyValue",
+            "additionalType": "integer",
+            "description": "Total population in census tract",
+            "measurementMethod": "B01001_001E",
+            "name": "total_population",
+            "unitsText": "people"
+        },
+        {
+            "@id": "ohdsi_gis:898560ecf97e/total_number_of_disabled_residents",
+            "@type": "PropertyValue",
+            "additionalType": "integer",
+            "description": "Total number of people that are disabled residents",
+            "measurementMethod": "B18101_004E+B18101_007E+B18101_010E+B18101_013E+B18101_016E+B18101_019E+B18101_023E+B18101_026E+B18101_029E+B18101_032E+B18101_035E+B18101_038E",
+            "name": "total_number_of_disabled_residents",
+            "unitsText": "people"
+        },
+        {
+            "@id": "ohdsi_gis:898560ecf97e/median_income_of_residents",
+            "@type": "PropertyValue",
+            "additionalType": "integer",
+            "description": "Median income of residents in US dollars",
+            "measurementMethod": "B19013_001E",
+            "name": "median_income_of_residents",
+            "unitsText": "usd"
+        },
+        {
+            "@id": "ohdsi_gis:898560ecf97e/white_alone",
+            "@type": "PropertyValue",
+            "additionalType": "integer",
+            "description": "Number of people who identify as white alone",
+            "measurementMethod": "B01001A_001E",
+            "name": "white_alone",
+            "unitsText": "people"
+        },
+        {
+            "@id": "ohdsi_gis:898560ecf97e/persons_4_years_old_and_younger",
+            "@type": "PropertyValue",
+            "additionalType": "integer",
+            "description": "Number of people 4 years old and younger",
+            "measurementMethod": "B01001_003E+B01001_027E",
+            "name": "persons_4_years_old_and_younger",
+            "unitsText": "people"
+        },
+        {
+            "@id": "ohdsi_gis:898560ecf97e/total_single_family_houses",
+            "@type": "PropertyValue",
+            "additionalType": "integer",
+            "description": "Total number of single family houses",
+            "measurementMethod": "B25024_002E",
+            "name": "total_single_family_houses",
+            "unitsText": "houses"
+        },
+        {
+            "@id": "ohdsi_gis:898560ecf97e/armed_forces_veterans",
+            "@type": "PropertyValue",
+            "additionalType": "integer",
+            "description": "Number of people that are armed forces veterans",
+            "measurementMethod": "B21001_002E",
+            "name": "armed_forces_veterans",
+            "unitsText": "people"
+        },
+        {
+            "@id": "ohdsi_gis:898560ecf97e/housing_tenancy__owner_occupied_housing_units",
+            "@type": "PropertyValue",
+            "additionalType": "integer",
+            "description": "Number of owner occupied housing units",
+            "measurementMethod": "B25003_002E",
+            "name": "housing_tenancy__owner_occupied_housing_units",
+            "unitsText": "housing units"
+        },
+        {
+            "@id": "ohdsi_gis:898560ecf97e/associates_degree",
+            "@type": "PropertyValue",
+            "additionalType": "integer",
+            "description": "Number of people with associates degree",
+            "measurementMethod": "B15003_021E",
+            "name": "associates_degree",
+            "unitsText": "people"
+        },
+        {
+            "@id": "ohdsi_gis:898560ecf97e/persons_65_years_old_and_over",
+            "@type": "PropertyValue",
+            "additionalType": "integer",
+            "description": "Number of people 65 years old and over",
+            "measurementMethod": "(B01001_020E:B01001_025E)+(B01001_044E:B01001_049E)",
+            "name": "persons_65_years_old_and_over",
+            "unitsText": "people"
+        },
+        {
+            "@id": "ohdsi_gis:898560ecf97e/american_indian_and_alaska_native_alone",
+            "@type": "PropertyValue",
+            "additionalType": "integer",
+            "description": "Number of people who identify as American Indian and Alaska Native alone",
+            "measurementMethod": "B01001C_001E",
+            "name": "american_indian_and_alaska_native_alone",
+            "unitsText": "people"
+        },
+        {
+            "@id": "ohdsi_gis:898560ecf97e/aggregate_household_income",
+            "@type": "PropertyValue",
+            "additionalType": "integer",
+            "description": "Aggregate household income in US dollars",
+            "measurementMethod": "B19025_001E",
+            "name": "aggregate_household_income",
+            "unitsText": "usd"
+        },
+        {
+            "@id": "ohdsi_gis:898560ecf97e/total_medicaid_recipients",
+            "@type": "PropertyValue",
+            "additionalType": "integer",
+            "description": "Total number of people that are medicaid recipients",
+            "measurementMethod": "C27007_004E+C27007_007E+C27007_010E+C27007_014E+C27007_017E+C27007_020E",
+            "name": "total_medicaid_recipients",
+            "unitsText": "people"
+        },
+        {
+            "@id": "ohdsi_gis:898560ecf97e/number_of_housing_structures_with_50_or_more_units",
+            "@type": "PropertyValue",
+            "additionalType": "integer",
+            "description": "Number of housing structures with 50 or more units",
+            "measurementMethod": "B25024_009E",
+            "name": "number_of_housing_structures_with_50_or_more_units",
+            "unitsText": "structures"
+        },
+        {
+            "@id": "ohdsi_gis:898560ecf97e/median_monthly_owner_costs",
+            "@type": "PropertyValue",
+            "additionalType": "integer",
+            "description": "Median monthly owner costs in US dollars",
+            "measurementMethod": "B25088_001E",
+            "name": "median_monthly_owner_costs",
+            "unitsText": "usd"
+        },
+        {
+            "@id": "ohdsi_gis:898560ecf97e/some_college__no_degree",
+            "@type": "PropertyValue",
+            "additionalType": "integer",
+            "description": "Number of people with some college but no degree",
+            "measurementMethod": "B15003_019E:B15003_020E",
+            "name": "some_college__no_degree",
+            "unitsText": "people"
+        },
+        {
+            "@id": "ohdsi_gis:898560ecf97e/median_monthly_renter_costs",
+            "@type": "PropertyValue",
+            "additionalType": "integer",
+            "description": "Median monthly renter costs in US dollars",
+            "measurementMethod": "B25058_001E",
+            "name": "median_monthly_renter_costs",
+            "unitsText": "usd"
+        },
+        {
+            "@id": "ohdsi_gis:898560ecf97e/high_school_degree__ged_or_lower",
+            "@type": "PropertyValue",
+            "additionalType": "integer",
+            "description": "Number of people with high school degree, GED, or lower",
+            "measurementMethod": "B15003_002E:B15003_018E",
+            "name": "high_school_degree__ged_or_lower",
+            "unitsText": "people"
+        },
+        {
+            "@id": "ohdsi_gis:898560ecf97e/total_snap_recipients",
+            "@type": "PropertyValue",
+            "additionalType": "integer",
+            "description": "Total number of people that are snap recipients",
+            "measurementMethod": "B22002_002E",
+            "name": "total_snap_recipients",
+            "unitsText": "people"
+        },
+        {
+            "@id": "ohdsi_gis:898560ecf97e/age_of_5_and_19",
+            "@type": "PropertyValue",
+            "additionalType": "integer",
+            "description": "Number of people with age of 5 to 20",
+            "measurementMethod": "(B01001_004E:B01001_007E)+(B01001_028E:B01001_031E)",
+            "name": "age_of_5_and_19",
+            "unitsText": "people"
+        },
+        {
+            "@id": "ohdsi_gis:898560ecf97e/median_monthly_renter_costs__percent_household_income",
+            "@type": "PropertyValue",
+            "additionalType": "real",
+            "description": "Median monthly renter costs as percent household income",
+            "measurementMethod": "B25071_001E",
+            "name": "median_monthly_renter_costs__percent_household_income",
+            "unitsText": "percent"
+        },
+        {
+            "@id": "ohdsi_gis:898560ecf97e/white_alone__not_hispanic_or_latino",
+            "@type": "PropertyValue",
+            "additionalType": "integer",
+            "description": "Number of people who identify as white alone and not Hispanic or latino",
+            "measurementMethod": "B01001H_001E",
+            "name": "white_alone__not_hispanic_or_latino",
+            "unitsText": "people"
+        },
+        {
+            "@id": "ohdsi_gis:898560ecf97e/black_or_african_american_alone",
+            "@type": "PropertyValue",
+            "additionalType": "integer",
+            "description": "Number of people who identify as black or African American alone",
+            "measurementMethod": "B01001B_001E",
+            "name": "black_or_african_american_alone",
+            "unitsText": "people"
+        }
+    ]
+}

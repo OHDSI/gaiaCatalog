@@ -1,0 +1,245 @@
+{
+    "@context": {
+        "@vocab": "https://schema.org/",
+        "ohdsi_gis": "https://ohdsi_gis.org/.well-known/genid/",
+        "geosparql": "http://www.opengis.net/ont/geosparql#"
+    },
+    "@id": "http://ohdsi_gis.org/id/1b4a595ba463",
+    "@type": "Dataset",
+    "geosparql:hasGeometry": {
+        "@id": "ohdsi_gis:geo/1b4a595ba463",
+        "@type": "http://www.opengis.net/ont/sf#Polygon",
+        "geosparql:asWKT": {
+            "@type": "geosparql:wktLiteral",
+            "@value": "POLYGON ((-80.4416446427105 25.506316332328097, -80.4416446427105 25.960401585337372, -80.12071553635712 25.960401585337372, -80.12071553635712 25.506316332328097, -80.4416446427105 25.506316332328097))"
+        }
+    },
+    "description": "A point feature class of libraries operated/managed by the Miami-Dade County Public Library System.",
+    "keywords": [
+        "County Library",
+        "Population",
+        "Miami-Dade County",
+        "Infrastructure",
+        "Florida",
+        "Education",
+        "MDC",
+        " Library"
+    ],
+    "license": "Miami-Dade County provides this data for use as is. The areas depicted by this map/data are approximate, and are not accurate to surveying or engineering standards. The maps/data shown here are for illustration purposes only and are not suitable for site-specific decision making. Information found here should not be used for making financial or any other commitments. Miami-Dade County provides this information with the understanding that it is not guaranteed to be accurate, correct or complete and conclusions drawn from such information are the sole responsibility of the user. While every effort has been made to ensure the accuracy, correctness and timeliness of materials presented, Miami-Dade County assumes no responsibility for errors or omissions, even if Miami-Dade County is advised of the possibility of such damage.",
+    "name": "Miami-Dade County Libraries",
+    "publisher": {
+        "@type": "http://www.w3.org/2000/01/rdf-schema#Literal",
+        "@value": "Miami-Dade County Public Domain"
+    },
+    "spatialCoverage": {
+        "@id": "ohdsi_gis:1b4a595ba463",
+        "@type": "Place",
+        "name": [
+            "Florida",
+            "United States",
+            "Miami Dade County"
+        ]
+    },
+    "variableMeasured": [
+        {
+            "@id": "ohdsi_gis:1b4a595ba463/wkday2",
+            "@type": "PropertyValue",
+            "additionalType": "string",
+            "description": "Weekend days open",
+            "measurementMethod": "MDC",
+            "name": "wkday2"
+        },
+        {
+            "@id": "ohdsi_gis:1b4a595ba463/operhour",
+            "@type": "PropertyValue",
+            "additionalType": "string",
+            "description": "Hours open during week",
+            "measurementMethod": "MDC",
+            "name": "operhour"
+        },
+        {
+            "@id": "ohdsi_gis:1b4a595ba463/branch",
+            "@type": "PropertyValue",
+            "additionalType": "string",
+            "description": "Library branch",
+            "measurementMethod": "MDC",
+            "name": "branch"
+        },
+        {
+            "@id": "ohdsi_gis:1b4a595ba463/address",
+            "@type": "PropertyValue",
+            "additionalType": "string",
+            "description": "Address of library",
+            "measurementMethod": "MDC",
+            "name": "address"
+        },
+        {
+            "@id": "ohdsi_gis:1b4a595ba463/phone",
+            "@type": "PropertyValue",
+            "additionalType": "string",
+            "description": "Phone",
+            "measurementMethod": "MDC",
+            "name": "phone"
+        },
+        {
+            "@id": "ohdsi_gis:1b4a595ba463/modifieddate",
+            "@type": "PropertyValue",
+            "additionalType": "string",
+            "description": "Modification date",
+            "measurementMethod": "MDC",
+            "name": "modifieddate"
+        },
+        {
+            "@id": "ohdsi_gis:1b4a595ba463/lon",
+            "@type": "PropertyValue",
+            "additionalType": "double",
+            "description": "Longitude",
+            "measurementMethod": "MDC",
+            "name": "lon"
+        },
+        {
+            "@id": "ohdsi_gis:1b4a595ba463/point_y",
+            "@type": "PropertyValue",
+            "additionalType": "string",
+            "description": "Y-coordinate",
+            "measurementMethod": "MDC",
+            "name": "point_y"
+        },
+        {
+            "@id": "ohdsi_gis:1b4a595ba463/excptday",
+            "@type": "PropertyValue",
+            "additionalType": "string",
+            "description": "Day(s) closed",
+            "measurementMethod": "MDC",
+            "name": "excptday"
+        },
+        {
+            "@id": "ohdsi_gis:1b4a595ba463/wkday3",
+            "@type": "PropertyValue",
+            "additionalType": "string",
+            "description": "Optional days",
+            "measurementMethod": "MDC",
+            "name": "wkday3"
+        },
+        {
+            "@id": "ohdsi_gis:1b4a595ba463/city",
+            "@type": "PropertyValue",
+            "additionalType": "string",
+            "description": "City of library",
+            "measurementMethod": "MDC",
+            "name": "city"
+        },
+        {
+            "@id": "ohdsi_gis:1b4a595ba463/website",
+            "@type": "PropertyValue",
+            "additionalType": "string",
+            "description": "Website link",
+            "measurementMethod": "MDC",
+            "name": "website"
+        },
+        {
+            "@id": "ohdsi_gis:1b4a595ba463/createdby",
+            "@type": "PropertyValue",
+            "additionalType": "string",
+            "description": "Creator",
+            "measurementMethod": "MDC",
+            "name": "createdby"
+        },
+        {
+            "@id": "ohdsi_gis:1b4a595ba463/modifiedby",
+            "@type": "PropertyValue",
+            "additionalType": "string",
+            "description": "Modifier",
+            "measurementMethod": "MDC",
+            "name": "modifiedby"
+        },
+        {
+            "@id": "ohdsi_gis:1b4a595ba463/wkday",
+            "@type": "PropertyValue",
+            "additionalType": "string",
+            "description": "Week days open",
+            "measurementMethod": "MDC",
+            "name": "wkday"
+        },
+        {
+            "@id": "ohdsi_gis:1b4a595ba463/point_x",
+            "@type": "PropertyValue",
+            "additionalType": "double",
+            "description": "X-coordinate",
+            "measurementMethod": "MDC",
+            "name": "point_x"
+        },
+        {
+            "@id": "ohdsi_gis:1b4a595ba463/objectid",
+            "@type": "PropertyValue",
+            "additionalType": "oid",
+            "description": "Internal feature number",
+            "measurementMethod": "Esri",
+            "name": "objectid"
+        },
+        {
+            "@id": "ohdsi_gis:1b4a595ba463/zipcode",
+            "@type": "PropertyValue",
+            "additionalType": "integer",
+            "description": "Zipcode of library",
+            "measurementMethod": "MDC",
+            "name": "zipcode"
+        },
+        {
+            "@id": "ohdsi_gis:1b4a595ba463/lat",
+            "@type": "PropertyValue",
+            "additionalType": "double",
+            "description": "Latitude",
+            "measurementMethod": "MDC",
+            "name": "lat"
+        },
+        {
+            "@id": "ohdsi_gis:1b4a595ba463/folio",
+            "@type": "PropertyValue",
+            "additionalType": "string",
+            "description": "Folio identifier",
+            "measurementMethod": "MDC",
+            "name": "folio"
+        },
+        {
+            "@id": "ohdsi_gis:1b4a595ba463/operhour3",
+            "@type": "PropertyValue",
+            "additionalType": "string",
+            "description": "Optional hours",
+            "measurementMethod": "MDC",
+            "name": "operhour3"
+        },
+        {
+            "@id": "ohdsi_gis:1b4a595ba463/operhour2",
+            "@type": "PropertyValue",
+            "additionalType": "string",
+            "description": "Weekend hours",
+            "measurementMethod": "MDC",
+            "name": "operhour2"
+        },
+        {
+            "@id": "ohdsi_gis:1b4a595ba463/excpttime",
+            "@type": "PropertyValue",
+            "additionalType": "string",
+            "description": "Hours closed",
+            "measurementMethod": "MDC",
+            "name": "excpttime"
+        },
+        {
+            "@id": "ohdsi_gis:1b4a595ba463/globalid",
+            "@type": "PropertyValue",
+            "additionalType": "global id",
+            "description": "Unique identifier",
+            "measurementMethod": "Esri",
+            "name": "globalid"
+        },
+        {
+            "@id": "ohdsi_gis:1b4a595ba463/creationdate",
+            "@type": "PropertyValue",
+            "additionalType": "string",
+            "description": "Creation date",
+            "measurementMethod": "MDC",
+            "name": "creationdate"
+        }
+    ]
+}

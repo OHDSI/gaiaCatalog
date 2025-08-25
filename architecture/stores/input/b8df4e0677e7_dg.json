@@ -1,0 +1,167 @@
+{
+    "@context": {
+        "@vocab": "https://schema.org/",
+        "ohdsi_gis": "https://ohdsi_gis.org/.well-known/genid/",
+        "geosparql": "http://www.opengis.net/ont/geosparql#"
+    },
+    "@id": "http://ohdsi_gis.org/id/b8df4e0677e7",
+    "@type": "Dataset",
+    "geosparql:hasGeometry": {
+        "@id": "ohdsi_gis:geo/b8df4e0677e7",
+        "@type": "http://www.opengis.net/ont/sf#Polygon",
+        "geosparql:asWKT": {
+            "@type": "geosparql:wktLiteral",
+            "@value": "POLYGON ((-80.5360213500161 25.4112174169031, -80.5360213500161 25.9737794463408, -80.1165386451705 25.9737794463408, -80.1165386451705 25.4112174169031, -80.5360213500161 25.4112174169031))"
+        }
+    },
+    "description": "A polygon feature class of parks and recreational locations maintained by Miami-Dade County.",
+    "keywords": "Miami-Dade County",
+    "license": "Miami-Dade County provides this data for use as is. The areas depicted by this map/data are approximate, and are not accurate to surveying or engineering standards. The maps/data shown here are for illustration purposes only and are not suitable for site-specific decision making. Information found here should not be used for making financial or any other commitments. Miami-Dade County provides this information with the understanding that it is not guaranteed to be accurate, correct or complete and conclusions drawn from such information are the sole responsibility of the user. While every effort has been made to ensure the accuracy, correctness and timeliness of materials presented, Miami-Dade County assumes no responsibility for errors or omissions, even if Miami-Dade County is advised of the possibility of such damage.",
+    "name": "Miami-Dade County Park Boundaries",
+    "publisher": {
+        "@type": "http://www.w3.org/2000/01/rdf-schema#Literal",
+        "@value": "Miami-Dade County Public Domain"
+    },
+    "spatialCoverage": {
+        "@id": "ohdsi_gis:b8df4e0677e7",
+        "@type": "Place",
+        "name": "Miami-Dade"
+    },
+    "variableMeasured": [
+        {
+            "@id": "ohdsi_gis:b8df4e0677e7/city",
+            "@type": "PropertyValue",
+            "additionalType": "string",
+            "description": "City of park facility",
+            "measurementMethod": "MDC",
+            "name": "city"
+        },
+        {
+            "@id": "ohdsi_gis:b8df4e0677e7/shape_area",
+            "@type": "PropertyValue",
+            "additionalType": "double",
+            "description": "County park boundary",
+            "measurementMethod": "Esri",
+            "name": "shape_area"
+        },
+        {
+            "@id": "ohdsi_gis:b8df4e0677e7/folio",
+            "@type": "PropertyValue",
+            "additionalType": "string",
+            "description": "Folio identifier",
+            "measurementMethod": "MDC",
+            "name": "folio"
+        },
+        {
+            "@id": "ohdsi_gis:b8df4e0677e7/id",
+            "@type": "PropertyValue",
+            "additionalType": "string",
+            "description": "Unique identifier",
+            "measurementMethod": "MDC",
+            "name": "id"
+        },
+        {
+            "@id": "ohdsi_gis:b8df4e0677e7/develop",
+            "@type": "PropertyValue",
+            "additionalType": "boolean",
+            "description": "Developed or not",
+            "measurementMethod": "MDC",
+            "name": "develop"
+        },
+        {
+            "@id": "ohdsi_gis:b8df4e0677e7/zipcode",
+            "@type": "PropertyValue",
+            "additionalType": "integer",
+            "description": "Zipcode of park facility",
+            "measurementMethod": "MDC",
+            "name": "zipcode"
+        },
+        {
+            "@id": "ohdsi_gis:b8df4e0677e7/objectid",
+            "@type": "PropertyValue",
+            "additionalType": "oid",
+            "description": "Unique object identifer",
+            "measurementMethod": "Esri",
+            "name": "objectid"
+        },
+        {
+            "@id": "ohdsi_gis:b8df4e0677e7/name",
+            "@type": "PropertyValue",
+            "additionalType": "string",
+            "description": "Name of park facility",
+            "measurementMethod": "MDC",
+            "name": "name"
+        },
+        {
+            "@id": "ohdsi_gis:b8df4e0677e7/wifi",
+            "@type": "PropertyValue",
+            "additionalType": "string",
+            "description": "Whether or not facility has wifi",
+            "measurementMethod": "MDC",
+            "name": "wifi"
+        },
+        {
+            "@id": "ohdsi_gis:b8df4e0677e7/type",
+            "@type": "PropertyValue",
+            "additionalType": "string",
+            "description": "type of facility",
+            "measurementMethod": "MDC",
+            "name": "type"
+        },
+        {
+            "@id": "ohdsi_gis:b8df4e0677e7/phone",
+            "@type": "PropertyValue",
+            "description": "Phone number of facility",
+            "measurementMethod": "string",
+            "name": "phone"
+        },
+        {
+            "@id": "ohdsi_gis:b8df4e0677e7/pkschool",
+            "@type": "PropertyValue",
+            "additionalType": "boolean",
+            "description": "Whether or not facility is within a preschool",
+            "measurementMethod": "MDC",
+            "name": "pkschool"
+        },
+        {
+            "@id": "ohdsi_gis:b8df4e0677e7/natarea",
+            "@type": "PropertyValue",
+            "additionalType": "string",
+            "description": "Natural area",
+            "measurementMethod": "MDC",
+            "name": "natarea"
+        },
+        {
+            "@id": "ohdsi_gis:b8df4e0677e7/shape_length",
+            "@type": "PropertyValue",
+            "additionalType": "double",
+            "description": "County park boundary length",
+            "measurementMethod": "Esri",
+            "name": "shape_length"
+        },
+        {
+            "@id": "ohdsi_gis:b8df4e0677e7/totacre",
+            "@type": "PropertyValue",
+            "additionalType": "double",
+            "description": "Total acres",
+            "measurementMethod": "MDC",
+            "name": "totacre"
+        },
+        {
+            "@id": "ohdsi_gis:b8df4e0677e7/address",
+            "@type": "PropertyValue",
+            "additionalType": "string",
+            "description": "Address of facility",
+            "measurementMethod": "MDC",
+            "name": "address"
+        },
+        {
+            "@id": "ohdsi_gis:b8df4e0677e7/class",
+            "@type": "PropertyValue",
+            "additionalType": "string",
+            "description": "classification of facility",
+            "measurementMethod": "MDC",
+            "name": "class"
+        }
+    ]
+}

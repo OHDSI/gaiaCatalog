@@ -1,0 +1,1431 @@
+{
+    "@context": {
+        "@vocab": "https://schema.org/",
+        "ohdsi_gis": "https://ohdsi_gis.org/.well-known/genid/",
+        "geosparql": "http://www.opengis.net/ont/geosparql#"
+    },
+    "@id": "http://ohdsi_gis.org/id/7e17e42a7135",
+    "@type": "Dataset",
+    "geosparql:hasGeometry": {
+        "@id": "ohdsi_gis:geo/7e17e42a7135",
+        "@type": "http://www.opengis.net/ont/sf#Polygon",
+        "geosparql:asWKT": {
+            "@type": "geosparql:wktLiteral",
+            "@value": "POLYGON ((-87.63493799999998 24.523096000000066, -87.63493799999998 31.00088800000003, -80.03136199999994 31.00088800000003, -80.03136199999994 24.523096000000066, -87.63493799999998 24.523096000000066))"
+        }
+    },
+    "description": "Social vulnerability refers to the potential negative effects on communities caused by external stresses on human health. Such stresses include natural or human-caused disasters, or disease outbreaks. Reducing social vulnerability can decrease both human suffering and economic loss.\\n\\nThe CDC/ATSDR Social Vulnerability Index (CDC/ATSDR SVI) uses 16 U.S. census variables to help local officials identify communities that may need support before, during, or after disasters.",
+    "keywords": [
+        "Public-Safety",
+        "Social Vulnerability Index",
+        "Census Tracts",
+        "Florida",
+        "Vulnerability",
+        "CDC"
+    ],
+    "name": "2020 Florida CDC Social Vulnerability Index (tracts)",
+    "publisher": {
+        "@type": "http://www.w3.org/2000/01/rdf-schema#Literal",
+        "@value": "CDC Public Domain"
+    },
+    "spatialCoverage": {
+        "@id": "ohdsi_gis:7e17e42a7135",
+        "@type": "Place",
+        "name": "Florida"
+    },
+    "variableMeasured": [
+        {
+            "@id": "ohdsi_gis:7e17e42a7135/m_unemp",
+            "@type": "PropertyValue",
+            "additionalType": "float8",
+            "description": "Civilian (age 16+) unemployed estimate MOE, 2016-2020 ACS",
+            "measurementMethod": "DP03_0005M",
+            "name": "m_unemp",
+            "unitsText": "moe"
+        },
+        {
+            "@id": "ohdsi_gis:7e17e42a7135/ep_uninsur",
+            "@type": "PropertyValue",
+            "additionalType": "float8",
+            "description": "Percentage uninsured in the total civilian noninstitutionalized population estimate, 2016-2020 ACS",
+            "measurementMethod": "S2701_C05_001E",
+            "name": "ep_uninsur",
+            "unitsText": "percent"
+        },
+        {
+            "@id": "ohdsi_gis:7e17e42a7135/rpl_theme4",
+            "@type": "PropertyValue",
+            "additionalType": "float8",
+            "description": "Percentile ranking for Housing Type/ Transportation theme",
+            "measurementMethod": "In Excel: PERCENTRANK.INC on SPL_THEME4 array with 4 significant digits",
+            "name": "rpl_theme4",
+            "unitsText": "percentile"
+        },
+        {
+            "@id": "ohdsi_gis:7e17e42a7135/f_limeng",
+            "@type": "PropertyValue",
+            "additionalType": "boolean",
+            "description": "Flag - the percentage those with limited English is in the 90th percentile (1 = yes, 0 = no) ",
+            "measurementMethod": "EPL_LIMENG >= 0.90",
+            "name": "f_limeng"
+        },
+        {
+            "@id": "ohdsi_gis:7e17e42a7135/mp_disabl",
+            "@type": "PropertyValue",
+            "additionalType": "float8",
+            "description": "Percentage of civilian noninstitutionalized population with a disability estimate MOE, 2016-2020 ACS",
+            "measurementMethod": "DP02_0072PM",
+            "name": "mp_disabl",
+            "unitsText": "moe"
+        },
+        {
+            "@id": "ohdsi_gis:7e17e42a7135/epl_age17",
+            "@type": "PropertyValue",
+            "additionalType": "float8",
+            "description": "Percentile percentage of persons aged 17 and younger estimate",
+            "measurementMethod": "In Excel: PERCENTRANK.INC on EP_AGE17 array with 4 significant digits",
+            "name": "epl_age17",
+            "unitsText": "percentile"
+        },
+        {
+            "@id": "ohdsi_gis:7e17e42a7135/mp_age65",
+            "@type": "PropertyValue",
+            "additionalType": "float8",
+            "description": "Percentage of persons aged 65 and older estimate MOE, 2016-2020 ACS",
+            "measurementMethod": "S0101_C02_030M",
+            "name": "mp_age65",
+            "unitsText": "moe"
+        },
+        {
+            "@id": "ohdsi_gis:7e17e42a7135/e_afam",
+            "@type": "PropertyValue",
+            "additionalType": "int4",
+            "description": "Adjunct variable - Black/African American, not Hispanic or Latino persons estimate, 2016-2020 ACS",
+            "measurementMethod": "DP05_0078E",
+            "name": "e_afam",
+            "unitsText": "persons"
+        },
+        {
+            "@id": "ohdsi_gis:7e17e42a7135/mp_nohsdp",
+            "@type": "PropertyValue",
+            "additionalType": "float8",
+            "description": "Percentage of persons with no high school diploma (25+) estimate MOE",
+            "measurementMethod": "S0601_C01_033M",
+            "name": "mp_nohsdp",
+            "unitsText": "moe"
+        },
+        {
+            "@id": "ohdsi_gis:7e17e42a7135/m_hu",
+            "@type": "PropertyValue",
+            "additionalType": "float8",
+            "description": "Housing units estimate MOE, 2016-2020 ACS",
+            "measurementMethod": "DP04_0001M",
+            "name": "m_hu",
+            "unitsText": "moe"
+        },
+        {
+            "@id": "ohdsi_gis:7e17e42a7135/ep_nhpi",
+            "@type": "PropertyValue",
+            "additionalType": "float8",
+            "description": "Adjunct variable - Percentage of Native Hawaiian or Other Pacific Islander, not Hispanic or Latino persons estimate, 2016-2020 ACS",
+            "measurementMethod": "DP05_0081PE",
+            "name": "ep_nhpi",
+            "unitsText": "percent"
+        },
+        {
+            "@id": "ohdsi_gis:7e17e42a7135/epl_limeng",
+            "@type": "PropertyValue",
+            "additionalType": "float8",
+            "description": "Percentile percentage of persons (age 5+) who speak English less than well estimate",
+            "measurementMethod": "In Excel: PERCENTRANK.INC on EP_LIMENG array with 4 significant digits",
+            "name": "epl_limeng",
+            "unitsText": "percentile"
+        },
+        {
+            "@id": "ohdsi_gis:7e17e42a7135/mp_pov150",
+            "@type": "PropertyValue",
+            "additionalType": "float8",
+            "description": "Percentage of persons below 150% poverty estimate MOE",
+            "measurementMethod": "((SQRT(M_POV150^2-((EP_POV150 / 100)^2 * S1701_C01_001M ^2))) / S1701_C01_001E) * 100",
+            "name": "mp_pov150",
+            "unitsText": "moe"
+        },
+        {
+            "@id": "ohdsi_gis:7e17e42a7135/f_mobile",
+            "@type": "PropertyValue",
+            "additionalType": "boolean",
+            "description": "Flag - the percentage of mobile homes is in the 90th percentile (1 = yes, 0 = no)",
+            "measurementMethod": "EPL_MOBILE >= 0.90",
+            "name": "f_mobile"
+        },
+        {
+            "@id": "ohdsi_gis:7e17e42a7135/f_sngpnt",
+            "@type": "PropertyValue",
+            "additionalType": "boolean",
+            "description": "Flag - the percentage of single-parent households is in the 90th percentile (1 = yes, 0 = no)",
+            "measurementMethod": "EPL_SNGPNT >= 0.90",
+            "name": "f_sngpnt"
+        },
+        {
+            "@id": "ohdsi_gis:7e17e42a7135/m_minrty",
+            "@type": "PropertyValue",
+            "additionalType": "float8",
+            "description": "Minority (Hispanic or Latino (of any race) -- Black and African American, Not Hispanic or Latino -- American Indian and Alaska Native, Not Hispanic or Latino -- Asian, Not Hispanic or Latino -- Native Hawaiian and Other Pacific Islander, Not Hispanic or Latino -- Two or More Races, Not Hispanic or Latino -- Other Races, Not Hispanic or Latino) estimate MOE, 2016-2020 ACS",
+            "measurementMethod": "SQRT (DP05_0071M ^2 + DP05_0078M ^2 + DP05_0079M ^2 + DP05_0080M ^2 + DP05_0081M ^2 + DP05_0082M ^2 + DP05_0083M ^2) ",
+            "name": "m_minrty",
+            "unitsText": "moe"
+        },
+        {
+            "@id": "ohdsi_gis:7e17e42a7135/ep_hburd",
+            "@type": "PropertyValue",
+            "additionalType": "float8",
+            "description": "Percentage of housing cost-burdened occupied housing units with annual income less than 5,000 (30%+ of income spent on housing costs) estimate, 2016-2020 ACS estimate, 2016-2020 ACS",
+            "measurementMethod": "(E_HBURD / S2503_C01_001E) * 100",
+            "name": "ep_hburd",
+            "unitsText": "percent"
+        },
+        {
+            "@id": "ohdsi_gis:7e17e42a7135/e_otherrace",
+            "@type": "PropertyValue",
+            "additionalType": "int4",
+            "description": "Adjunct variable - Some other race, not Hispanic or Latino persons estimate, 2016-2020 ACS",
+            "measurementMethod": "DP05_0082E",
+            "name": "e_otherrace",
+            "unitsText": "persons"
+        },
+        {
+            "@id": "ohdsi_gis:7e17e42a7135/e_limeng",
+            "@type": "PropertyValue",
+            "additionalType": "int4",
+            "description": "Persons (age 5+) who speak English less than well estimate, 2016-2020 ACS",
+            "measurementMethod": "B16005_007E + B16005_008E + B16005_012E + B16005_013E + B16005_017E + B16005_018E + B16005_022E + B16005_023E + B16005_029E + B16005_030E + B16005_034E + B16005_035E + B16005_039E + B16005_040E + B16005_044E + B16005_045E",
+            "name": "e_limeng",
+            "unitsText": "persons"
+        },
+        {
+            "@id": "ohdsi_gis:7e17e42a7135/e_unemp",
+            "@type": "PropertyValue",
+            "additionalType": "int4",
+            "description": "Civilian (age 16+) unemployed estimate, 2016-2020 ACS",
+            "measurementMethod": "DP03_0005E",
+            "name": "e_unemp",
+            "unitsText": "persons"
+        },
+        {
+            "@id": "ohdsi_gis:7e17e42a7135/m_asian",
+            "@type": "PropertyValue",
+            "additionalType": "float8",
+            "description": "Adjunct variable - Asian, not Hispanic or Latino persons estimate MOE, 2016-2020 ACS",
+            "measurementMethod": "DP05_0080M",
+            "name": "m_asian",
+            "unitsText": "moe"
+        },
+        {
+            "@id": "ohdsi_gis:7e17e42a7135/mp_uninsur",
+            "@type": "PropertyValue",
+            "additionalType": "float8",
+            "description": "Percentage uninsured in the total civilian noninstitutionalized population estimate MOE, 2016-2020 ACS",
+            "measurementMethod": "S2701_C05_001M",
+            "name": "mp_uninsur",
+            "unitsText": "moe"
+        },
+        {
+            "@id": "ohdsi_gis:7e17e42a7135/e_totpop",
+            "@type": "PropertyValue",
+            "additionalType": "int4",
+            "description": "Population estimate, 2016-2020 ACS",
+            "measurementMethod": "S0601_C01_001E",
+            "name": "e_totpop",
+            "unitsText": "persons"
+        },
+        {
+            "@id": "ohdsi_gis:7e17e42a7135/ep_age65",
+            "@type": "PropertyValue",
+            "additionalType": "float8",
+            "description": "Percentage of persons aged 65 and older estimate, 2016-2020 ACS",
+            "measurementMethod": "S0101_C02_030E",
+            "name": "ep_age65",
+            "unitsText": "percent"
+        },
+        {
+            "@id": "ohdsi_gis:7e17e42a7135/state",
+            "@type": "PropertyValue",
+            "additionalType": "varchar",
+            "description": "State name",
+            "measurementMethod": "NAME",
+            "name": "state"
+        },
+        {
+            "@id": "ohdsi_gis:7e17e42a7135/epl_uninsur",
+            "@type": "PropertyValue",
+            "additionalType": "float8",
+            "description": "Percentile percentage of uninsured estimate",
+            "measurementMethod": "In Excel: PERCENTRANK.INC on EP_UNINSUR array with 4 significant digits",
+            "name": "epl_uninsur",
+            "unitsText": "percentile"
+        },
+        {
+            "@id": "ohdsi_gis:7e17e42a7135/ep_age17",
+            "@type": "PropertyValue",
+            "additionalType": "float8",
+            "description": "Percentage of persons aged 17 and younger estimate, 2016-2020 ACS",
+            "measurementMethod": "(E_AGE17 / E_TOTPOP) * 100",
+            "name": "ep_age17",
+            "unitsText": "percent"
+        },
+        {
+            "@id": "ohdsi_gis:7e17e42a7135/mp_groupq",
+            "@type": "PropertyValue",
+            "additionalType": "float8",
+            "description": "Percentage of persons in group quarters estimate MOE, 2016-2020 ACS",
+            "measurementMethod": "((SQRT (M_GROUPQ^2 - ((EP_GROUPQ / 100)^2 * M_TOTPOP^2))) / E_TOTPOP) * 100",
+            "name": "mp_groupq",
+            "unitsText": "moe"
+        },
+        {
+            "@id": "ohdsi_gis:7e17e42a7135/e_pov150",
+            "@type": "PropertyValue",
+            "additionalType": "int4",
+            "description": "Persons below 150% poverty estimate, 2016-2020 ACS",
+            "measurementMethod": "S1701_C01_040E",
+            "name": "e_pov150",
+            "unitsText": "households"
+        },
+        {
+            "@id": "ohdsi_gis:7e17e42a7135/ep_noveh",
+            "@type": "PropertyValue",
+            "additionalType": "float8",
+            "description": "Percentage of households with no vehicle available estimate",
+            "measurementMethod": "DP04_0058PE",
+            "name": "ep_noveh",
+            "unitsText": "percent"
+        },
+        {
+            "@id": "ohdsi_gis:7e17e42a7135/ep_asian",
+            "@type": "PropertyValue",
+            "additionalType": "float8",
+            "description": "Adjunct variable - Percentage of Asian, not Hispanic or Latino persons estimate, 2016-2020 ACS",
+            "measurementMethod": "DP05_0080PE",
+            "name": "ep_asian",
+            "unitsText": "percent"
+        },
+        {
+            "@id": "ohdsi_gis:7e17e42a7135/f_total",
+            "@type": "PropertyValue",
+            "additionalType": "int4",
+            "description": "Sum of flags for the four themes",
+            "measurementMethod": "F_THEME1 + F_THEME2 + F_THEME3 + F_THEME4",
+            "name": "f_total"
+        },
+        {
+            "@id": "ohdsi_gis:7e17e42a7135/st_abbr",
+            "@type": "PropertyValue",
+            "additionalType": "varchar",
+            "description": "State abbreviation",
+            "measurementMethod": "N/A Joined from Esri state boundary shapefile",
+            "name": "st_abbr"
+        },
+        {
+            "@id": "ohdsi_gis:7e17e42a7135/rpl_theme3",
+            "@type": "PropertyValue",
+            "additionalType": "float8",
+            "description": "Percentile ranking for Racial and Ethnic Minority Status theme",
+            "measurementMethod": "In Excel: PERCENTRANK.INC on SPL_THEME3 array with 4 significant digits",
+            "name": "rpl_theme3",
+            "unitsText": "percentile"
+        },
+        {
+            "@id": "ohdsi_gis:7e17e42a7135/mp_mobile",
+            "@type": "PropertyValue",
+            "additionalType": "float8",
+            "description": "Percentage of mobile homes estimate MOE",
+            "measurementMethod": "DP04_0014PM",
+            "name": "mp_mobile",
+            "unitsText": "moe"
+        },
+        {
+            "@id": "ohdsi_gis:7e17e42a7135/mp_crowd",
+            "@type": "PropertyValue",
+            "additionalType": "float8",
+            "description": "Percentage of occupied housing units with more people than rooms estimate MOE",
+            "measurementMethod": "((SQRT (M_CROWD^2 - ((EP_CROWD / 100)^2 * DP04_0002M ^2))) / DP04_0002E) * 100",
+            "name": "mp_crowd",
+            "unitsText": "moe"
+        },
+        {
+            "@id": "ohdsi_gis:7e17e42a7135/e_asian",
+            "@type": "PropertyValue",
+            "additionalType": "int4",
+            "description": "Adjunct variable - Asian, not Hispanic or Latino persons estimate, 2016-2020 ACS",
+            "measurementMethod": "DP05_0080E",
+            "name": "e_asian",
+            "unitsText": "persons"
+        },
+        {
+            "@id": "ohdsi_gis:7e17e42a7135/e_aian",
+            "@type": "PropertyValue",
+            "additionalType": "int4",
+            "description": "Adjunct variable - American Indian or Alaska Native, not Hispanic or Latino persons estimate, 2016-2020 ACS",
+            "measurementMethod": "DP05_0079E",
+            "name": "e_aian",
+            "unitsText": "persons"
+        },
+        {
+            "@id": "ohdsi_gis:7e17e42a7135/epl_sngpnt",
+            "@type": "PropertyValue",
+            "additionalType": "float8",
+            "description": "Percentile percentage of single-parent households with children under 18 estimate",
+            "measurementMethod": "In Excel: PERCENTRANK.INC on EP_SNGPNT array with 4 significant digits",
+            "name": "epl_sngpnt",
+            "unitsText": "percentile"
+        },
+        {
+            "@id": "ohdsi_gis:7e17e42a7135/epl_hburd",
+            "@type": "PropertyValue",
+            "additionalType": "float8",
+            "description": "Percentile percentage of housing cost-burdened occupied housing units estimate",
+            "measurementMethod": "In Excel: PERCENTRANK.INC on EP_HBURD array with 4 significant digits",
+            "name": "epl_hburd",
+            "unitsText": "percentile"
+        },
+        {
+            "@id": "ohdsi_gis:7e17e42a7135/county",
+            "@type": "PropertyValue",
+            "additionalType": "varchar",
+            "description": "County name",
+            "measurementMethod": "NAME",
+            "name": "county"
+        },
+        {
+            "@id": "ohdsi_gis:7e17e42a7135/e_groupq",
+            "@type": "PropertyValue",
+            "additionalType": "int4",
+            "description": "Persons in group quarters estimate, 2016-2020 ACS",
+            "measurementMethod": "B26001_001E",
+            "name": "e_groupq",
+            "unitsText": "persons"
+        },
+        {
+            "@id": "ohdsi_gis:7e17e42a7135/f_crowd",
+            "@type": "PropertyValue",
+            "additionalType": "boolean",
+            "description": "Flag - the percentage of crowded households is in the 90th percentile (1 = yes, 0 = no)",
+            "measurementMethod": "EPL_CROWD >= 0.90",
+            "name": "f_crowd"
+        },
+        {
+            "@id": "ohdsi_gis:7e17e42a7135/mp_munit",
+            "@type": "PropertyValue",
+            "additionalType": "float8",
+            "description": "Percentage of housing in structures with 10 or more units estimate MOE",
+            "measurementMethod": "((SQRT (M_MUNIT^2 - ((EP_MUNIT / 100)^2 * M_HU^2))) / E_HU) * 100",
+            "name": "mp_munit",
+            "unitsText": "moe"
+        },
+        {
+            "@id": "ohdsi_gis:7e17e42a7135/f_age17",
+            "@type": "PropertyValue",
+            "additionalType": "boolean",
+            "description": "Flag - the percentage of persons aged 17 and younger is in the 90th percentile (1 = yes, 0 = no) ",
+            "measurementMethod": "EPL_AGE17 >= 0.90",
+            "name": "f_age17"
+        },
+        {
+            "@id": "ohdsi_gis:7e17e42a7135/fips",
+            "@type": "PropertyValue",
+            "additionalType": "varchar",
+            "description": "Tract-level FIPS code",
+            "measurementMethod": "GEO_ID",
+            "name": "fips"
+        },
+        {
+            "@id": "ohdsi_gis:7e17e42a7135/mp_noveh",
+            "@type": "PropertyValue",
+            "additionalType": "float8",
+            "description": "Percentage of households with no vehicle available estimate MOE",
+            "measurementMethod": "DP04_0058PM",
+            "name": "mp_noveh",
+            "unitsText": "moe"
+        },
+        {
+            "@id": "ohdsi_gis:7e17e42a7135/f_hburd",
+            "@type": "PropertyValue",
+            "additionalType": "boolean",
+            "description": "Flag - the percentage of housing cost-burdened occupied housing units is in the 90th percentile (1 = yes, 0 = no)",
+            "measurementMethod": "EPL_HBURD >= 0.90",
+            "name": "f_hburd"
+        },
+        {
+            "@id": "ohdsi_gis:7e17e42a7135/mp_otherrace",
+            "@type": "PropertyValue",
+            "additionalType": "float8",
+            "description": "Adjunct variable - Percentage of some other race, not Hispanic or Latino persons estimate MOE, 2016-2020 ACS",
+            "measurementMethod": "DP05_0082PM",
+            "name": "mp_otherrace",
+            "unitsText": "moe"
+        },
+        {
+            "@id": "ohdsi_gis:7e17e42a7135/e_hu",
+            "@type": "PropertyValue",
+            "additionalType": "int4",
+            "description": "Housing units estimate, 2016-2020 ACS",
+            "measurementMethod": "DP04_0001E",
+            "name": "e_hu",
+            "unitsText": "housing units"
+        },
+        {
+            "@id": "ohdsi_gis:7e17e42a7135/epl_pov150",
+            "@type": "PropertyValue",
+            "additionalType": "float8",
+            "description": "Percentile percentage of persons below 150% poverty estimate",
+            "measurementMethod": "In Excel: PERCENTRANK.INC on EP_POV150 array with 4 significant digits",
+            "name": "epl_pov150",
+            "unitsText": "percentile"
+        },
+        {
+            "@id": "ohdsi_gis:7e17e42a7135/e_uninsur",
+            "@type": "PropertyValue",
+            "additionalType": "int4",
+            "description": "Uninsured in the total civilian noninstitutionalized population estimate, 2016-2020 ACS",
+            "measurementMethod": "S2701_C04_001E",
+            "name": "e_uninsur",
+            "unitsText": "persons"
+        },
+        {
+            "@id": "ohdsi_gis:7e17e42a7135/mp_nhpi",
+            "@type": "PropertyValue",
+            "additionalType": "float8",
+            "description": "Adjunct variable - Percentage of Native Hawaiian or Other Pacific Islander, not Hispanic or Latino persons estimate MOE, 2016-2020 ACS",
+            "measurementMethod": "DP05_0081PM",
+            "name": "mp_nhpi",
+            "unitsText": "moe"
+        },
+        {
+            "@id": "ohdsi_gis:7e17e42a7135/e_hisp",
+            "@type": "PropertyValue",
+            "additionalType": "int4",
+            "description": "Adjunct variable - Hispanic or Latino persons estimate, 2016-2020 ACS",
+            "measurementMethod": "DP05_0071E",
+            "name": "e_hisp",
+            "unitsText": "persons"
+        },
+        {
+            "@id": "ohdsi_gis:7e17e42a7135/m_aian",
+            "@type": "PropertyValue",
+            "additionalType": "float8",
+            "description": "Adjunct variable - American Indian or Alaska Native, not Hispanic or Latino persons estimate MOE, 2016-2020 ACS",
+            "measurementMethod": "DP05_0079M",
+            "name": "m_aian",
+            "unitsText": "moe"
+        },
+        {
+            "@id": "ohdsi_gis:7e17e42a7135/mp_hisp",
+            "@type": "PropertyValue",
+            "additionalType": "float8",
+            "description": "Adjunct variable - Percentage of Hispanic or Latino persons estimate MOE, 2016-2020 ACS",
+            "measurementMethod": "DP05_0071PM",
+            "name": "mp_hisp",
+            "unitsText": "moe"
+        },
+        {
+            "@id": "ohdsi_gis:7e17e42a7135/f_theme4",
+            "@type": "PropertyValue",
+            "additionalType": "int4",
+            "description": "Sum of flags for Housing Type/ Transportation theme",
+            "measurementMethod": "F_MUNIT + F_MOBILE + F_CROWD + F_NOVEH + F_GROUPQ",
+            "name": "f_theme4"
+        },
+        {
+            "@id": "ohdsi_gis:7e17e42a7135/m_totpop",
+            "@type": "PropertyValue",
+            "additionalType": "float8",
+            "description": "Population estimate MOE, 2016-2020 ACS",
+            "measurementMethod": "S0601_C01_001M",
+            "name": "m_totpop",
+            "unitsText": "moe"
+        },
+        {
+            "@id": "ohdsi_gis:7e17e42a7135/ep_sngpnt",
+            "@type": "PropertyValue",
+            "additionalType": "float8",
+            "description": "Percentage of single-parent households with children under 18 estimate, 2016-2020 ACS",
+            "measurementMethod": "(E_SNGPNT/E_HH) * 100",
+            "name": "ep_sngpnt",
+            "unitsText": "percent"
+        },
+        {
+            "@id": "ohdsi_gis:7e17e42a7135/spl_themes",
+            "@type": "PropertyValue",
+            "additionalType": "float8",
+            "description": "Sum of series themes",
+            "measurementMethod": "SPL_THEME1 + SPL_THEME2 + SPL_THEME3 + SPL_THEME4",
+            "name": "spl_themes",
+            "unitsText": "svi index"
+        },
+        {
+            "@id": "ohdsi_gis:7e17e42a7135/f_groupq",
+            "@type": "PropertyValue",
+            "additionalType": "boolean",
+            "description": "Flag - the percentage of persons in group quarters is in the 90th percentile (1 = yes, 0 = no) ",
+            "measurementMethod": "EPL_GROUPQ >= 0.90",
+            "name": "f_groupq"
+        },
+        {
+            "@id": "ohdsi_gis:7e17e42a7135/e_crowd",
+            "@type": "PropertyValue",
+            "additionalType": "int4",
+            "description": "At household level (occupied housing units), more people than rooms estimate, 2016-2020 ACS",
+            "measurementMethod": "DP04_0078E + DP04_0079E",
+            "name": "e_crowd",
+            "unitsText": "housing units"
+        },
+        {
+            "@id": "ohdsi_gis:7e17e42a7135/ep_aian",
+            "@type": "PropertyValue",
+            "additionalType": "float8",
+            "description": "Adjunct variable - Percentage of American Indian or Alaska Native, not Hispanic or Latino persons estimate, 2016-2020 ACS",
+            "measurementMethod": "DP05_0079PE",
+            "name": "ep_aian",
+            "unitsText": "percent"
+        },
+        {
+            "@id": "ohdsi_gis:7e17e42a7135/epl_unemp",
+            "@type": "PropertyValue",
+            "additionalType": "float8",
+            "description": "Percentile percentage of civilian (age 16+) unemployed estimate",
+            "measurementMethod": "In Excel: PERCENTRANK.INC on EP_UNEMP array with 4 significant digits",
+            "name": "epl_unemp",
+            "unitsText": "percentile"
+        },
+        {
+            "@id": "ohdsi_gis:7e17e42a7135/e_hburd",
+            "@type": "PropertyValue",
+            "additionalType": "int4",
+            "description": "Housing cost-burdened occupied housing units with annual income less than 5,000 (30%+ of income spent on housing costs) estimate, 2016-2020 ACS",
+            "measurementMethod": "S2503_C01_028E + S2503_C01_032E + S2503_C01_036E + S2503_C01_040E",
+            "name": "e_hburd",
+            "unitsText": "housing units"
+        },
+        {
+            "@id": "ohdsi_gis:7e17e42a7135/f_nohsdp",
+            "@type": "PropertyValue",
+            "additionalType": "boolean",
+            "description": "Flag - the percentage of persons with no high school diploma is in the 90th percentile (1 = yes, 0 = no) ",
+            "measurementMethod": "EPL_NOHSDP >= 0.90",
+            "name": "f_nohsdp"
+        },
+        {
+            "@id": "ohdsi_gis:7e17e42a7135/epl_mobile",
+            "@type": "PropertyValue",
+            "additionalType": "float8",
+            "description": "Percentile percentage mobile homes estimate",
+            "measurementMethod": "In Excel: PERCENTRANK.INC on EP_MOBILE array with 4 significant digits",
+            "name": "epl_mobile",
+            "unitsText": "percentile"
+        },
+        {
+            "@id": "ohdsi_gis:7e17e42a7135/e_noveh",
+            "@type": "PropertyValue",
+            "additionalType": "int4",
+            "description": "Households with no vehicle available estimate, 2016-2020 ACS",
+            "measurementMethod": "DP04_0058E",
+            "name": "e_noveh",
+            "unitsText": "households"
+        },
+        {
+            "@id": "ohdsi_gis:7e17e42a7135/f_unemp",
+            "@type": "PropertyValue",
+            "additionalType": "boolean",
+            "description": "Flag - the percentage of civilian unemployed is in the 90th percentile (1 = yes, 0 = no) ",
+            "measurementMethod": "EPL_UNEMP >= 0.90",
+            "name": "f_unemp"
+        },
+        {
+            "@id": "ohdsi_gis:7e17e42a7135/mp_asian",
+            "@type": "PropertyValue",
+            "additionalType": "float8",
+            "description": "Adjunct variable - Percentage of Asian, not Hispanic or Latino persons estimate MOE, 2016-2020 ACS",
+            "measurementMethod": "DP05_0080PM",
+            "name": "mp_asian",
+            "unitsText": "moe"
+        },
+        {
+            "@id": "ohdsi_gis:7e17e42a7135/f_noveh",
+            "@type": "PropertyValue",
+            "additionalType": "boolean",
+            "description": "Flag - the percentage of households with no vehicles is in the 90th percentile (1 = yes, 0 = no) ",
+            "measurementMethod": "EPL_NOVEH >= 0.90",
+            "name": "f_noveh"
+        },
+        {
+            "@id": "ohdsi_gis:7e17e42a7135/mp_unemp",
+            "@type": "PropertyValue",
+            "additionalType": "float8",
+            "description": "Unemployment Rate estimate MOE",
+            "measurementMethod": "DP03_0009PM",
+            "name": "mp_unemp",
+            "unitsText": "moe"
+        },
+        {
+            "@id": "ohdsi_gis:7e17e42a7135/f_disabl",
+            "@type": "PropertyValue",
+            "additionalType": "boolean",
+            "description": "Flag - the percentage of persons with a disability is in the 90th percentile (1 = yes, 0 = no) ",
+            "measurementMethod": "EPL_DISABL >= 0.90",
+            "name": "f_disabl"
+        },
+        {
+            "@id": "ohdsi_gis:7e17e42a7135/ep_nohsdp",
+            "@type": "PropertyValue",
+            "additionalType": "float8",
+            "description": "Percentage of persons with no high school diploma (age 25+) estimate",
+            "measurementMethod": "S0601_C01_033E",
+            "name": "ep_nohsdp",
+            "unitsText": "percent"
+        },
+        {
+            "@id": "ohdsi_gis:7e17e42a7135/m_limeng",
+            "@type": "PropertyValue",
+            "additionalType": "float8",
+            "description": "Persons (age 5+) who speak English less than well estimate MOE, 2016-2020 ACS",
+            "measurementMethod": "SQRT (B16005_007M ^2 + B16005_008M ^2 + B16005_012M ^2 + B16005_013M ^2 + B16005_017M ^2 + B16005_018M ^2 + B16005_022M ^2 + B16005_023M ^2 + B16005_029M ^2 + B16005_030M ^2 + B16005_034M ^2 + B16005_035M ^2 + B16005_039M ^2 + B16005_040M ^2 + B16005_044M ^2 + B16005_045M ^2)",
+            "name": "m_limeng",
+            "unitsText": "moe"
+        },
+        {
+            "@id": "ohdsi_gis:7e17e42a7135/f_uninsur",
+            "@type": "PropertyValue",
+            "additionalType": "boolean",
+            "description": "Flag - the percentage of uninsured is in the 90th percentile (1 = yes, 0 = no) ",
+            "measurementMethod": "EPL_UNINSUR >= 0.90",
+            "name": "f_uninsur"
+        },
+        {
+            "@id": "ohdsi_gis:7e17e42a7135/m_munit",
+            "@type": "PropertyValue",
+            "additionalType": "float8",
+            "description": "Housing in structures with 10 or more units estimate MOE, 2016-2020 ACS",
+            "measurementMethod": "SQRT (DP04_0012M ^2 + DP04_0013M ^2) ",
+            "name": "m_munit",
+            "unitsText": "moe"
+        },
+        {
+            "@id": "ohdsi_gis:7e17e42a7135/m_disabl",
+            "@type": "PropertyValue",
+            "additionalType": "float8",
+            "description": "Civilian noninstitutionalized population with a disability estimate MOE, 2016-2020 ACS",
+            "measurementMethod": "DP02_0072M",
+            "name": "m_disabl",
+            "unitsText": "moe"
+        },
+        {
+            "@id": "ohdsi_gis:7e17e42a7135/m_nhpi",
+            "@type": "PropertyValue",
+            "additionalType": "float8",
+            "description": "Adjunct variable - Native Hawaiian or Other Pacific Islander, not Hispanic or Latino persons estimate MOE, 2016-2020 ACS",
+            "measurementMethod": "DP05_0081M",
+            "name": "m_nhpi",
+            "unitsText": "moe"
+        },
+        {
+            "@id": "ohdsi_gis:7e17e42a7135/epl_noveh",
+            "@type": "PropertyValue",
+            "additionalType": "float8",
+            "description": "Percentile percentage households with no vehicle available estimate",
+            "measurementMethod": "In Excel: PERCENTRANK.INC on EP_NOVEH array with 4 significant digits",
+            "name": "epl_noveh",
+            "unitsText": "percentile"
+        },
+        {
+            "@id": "ohdsi_gis:7e17e42a7135/rpl_themes",
+            "@type": "PropertyValue",
+            "additionalType": "float8",
+            "description": "Overall percentile ranking",
+            "measurementMethod": "In Excel: PERCENTRANK.INC on SPL_THEMES array with 4 significant digits",
+            "name": "rpl_themes",
+            "unitsText": "percentile"
+        },
+        {
+            "@id": "ohdsi_gis:7e17e42a7135/f_theme2",
+            "@type": "PropertyValue",
+            "additionalType": "int4",
+            "description": "Sum of flags for Household Characteristics theme",
+            "measurementMethod": "F_AGE65 + F_AGE17 + F_DISABL + F_SNGPNT + F_LIMENG",
+            "name": "f_theme2"
+        },
+        {
+            "@id": "ohdsi_gis:7e17e42a7135/e_age65",
+            "@type": "PropertyValue",
+            "additionalType": "int4",
+            "description": "Persons aged 65 and older estimate, 2016-2020 ACS",
+            "measurementMethod": "S0101_C01_030E",
+            "name": "e_age65",
+            "unitsText": "persons"
+        },
+        {
+            "@id": "ohdsi_gis:7e17e42a7135/m_hisp",
+            "@type": "PropertyValue",
+            "additionalType": "float8",
+            "description": "Adjunct variable - Hispanic or Latino persons estimate MOE, 2016-2020 ACS",
+            "measurementMethod": "DP05_0071M",
+            "name": "m_hisp",
+            "unitsText": "moe"
+        },
+        {
+            "@id": "ohdsi_gis:7e17e42a7135/m_hh",
+            "@type": "PropertyValue",
+            "additionalType": "float8",
+            "description": "Households estimate MOE, 2016-2020 ACS",
+            "measurementMethod": "DP02_0001M",
+            "name": "m_hh",
+            "unitsText": "moe"
+        },
+        {
+            "@id": "ohdsi_gis:7e17e42a7135/m_noint",
+            "@type": "PropertyValue",
+            "additionalType": "float8",
+            "description": "Adjunct variable - Households without a computer with a broadband Internet subscription estimate MOE, 2016-2020 ACS",
+            "measurementMethod": "SQRT (S2802_C01_001M ^2 - S2802_C02_001M ^2)",
+            "name": "m_noint",
+            "unitsText": "moe"
+        },
+        {
+            "@id": "ohdsi_gis:7e17e42a7135/ep_crowd",
+            "@type": "PropertyValue",
+            "additionalType": "float8",
+            "description": "Percentage of occupied housing units with more people than rooms estimate",
+            "measurementMethod": "(E_CROWD / DP04_0002E) * 100",
+            "name": "ep_crowd",
+            "unitsText": "percent"
+        },
+        {
+            "@id": "ohdsi_gis:7e17e42a7135/epl_nohsdp",
+            "@type": "PropertyValue",
+            "additionalType": "float8",
+            "description": "Percentile percentage of persons with no high school diploma (age 25+) estimate",
+            "measurementMethod": "In Excel: PERCENTRANK.INC on EP_NOHSDP array with 4 significant digits",
+            "name": "epl_nohsdp",
+            "unitsText": "percentile"
+        },
+        {
+            "@id": "ohdsi_gis:7e17e42a7135/m_pov150",
+            "@type": "PropertyValue",
+            "additionalType": "float8",
+            "description": "Persons below 150% poverty estimate MOE, 2016-2020 ACS",
+            "measurementMethod": "S1701_C01_040M",
+            "name": "m_pov150",
+            "unitsText": "moe"
+        },
+        {
+            "@id": "ohdsi_gis:7e17e42a7135/f_munit",
+            "@type": "PropertyValue",
+            "additionalType": "boolean",
+            "description": "Flag - the percentage of households in multi-unit housing is in the 90th percentile (1 = yes, 0 = no)",
+            "measurementMethod": "EPL_MUNIT >= 0.90",
+            "name": "f_munit"
+        },
+        {
+            "@id": "ohdsi_gis:7e17e42a7135/ep_disabl",
+            "@type": "PropertyValue",
+            "additionalType": "float8",
+            "description": "Percentage of civilian noninstitutionalized population with a disability estimate, 2016-2020 ACS",
+            "measurementMethod": "DP02_0072PE",
+            "name": "ep_disabl",
+            "unitsText": "percent"
+        },
+        {
+            "@id": "ohdsi_gis:7e17e42a7135/mp_sngpnt",
+            "@type": "PropertyValue",
+            "additionalType": "float8",
+            "description": "Percentage of single-parent households with children under 18 estimate MOE, 2016-2020 ACS",
+            "measurementMethod": "((SQRT (M_SNGPNT^2 - ((EP_SNGPNT / 100)^2 * M_HH^2))) / E_HH) * 100",
+            "name": "mp_sngpnt",
+            "unitsText": "moe"
+        },
+        {
+            "@id": "ohdsi_gis:7e17e42a7135/m_nohsdp",
+            "@type": "PropertyValue",
+            "additionalType": "float8",
+            "description": "Persons (age 25+) with no high school diploma estimate MOE, 2016-2020 ACS",
+            "measurementMethod": "B06009_002M",
+            "name": "m_nohsdp",
+            "unitsText": "moe"
+        },
+        {
+            "@id": "ohdsi_gis:7e17e42a7135/m_age17",
+            "@type": "PropertyValue",
+            "additionalType": "float8",
+            "description": "Persons aged 17 and younger estimate MOE, 2016-2020 ACS",
+            "measurementMethod": "B09001_001M",
+            "name": "m_age17",
+            "unitsText": "moe"
+        },
+        {
+            "@id": "ohdsi_gis:7e17e42a7135/epl_age65",
+            "@type": "PropertyValue",
+            "additionalType": "float8",
+            "description": "Percentile percentage of persons aged 65 and older estimate",
+            "measurementMethod": "In Excel: PERCENTRANK.INC on EP_AGE65 array with 4 significant digits",
+            "name": "epl_age65",
+            "unitsText": "percentile"
+        },
+        {
+            "@id": "ohdsi_gis:7e17e42a7135/rpl_theme2",
+            "@type": "PropertyValue",
+            "additionalType": "float8",
+            "description": "Percentile ranking for Household Characteristics theme summary",
+            "measurementMethod": "In Excel: PERCENTRANK.INC on SPL_THEME2 array with 4 significant digits",
+            "name": "rpl_theme2",
+            "unitsText": "percentile"
+        },
+        {
+            "@id": "ohdsi_gis:7e17e42a7135/ep_munit",
+            "@type": "PropertyValue",
+            "additionalType": "float8",
+            "description": "Percentage of housing in structures with 10 or more units estimate",
+            "measurementMethod": "(E_MUNIT / E_HU) * 100",
+            "name": "ep_munit",
+            "unitsText": "percent"
+        },
+        {
+            "@id": "ohdsi_gis:7e17e42a7135/f_pov150",
+            "@type": "PropertyValue",
+            "additionalType": "boolean",
+            "description": "Flag - the percentage of persons below 150% poverty is in the 90th percentile (1 = yes, 0 = no)",
+            "measurementMethod": "EPL_POV150 >= 0.90",
+            "name": "f_pov150"
+        },
+        {
+            "@id": "ohdsi_gis:7e17e42a7135/m_crowd",
+            "@type": "PropertyValue",
+            "additionalType": "float8",
+            "description": "At household level (occupied housing units), more people than rooms estimate MOE, 2016-2020 ACS",
+            "measurementMethod": "SQRT (DP04_0078M ^2 + DP04_0079M ^2)",
+            "name": "m_crowd",
+            "unitsText": "moe"
+        },
+        {
+            "@id": "ohdsi_gis:7e17e42a7135/e_munit",
+            "@type": "PropertyValue",
+            "additionalType": "int4",
+            "description": "Housing in structures with 10 or more units estimate, 2016-2020 ACS",
+            "measurementMethod": "DP04_0012E + DP04_0013E",
+            "name": "e_munit",
+            "unitsText": "structures"
+        },
+        {
+            "@id": "ohdsi_gis:7e17e42a7135/location",
+            "@type": "PropertyValue",
+            "additionalType": "varchar",
+            "description": "Text description of tract, county, state",
+            "measurementMethod": "NAME",
+            "name": "location"
+        },
+        {
+            "@id": "ohdsi_gis:7e17e42a7135/e_age17",
+            "@type": "PropertyValue",
+            "additionalType": "int4",
+            "description": "Persons aged 17 and younger estimate, 2016-2020 ACS",
+            "measurementMethod": "B09001_001E",
+            "name": "e_age17",
+            "unitsText": "persons"
+        },
+        {
+            "@id": "ohdsi_gis:7e17e42a7135/e_noint",
+            "@type": "PropertyValue",
+            "additionalType": "int4",
+            "description": "Adjunct variable - Households without a computer with a broadband Internet subscription estimate, 2016-2020 ACS",
+            "measurementMethod": "S2802_C01_001E - S2802_C02_001E",
+            "name": "e_noint",
+            "unitsText": "households"
+        },
+        {
+            "@id": "ohdsi_gis:7e17e42a7135/m_mobile",
+            "@type": "PropertyValue",
+            "additionalType": "float8",
+            "description": "Mobile homes estimate MOE, 2016-2020 ACS",
+            "measurementMethod": "DP04_0014M",
+            "name": "m_mobile",
+            "unitsText": "moe"
+        },
+        {
+            "@id": "ohdsi_gis:7e17e42a7135/stcnty",
+            "@type": "PropertyValue",
+            "additionalType": "varchar",
+            "description": "County-level FIPS code",
+            "measurementMethod": "FIPS",
+            "name": "stcnty"
+        },
+        {
+            "@id": "ohdsi_gis:7e17e42a7135/e_daypop",
+            "@type": "PropertyValue",
+            "additionalType": "int4",
+            "description": "Adjunct variable - Estimated daytime population, LandScan 2020",
+            "name": "e_daypop",
+            "unitsText": "persons"
+        },
+        {
+            "@id": "ohdsi_gis:7e17e42a7135/ep_minrty",
+            "@type": "PropertyValue",
+            "additionalType": "float8",
+            "description": "Percentage minority (Hispanic or Latino (of any race) -- Black and African American, Not Hispanic or Latino -- American Indian and Alaska Native, Not Hispanic or Latino -- Asian, Not Hispanic or Latino -- Native Hawaiian and Other Pacific Islander, Not Hispanic or Latino -- Two or More Races, Not Hispanic or Latino -- Other Races, Not Hispanic or Latino) estimate, 2016-2020 ACS",
+            "measurementMethod": "(E_MINRTY / E_TOTPOP) * 100",
+            "name": "ep_minrty",
+            "unitsText": "percent"
+        },
+        {
+            "@id": "ohdsi_gis:7e17e42a7135/spl_theme1",
+            "@type": "PropertyValue",
+            "additionalType": "float8",
+            "description": "Sum of series for Socioeconomic Status theme",
+            "measurementMethod": "EPL_POV150 + EPL_UNEMP + EPL_HBURD + EPL_NOHSDP + EPL_UNINSUR",
+            "name": "spl_theme1",
+            "unitsText": "svi index"
+        },
+        {
+            "@id": "ohdsi_gis:7e17e42a7135/m_groupq",
+            "@type": "PropertyValue",
+            "additionalType": "float8",
+            "description": "Persons in group quarters estimate MOE, 2016-2020 ACS",
+            "measurementMethod": "B26001_001M",
+            "name": "m_groupq",
+            "unitsText": "moe"
+        },
+        {
+            "@id": "ohdsi_gis:7e17e42a7135/epl_disabl",
+            "@type": "PropertyValue",
+            "additionalType": "float8",
+            "description": "Percentile percentage of civilian noninstitutionalized population with a disability estimate",
+            "measurementMethod": "In Excel: PERCENTRANK.INC on EP_DISABL array with 4 significant digits",
+            "name": "epl_disabl",
+            "unitsText": "percentile"
+        },
+        {
+            "@id": "ohdsi_gis:7e17e42a7135/e_hh",
+            "@type": "PropertyValue",
+            "additionalType": "int4",
+            "description": "Households estimate, 2016-2020 ACS",
+            "measurementMethod": "DP02_0001E",
+            "name": "e_hh",
+            "unitsText": "households"
+        },
+        {
+            "@id": "ohdsi_gis:7e17e42a7135/ep_otherrace",
+            "@type": "PropertyValue",
+            "additionalType": "float8",
+            "description": "Adjunct variable - Percentage of some other race, not Hispanic or Latino persons estimate, 2016-2020 ACS",
+            "measurementMethod": "DP05_0082PE",
+            "name": "ep_otherrace",
+            "unitsText": "percent"
+        },
+        {
+            "@id": "ohdsi_gis:7e17e42a7135/ep_pov150",
+            "@type": "PropertyValue",
+            "additionalType": "float8",
+            "description": "Percentage of persons below 150% poverty estimate",
+            "measurementMethod": "(E_POV150 / S1701_C01_001E) * 100",
+            "name": "ep_pov150",
+            "unitsText": "percent"
+        },
+        {
+            "@id": "ohdsi_gis:7e17e42a7135/ep_groupq",
+            "@type": "PropertyValue",
+            "additionalType": "float8",
+            "description": "Percentage of persons in group quarters estimate, 2016-2020 ACS",
+            "measurementMethod": "(E_GROUPQ / E_TOTPOP) * 100",
+            "name": "ep_groupq",
+            "unitsText": "percent"
+        },
+        {
+            "@id": "ohdsi_gis:7e17e42a7135/e_sngpnt",
+            "@type": "PropertyValue",
+            "additionalType": "int4",
+            "description": "Single-parent household with children under 18 estimate, 2016-2020 ACS",
+            "measurementMethod": "B11012_010E + B11012_015E",
+            "name": "e_sngpnt",
+            "unitsText": "persons"
+        },
+        {
+            "@id": "ohdsi_gis:7e17e42a7135/m_uninsur",
+            "@type": "PropertyValue",
+            "additionalType": "float8",
+            "description": "Uninsured in the total civilian noninstitutionalized population estimate MOE, 2016-2020 ACS",
+            "measurementMethod": "S2701_C04_001M",
+            "name": "m_uninsur",
+            "unitsText": "moe"
+        },
+        {
+            "@id": "ohdsi_gis:7e17e42a7135/epl_minrty",
+            "@type": "PropertyValue",
+            "additionalType": "float8",
+            "description": "Percentile percentage minority (Hispanic or Latino (of any race) -- Black and African American, Not Hispanic or Latino -- American Indian and Alaska Native, Not Hispanic or Latino -- Asian, Not Hispanic or Latino -- Native Hawaiian and Other Pacific Islander, Not Hispanic or Latino -- Two or More Races, Not Hispanic or Latino -- Other Races, Not Hispanic or Latino) estimate",
+            "measurementMethod": "In Excel: PERCENTRANK.INC on EP_MINRTY array with 4 significant digits",
+            "name": "epl_minrty",
+            "unitsText": "percentile"
+        },
+        {
+            "@id": "ohdsi_gis:7e17e42a7135/e_minrty",
+            "@type": "PropertyValue",
+            "additionalType": "int4",
+            "description": "Minority (Hispanic or Latino (of any race) -- Black and African American, Not Hispanic or Latino -- American Indian and Alaska Native, Not Hispanic or Latino -- Asian, Not Hispanic or Latino -- Native Hawaiian and Other Pacific Islander, Not Hispanic or Latino -- Two or More Races, Not Hispanic or Latino -- Other Races, Not Hispanic or Latino) estimate, 2016-2020 ACS",
+            "measurementMethod": "DP05_0071E + DP05_0078E + DP05_0079E + DP05_0080E + DP05_0081E + DP05_0082E + DP05_0083E",
+            "name": "e_minrty",
+            "unitsText": "persons"
+        },
+        {
+            "@id": "ohdsi_gis:7e17e42a7135/ep_unemp",
+            "@type": "PropertyValue",
+            "additionalType": "float8",
+            "description": "Unemployment Rate estimate",
+            "measurementMethod": "DP03_0009PE",
+            "name": "ep_unemp",
+            "unitsText": "percent"
+        },
+        {
+            "@id": "ohdsi_gis:7e17e42a7135/spl_theme2",
+            "@type": "PropertyValue",
+            "additionalType": "float8",
+            "description": "Sum of series for Household Characteristics theme",
+            "measurementMethod": "EPL_AGE65 + EPL_AGE17 + EPL_DISABL + EPL_SNGPNT + EPL_LIMENG",
+            "name": "spl_theme2",
+            "unitsText": "svi index"
+        },
+        {
+            "@id": "ohdsi_gis:7e17e42a7135/f_minrty",
+            "@type": "PropertyValue",
+            "additionalType": "boolean",
+            "description": "Flag - the percentage of minority is in the 90th percentile (1 = yes, 0 = no)",
+            "measurementMethod": "EPL_MINRTY >= 0.90",
+            "name": "f_minrty"
+        },
+        {
+            "@id": "ohdsi_gis:7e17e42a7135/ep_noint",
+            "@type": "PropertyValue",
+            "additionalType": "float8",
+            "description": "Adjunct variable - Percentage of households without a computer with a broadband Internet subscription estimate, 2016-2020 ACS",
+            "measurementMethod": "(E_NOINT / S2802_C01_001E) * 100 ",
+            "name": "ep_noint",
+            "unitsText": "percent"
+        },
+        {
+            "@id": "ohdsi_gis:7e17e42a7135/m_age65",
+            "@type": "PropertyValue",
+            "additionalType": "float8",
+            "description": "Persons aged 65 and older estimate MOE, 2016-2020 ACS",
+            "measurementMethod": "S0101_C01_030M",
+            "name": "m_age65",
+            "unitsText": "moe"
+        },
+        {
+            "@id": "ohdsi_gis:7e17e42a7135/mp_minrty",
+            "@type": "PropertyValue",
+            "additionalType": "float8",
+            "description": "Percentage minority (Hispanic or Latino (of any race) -- Black and African American, Not Hispanic or Latino -- American Indian and Alaska Native, Not Hispanic or Latino -- Asian, Not Hispanic or Latino -- Native Hawaiian and Other Pacific Islander, Not Hispanic or Latino -- Two or More Races, Not Hispanic or Latino -- Other Races, Not Hispanic or Latino) estimate MOE, 2016-2020 ACS",
+            "measurementMethod": "((SQRT (M_MINRTY^2 - ((EP_MINRTY / 100)^2 * M_TOTPOP^2))) / E_TOTPOP) * 100",
+            "name": "mp_minrty",
+            "unitsText": "moe"
+        },
+        {
+            "@id": "ohdsi_gis:7e17e42a7135/mp_afam",
+            "@type": "PropertyValue",
+            "additionalType": "float8",
+            "description": "Adjunct variable - Percentage of Black/African American, not Hispanic or Latino persons estimate MOE, 2016-2020 ACS",
+            "measurementMethod": "DP05_0078PM",
+            "name": "mp_afam",
+            "unitsText": "moe"
+        },
+        {
+            "@id": "ohdsi_gis:7e17e42a7135/e_mobile",
+            "@type": "PropertyValue",
+            "additionalType": "int4",
+            "description": "Mobile homes estimate, 2016-2020 ACS",
+            "measurementMethod": "DP04_0014E",
+            "name": "e_mobile",
+            "unitsText": "mobile homes"
+        },
+        {
+            "@id": "ohdsi_gis:7e17e42a7135/f_theme3",
+            "@type": "PropertyValue",
+            "additionalType": "int4",
+            "description": "Sum of flags for Racial and Ethnic Minority Status theme",
+            "measurementMethod": "F_MINRTY",
+            "name": "f_theme3"
+        },
+        {
+            "@id": "ohdsi_gis:7e17e42a7135/f_theme1",
+            "@type": "PropertyValue",
+            "additionalType": "int4",
+            "description": "Sum of flags for Socioeconomic Status theme",
+            "measurementMethod": "F_POV150 + F_UNEMP + F_HBURD + F_NOHSDP + F_UNINSUR",
+            "name": "f_theme1"
+        },
+        {
+            "@id": "ohdsi_gis:7e17e42a7135/epl_groupq",
+            "@type": "PropertyValue",
+            "additionalType": "float8",
+            "description": "Percentile percentage of persons in group quarters estimate",
+            "measurementMethod": "In Excel: PERCENTRANK.INC on EP_GROUPQ array with 4 significant digits",
+            "name": "epl_groupq",
+            "unitsText": "percentile"
+        },
+        {
+            "@id": "ohdsi_gis:7e17e42a7135/spl_theme4",
+            "@type": "PropertyValue",
+            "additionalType": "float8",
+            "description": "Sum of series for Housing Type/ Transportation theme",
+            "measurementMethod": "EPL_MUNIT + EPL_MOBIL + EPL_CROWD + EPL_NOVEH + EPL_GROUPQ",
+            "name": "spl_theme4",
+            "unitsText": "svi index"
+        },
+        {
+            "@id": "ohdsi_gis:7e17e42a7135/e_nhpi",
+            "@type": "PropertyValue",
+            "additionalType": "int4",
+            "description": "Adjunct variable - Native Hawaiian or Other Pacific Islander, not Hispanic or Latino persons estimate, 2016-2020 ACS",
+            "measurementMethod": "DP05_0081E",
+            "name": "e_nhpi",
+            "unitsText": "persons"
+        },
+        {
+            "@id": "ohdsi_gis:7e17e42a7135/st",
+            "@type": "PropertyValue",
+            "additionalType": "varchar",
+            "description": "State-level FIPS code",
+            "measurementMethod": "FIPS",
+            "name": "st"
+        },
+        {
+            "@id": "ohdsi_gis:7e17e42a7135/mp_hburd",
+            "@type": "PropertyValue",
+            "additionalType": "float8",
+            "description": "Percentage of housing cost-burdened occupied housing units with annual income less than 5,000 (30%+ of income spent on housing costs) estimate MOE, 2016-2020 ACS",
+            "measurementMethod": "((SQRT (M_HBURD^2 - ((EP_HBURD / 100)^2 * S2503_C01_001M ^2))) / S2503_C01_001E) * 100",
+            "name": "mp_hburd",
+            "unitsText": "moe"
+        },
+        {
+            "@id": "ohdsi_gis:7e17e42a7135/m_afam",
+            "@type": "PropertyValue",
+            "additionalType": "float8",
+            "description": "Adjunct variable - Black/African American, not Hispanic or Latino persons estimate MOE, 2016-2020 ACS",
+            "measurementMethod": "DP05_0078M",
+            "name": "m_afam",
+            "unitsText": "moe"
+        },
+        {
+            "@id": "ohdsi_gis:7e17e42a7135/ep_limeng",
+            "@type": "PropertyValue",
+            "additionalType": "float8",
+            "description": "Percentage of persons (age 5+) who speak English less than well estimate, 2016-2020 ACS",
+            "measurementMethod": "(E_LIMENG / B16005_001E) * 100",
+            "name": "ep_limeng",
+            "unitsText": "percent"
+        },
+        {
+            "@id": "ohdsi_gis:7e17e42a7135/ep_mobile",
+            "@type": "PropertyValue",
+            "additionalType": "float8",
+            "description": "Percentage of mobile homes estimate",
+            "measurementMethod": "DP04_0014PE",
+            "name": "ep_mobile",
+            "unitsText": "percent"
+        },
+        {
+            "@id": "ohdsi_gis:7e17e42a7135/m_noveh",
+            "@type": "PropertyValue",
+            "additionalType": "float8",
+            "description": "Households with no vehicle available estimate MOE, 2016-2020 ACS",
+            "measurementMethod": "DP04_0058M",
+            "name": "m_noveh",
+            "unitsText": "moe"
+        },
+        {
+            "@id": "ohdsi_gis:7e17e42a7135/mp_aian",
+            "@type": "PropertyValue",
+            "additionalType": "float8",
+            "description": "Adjunct variable - Percentage of American Indian or Alaska Native, not Hispanic or Latino persons estimate MOE, 2016-2020 ACS",
+            "measurementMethod": "DP05_0079PM",
+            "name": "mp_aian",
+            "unitsText": "moe"
+        },
+        {
+            "@id": "ohdsi_gis:7e17e42a7135/ep_twomore",
+            "@type": "PropertyValue",
+            "additionalType": "float8",
+            "description": "Adjunct variable - Percentage of two or more races, not Hispanic or Latino persons estimate, 2016-2020 ACS",
+            "measurementMethod": "DP05_0083PE",
+            "name": "ep_twomore",
+            "unitsText": "percent"
+        },
+        {
+            "@id": "ohdsi_gis:7e17e42a7135/spl_theme3",
+            "@type": "PropertyValue",
+            "additionalType": "float8",
+            "description": "Sum of series for Racial and Ethnic Minority Status theme",
+            "measurementMethod": "EPL_MINRTY",
+            "name": "spl_theme3",
+            "unitsText": "svi index"
+        },
+        {
+            "@id": "ohdsi_gis:7e17e42a7135/m_twomore",
+            "@type": "PropertyValue",
+            "additionalType": "float8",
+            "description": "Adjunct variable - Two or more races, not Hispanic or Latino persons estimate MOE, 2016-2020 ACS",
+            "measurementMethod": "DP05_0083M",
+            "name": "m_twomore",
+            "unitsText": "moe"
+        },
+        {
+            "@id": "ohdsi_gis:7e17e42a7135/rpl_theme1",
+            "@type": "PropertyValue",
+            "additionalType": "float8",
+            "description": "Percentile ranking for Socioeconomic Status theme summary",
+            "measurementMethod": "In Excel: PERCENTRANK.INC on SPL_THEME1 array with 4 significant digits",
+            "name": "rpl_theme1",
+            "unitsText": "moe"
+        },
+        {
+            "@id": "ohdsi_gis:7e17e42a7135/epl_crowd",
+            "@type": "PropertyValue",
+            "additionalType": "float8",
+            "description": "Percentile percentage households with more people than rooms estimate",
+            "measurementMethod": "In Excel: PERCENTRANK.INC on EP_CROWD array with 4 significant digits",
+            "name": "epl_crowd",
+            "unitsText": "percentile"
+        },
+        {
+            "@id": "ohdsi_gis:7e17e42a7135/e_disabl",
+            "@type": "PropertyValue",
+            "additionalType": "int4",
+            "description": "Civilian noninstitutionalized population with a disability estimate, 2016-2020 ACS",
+            "measurementMethod": "DP02_0072E",
+            "name": "e_disabl",
+            "unitsText": "persons"
+        },
+        {
+            "@id": "ohdsi_gis:7e17e42a7135/mp_age17",
+            "@type": "PropertyValue",
+            "additionalType": "float8",
+            "description": "Percentage of persons aged 17 and younger estimate MOE, 2016-2020 ACS",
+            "measurementMethod": "((SQRT (M_AGE17^2 - ((EP_AGE17 / 100)^2 * M_TOTPOP^2))) / E_TOTPOP) * 100",
+            "name": "mp_age17",
+            "unitsText": "moe"
+        },
+        {
+            "@id": "ohdsi_gis:7e17e42a7135/mp_noint",
+            "@type": "PropertyValue",
+            "additionalType": "float8",
+            "description": "Adjunct variable - Percentage of households without a computer with a broadband Internet subscription estimate MOE, 2016-2020 ACS",
+            "measurementMethod": "((SQRT (M_NOINT^2 - ((EP_NOINT / 100)^2 * S2802_C01_001M^2))) / S2802_C01_001M) * 100",
+            "name": "mp_noint",
+            "unitsText": "moe"
+        },
+        {
+            "@id": "ohdsi_gis:7e17e42a7135/epl_munit",
+            "@type": "PropertyValue",
+            "additionalType": "float8",
+            "description": "Percentile percentage housing in structures with 10 or more units estimate",
+            "measurementMethod": "In Excel: PERCENTRANK.INC on EP_MUNIT array with 4 significant digits",
+            "name": "epl_munit",
+            "unitsText": "percentile"
+        },
+        {
+            "@id": "ohdsi_gis:7e17e42a7135/mp_twomore",
+            "@type": "PropertyValue",
+            "additionalType": "float8",
+            "description": "Adjunct variable - Percentage of two or more races, not Hispanic or Latino persons estimate MOE, 2016-2020 ACS",
+            "measurementMethod": "DP05_0083PM",
+            "name": "mp_twomore",
+            "unitsText": "moe"
+        },
+        {
+            "@id": "ohdsi_gis:7e17e42a7135/ep_afam",
+            "@type": "PropertyValue",
+            "additionalType": "float8",
+            "description": "Adjunct variable - Percentage of Black/African American, not Hispanic or Latino persons estimate, 2016-2020 ACS",
+            "measurementMethod": "DP05_0078PE",
+            "name": "ep_afam",
+            "unitsText": "percent"
+        },
+        {
+            "@id": "ohdsi_gis:7e17e42a7135/e_twomore",
+            "@type": "PropertyValue",
+            "additionalType": "int4",
+            "description": "Adjunct variable - Two or more races, not Hispanic or Latino persons estimate, 2016-2020 ACS",
+            "measurementMethod": "DP05_0083E",
+            "name": "e_twomore",
+            "unitsText": "persons"
+        },
+        {
+            "@id": "ohdsi_gis:7e17e42a7135/ep_hisp",
+            "@type": "PropertyValue",
+            "additionalType": "float8",
+            "description": "Adjunct variable - Percentage of Hispanic or Latino persons estimate, 2016-2020 ACS",
+            "measurementMethod": "DP05_0071PE",
+            "name": "ep_hisp",
+            "unitsText": "percent"
+        },
+        {
+            "@id": "ohdsi_gis:7e17e42a7135/m_sngpnt",
+            "@type": "PropertyValue",
+            "additionalType": "float8",
+            "description": "Single-parent household with children under 18 estimate MOE, 2016-2020 ACS",
+            "measurementMethod": "SQRT (B11012_010M ^2 + B11012_015M ^2) ",
+            "name": "m_sngpnt",
+            "unitsText": "moe"
+        },
+        {
+            "@id": "ohdsi_gis:7e17e42a7135/mp_limeng",
+            "@type": "PropertyValue",
+            "additionalType": "float8",
+            "description": "Percentage of persons (age 5+) who speak English less than well estimate MOE, 2016-2020 ACS",
+            "measurementMethod": "((SQRT (M_LIMENG^2 - ((EP_LIMENG / 100)^2 * B16005_001M ^2))) / B16005_001E) * 100",
+            "name": "mp_limeng",
+            "unitsText": "moe"
+        },
+        {
+            "@id": "ohdsi_gis:7e17e42a7135/m_hburd",
+            "@type": "PropertyValue",
+            "additionalType": "float8",
+            "description": "Housing cost-burdened occupied housing units with annual income less than 5,000 (30%+ of income spent on housing costs) estimate MOE, 2016-2020 ACS",
+            "measurementMethod": "SQRT (S2503_C01_028M ^2 + S2503_C01_032M ^2 + S2503_C01_036M ^2 + S2503_C01_040M ^2) ",
+            "name": "m_hburd",
+            "unitsText": "moe"
+        },
+        {
+            "@id": "ohdsi_gis:7e17e42a7135/area_sqmi",
+            "@type": "PropertyValue",
+            "additionalType": "float8",
+            "description": "Tract area in square miles",
+            "measurementMethod": "ALAND * 3.86102e-7",
+            "name": "area_sqmi",
+            "unitsText": "square miles"
+        },
+        {
+            "@id": "ohdsi_gis:7e17e42a7135/f_age65",
+            "@type": "PropertyValue",
+            "additionalType": "boolean",
+            "description": "Flag - the percentage of persons aged 65 and older is in the 90th percentile (1 = yes, 0 = no) ",
+            "measurementMethod": "EPL_AGE65 >= 0.90",
+            "name": "f_age65"
+        },
+        {
+            "@id": "ohdsi_gis:7e17e42a7135/e_nohsdp",
+            "@type": "PropertyValue",
+            "additionalType": "int4",
+            "description": "Persons (age 25+) with no high school diploma estimate, 2016-2020 ACS",
+            "measurementMethod": "B06009_002E",
+            "name": "e_nohsdp",
+            "unitsText": "persons"
+        },
+        {
+            "@id": "ohdsi_gis:7e17e42a7135/m_otherrace",
+            "@type": "PropertyValue",
+            "additionalType": "float8",
+            "description": "Adjunct variable - Some other race, not Hispanic or Latino persons estimate MOE, 2016-2020 ACS",
+            "measurementMethod": "DP05_0082M",
+            "name": "m_otherrace",
+            "unitsText": "moe"
+        }
+    ]
+}

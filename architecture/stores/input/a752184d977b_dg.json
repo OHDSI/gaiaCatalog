@@ -1,0 +1,243 @@
+{
+    "@context": {
+        "@vocab": "https://schema.org/",
+        "ohdsi_gis": "https://ohdsi_gis.org/.well-known/genid/",
+        "geosparql": "http://www.opengis.net/ont/geosparql#"
+    },
+    "@id": "http://ohdsi_gis.org/id/a752184d977b",
+    "@type": "Dataset",
+    "geosparql:hasGeometry": {
+        "@id": "ohdsi_gis:geo/a752184d977b",
+        "@type": "http://www.opengis.net/ont/sf#Polygon",
+        "geosparql:asWKT": {
+            "@type": "geosparql:wktLiteral",
+            "@value": "POLYGON ((-80.5015677626642 25.4330795932063, -80.5015677626642 25.9746837255424, -80.1266706651068 25.9746837255424, -80.1266706651068 25.4330795932063, -80.5015677626642 25.4330795932063))"
+        }
+    },
+    "description": "A polygon feature class with all population census tracts designated as Qualified Opportunity Zones (QOZs) as well as all population census tracts originally eligible for designation as a QOZ for purposes of 1400Z1 and 1400Z2 of the Internal Revenue Code (the Code). To identify areas designated as Qualified Opportunity Zones (QOZs). An Opportunity Zone is an economically-distressed community where new investments, under certain conditions, may be eligible for preferential tax treatment.",
+    "keywords": [
+        "Regulation",
+        "Qualified Opportunity Zone",
+        "Development",
+        "Population",
+        "Planning",
+        "Miami-Dade County",
+        "Infrastructure",
+        "Florida",
+        "MDC",
+        "Property"
+    ],
+    "license": "Miami-Dade County provides this data for use as is. The areas depicted by this map/data are approximate, and are not accurate to surveying or engineering standards. The maps/data shown here are for illustration purposes only and are not suitable for site-specific decision making. Information found here should not be used for making financial or any other commitments. Miami-Dade County provides this information with the understanding that it is not guaranteed to be accurate, correct or complete and conclusions drawn from such information are the sole responsibility of the user. While every effort has been made to ensure the accuracy, correctness and timeliness of materials presented, Miami-Dade County assumes no responsibility for errors or omissions, even if Miami-Dade County is advised of the possibility of such damage.",
+    "name": "Miami-Dade Qualified Opportunity Zones",
+    "publisher": {
+        "@type": "http://www.w3.org/2000/01/rdf-schema#Literal",
+        "@value": "Miami-Dade County Public Domain"
+    },
+    "spatialCoverage": {
+        "@id": "ohdsi_gis:a752184d977b",
+        "@type": "Place",
+        "name": "Miami-Dade County"
+    },
+    "variableMeasured": [
+        {
+            "@id": "ohdsi_gis:a752184d977b/shape__length",
+            "@type": "PropertyValue",
+            "additionalType": "double",
+            "description": "Length of zone",
+            "measurementMethod": "Esri",
+            "name": "shape__length"
+        },
+        {
+            "@id": "ohdsi_gis:a752184d977b/geoid10",
+            "@type": "PropertyValue",
+            "additionalType": "Census",
+            "description": "Census Track identifier",
+            "measurementMethod": " a concatenation of 2010 Census state FIPS code, county FIPS code, and census tract code",
+            "name": "geoid10",
+            "unitsText": "string"
+        },
+        {
+            "@id": "ohdsi_gis:a752184d977b/objectid",
+            "@type": "PropertyValue",
+            "additionalType": "oid",
+            "description": "Unique identifier",
+            "measurementMethod": "Esri",
+            "name": "objectid"
+        },
+        {
+            "@id": "ohdsi_gis:a752184d977b/p0020007",
+            "@type": "PropertyValue",
+            "additionalType": "integer",
+            "description": "American Indian and Alaska Native population alone",
+            "measurementMethod": "Census",
+            "name": "p0020007"
+        },
+        {
+            "@id": "ohdsi_gis:a752184d977b/intptlon10",
+            "@type": "PropertyValue",
+            "additionalType": "string",
+            "description": "2010 Census longitude of the internal point",
+            "measurementMethod": "Census",
+            "name": "intptlon10"
+        },
+        {
+            "@id": "ohdsi_gis:a752184d977b/intptlat10",
+            "@type": "PropertyValue",
+            "additionalType": "string",
+            "description": "2010 Census latitude of the internal point",
+            "measurementMethod": "Census",
+            "name": "intptlat10"
+        },
+        {
+            "@id": "ohdsi_gis:a752184d977b/p0020002",
+            "@type": "PropertyValue",
+            "additionalType": "integer",
+            "description": "Total population",
+            "measurementMethod": "Census",
+            "name": "p0020002"
+        },
+        {
+            "@id": "ohdsi_gis:a752184d977b/p0020009",
+            "@type": "PropertyValue",
+            "additionalType": "integer",
+            "description": "Native Hawaiian and Other Pacific Islander population alone",
+            "measurementMethod": "Census",
+            "name": "p0020009"
+        },
+        {
+            "@id": "ohdsi_gis:a752184d977b/statefp10",
+            "@type": "PropertyValue",
+            "additionalType": "string",
+            "description": "2010 Census state FIPS code",
+            "measurementMethod": "Census",
+            "name": "statefp10"
+        },
+        {
+            "@id": "ohdsi_gis:a752184d977b/countyfp10",
+            "@type": "PropertyValue",
+            "additionalType": "string",
+            "description": "2010 Census county FIPS code",
+            "measurementMethod": "Census",
+            "name": "countyfp10"
+        },
+        {
+            "@id": "ohdsi_gis:a752184d977b/p0020008",
+            "@type": "PropertyValue",
+            "additionalType": "integer",
+            "description": "Asian population alone",
+            "measurementMethod": "Census",
+            "name": "p0020008"
+        },
+        {
+            "@id": "ohdsi_gis:a752184d977b/aland10",
+            "@type": "PropertyValue",
+            "additionalType": "integer",
+            "description": "2010 Census land area",
+            "measurementMethod": "Census",
+            "name": "aland10"
+        },
+        {
+            "@id": "ohdsi_gis:a752184d977b/awater10",
+            "@type": "PropertyValue",
+            "additionalType": "integer",
+            "description": "2010 Census water area",
+            "measurementMethod": "Census",
+            "name": "awater10"
+        },
+        {
+            "@id": "ohdsi_gis:a752184d977b/funcstat10",
+            "@type": "PropertyValue",
+            "additionalType": "string",
+            "description": "2010 Census functional status",
+            "measurementMethod": "Census",
+            "name": "funcstat10"
+        },
+        {
+            "@id": "ohdsi_gis:a752184d977b/hu100",
+            "@type": "PropertyValue",
+            "additionalType": "string",
+            "description": "The 100% count of housing units for the zone",
+            "measurementMethod": "Census",
+            "name": "hu100"
+        },
+        {
+            "@id": "ohdsi_gis:a752184d977b/name10",
+            "@type": "PropertyValue",
+            "additionalType": "string",
+            "description": "Census tract name, this is the census tract code converted to an integer or integer plus two-digit decimal if the last two characters of the code are not both zeros",
+            "measurementMethod": "Census",
+            "name": "name10"
+        },
+        {
+            "@id": "ohdsi_gis:a752184d977b/pop100",
+            "@type": "PropertyValue",
+            "description": "100% population count for the zone",
+            "measurementMethod": "string",
+            "name": "pop100"
+        },
+        {
+            "@id": "ohdsi_gis:a752184d977b/p0020005",
+            "@type": "PropertyValue",
+            "additionalType": "integer",
+            "description": "White population alone",
+            "measurementMethod": "Census",
+            "name": "p0020005"
+        },
+        {
+            "@id": "ohdsi_gis:a752184d977b/p0020010",
+            "@type": "PropertyValue",
+            "additionalType": "integer",
+            "description": "Some Other Race alone",
+            "measurementMethod": "Census",
+            "name": "p0020010"
+        },
+        {
+            "@id": "ohdsi_gis:a752184d977b/mtfcc10",
+            "@type": "PropertyValue",
+            "additionalType": "string",
+            "description": "maf/tiger feature class code (G5020)",
+            "measurementMethod": "Census",
+            "name": "mtfcc10"
+        },
+        {
+            "@id": "ohdsi_gis:a752184d977b/p0020006",
+            "@type": "PropertyValue",
+            "additionalType": "integer",
+            "description": "Black or African American population alone",
+            "measurementMethod": "Census",
+            "name": "p0020006"
+        },
+        {
+            "@id": "ohdsi_gis:a752184d977b/shape__area",
+            "@type": "PropertyValue",
+            "additionalType": "double",
+            "description": "Area of zone",
+            "measurementMethod": "Esri",
+            "name": "shape__area"
+        },
+        {
+            "@id": "ohdsi_gis:a752184d977b/tractce10",
+            "@type": "PropertyValue",
+            "additionalType": "string",
+            "description": "2010 Census tract code",
+            "measurementMethod": "Census",
+            "name": "tractce10"
+        },
+        {
+            "@id": "ohdsi_gis:a752184d977b/namelsad10",
+            "@type": "PropertyValue",
+            "additionalType": "string",
+            "description": "2010 Census translated legal/statistical area description and the census tract name",
+            "measurementMethod": "Census",
+            "name": "namelsad10"
+        },
+        {
+            "@id": "ohdsi_gis:a752184d977b/p0020011",
+            "@type": "PropertyValue",
+            "additionalType": "integer",
+            "description": "Population of two or more races",
+            "measurementMethod": "Census",
+            "name": "p0020011"
+        }
+    ]
+}

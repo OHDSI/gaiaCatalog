@@ -1,0 +1,47 @@
+{
+    "@context": {
+        "@vocab": "https://schema.org/",
+        "ohdsi_gis": "https://ohdsi_gis.org/.well-known/genid/",
+        "geosparql": "http://www.opengis.net/ont/geosparql#"
+    },
+    "@id": "http://ohdsi_gis.org/id/4b0fe7a62a8a",
+    "@type": "Dataset",
+    "geosparql:hasGeometry": {
+        "@id": "ohdsi_gis:geo/4b0fe7a62a8a",
+        "@type": "http://www.opengis.net/ont/sf#Polygon",
+        "geosparql:asWKT": {
+            "@type": "geosparql:wktLiteral",
+            "@value": "POLYGON ((-80.87347712889816 25.13747326228788, -80.87347712889816 25.975242092415876, -80.11745498925018 25.975242092415876, -80.11745498925018 25.13747326228788, -80.87347712889816 25.13747326228788))"
+        }
+    },
+    "description": "A storm surge risk map created by NOAA utilizing the Sea, Lake, and Overland Surges from hurricanes (SLOSH) model. Storm surge composites \u2013 Maximum Envelopes of Water (MEOWs) and Maximum of MEOWs (MOMs) \u2013 are created to assess and visualize storm surge risk under varying conditions.\\n\\nMaximum of MEOWs (MOMs) in the attribute table represents the Maximum Envelopes of Water (MEOWs). MEOWs are created by computing the maximum storm surge resulting from up to 100,000 hypothetical storms simulated through each SLOSH grid of varying forward speed, radius of maximum wind, intensity (Categories 1-5), landfall location, tide level, and storm direction. This SLOSH model is based on category 2 storms and has been clipped to Miami-Dade County. This a vector (polygon) version of the original raster model.",
+    "keywords": [
+        "Vector",
+        "SLOSH",
+        "Florida",
+        "Miami-Dade County",
+        "Cat2",
+        "MDC",
+        "Water"
+    ],
+    "license": "The data and maps in this tool illustrate the height of possible storm surge flooding under certain scenarios, and do not account for erosion, subsidence, sea-level change or future construction. Water levels are based on storm surge scenarios in the referenced SLOSH MOM tide scenario. The data, maps, and information provided should only be used as a tool for general education/awareness of the storm surge hazard at a city/community level (not for a parcel level/grid cell assessment). The SLOSH MOM storm surge risk data used to create these maps are constrained by the extent of the SLOSH grids and users should be aware that risk due to storm surge flooding could extend beyond the areas depicted in these maps. This map should not be used to replace the maps used for hurricane evacuation zones. Hurricane evacuation zones are drawn at a local and state level and consider additional information and specific criteria for a particular region in addition to the storm surge hazard. Users are urged to consult local officials for flood risk inside the hatched areas marked as leveed areas in the map. The data and maps in this tool are provided as is, without warranty to their performance, merchantable state, or fitness for any particular purpose. The entire risk associated with the results and performance of these data is assumed by the user. This tool should be used strictly as a planning reference and storm surge risk awareness tool and not for navigation, permitting, legal, or regulatory purposes. Any conclusions drawn from the analysis of this information are not the responsibility of the National Weather Service, National Hurricane Center, Office for Coastal Management, or its partners.",
+    "name": "Miami-Dade SLOSH Cat 2 Vector",
+    "publisher": {
+        "@type": "http://www.w3.org/2000/01/rdf-schema#Literal",
+        "@value": "University of Miami GDSC Public Domain"
+    },
+    "spatialCoverage": {
+        "@id": "ohdsi_gis:4b0fe7a62a8a",
+        "@type": "Place",
+        "name": "Miami-Dade County"
+    },
+    "variableMeasured": {
+        "@id": "ohdsi_gis:4b0fe7a62a8a/max_meows",
+        "@type": "PropertyValue",
+        "additionalType": "integer",
+        "description": "Maximum Envelopes of Water (MEOWs) based on category 2 storms",
+        "measurementMethod": "maximum storm surge resulting from up to 100,000 hypothetical storms",
+        "name": "max_meows",
+        "unitsText": "feet"
+    }
+}

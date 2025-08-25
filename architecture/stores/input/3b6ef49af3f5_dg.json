@@ -1,0 +1,727 @@
+{
+    "@context": {
+        "@vocab": "https://schema.org/",
+        "ohdsi_gis": "https://ohdsi_gis.org/.well-known/genid/",
+        "geosparql": "http://www.opengis.net/ont/geosparql#"
+    },
+    "@id": "http://ohdsi_gis.org/id/3b6ef49af3f5",
+    "@type": "Dataset",
+    "geosparql:hasGeometry": {
+        "@id": "ohdsi_gis:geo/3b6ef49af3f5",
+        "@type": "http://www.opengis.net/ont/sf#Polygon",
+        "geosparql:asWKT": {
+            "@type": "geosparql:wktLiteral",
+            "@value": "POLYGON ((-165.39185799988 13.4025999991956, -165.39185799988 64.8408589991176, -64.7191000000094 64.8408589991176, -64.7191000000094 13.4025999991956, -165.39185799988 13.4025999991956))"
+        }
+    },
+    "description": "Denotes the general position of Public Housing Developments by providing the location of the building with the largest number of units in a Development\u2019s community.\\n\\nHUD furnishes technical and professional assistance in planning, developing and managing these developments. Public Housing Developments are depicted as a distinct address chosen to represent the general location of an entire Public Housing Development, which may be comprised of several buildings scattered across a community. The building with the largest number of units is selected to represent the location of the development. \\n",
+    "keywords": [
+        "Infrastructure",
+        "Florida",
+        "MDC",
+        "Property",
+        "HUD",
+        "Housing",
+        "Development",
+        "Public Housing Development",
+        "Public Housing",
+        "Miami-Dade County"
+    ],
+    "name": "Miami-Dade Public Housing Developments",
+    "publisher": {
+        "@type": "http://www.w3.org/2000/01/rdf-schema#Literal",
+        "@value": "Office of Policy Development and Research Public Domain"
+    },
+    "spatialCoverage": {
+        "@id": "ohdsi_gis:3b6ef49af3f5",
+        "@type": "Place",
+        "name": "United States"
+    },
+    "variableMeasured": [
+        {
+            "@id": "ohdsi_gis:3b6ef49af3f5/pct_native_american",
+            "@type": "PropertyValue",
+            "name": "pct_native_american"
+        },
+        {
+            "@id": "ohdsi_gis:3b6ef49af3f5/exec_dir_email",
+            "@type": "PropertyValue",
+            "name": "exec_dir_email"
+        },
+        {
+            "@id": "ohdsi_gis:3b6ef49af3f5/pct_15k_lt20k",
+            "@type": "PropertyValue",
+            "name": "pct_15k_lt20k"
+        },
+        {
+            "@id": "ohdsi_gis:3b6ef49af3f5/tpoverty",
+            "@type": "PropertyValue",
+            "name": "tpoverty"
+        },
+        {
+            "@id": "ohdsi_gis:3b6ef49af3f5/rent_per_month",
+            "@type": "PropertyValue",
+            "name": "rent_per_month"
+        },
+        {
+            "@id": "ohdsi_gis:3b6ef49af3f5/ha_email_addr_text",
+            "@type": "PropertyValue",
+            "name": "ha_email_addr_text"
+        },
+        {
+            "@id": "ohdsi_gis:3b6ef49af3f5/people_per_unit",
+            "@type": "PropertyValue",
+            "name": "people_per_unit"
+        },
+        {
+            "@id": "ohdsi_gis:3b6ef49af3f5/pct_median",
+            "@type": "PropertyValue",
+            "name": "pct_median"
+        },
+        {
+            "@id": "ohdsi_gis:3b6ef49af3f5/apt_type",
+            "@type": "PropertyValue",
+            "name": "apt_type"
+        },
+        {
+            "@id": "ohdsi_gis:3b6ef49af3f5/eldly_prcnt",
+            "@type": "PropertyValue",
+            "name": "eldly_prcnt"
+        },
+        {
+            "@id": "ohdsi_gis:3b6ef49af3f5/development_code",
+            "@type": "PropertyValue",
+            "name": "development_code"
+        },
+        {
+            "@id": "ohdsi_gis:3b6ef49af3f5/c1psrc",
+            "@type": "PropertyValue",
+            "name": "c1psrc"
+        },
+        {
+            "@id": "ohdsi_gis:3b6ef49af3f5/curcosub",
+            "@type": "PropertyValue",
+            "name": "curcosub"
+        },
+        {
+            "@id": "ohdsi_gis:3b6ef49af3f5/place_nm2kx",
+            "@type": "PropertyValue",
+            "name": "place_nm2kx"
+        },
+        {
+            "@id": "ohdsi_gis:3b6ef49af3f5/pct_reported",
+            "@type": "PropertyValue",
+            "name": "pct_reported"
+        },
+        {
+            "@id": "ohdsi_gis:3b6ef49af3f5/tract_level",
+            "@type": "PropertyValue",
+            "name": "tract_level"
+        },
+        {
+            "@id": "ohdsi_gis:3b6ef49af3f5/pct_disabled_lt62_all",
+            "@type": "PropertyValue",
+            "name": "pct_disabled_lt62_all"
+        },
+        {
+            "@id": "ohdsi_gis:3b6ef49af3f5/pct_disabled_all",
+            "@type": "PropertyValue",
+            "name": "pct_disabled_all"
+        },
+        {
+            "@id": "ohdsi_gis:3b6ef49af3f5/lon",
+            "@type": "PropertyValue",
+            "name": "lon"
+        },
+        {
+            "@id": "ohdsi_gis:3b6ef49af3f5/total_occupied",
+            "@type": "PropertyValue",
+            "name": "total_occupied"
+        },
+        {
+            "@id": "ohdsi_gis:3b6ef49af3f5/pct_wage_major",
+            "@type": "PropertyValue",
+            "name": "pct_wage_major"
+        },
+        {
+            "@id": "ohdsi_gis:3b6ef49af3f5/cbsa_nm",
+            "@type": "PropertyValue",
+            "name": "cbsa_nm"
+        },
+        {
+            "@id": "ohdsi_gis:3b6ef49af3f5/median_inc_amnt",
+            "@type": "PropertyValue",
+            "name": "median_inc_amnt"
+        },
+        {
+            "@id": "ohdsi_gis:3b6ef49af3f5/c1pdrc",
+            "@type": "PropertyValue",
+            "name": "c1pdrc"
+        },
+        {
+            "@id": "ohdsi_gis:3b6ef49af3f5/pct_welfare_major",
+            "@type": "PropertyValue",
+            "name": "pct_welfare_major"
+        },
+        {
+            "@id": "ohdsi_gis:3b6ef49af3f5/people_total",
+            "@type": "PropertyValue",
+            "name": "people_total"
+        },
+        {
+            "@id": "ohdsi_gis:3b6ef49af3f5/pct_10k_lt15k",
+            "@type": "PropertyValue",
+            "name": "pct_10k_lt15k"
+        },
+        {
+            "@id": "ohdsi_gis:3b6ef49af3f5/pct_age25_50",
+            "@type": "PropertyValue",
+            "name": "pct_age25_50"
+        },
+        {
+            "@id": "ohdsi_gis:3b6ef49af3f5/dpvact",
+            "@type": "PropertyValue",
+            "name": "dpvact"
+        },
+        {
+            "@id": "ohdsi_gis:3b6ef49af3f5/hh_income",
+            "@type": "PropertyValue",
+            "name": "hh_income"
+        },
+        {
+            "@id": "ohdsi_gis:3b6ef49af3f5/lvl2kx",
+            "@type": "PropertyValue",
+            "name": "lvl2kx"
+        },
+        {
+            "@id": "ohdsi_gis:3b6ef49af3f5/cbsa",
+            "@type": "PropertyValue",
+            "name": "cbsa"
+        },
+        {
+            "@id": "ohdsi_gis:3b6ef49af3f5/total_units",
+            "@type": "PropertyValue",
+            "name": "total_units"
+        },
+        {
+            "@id": "ohdsi_gis:3b6ef49af3f5/zip_class",
+            "@type": "PropertyValue",
+            "name": "zip_class"
+        },
+        {
+            "@id": "ohdsi_gis:3b6ef49af3f5/last_updt_dttm",
+            "@type": "PropertyValue",
+            "name": "last_updt_dttm"
+        },
+        {
+            "@id": "ohdsi_gis:3b6ef49af3f5/place_cc2kx",
+            "@type": "PropertyValue",
+            "name": "place_cc2kx"
+        },
+        {
+            "@id": "ohdsi_gis:3b6ef49af3f5/std_zip9",
+            "@type": "PropertyValue",
+            "name": "std_zip9"
+        },
+        {
+            "@id": "ohdsi_gis:3b6ef49af3f5/dpvrc",
+            "@type": "PropertyValue",
+            "name": "dpvrc"
+        },
+        {
+            "@id": "ohdsi_gis:3b6ef49af3f5/formal_participant_name",
+            "@type": "PropertyValue",
+            "name": "formal_participant_name"
+        },
+        {
+            "@id": "ohdsi_gis:3b6ef49af3f5/pct_5k_lt10k",
+            "@type": "PropertyValue",
+            "name": "pct_5k_lt10k"
+        },
+        {
+            "@id": "ohdsi_gis:3b6ef49af3f5/tminority",
+            "@type": "PropertyValue",
+            "name": "tminority"
+        },
+        {
+            "@id": "ohdsi_gis:3b6ef49af3f5/zcta2kx",
+            "@type": "PropertyValue",
+            "name": "zcta2kx"
+        },
+        {
+            "@id": "ohdsi_gis:3b6ef49af3f5/dpbc_cksum",
+            "@type": "PropertyValue",
+            "name": "dpbc_cksum"
+        },
+        {
+            "@id": "ohdsi_gis:3b6ef49af3f5/dpv",
+            "@type": "PropertyValue",
+            "name": "dpv"
+        },
+        {
+            "@id": "ohdsi_gis:3b6ef49af3f5/necta_nm",
+            "@type": "PropertyValue",
+            "name": "necta_nm"
+        },
+        {
+            "@id": "ohdsi_gis:3b6ef49af3f5/c1pgrc",
+            "@type": "PropertyValue",
+            "name": "c1pgrc"
+        },
+        {
+            "@id": "ohdsi_gis:3b6ef49af3f5/fcd_fips91",
+            "@type": "PropertyValue",
+            "name": "fcd_fips91"
+        },
+        {
+            "@id": "ohdsi_gis:3b6ef49af3f5/urb_out",
+            "@type": "PropertyValue",
+            "name": "urb_out"
+        },
+        {
+            "@id": "ohdsi_gis:3b6ef49af3f5/curcnty_nm",
+            "@type": "PropertyValue",
+            "name": "curcnty_nm"
+        },
+        {
+            "@id": "ohdsi_gis:3b6ef49af3f5/cnty2kx",
+            "@type": "PropertyValue",
+            "name": "cnty2kx"
+        },
+        {
+            "@id": "ohdsi_gis:3b6ef49af3f5/msgusps",
+            "@type": "PropertyValue",
+            "name": "msgusps"
+        },
+        {
+            "@id": "ohdsi_gis:3b6ef49af3f5/annl_expns_amnt",
+            "@type": "PropertyValue",
+            "name": "annl_expns_amnt"
+        },
+        {
+            "@id": "ohdsi_gis:3b6ef49af3f5/annl_expns_amnt_prev_yr",
+            "@type": "PropertyValue",
+            "name": "annl_expns_amnt_prev_yr"
+        },
+        {
+            "@id": "ohdsi_gis:3b6ef49af3f5/cnty_nm2kx",
+            "@type": "PropertyValue",
+            "name": "cnty_nm2kx"
+        },
+        {
+            "@id": "ohdsi_gis:3b6ef49af3f5/hlc",
+            "@type": "PropertyValue",
+            "name": "hlc"
+        },
+        {
+            "@id": "ohdsi_gis:3b6ef49af3f5/pha_total_units",
+            "@type": "PropertyValue",
+            "name": "pha_total_units"
+        },
+        {
+            "@id": "ohdsi_gis:3b6ef49af3f5/ave_util_allow",
+            "@type": "PropertyValue",
+            "name": "ave_util_allow"
+        },
+        {
+            "@id": "ohdsi_gis:3b6ef49af3f5/dpbc",
+            "@type": "PropertyValue",
+            "name": "dpbc"
+        },
+        {
+            "@id": "ohdsi_gis:3b6ef49af3f5/pct_lt50_median",
+            "@type": "PropertyValue",
+            "name": "pct_lt50_median"
+        },
+        {
+            "@id": "ohdsi_gis:3b6ef49af3f5/std_zip5",
+            "@type": "PropertyValue",
+            "name": "std_zip5"
+        },
+        {
+            "@id": "ohdsi_gis:3b6ef49af3f5/pct_disabled_ge62",
+            "@type": "PropertyValue",
+            "name": "pct_disabled_ge62"
+        },
+        {
+            "@id": "ohdsi_gis:3b6ef49af3f5/pd_status_type_code",
+            "@type": "PropertyValue",
+            "name": "pd_status_type_code"
+        },
+        {
+            "@id": "ohdsi_gis:3b6ef49af3f5/ha_fax_num",
+            "@type": "PropertyValue",
+            "name": "ha_fax_num"
+        },
+        {
+            "@id": "ohdsi_gis:3b6ef49af3f5/pct_bed1",
+            "@type": "PropertyValue",
+            "name": "pct_bed1"
+        },
+        {
+            "@id": "ohdsi_gis:3b6ef49af3f5/ha_phn_num",
+            "@type": "PropertyValue",
+            "name": "ha_phn_num"
+        },
+        {
+            "@id": "ohdsi_gis:3b6ef49af3f5/pct_female_head",
+            "@type": "PropertyValue",
+            "name": "pct_female_head"
+        },
+        {
+            "@id": "ohdsi_gis:3b6ef49af3f5/pct_bed2",
+            "@type": "PropertyValue",
+            "name": "pct_bed2"
+        },
+        {
+            "@id": "ohdsi_gis:3b6ef49af3f5/person_income",
+            "@type": "PropertyValue",
+            "name": "person_income"
+        },
+        {
+            "@id": "ohdsi_gis:3b6ef49af3f5/pct_utility_allow",
+            "@type": "PropertyValue",
+            "name": "pct_utility_allow"
+        },
+        {
+            "@id": "ohdsi_gis:3b6ef49af3f5/pct_movein",
+            "@type": "PropertyValue",
+            "name": "pct_movein"
+        },
+        {
+            "@id": "ohdsi_gis:3b6ef49af3f5/std_zip11",
+            "@type": "PropertyValue",
+            "name": "std_zip11"
+        },
+        {
+            "@id": "ohdsi_gis:3b6ef49af3f5/exec_dir_phone",
+            "@type": "PropertyValue",
+            "name": "exec_dir_phone"
+        },
+        {
+            "@id": "ohdsi_gis:3b6ef49af3f5/state2kx",
+            "@type": "PropertyValue",
+            "name": "state2kx"
+        },
+        {
+            "@id": "ohdsi_gis:3b6ef49af3f5/pct_hispanic",
+            "@type": "PropertyValue",
+            "name": "pct_hispanic"
+        },
+        {
+            "@id": "ohdsi_gis:3b6ef49af3f5/std_addr",
+            "@type": "PropertyValue",
+            "name": "std_addr"
+        },
+        {
+            "@id": "ohdsi_gis:3b6ef49af3f5/place_level",
+            "@type": "PropertyValue",
+            "name": "place_level"
+        },
+        {
+            "@id": "ohdsi_gis:3b6ef49af3f5/spending_per_month",
+            "@type": "PropertyValue",
+            "name": "spending_per_month"
+        },
+        {
+            "@id": "ohdsi_gis:3b6ef49af3f5/msa_nm",
+            "@type": "PropertyValue",
+            "name": "msa_nm"
+        },
+        {
+            "@id": "ohdsi_gis:3b6ef49af3f5/regular_vacant",
+            "@type": "PropertyValue",
+            "name": "regular_vacant"
+        },
+        {
+            "@id": "ohdsi_gis:3b6ef49af3f5/c1pzrc",
+            "@type": "PropertyValue",
+            "name": "c1pzrc"
+        },
+        {
+            "@id": "ohdsi_gis:3b6ef49af3f5/curcosub_nm",
+            "@type": "PropertyValue",
+            "name": "curcosub_nm"
+        },
+        {
+            "@id": "ohdsi_gis:3b6ef49af3f5/lat",
+            "@type": "PropertyValue",
+            "name": "lat"
+        },
+        {
+            "@id": "ohdsi_gis:3b6ef49af3f5/months_waiting",
+            "@type": "PropertyValue",
+            "name": "months_waiting"
+        },
+        {
+            "@id": "ohdsi_gis:3b6ef49af3f5/exec_dir_fax",
+            "@type": "PropertyValue",
+            "name": "exec_dir_fax"
+        },
+        {
+            "@id": "ohdsi_gis:3b6ef49af3f5/spending_per_month_prev_yr",
+            "@type": "PropertyValue",
+            "name": "spending_per_month_prev_yr"
+        },
+        {
+            "@id": "ohdsi_gis:3b6ef49af3f5/months_since_report",
+            "@type": "PropertyValue",
+            "name": "months_since_report"
+        },
+        {
+            "@id": "ohdsi_gis:3b6ef49af3f5/bg2kx",
+            "@type": "PropertyValue",
+            "name": "bg2kx"
+        },
+        {
+            "@id": "ohdsi_gis:3b6ef49af3f5/months_from_movein",
+            "@type": "PropertyValue",
+            "name": "months_from_movein"
+        },
+        {
+            "@id": "ohdsi_gis:3b6ef49af3f5/pct_lt5k",
+            "@type": "PropertyValue",
+            "name": "pct_lt5k"
+        },
+        {
+            "@id": "ohdsi_gis:3b6ef49af3f5/stm2kx",
+            "@type": "PropertyValue",
+            "name": "stm2kx"
+        },
+        {
+            "@id": "ohdsi_gis:3b6ef49af3f5/blkgrp_level",
+            "@type": "PropertyValue",
+            "name": "blkgrp_level"
+        },
+        {
+            "@id": "ohdsi_gis:3b6ef49af3f5/number_reported",
+            "@type": "PropertyValue",
+            "name": "number_reported"
+        },
+        {
+            "@id": "ohdsi_gis:3b6ef49af3f5/necta",
+            "@type": "PropertyValue",
+            "name": "necta"
+        },
+        {
+            "@id": "ohdsi_gis:3b6ef49af3f5/pct_minority",
+            "@type": "PropertyValue",
+            "name": "pct_minority"
+        },
+        {
+            "@id": "ohdsi_gis:3b6ef49af3f5/pct_age62plus",
+            "@type": "PropertyValue",
+            "name": "pct_age62plus"
+        },
+        {
+            "@id": "ohdsi_gis:3b6ef49af3f5/c1pprb",
+            "@type": "PropertyValue",
+            "name": "c1pprb"
+        },
+        {
+            "@id": "ohdsi_gis:3b6ef49af3f5/pct_lt30_median",
+            "@type": "PropertyValue",
+            "name": "pct_lt30_median"
+        },
+        {
+            "@id": "ohdsi_gis:3b6ef49af3f5/participant_code",
+            "@type": "PropertyValue",
+            "name": "participant_code"
+        },
+        {
+            "@id": "ohdsi_gis:3b6ef49af3f5/pct_lt80_median",
+            "@type": "PropertyValue",
+            "name": "pct_lt80_median"
+        },
+        {
+            "@id": "ohdsi_gis:3b6ef49af3f5/curcnty",
+            "@type": "PropertyValue",
+            "name": "curcnty"
+        },
+        {
+            "@id": "ohdsi_gis:3b6ef49af3f5/pct_asian",
+            "@type": "PropertyValue",
+            "name": "pct_asian"
+        },
+        {
+            "@id": "ohdsi_gis:3b6ef49af3f5/pct_1adult",
+            "@type": "PropertyValue",
+            "name": "pct_1adult"
+        },
+        {
+            "@id": "ohdsi_gis:3b6ef49af3f5/block2kx",
+            "@type": "PropertyValue",
+            "name": "block2kx"
+        },
+        {
+            "@id": "ohdsi_gis:3b6ef49af3f5/pct_disabled_lt62",
+            "@type": "PropertyValue",
+            "name": "pct_disabled_lt62"
+        },
+        {
+            "@id": "ohdsi_gis:3b6ef49af3f5/pct_female_head_child",
+            "@type": "PropertyValue",
+            "name": "pct_female_head_child"
+        },
+        {
+            "@id": "ohdsi_gis:3b6ef49af3f5/tract2kx",
+            "@type": "PropertyValue",
+            "name": "tract2kx"
+        },
+        {
+            "@id": "ohdsi_gis:3b6ef49af3f5/total_dwelling_units",
+            "@type": "PropertyValue",
+            "name": "total_dwelling_units"
+        },
+        {
+            "@id": "ohdsi_gis:3b6ef49af3f5/pct_age51_61",
+            "@type": "PropertyValue",
+            "name": "pct_age51_61"
+        },
+        {
+            "@id": "ohdsi_gis:3b6ef49af3f5/apt_no",
+            "@type": "PropertyValue",
+            "name": "apt_no"
+        },
+        {
+            "@id": "ohdsi_gis:3b6ef49af3f5/dpvnost",
+            "@type": "PropertyValue",
+            "name": "dpvnost"
+        },
+        {
+            "@id": "ohdsi_gis:3b6ef49af3f5/ur",
+            "@type": "PropertyValue",
+            "name": "ur"
+        },
+        {
+            "@id": "ohdsi_gis:3b6ef49af3f5/pct_2adults",
+            "@type": "PropertyValue",
+            "name": "pct_2adults"
+        },
+        {
+            "@id": "ohdsi_gis:3b6ef49af3f5/addr_type",
+            "@type": "PropertyValue",
+            "name": "addr_type"
+        },
+        {
+            "@id": "ohdsi_gis:3b6ef49af3f5/rc2kx",
+            "@type": "PropertyValue",
+            "name": "rc2kx"
+        },
+        {
+            "@id": "ohdsi_gis:3b6ef49af3f5/pct_black",
+            "@type": "PropertyValue",
+            "name": "pct_black"
+        },
+        {
+            "@id": "ohdsi_gis:3b6ef49af3f5/pct_occupied",
+            "@type": "PropertyValue",
+            "name": "pct_occupied"
+        },
+        {
+            "@id": "ohdsi_gis:3b6ef49af3f5/county_level",
+            "@type": "PropertyValue",
+            "name": "county_level"
+        },
+        {
+            "@id": "ohdsi_gis:3b6ef49af3f5/scattered_site_ind",
+            "@type": "PropertyValue",
+            "name": "scattered_site_ind"
+        },
+        {
+            "@id": "ohdsi_gis:3b6ef49af3f5/place2kx",
+            "@type": "PropertyValue",
+            "name": "place2kx"
+        },
+        {
+            "@id": "ohdsi_gis:3b6ef49af3f5/msa",
+            "@type": "PropertyValue",
+            "name": "msa"
+        },
+        {
+            "@id": "ohdsi_gis:3b6ef49af3f5/pct_ge20k",
+            "@type": "PropertyValue",
+            "name": "pct_ge20k"
+        },
+        {
+            "@id": "ohdsi_gis:3b6ef49af3f5/place_inc2kx",
+            "@type": "PropertyValue",
+            "name": "place_inc2kx"
+        },
+        {
+            "@id": "ohdsi_gis:3b6ef49af3f5/pct_overhoused",
+            "@type": "PropertyValue",
+            "name": "pct_overhoused"
+        },
+        {
+            "@id": "ohdsi_gis:3b6ef49af3f5/acc_units",
+            "@type": "PropertyValue",
+            "name": "acc_units"
+        },
+        {
+            "@id": "ohdsi_gis:3b6ef49af3f5/pct_other_major",
+            "@type": "PropertyValue",
+            "name": "pct_other_major"
+        },
+        {
+            "@id": "ohdsi_gis:3b6ef49af3f5/micro",
+            "@type": "PropertyValue",
+            "name": "micro"
+        },
+        {
+            "@id": "ohdsi_gis:3b6ef49af3f5/project_name",
+            "@type": "PropertyValue",
+            "name": "project_name"
+        },
+        {
+            "@id": "ohdsi_gis:3b6ef49af3f5/std_st",
+            "@type": "PropertyValue",
+            "name": "std_st"
+        },
+        {
+            "@id": "ohdsi_gis:3b6ef49af3f5/metro",
+            "@type": "PropertyValue",
+            "name": "metro"
+        },
+        {
+            "@id": "ohdsi_gis:3b6ef49af3f5/std_city",
+            "@type": "PropertyValue",
+            "name": "std_city"
+        },
+        {
+            "@id": "ohdsi_gis:3b6ef49af3f5/msg2kx",
+            "@type": "PropertyValue",
+            "name": "msg2kx"
+        },
+        {
+            "@id": "ohdsi_gis:3b6ef49af3f5/pct_lt24_head",
+            "@type": "PropertyValue",
+            "name": "pct_lt24_head"
+        },
+        {
+            "@id": "ohdsi_gis:3b6ef49af3f5/chldrn_mbr_cnt",
+            "@type": "PropertyValue",
+            "name": "chldrn_mbr_cnt"
+        },
+        {
+            "@id": "ohdsi_gis:3b6ef49af3f5/c1parc",
+            "@type": "PropertyValue",
+            "name": "c1parc"
+        },
+        {
+            "@id": "ohdsi_gis:3b6ef49af3f5/pct_bed3",
+            "@type": "PropertyValue",
+            "name": "pct_bed3"
+        },
+        {
+            "@id": "ohdsi_gis:3b6ef49af3f5/tpct_ownsfd",
+            "@type": "PropertyValue",
+            "name": "tpct_ownsfd"
+        },
+        {
+            "@id": "ohdsi_gis:3b6ef49af3f5/pct_age85plus",
+            "@type": "PropertyValue",
+            "name": "pct_age85plus"
+        }
+    ]
+}
