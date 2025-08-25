@@ -38,19 +38,23 @@ SELECT AddGeometryColumn (
   'geom_local', 26986, 'multipolygon', 2
 );
 UPDATE ma_2018_svi_tract
-  SET geom_local=ST_MakeValid(ST_RemoveRepeatedPoints(ST_Transform(ST_Multi(geom), 26986)));
+  SET geom_local=ST_MakeValid(ST_RemoveRepeatedPoints(ST_Transform(ST_Multi(geom),26986)));
 CREATE INDEX ma_2018_svi_tract_geom_local_idx
   ON ma_2018_svi_tract
   USING GIST (geom_local);
 NOTIFY pgrst, 'reload schema';
-# Create derivative directory in data package on osgeo
+# Move into corrrect directory and create derivative directory in data package on osgeo
 cd /data/ma_2018_svi_tract/
 mkdir -p derived
+
+# Move into correct directory
+cd /data/ma_2018_svi_tract/
 
 # Create pg_dump of table SQL in derivate directory on postgis.
 pg_dump <postgres opts> -h gaia-db -t ma_2018_svi_tract > derived/ma_2018_svi_tract.sql
 
 # Create downloadable tarfile of SQL in derivative directory on postgis
+rm -f derived/ma_2018_svi_tract.sql.tar.gz
 tar -czf derived/ma_2018_svi_tract.sql.tar.gz meta_dcat_ma_2018_svi_tract.json -C derived ma_2018_svi_tract.sql
 
 

@@ -6,7 +6,7 @@
 # Data source: https://svi.cdc.gov/Documents/Data/2018/db/states/Massachusetts.zip
 # Destination postGIS table: ma_2018_svi_tract
 #
-# Created by etl() on 2025-06-30 18:24:58
+# Created by etl() on 2025-08-24 13:21:35
 # Do not edit directly
 
 export POSTGRES_PASSWORD=$(cat $POSTGRES_PASSWORD_FILE)

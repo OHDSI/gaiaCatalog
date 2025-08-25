@@ -38,19 +38,23 @@ SELECT AddGeometryColumn (
   'geom_local', 6350, 'multipolygon', 2
 );
 UPDATE us_2018_svi_county
-  SET geom_local=ST_MakeValid(ST_RemoveRepeatedPoints(ST_Transform(ST_Multi(geom), 6350)));
+  SET geom_local=ST_MakeValid(ST_RemoveRepeatedPoints(ST_Transform(ST_Multi(geom),6350)));
 CREATE INDEX us_2018_svi_county_geom_local_idx
   ON us_2018_svi_county
   USING GIST (geom_local);
 NOTIFY pgrst, 'reload schema';
-# Create derivative directory in data package on osgeo
+# Move into corrrect directory and create derivative directory in data package on osgeo
 cd /data/us_2018_svi_county/
 mkdir -p derived
+
+# Move into correct directory
+cd /data/us_2018_svi_county/
 
 # Create pg_dump of table SQL in derivate directory on postgis.
 pg_dump <postgres opts> -h gaia-db -t us_2018_svi_county > derived/us_2018_svi_county.sql
 
 # Create downloadable tarfile of SQL in derivative directory on postgis
+rm -f derived/us_2018_svi_county.sql.tar.gz
 tar -czf derived/us_2018_svi_county.sql.tar.gz meta_dcat_us_2018_svi_county.json -C derived us_2018_svi_county.sql
 
 

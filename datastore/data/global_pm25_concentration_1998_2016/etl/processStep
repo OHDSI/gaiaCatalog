@@ -38,25 +38,30 @@ SELECT AddGeometryColumn (
   'geom_local', 3857, 'multipolygon', 2
 );
 UPDATE global_pm25_concentration_1998_2016
-  SET geom_local=ST_MakeValid(ST_RemoveRepeatedPoints(ST_Transform(ST_Multi(geom), 3857)));
+  SET geom_local=ST_MakeValid(ST_RemoveRepeatedPoints(ST_Transform(ST_Multi(geom),3857)));
 CREATE INDEX global_pm25_concentration_1998_2016_geom_local_idx
   ON global_pm25_concentration_1998_2016
   USING GIST (geom_local);
 NOTIFY pgrst, 'reload schema';
-# Create derivative directory in data package on osgeo
+# Move into corrrect directory and create derivative directory in data package on osgeo
 cd /data/global_pm25_concentration_1998_2016/
 mkdir -p derived
 
 # Create shapefile of table in derivate directory on osgeo 
-ogr2ogr -f "ESRI Shapefile" derived/global_pm25_concentration_1998_2016.shp PG:"<postgres connection>" global_pm25_concentration_1998_2016
+ogr2ogr -f "ESRI Shapefile" -overwrite derived/global_pm25_concentration_1998_2016.shp PG:"<postgres connection>" global_pm25_concentration_1998_2016
 
 # Create downloadable tarfile of shp in derivative directory on osgeo
+rm -f derived/global_pm25_concentration_1998_2016.shp.tar.gz
 tar -czf derived/global_pm25_concentration_1998_2016.shp.tar.gz meta_dcat_global_pm25_concentration_1998_2016.json -C derived global_pm25_concentration_1998_2016.shp global_pm25_concentration_1998_2016.prj global_pm25_concentration_1998_2016.shx global_pm25_concentration_1998_2016.dbf
+
+# Move into correct directory
+cd /data/global_pm25_concentration_1998_2016/
 
 # Create pg_dump of table SQL in derivate directory on postgis.
 pg_dump <postgres opts> -h gaia-db -t global_pm25_concentration_1998_2016 > derived/global_pm25_concentration_1998_2016.sql
 
 # Create downloadable tarfile of SQL in derivative directory on postgis
+rm -f derived/global_pm25_concentration_1998_2016.sql.tar.gz
 tar -czf derived/global_pm25_concentration_1998_2016.sql.tar.gz meta_dcat_global_pm25_concentration_1998_2016.json -C derived global_pm25_concentration_1998_2016.sql
 
 

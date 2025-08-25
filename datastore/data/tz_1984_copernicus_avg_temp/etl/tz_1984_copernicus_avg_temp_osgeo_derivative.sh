@@ -1,16 +1,16 @@
 #!/bin/bash
 
-# ma_2018_svi_tract_osgeo_derivative.sh
+# tz_1984_copernicus_avg_temp_osgeo_derivative.sh
 # Finish ETL into postGIS from osgeo_derivative_postgis container
 #
-# Data source: https://svi.cdc.gov/Documents/Data/2018/db/states/Massachusetts.zip
-# Destination postGIS table: ma_2018_svi_tract
+# Data source: https://github.com/tibbben/copernicus_aggregate.git
+# Destination postGIS table: tz_1984_copernicus_avg_temp
 #
 # Created by etl() on 2025-08-24 13:21:35
 # Do not edit directly
 
 # Move into corrrect directory and create derivative directory in data package on osgeo
-cd /data/ma_2018_svi_tract/
+cd /data/tz_1984_copernicus_avg_temp/
 mkdir -p derived
 
 

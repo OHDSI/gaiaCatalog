@@ -6,7 +6,7 @@
 # Data source: https://sedac.ciesin.columbia.edu/downloads/data/sdei/sdei-annual-pm2-5-concentrations-countries-urban-areas-v1-1998-2016/sdei-annual-pm2-5-concentrations-countries-urban-areas-v1-1998-2016-urban-areas-shp.zip
 # Destination postGIS table: global_pm25_concentration_1998_2016
 #
-# Created by etl() on 2025-06-30 18:24:27
+# Created by etl() on 2025-08-24 13:21:34
 # Do not edit directly
 
 export POSTGRES_PASSWORD=$(cat $POSTGRES_PASSWORD_FILE)
@@ -22,7 +22,7 @@ SELECT AddGeometryColumn (
   'geom_local', 3857, 'multipolygon', 2
 );
 UPDATE global_pm25_concentration_1998_2016
-  SET geom_local=ST_MakeValid(ST_RemoveRepeatedPoints(ST_Transform(ST_Multi(geom), 3857)));
+  SET geom_local=ST_MakeValid(ST_RemoveRepeatedPoints(ST_Transform(ST_Multi(geom),3857)));
 CREATE INDEX global_pm25_concentration_1998_2016_geom_local_idx
   ON global_pm25_concentration_1998_2016
   USING GIST (geom_local);

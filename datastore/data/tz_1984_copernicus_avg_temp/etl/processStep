@@ -28,4 +28,11 @@ cd ..
 psql <connection options> < load_raster.sql
 rm load_raster.sql
 
+# Move into corrrect directory and create derivative directory in data package on osgeo
+cd /data/tz_1984_copernicus_avg_temp/
+mkdir -p derived
+
+# Move into correct directory
+cd /data/tz_1984_copernicus_avg_temp/
+
 

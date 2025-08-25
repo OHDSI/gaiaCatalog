@@ -6,7 +6,7 @@
 # Data source: https://svi.cdc.gov/Documents/Data/2018/db/states/Massachusetts.zip
 # Destination postGIS table: ma_2018_svi_tract
 #
-# Created by etl() on 2025-06-30 18:24:58
+# Created by etl() on 2025-08-24 13:21:35
 # Do not edit directly
 
 export POSTGRES_PASSWORD=$(cat $POSTGRES_PASSWORD_FILE)
@@ -22,7 +22,7 @@ SELECT AddGeometryColumn (
   'geom_local', 26986, 'multipolygon', 2
 );
 UPDATE ma_2018_svi_tract
-  SET geom_local=ST_MakeValid(ST_RemoveRepeatedPoints(ST_Transform(ST_Multi(geom), 26986)));
+  SET geom_local=ST_MakeValid(ST_RemoveRepeatedPoints(ST_Transform(ST_Multi(geom),26986)));
 CREATE INDEX ma_2018_svi_tract_geom_local_idx
   ON ma_2018_svi_tract
   USING GIST (geom_local);

@@ -12,7 +12,7 @@
   "download": "wget",
   "table": "global_pm25_concentration_1998_2016",
   "format": "shp",
-  "up": "true",
+  "up": "false",
   "podID": "gaia-db",
   "last_updated": "2025-05-23T08:47:15Z",
   "update_frequency": "As Needed",

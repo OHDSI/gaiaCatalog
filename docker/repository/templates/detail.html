@@ -92,7 +92,7 @@
                           <td>
                             {% if attr[11]|length > 0 %}
                             <div class="none">
-                              <div id="variable-{{ attr[9] }}" class="circle red-fill"></div>
+                              <div id="variable-{{ attr[0] }}" class="circle red-fill" onclick="javascript:loadvar('{{ document['gdsc_tablename'][0] }}','{{ attr[0] }}')"></div>
                             </div>
                             {% else %}
                               &nbsp;
@@ -124,14 +124,14 @@
         </div>
       </div>
       <script>
-        var loadvar=function(variable_id) {
-          console.log('starting with: '+variable_id.toString());
+        var loadvar=function(layer_id,variable_id) {
+          console.log('starting with: '+variable_id);
           var status_indicator = document.getElementById('variable-'+variable_id);
           status_indicator.setAttribute('class', 'yin-yang');
           status_indicator.parentElement.setAttribute('class', 'spin');
           $.ajax({
             type: 'POST',
-            url: '/load/' + variable_id,
+            url: '/load/' + layer_id + '/' + variable_id,
             success: function (resp) {
                 status_indicator.setAttribute('class', 'green-fill circle');
                 status_indicator.parentElement.setAttribute('class', 'none'); 

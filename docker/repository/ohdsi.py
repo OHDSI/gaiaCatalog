@@ -3,7 +3,7 @@ from urllib.request import urlopen
 from urllib.request import Request
 from urllib.parse import urlencode
 from os import getenv
-from json import loads
+from json import loads, dumps
 import simplejson
 import logging
 import re
@@ -43,6 +43,15 @@ headers = {
 BASE_PATH='http://gaia-solr:8983/solr/dcat/select?wt=json&'
 SNIP_LENGTH = 180
 QUERY_FIELDS = ['gdsc_collections','dct_title','dcat_keyword','dct_description','gdsc_attributes']
+
+##
+ # call api on ETL containers
+ ##
+def call_etl_api(api,payload):
+    req = Request(apis[api]['url'], data=payload, headers=headers, method='POST')
+    resp = urlopen(req).read()
+    output = loads(resp.decode('utf-8').strip(),strict=False)
+    return output['res']
 
 ##
  # get solr data
@@ -206,30 +215,62 @@ def detail(name_id):
 @app.route('/loadlayer/<layer_id>', methods=["GET","POST"])
 def loadlayer(layer_id):
 
+    # check if layer is already loaded
+    payload = f"\n{apis['postgis']['shell']} check_table_exists.sh {layer_id}\n\n".encode('utf-8')
+    response = call_etl_api('postgis',payload)
+    if response.split()[2] == 't':
+        print('aready loaded')
+        return {'already loaded': layer_id}
+
+    # prepare response and get the ETL scripts
     response = {'load': layer_id}
     scripts = os.listdir(f'/data/{layer_id}/etl/')
     scripts = [x.split('_')[-1][:-3] for x in scripts if x not in ['processStep','.DS_Store']]
 
+    # run the ETL scripts
     for api in apis:
         if api in scripts:
             payload = f"\n{apis[api]['shell']} /data/{layer_id}/etl/{layer_id}_{api}.sh\n\n".encode('utf-8')
-            req = Request(apis[api]['url'], data=payload, headers=headers, method='POST')
-            resp = urlopen(req).read()
-            output = loads(resp.decode('utf-8').strip(),strict=False)
-            response[api] = output['res']
+            response[api] = call_etl_api(api,payload)
 
     return response
 
-##
- # load variable
- ##
-@app.route('/load/<variable_id>', methods=["GET","POST"])
-def load(variable_id):
 
-    query_parameters = {"variable_id": variable_id[5:]}
-    query_string  = urlencode(query_parameters) 
-    connection = urlopen("http://gaia-core:8000/load?{}".format(query_string))                                             
+@app.route('/load/<layer_id>/<variable_id>', methods=["GET","POST"])
+def load(layer_id,variable_id):
+    """
+    Load one variable given a variable_id. 
+
+    :param layer_id:
+        The ID for the layer for the variable
+    :type layer_id:
+        'str'
+    :param variable_id:
+        The ID for the variable to be loaded
+    :type variable_id:
+        'str'
+    :return:
+        The response body as dict from the postgres API
+    :rtype:
+        'dict'
+    """
+
+    # make sure the source layer is loaded
+    load_layer = loadlayer(layer_id)
+
+    # get the layer and variable metadata from SOLR
+    query_parameters = {"q": "gdsc_tablename:" + layer_id}
+    query_string  = urlencode(query_parameters)
+    connection = urlopen("{}{}".format(BASE_PATH, query_string))
     response = simplejson.load(connection)
+    document = response['response']['docs'][0]
+    variable = [attr for attr in document['gdsc_attributes'] if variable_id in attr][0].split(";")
+    variable = [var if var !='' else 'Null' for var in variable]
+
+    # construct and make request
+    parameters = "' '".join(variable[:-1])
+    payload = f"\n{apis['postgis']['shell']} load_variable.sh {layer_id} '{parameters}'\n\n".encode('utf-8')
+    response = call_etl_api('postgis',payload)
 
     return response
 
