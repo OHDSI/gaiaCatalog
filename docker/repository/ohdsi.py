@@ -233,6 +233,9 @@ def loadlayer(layer_id):
             payload = f"\n{apis[api]['shell']} /data/{layer_id}/etl/{layer_id}_{api}.sh\n\n".encode('utf-8')
             response[api] = call_etl_api(api,payload)
 
+    # record the table as running
+    with 
+
     return response
 
 
@@ -269,7 +272,11 @@ def load(layer_id,variable_id):
 
     # construct and make request
     parameters = "' '".join(variable[:-1])
-    payload = f"\n{apis['postgis']['shell']} load_variable.sh {layer_id} '{parameters}'\n\n".encode('utf-8')
+    payload = (
+        f"\n{apis['postgis']['shell']} load_variable.sh ",
+        f"{layer_id} '{document['dct_description']}' '{document['locn_geometry']}' '{document['gdsc_label']}' "
+        f"'{document['gdsc_nodata']}' '{parameters}'\n\n"
+    ).encode('utf-8')
     response = call_etl_api('postgis',payload)
 
     return response
