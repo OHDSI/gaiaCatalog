@@ -6,7 +6,7 @@
 # Data source: https://github.com/tibbben/copernicus_aggregate.git
 # Destination postGIS table: tz_1984_copernicus_avg_temp
 #
-# Created by etl() on 2025-08-26 12:54:48
+# Created by etl() on 2025-08-26 14:40:08
 # Do not edit directly
 
 # Move into corrrect directory and create derivative directory in data package on osgeo

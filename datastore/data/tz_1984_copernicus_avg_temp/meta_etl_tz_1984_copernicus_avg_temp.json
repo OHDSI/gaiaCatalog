@@ -18,7 +18,7 @@
   "custom_etl": "github_code",
   "custom_parameters": "python|copernicus_aggregate.py|json;table;extension;extent;attributes;bands;format|1984",
   "up": "false",
-  "podID": "postgis-mvznqevo8s0vzrl3",
+  "podID": "gaia-db",
   "last_updated": "0001-01-01T00:00:00Z",
   "update_frequency": "As Needed",
   "checksum": "TBD"

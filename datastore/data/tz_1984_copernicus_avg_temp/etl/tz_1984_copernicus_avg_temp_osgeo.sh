@@ -6,15 +6,12 @@
 # Data source: https://github.com/tibbben/copernicus_aggregate.git
 # Destination postGIS table: tz_1984_copernicus_avg_temp
 #
-# Created by etl() on 2025-08-26 12:54:48
+# Created by etl() on 2025-08-26 14:40:08
 # Do not edit directly
 
 export POSTGRES_PASSWORD=$(cat $POSTGRES_PASSWORD_FILE)
 # create directory structure and move into it
 mkdir -p /data/tz_1984_copernicus_avg_temp/{download,etl} && cd /data/tz_1984_copernicus_avg_temp
-
-# record podID
-echo postgis-mvznqevo8s0vzrl3 > /data/tz_1984_copernicus_avg_temp/podID
 
 # check for existence
 export TZ=EST5EDT
