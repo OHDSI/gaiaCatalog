@@ -92,7 +92,7 @@
                           <td>
                             {% if attr[11]|length > 0 %}
                             <div class="none">
-                              <div id="variable-{{ attr[0] }}" class="circle red-fill" onclick="javascript:loadvar('{{ document['gdsc_tablename'][0] }}','{{ attr[0] }}')"></div>
+                              <div id="variable-{{ attr[0] }}" class="float-left circle {{ 'green-fill' if attr[0] in loaded_variables else 'red-fill' }}" onclick="javascript:loadvar('{{ document['gdsc_tablename'][0] }}','{{ attr[0] }}')"></div>
                             </div>
                             {% else %}
                               &nbsp;

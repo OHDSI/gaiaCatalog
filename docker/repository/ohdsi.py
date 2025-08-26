@@ -111,11 +111,12 @@ def highlight_query(document,query):
 
     return document
 
-##
- # run SOLR query and render results for main page
- ##
+
 @app.route('/', methods=["GET","POST"])
 def index():
+    """
+    run SOLR query and render results for main page
+    """
     collection = 'all'
     query, active = None, None
     query_parameters = {"q": "gdsc_collections:*"}
@@ -169,8 +170,13 @@ def index():
             if len(entry['display_description']) > SNIP_LENGTH:
                 entry['display_description'] = entry['dct_description'][0][0:SNIP_LENGTH] + '...'
 
-    if collection == "*": collection = 'all'
+    # check for loaded tables
+    payload = f"\n{apis['postgis']['shell']} get_public_tables.sh\n\n".encode('utf-8')
+    response = call_etl_api('postgis',payload)
+    loaded_tables = response.split()[2:-2]
 
+    # render the page
+    if collection == "*": collection = 'all'
     return render_template(
         'index.html',
         collection=collection,
@@ -178,36 +184,43 @@ def index():
         active=active,
         numresults=numresults,
         results=results,
+        loaded_tables=loaded_tables,
         collections=COLLECTIONS
     )
 
-##
- # query SOLR for one document and render all metadata in detail
- ##
+
 @app.route('/detail/<name_id>', methods=["GET","POST"])
 def detail(name_id):
+    """
+    query SOLR for one document and render all metadata in detail
+    """
 
     args = request.args.to_dict()
 
+    # query solr
     query_parameters = {"q": "gdsc_tablename:" + name_id}
     query_string  = urlencode(query_parameters)
     connection = urlopen("{}{}".format(BASE_PATH, query_string))
     response = simplejson.load(connection)
     document = response['response']['docs'][0]
 
+    # structure results for display
     if 'gdsc_attributes' in document:
         document['gdsc_columns'] = [attr.split(';')[0] for attr in document['gdsc_attributes']]
-
     if args['query'] != None and args['query'] != 'None' and args['query'] != '':
         document = highlight_query(document,args['query'])
-
     if 'gdsc_attributes' in document:
         document['gdsc_attributes'] = [attr.split(';') for attr in document['gdsc_attributes']]
-
     if 'gdsc_derivatives' in document:
         document['gdsc_derived'] = [attr.split(';') for attr in document['gdsc_derived']]
 
-    return render_template('detail.html', name_id=name_id, document=document, referrer=request.args)
+    # check for loaded variables
+    payload = f"\n{apis['postgis']['shell']} get_loaded_variables_for_table.sh {document['gdsc_tablename'][0]}\n\n".encode('utf-8')
+    response = call_etl_api('postgis',payload)
+    loaded_variables = response.split()[2:-2]
+
+    # render page
+    return render_template('detail.html', name_id=name_id, document=document, loaded_variables=loaded_variables, referrer=request.args)
 
 ##
  # load layer
@@ -219,7 +232,6 @@ def loadlayer(layer_id):
     payload = f"\n{apis['postgis']['shell']} check_table_exists.sh {layer_id}\n\n".encode('utf-8')
     response = call_etl_api('postgis',payload)
     if response.split()[2] == 't':
-        print('aready loaded')
         return {'already loaded': layer_id}
 
     # prepare response and get the ETL scripts
@@ -232,9 +244,6 @@ def loadlayer(layer_id):
         if api in scripts:
             payload = f"\n{apis[api]['shell']} /data/{layer_id}/etl/{layer_id}_{api}.sh\n\n".encode('utf-8')
             response[api] = call_etl_api(api,payload)
-
-    # record the table as running
-    with 
 
     return response
 
@@ -273,9 +282,9 @@ def load(layer_id,variable_id):
     # construct and make request
     parameters = "' '".join(variable[:-1])
     payload = (
-        f"\n{apis['postgis']['shell']} load_variable.sh ",
-        f"{layer_id} '{document['dct_description']}' '{document['locn_geometry']}' '{document['gdsc_label']}' "
-        f"'{document['gdsc_nodata']}' '{parameters}'\n\n"
+        f"\n{apis['postgis']['shell']} load_variable.sh "
+        f"{layer_id} '{document['dct_description'][0]}' '{document['locn_geometry'][0]}' '{document['gdsc_label'][0]}' "
+        f"'{'Null' if 'gdsc_nodata' not in document else document['gdsc_nodata'][1]}' '{parameters}'\n\n"
     ).encode('utf-8')
     response = call_etl_api('postgis',payload)
 

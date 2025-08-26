@@ -110,7 +110,7 @@
               {% if document['dct_title'] %}
                 <a href="/detail/{{ document['gdsc_tablename'][0] }}?collection={{ collection }}&active={{ active }}&query={{ query }}">{{ document['dct_title'][0] }}</a>
               {% endif %}
-              <div class="none" style="float: left; display: contents;"><div id="layer-{{ document['gdsc_tablename'][0] }}" class="float-left circle {{ 'green-fill' if document['gdsc_up'][0] or document['gdsc_tileUrl'] else 'red-fill' }}" onclick="javascript:loadlayer('{{ document['gdsc_tablename'][0] }}')"></div></div>
+              <div class="none" style="float: left; display: contents;"><div id="layer-{{ document['gdsc_tablename'][0] }}" class="float-left circle {{ 'green-fill' if document['gdsc_tablename'][0] in loaded_tables or document['gdsc_tileUrl'] else 'red-fill' }}" onclick="javascript:loadlayer('{{ document['gdsc_tablename'][0] }}')"></div></div>
             </h4>
           </div>
           <div class="col-5 align-top">

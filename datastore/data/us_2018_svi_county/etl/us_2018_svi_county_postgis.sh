@@ -6,7 +6,7 @@
 # Data source: https://svi.cdc.gov/Documents/Data/2018/db/states_counties/SVI_2018_US_county.zip
 # Destination postGIS table: us_2018_svi_county
 #
-# Created by etl() on 2025-08-24 13:21:35
+# Created by etl() on 2025-08-26 12:54:48
 # Do not edit directly
 
 export POSTGRES_PASSWORD=$(cat $POSTGRES_PASSWORD_FILE)
