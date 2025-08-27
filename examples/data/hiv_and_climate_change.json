@@ -297,21 +297,13 @@
         "minValue": "",
         "maxValue": "",
         "valueReference": {
-            "@type": "PropertyValue",
-            "name": "analysisRole",    
-            "description": "",   
-            "rangeIncludes": {
-                "@type":"DefinedTermSet",
-                "@id":"",        
-                "name":"",        
-                "hasDefinedTerm": [
-                    {"@type": "DefinedTerm", "termCode":"Independent"},
-                    {"@type": "DefinedTerm", "termCode":"Dependent"},
-                    {"@type": "DefinedTerm", "termCode":"Intervening"},
-                    {"@type": "DefinedTerm", "termCode":"Control"}
-                ]
-            }
-        }
+            "@type": "DefinedTerm",
+            "name": "analysisRole",
+            "description": "",
+            "disambiguatingDescription": "",
+            "termCode": "Dependent",
+            "inDefinedTermSet": ["Independent", "Dependent", "Intervening", "Control"]
+        } 
     },
     {
       "@type": "StatisticalVariable",
