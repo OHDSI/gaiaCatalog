@@ -340,11 +340,8 @@
           "propertyID": "",
           "unitCode": "http://athena.ohdsi.org/ucum/44777658",
           "unitText": "/mo",
-          "value": "R144/2014-01/P1M",
+          "value": ["R144/2014-01/P1M", "text"],
           "valueReference": [
-            {
-              "mytext"
-            },
             {
               "@type": "DefinedTerm",
               "name": "ConstraintPropertyType",
