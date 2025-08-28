@@ -340,7 +340,7 @@
           "propertyID": "",
           "unitCode": "http://athena.ohdsi.org/ucum/44777658",
           "unitText": "/mo",
-          "value": ["R144/2014-01/P1M", "text"],
+          "value": ["R120/2014-01/P1M", "The value is a time series that begins Jan 2014 and repeats each month thereafter for the next 120 months"],
           "valueReference": [
             {
               "@type": "DefinedTerm",
