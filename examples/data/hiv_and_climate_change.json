@@ -43,17 +43,9 @@
     "name": "ERA5",
     "description": "ERA5 is the fifth generation ECMWF reanalysis for the global climate and weather for the past 8 decades. Data is available from 1940 onwards. ERA5 replaces the ERA-Interim reanalysis.",
     "producer": "https://climate.copernicus.eu",
-    "url": "https://climate.copernicus.eu/climate-reanalysis"
+    "url": "discuss with Doug and Tim"
   },
-  "keywords": [
-    "Magu",
-    "Nairobi",
-    "precipitation",
-    "temperature",
-    "drought",
-    "flooding",
-    "heat stress"
-  ],
+  "keywords": ["Magu", "Nairobi", "precipitation", "temperature", "drought", "flooding", "heat stress", "exceedances"],
   "subjectOf": [
     {
       "@type": "Claim",
@@ -114,7 +106,7 @@
     {
       "@type": "Place",
       "name": "Magu",
-      "description": "We used the geocoordinates of the centroid of the Magu HDSS and applied a 10 km buffer around it ",
+      "description": "We used the geocoordinates of the centroid of the Magu HDSS and applied a buffer around it consistent with the geography of the area",
       "disambiguatingDescription": "This buffer helped account for potential inaccuracies in the centroid coordinates and the limited resolution of the climate data",
       "geo": {
         "@type": "GeoShape",
@@ -138,7 +130,7 @@
     {
       "@type": "Place",
       "name": "Nairobi",
-      "description": "We used the geocoordinates of the centroid of the Nairobi HDSS and applied a 10 km buffer around it ",
+      "description": "We used the geocoordinates of the centroid of the Nairobi HDSS and applied a buffer around it consistent with the geography of the area",
       "disambiguatingDescription": "This buffer helped account for potential inaccuracies in the centroid coordinates and the limited resolution of the climate data",
       "geo": {
         "@type": "GeoShape",
@@ -182,7 +174,7 @@
       }
     }
   ],
-  "temporal": "It may be we will want to support two or more  temporal resolutions, depending upon the patterns that they surface. Two are specified in temporalCoverage. The first is the monthly average (P1M) beginning in 1994 every year for 20 years (R20). temporalCoverge is a shorthand for temporal using ISO 8601. See https://en.wikipedia.org/wiki/ISO_8601",
+  "temporal": "It may be we will want to support two or more temporal resolutions, depending upon the patterns that they surface. Two are specified in temporalCoverage. The first is the monthly average (P1M) beginning in 1994 every year for 20 years (R20). temporalCoverge is a shorthand for temporal using ISO 8601. See https://en.wikipedia.org/wiki/ISO_8601",
   "temporalCoverage": ["R20/1994/P1M", "R20/1994/P1W"],
   "measurementTechnique": {
     "@type": "DefinedTerm",
@@ -290,26 +282,26 @@
   ],
   "variableMeasured": [
     {
-        "@id": "http://example.org/id/link/to/concept/of/unit_data",
-        "@type": "PropertyValue",
-        "name": "unit_data",
-        "description": "A variable description",
-        "propertyID": ["URL for the unit data concept within a vocabulary"],
-        "measurementMethod": "can be text",
-        "measurementTechnique": "can be text or, if standard measurement protocols are defined and registered, can be a URL",
-        "unitCode": "can be text or a URL that goes to a concept in a unit of measurement vocab",
-        "unitText": "can be the corresponding text",
-        "value": "",
-        "minValue": "",
-        "maxValue": "",
-        "valueReference": {
-            "@type": "DefinedTerm",
-            "name": "analysisRole",
-            "description": "",
-            "disambiguatingDescription": "",
-            "termCode": "Dependent",
-            "inDefinedTermSet": ["Independent", "Dependent", "Intervening", "Control"]
-        } 
+      "@id": "http://example.org/id/link/to/concept/of/unit_data",
+      "@type": "PropertyValue",
+      "name": "unit_data",
+      "description": "A variable description",
+      "propertyID": ["URL for the unit data concept within a vocabulary"],
+      "measurementMethod": "can be text",
+      "measurementTechnique": "can be text or, if standard measurement protocols are defined and registered, can be a URL",
+      "unitCode": "can be text or a URL that goes to a concept in a unit of measurement vocab",
+      "unitText": "can be the corresponding text",
+      "value": "",
+      "minValue": "",
+      "maxValue": "",
+      "valueReference": {
+        "@type": "DefinedTerm",
+        "name": "analysisRole",
+        "description": "",
+        "disambiguatingDescription": "",
+        "termCode": "Dependent",
+        "inDefinedTermSet": ["Independent", "Dependent", "Intervening", "Control"]
+      } 
     },
     {
       "@type": "StatisticalVariable",
