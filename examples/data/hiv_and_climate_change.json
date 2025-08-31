@@ -395,7 +395,7 @@
       "measurementQualifier": [
         {
           "@type": "Observation",
-          "marginOfError": "a human readable statement of the value margin of error",
+          "marginOfError": "A human readable statement of the value margin of error. In this use case there is no ground truth at first which adds to the margin of error. The plan is to add ground meteorological data alongside the satellite data as VIC inputs",
           "observationPeriod": "a human readable time period",
           "maxValue": "the highest (recorded) value of an observation",
           "minValue": "the lowest (recorded) value of an observation",
