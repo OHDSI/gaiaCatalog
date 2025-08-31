@@ -313,10 +313,13 @@
       "measurementQualifier": [
         {
           "@type": "Observation",
+          "qudt:dataType": "xsd:integer",
           "marginOfError": "a human readable statement of the value margin of error",
           "observationPeriod": "a human readable time period",
           "maxValue": "the highest (recorded) value of an observation",
-          "minValue": "the lowest (recorded) value of an observation"
+          "minValue": "the lowest (recorded) value of an observation",
+          "unitCode": "https://athena.ohdsi.org/search-terms/terms/586323",
+          "unitText": "degrees celsius"
         }
       ],
       "codata:constraintProperty": [
