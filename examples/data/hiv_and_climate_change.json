@@ -317,10 +317,6 @@
           "observationPeriod": "a human readable time period",
           "maxValue": "the highest (recorded) value of an observation",
           "minValue": "the lowest (recorded) value of an observation"
-        },
-        {
-          "@type": "Enumeration",
-          "identifier": ["degree celcius", "https://athena.ohdsi.org/search-terms/terms/586323"]
         }
       ],
       "codata:constraintProperty": [
