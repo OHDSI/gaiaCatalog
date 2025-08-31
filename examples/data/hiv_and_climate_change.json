@@ -385,28 +385,25 @@
     },
     {
       "@type": "StatisticalVariable",
-      "name": "Flood exceedance event",
+      "name": "Monthly exceedance probability of flood",
       "identifier": "http://gisextension.ohdsi.org/sdoh/nnn",
-      "description": "A precipitation event over the 95th percentile counts as a flood exceedance.",
-      "disambiguatingDescription": "Flood exceedances are associated with disruption in services and infrastructure.",
-      "measurementTechnique": "Empirical (non-parametric) method",
-      "measurementMethod": "https://github.com/OHDSI/gaiaCatalog/blob/main/examples/data/calculating_annual_exceedence_probability.md",
-      "populationType": "Gaia",
-      "measuredProperty": "Precipitation event",
+      "description": "We approximate the 10% exceedance probability threshold using unrouted daily runoff for each calendar month and each gridded cell",
+      "disambiguatingDescription": "An exceedance probability developed from a population of daily runoff in a given month should not be confused with annual flood statistics, which are developed by fitting a statistical distribution to a population of annual maximum daily streamflow",
+      "measurementTechnique": "The Variable Infiltration Capacity (VIC) land surface hydrologic model is informed by meteorological time-series variables including precipitaion and temperature ",
+      "measurementMethod": "https://www.sciencedirect.com/science/article/pii/S136481521830865X",
+      "measuredProperty": "Surface flow runoff",
       "measurementQualifier": [
-        {
-          "@type": "Enumeration",
-          "identifier": ["mm/24 hrs", "https://codata.org/units/term/mm24hr"]
-        },
         {
           "@type": "Observation",
           "marginOfError": "a human readable statement of the value margin of error",
           "observationPeriod": "a human readable time period",
           "maxValue": "the highest (recorded) value of an observation",
-          "minValue": "the lowest (recorded) value of an observation"
+          "minValue": "the lowest (recorded) value of an observation",
+          "unitCode": "https://athena.ohdsi.org/search-terms/terms/8554",
+          "unitText": "percent"
         }
       ],
-      "statType": "95th percentile of all recorded 24-hour rainfall events",
+      "statType": "10% monthly exceedance probability",
       "additionalType": ["Annual Exceedance Probability of a 24-hour flood event", "Recurrence Interval of a 24-hour flood event"], 
       "codata:constraintProperty": [
         {
