@@ -406,7 +406,7 @@
       ],
       "statType": "10% monthly exceedance probability",
       "additionalType": ["Annual Exceedance Probability of a 24-hour flood event", "Recurrence Interval of a 24-hour flood event"], 
-      "codata:constraintProperty": [
+      "exConstraintProperty": [
         {
           "@type": "PropertyValue",
           "name": "timePeriod",
