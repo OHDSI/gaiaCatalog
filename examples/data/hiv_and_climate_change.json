@@ -396,7 +396,17 @@
           "disambiguatingDescription": "This is a time series",
           "unitCode": "http://athena.ohdsi.org/ucum/44777658",
           "unitText": "/mo",
-          "value": ["R120/2014-01/P1M", "The value is a time series that begins Jan 2014 and repeats each month thereafter for the next 120 months"]
+          "value": ["R120/2014-01/P1M", "The value is a time series that begins Jan 2014 and repeats each month thereafter for the next 120 months"],
+          "valueReference": [
+            {
+              "@type": "DefinedTerm",
+              "name": "ConstraintPropertyType",
+              "description": "The ConstraintProperty type has one of two values -- 'dimension' or 'attribute'. Types take after SDMX and RDF Data Cube dimensions and attributes",
+              "disambiguatingDescription": "Attributes give context to the underlying measure. A dimension breaks out a measure into a controlled vocabulary of one or more categories",
+              "termCode": "sdmx:Dimension",
+              "inDefinedTermSet": ["sdmx:Dimension", "sdmx:Attribute"]
+            }
+          ]
         },
         {
           "@type": "PropertyValue",
@@ -408,7 +418,17 @@
             "disambiguatingDescription": "This buffer helped account for potential inaccuracies in the centroid coordinates and the limited resolution of the climate data.",
             "circle": "A circle is the circular region of a specified radius centered at a specified latitude and longitude. A circle is expressed as a pair followed by a radius in meters.",
             "elevation": "The elevation of a location (WGS 84)."
-          }
+          },
+          "valueReference": [
+            {
+              "@type": "DefinedTerm",
+              "name": "ConstraintPropertyType",
+              "description": "The ConstraintProperty type has one of two values -- 'dimension' or 'attribute'. Types take after SDMX and RDF Data Cube dimensions and attributes",
+              "disambiguatingDescription": "Attributes give context to the underlying measure. A dimension breaks out a measure into a controlled vocabulary of one or more categories",
+              "termCode": "sdmx:Dimension",
+              "inDefinedTermSet": ["sdmx:Dimension", "sdmx:Attribute"]
+            }
+          ]
         }
       ]
     }
