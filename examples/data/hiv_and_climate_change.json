@@ -6,7 +6,7 @@
       "quantitykind": "http://qudt.org/vocab/quantitykind/",
       "unit": "http://qudt.org/vocab/unit/",
       "xsd": "http://www.w3.org/2001/XMLSchema#",
-      "exConstraintProperty": "http:/codata.org/vocab/exConstraintProperty"
+      "extendedConstraintProperty": "http:/codata.org/vocab/exConstraintProperty"
     }
   ],
   "@type": "Dataset",
@@ -323,7 +323,7 @@
           "unitText": "degrees celsius"
         }
       ],
-      "exConstraintProperty": [
+      "extendedConstraintProperty": [
         {
           "@type": "PropertyValue",
           "name": "timePeriod",
@@ -369,20 +369,7 @@
             }
           ]
         }
-      ],
-      "potentialAction": {
-        "@type": "AddAction",
-        "targetCollection": {
-          "@type": "Dataset",
-          "name": "My OMOP CDM instance"
-        },
-        "actionProcess": {
-          "@type": "HowTo",
-          "tool": "The OHDSI GIS extension toolchain",
-          "yield": "An external exposure occurrence",
-          "url": "https://ohdsi.github.io/CommonDataModel/cdm54.html#external_exposure"
-        }
-      }
+      ]
     },
     {
       "@type": "StatisticalVariable",
@@ -406,7 +393,7 @@
       ],
       "statType": "10% monthly exceedance probability",
       "additionalType": ["Annual Exceedance Probability of a 24-hour flood event", "Recurrence Interval of a 24-hour flood event"], 
-      "exConstraintProperty": [
+      "extendedConstraintProperty": [
         {
           "@type": "PropertyValue",
           "name": "timePeriod",
@@ -431,20 +418,7 @@
           "unitCode": "TBD",
           "unitText": "for the Magu administrative area"
         }
-      ],
-      "potentialAction": {
-        "@type": "AddAction",
-        "targetCollection": {
-          "@type": "Dataset",
-          "name": "My OMOP CDM instance"
-        },
-        "actionProcess": {
-          "@type": "HowTo",
-          "tool": "The OHDSI GIS extension toolchain",
-          "yield": "An external exposure occurrence",
-          "url": "https://ohdsi.github.io/CommonDataModel/cdm54.html#external_exposure"
-        }
-      }
+      ]
     }
   ],
   "about": {
