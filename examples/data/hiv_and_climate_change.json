@@ -386,7 +386,7 @@
           "unitText": "percent"
         }
       ],
-      "statType": "10% monthly exceedance probability",
+      "statType": "Monthly exceedance probability",
       "additionalType": ["Annual Exceedance Probability of a 24-hour flood event", "Recurrence Interval of a 24-hour flood event"], 
       "extendedConstraintProperty": [
         {
