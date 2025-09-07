@@ -14,7 +14,7 @@
   "download": "wget",
   "table": "ma_2018_svi_tract",
   "format": "gdb",
-  "up": "false",
+  "up": "true",
   "podID": "gaia-db",
   "last_updated": "2025-05-23T00:47:39Z",
   "update_frequency": "Never",

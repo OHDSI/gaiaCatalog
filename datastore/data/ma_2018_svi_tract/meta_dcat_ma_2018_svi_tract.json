@@ -31,11 +31,11 @@
   "gdsc:sponsor": ["TuftsCTSI;https://www.tuftsctsi.org/", "IDSC;https://idsc.miami.edu", "Library;https://www.library.miami.edu"],
   "dcat:downloadURL": "https://svi.cdc.gov/Documents/Data/2018/db/states/Massachusetts.zip",
   "gdsc:tablename": "ma_2018_svi_tract",
-  "gdsc:up": "false",
+  "gdsc:up": "true",
   "gdsc:podID": "gaia-db",
   "dct:modified": "2025-05-23T00:47:39Z",
   "dct:accrualPeriodicity": "Never",
-  "gdsc:version": "2025-08-26T13:54:47Z",
+  "gdsc:version": "2025-09-07T18:36:04Z",
   "spdx:checksum": "TBD",
   "dct:extent": ["2737690", "2.7M"],
   "dcat:bbox": "POLYGON((-73.508142 41.237964, -69.928393 41.237964, -69.928393 42.886589, -73.508142 42.886589, -73.508142 41.237964))"

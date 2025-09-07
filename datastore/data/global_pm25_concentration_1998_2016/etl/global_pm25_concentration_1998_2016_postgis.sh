@@ -6,10 +6,10 @@
 # Data source: https://sedac.ciesin.columbia.edu/downloads/data/sdei/sdei-annual-pm2-5-concentrations-countries-urban-areas-v1-1998-2016/sdei-annual-pm2-5-concentrations-countries-urban-areas-v1-1998-2016-urban-areas-shp.zip
 # Destination postGIS table: global_pm25_concentration_1998_2016
 #
-# Created by etl() on 2025-08-26 12:54:47
+# Created by etl() on 2025-09-07 17:36:04
 # Do not edit directly
 
-export POSTGRES_PASSWORD=$(cat $POSTGRES_PASSWORD_FILE)
+export PGPASSWORD=$(cat $POSTGRES_PASSWORD_FILE)
 # remove duplicate points and make geometries valid:
 psql -d $POSTGRES_DB -U $POSTGRES_USER -p $POSTGRES_PORT -h gaia-db -c "
 UPDATE global_pm25_concentration_1998_2016

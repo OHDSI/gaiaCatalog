@@ -6,10 +6,12 @@
 # Data source: https://sedac.ciesin.columbia.edu/downloads/data/sdei/sdei-annual-pm2-5-concentrations-countries-urban-areas-v1-1998-2016/sdei-annual-pm2-5-concentrations-countries-urban-areas-v1-1998-2016-urban-areas-shp.zip
 # Destination postGIS table: global_pm25_concentration_1998_2016
 #
-# Created by etl() on 2025-08-26 12:54:47
+# Created by etl() on 2025-09-07 17:36:04
 # Do not edit directly
 
-export POSTGRES_PASSWORD=$(cat $POSTGRES_PASSWORD_FILE)
+export PGPASSWORD=$(cat $POSTGRES_PASSWORD_FILE)
+export USGS_USER=$(cat $USGS_USER_FILE)
+export USGS_PASSWORD=$(cat $USGS_PASSWORD_FILE)
 # create directory structure and move into it
 mkdir -p /data/global_pm25_concentration_1998_2016/{download,etl} && cd /data/global_pm25_concentration_1998_2016
 

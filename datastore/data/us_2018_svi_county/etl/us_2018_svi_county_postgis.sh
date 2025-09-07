@@ -6,10 +6,10 @@
 # Data source: https://svi.cdc.gov/Documents/Data/2018/db/states_counties/SVI_2018_US_county.zip
 # Destination postGIS table: us_2018_svi_county
 #
-# Created by etl() on 2025-08-26 12:54:48
+# Created by etl() on 2025-09-07 17:36:05
 # Do not edit directly
 
-export POSTGRES_PASSWORD=$(cat $POSTGRES_PASSWORD_FILE)
+export PGPASSWORD=$(cat $POSTGRES_PASSWORD_FILE)
 # remove duplicate points and make geometries valid:
 psql -d $POSTGRES_DB -U $POSTGRES_USER -p $POSTGRES_PORT -h gaia-db -c "
 UPDATE us_2018_svi_county

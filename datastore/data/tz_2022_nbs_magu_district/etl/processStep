@@ -1,0 +1,50 @@
+#########
+# GDSC ETL is performed in two steps: shell script to ETL data into postgres
+# and then additional transformations with SQL in postGIS (if needed).
+####
+
+#########
+# Step 1 - bash script (pseudo code)
+####
+
+# create directory structure and move into it
+mkdir -p /data/tz_2022_nbs_magu_district/{download,etl} && cd /data/tz_2022_nbs_magu_district
+
+# set update flag based on last update and update frequency
+do_update=0 if date() < last_update + update_frequency else do_update = 1
+
+# Create copy of geom dependency
+pg_dump -d $POSTGRES_DB -U $POSTGRES_USER -p $POSTGRES_PORT -h gaia-db -t tz_2022_nbs_districts | sed 's/tz_2022_nbs_districts/tz_2022_nbs_magu_district/g' | psql -d $POSTGRES_DB -U $POSTGRES_USER -p $POSTGRES_PORT -h gaia-db 
+
+# drop geom_local and subset as per custom parameters
+psql -d $POSTGRES_DB -U $POSTGRES_USER -p $POSTGRES_PORT -h gaia-db -c "
+ALTER TABLE tz_2022_nbs_magu_district DROP COLUMN IF EXISTS geom_local;
+DELETE FROM tz_2022_nbs_magu_district
+  WHERE NOT (reg_code = '19' AND dist_code = '02');
+COMMIT;"
+# add local geometry column and reproject existing geometries into local EPSG:
+SELECT AddGeometryColumn (
+  'tz_2022_nbs_magu_district',
+  'geom_local', 4326, 'multipolygon', 2
+);
+UPDATE tz_2022_nbs_magu_district
+  SET geom_local=ST_MakeValid(ST_RemoveRepeatedPoints(ST_Transform(ST_Multi(geom),4326)));
+CREATE INDEX tz_2022_nbs_magu_district_geom_local_idx
+  ON tz_2022_nbs_magu_district
+  USING GIST (geom_local);
+NOTIFY pgrst, 'reload schema';
+# Move into corrrect directory and create derivative directory in data package on osgeo
+cd /data/tz_2022_nbs_magu_district/
+mkdir -p derived
+
+# Create shapefile of table in derivate directory on osgeo 
+ogr2ogr -f "ESRI Shapefile" -overwrite derived/tz_2022_nbs_magu_district.shp PG:"<postgres connection>" tz_2022_nbs_magu_district
+
+# Create downloadable tarfile of shp in derivative directory on osgeo
+rm -f derived/tz_2022_nbs_magu_district.shp.tar.gz
+tar -czf derived/tz_2022_nbs_magu_district.shp.tar.gz meta_dcat_tz_2022_nbs_magu_district.json -C derived tz_2022_nbs_magu_district.shp tz_2022_nbs_magu_district.prj tz_2022_nbs_magu_district.shx tz_2022_nbs_magu_district.dbf
+
+# Move into correct directory
+cd /data/tz_2022_nbs_magu_district/
+
+

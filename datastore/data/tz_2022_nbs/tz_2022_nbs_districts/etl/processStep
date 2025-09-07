@@ -1,0 +1,63 @@
+#########
+# GDSC ETL is performed in two steps: shell script to ETL data into postgres
+# and then additional transformations with SQL in postGIS (if needed).
+####
+
+#########
+# Step 1 - bash script (pseudo code)
+####
+
+# create directory structure and move into it
+mkdir -p /data/tz_2022_nbs/{download,tz_2022_nbs_districts/etl} && cd /data/tz_2022_nbs
+
+# set update flag based on last update and update frequency
+do_update=0 if date() < last_update + update_frequency else do_update = 1
+
+# download if update flag is set:
+if do_update == 1 then
+wget -O download/tz_2022_nbs.zip 'https://microdata.nbs.go.tz/index.php/catalog/49/download/317'
+
+# unzip to download directory if update flag is set
+if do_update == 1 then
+unzip -d download download/tz_2022_nbs.zip && rm download/tz_2022_nbs.zip
+
+# extract mpkx to download directory
+7z x download/TANZANIA_2022_POST_PHC_GEODATABASE.mpkx -o'download/TANZANIA_2022_POST_PHC_GEODATABASE'
+
+# load into postGIS with:
+  ogr2ogr -lco GEOMETRY_NAME=geom -f PostgreSQL PG:"<postgres connection>" download/TANZANIA_2022_POST_PHC_GEODATABASE/commondata/tanzania_2022phc_geodatabase.gdb Districts -nlt multipolygon -nln tz_2022_nbs_districts
+
+#########
+# Step 2 - SQL script (pseudo code):
+####
+
+# remove duplicate points and make geometries valid:
+UPDATE tz_2022_nbs_districts
+  SET geom=ST_MakeValid(ST_RemoveRepeatedPoints(geom));
+
+# add local geometry column and reproject existing geometries into local EPSG:
+SELECT AddGeometryColumn (
+  'tz_2022_nbs_districts',
+  'geom_local', 4326, 'multipolygon', 2
+);
+UPDATE tz_2022_nbs_districts
+  SET geom_local=ST_MakeValid(ST_RemoveRepeatedPoints(ST_Transform(ST_Multi(geom),4326)));
+CREATE INDEX tz_2022_nbs_districts_geom_local_idx
+  ON tz_2022_nbs_districts
+  USING GIST (geom_local);
+NOTIFY pgrst, 'reload schema';
+# Move into corrrect directory and create derivative directory in data package on osgeo
+cd /data/tz_2022_nbs/tz_2022_nbs_districts/
+mkdir -p derived
+
+# Create shapefile of table in derivate directory on osgeo 
+ogr2ogr -f "ESRI Shapefile" -overwrite derived/tz_2022_nbs_districts.shp PG:"<postgres connection>" tz_2022_nbs_districts
+
+# Create downloadable tarfile of shp in derivative directory on osgeo
+rm -f derived/tz_2022_nbs_districts.shp.tar.gz
+tar -czf derived/tz_2022_nbs_districts.shp.tar.gz meta_dcat_tz_2022_nbs_districts.json -C derived tz_2022_nbs_districts.shp tz_2022_nbs_districts.prj tz_2022_nbs_districts.shx tz_2022_nbs_districts.dbf
+
+# Move into correct directory
+cd /data/tz_2022_nbs/tz_2022_nbs_districts/
+
+

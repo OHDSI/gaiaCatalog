@@ -21,7 +21,7 @@
   "prov:wasGeneratedBy": "GDSC automation (see Process Step)",
   "dcat:contactPoint": ["Timothy Norris", "Librarian Associate Professor", "University of Miami Libraries, Frost Institute for Data Science and Computing", "txn60@miami.edu"],
   "gdsc:attributes": ["2m_temperature;Average yearly 2m temperature in Kelvin from Copernicus reanalysis era5 single levels;Copernicus;float;Kelvin;9523;287.315857;301.010986;1984-01-01;1984-12-31;35814756;2m_temperature@tz_1984_copernicus_avg_temp"],
-  "gdsc:collections": ["Tanzania Climate Change", "Tanzania Health Outcomes", "OHDSI/GIS"],
+  "gdsc:collections": ["Tanzania Climate Change", "Tanzania Health Outcomes"],
   "gdsc:functions": ["gdsc_zonal_statistics"],
   "gdsc:analyticConformsTo": "EPSG:4326",
   "gdsc:derived": ["tiff"],
@@ -29,11 +29,11 @@
   "gdsc:sponsor": ["TuftsCTSI;https://www.tuftsctsi.org/", "IDSC;https://idsc.miami.edu", "Library;https://www.library.miami.edu"],
   "dcat:downloadURL": "https://github.com/tibbben/copernicus_aggregate.git",
   "gdsc:tablename": "tz_1984_copernicus_avg_temp",
-  "gdsc:up": "false",
+  "gdsc:up": "true",
   "gdsc:podID": "gaia-db",
   "dct:modified": "0001-01-01T00:00:00Z",
   "dct:accrualPeriodicity": "As Needed",
-  "gdsc:version": "2025-08-26T15:40:07Z",
+  "gdsc:version": "2025-09-07T18:36:04Z",
   "spdx:checksum": "TBD",
   "dct:extent": ["85198019", "82M"]
 }

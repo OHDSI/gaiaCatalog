@@ -62,6 +62,7 @@ def query_solr(path,parameters):
     results = []
 
     # send query to SOLR and gather paged results
+    parameters['q'] = parameters['q'].replace(' ','+')
     query_string  = urlencode(parameters).replace('-','+')
     while numresults > len(results):
         connection = urlopen("{}{}".format(path, query_string))
