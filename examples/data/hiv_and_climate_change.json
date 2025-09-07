@@ -1,7 +1,15 @@
 {
-  "@context": {
-    "@vocab": "https://schema.org/"
-  },
+  "@context": [
+    "https://schema.org/",
+    {
+      "qudt": "http://qudt.org/schema/qudt/",
+      "quantitykind": "http://qudt.org/vocab/quantitykind/",
+      "unit": "http://qudt.org/vocab/unit/",
+      "xsd": "http://www.w3.org/2001/XMLSchema#",
+      "extendedConstraintProperty": "http:/codata.org/vocab/extendedConstraintProperty",
+      "sdmx": "https://sdmx.org"
+    }
+  ],
   "@type": "Dataset",
   "@id": "",
   "name": "",
@@ -37,17 +45,9 @@
     "name": "ERA5",
     "description": "ERA5 is the fifth generation ECMWF reanalysis for the global climate and weather for the past 8 decades. Data is available from 1940 onwards. ERA5 replaces the ERA-Interim reanalysis.",
     "producer": "https://climate.copernicus.eu",
-    "url": "https://climate.copernicus.eu/climate-reanalysis"
+    "url": "discuss with Doug and Tim"
   },
-  "keywords": [
-    "Magu",
-    "Nairobi",
-    "precipitation",
-    "temperature",
-    "drought",
-    "flooding",
-    "heat stress"
-  ],
+  "keywords": ["Magu", "Nairobi", "precipitation", "temperature", "drought", "flooding", "heat stress", "exceedances"],
   "subjectOf": [
     {
       "@type": "Claim",
@@ -108,7 +108,7 @@
     {
       "@type": "Place",
       "name": "Magu",
-      "description": "We used the geocoordinates of the centroid of the Magu HDSS and applied a 10 km buffer around it ",
+      "description": "We used the geocoordinates of the centroid of the Magu HDSS and applied a buffer around it consistent with the geography of the area",
       "disambiguatingDescription": "This buffer helped account for potential inaccuracies in the centroid coordinates and the limited resolution of the climate data",
       "geo": {
         "@type": "GeoShape",
@@ -132,7 +132,7 @@
     {
       "@type": "Place",
       "name": "Nairobi",
-      "description": "We used the geocoordinates of the centroid of the Nairobi HDSS and applied a 10 km buffer around it ",
+      "description": "We used the geocoordinates of the centroid of the Nairobi HDSS and applied a buffer around it consistent with the geography of the area",
       "disambiguatingDescription": "This buffer helped account for potential inaccuracies in the centroid coordinates and the limited resolution of the climate data",
       "geo": {
         "@type": "GeoShape",
@@ -176,7 +176,7 @@
       }
     }
   ],
-  "temporal": "It may be we will want to support two or more  temporal resolutions, depending upon the patterns that they surface. Two are specified in temporalCoverage. The first is the monthly average (P1M) beginning in 1994 every year for 20 years (R20). temporalCoverge is a shorthand for temporal using ISO 8601. See https://en.wikipedia.org/wiki/ISO_8601",
+  "temporal": "It may be we will want to support two or more temporal resolutions, depending upon the patterns that they surface. Two are specified in temporalCoverage. The first is the monthly average (P1M) beginning in 1994 every year for 20 years (R20). temporalCoverge is a shorthand for temporal using ISO 8601. See https://en.wikipedia.org/wiki/ISO_8601",
   "temporalCoverage": ["R20/1994/P1M", "R20/1994/P1W"],
   "measurementTechnique": {
     "@type": "DefinedTerm",
@@ -197,7 +197,7 @@
     {
       "@type": "DataDownload",
       "description": "Includes maximum temperature, minimum temperature, precipitation and relative humidity aggregated monthly",
-      "disambiguatingDescription": "Also includes climate events that envelop the Magu and Nairobi HDSS sites for drought, flooding and heat stress during the temporal coverage. Exposure to each climate event is a calculated variable based on temperature, precipitation and humidity",
+      "disambiguatingDescription": "Also includes exceedance probabilities for drought and flooding and a derived variable called heat stress at the Magu and Nairobi locations",
       "contentUrl": "a URL",
       "encodingFormat": "application/vnd.ms-excel"
     },
@@ -206,7 +206,7 @@
       "potentialAction": {
         "@type": "SearchAction",
         "description": "Includes maximum temperature, minimum temperature, precipitation and relative humidity aggregated monthly",
-        "disambiguatingDescription": "Also includes climate events that envelop the Magu and Nairobi HDSS sites for drought, flooding and heat stress during the temporal coverage. Exposure to each climate event is a calculated variable based on temperature, precipitation and humidity",
+        "disambiguatingDescription": "Also includes exceedance probabilities for drought and flooding and a derived variable called heat stress at the Magu and Nairobi locations",
         "target": {
           "@type": "EntryPoint",
           "contentType": ["application/x-netcdf", "text/tab-separated-values"],
@@ -284,34 +284,24 @@
   ],
   "variableMeasured": [
     {
-        "@id": "http://example.org/id/link/to/concept/of/unit_data",
-        "@type": "PropertyValue",
-        "name": "unit_data",
-        "description": "A variable description",
-        "propertyID": ["URL for the unit data concept within a vocabulary"],
-        "measurementMethod": "can be text",
-        "measurementTechnique": "can be text or, if standard measurement protocols are defined and registered, can be a URL",
-        "unitCode": "can be text or a URL that goes to a concept in a unit of measurement vocab",
-        "unitText": "can be the corresponding text",
-        "value": "",
-        "minValue": "",
-        "maxValue": "",
-        "valueReference": {
-            "@type": "PropertyValue",
-            "name": "analysisRole",    
-            "description": "",   
-            "rangeIncludes": {
-                "@type":"DefinedTermSet",
-                "@id":"",        
-                "name":"",        
-                "hasDefinedTerm": [
-                    {"@type": "DefinedTerm", "termCode":"Independent"},
-                    {"@type": "DefinedTerm", "termCode":"Dependent"},
-                    {"@type": "DefinedTerm", "termCode":"Intervening"},
-                    {"@type": "DefinedTerm", "termCode":"Control"}
-                ]
-            }
-        }
+      "@type": "PropertyValue",
+      "name": "A unit data variable name. Required",
+      "description": "A unit data variable description. Required",
+      "propertyID": "A URL for the unit data concept within a vocabulary. Required",
+      "measurementMethod": "A detailed description of the measurement technique. Can be an enumeration. Optional",
+      "measurementTechnique": "A high level description of the measurement technique, Can be a URL. Required",
+      "qudt:dataType": "A qudt datatype. Required",
+      "unitCode": "Either text or a URL that goes to a concept in a unit of measurement vocab like qudt and ucum. Always needed when the datatype is a number. Conditionally required",
+      "unitText": "Used to decypher a unitCode. Conditionally required",
+      "minValue": "The lower value of some characteristic or property. Optional",
+      "maxValue": "The upper value of some characteristic or property. Optional",
+      "valueReference": {
+        "@type": "DefinedTerm",
+        "name": "analysisRole",
+        "description": "Planned use of variable downstream during analysis",
+        "termCode": "Dependent for example",
+        "inDefinedTermSet": ["Independent", "Dependent", "Intervening", "Control"]
+      } 
     },
     {
       "@type": "StatisticalVariable",
@@ -322,27 +312,25 @@
       "statType": "mean",
       "measurementQualifier": [
         {
-          "@type": "Enumeration",
-          "identifier": ["degree celcius", "https://athena.ohdsi.org/search-terms/terms/586323"]
-        },
-        {
           "@type": "Observation",
+          "qudt:dataType": "xsd:integer",
           "marginOfError": "a human readable statement of the value margin of error",
           "observationPeriod": "a human readable time period",
           "maxValue": "the highest (recorded) value of an observation",
-          "minValue": "the lowest (recorded) value of an observation"
+          "minValue": "the lowest (recorded) value of an observation",
+          "unitCode": "https://athena.ohdsi.org/search-terms/terms/586323",
+          "unitText": "degrees celsius"
         }
       ],
-      "codata:constraintProperty": [
+      "extendedConstraintProperty": [
         {
           "@type": "PropertyValue",
           "name": "timePeriod",
-          "description": "timePeriod is specified in ISO 8601 format. It has a start date, an interval and an argument (Rn) that repeats the interval beginning at the start date",
+          "description": "The timePeriod is specified in ISO 8601 format. It has a start date, an interval and an argument (Rn) that repeats the interval beginning at the start date",
           "disambiguatingDescription": "This is a time series",
-          "propertyID": "",
-          "value": "R144/2014-01/P1M",
           "unitCode": "http://athena.ohdsi.org/ucum/44777658",
           "unitText": "/mo",
+          "value": ["R120/2014-01/P1M", "The value is a time series that begins Jan 2014 and repeats each month thereafter for the next 120 months"],
           "valueReference": [
             {
               "@type": "DefinedTerm",
@@ -357,17 +345,14 @@
         {
           "@type": "PropertyValue",
           "name": "geographicalArea",
-          "description": "human readable description of geographicalArea",
-          "measurementTechnique": "Polygonize (Raster to Vector)",
+          "description": "A human readable description of geographicalArea",
           "value": {
             "@type": "GeoShape",
-            "description": "We used the geocoordinates of the centroid of an HDSS and applied a 10 km buffer around it",
+            "description": "We used the geocoordinates of the centroid of an HDSS and applied a buffer around it in line with Magu's geography",
             "disambiguatingDescription": "This buffer helped account for potential inaccuracies in the centroid coordinates and the limited resolution of the climate data.",
             "circle": "A circle is the circular region of a specified radius centered at a specified latitude and longitude. A circle is expressed as a pair followed by a radius in meters.",
             "elevation": "The elevation of a location (WGS 84)."
           },
-          "unitCode": "TBD",
-          "codata:unitText": "for the Magu administrative area",
           "valueReference": [
             {
               "@type": "DefinedTerm",
@@ -379,85 +364,73 @@
             }
           ]
         }
-      ],
-      "potentialAction": {
-        "@type": "AddAction",
-        "targetCollection": {
-          "@type": "Dataset",
-          "name": "My OMOP CDM instance"
-        },
-        "actionProcess": {
-          "@type": "HowTo",
-          "tool": "The OHDSI GIS extension toolchain",
-          "yield": "An external exposure occurrence",
-          "url": "https://ohdsi.github.io/CommonDataModel/cdm54.html#external_exposure"
-        }
-      }
+      ]
     },
     {
       "@type": "StatisticalVariable",
-      "name": "Flood exceedance event",
+      "name": "Monthly exceedance probability of flood",
       "identifier": "http://gisextension.ohdsi.org/sdoh/nnn",
-      "description": "A precipitation event over the 95th percentile counts as a flood exceedance.",
-      "disambiguatingDescription": "Flood exceedances are associated with disruption in services and infrastructure.",
-      "measurementTechnique": "Empirical (non-parametric) method",
-      "measurementMethod": "https://github.com/OHDSI/gaiaCatalog/blob/main/examples/data/calculating_annual_exceedence_probability.md",
-      "populationType": "Gaia",
-      "measuredProperty": "Precipitation event",
+      "description": "We approximate the 10% exceedance probability threshold using unrouted daily runoff for each calendar month and each gridded cell",
+      "disambiguatingDescription": "An exceedance probability developed from a population of daily runoff in a given month should not be confused with annual flood statistics, which are developed by fitting a statistical distribution to a population of annual maximum daily streamflow",
+      "measurementTechnique": "The Variable Infiltration Capacity (VIC) land surface hydrologic model is informed by meteorological time-series variables including precipitaion and temperature ",
+      "measurementMethod": "https://www.sciencedirect.com/science/article/pii/S136481521830865X",
+      "measuredProperty": "Surface flow runoff",
       "measurementQualifier": [
         {
-          "@type": "Enumeration",
-          "identifier": ["mm/24 hrs", "https://codata.org/units/term/mm24hr"]
-        },
-        {
           "@type": "Observation",
-          "marginOfError": "a human readable statement of the value margin of error",
-          "observationPeriod": "a human readable time period",
-          "maxValue": "the highest (recorded) value of an observation",
-          "minValue": "the lowest (recorded) value of an observation"
+          "marginOfError": "A human readable statement of the value margin of error. In this use case there is no ground truth at first which adds to the margin of error. The plan is to add ground meteorological data alongside the satellite data as VIC inputs",
+          "observationPeriod": "A human readable time period",
+          "maxValue": "The highest (recorded) value of an observation",
+          "minValue": "The lowest (recorded) value of an observation",
+          "unitCode": "https://athena.ohdsi.org/search-terms/terms/8554",
+          "unitText": "percent"
         }
       ],
-      "statType": "95th percentile of all recorded 24-hour rainfall events",
+      "statType": "Monthly exceedance probability",
       "additionalType": ["Annual Exceedance Probability of a 24-hour flood event", "Recurrence Interval of a 24-hour flood event"], 
-      "codata:constraintProperty": [
+      "extendedConstraintProperty": [
         {
           "@type": "PropertyValue",
           "name": "timePeriod",
-          "description": "time period in scope for comparison events",
-          "disambiguatingDescription": "timePeriod is specified in ISO 8601 format. It has a start date, an interval and an argument (Rn) that repeats the interval beginning at the start date",
-          "value": "P30Y",
-          "unitCode": "TBD",
-          "unitText": "past 30yr"
+          "description": "The timePeriod is specified in ISO 8601 format. It has a start date, an interval and an argument (Rn) that repeats the interval beginning at the start date",
+          "disambiguatingDescription": "This is a time series",
+          "unitCode": "http://athena.ohdsi.org/ucum/44777658",
+          "unitText": "/mo",
+          "value": ["R120/2014-01/P1M", "The value is a time series that begins Jan 2014 and repeats each month thereafter for the next 120 months"],
+          "valueReference": [
+            {
+              "@type": "DefinedTerm",
+              "name": "ConstraintPropertyType",
+              "description": "The ConstraintProperty type has one of two values -- 'dimension' or 'attribute'. Types take after SDMX and RDF Data Cube dimensions and attributes",
+              "disambiguatingDescription": "Attributes give context to the underlying measure. A dimension breaks out a measure into a controlled vocabulary of one or more categories",
+              "termCode": "sdmx:Dimension",
+              "inDefinedTermSet": ["sdmx:Dimension", "sdmx:Attribute"]
+            }
+          ]
         },
         {
           "@type": "PropertyValue",
           "name": "geographicalArea",
-          "description": "human readable description of geographicalArea",
-          "measurementTechnique": "Polygonize (Raster to Vector)",
+          "description": "A human readable description of geographicalArea",
           "value": {
             "@type": "GeoShape",
-            "description": "We used the geocoordinates of the centroid of an HDSS and applied a 10 km buffer around it",
+            "description": "We used the geocoordinates of the centroid of an HDSS and applied a buffer around it in line with Magu's gengraphy",
             "disambiguatingDescription": "This buffer helped account for potential inaccuracies in the centroid coordinates and the limited resolution of the climate data.",
             "circle": "A circle is the circular region of a specified radius centered at a specified latitude and longitude. A circle is expressed as a pair followed by a radius in meters.",
             "elevation": "The elevation of a location (WGS 84)."
           },
-          "unitCode": "TBD",
-          "unitText": "for the Magu administrative area"
+          "valueReference": [
+            {
+              "@type": "DefinedTerm",
+              "name": "ConstraintPropertyType",
+              "description": "The ConstraintProperty type has one of two values -- 'dimension' or 'attribute'. Types take after SDMX and RDF Data Cube dimensions and attributes",
+              "disambiguatingDescription": "Attributes give context to the underlying measure. A dimension breaks out a measure into a controlled vocabulary of one or more categories",
+              "termCode": "sdmx:Dimension",
+              "inDefinedTermSet": ["sdmx:Dimension", "sdmx:Attribute"]
+            }
+          ]
         }
-      ],
-      "potentialAction": {
-        "@type": "AddAction",
-        "targetCollection": {
-          "@type": "Dataset",
-          "name": "My OMOP CDM instance"
-        },
-        "actionProcess": {
-          "@type": "HowTo",
-          "tool": "The OHDSI GIS extension toolchain",
-          "yield": "An external exposure occurrence",
-          "url": "https://ohdsi.github.io/CommonDataModel/cdm54.html#external_exposure"
-        }
-      }
+      ]
     }
   ],
   "about": {
