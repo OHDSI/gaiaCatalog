@@ -25,7 +25,9 @@ gdal2tiles.py -ex --xyz -z 14-18 /data/tz_magu_dem_srtm/download/tz_magu_dem_srt
 cd /data/tz_magu_dem_srtm/
 mkdir -p derived
 
+export PGPASSWORD=$(cat $POSTGRES_PASSWORD_FILE)
 # Move into correct directory
 cd /data/tz_magu_dem_srtm/
 
+export PGPASSWORD=$(cat $POSTGRES_PASSWORD_FILE)
 

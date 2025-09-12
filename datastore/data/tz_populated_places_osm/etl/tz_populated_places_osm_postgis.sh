@@ -6,10 +6,11 @@
 # Data source: https://overpass-api.de/api/interpreter?data=area%28id:3600195270%29-%3E.searchArea;node%5B%22place%22~%22city|town|village|hamlet%22%5D%28area.searchArea%29;%28._;%3E;%29;out;
 # Destination postGIS table: tz_populated_places_osm
 #
-# Created by etl() on 2025-09-07 17:36:05
+# Created by etl() on 2025-09-11 18:03:33
 # Do not edit directly
 
 export PGPASSWORD=$(cat $POSTGRES_PASSWORD_FILE)
+export POSTGRES_PASSWORD=$(cat $POSTGRES_PASSWORD_FILE)
 # Select proper geometry into the named table
 psql -d $POSTGRES_DB -U $POSTGRES_USER -p $POSTGRES_PORT -h gaia-db -c "
 SELECT * INTO tz_populated_places_osm FROM points;

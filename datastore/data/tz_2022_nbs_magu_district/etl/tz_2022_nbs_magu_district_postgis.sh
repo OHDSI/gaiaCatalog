@@ -6,10 +6,11 @@
 # Data source: tz_2022_nbs_districts
 # Destination postGIS table: tz_2022_nbs_magu_district
 #
-# Created by etl() on 2025-09-07 17:36:04
+# Created by etl() on 2025-09-11 18:03:32
 # Do not edit directly
 
 export PGPASSWORD=$(cat $POSTGRES_PASSWORD_FILE)
+export POSTGRES_PASSWORD=$(cat $POSTGRES_PASSWORD_FILE)
 # Create copy of geom dependency
 pg_dump -d $POSTGRES_DB -U $POSTGRES_USER -p $POSTGRES_PORT -h gaia-db -t tz_2022_nbs_districts | sed 's/tz_2022_nbs_districts/tz_2022_nbs_magu_district/g' | psql -d $POSTGRES_DB -U $POSTGRES_USER -p $POSTGRES_PORT -h gaia-db 
 

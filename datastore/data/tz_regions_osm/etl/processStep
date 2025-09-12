@@ -48,4 +48,20 @@ CREATE INDEX tz_regions_osm_geom_local_idx
   ON tz_regions_osm
   USING GIST (geom_local);
 NOTIFY pgrst, 'reload schema';
+# Move into corrrect directory and create derivative directory in data package on osgeo
+cd /data/tz_regions_osm/
+mkdir -p derived
+
+export PGPASSWORD=$(cat $POSTGRES_PASSWORD_FILE)
+# Create shapefile of table in derivate directory on osgeo 
+ogr2ogr -f "ESRI Shapefile" -overwrite derived/tz_regions_osm.shp PG:"<postgres connection>" tz_regions_osm
+
+# Create downloadable tarfile of shp in derivative directory on osgeo
+rm -f derived/tz_regions_osm.shp.tar.gz
+tar -czf derived/tz_regions_osm.shp.tar.gz meta_dcat_tz_regions_osm.json -C derived tz_regions_osm.shp tz_regions_osm.prj tz_regions_osm.shx tz_regions_osm.dbf
+
+# Move into correct directory
+cd /data/tz_regions_osm/
+
+export PGPASSWORD=$(cat $POSTGRES_PASSWORD_FILE)
 

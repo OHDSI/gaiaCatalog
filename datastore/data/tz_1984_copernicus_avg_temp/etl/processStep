@@ -32,7 +32,9 @@ rm load_raster.sql
 cd /data/tz_1984_copernicus_avg_temp/
 mkdir -p derived
 
+export PGPASSWORD=$(cat $POSTGRES_PASSWORD_FILE)
 # Move into correct directory
 cd /data/tz_1984_copernicus_avg_temp/
 
+export PGPASSWORD=$(cat $POSTGRES_PASSWORD_FILE)
 

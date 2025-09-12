@@ -6,10 +6,11 @@
 # Data source: https://microdata.nbs.go.tz/index.php/catalog/49/download/317
 # Destination postGIS table: tz_2022_nbs_districts
 #
-# Created by etl() on 2025-09-07 17:36:06
+# Created by etl() on 2025-09-11 18:03:35
 # Do not edit directly
 
 export PGPASSWORD=$(cat $POSTGRES_PASSWORD_FILE)
+export POSTGRES_PASSWORD=$(cat $POSTGRES_PASSWORD_FILE)
 # remove duplicate points and make geometries valid:
 psql -d $POSTGRES_DB -U $POSTGRES_USER -p $POSTGRES_PORT -h gaia-db -c "
 UPDATE tz_2022_nbs_districts

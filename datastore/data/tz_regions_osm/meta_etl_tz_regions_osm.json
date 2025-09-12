@@ -5,6 +5,7 @@
   "epsg": "EPSG:4326",
   "attributes": ["osm_id;OpenStreetMap (OSM) ID;;varchar;", "name;Region name;;varchar;", "type;Type of boundary;;varchar;", "admin_level;OSM Administrative level;;varchar;", "boundary;OSM boundary type;;varchar;", "other_tags;Any other OSM tags with values, first one is the ISO3166-2 code for the administrative region;;varchar;"],
   "local_epsg": "EPSG:4326",
+  "derive": ["shp"],
   "service": ["api"],
   "source": "https://overpass-api.de/api/interpreter?data=rel%5B%22ISO3166-2%22~%22^TZ%22%5D%5Badmin_level=4%5D%5Btype=boundary%5D%5Bboundary=administrative%5D;(._;>;);out;",
   "file": ["tz_regions_osm"],
@@ -15,7 +16,7 @@
   "etl_parameters": "multipolygons",
   "up": "true",
   "podID": "gaia-db",
-  "last_updated": "2025-09-07T11:19:11Z",
+  "last_updated": "0001-01-01T00:00:00Z",
   "update_frequency": "As Needed",
   "checksum": "TBD",
   "extent": "not yet know"

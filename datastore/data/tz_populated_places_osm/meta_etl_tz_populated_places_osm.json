@@ -6,7 +6,7 @@
   "fields": ["osm_id", "name", "place", "other_tags"],
   "attributes": ["osm_id;OpenStreetMap (OSM) ID;;varchar;", "name;Place/settlement name;;varchar;", "place;Kind of settlement as City, Town, Village, Hamlet, City Block, or other;;varchar;", "other_tags;Any other OSM tags with values;;varchar;", ""],
   "local_epsg": "EPSG:4326",
-  "derive": ["shp", "geojson"],
+  "derive": ["shp"],
   "service": ["api"],
   "source": "https://overpass-api.de/api/interpreter?data=area%28id:3600195270%29-%3E.searchArea;node%5B%22place%22~%22city|town|village|hamlet%22%5D%28area.searchArea%29;%28._;%3E;%29;out;",
   "file": ["tz_populated_places_osm"],
@@ -17,7 +17,7 @@
   "etl_parameters": "points",
   "up": "true",
   "podID": "gaia-db",
-  "last_updated": "2025-09-07T11:08:15Z",
+  "last_updated": "2025-09-11T13:13:42Z",
   "update_frequency": "As Needed",
   "checksum": "TBD",
   "extent": "not yet know"

@@ -52,6 +52,7 @@ NOTIFY pgrst, 'reload schema';
 cd /data/tz_populated_places_osm/
 mkdir -p derived
 
+export PGPASSWORD=$(cat $POSTGRES_PASSWORD_FILE)
 # Create shapefile of table in derivate directory on osgeo 
 ogr2ogr -f "ESRI Shapefile" -overwrite derived/tz_populated_places_osm.shp PG:"<postgres connection>" tz_populated_places_osm
 
@@ -59,14 +60,8 @@ ogr2ogr -f "ESRI Shapefile" -overwrite derived/tz_populated_places_osm.shp PG:"<
 rm -f derived/tz_populated_places_osm.shp.tar.gz
 tar -czf derived/tz_populated_places_osm.shp.tar.gz meta_dcat_tz_populated_places_osm.json -C derived tz_populated_places_osm.shp tz_populated_places_osm.prj tz_populated_places_osm.shx tz_populated_places_osm.dbf
 
-# Create geojson of table in derivate directory on osgeo 
-ogr2ogr -f GeoJSON -overwrite derived/tz_populated_places_osm.json PG:"<postgres connection>" -select "osm_id,name,place,other_tags,geom" tz_populated_places_osm
-
-# Create downloadable tarfile of geojson in derivative directory on osgeo
-rm -f derived/tz_populated_places_osm.geojson.tar.gz
-tar -czf derived/tz_populated_places_osm.geojson.tar.gz meta_dcat_tz_populated_places_osm.json -C derived tz_populated_places_osm.json
-
 # Move into correct directory
 cd /data/tz_populated_places_osm/
 
+export PGPASSWORD=$(cat $POSTGRES_PASSWORD_FILE)
 

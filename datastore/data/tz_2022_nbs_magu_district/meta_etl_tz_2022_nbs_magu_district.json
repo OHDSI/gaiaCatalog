@@ -12,7 +12,7 @@
   "file": ["tz_2022_nbs_magu_district"],
   "table": "tz_2022_nbs_magu_district",
   "format": "gdb",
-  "dependency": ["tz_2022_nbs_districts"],
+  "dependency": ["tz_2022_nbs_districts","fred","jane"],
   "custom_etl": "subset",
   "custom_parameters": "reg_code;=;'19';AND|dist_code;=;'02'",
   "up": "true",
@@ -20,5 +20,5 @@
   "last_updated": "0001-01-01T00:00:00Z",
   "update_frequency": "As Needed",
   "checksum": "TBD",
-  "extent": "POLYGON((29.636010 -11.255900, 39.868100 -11.255900, 39.868100 -1.072270)\nExtent: (29.611330, 29.636010 -1.072270)\nExtent: (29.611330, 29.636010 -11.255900))"
+  "extent": "ERROR"
 }

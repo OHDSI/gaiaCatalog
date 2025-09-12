@@ -6,12 +6,11 @@
 # Data source: https://microdata.nbs.go.tz/index.php/catalog/49/download/317
 # Destination postGIS table: tz_2022_nbs_districts
 #
-# Created by etl() on 2025-09-07 17:36:06
+# Created by etl() on 2025-09-11 18:03:35
 # Do not edit directly
 
 export PGPASSWORD=$(cat $POSTGRES_PASSWORD_FILE)
-export USGS_USER=$(cat $USGS_USER_FILE)
-export USGS_PASSWORD=$(cat $USGS_PASSWORD_FILE)
+export POSTGRES_PASSWORD=$(cat $POSTGRES_PASSWORD_FILE)
 # create directory structure and move into it
 mkdir -p /data/tz_2022_nbs/{download,tz_2022_nbs_districts/etl} && cd /data/tz_2022_nbs
 
