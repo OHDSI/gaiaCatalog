@@ -113,6 +113,18 @@ def highlight_query(document,query):
     return document
 
 
+def get_layer_meta(layer_id):
+    """
+    get SOLR data for one layer
+    """
+    query_parameters = {"q": "gdsc_tablename:" + layer_id}
+    query_string  = urlencode(query_parameters)
+    connection = urlopen("{}{}".format(BASE_PATH, query_string))
+    response = simplejson.load(connection)
+    document = response['response']['docs'][0]
+    return document
+
+
 @app.route('/', methods=["GET","POST"])
 def index():
     """
@@ -199,11 +211,7 @@ def detail(name_id):
     args = request.args.to_dict()
 
     # query solr
-    query_parameters = {"q": "gdsc_tablename:" + name_id}
-    query_string  = urlencode(query_parameters)
-    connection = urlopen("{}{}".format(BASE_PATH, query_string))
-    response = simplejson.load(connection)
-    document = response['response']['docs'][0]
+    document = get_layer_meta(name_id)
 
     # structure results for display
     if 'gdsc_attributes' in document:
@@ -235,15 +243,20 @@ def loadlayer(layer_id):
     if response.split()[2] == 't':
         return {'already loaded': layer_id}
 
+    # check for dependencies and load recursively if needed
+    payload = f"\n{apis['postgis']['shell']} get_path_and_dependencies.sh {layer_id}\n\n".encode('utf-8')
+    response = call_etl_api('postgis',payload).split(' ')
+    for layer in response[1:]: loadlayer(layer)
+
     # prepare response and get the ETL scripts
     response = {'load': layer_id}
-    scripts = os.listdir(f'/data/{layer_id}/etl/')
+    scripts = os.listdir(f'{reponse[0]}/etl/')
     scripts = [x.split('_')[-1][:-3] for x in scripts if x not in ['processStep','.DS_Store']]
 
     # run the ETL scripts
     for api in apis:
         if api in scripts:
-            payload = f"\n{apis[api]['shell']} /data/{layer_id}/etl/{layer_id}_{api}.sh\n\n".encode('utf-8')
+            payload = f"\n{apis[api]['shell']} {reponse[0]}/etl/{layer_id}_{api}.sh\n\n".encode('utf-8')
             response[api] = call_etl_api(api,payload)
 
     return response
@@ -272,11 +285,7 @@ def load(layer_id,variable_id):
     load_layer = loadlayer(layer_id)
 
     # get the layer and variable metadata from SOLR
-    query_parameters = {"q": "gdsc_tablename:" + layer_id}
-    query_string  = urlencode(query_parameters)
-    connection = urlopen("{}{}".format(BASE_PATH, query_string))
-    response = simplejson.load(connection)
-    document = response['response']['docs'][0]
+    document = get_layer_meta(name_id)
     variable = [attr for attr in document['gdsc_attributes'] if variable_id in attr][0].split(";")
     variable = [var if var !='' else 'Null' for var in variable]
 

@@ -17,7 +17,7 @@
   "dcat:spatialResolutionInMeters": 0,
   "dct:conformsTo": "EPSG:4326",
   "dcat:bbox": "POLYGON((28.8750000 -0.8750000, 41.1250000 -0.8750000, 41.1250000 -12.1250000, 28.8750000 -12.1250000, 28.8750000 -0.8750000))",
-  "prov:action": "#########\n# GDSC ETL is performed in two steps: shell script to ETL data into postgres\n# and then additional transformations with SQL in postGIS (if needed).\n####\n\n#########\n# Step 1 - bash script (pseudo code)\n####\n\n# create directory structure and move into it\nmkdir -p /data/tz_1984_copernicus_avg_temp/{download,etl} && cd /data/tz_1984_copernicus_avg_temp\n\n# set update flag based on last update and update frequency\ndo_update=0 if date() < last_update + update_frequency else do_update = 1\n\n# clone a git repo and run the code# save netcdf as tif\ncd download\ngdal_translate NETCDF:tz_1984_copernicus_avg_temp.nc:2m_temperature tz_1984_copernicus_avg_temp.tif\ncd ..\n\n\n#########\n# Step 2 - SQL script (pseudo code):\n####\n\n# load raster into postGIS with:\n    raster2pgsql -s 4326 -d -C -I -t auto tz_1984_copernicus_avg_temp.tif -F tz_1984_copernicus_avg_temp > load_raster.sql\npsql <connection options> < load_raster.sql\nrm load_raster.sql\n\n# Move into corrrect directory and create derivative directory in data package on osgeo\ncd /data/tz_1984_copernicus_avg_temp/\nmkdir -p derived\n\n# Move into correct directory\ncd /data/tz_1984_copernicus_avg_temp/\n\n",
+  "prov:action": "#########\n# GDSC ETL is performed in two steps: shell script to ETL data into postgres\n# and then additional transformations with SQL in postGIS (if needed).\n####\n\n#########\n# Step 1 - bash script (pseudo code)\n####\n\n# create directory structure and move into it\nmkdir -p /data/tz_1984_copernicus_avg_temp/{download,etl} && cd /data/tz_1984_copernicus_avg_temp\n\n# set update flag based on last update and update frequency\ndo_update=0 if date() < last_update + update_frequency else do_update = 1\n\n# clone a git repo and run the code# save netcdf as tif\ncd download\ngdal_translate NETCDF:tz_1984_copernicus_avg_temp.nc:2m_temperature tz_1984_copernicus_avg_temp.tif\ncd ..\n\n\n#########\n# Step 2 - SQL script (pseudo code):\n####\n\n# load raster into postGIS with:\n    raster2pgsql -s 4326 -d -C -I -t auto tz_1984_copernicus_avg_temp.tif -F tz_1984_copernicus_avg_temp > load_raster.sql\npsql <connection options> < load_raster.sql\nrm load_raster.sql\n\n# Move into corrrect directory and create derivative directory in data package on osgeo\ncd /data/tz_1984_copernicus_avg_temp/\nmkdir -p derived\n\nexport PGPASSWORD=$(cat $POSTGRES_PASSWORD_FILE)\n# Move into correct directory\ncd /data/tz_1984_copernicus_avg_temp/\n\nexport PGPASSWORD=$(cat $POSTGRES_PASSWORD_FILE)\n",
   "prov:wasGeneratedBy": "GDSC automation (see Process Step)",
   "dcat:contactPoint": ["Timothy Norris", "Librarian Associate Professor", "University of Miami Libraries, Frost Institute for Data Science and Computing", "txn60@miami.edu"],
   "gdsc:attributes": ["2m_temperature;Average yearly 2m temperature in Kelvin from Copernicus reanalysis era5 single levels;Copernicus;float;Kelvin;9523;287.315857;301.010986;1984-01-01;1984-12-31;35814756;2m_temperature@tz_1984_copernicus_avg_temp"],
@@ -33,7 +33,7 @@
   "gdsc:podID": "gaia-db",
   "dct:modified": "0001-01-01T00:00:00Z",
   "dct:accrualPeriodicity": "As Needed",
-  "gdsc:version": "2025-09-07T18:36:04Z",
+  "gdsc:version": "2025-09-11T19:03:31Z",
   "spdx:checksum": "TBD",
-  "dct:extent": ["85198019", "82M"]
+  "dct:extent": ["85192031", "82M"]
 }

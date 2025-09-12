@@ -6,12 +6,11 @@
 # Data source: https://github.com/tibbben/copernicus_aggregate.git
 # Destination postGIS table: tz_1984_copernicus_avg_temp
 #
-# Created by etl() on 2025-09-07 17:36:04
+# Created by etl() on 2025-09-11 18:03:32
 # Do not edit directly
 
 export PGPASSWORD=$(cat $POSTGRES_PASSWORD_FILE)
-export USGS_USER=$(cat $USGS_USER_FILE)
-export USGS_PASSWORD=$(cat $USGS_PASSWORD_FILE)
+export POSTGRES_PASSWORD=$(cat $POSTGRES_PASSWORD_FILE)
 # create directory structure and move into it
 mkdir -p /data/tz_1984_copernicus_avg_temp/{download,etl} && cd /data/tz_1984_copernicus_avg_temp
 

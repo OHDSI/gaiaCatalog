@@ -6,11 +6,12 @@
 # Data source: https://svi.cdc.gov/Documents/Data/2018/db/states_counties/SVI_2018_US_county.zip
 # Destination postGIS table: us_2018_svi_county
 #
-# Created by etl() on 2025-09-07 17:36:05
+# Created by etl() on 2025-09-11 18:03:34
 # Do not edit directly
 
 # Move into corrrect directory and create derivative directory in data package on osgeo
 cd /data/us_2018_svi_county/
 mkdir -p derived
 
+export PGPASSWORD=$(cat $POSTGRES_PASSWORD_FILE)
 

@@ -20,5 +20,5 @@
   "last_updated": "0001-01-01T00:00:00Z",
   "update_frequency": "As Needed",
   "checksum": "TBD",
-  "extent": "POLYGON((29.636010 -11.255900, 39.868100 -11.255900, 39.868100 -1.072270)\nExtent: (29.611330, 29.636010 -1.072270)\nExtent: (29.611330, 29.636010 -11.255900))"
+  "extent": "ERROR"
 }

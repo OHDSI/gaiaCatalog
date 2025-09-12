@@ -6,13 +6,14 @@
 # Data source: https://microdata.nbs.go.tz/index.php/catalog/49/download/317
 # Destination postGIS table: tz_2022_nbs_districts
 #
-# Created by etl() on 2025-09-07 17:36:06
+# Created by etl() on 2025-09-11 18:03:35
 # Do not edit directly
 
 # Move into corrrect directory and create derivative directory in data package on osgeo
 cd /data/tz_2022_nbs/tz_2022_nbs_districts/
 mkdir -p derived
 
+export PGPASSWORD=$(cat $POSTGRES_PASSWORD_FILE)
 # Create shapefile of table in derivate directory on osgeo 
 ogr2ogr -f "ESRI Shapefile" -overwrite derived/tz_2022_nbs_districts.shp PG:"dbname=$POSTGRES_DB port=$POSTGRES_PORT user=$POSTGRES_USER password=$POSTGRES_PASSWORD host='gaia-db'" tz_2022_nbs_districts
 

@@ -16,7 +16,7 @@
   "format": "gdb",
   "up": "true",
   "podID": "gaia-db",
-  "last_updated": "2025-05-23T00:47:39Z",
+  "last_updated": "2025-06-10T15:47:08Z",
   "update_frequency": "Never",
   "checksum": "TBD",
   "extent": "POLYGON((-73.508142 41.237964, -69.928393 41.237964, -69.928393 42.886589, -73.508142 42.886589, -73.508142 41.237964))"

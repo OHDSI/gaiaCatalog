@@ -37,6 +37,7 @@ NOTIFY pgrst, 'reload schema';
 cd /data/tz_2022_nbs_magu_district/
 mkdir -p derived
 
+export PGPASSWORD=$(cat $POSTGRES_PASSWORD_FILE)
 # Create shapefile of table in derivate directory on osgeo 
 ogr2ogr -f "ESRI Shapefile" -overwrite derived/tz_2022_nbs_magu_district.shp PG:"<postgres connection>" tz_2022_nbs_magu_district
 
@@ -47,4 +48,5 @@ tar -czf derived/tz_2022_nbs_magu_district.shp.tar.gz meta_dcat_tz_2022_nbs_magu
 # Move into correct directory
 cd /data/tz_2022_nbs_magu_district/
 
+export PGPASSWORD=$(cat $POSTGRES_PASSWORD_FILE)
 

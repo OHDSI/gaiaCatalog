@@ -6,13 +6,14 @@
 # Data source: tz_2022_nbs_districts
 # Destination postGIS table: tz_2022_nbs_magu_district
 #
-# Created by etl() on 2025-09-07 17:36:04
+# Created by etl() on 2025-09-11 18:03:32
 # Do not edit directly
 
 # Move into corrrect directory and create derivative directory in data package on osgeo
 cd /data/tz_2022_nbs_magu_district/
 mkdir -p derived
 
+export PGPASSWORD=$(cat $POSTGRES_PASSWORD_FILE)
 # Create shapefile of table in derivate directory on osgeo 
 ogr2ogr -f "ESRI Shapefile" -overwrite derived/tz_2022_nbs_magu_district.shp PG:"dbname=$POSTGRES_DB port=$POSTGRES_PORT user=$POSTGRES_USER password=$POSTGRES_PASSWORD host='gaia-db'" tz_2022_nbs_magu_district
 

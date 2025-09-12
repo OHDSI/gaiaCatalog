@@ -6,11 +6,12 @@
 # Data source: https://svi.cdc.gov/Documents/Data/2018/db/states/Massachusetts.zip
 # Destination postGIS table: ma_2018_svi_tract
 #
-# Created by etl() on 2025-09-07 17:36:04
+# Created by etl() on 2025-09-11 18:03:31
 # Do not edit directly
 
 # Move into corrrect directory and create derivative directory in data package on osgeo
 cd /data/ma_2018_svi_tract/
 mkdir -p derived
 
+export PGPASSWORD=$(cat $POSTGRES_PASSWORD_FILE)
 
