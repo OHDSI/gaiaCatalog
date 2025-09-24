@@ -305,19 +305,21 @@
     },
     {
       "@type": "StatisticalVariable",
-      "name": "Average monthly maximum temperature",
+      "name": "monthly average of daily maximum temperature",
       "identifier": "http://gisextension.ohdsi.org/sdoh/nnn",
       "populationType": "Gaia",
-      "measuredProperty": "Maximum temperature",
-      "statType": "mean",
+      "measuredProperty": "temperature of air",
+      "statType": "arithmetic mean",
       "measurementQualifier": [
         {
           "@type": "Observation",
+          "description": "daily maximum temperature", 
+          "measuredProperty": "maximum temperature",
           "qudt:dataType": "xsd:integer",
           "marginOfError": "a human readable statement of the value margin of error",
-          "observationPeriod": "a human readable time period",
-          "maxValue": "the highest (recorded) value of an observation",
-          "minValue": "the lowest (recorded) value of an observation",
+          "observationPeriod": "P1D (1 day)",
+          "maxValue": "the highest (recordable) value of an observation",
+          "minValue": "the lowest (recordable) value of an observation",
           "unitCode": "https://athena.ohdsi.org/search-terms/terms/586323",
           "unitText": "degrees celsius"
         }
