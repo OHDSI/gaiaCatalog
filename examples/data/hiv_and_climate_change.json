@@ -314,7 +314,7 @@
         "Step 1: Collect daily maximum temperatures", 
         "Step 2: Add up all the daily maximum temperatures you collected in the previous step.",
         "Step 3: Count the number of days in that month.",
-        "Step 4: Calculate the average by dividing the sum from Step 2 by the number of days from Step 3."]
+        "Step 4: Calculate the average by dividing the sum from Step 2 by the number of days from Step 3."],
       "measurementQualifier": [
         {
           "@type": "Observation",
