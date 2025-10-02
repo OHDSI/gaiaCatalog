@@ -10,6 +10,11 @@
   ],
   "@type": "Dataset",
   "name": "HDSS X Population Health",
+  "distribution": "a URL",
+  "includedInDataCatalog": "name of MH data catalog",
+  "temporalCoverage": "in ISO 8601 format",
+  "temporal": "human readable version of temporalCoverage",
+  "spatialCoverage": "tales a @Place", 
   "variableMeasured": [
     {
       "@type": "PropertyValue",
