@@ -15,7 +15,7 @@
   "temporalCoverage": "in ISO 8601 format",
   "temporal": "human readable version of temporalCoverage",
   "spatialCoverage": "takes a @Place", 
-  "spatial": "human readable version of spatialCoverage",
+  "spatial": "human readable version of spatialCoverage", 
   "variableMeasured": [
     {
       "@type": "PropertyValue",
