@@ -1,0 +1,18 @@
+{
+  "@context": "http://schema.org",
+  "@type": "Dataset",
+  "name": "HDSS X Population Health",
+  "variableMeasured": [
+    {
+      "@type": "PropertyValue",
+      "name": "PHQ-9 Total Score",
+      "propertyID": ["3042932", "LOINC"],
+      "valueReference": {
+        "@type": "PropertyValue",
+        "name": "Instrument DataTime",
+        "value": "1/14/24",
+        "description": "Identifies a point in a time series in which the PHQ-9 total score participates."
+      }
+    }
+  ]
+}
