@@ -19,7 +19,7 @@
     {
       "@type": "PropertyValue",
       "name": "PHQ-9 Total Score",
-      "propertyID": ["3042932", "LOINC"],
+      "propertyID": ["3042932", "Athena Vocabulary Server", "LOINC Vocabulary"],
       "qudt:dataType": "xsd:integer",
       "valueReference": {
         "@type": "PropertyValue",
