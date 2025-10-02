@@ -1,5 +1,13 @@
 {
-  "@context": "http://schema.org",
+  "@context": [
+    "https://schema.org/",
+    {
+      "qudt": "http://qudt.org/schema/qudt/",
+      "quantitykind": "http://qudt.org/vocab/quantitykind/",
+      "unit": "http://qudt.org/vocab/unit/",
+      "xsd": "http://www.w3.org/2001/XMLSchema#"
+    }
+  ],
   "@type": "Dataset",
   "name": "HDSS X Population Health",
   "variableMeasured": [
@@ -7,6 +15,7 @@
       "@type": "PropertyValue",
       "name": "PHQ-9 Total Score",
       "propertyID": ["3042932", "LOINC"],
+      "qudt:dataType": "xsd:integer",
       "valueReference": {
         "@type": "PropertyValue",
         "name": "Instrument DataTime",
