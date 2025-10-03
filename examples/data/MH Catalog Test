@@ -29,5 +29,33 @@
         "description": "Identifies a point in a time series in which the PHQ-9 total score participates."
       }
     }
+    {
+      "@type": "PropertyValue",
+      "name": "PHQ-9 Severity Level",
+      "propertyID": "",
+      "qudt:dataType": "",
+      "valueReference": [
+        {
+          "@type": "PropertyValue",
+          "name": "Instrument DataTime",
+          "value": "1/14/24",
+          "description": "Identifies a point in a time series in which the PHQ-9 total score participates."
+        },
+        {
+          "@type": "DefinedTerm",
+          "description": "",
+          "inDefinedTermSet": {
+            "@type": "DefinedTermSet",
+            "name": "Severity",
+            "hasDefinedTerm": [
+              { "@type": "DefinedTerm", "termCode": "low" },
+              { "@type": "DefinedTerm", "termCode": "moderate" },
+              { "@type": "DefinedTerm", "termCode": "severe" }
+            ]
+          },
+          "termCode": "moderate"
+        }
+      ]
+    }
   ]
 }
