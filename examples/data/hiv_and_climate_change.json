@@ -380,18 +380,26 @@
       "identifier": "http://gisextension.ohdsi.org/sdoh/nnn",
       "description": "We approximate the 10% exceedance probability threshold using unrouted daily runoff for each calendar month and each gridded cell",
       "disambiguatingDescription": "An exceedance probability developed from a population of daily runoff in a given month should not be confused with annual flood statistics, which are developed by fitting a statistical distribution to a population of annual maximum daily streamflow",
-      "measurementTechnique": "The Variable Infiltration Capacity (VIC) land surface hydrologic model is informed by meteorological time-series variables including precipitaion and temperature ",
+      "measurementTechnique": [
+        "Extract monthly maximum flows from the long-term, routed streamflow time series",
+        "For each month, sort the maximum monthly flow values in descending order, from largest to smallest",
+        "Assign a rank",
+        "Calculate the empirical exceedance probability using the Weibull formula" 
+      ],
       "measurementMethod": "https://www.sciencedirect.com/science/article/pii/S136481521830865X",
       "measuredProperty": "Surface flow runoff",
       "measurementQualifier": [
         {
           "@type": "Observation",
+          "description": [
+            "VIC is coupled with a separate hydrological routing model", 
+            "Together they produce a monthly streamflow time series over x years of the measuredProperty at a location", 
+            "The whatever percent exceedance probability is calculated on top of this observation"
+          ],
           "marginOfError": "A human readable statement of the value margin of error. In this use case there is no ground truth at first which adds to the margin of error. The plan is to add ground meteorological data alongside the satellite data as VIC inputs",
-          "observationPeriod": "A human readable time period",
-          "maxValue": "The highest (recorded) value of an observation",
-          "minValue": "The lowest (recorded) value of an observation",
-          "unitCode": "https://athena.ohdsi.org/search-terms/terms/8554",
-          "unitText": "percent"
+          "observationPeriod": "Monthly over x years",
+          "unitCode": "https://athena.ohdsi.org/search-terms/terms/8580",
+          "unitText": "month"
         }
       ],
       "statType": "Monthly exceedance probability",
