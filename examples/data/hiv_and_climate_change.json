@@ -376,13 +376,15 @@
     },
     {
       "@type": "StatisticalVariable",
-      "name": "Monthly exceedance probability of flood",
-      "identifier": "http://gisextension.ohdsi.org/sdoh/nnn",
+      "name": "10% exceedance probability of flood",
+      "identifier": "http://gisextension.ohdsi.org/sdoh/10%_exceedance_probability_of_flood",
       "description": "We approximate the 10% exceedance probability threshold using unrouted daily runoff for each calendar month and each gridded cell",
       "disambiguatingDescription": "An exceedance probability developed from a population of daily runoff in a given month should not be confused with annual flood statistics, which are developed by fitting a statistical distribution to a population of annual maximum daily streamflow",
       "measurementTechnique": [
         "Extract monthly maximum flows from the long-term, routed streamflow time series",
-        "For each month, sort the maximum monthly flow values in descending order, from largest to smallest",
+        "One standard for 'long term' is 10 years",
+        "Routed streamflow is derived from the VIC (Variable Infiltation Capacity) model",
+        "For each month of the routed streamflow time series, sort the maximum monthly flow values in descending order, from largest to smallest",
         "Assign a rank",
         "Calculate the empirical exceedance probability using the Weibull formula" 
       ],
@@ -391,11 +393,25 @@
       "measurementQualifier": [
         {
           "@type": "Observation",
+          "description":  "The 10% exceedance probability of flood statistic is built on top of the streamflow time series",
+          "identifier": "http://gisextension.ohdsi.org/sdoh/monthly_streamflow", 
+          "marginOfError": "A human readable statement of the value margin of error. In this use case there is no ground truth at first which adds to the margin of error. The plan is to add ground meteorological data alongside the satellite data as VIC inputs",
+          "observationPeriod": "Monthly over x years",
+          "unitCode": "https://athena.ohdsi.org/search-terms/terms/8580",
+          "unitText": "month"
+        },
+        {
+          "@type": "Observation",
           "description": [
-            "VIC is coupled with a separate hydrological routing model", 
-            "Together they produce a monthly streamflow time series over x years of the measuredProperty at a location", 
-            "The whatever percent exceedance probability is calculated on top of this observation"
-          ],
+            "The streamflow time series is derived from VIC coupled with a separate hydrological routing model",
+            "Together they specify how the runoff travels through the river network to a specific point of interest"
+          ]
+          "identifier": "http://gisextension.ohdsi.org/sdoh/monthly_runoff_at_a_point_of_interest", 
+          "measurementQualifier": {
+            "@type": "Place",
+            "latitude": "",
+            "longitude": ""
+          }
           "marginOfError": "A human readable statement of the value margin of error. In this use case there is no ground truth at first which adds to the margin of error. The plan is to add ground meteorological data alongside the satellite data as VIC inputs",
           "observationPeriod": "Monthly over x years",
           "unitCode": "https://athena.ohdsi.org/search-terms/terms/8580",
