@@ -51,7 +51,7 @@
               { "@type": "DefinedTerm", "termCode": "mild", identifier: https://athena.ohdsi.org/search-terms/terms/36308025 },
               { "@type": "DefinedTerm", "termCode": "moderate", identifier: https://athena.ohdsi.org/search-terms/terms/36310246 },
               { "@type": "DefinedTerm", "termCode": "moderately severe", identifier: https://athena.ohdsi.org/search-terms/terms/36308049 },
-              { "@type": "DefinedTerm", "termCode": "severe", identifier: https://athena.ohdsi.org/search-terms/terms/4152280}
+              { "@type": "DefinedTerm", "termCode": "severe", identifier: https://athena.ohdsi.org/search-terms/terms/4152280 }
             ]
           },
           "termCode": "moderate"
