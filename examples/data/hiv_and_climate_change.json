@@ -405,13 +405,13 @@
           "description": [
             "The streamflow time series is derived from VIC coupled with a separate hydrological routing model",
             "Together they specify how the runoff travels through the river network to a specific point of interest"
-          ]
+          ],
           "identifier": "http://gisextension.ohdsi.org/sdoh/monthly_runoff_at_a_point_of_interest", 
           "measurementQualifier": {
             "@type": "Place",
             "latitude": "",
             "longitude": ""
-          }
+          },
           "marginOfError": "A human readable statement of the value margin of error. In this use case there is no ground truth at first which adds to the margin of error. The plan is to add ground meteorological data alongside the satellite data as VIC inputs",
           "observationPeriod": "Monthly over x years",
           "unitCode": "https://athena.ohdsi.org/search-terms/terms/8580",
