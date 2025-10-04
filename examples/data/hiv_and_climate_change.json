@@ -409,8 +409,8 @@
           "identifier": "http://gisextension.ohdsi.org/sdoh/monthly_runoff_at_a_point_of_interest", 
           "measurementQualifier": {
             "@type": "Place",
-            "latitude": "",
-            "longitude": ""
+            "latitude": " ",
+            "longitude": " "
           },
           "marginOfError": "A human readable statement of the value margin of error. In this use case there is no ground truth at first which adds to the margin of error. The plan is to add ground meteorological data alongside the satellite data as VIC inputs",
           "observationPeriod": "Monthly over x years",
