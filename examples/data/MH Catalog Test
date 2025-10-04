@@ -46,8 +46,10 @@
           "description": "",
           "inDefinedTermSet": {
             "@type": "DefinedTermSet",
-            "name": "Severity",
+            "name": "PHQ-9 Interp-score",
+            "identifier": "https://athena.ohdsi.org/search-terms/terms/3043550",
             "hasDefinedTerm": [
+              { "@type": "DefinedTerm", "termCode": "none", "identifier": "https://athena.ohdsi.org/search-terms/terms/36310668" },
               { "@type": "DefinedTerm", "termCode": "mild", "identifier": "https://athena.ohdsi.org/search-terms/terms/36308025" },
               { "@type": "DefinedTerm", "termCode": "moderate", "identifier": "https://athena.ohdsi.org/search-terms/terms/36310246" },
               { "@type": "DefinedTerm", "termCode": "moderately severe", "identifier": "https://athena.ohdsi.org/search-terms/terms/36308049" },
