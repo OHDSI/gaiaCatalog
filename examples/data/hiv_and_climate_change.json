@@ -393,6 +393,7 @@
       "measurementQualifier": [
         {
           "@type": "Observation",
+          "name": "Streamflow time series",
           "description":  "The 10% exceedance probability of flood statistic is built on top of the streamflow time series",
           "identifier": "http://gisextension.ohdsi.org/sdoh/monthly_streamflow", 
           "marginOfError": "A human readable statement of the value margin of error. In this use case there is no ground truth at first which adds to the margin of error. The plan is to add ground meteorological data alongside the satellite data as VIC inputs",
@@ -401,14 +402,27 @@
           "unitText": "month",
           "potentialAction": {
             "@type": "Action",
-            "description": "",
-            "object": "me",
-            "instrument": "",
-            "result": ""
+            "description": "Derives monthly maximum flows time series from streamflow time series",
+            "object": {
+              "@type": "Dataset",
+              "name": "Streamflow time series",
+              "encodingFormat": "netCDF"
+            },
+             "instrument": {
+              "@type": "SoftwareSourceCode",
+              "codeRepository": "Github url",
+              "url": "url of the instrument"
+            },
+            "result": {
+              "@type": "Dataset",
+              "name": "Monthly maximum flows time series",
+              "encodingFormat": "netCDF"
+            }
           }
         },
         {
           "@type": "Observation",
+          "name": "Variable Infiltation Capacity (VIC) time series",
           "description": [
             "The streamflow time series is derived from VIC coupled with a separate hydrological routing model",
             "Together they specify how the runoff travels through the river network to a specific point of interest"
@@ -425,10 +439,22 @@
           "unitText": "month",
           "potentialAction": {
             "@type": "Action",
-            "description": "",
-            "object": "me",
-            "instrument": "",
-            "result": ""
+            "description": "Derives streamflow time series from VIC time series",
+            "object": {
+              "@type": "Dataset",
+              "name": "VIC time series",
+              "encodingFormat": "netCDF"
+            },
+            "instrument": {
+              "@type": "SoftwareSourceCode",
+              "codeRepository": "Github url",
+              "url": "url of the instrument"
+            },
+            "result": {
+              "@type": "Dataset",
+              "name": "Streamflow time series",
+              "encodingFormat": "netCDF"
+            }
           }
         }
       ],
