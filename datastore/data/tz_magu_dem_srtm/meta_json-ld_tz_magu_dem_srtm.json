@@ -1,0 +1,158 @@
+{
+  "@context": {
+    "@vocab": "https://schema.org/",
+    "dct": "http://purl.org/dc/terms/",
+    "qudt": "http://qudt.org/schema/qudt/",
+    "quantitykind": "http://qudt.org/vocab/quantitykind/",
+    "unit": "http://qudt.org/vocab/unit/",
+    "xsd": "http://www.w3.org/2001/XMLSchema",
+    "extendedConstraintProperty": "http://codata.org/vocab/extendedConstraintProperty",
+    "sdmx": "https://sdmx.org"
+  },
+  "@type": "Dataset",
+  "@id": "https://gdsc.idsc.miami.edu/detail/tz_magu_dem_srtm",
+  "includedInDataCatalog": {
+    "@type": "DataCatalog",
+    "name": "Geospatial Digital Special Collections",
+    "url": "https://gdsc.idsc.miami.edu"
+  },
+  "name": "Magu District DEM (SRTM)",
+  "creator": [
+    {
+      "name": "NASA JPL"
+    }
+  ],
+  "url": "https://lpdaac.usgs.gov/products/srtmgl1v003/",
+  "provider": [
+    "NASA EOSDIS Land Processes Distributed Active Archive Center (LPDAAC)"
+  ],
+  "license": "This data is open to the public and browse images are freely available without\nrestriction.",
+  "spatialCoverage": [
+    {
+      "@type": "Place",
+      "name": "Magu District, Tanzania"
+    },
+    {
+      "@type": "Place",
+      "name": "bbox",
+      "geo": {
+        "@type": "GeoShape",
+        "polygon": "32.7501389 -2.1301389 34.0398611 -2.1301389 34.0398611 -3.0898611 32.7501389 -3.0898611 32.7501389 -2.1301389"
+      }
+    }
+  ],
+  "type": "Raster Dataset",
+  "datePublished": "2013-01-01",
+  "description": "An elevation raster dataset derived from the SRTM GL1 V3 dataset at 1 ARC second resolution (~30 meters). ",
+  "keywords": [
+    "Tanzania",
+    "Magu District",
+    "Elevation",
+    "DEM"
+  ],
+  "@language": "en",
+  "measurementTechnique": [
+    {
+      "@type": "DefinedTerm",
+      "description": "GIS Data Structure for Representation",
+      "inDefinedTermSet": {
+        "@type": "DefinedTermSet",
+        "name": "dataRepresentation",
+        "hasDefinedTerm": [
+          {
+            "@type": "DefinedTerm",
+            "termCode": "raster"
+          },
+          {
+            "@type": "DefinedTerm",
+            "termCode": "vector"
+          },
+          {
+            "@type": "DefinedTerm",
+            "termCode": "table"
+          }
+        ]
+      },
+      "termCode": "raster"
+    }
+  ],
+  "additionalProperty": [
+    {
+      "@type": "PropertyValue",
+      "name": "https://dbpedia.org/resource/Ground_sample_distance",
+      "value": 30.0,
+      "unitText": "meters"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "http://dbpedia.org/resource/Spatial_reference_system",
+      "value": "https://epsg.io/4326"
+    }
+  ],
+  "about": [
+    {
+      "@type": "Event",
+      "description": "nan",
+      "name": "ETL process for Magu District DEM (SRTM)",
+      "potentialAction": {
+        "@type": "Action",
+        "name": "Pseudo Code",
+        "description": "#########\n# GDSC ETL is performed in two steps: shell script to ETL data into postgres\n# and then additional transformations with SQL in postGIS (if needed).\n####\n\n#########\n# Step 1 - bash script (pseudo code)\n####\n\n# create directory structure and move into it\nmkdir -p /data/tz_magu_dem_srtm/{download,etl} && cd /data/tz_magu_dem_srtm\n\n# set update flag based on last update and update frequency\ndo_update=0 if date() < last_update + update_frequency else do_update = 1\n\n# load raster into postGIS with:\n    raster2pgsql -s 4326 -d -C -I -t auto tz_magu_dem_srtm.tif -F tz_magu_dem_srtm > load_raster.sql\npsql <connection options> < load_raster.sql\nrm load_raster.sql\n\n# render raster tiles \ncd /data/tz_magu_dem_srtm/\ngdal2tiles.py -ex --xyz -z 14-18 /data/tz_magu_dem_srtm/download/tz_magu_dem_srtm.tif /tiles/raster/tz_magu_dem_srtm\n# Move into corrrect directory and create derivative directory in data package on osgeo\ncd /data/tz_magu_dem_srtm/\nmkdir -p derived\n\nexport PGPASSWORD=SuperSecret\n# Move into correct directory\ncd /data/tz_magu_dem_srtm/\n\nexport PGPASSWORD=SuperSecret\n",
+        "result": {
+          "@type": "Dataset",
+          "encodingFormat": "tiff",
+          "url": "https://gdsc.idsc.miami.edu/download/data/tz_magu_dem_srtm/?file=tz_magu_dem_srtm&format=tiff"
+        }
+      }
+    },
+    {
+      "@type": "Event",
+      "description": "nan",
+      "name": "ETL process for Magu District DEM (SRTM)",
+      "potentialAction": {
+        "@type": "Action",
+        "name": "srtm_merge_and_crop",
+        "description": "Custom ETL process for Magu District DEM (SRTM)",
+        "object": {
+          "@type": "Dataset",
+          "name": NaN,
+          "producer": "NASA JPL",
+          "url": "https://lpdaac.usgs.gov/products/srtmgl1v003/"
+        },
+        "instrument": {
+          "@type": "SoftwareApplication",
+          "@id": [
+            "https://github.com/Geospatial-Digital-Special-Collections/tools"
+          ],
+          "featureList": "S02E032.SRTMGL1 S02E033.SRTMGL1 S02E034.SRTMGL1 S03E032.SRTMGL1 S03E033.SRTMGL1 S03E034.SRTMGL1 S04E032.SRTMGL1 S04E033.SRTMGL1 S04E034.SRTMGL1 bbox;32.75;-3.09;34.04;-2.13",
+          "downloadUrl": [
+            "https://github.com/Geospatial-Digital-Special-Collections/tools.git"
+          ]
+        },
+        "result": {
+          "@type": "Dataset",
+          "name": "Magu District DEM (SRTM)",
+          "description": "An elevation raster dataset derived from the SRTM GL1 V3 dataset at 1 ARC second resolution (~30 meters). ",
+          "encodingFormat": "tiff",
+          "url": "https://gdsc.idsc.miami.edu/download/data/tz_magu_dem_srtm/?file=tz_magu_dem_srtm&format=tiff"
+        }
+      }
+    }
+  ],
+  "variableMeasured": [
+    {
+      "@type": "PropertyValue",
+      "name": "elevation",
+      "description": "Mean elevation above sea level",
+      "qudt:dataType": "int16",
+      "unitText": "meters",
+      "minValue": "1125",
+      "maxValue": "1508"
+    }
+  ],
+  "distribution": [
+    "https://gdsc.idsc.miami.edu/download/data/tz_magu_dem_srtm/?file=tz_magu_dem_srtm&format=tiff"
+  ],
+  "dateModified": "2025-02-24",
+  "version": "2025-10-05"
+}

@@ -18,7 +18,7 @@
   "prov:wasGeneratedBy": "GDSC automation (see Process Step)",
   "dcat:contactPoint": ["Timothy Norris", "Librarian Associate Professor", "University of Miami Libraries, Frost Institute for Data Science and Computing", "txn60@miami.edu"],
   "gdsc:label": "name",
-  "gdsc:attributes": ["osm_id;OpenStreetMap (OSM) ID;;varchar;", "name;Region name;;varchar;", "type;Type of boundary;;varchar;", "admin_level;OSM Administrative level;;varchar;", "boundary;OSM boundary type;;varchar;", "other_tags;Any other OSM tags with values, first one is the ISO3166-2 code for the administrative region;;varchar;"],
+  "gdsc:attributes": ["osm_id;OpenStreetMap (OSM) ID;;varchar;;;;", "name;Region name;;varchar;;;;", "type;Type of boundary;;varchar;;;;", "admin_level;OSM Administrative level;;varchar;;;;", "boundary;OSM boundary type;;varchar;;;;", "other_tags;Any other OSM tags with values, first one is the ISO3166-2 code for the administrative region;;varchar;;;;"],
   "gdsc:collections": ["Tanzania Climate Change", "Tanzania Health Outcomes"],
   "gdsc:functions": ["gdsc_get_attributes"],
   "gdsc:analyticConformsTo": "EPSG:4326",
@@ -29,10 +29,10 @@
   "gdsc:tablename": "tz_regions_osm",
   "gdsc:up": "true",
   "gdsc:podID": "gaia-db",
-  "dct:modified": "0001-01-01T00:00:00Z",
+  "dct:modified": "2025-09-07T11:19:11Z",
   "dct:accrualPeriodicity": "As Needed",
-  "gdsc:version": "2025-09-11T19:03:34Z",
+  "gdsc:version": "2025-10-05T16:59:50Z",
   "spdx:checksum": "TBD",
-  "dct:extent": ["0", "0"],
+  "dct:extent": ["31690805", "31M"],
   "dcat:bbox": "not yet know"
 }

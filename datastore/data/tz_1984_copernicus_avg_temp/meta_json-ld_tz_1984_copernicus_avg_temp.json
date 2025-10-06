@@ -1,0 +1,173 @@
+{
+  "@context": {
+    "@vocab": "https://schema.org/",
+    "dct": "http://purl.org/dc/terms/",
+    "qudt": "http://qudt.org/schema/qudt/",
+    "quantitykind": "http://qudt.org/vocab/quantitykind/",
+    "unit": "http://qudt.org/vocab/unit/",
+    "xsd": "http://www.w3.org/2001/XMLSchema",
+    "extendedConstraintProperty": "http://codata.org/vocab/extendedConstraintProperty",
+    "sdmx": "https://sdmx.org"
+  },
+  "@type": "Dataset",
+  "@id": "https://gdsc.idsc.miami.edu/detail/tz_1984_copernicus_avg_temp",
+  "includedInDataCatalog": {
+    "@type": "DataCatalog",
+    "name": "Geospatial Digital Special Collections",
+    "url": "https://gdsc.idsc.miami.edu"
+  },
+  "name": "1984 Tanzania 2m Temperature Yearly Average (Copernicus)",
+  "creator": [
+    {
+      "@type": "Organization",
+      "sameAs": "https://ror.org/00yafkq43",
+      "@id": "https://ror.org/00yafkq43",
+      "identifier": "https://ror.org/00yafkq43",
+      "name": "Copernicus"
+    }
+  ],
+  "url": "https://cds.climate.copernicus.eu/datasets/reanalysis-era5-land",
+  "provider": [
+    "OHDSI"
+  ],
+  "license": "Open Data Commons Attribution License (ODC-By): http://opendatacommons.org/licenses/by/1.0/",
+  "spatialCoverage": [
+    {
+      "@id": "https://www.geonames.org/149590",
+      "@type": "Place",
+      "name": "Tanzania"
+    },
+    {
+      "@type": "Place",
+      "name": "bbox",
+      "geo": {
+        "@type": "GeoShape",
+        "polygon": "28.8750000 -0.8750000 41.1250000 -0.8750000 41.1250000 -12.1250000 28.8750000 -12.1250000 28.8750000 -0.8750000"
+      }
+    }
+  ],
+  "temporalCoverage": "1984-01-01/1984-12-31",
+  "type": "Raster Dataset",
+  "datePublished": "2025-06-01",
+  "description": "A raster dataset with yearly averages of the 2m temperature from the ERA 5 renanalysis data from Copernicus satellite sensors for Tanzania. ERA5 is the fifth generation ECMWF reanalysis for the global climate and weather for the past 8 decades. Data is available from 1940 onwards. ERA5 replaces the ERA-Interim reanalysis.",
+  "keywords": [
+    "Tanzania",
+    "temperature"
+  ],
+  "@language": "en",
+  "measurementTechnique": [
+    {
+      "@type": "DefinedTerm",
+      "description": "GIS Data Structure for Representation",
+      "inDefinedTermSet": {
+        "@type": "DefinedTermSet",
+        "name": "dataRepresentation",
+        "hasDefinedTerm": [
+          {
+            "@type": "DefinedTerm",
+            "termCode": "raster"
+          },
+          {
+            "@type": "DefinedTerm",
+            "termCode": "vector"
+          },
+          {
+            "@type": "DefinedTerm",
+            "termCode": "table"
+          }
+        ]
+      },
+      "termCode": "raster"
+    }
+  ],
+  "additionalProperty": [
+    {
+      "@type": "PropertyValue",
+      "name": "https://dbpedia.org/resource/Ground_sample_distance",
+      "value": 0.25,
+      "unitText": "decimal degrees"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "http://dbpedia.org/resource/Spatial_reference_system",
+      "value": "https://epsg.io/4326"
+    }
+  ],
+  "about": [
+    {
+      "@type": "Event",
+      "description": "Copernicus",
+      "name": "ETL process for 1984 Tanzania 2m Temperature Yearly Average (Copernicus)",
+      "potentialAction": {
+        "@type": "Action",
+        "name": "Pseudo Code",
+        "description": "#########\n# GDSC ETL is performed in two steps: shell script to ETL data into postgres\n# and then additional transformations with SQL in postGIS (if needed).\n####\n\n#########\n# Step 1 - bash script (pseudo code)\n####\n\n# create directory structure and move into it\nmkdir -p /data/tz_1984_copernicus_avg_temp/{download,etl} && cd /data/tz_1984_copernicus_avg_temp\n\n# set update flag based on last update and update frequency\ndo_update=0 if date() < last_update + update_frequency else do_update = 1\n\n# clone a git repo and run the code# save netcdf as tif\ncd download\ngdal_translate NETCDF:tz_1984_copernicus_avg_temp.nc:2m_temperature tz_1984_copernicus_avg_temp.tif\ncd ..\n\n\n#########\n# Step 2 - SQL script (pseudo code):\n####\n\n# load raster into postGIS with:\n    raster2pgsql -s 4326 -d -C -I -t auto tz_1984_copernicus_avg_temp.tif -F tz_1984_copernicus_avg_temp > load_raster.sql\npsql <connection options> < load_raster.sql\nrm load_raster.sql\n\n# Move into corrrect directory and create derivative directory in data package on osgeo\ncd /data/tz_1984_copernicus_avg_temp/\nmkdir -p derived\n\nexport PGPASSWORD=SuperSecret\n# Move into correct directory\ncd /data/tz_1984_copernicus_avg_temp/\n\nexport PGPASSWORD=SuperSecret\n",
+        "result": {
+          "@type": "Dataset",
+          "encodingFormat": "tiff",
+          "url": "https://gdsc.idsc.miami.edu/download/data/tz_1984_copernicus_avg_temp/?file=tz_1984_copernicus_avg_temp&format=tiff"
+        }
+      }
+    },
+    {
+      "@type": "Event",
+      "description": "Copernicus",
+      "name": "ETL process for 1984 Tanzania 2m Temperature Yearly Average (Copernicus)",
+      "potentialAction": {
+        "@type": "Action",
+        "name": "github_code",
+        "description": "Custom ETL process for 1984 Tanzania 2m Temperature Yearly Average (Copernicus)",
+        "object": {
+          "@type": "Dataset",
+          "name": "Copernicus",
+          "producer": "Copernicus",
+          "url": "https://cds.climate.copernicus.eu/datasets/reanalysis-era5-land"
+        },
+        "instrument": {
+          "@type": "SoftwareApplication",
+          "@id": "https://github.com/tibbben/copernicus_aggregate",
+          "featureList": "python copernicus_aggregate.py '{\"table\": \"tz_1984_copernicus_avg_temp\", \"extension\": \"zip\", \"extent\": \"29|-12|41|-0.8\", \"attributes\": \"2m_temperature;Average yearly 2m temperature in Kelvin from Copernicus reanalysis era5 single levels;Copernicus;float;Kelvin;9523;287.315857;301.010986;1984-01-01;1984-12-31;35814756;2m_temperature@tz_1984_copernicus_avg_temp\", \"bands\": \"t2m\", \"format\": \"nc\"}' 1984",
+          "downloadUrl": "https://github.com/tibbben/copernicus_aggregate.git"
+        },
+        "result": {
+          "@type": "Dataset",
+          "name": "1984 Tanzania 2m Temperature Yearly Average (Copernicus)",
+          "description": "A raster dataset with yearly averages of the 2m temperature from the ERA 5 renanalysis data from Copernicus satellite sensors for Tanzania. ERA5 is the fifth generation ECMWF reanalysis for the global climate and weather for the past 8 decades. Data is available from 1940 onwards. ERA5 replaces the ERA-Interim reanalysis.",
+          "encodingFormat": "tiff",
+          "url": "https://gdsc.idsc.miami.edu/download/data/tz_1984_copernicus_avg_temp/?file=tz_1984_copernicus_avg_temp&format=tiff"
+        }
+      }
+    }
+  ],
+  "variableMeasured": [
+    {
+      "@type": "PropertyValue",
+      "name": "2m_temperature",
+      "description": "Average yearly 2m temperature in Kelvin from Copernicus reanalysis era5 single levels",
+      "propertyID": [
+        "35814756"
+      ],
+      "qudt:dataType": "float64",
+      "unitCode": "9523",
+      "unitText": "Kelvin",
+      "minValue": "287.31585693359375",
+      "maxValue": "301.010986328125",
+      "startDate": "1984-01-01",
+      "endDate": "1984-12-31"
+    }
+  ],
+  "distribution": [
+    "https://gdsc.idsc.miami.edu/download/data/tz_1984_copernicus_avg_temp/?file=tz_1984_copernicus_avg_temp&format=tiff"
+  ],
+  "isBasedOn": [
+    {
+      "@type": "Dataset",
+      "name": "Copernicus",
+      "description": "A raster dataset with yearly averages of the 2m temperature from the ERA 5 renanalysis data from Copernicus satellite sensors for Tanzania. ERA5 is the fifth generation ECMWF reanalysis for the global climate and weather for the past 8 decades. Data is available from 1940 onwards. ERA5 replaces the ERA-Interim reanalysis.",
+      "producer": "Copernicus",
+      "url": "https://cds.climate.copernicus.eu/datasets/reanalysis-era5-land"
+    }
+  ],
+  "dateModified": "2025-06-01",
+  "version": "2025-10-05"
+}

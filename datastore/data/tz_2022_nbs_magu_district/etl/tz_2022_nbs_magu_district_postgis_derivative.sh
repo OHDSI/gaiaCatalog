@@ -6,7 +6,7 @@
 # Data source: tz_2022_nbs_districts
 # Destination postGIS table: tz_2022_nbs_magu_district
 #
-# Created by etl() on 2025-09-11 18:03:32
+# Created by etl() on 2025-10-05 15:59:43
 # Do not edit directly
 
 # Move into correct directory

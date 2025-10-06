@@ -1,0 +1,177 @@
+{
+  "@context": {
+    "@vocab": "https://schema.org/",
+    "dct": "http://purl.org/dc/terms/",
+    "qudt": "http://qudt.org/schema/qudt/",
+    "quantitykind": "http://qudt.org/vocab/quantitykind/",
+    "unit": "http://qudt.org/vocab/unit/",
+    "xsd": "http://www.w3.org/2001/XMLSchema",
+    "extendedConstraintProperty": "http://codata.org/vocab/extendedConstraintProperty",
+    "sdmx": "https://sdmx.org"
+  },
+  "@type": "Dataset",
+  "@id": "https://gdsc.idsc.miami.edu/detail/tz_2022_nbs_districts",
+  "includedInDataCatalog": {
+    "@type": "DataCatalog",
+    "name": "Geospatial Digital Special Collections",
+    "url": "https://gdsc.idsc.miami.edu"
+  },
+  "name": "Tanzania 2022 Districts (NBS)",
+  "creator": [
+    {
+      "name": "Tanzania National Bureau of Statistics"
+    }
+  ],
+  "url": "https://microdata.nbs.go.tz/index.php/catalog/49/related-materials",
+  "provider": [
+    "Tanzania National Bureau of Statistics"
+  ],
+  "spatialCoverage": [
+    {
+      "@type": "Place",
+      "name": "Tanzania"
+    }
+  ],
+  "temporalCoverage": "2020-01-01/2022-12-31",
+  "type": "Vector Dataset",
+  "datePublished": "2024-01-01",
+  "description": "Shapefile for Tanzania Districts from the 2022 Census",
+  "keywords": [
+    "Tanania",
+    "Districs",
+    "Census"
+  ],
+  "@language": "en",
+  "measurementTechnique": [
+    {
+      "@type": "DefinedTerm",
+      "description": "GIS Data Structure for Representation",
+      "inDefinedTermSet": {
+        "@type": "DefinedTermSet",
+        "name": "dataRepresentation",
+        "hasDefinedTerm": [
+          {
+            "@type": "DefinedTerm",
+            "termCode": "raster"
+          },
+          {
+            "@type": "DefinedTerm",
+            "termCode": "vector"
+          },
+          {
+            "@type": "DefinedTerm",
+            "termCode": "table"
+          }
+        ]
+      },
+      "termCode": "vector"
+    },
+    {
+      "@type": "DefinedTerm",
+      "description": "GIS Vector Geometery",
+      "inDefinedTermSet": {
+        "@type": "DefinedTermSet",
+        "name": "vectorGeometry",
+        "hasDefinedTerm": [
+          {
+            "@type": "DefinedTerm",
+            "termCode": "point"
+          },
+          {
+            "@type": "DefinedTerm",
+            "termCode": "line"
+          },
+          {
+            "@type": "DefinedTerm",
+            "termCode": "polygon"
+          }
+        ]
+      },
+      "termCode": "multipolygon"
+    }
+  ],
+  "additionalProperty": [
+    {
+      "@type": "PropertyValue",
+      "propertyID": "http://dbpedia.org/resource/Spatial_reference_system",
+      "value": "https://epsg.io/4326"
+    }
+  ],
+  "about": [
+    {
+      "@type": "Event",
+      "description": "Direct from source",
+      "name": "ETL process for Tanzania 2022 Districts (NBS)",
+      "potentialAction": {
+        "@type": "Action",
+        "name": "Pseudo Code",
+        "description": "#########\n# GDSC ETL is performed in two steps: shell script to ETL data into postgres\n# and then additional transformations with SQL in postGIS (if needed).\n####\n\n#########\n# Step 1 - bash script (pseudo code)\n####\n\n# create directory structure and move into it\nmkdir -p /data/tz_2022_nbs/{download,tz_2022_nbs_districts/etl} && cd /data/tz_2022_nbs\n\n# set update flag based on last update and update frequency\ndo_update=0 if date() < last_update + update_frequency else do_update = 1\n\n# download if update flag is set:\nif do_update == 1 then\nwget -O download/tz_2022_nbs.zip 'https://microdata.nbs.go.tz/index.php/catalog/49/download/317'\n\n# unzip to download directory if update flag is set\nif do_update == 1 then\nunzip -d download download/tz_2022_nbs.zip && rm download/tz_2022_nbs.zip\n\n# extract mpkx to download directory\n7z x download/TANZANIA_2022_POST_PHC_GEODATABASE.mpkx -o'download/TANZANIA_2022_POST_PHC_GEODATABASE'\n\n# load into postGIS with:\n  ogr2ogr -lco GEOMETRY_NAME=geom -f PostgreSQL PG:\"<postgres connection>\" download/TANZANIA_2022_POST_PHC_GEODATABASE/commondata/tanzania_2022phc_geodatabase.gdb Districts -nlt multipolygon -nln tz_2022_nbs_districts\n\n#########\n# Step 2 - SQL script (pseudo code):\n####\n\n# remove duplicate points and make geometries valid:\nUPDATE tz_2022_nbs_districts\n  SET geom=ST_MakeValid(ST_RemoveRepeatedPoints(geom));\n\n# add local geometry column and reproject existing geometries into local EPSG:\nSELECT AddGeometryColumn (\n  'tz_2022_nbs_districts',\n  'geom_local', 4326, 'multipolygon', 2\n);\nUPDATE tz_2022_nbs_districts\n  SET geom_local=ST_MakeValid(ST_RemoveRepeatedPoints(ST_Transform(ST_Multi(geom),4326)));\nCREATE INDEX tz_2022_nbs_districts_geom_local_idx\n  ON tz_2022_nbs_districts\n  USING GIST (geom_local);\nNOTIFY pgrst, 'reload schema';\n# Move into corrrect directory and create derivative directory in data package on osgeo\ncd /data/tz_2022_nbs/tz_2022_nbs_districts/\nmkdir -p derived\n\nexport PGPASSWORD=SuperSecret\n# Create shapefile of table in derivate directory on osgeo \nogr2ogr -f \"ESRI Shapefile\" -overwrite derived/tz_2022_nbs_districts.shp PG:\"<postgres connection>\" tz_2022_nbs_districts\n\n# Create downloadable tarfile of shp in derivative directory on osgeo\nrm -f derived/tz_2022_nbs_districts.shp.tar.gz\ntar -czf derived/tz_2022_nbs_districts.shp.tar.gz meta_dcat_tz_2022_nbs_districts.json -C derived tz_2022_nbs_districts.shp tz_2022_nbs_districts.prj tz_2022_nbs_districts.shx tz_2022_nbs_districts.dbf\n\n# Move into correct directory\ncd /data/tz_2022_nbs/tz_2022_nbs_districts/\n\nexport PGPASSWORD=SuperSecret\n",
+        "result": {
+          "@type": "Dataset",
+          "encodingFormat": "shp",
+          "url": "https://gdsc.idsc.miami.edu/download/data/tz_2022_nbs_districts/?file=tz_2022_nbs_districts&format=shp"
+        }
+      }
+    },
+    {
+      "@type": "Event",
+      "description": "Direct from source",
+      "name": "ETL process for Tanzania 2022 Districts (NBS)",
+      "potentialAction": {
+        "@type": "Action",
+        "name": "wget",
+        "description": "ETL process for Tanzania 2022 Districts (NBS)",
+        "object": {
+          "@type": "Dataset",
+          "name": "Direct from source",
+          "producer": "Tanzania National Bureau of Statistics",
+          "url": "https://microdata.nbs.go.tz/index.php/catalog/49/related-materials"
+        },
+        "instrument": {
+          "@type": "SoftwareApplication",
+          "@id": [
+            "https://github.com/Geospatial-Digital-Special-Collections/tools"
+          ],
+          "featureList": "wget",
+          "downloadUrl": [
+            "https://github.com/Geospatial-Digital-Special-Collections/tools.git"
+          ]
+        },
+        "result": {
+          "@type": "Dataset",
+          "name": "Tanzania 2022 Districts (NBS)",
+          "description": "Shapefile for Tanzania Districts from the 2022 Census",
+          "encodingFormat": "shp",
+          "url": "https://gdsc.idsc.miami.edu/download/data/tz_2022_nbs_districts/?file=tz_2022_nbs_districts&format=shp"
+        }
+      }
+    }
+  ],
+  "variableMeasured": [
+    {
+      "@type": "PropertyValue",
+      "name": "dist_code",
+      "qudt:dataType": "varchar"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "dist_name",
+      "qudt:dataType": "varchar"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "reg_code",
+      "qudt:dataType": "varchar"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "reg_name",
+      "qudt:dataType": "varchar"
+    }
+  ],
+  "distribution": [
+    "https://gdsc.idsc.miami.edu/download/data/tz_2022_nbs_districts/?file=tz_2022_nbs_districts&format=shp"
+  ],
+  "dateModified": "2025-06-01",
+  "version": "2025-10-05"
+}

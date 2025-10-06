@@ -1,0 +1,200 @@
+{
+  "@context": {
+    "@vocab": "https://schema.org/",
+    "dct": "http://purl.org/dc/terms/",
+    "qudt": "http://qudt.org/schema/qudt/",
+    "quantitykind": "http://qudt.org/vocab/quantitykind/",
+    "unit": "http://qudt.org/vocab/unit/",
+    "xsd": "http://www.w3.org/2001/XMLSchema",
+    "extendedConstraintProperty": "http://codata.org/vocab/extendedConstraintProperty",
+    "sdmx": "https://sdmx.org"
+  },
+  "@type": "Dataset",
+  "@id": "https://gdsc.idsc.miami.edu/detail/tz_regions_osm",
+  "includedInDataCatalog": {
+    "@type": "DataCatalog",
+    "name": "Geospatial Digital Special Collections",
+    "url": "https://gdsc.idsc.miami.edu"
+  },
+  "name": "OSM Tanzania Regions",
+  "creator": [
+    {
+      "name": "OpenStreetMap contributors"
+    }
+  ],
+  "url": "https://www.openstreetmap.org/",
+  "provider": [
+    "OpenStreetMap"
+  ],
+  "license": "OpenStreetMap\u00ae is open data, licensed under the [Open Data Commons Open Database License](https://opendatacommons.org/licenses/odbl/) (ODbL) by the [OpenStreetMap Foundation](https://osmfoundation.org/) (OSMF).",
+  "spatialCoverage": [
+    {
+      "@type": "Place",
+      "name": "Tanzania"
+    }
+  ],
+  "type": "Vector Dataset",
+  "datePublished": "2025-02-24",
+  "description": "A polygon feature set for the regions of Tanzania sourced from OpenStreetMap.",
+  "keywords": [
+    "Tanzania",
+    "Regions",
+    "Administrative Boundaries"
+  ],
+  "measurementTechnique": [
+    {
+      "@type": "DefinedTerm",
+      "description": "GIS Data Structure for Representation",
+      "inDefinedTermSet": {
+        "@type": "DefinedTermSet",
+        "name": "dataRepresentation",
+        "hasDefinedTerm": [
+          {
+            "@type": "DefinedTerm",
+            "termCode": "raster"
+          },
+          {
+            "@type": "DefinedTerm",
+            "termCode": "vector"
+          },
+          {
+            "@type": "DefinedTerm",
+            "termCode": "table"
+          }
+        ]
+      },
+      "termCode": "vector"
+    },
+    {
+      "@type": "DefinedTerm",
+      "description": "GIS Vector Geometery",
+      "inDefinedTermSet": {
+        "@type": "DefinedTermSet",
+        "name": "vectorGeometry",
+        "hasDefinedTerm": [
+          {
+            "@type": "DefinedTerm",
+            "termCode": "point"
+          },
+          {
+            "@type": "DefinedTerm",
+            "termCode": "line"
+          },
+          {
+            "@type": "DefinedTerm",
+            "termCode": "polygon"
+          }
+        ]
+      },
+      "termCode": "multipolygon"
+    }
+  ],
+  "additionalProperty": [
+    {
+      "@type": "PropertyValue",
+      "propertyID": "http://dbpedia.org/resource/Spatial_reference_system",
+      "value": "https://epsg.io/4326"
+    }
+  ],
+  "about": [
+    {
+      "@type": "Event",
+      "description": "Direct from source.",
+      "name": "ETL process for OSM Tanzania Regions",
+      "potentialAction": {
+        "@type": "Action",
+        "name": "Pseudo Code",
+        "description": "#########\n# GDSC ETL is performed in two steps: shell script to ETL data into postgres\n# and then additional transformations with SQL in postGIS (if needed).\n####\n\n#########\n# Step 1 - bash script (pseudo code)\n####\n\n# create directory structure and move into it\nmkdir -p /data/tz_regions_osm/{download,etl} && cd /data/tz_regions_osm\n\n# set update flag based on last update and update frequency\ndo_update=0 if date() < last_update + update_frequency else do_update = 1\n\n# download if update flag is set:\nif do_update == 1 then\ncurl -o download/tz_regions_osm.osm 'https://overpass-api.de/api/interpreter?data=rel%5B%22ISO3166-2%22~%22^TZ%22%5D%5Badmin_level=4%5D%5Btype=boundary%5D%5Bboundary=administrative%5D;(._;>;);out;'\n\n# load into postGIS with:\n  ogr2ogr -lco GEOMETRY_NAME=geom -f PostgreSQL PG:\"<postgres connection>\" download/tz_regions_osm.osm\n\n#########\n# Step 2 - SQL script (pseudo code):\n####\n\n# Select proper geometry into the named table\npsql -d gaiaDB -U postgres -p 5432 -h gaia-db -c \"\nSELECT * INTO tz_regions_osm FROM multipolygons;\nDROP TABLE IF EXISTS lines;\nDROP TABLE IF EXISTS multilinestrings;\nDROP TABLE IF EXISTS multipolygons;\nDROP TABLE IF EXISTS other_relations;\nDROP TABLE IF EXISTS points;\"\n\n# remove duplicate points and make geometries valid:\nUPDATE tz_regions_osm\n  SET geom=ST_MakeValid(ST_RemoveRepeatedPoints(geom));\n\n# add local geometry column and reproject existing geometries into local EPSG:\nSELECT AddGeometryColumn (\n  'tz_regions_osm',\n  'geom_local', 4326, 'multipolygon', 2\n);\nUPDATE tz_regions_osm\n  SET geom_local=ST_MakeValid(ST_RemoveRepeatedPoints(ST_Transform(ST_Multi(geom),4326)));\nCREATE INDEX tz_regions_osm_geom_local_idx\n  ON tz_regions_osm\n  USING GIST (geom_local);\nNOTIFY pgrst, 'reload schema';\n# Move into corrrect directory and create derivative directory in data package on osgeo\ncd /data/tz_regions_osm/\nmkdir -p derived\n\nexport PGPASSWORD=SuperSecret\n# Create shapefile of table in derivate directory on osgeo \nogr2ogr -f \"ESRI Shapefile\" -overwrite derived/tz_regions_osm.shp PG:\"<postgres connection>\" tz_regions_osm\n\n# Create downloadable tarfile of shp in derivative directory on osgeo\nrm -f derived/tz_regions_osm.shp.tar.gz\ntar -czf derived/tz_regions_osm.shp.tar.gz meta_dcat_tz_regions_osm.json -C derived tz_regions_osm.shp tz_regions_osm.prj tz_regions_osm.shx tz_regions_osm.dbf\n\n# Move into correct directory\ncd /data/tz_regions_osm/\n\nexport PGPASSWORD=SuperSecret\n",
+        "result": {
+          "@type": "Dataset",
+          "encodingFormat": "shp",
+          "url": "https://gdsc.idsc.miami.edu/download/data/tz_regions_osm/?file=tz_regions_osm&format=shp"
+        }
+      }
+    },
+    {
+      "@type": "Event",
+      "description": "Direct from source.",
+      "name": "ETL process for OSM Tanzania Regions",
+      "potentialAction": {
+        "@type": "Action",
+        "name": "curl",
+        "description": "ETL process for OSM Tanzania Regions",
+        "object": {
+          "@type": "Dataset",
+          "name": "Direct from source.",
+          "producer": "OpenStreetMap contributors",
+          "url": "https://www.openstreetmap.org/"
+        },
+        "instrument": {
+          "@type": "SoftwareApplication",
+          "@id": [
+            "https://github.com/Geospatial-Digital-Special-Collections/tools"
+          ],
+          "featureList": "curl",
+          "downloadUrl": [
+            "https://github.com/Geospatial-Digital-Special-Collections/tools.git"
+          ]
+        },
+        "result": {
+          "@type": "Dataset",
+          "name": "OSM Tanzania Regions",
+          "description": "A polygon feature set for the regions of Tanzania sourced from OpenStreetMap.",
+          "encodingFormat": "shp",
+          "url": "https://gdsc.idsc.miami.edu/download/data/tz_regions_osm/?file=tz_regions_osm&format=shp"
+        }
+      }
+    }
+  ],
+  "variableMeasured": [
+    {
+      "@type": "PropertyValue",
+      "name": "osm_id",
+      "description": "OpenStreetMap (OSM) ID",
+      "qudt:dataType": "varchar"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "name",
+      "description": "Region name",
+      "qudt:dataType": "varchar"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "type",
+      "description": "Type of boundary",
+      "qudt:dataType": "varchar"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "admin_level",
+      "description": "OSM Administrative level",
+      "qudt:dataType": "varchar"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "boundary",
+      "description": "OSM boundary type",
+      "qudt:dataType": "varchar"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "other_tags",
+      "description": "Any other OSM tags with values, first one is the ISO3166-2 code for the administrative region",
+      "qudt:dataType": "varchar"
+    }
+  ],
+  "distribution": [
+    "https://gdsc.idsc.miami.edu/download/data/tz_regions_osm/?file=tz_regions_osm&format=shp"
+  ],
+  "isBasedOn": [
+    {
+      "@id": "https://gdsc.idsc.miami.edu/details/api",
+      "@type": "Dataset",
+      "name": "api",
+      "url": "https://gdsc.idsc.miami.edu/details/api"
+    }
+  ],
+  "dateModified": "2025-02-24",
+  "version": "2025-10-05"
+}

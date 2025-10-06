@@ -19,7 +19,7 @@
   "dcat:contactPoint": ["Timothy Norris", "Librarian Associate Professor", "University of Miami Libraries, Frost Institute for Data Science and Computing", "txn60@miami.edu"],
   "gdsc:label": "name",
   "gdsc:value": ["osm_id", "name", "place", "other_tags"],
-  "gdsc:attributes": ["osm_id;OpenStreetMap (OSM) ID;;varchar;", "name;Place/settlement name;;varchar;", "place;Kind of settlement as City, Town, Village, Hamlet, City Block, or other;;varchar;", "other_tags;Any other OSM tags with values;;varchar;", ""],
+  "gdsc:attributes": ["osm_id;OpenStreetMap (OSM) ID;;varchar;;;;", "name;Place/settlement name;;varchar;;;;", "place;Kind of settlement as City, Town, Village, Hamlet, City Block, or other;;varchar;;;;", "other_tags;Any other OSM tags with values;;varchar;;;;", ""],
   "gdsc:collections": ["Tanzania Climate Change", "Tanzania Health Outcomes"],
   "gdsc:functions": ["gdsc_get_attributes"],
   "gdsc:analyticConformsTo": "EPSG:4326",
@@ -30,10 +30,10 @@
   "gdsc:tablename": "tz_populated_places_osm",
   "gdsc:up": "true",
   "gdsc:podID": "gaia-db",
-  "dct:modified": "2025-09-11T13:13:42Z",
+  "dct:modified": "2025-09-07T11:08:15Z",
   "dct:accrualPeriodicity": "As Needed",
-  "gdsc:version": "2025-09-11T19:03:33Z",
+  "gdsc:version": "2025-10-05T16:59:49Z",
   "spdx:checksum": "TBD",
-  "dct:extent": ["2914255", "2.8M"],
+  "dct:extent": ["2914659", "2.8M"],
   "dcat:bbox": "not yet know"
 }

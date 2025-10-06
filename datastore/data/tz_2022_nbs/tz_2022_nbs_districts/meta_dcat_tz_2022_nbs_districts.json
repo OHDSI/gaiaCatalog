@@ -20,7 +20,7 @@
   "dcat:contactPoint": ["Timothy Norris", "Librarian Associate Professor", "University of Miami Libraries, Frost Institute for Data Science and Computing", "txn60@miami.edu"],
   "gdsc:label": "dist_name",
   "gdsc:value": ["dist_code", "reg_code", "reg_name"],
-  "gdsc:attributes": ["dist_code", "dist_name", "reg_code", "reg_name"],
+  "gdsc:attributes": ["dist_code;;;varchar;;;;", "dist_name;;;varchar;;;;", "reg_code;;;varchar;;;;", "reg_name;;;varchar;;;;"],
   "gdsc:collections": ["Tanzania Climate Change", "Tanzania Health Outcomes"],
   "gdsc:functions": ["gdsc_get_attributes"],
   "gdsc:analyticConformsTo": "EPSG:4326",
@@ -31,10 +31,10 @@
   "gdsc:tablename": "tz_2022_nbs_districts",
   "gdsc:up": "true",
   "gdsc:podID": "gaia-db",
-  "dct:modified": "0001-01-01T00:00:00Z",
+  "dct:modified": "2025-09-07T15:16:07Z",
   "dct:accrualPeriodicity": "As Needed",
-  "gdsc:version": "2025-09-11T19:03:35Z",
+  "gdsc:version": "2025-10-05T16:59:41Z",
   "spdx:checksum": "TBD",
-  "dct:extent": ["0", "0"],
-  "dcat:bbox": "not yet know"
+  "dct:extent": ["326181252", "312M"],
+  "dcat:bbox": "POLYGON((29.636010 -11.255900, 39.868100 -11.255900, 39.868100 -1.072270)\nExtent: (29.611330, 29.636010 -1.072270)\nExtent: (29.611330, 29.636010 -11.255900))"
 }

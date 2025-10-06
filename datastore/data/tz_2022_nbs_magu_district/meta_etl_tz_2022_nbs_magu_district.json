@@ -5,7 +5,7 @@
   "geometry": "multipolygon",
   "epsg": "EPSG:4326",
   "fields": ["dist_code", "reg_code", "reg_name"],
-  "attributes": ["dist_code", "dist_name", "reg_code", "reg_name"],
+  "attributes": ["dist_code;;;varchar;;;;", "dist_name;;;varchar;;;;", "reg_code;;;varchar;;;;", "reg_name;;;varchar;;;;"],
   "local_epsg": "EPSG:4326",
   "derive": ["shp"],
   "source": "tz_2022_nbs_districts",
@@ -20,5 +20,5 @@
   "last_updated": "0001-01-01T00:00:00Z",
   "update_frequency": "As Needed",
   "checksum": "TBD",
-  "extent": "ERROR"
+  "extent": "POLYGON((29.636010 -11.255900, 39.868100 -11.255900, 39.868100 -1.072270)\nExtent: (29.611330, 29.636010 -1.072270)\nExtent: (29.611330, 29.636010 -11.255900))"
 }
