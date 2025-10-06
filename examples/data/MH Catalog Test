@@ -1,0 +1,63 @@
+{
+  "@context": [
+    "https://schema.org/",
+    {
+      "qudt": "http://qudt.org/schema/qudt/",
+      "quantitykind": "http://qudt.org/vocab/quantitykind/",
+      "unit": "http://qudt.org/vocab/unit/",
+      "xsd": "http://www.w3.org/2001/XMLSchema#"
+    }
+  ],
+  "@type": "Dataset",
+  "name": "HDSS X Population Health",
+  "distribution": "a URL",
+  "includedInDataCatalog": "name of MH data catalog",
+  "temporalCoverage": "in ISO 8601 format",
+  "temporal": "human readable version of temporalCoverage",
+  "spatialCoverage": "takes a @Place", 
+  "spatial": "human readable version of spatialCoverage", 
+  "variableMeasured": [
+    {
+      "@type": "PropertyValue",
+      "name": "PHQ-9 Total Score",
+      "propertyID": ["3042932", "Athena Vocabulary Server", "LOINC Vocabulary"],
+      "qudt:dataType": "xsd:integer",
+      "valueReference": {
+        "@type": "PropertyValue",
+        "name": "Instrument DataTime",
+        "value": "1/14/24",
+        "description": "Identifies a point in a time series in which the PHQ-9 total score participates."
+      }
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "PHQ-9 Severity Level",
+      "propertyID": "",
+      "qudt:dataType": "Enumeration",
+      "valueReference": [
+        {
+          "@type": "PropertyValue",
+          "name": "Instrument DataTime",
+          "value": "1/14/24",
+          "description": "Identifies a point in a time series in which the PHQ-9 severity level participates."
+        },
+        {
+          "@type": "DefinedTerm",
+          "inDefinedTermSet": {
+            "@type": "DefinedTermSet",
+            "name": "PHQ-9 Interp-score",
+            "identifier": "https://athena.ohdsi.org/search-terms/terms/3043550",
+            "hasDefinedTerm": [
+              { "@type": "DefinedTerm", "termCode": "none", "identifier": "https://athena.ohdsi.org/search-terms/terms/36310668" },
+              { "@type": "DefinedTerm", "termCode": "mild", "identifier": "https://athena.ohdsi.org/search-terms/terms/36308025" },
+              { "@type": "DefinedTerm", "termCode": "moderate", "identifier": "https://athena.ohdsi.org/search-terms/terms/36310246" },
+              { "@type": "DefinedTerm", "termCode": "moderately severe", "identifier": "https://athena.ohdsi.org/search-terms/terms/36308049" },
+              { "@type": "DefinedTerm", "termCode": "severe", "identifier": "https://athena.ohdsi.org/search-terms/terms/4152280" }
+            ]
+          },
+          "termCode": "moderate"
+        }
+      ]
+    }
+  ]
+}

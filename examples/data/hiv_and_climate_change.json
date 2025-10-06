@@ -305,19 +305,27 @@
     },
     {
       "@type": "StatisticalVariable",
-      "name": "Average monthly maximum temperature",
+      "name": "monthly average of daily maximum temperature",
       "identifier": "http://gisextension.ohdsi.org/sdoh/nnn",
       "populationType": "Gaia",
-      "measuredProperty": "Maximum temperature",
-      "statType": "mean",
+      "measuredProperty": "temperature of air",
+      "statType": "arithmetic mean",
+      "measurementTechnique": [
+        "Step 1: Collect daily maximum temperatures", 
+        "Step 2: Add up all the daily maximum temperatures you collected in the previous step.",
+        "Step 3: Count the number of days in that month.",
+        "Step 4: Calculate the average by dividing the sum from Step 2 by the number of days from Step 3."],
       "measurementQualifier": [
         {
           "@type": "Observation",
+          "description": "daily maximum temperature", 
+          "measuredProperty": "maximum temperature",
+          "measurementTechnique": "",
           "qudt:dataType": "xsd:integer",
           "marginOfError": "a human readable statement of the value margin of error",
-          "observationPeriod": "a human readable time period",
-          "maxValue": "the highest (recorded) value of an observation",
-          "minValue": "the lowest (recorded) value of an observation",
+          "observationPeriod": "P1D (1 day)",
+          "maxValue": "the highest (recordable) value of an observation",
+          "minValue": "the lowest (recordable) value of an observation",
           "unitCode": "https://athena.ohdsi.org/search-terms/terms/586323",
           "unitText": "degrees celsius"
         }
@@ -368,22 +376,86 @@
     },
     {
       "@type": "StatisticalVariable",
-      "name": "Monthly exceedance probability of flood",
-      "identifier": "http://gisextension.ohdsi.org/sdoh/nnn",
+      "name": "10% exceedance probability of flood",
+      "identifier": "http://gisextension.ohdsi.org/sdoh/10%_exceedance_probability_of_flood",
       "description": "We approximate the 10% exceedance probability threshold using unrouted daily runoff for each calendar month and each gridded cell",
       "disambiguatingDescription": "An exceedance probability developed from a population of daily runoff in a given month should not be confused with annual flood statistics, which are developed by fitting a statistical distribution to a population of annual maximum daily streamflow",
-      "measurementTechnique": "The Variable Infiltration Capacity (VIC) land surface hydrologic model is informed by meteorological time-series variables including precipitaion and temperature ",
+      "measurementTechnique": [
+        "Extract monthly maximum flows from the long-term, routed streamflow time series",
+        "One standard for 'long term' is 10 years",
+        "Routed streamflow is derived from the VIC (Variable Infiltation Capacity) model",
+        "For each month of the routed streamflow time series, sort the maximum monthly flow values in descending order, from largest to smallest",
+        "Assign a rank",
+        "Calculate the empirical exceedance probability using the Weibull formula" 
+      ],
       "measurementMethod": "https://www.sciencedirect.com/science/article/pii/S136481521830865X",
       "measuredProperty": "Surface flow runoff",
       "measurementQualifier": [
         {
           "@type": "Observation",
+          "name": "Streamflow time series",
+          "description":  "The 10% exceedance probability of flood statistic is built on top of the streamflow time series",
+          "identifier": "http://gisextension.ohdsi.org/sdoh/monthly_streamflow", 
           "marginOfError": "A human readable statement of the value margin of error. In this use case there is no ground truth at first which adds to the margin of error. The plan is to add ground meteorological data alongside the satellite data as VIC inputs",
-          "observationPeriod": "A human readable time period",
-          "maxValue": "The highest (recorded) value of an observation",
-          "minValue": "The lowest (recorded) value of an observation",
-          "unitCode": "https://athena.ohdsi.org/search-terms/terms/8554",
-          "unitText": "percent"
+          "observationPeriod": "Monthly over x years",
+          "unitCode": "https://athena.ohdsi.org/search-terms/terms/8580",
+          "unitText": "month",
+          "potentialAction": {
+            "@type": "Action",
+            "description": "Derives monthly maximum flows time series from streamflow time series",
+            "object": {
+              "@type": "Dataset",
+              "name": "Streamflow time series",
+              "encodingFormat": "netCDF"
+            },
+             "instrument": {
+              "@type": "SoftwareSourceCode",
+              "codeRepository": "Github url",
+              "url": "url of the instrument"
+            },
+            "result": {
+              "@type": "Dataset",
+              "name": "Monthly maximum flows time series",
+              "encodingFormat": "netCDF"
+            }
+          }
+        },
+        {
+          "@type": "Observation",
+          "name": "Variable Infiltation Capacity (VIC) time series",
+          "description": [
+            "The streamflow time series is derived from VIC coupled with a separate hydrological routing model",
+            "Together they specify how the runoff travels through the river network to a specific point of interest"
+          ],
+          "identifier": "http://gisextension.ohdsi.org/sdoh/monthly_runoff_at_a_point_of_interest", 
+          "measurementQualifier": {
+            "@type": "Place",
+            "latitude": " ",
+            "longitude": " "
+          },
+          "marginOfError": "A human readable statement of the value margin of error. In this use case there is no ground truth at first which adds to the margin of error. The plan is to add ground meteorological data alongside the satellite data as VIC inputs",
+          "observationPeriod": "Monthly over x years",
+          "unitCode": "https://athena.ohdsi.org/search-terms/terms/8580",
+          "unitText": "month",
+          "potentialAction": {
+            "@type": "Action",
+            "description": "Derives streamflow time series from VIC time series",
+            "object": {
+              "@type": "Dataset",
+              "name": "VIC time series",
+              "encodingFormat": "netCDF"
+            },
+            "instrument": {
+              "@type": "SoftwareSourceCode",
+              "codeRepository": "Github url",
+              "url": "url of the instrument"
+            },
+            "result": {
+              "@type": "Dataset",
+              "name": "Streamflow time series",
+              "encodingFormat": "netCDF"
+            }
+          }
         }
       ],
       "statType": "Monthly exceedance probability",
