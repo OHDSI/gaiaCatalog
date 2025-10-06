@@ -452,6 +452,7 @@
   <field name="_text_" type="text_general" multiValued="true" indexed="true" stored="false"/>
   <field name="_version_" type="plong" indexed="false" stored="false"/>
   <field name="adms_representationTechnique" type="text_general"/>
+  <field name="dcat_accessURL" type="text_general"/>
   <field name="dcat_bbox" type="text_general"/>
   <field name="dcat_contactPoint" type="text_general"/>
   <field name="dcat_downloadURL" type="text_general"/>
@@ -472,6 +473,7 @@
   <field name="dct_publisher" type="text_general"/>
   <field name="dct_relation" type="text_general"/>
   <field name="dct_rights" type="text_general"/>
+  <field name="dct_temporal" type="pdates"/>
   <field name="dct_title" type="text_general"/>
   <field name="dct_type" type="text_general"/>
   <field name="gdsc_analyticConformsTo" type="text_general"/>
@@ -482,6 +484,7 @@
   <field name="gdsc_externalId" type="text_general"/>
   <field name="gdsc_functions" type="text_general"/>
   <field name="gdsc_label" type="text_general"/>
+  <field name="gdsc_nodata" type="text_general"/>
   <field name="gdsc_podID" type="text_general"/>
   <field name="gdsc_raster_tile_url" type="text_general"/>
   <field name="gdsc_sponsor" type="text_general"/>
@@ -490,6 +493,7 @@
   <field name="gdsc_tile_url" type="text_general"/>
   <field name="gdsc_up" type="booleans"/>
   <field name="gdsc_value" type="text_general"/>
+  <field name="gdsc_version" type="pdates"/>
   <field name="id" type="string" multiValued="false" indexed="true" required="true" stored="true"/>
   <field name="locn_geometry" type="text_general"/>
   <field name="prov_action" type="text_general"/>
@@ -605,4 +609,6 @@
   <copyField source="gdsc_tileUrl" dest="gdsc_tileUrl_str" maxChars="256"/>
   <copyField source="gdsc_derived" dest="gdsc_derived_str" maxChars="256"/>
   <copyField source="gdsc_externalId" dest="gdsc_externalId_str" maxChars="256"/>
+  <copyField source="dcat_accessURL" dest="dcat_accessURL_str" maxChars="256"/>
+  <copyField source="gdsc_nodata" dest="gdsc_nodata_str" maxChars="256"/>
 </schema>
