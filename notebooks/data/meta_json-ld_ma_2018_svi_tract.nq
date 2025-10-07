@@ -1,0 +1,1410 @@
+<https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://schema.org/Dataset> .
+<https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract> <https://schema.org/about> _:b0 .
+<https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract> <https://schema.org/about> _:b3 .
+<https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract> <https://schema.org/additionalProperty> _:b7 .
+<https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract> <https://schema.org/creator> <https://ror.org/04hsdam77> .
+<https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract> <https://schema.org/dateModified> "2022-02-08" .
+<https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract> <https://schema.org/datePublished> "2020-10-22" .
+<https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract> <https://schema.org/description> "Social vulnerability refers to the potential negative effects on communities caused by external stresses on human health. Such stresses include natural or human-caused disasters, or disease outbreaks. Reducing social vulnerability can decrease both human suffering and economic loss.\n\nThe CDC/ATSDR Social Vulnerability Index (CDC/ATSDR SVI) uses 16 U.S. census variables to help local officials identify communities that may need support before, during, or after disasters." .
+<https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract> <https://schema.org/distribution> "https://gdsc.idsc.miami.edu/download/data/ma_2018_svi_tract/?file=ma_2018_svi_tract&format=sql" .
+<https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract> <https://schema.org/includedInDataCatalog> _:b8 .
+<https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract> <https://schema.org/keywords> "CDC" .
+<https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract> <https://schema.org/keywords> "Census Tracts" .
+<https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract> <https://schema.org/keywords> "Massachusetts" .
+<https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract> <https://schema.org/keywords> "Public-Safety" .
+<https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract> <https://schema.org/keywords> "Social Vulnerability Index" .
+<https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract> <https://schema.org/keywords> "Vulnerability" .
+<https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract> <https://schema.org/measurementTechnique> _:b14 .
+<https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract> <https://schema.org/measurementTechnique> _:b9 .
+<https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract> <https://schema.org/name> "2018 Massachusetts CDC Social Vulnerability Index (tracts)" .
+<https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract> <https://schema.org/provider> "CDC" .
+<https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract> <https://schema.org/spatialCoverage> _:b19 .
+<https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract> <https://schema.org/type> "Vector Dataset" .
+<https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract> <https://schema.org/url> "https://www.atsdr.cdc.gov/placeandhealth/svi/data_documentation_download.html" .
+<https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract> <https://schema.org/variableMeasured> _:b100 .
+<https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract> <https://schema.org/variableMeasured> _:b101 .
+<https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract> <https://schema.org/variableMeasured> _:b102 .
+<https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract> <https://schema.org/variableMeasured> _:b103 .
+<https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract> <https://schema.org/variableMeasured> _:b104 .
+<https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract> <https://schema.org/variableMeasured> _:b105 .
+<https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract> <https://schema.org/variableMeasured> _:b106 .
+<https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract> <https://schema.org/variableMeasured> _:b107 .
+<https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract> <https://schema.org/variableMeasured> _:b108 .
+<https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract> <https://schema.org/variableMeasured> _:b109 .
+<https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract> <https://schema.org/variableMeasured> _:b110 .
+<https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract> <https://schema.org/variableMeasured> _:b111 .
+<https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract> <https://schema.org/variableMeasured> _:b112 .
+<https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract> <https://schema.org/variableMeasured> _:b113 .
+<https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract> <https://schema.org/variableMeasured> _:b114 .
+<https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract> <https://schema.org/variableMeasured> _:b115 .
+<https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract> <https://schema.org/variableMeasured> _:b116 .
+<https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract> <https://schema.org/variableMeasured> _:b117 .
+<https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract> <https://schema.org/variableMeasured> _:b118 .
+<https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract> <https://schema.org/variableMeasured> _:b119 .
+<https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract> <https://schema.org/variableMeasured> _:b120 .
+<https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract> <https://schema.org/variableMeasured> _:b121 .
+<https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract> <https://schema.org/variableMeasured> _:b122 .
+<https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract> <https://schema.org/variableMeasured> _:b123 .
+<https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract> <https://schema.org/variableMeasured> _:b124 .
+<https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract> <https://schema.org/variableMeasured> _:b125 .
+<https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract> <https://schema.org/variableMeasured> _:b126 .
+<https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract> <https://schema.org/variableMeasured> _:b127 .
+<https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract> <https://schema.org/variableMeasured> _:b128 .
+<https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract> <https://schema.org/variableMeasured> _:b129 .
+<https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract> <https://schema.org/variableMeasured> _:b130 .
+<https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract> <https://schema.org/variableMeasured> _:b131 .
+<https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract> <https://schema.org/variableMeasured> _:b132 .
+<https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract> <https://schema.org/variableMeasured> _:b133 .
+<https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract> <https://schema.org/variableMeasured> _:b134 .
+<https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract> <https://schema.org/variableMeasured> _:b135 .
+<https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract> <https://schema.org/variableMeasured> _:b136 .
+<https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract> <https://schema.org/variableMeasured> _:b137 .
+<https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract> <https://schema.org/variableMeasured> _:b138 .
+<https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract> <https://schema.org/variableMeasured> _:b139 .
+<https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract> <https://schema.org/variableMeasured> _:b140 .
+<https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract> <https://schema.org/variableMeasured> _:b141 .
+<https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract> <https://schema.org/variableMeasured> _:b142 .
+<https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract> <https://schema.org/variableMeasured> _:b143 .
+<https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract> <https://schema.org/variableMeasured> _:b20 .
+<https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract> <https://schema.org/variableMeasured> _:b21 .
+<https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract> <https://schema.org/variableMeasured> _:b22 .
+<https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract> <https://schema.org/variableMeasured> _:b23 .
+<https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract> <https://schema.org/variableMeasured> _:b24 .
+<https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract> <https://schema.org/variableMeasured> _:b25 .
+<https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract> <https://schema.org/variableMeasured> _:b26 .
+<https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract> <https://schema.org/variableMeasured> _:b27 .
+<https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract> <https://schema.org/variableMeasured> _:b28 .
+<https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract> <https://schema.org/variableMeasured> _:b29 .
+<https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract> <https://schema.org/variableMeasured> _:b30 .
+<https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract> <https://schema.org/variableMeasured> _:b31 .
+<https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract> <https://schema.org/variableMeasured> _:b32 .
+<https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract> <https://schema.org/variableMeasured> _:b33 .
+<https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract> <https://schema.org/variableMeasured> _:b34 .
+<https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract> <https://schema.org/variableMeasured> _:b35 .
+<https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract> <https://schema.org/variableMeasured> _:b36 .
+<https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract> <https://schema.org/variableMeasured> _:b37 .
+<https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract> <https://schema.org/variableMeasured> _:b38 .
+<https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract> <https://schema.org/variableMeasured> _:b39 .
+<https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract> <https://schema.org/variableMeasured> _:b40 .
+<https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract> <https://schema.org/variableMeasured> _:b41 .
+<https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract> <https://schema.org/variableMeasured> _:b42 .
+<https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract> <https://schema.org/variableMeasured> _:b43 .
+<https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract> <https://schema.org/variableMeasured> _:b44 .
+<https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract> <https://schema.org/variableMeasured> _:b45 .
+<https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract> <https://schema.org/variableMeasured> _:b46 .
+<https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract> <https://schema.org/variableMeasured> _:b47 .
+<https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract> <https://schema.org/variableMeasured> _:b48 .
+<https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract> <https://schema.org/variableMeasured> _:b49 .
+<https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract> <https://schema.org/variableMeasured> _:b50 .
+<https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract> <https://schema.org/variableMeasured> _:b51 .
+<https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract> <https://schema.org/variableMeasured> _:b52 .
+<https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract> <https://schema.org/variableMeasured> _:b53 .
+<https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract> <https://schema.org/variableMeasured> _:b54 .
+<https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract> <https://schema.org/variableMeasured> _:b55 .
+<https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract> <https://schema.org/variableMeasured> _:b56 .
+<https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract> <https://schema.org/variableMeasured> _:b57 .
+<https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract> <https://schema.org/variableMeasured> _:b58 .
+<https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract> <https://schema.org/variableMeasured> _:b59 .
+<https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract> <https://schema.org/variableMeasured> _:b60 .
+<https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract> <https://schema.org/variableMeasured> _:b61 .
+<https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract> <https://schema.org/variableMeasured> _:b62 .
+<https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract> <https://schema.org/variableMeasured> _:b63 .
+<https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract> <https://schema.org/variableMeasured> _:b64 .
+<https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract> <https://schema.org/variableMeasured> _:b65 .
+<https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract> <https://schema.org/variableMeasured> _:b66 .
+<https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract> <https://schema.org/variableMeasured> _:b67 .
+<https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract> <https://schema.org/variableMeasured> _:b68 .
+<https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract> <https://schema.org/variableMeasured> _:b69 .
+<https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract> <https://schema.org/variableMeasured> _:b70 .
+<https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract> <https://schema.org/variableMeasured> _:b71 .
+<https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract> <https://schema.org/variableMeasured> _:b72 .
+<https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract> <https://schema.org/variableMeasured> _:b73 .
+<https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract> <https://schema.org/variableMeasured> _:b74 .
+<https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract> <https://schema.org/variableMeasured> _:b75 .
+<https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract> <https://schema.org/variableMeasured> _:b76 .
+<https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract> <https://schema.org/variableMeasured> _:b77 .
+<https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract> <https://schema.org/variableMeasured> _:b78 .
+<https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract> <https://schema.org/variableMeasured> _:b79 .
+<https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract> <https://schema.org/variableMeasured> _:b80 .
+<https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract> <https://schema.org/variableMeasured> _:b81 .
+<https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract> <https://schema.org/variableMeasured> _:b82 .
+<https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract> <https://schema.org/variableMeasured> _:b83 .
+<https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract> <https://schema.org/variableMeasured> _:b84 .
+<https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract> <https://schema.org/variableMeasured> _:b85 .
+<https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract> <https://schema.org/variableMeasured> _:b86 .
+<https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract> <https://schema.org/variableMeasured> _:b87 .
+<https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract> <https://schema.org/variableMeasured> _:b88 .
+<https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract> <https://schema.org/variableMeasured> _:b89 .
+<https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract> <https://schema.org/variableMeasured> _:b90 .
+<https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract> <https://schema.org/variableMeasured> _:b91 .
+<https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract> <https://schema.org/variableMeasured> _:b92 .
+<https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract> <https://schema.org/variableMeasured> _:b93 .
+<https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract> <https://schema.org/variableMeasured> _:b94 .
+<https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract> <https://schema.org/variableMeasured> _:b95 .
+<https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract> <https://schema.org/variableMeasured> _:b96 .
+<https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract> <https://schema.org/variableMeasured> _:b97 .
+<https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract> <https://schema.org/variableMeasured> _:b98 .
+<https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract> <https://schema.org/variableMeasured> _:b99 .
+<https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract> <https://schema.org/version> "2025-10-05" .
+<https://github.com/Geospatial-Digital-Special-Collections/tools> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://schema.org/SoftwareApplication> .
+<https://github.com/Geospatial-Digital-Special-Collections/tools> <https://schema.org/downloadUrl> "https://github.com/Geospatial-Digital-Special-Collections/tools.git" .
+<https://github.com/Geospatial-Digital-Special-Collections/tools> <https://schema.org/featureList> "wget" .
+<https://ror.org/04hsdam77> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://schema.org/Organization> .
+<https://ror.org/04hsdam77> <https://schema.org/identifier> "https://ror.org/04hsdam77" .
+<https://ror.org/04hsdam77> <https://schema.org/name> "Center for Disease Control" .
+<https://ror.org/04hsdam77> <https://schema.org/sameAs> "https://ror.org/04hsdam77" .
+_:b0 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://schema.org/Event> .
+_:b0 <https://schema.org/description> " direct from source" .
+_:b0 <https://schema.org/name> "ETL process for 2018 Massachusetts CDC Social Vulnerability Index (tracts)" .
+_:b0 <https://schema.org/potentialAction> _:b1 .
+_:b1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://schema.org/Action> .
+_:b1 <https://schema.org/description> "#########\n# GDSC ETL is performed in two steps: shell script to ETL data into postgres\n# and then additional transformations with SQL in postGIS (if needed).\n####\n\n#########\n# Step 1 - bash script (pseudo code)\n####\n\n# create directory structure and move into it\nmkdir -p /data/ma_2018_svi_tract/{download,etl} && cd /data/ma_2018_svi_tract\n\n# set update flag based on last update and update frequency\ndo_update=0 if date() < last_update + update_frequency else do_update = 1\n\n# download if update flag is set:\nif do_update == 1 then\nwget -O download/ma_2018_svi_tract.zip 'https://svi.cdc.gov/Documents/Data/2018/db/states/Massachusetts.zip'\n\n# unzip to download directory if update flag is set\nif do_update == 1 then\nunzip -d download download/ma_2018_svi_tract.zip && rm download/ma_2018_svi_tract.zip\n\n# load into postGIS with:\n  ogr2ogr -lco GEOMETRY_NAME=geom -f PostgreSQL PG:\"<postgres connection>\" download/SVI2018_MASSACHUSETTS_tract.gdb -nlt multipolygon -nln ma_2018_svi_tract\n\n#########\n# Step 2 - SQL script (pseudo code):\n####\n\n# remove duplicate points and make geometries valid:\nUPDATE ma_2018_svi_tract\n  SET geom=ST_MakeValid(ST_RemoveRepeatedPoints(geom));\n\n# add local geometry column and reproject existing geometries into local EPSG:\nSELECT AddGeometryColumn (\n  'ma_2018_svi_tract',\n  'geom_local', 26986, 'multipolygon', 2\n);\nUPDATE ma_2018_svi_tract\n  SET geom_local=ST_MakeValid(ST_RemoveRepeatedPoints(ST_Transform(ST_Multi(geom),26986)));\nCREATE INDEX ma_2018_svi_tract_geom_local_idx\n  ON ma_2018_svi_tract\n  USING GIST (geom_local);\nNOTIFY pgrst, 'reload schema';\n# Move into corrrect directory and create derivative directory in data package on osgeo\ncd /data/ma_2018_svi_tract/\nmkdir -p derived\n\nexport PGPASSWORD=SuperSecret\n# Move into correct directory\ncd /data/ma_2018_svi_tract/\n\nexport PGPASSWORD=SuperSecret\n# Create pg_dump of table SQL in derivate directory on postgis.\npg_dump <postgres opts> -h gaia-db -t ma_2018_svi_tract > derived/ma_2018_svi_tract.sql\n\n# Create downloadable tarfile of SQL in derivative directory on postgis\nrm -f derived/ma_2018_svi_tract.sql.tar.gz\ntar -czf derived/ma_2018_svi_tract.sql.tar.gz meta_dcat_ma_2018_svi_tract.json -C derived ma_2018_svi_tract.sql\n\n" .
+_:b1 <https://schema.org/name> "Pseudo Code" .
+_:b1 <https://schema.org/result> _:b2 .
+_:b10 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://schema.org/DefinedTermSet> .
+_:b10 <https://schema.org/hasDefinedTerm> _:b11 .
+_:b10 <https://schema.org/hasDefinedTerm> _:b12 .
+_:b10 <https://schema.org/hasDefinedTerm> _:b13 .
+_:b10 <https://schema.org/name> "dataRepresentation" .
+_:b100 <http://qudt.org/schema/qudt/dataType> "int4" .
+_:b100 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://schema.org/PropertyValue> .
+_:b100 <https://schema.org/description> "\"Households estimate MOE, 2014-2018 ACS\"" .
+_:b100 <https://schema.org/endDate> "12/31/18" .
+_:b100 <https://schema.org/maxValue> "280" .
+_:b100 <https://schema.org/minValue> "6" .
+_:b100 <https://schema.org/name> "m_hh" .
+_:b100 <https://schema.org/propertyID> "2052499092" .
+_:b100 <https://schema.org/startDate> "1/1/18" .
+_:b100 <https://schema.org/unitText> "households" .
+_:b101 <http://qudt.org/schema/qudt/dataType> "int4" .
+_:b101 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://schema.org/PropertyValue> .
+_:b101 <https://schema.org/description> "\"Housing units estimate MOE, 2014-2018 ACS\"" .
+_:b101 <https://schema.org/endDate> "12/31/18" .
+_:b101 <https://schema.org/maxValue> "300" .
+_:b101 <https://schema.org/minValue> "6" .
+_:b101 <https://schema.org/name> "m_hu" .
+_:b101 <https://schema.org/propertyID> "2052499074" .
+_:b101 <https://schema.org/startDate> "1/1/18" .
+_:b101 <https://schema.org/unitText> "housing units" .
+_:b102 <http://qudt.org/schema/qudt/dataType> "int4" .
+_:b102 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://schema.org/PropertyValue> .
+_:b102 <https://schema.org/description> "\"Persons (age 5+) who speak English \"\"less than well\"\" estimate MOE, 2014-2018 ACS\"" .
+_:b102 <https://schema.org/endDate> "12/31/18" .
+_:b102 <https://schema.org/maxValue> "710" .
+_:b102 <https://schema.org/minValue> "44" .
+_:b102 <https://schema.org/name> "m_limeng" .
+_:b102 <https://schema.org/propertyID> "2052498116" .
+_:b102 <https://schema.org/startDate> "1/1/18" .
+_:b102 <https://schema.org/unitText> "persons" .
+_:b103 <http://qudt.org/schema/qudt/dataType> "int4" .
+_:b103 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://schema.org/PropertyValue> .
+_:b103 <https://schema.org/description> "\"Minority (all persons except white, non-Hispanic) estimate MOE, 2014-2018 ACS\"" .
+_:b103 <https://schema.org/endDate> "12/31/18" .
+_:b103 <https://schema.org/maxValue> "1108" .
+_:b103 <https://schema.org/minValue> "17" .
+_:b103 <https://schema.org/name> "m_minrty" .
+_:b103 <https://schema.org/propertyID> "" .
+_:b103 <https://schema.org/startDate> "1/1/18" .
+_:b103 <https://schema.org/unitText> "persons" .
+_:b104 <http://qudt.org/schema/qudt/dataType> "int4" .
+_:b104 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://schema.org/PropertyValue> .
+_:b104 <https://schema.org/description> "\"Mobile homes estimate MOE, 2014-2018 ACS\"" .
+_:b104 <https://schema.org/endDate> "12/31/18" .
+_:b104 <https://schema.org/maxValue> "156" .
+_:b104 <https://schema.org/minValue> "4" .
+_:b104 <https://schema.org/name> "m_mobile" .
+_:b104 <https://schema.org/propertyID> "2052498833" .
+_:b104 <https://schema.org/startDate> "1/1/18" .
+_:b104 <https://schema.org/unitText> "mobile homes" .
+_:b105 <http://qudt.org/schema/qudt/dataType> "int4" .
+_:b105 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://schema.org/PropertyValue> .
+_:b105 <https://schema.org/description> "\"Housing in structures with 10 or more units estimate MOE, 2014- 2018 ACS\"" .
+_:b105 <https://schema.org/endDate> "12/31/18" .
+_:b105 <https://schema.org/maxValue> "331" .
+_:b105 <https://schema.org/minValue> "7" .
+_:b105 <https://schema.org/name> "m_munit" .
+_:b105 <https://schema.org/propertyID> "2052499081" .
+_:b105 <https://schema.org/startDate> "1/1/18" .
+_:b105 <https://schema.org/unitText> "housing units" .
+_:b106 <http://qudt.org/schema/qudt/dataType> "int4" .
+_:b106 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://schema.org/PropertyValue> .
+_:b106 <https://schema.org/description> "\"Persons (age 25+) with no high school diploma estimate MOE, 2014-2018 ACS\"" .
+_:b106 <https://schema.org/endDate> "12/31/18" .
+_:b106 <https://schema.org/maxValue> "451" .
+_:b106 <https://schema.org/minValue> "4" .
+_:b106 <https://schema.org/name> "m_nohsdp" .
+_:b106 <https://schema.org/propertyID> "2052498118" .
+_:b106 <https://schema.org/startDate> "1/1/18" .
+_:b106 <https://schema.org/unitText> "persons" .
+_:b107 <http://qudt.org/schema/qudt/dataType> "int4" .
+_:b107 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://schema.org/PropertyValue> .
+_:b107 <https://schema.org/description> "\"Households with no vehicle available estimate MOE, 2014-2018 ACS\"" .
+_:b107 <https://schema.org/endDate> "12/31/18" .
+_:b107 <https://schema.org/maxValue> "299" .
+_:b107 <https://schema.org/minValue> "4" .
+_:b107 <https://schema.org/name> "m_noveh" .
+_:b107 <https://schema.org/propertyID> "2052499090" .
+_:b107 <https://schema.org/startDate> "1/1/18" .
+_:b107 <https://schema.org/unitText> "households" .
+_:b108 <http://qudt.org/schema/qudt/dataType> "int4" .
+_:b108 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://schema.org/PropertyValue> .
+_:b108 <https://schema.org/description> "\"Per capita income estimate MOE, 2014-2018 ACS\"" .
+_:b108 <https://schema.org/endDate> "12/31/18" .
+_:b108 <https://schema.org/maxValue> "98137" .
+_:b108 <https://schema.org/minValue> "391" .
+_:b108 <https://schema.org/name> "m_pci" .
+_:b108 <https://schema.org/propertyID> "" .
+_:b108 <https://schema.org/startDate> "1/1/18" .
+_:b108 <https://schema.org/unitText> "US dollars" .
+_:b109 <http://qudt.org/schema/qudt/dataType> "int4" .
+_:b109 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://schema.org/PropertyValue> .
+_:b109 <https://schema.org/description> "\"Persons below poverty estimate MOE, 2014-2018 ACS\"" .
+_:b109 <https://schema.org/endDate> "12/31/18" .
+_:b109 <https://schema.org/maxValue> "873" .
+_:b109 <https://schema.org/minValue> "5" .
+_:b109 <https://schema.org/name> "m_pov" .
+_:b109 <https://schema.org/propertyID> "2052498110" .
+_:b109 <https://schema.org/startDate> "1/1/18" .
+_:b109 <https://schema.org/unitText> "persons" .
+_:b11 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://schema.org/DefinedTerm> .
+_:b11 <https://schema.org/termCode> "raster" .
+_:b110 <http://qudt.org/schema/qudt/dataType> "int4" .
+_:b110 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://schema.org/PropertyValue> .
+_:b110 <https://schema.org/description> "\"Single parent household with children under 18 estimate MOE, 2014-2018 ACS\"" .
+_:b110 <https://schema.org/endDate> "12/31/18" .
+_:b110 <https://schema.org/maxValue> "236" .
+_:b110 <https://schema.org/minValue> "11" .
+_:b110 <https://schema.org/name> "m_sngpnt" .
+_:b110 <https://schema.org/propertyID> "2052497777" .
+_:b110 <https://schema.org/startDate> "1/1/18" .
+_:b110 <https://schema.org/unitText> "households" .
+_:b111 <http://qudt.org/schema/qudt/dataType> "int4" .
+_:b111 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://schema.org/PropertyValue> .
+_:b111 <https://schema.org/description> "\"Population estimate MOE, 2014-2018 ACS\"" .
+_:b111 <https://schema.org/endDate> "12/31/18" .
+_:b111 <https://schema.org/maxValue> "949" .
+_:b111 <https://schema.org/minValue> "12" .
+_:b111 <https://schema.org/name> "m_totpop" .
+_:b111 <https://schema.org/propertyID> "2052498090" .
+_:b111 <https://schema.org/startDate> "1/1/18" .
+_:b111 <https://schema.org/unitText> "persons" .
+_:b112 <http://qudt.org/schema/qudt/dataType> "int4" .
+_:b112 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://schema.org/PropertyValue> .
+_:b112 <https://schema.org/description> "\"Civilian (age 16+) unemployed estimate MOE, 2014-2018 ACS\"" .
+_:b112 <https://schema.org/endDate> "12/31/18" .
+_:b112 <https://schema.org/maxValue> "289" .
+_:b112 <https://schema.org/minValue> "6" .
+_:b112 <https://schema.org/name> "m_unemp" .
+_:b112 <https://schema.org/propertyID> "2052499670" .
+_:b112 <https://schema.org/startDate> "1/1/18" .
+_:b112 <https://schema.org/unitText> "persons" .
+_:b113 <http://qudt.org/schema/qudt/dataType> "int4" .
+_:b113 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://schema.org/PropertyValue> .
+_:b113 <https://schema.org/description> "\"Adjunct variable - Uninsured in the total civilian non-institutionalized population estimate MOE, 2014-2018 ACS\"" .
+_:b113 <https://schema.org/endDate> "12/31/18" .
+_:b113 <https://schema.org/maxValue> "474" .
+_:b113 <https://schema.org/minValue> "2" .
+_:b113 <https://schema.org/name> "m_uninsur" .
+_:b113 <https://schema.org/propertyID> "2052497148" .
+_:b113 <https://schema.org/startDate> "1/1/18" .
+_:b113 <https://schema.org/unitText> "persons" .
+_:b114 <http://qudt.org/schema/qudt/dataType> "float8" .
+_:b114 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://schema.org/PropertyValue> .
+_:b114 <https://schema.org/description> "\"Percentage of persons aged 17 and younger estimate MOE, 2014-2018 ACS\"" .
+_:b114 <https://schema.org/endDate> "12/31/18" .
+_:b114 <https://schema.org/maxValue> "31.3" .
+_:b114 <https://schema.org/minValue> "0.1" .
+_:b114 <https://schema.org/name> "mp_age17" .
+_:b114 <https://schema.org/propertyID> "2052498381" .
+_:b114 <https://schema.org/startDate> "1/1/18" .
+_:b114 <https://schema.org/unitText> "percentage" .
+_:b115 <http://qudt.org/schema/qudt/dataType> "float8" .
+_:b115 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://schema.org/PropertyValue> .
+_:b115 <https://schema.org/description> "\"Percentage of persons aged 65 and older estimate MOE, 2014-2018 ACS\"" .
+_:b115 <https://schema.org/endDate> "12/31/18" .
+_:b115 <https://schema.org/maxValue> "44.4" .
+_:b115 <https://schema.org/minValue> "0.1" .
+_:b115 <https://schema.org/name> "mp_age65" .
+_:b115 <https://schema.org/propertyID> "2052498379" .
+_:b115 <https://schema.org/startDate> "1/1/18" .
+_:b115 <https://schema.org/unitText> "percentage" .
+_:b116 <http://qudt.org/schema/qudt/dataType> "float8" .
+_:b116 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://schema.org/PropertyValue> .
+_:b116 <https://schema.org/description> "Percentage of occupied housing units with more people than rooms estimate MOE" .
+_:b116 <https://schema.org/endDate> "12/31/18" .
+_:b116 <https://schema.org/maxValue> "566.7" .
+_:b116 <https://schema.org/minValue> "0.6" .
+_:b116 <https://schema.org/name> "mp_crowd" .
+_:b116 <https://schema.org/propertyID> "2052498399" .
+_:b116 <https://schema.org/startDate> "1/1/18" .
+_:b116 <https://schema.org/unitText> "percentage" .
+_:b117 <http://qudt.org/schema/qudt/dataType> "float8" .
+_:b117 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://schema.org/PropertyValue> .
+_:b117 <https://schema.org/description> "\"Percentage of civilian non-institutionalized population with a disability estimate MOE, 2014-2018 ACS\"" .
+_:b117 <https://schema.org/endDate> "12/31/18" .
+_:b117 <https://schema.org/maxValue> "100" .
+_:b117 <https://schema.org/minValue> "0.7" .
+_:b117 <https://schema.org/name> "mp_disabl" .
+_:b117 <https://schema.org/propertyID> "2052498557" .
+_:b117 <https://schema.org/startDate> "1/1/18" .
+_:b117 <https://schema.org/unitText> "percentage" .
+_:b118 <http://qudt.org/schema/qudt/dataType> "float8" .
+_:b118 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://schema.org/PropertyValue> .
+_:b118 <https://schema.org/description> "\"Percentage of persons in group quarters estimate MOE, 2014-2018 ACS\"" .
+_:b118 <https://schema.org/endDate> "12/31/18" .
+_:b118 <https://schema.org/maxValue> "46.2" .
+_:b118 <https://schema.org/minValue> "0" .
+_:b118 <https://schema.org/name> "mp_groupq" .
+_:b118 <https://schema.org/propertyID> "2052498375" .
+_:b118 <https://schema.org/startDate> "1/1/18" .
+_:b118 <https://schema.org/unitText> "percentage" .
+_:b119 <http://qudt.org/schema/qudt/dataType> "float8" .
+_:b119 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://schema.org/PropertyValue> .
+_:b119 <https://schema.org/description> "\"Percentage of persons (age 5+) who speak English \"\"less than well\"\" estimate MOE, 2014-2018 ACS\"" .
+_:b119 <https://schema.org/endDate> "12/31/18" .
+_:b119 <https://schema.org/maxValue> "228.6" .
+_:b119 <https://schema.org/minValue> "0.6" .
+_:b119 <https://schema.org/name> "mp_limeng" .
+_:b119 <https://schema.org/propertyID> "2052498383" .
+_:b119 <https://schema.org/startDate> "1/1/18" .
+_:b119 <https://schema.org/unitText> "percentage" .
+_:b12 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://schema.org/DefinedTerm> .
+_:b12 <https://schema.org/termCode> "vector" .
+_:b120 <http://qudt.org/schema/qudt/dataType> "float8" .
+_:b120 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://schema.org/PropertyValue> .
+_:b120 <https://schema.org/description> "\"Percentage minority (all persons except white, non-Hispanic) estimate MOE, 2014-2018 ACS\"" .
+_:b120 <https://schema.org/endDate> "12/31/18" .
+_:b120 <https://schema.org/maxValue> "103.5" .
+_:b120 <https://schema.org/minValue> "1.2" .
+_:b120 <https://schema.org/name> "mp_minrty" .
+_:b120 <https://schema.org/propertyID> "2052498609" .
+_:b120 <https://schema.org/startDate> "1/1/18" .
+_:b120 <https://schema.org/unitText> "percentage" .
+_:b121 <http://qudt.org/schema/qudt/dataType> "float8" .
+_:b121 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://schema.org/PropertyValue> .
+_:b121 <https://schema.org/description> "Percentage of mobile homes estimate MOE" .
+_:b121 <https://schema.org/endDate> "12/31/18" .
+_:b121 <https://schema.org/maxValue> "100" .
+_:b121 <https://schema.org/minValue> "0.2" .
+_:b121 <https://schema.org/name> "mp_mobile" .
+_:b121 <https://schema.org/propertyID> "2052498421" .
+_:b121 <https://schema.org/startDate> "1/1/18" .
+_:b121 <https://schema.org/unitText> "percentage" .
+_:b122 <http://qudt.org/schema/qudt/dataType> "float8" .
+_:b122 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://schema.org/PropertyValue> .
+_:b122 <https://schema.org/description> "Percentage of housing in structures with 10 or more units estimate MOE" .
+_:b122 <https://schema.org/endDate> "12/31/18" .
+_:b122 <https://schema.org/maxValue> "566.7" .
+_:b122 <https://schema.org/minValue> "0.4" .
+_:b122 <https://schema.org/name> "mp_munit" .
+_:b122 <https://schema.org/propertyID> "2052498460" .
+_:b122 <https://schema.org/startDate> "1/1/18" .
+_:b122 <https://schema.org/unitText> "percentage" .
+_:b123 <http://qudt.org/schema/qudt/dataType> "float8" .
+_:b123 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://schema.org/PropertyValue> .
+_:b123 <https://schema.org/description> "Percentage of persons with no high school diploma (25+) estimate MOE" .
+_:b123 <https://schema.org/endDate> "12/31/18" .
+_:b123 <https://schema.org/maxValue> "100" .
+_:b123 <https://schema.org/minValue> "0.1" .
+_:b123 <https://schema.org/name> "mp_nohsdp" .
+_:b123 <https://schema.org/propertyID> "2052498370" .
+_:b123 <https://schema.org/startDate> "1/1/18" .
+_:b123 <https://schema.org/unitText> "percentage" .
+_:b124 <http://qudt.org/schema/qudt/dataType> "float8" .
+_:b124 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://schema.org/PropertyValue> .
+_:b124 <https://schema.org/description> "Percentage of households with no vehicle available estimate MOE" .
+_:b124 <https://schema.org/endDate> "12/31/18" .
+_:b124 <https://schema.org/maxValue> "100" .
+_:b124 <https://schema.org/minValue> "0.4" .
+_:b124 <https://schema.org/name> "mp_noveh" .
+_:b124 <https://schema.org/propertyID> "2052498476" .
+_:b124 <https://schema.org/startDate> "1/1/18" .
+_:b124 <https://schema.org/unitText> "percentage" .
+_:b125 <http://qudt.org/schema/qudt/dataType> "float8" .
+_:b125 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://schema.org/PropertyValue> .
+_:b125 <https://schema.org/description> "\"Per capita income estimate MOE, 2014-2018 ACS\"" .
+_:b125 <https://schema.org/endDate> "12/31/18" .
+_:b125 <https://schema.org/maxValue> "98137" .
+_:b125 <https://schema.org/minValue> "391" .
+_:b125 <https://schema.org/name> "mp_pci" .
+_:b125 <https://schema.org/propertyID> "" .
+_:b125 <https://schema.org/startDate> "1/1/18" .
+_:b125 <https://schema.org/unitText> "US dollars" .
+_:b126 <http://qudt.org/schema/qudt/dataType> "float8" .
+_:b126 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://schema.org/PropertyValue> .
+_:b126 <https://schema.org/description> "Percentage of persons below poverty estimate MOE" .
+_:b126 <https://schema.org/endDate> "12/31/18" .
+_:b126 <https://schema.org/maxValue> "100" .
+_:b126 <https://schema.org/minValue> "0.1" .
+_:b126 <https://schema.org/name> "mp_pov" .
+_:b126 <https://schema.org/propertyID> "2052498377" .
+_:b126 <https://schema.org/startDate> "1/1/18" .
+_:b126 <https://schema.org/unitText> "percentage" .
+_:b127 <http://qudt.org/schema/qudt/dataType> "float8" .
+_:b127 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://schema.org/PropertyValue> .
+_:b127 <https://schema.org/description> "\"Percentage of single parent households with children under 18 estimate MOE, 2014-2018 ACS\"" .
+_:b127 <https://schema.org/endDate> "12/31/18" .
+_:b127 <https://schema.org/maxValue> "566.7" .
+_:b127 <https://schema.org/minValue> "0.6" .
+_:b127 <https://schema.org/name> "mp_sngpnt" .
+_:b127 <https://schema.org/propertyID> "2052498248" .
+_:b127 <https://schema.org/startDate> "1/1/18" .
+_:b127 <https://schema.org/unitText> "percentage" .
+_:b128 <http://qudt.org/schema/qudt/dataType> "float8" .
+_:b128 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://schema.org/PropertyValue> .
+_:b128 <https://schema.org/description> "Unemployment Rate estimate MOE" .
+_:b128 <https://schema.org/endDate> "12/31/18" .
+_:b128 <https://schema.org/maxValue> "53.6" .
+_:b128 <https://schema.org/minValue> "0.2" .
+_:b128 <https://schema.org/name> "mp_unemp" .
+_:b128 <https://schema.org/propertyID> "2052497152" .
+_:b128 <https://schema.org/startDate> "1/1/18" .
+_:b128 <https://schema.org/unitText> "percentage" .
+_:b129 <http://qudt.org/schema/qudt/dataType> "float8" .
+_:b129 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://schema.org/PropertyValue> .
+_:b129 <https://schema.org/description> "\"Adjunct variable - Percentage uninsured in the total civilian non-institutionalized population estimate MOE, 2014-2018 ACS\"" .
+_:b129 <https://schema.org/endDate> "12/31/18" .
+_:b129 <https://schema.org/maxValue> "100" .
+_:b129 <https://schema.org/minValue> "0.1" .
+_:b129 <https://schema.org/name> "mp_uninsur" .
+_:b129 <https://schema.org/propertyID> "2052498199" .
+_:b129 <https://schema.org/startDate> "1/1/18" .
+_:b129 <https://schema.org/unitText> "percentage" .
+_:b13 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://schema.org/DefinedTerm> .
+_:b13 <https://schema.org/termCode> "table" .
+_:b130 <http://qudt.org/schema/qudt/dataType> "float8" .
+_:b130 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://schema.org/PropertyValue> .
+_:b130 <https://schema.org/description> "Percentile ranking for Socioeconomic theme summary" .
+_:b130 <https://schema.org/endDate> "12/31/18" .
+_:b130 <https://schema.org/maxValue> "1" .
+_:b130 <https://schema.org/minValue> "0" .
+_:b130 <https://schema.org/name> "rpl_theme1" .
+_:b130 <https://schema.org/propertyID> "2052498129" .
+_:b130 <https://schema.org/startDate> "1/1/18" .
+_:b130 <https://schema.org/unitText> "percentile" .
+_:b131 <http://qudt.org/schema/qudt/dataType> "float8" .
+_:b131 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://schema.org/PropertyValue> .
+_:b131 <https://schema.org/description> "Percentile ranking for Household Composition theme summary" .
+_:b131 <https://schema.org/endDate> "12/31/18" .
+_:b131 <https://schema.org/maxValue> "1" .
+_:b131 <https://schema.org/minValue> "0" .
+_:b131 <https://schema.org/name> "rpl_theme2" .
+_:b131 <https://schema.org/propertyID> "2052498134" .
+_:b131 <https://schema.org/startDate> "1/1/18" .
+_:b131 <https://schema.org/unitText> "percentile" .
+_:b132 <http://qudt.org/schema/qudt/dataType> "float8" .
+_:b132 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://schema.org/PropertyValue> .
+_:b132 <https://schema.org/description> "Percentile ranking for Minority Status/Language theme" .
+_:b132 <https://schema.org/endDate> "12/31/18" .
+_:b132 <https://schema.org/maxValue> "1" .
+_:b132 <https://schema.org/minValue> "0" .
+_:b132 <https://schema.org/name> "rpl_theme3" .
+_:b132 <https://schema.org/propertyID> "2052498130" .
+_:b132 <https://schema.org/startDate> "1/1/18" .
+_:b132 <https://schema.org/unitText> "percentile" .
+_:b133 <http://qudt.org/schema/qudt/dataType> "float8" .
+_:b133 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://schema.org/PropertyValue> .
+_:b133 <https://schema.org/description> "Percentile ranking for Housing Type/Transportation theme" .
+_:b133 <https://schema.org/endDate> "12/31/18" .
+_:b133 <https://schema.org/maxValue> "1" .
+_:b133 <https://schema.org/minValue> "0" .
+_:b133 <https://schema.org/name> "rpl_theme4" .
+_:b133 <https://schema.org/propertyID> "2052498133" .
+_:b133 <https://schema.org/startDate> "1/1/18" .
+_:b133 <https://schema.org/unitText> "percentile" .
+_:b134 <http://qudt.org/schema/qudt/dataType> "float8" .
+_:b134 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://schema.org/PropertyValue> .
+_:b134 <https://schema.org/description> "Overall percentile ranking" .
+_:b134 <https://schema.org/endDate> "12/31/18" .
+_:b134 <https://schema.org/maxValue> "1" .
+_:b134 <https://schema.org/minValue> "0" .
+_:b134 <https://schema.org/name> "rpl_themes" .
+_:b134 <https://schema.org/propertyID> "2052498131" .
+_:b134 <https://schema.org/startDate> "1/1/18" .
+_:b134 <https://schema.org/unitText> "percentile" .
+_:b135 <http://qudt.org/schema/qudt/dataType> "float8" .
+_:b135 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://schema.org/PropertyValue> .
+_:b135 <https://schema.org/description> "Sum of series for Socioeconomic theme" .
+_:b135 <https://schema.org/endDate> "12/31/18" .
+_:b135 <https://schema.org/maxValue> "3.9857" .
+_:b135 <https://schema.org/minValue> "0.0815" .
+_:b135 <https://schema.org/name> "spl_theme1" .
+_:b135 <https://schema.org/propertyID> "2052497697" .
+_:b135 <https://schema.org/startDate> "1/1/18" .
+_:b135 <https://schema.org/unitText> "svi index" .
+_:b136 <http://qudt.org/schema/qudt/dataType> "float8" .
+_:b136 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://schema.org/PropertyValue> .
+_:b136 <https://schema.org/description> "Sum of series for Household Composition theme" .
+_:b136 <https://schema.org/endDate> "12/31/18" .
+_:b136 <https://schema.org/maxValue> "3.5619" .
+_:b136 <https://schema.org/minValue> "0" .
+_:b136 <https://schema.org/name> "spl_theme2" .
+_:b136 <https://schema.org/propertyID> "2052497700" .
+_:b136 <https://schema.org/startDate> "1/1/18" .
+_:b136 <https://schema.org/unitText> "svi index" .
+_:b137 <http://qudt.org/schema/qudt/dataType> "float8" .
+_:b137 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://schema.org/PropertyValue> .
+_:b137 <https://schema.org/description> "Sum of series for Minority Status/Languag e theme" .
+_:b137 <https://schema.org/endDate> "12/31/18" .
+_:b137 <https://schema.org/maxValue> "1.9904" .
+_:b137 <https://schema.org/minValue> "0.0014" .
+_:b137 <https://schema.org/name> "spl_theme3" .
+_:b137 <https://schema.org/propertyID> "2052497698" .
+_:b137 <https://schema.org/startDate> "1/1/18" .
+_:b137 <https://schema.org/unitText> "svi index" .
+_:b138 <http://qudt.org/schema/qudt/dataType> "float8" .
+_:b138 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://schema.org/PropertyValue> .
+_:b138 <https://schema.org/description> "Sum of series for Housing Type/ Transportation theme" .
+_:b138 <https://schema.org/endDate> "12/31/18" .
+_:b138 <https://schema.org/maxValue> "4.6218" .
+_:b138 <https://schema.org/minValue> "0" .
+_:b138 <https://schema.org/name> "spl_theme4" .
+_:b138 <https://schema.org/propertyID> "2052497699" .
+_:b138 <https://schema.org/startDate> "1/1/18" .
+_:b138 <https://schema.org/unitText> "svi index" .
+_:b139 <http://qudt.org/schema/qudt/dataType> "float8" .
+_:b139 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://schema.org/PropertyValue> .
+_:b139 <https://schema.org/description> "Sum of series themes" .
+_:b139 <https://schema.org/endDate> "12/31/18" .
+_:b139 <https://schema.org/maxValue> "12.5931" .
+_:b139 <https://schema.org/minValue> "1.9351" .
+_:b139 <https://schema.org/name> "spl_themes" .
+_:b139 <https://schema.org/propertyID> "" .
+_:b139 <https://schema.org/startDate> "1/1/18" .
+_:b139 <https://schema.org/unitText> "svi index" .
+_:b14 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://schema.org/DefinedTerm> .
+_:b14 <https://schema.org/description> "GIS Vector Geometery" .
+_:b14 <https://schema.org/inDefinedTermSet> _:b15 .
+_:b14 <https://schema.org/termCode> "multipolygon" .
+_:b140 <http://qudt.org/schema/qudt/dataType> "varchar" .
+_:b140 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://schema.org/PropertyValue> .
+_:b140 <https://schema.org/description> "State FIPS code" .
+_:b140 <https://schema.org/name> "st" .
+_:b140 <https://schema.org/propertyID> "2052497725" .
+_:b141 <http://qudt.org/schema/qudt/dataType> "varchar" .
+_:b141 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://schema.org/PropertyValue> .
+_:b141 <https://schema.org/description> "State abbreviation" .
+_:b141 <https://schema.org/name> "st_abbr" .
+_:b141 <https://schema.org/propertyID> "2052497733" .
+_:b142 <http://qudt.org/schema/qudt/dataType> "varchar" .
+_:b142 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://schema.org/PropertyValue> .
+_:b142 <https://schema.org/description> "State name" .
+_:b142 <https://schema.org/name> "state" .
+_:b142 <https://schema.org/propertyID> "2052497730" .
+_:b143 <http://qudt.org/schema/qudt/dataType> "varchar" .
+_:b143 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://schema.org/PropertyValue> .
+_:b143 <https://schema.org/description> "State and county FIPS code as STATE(2)COUNTY(3)" .
+_:b143 <https://schema.org/name> "stcnty" .
+_:b143 <https://schema.org/propertyID> "2052499638" .
+_:b15 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://schema.org/DefinedTermSet> .
+_:b15 <https://schema.org/hasDefinedTerm> _:b16 .
+_:b15 <https://schema.org/hasDefinedTerm> _:b17 .
+_:b15 <https://schema.org/hasDefinedTerm> _:b18 .
+_:b15 <https://schema.org/name> "vectorGeometry" .
+_:b16 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://schema.org/DefinedTerm> .
+_:b16 <https://schema.org/termCode> "point" .
+_:b17 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://schema.org/DefinedTerm> .
+_:b17 <https://schema.org/termCode> "line" .
+_:b18 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://schema.org/DefinedTerm> .
+_:b18 <https://schema.org/termCode> "polygon" .
+_:b19 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://schema.org/Place> .
+_:b19 <https://schema.org/name> "Massachusetts" .
+_:b2 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://schema.org/Dataset> .
+_:b2 <https://schema.org/encodingFormat> "sql" .
+_:b2 <https://schema.org/url> "https://gdsc.idsc.miami.edu/download/data/ma_2018_svi_tract/?file=ma_2018_svi_tract&format=sql" .
+_:b20 <http://qudt.org/schema/qudt/dataType> "float8" .
+_:b20 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://schema.org/PropertyValue> .
+_:b20 <https://schema.org/description> "Tract area in square miles" .
+_:b20 <https://schema.org/maxValue> "194.451590410428" .
+_:b20 <https://schema.org/minValue> "0" .
+_:b20 <https://schema.org/name> "area_sqmi" .
+_:b20 <https://schema.org/propertyID> "2052497175" .
+_:b20 <https://schema.org/unitText> "square miles" .
+_:b21 <http://qudt.org/schema/qudt/dataType> "varchar" .
+_:b21 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://schema.org/PropertyValue> .
+_:b21 <https://schema.org/description> "County name" .
+_:b21 <https://schema.org/name> "county" .
+_:b21 <https://schema.org/propertyID> "2052499639" .
+_:b22 <http://qudt.org/schema/qudt/dataType> "int4" .
+_:b22 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://schema.org/PropertyValue> .
+_:b22 <https://schema.org/description> "\"Persons aged 17 and younger estimate, 2014-2018 ACS\"" .
+_:b22 <https://schema.org/endDate> "12/31/18" .
+_:b22 <https://schema.org/maxValue> "2943" .
+_:b22 <https://schema.org/minValue> "0" .
+_:b22 <https://schema.org/name> "e_age17" .
+_:b22 <https://schema.org/propertyID> "2052498115" .
+_:b22 <https://schema.org/startDate> "1/1/18" .
+_:b22 <https://schema.org/unitText> "persons" .
+_:b23 <http://qudt.org/schema/qudt/dataType> "int4" .
+_:b23 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://schema.org/PropertyValue> .
+_:b23 <https://schema.org/description> "\"Persons aged 65 and older estimate, 2014-2018 ACS\"" .
+_:b23 <https://schema.org/endDate> "12/31/18" .
+_:b23 <https://schema.org/maxValue> "3337" .
+_:b23 <https://schema.org/minValue> "0" .
+_:b23 <https://schema.org/name> "e_age65" .
+_:b23 <https://schema.org/propertyID> "2052498113" .
+_:b23 <https://schema.org/startDate> "1/1/18" .
+_:b23 <https://schema.org/unitText> "persons" .
+_:b24 <http://qudt.org/schema/qudt/dataType> "int4" .
+_:b24 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://schema.org/PropertyValue> .
+_:b24 <https://schema.org/description> "\"At household level (occupied housing units), more people than rooms estimate, 2014-2018 ACS\"" .
+_:b24 <https://schema.org/endDate> "12/31/18" .
+_:b24 <https://schema.org/maxValue> "346" .
+_:b24 <https://schema.org/minValue> "0" .
+_:b24 <https://schema.org/name> "e_crowd" .
+_:b24 <https://schema.org/propertyID> "2052499828" .
+_:b24 <https://schema.org/startDate> "1/1/18" .
+_:b24 <https://schema.org/unitText> "households" .
+_:b25 <http://qudt.org/schema/qudt/dataType> "int4" .
+_:b25 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://schema.org/PropertyValue> .
+_:b25 <https://schema.org/description> "\"Adjunct variable - Estimated daytime population, LandScan 2018\"" .
+_:b25 <https://schema.org/endDate> "12/31/18" .
+_:b25 <https://schema.org/maxValue> "37119" .
+_:b25 <https://schema.org/minValue> "0" .
+_:b25 <https://schema.org/name> "e_daypop" .
+_:b25 <https://schema.org/propertyID> "2052499427" .
+_:b25 <https://schema.org/startDate> "1/1/18" .
+_:b25 <https://schema.org/unitText> "persons" .
+_:b26 <http://qudt.org/schema/qudt/dataType> "int4" .
+_:b26 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://schema.org/PropertyValue> .
+_:b26 <https://schema.org/description> "\"Civilian non-institutionalized population with a disability estimate, 2014-2018 ACS\"" .
+_:b26 <https://schema.org/endDate> "12/31/18" .
+_:b26 <https://schema.org/maxValue> "2179" .
+_:b26 <https://schema.org/minValue> "0" .
+_:b26 <https://schema.org/name> "e_disabl" .
+_:b26 <https://schema.org/propertyID> "2052499669" .
+_:b26 <https://schema.org/startDate> "1/1/18" .
+_:b26 <https://schema.org/unitText> "persons" .
+_:b27 <http://qudt.org/schema/qudt/dataType> "int4" .
+_:b27 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://schema.org/PropertyValue> .
+_:b27 <https://schema.org/description> "\"Persons in group quarters estimate, 2014-2018 ACS\"" .
+_:b27 <https://schema.org/endDate> "12/31/18" .
+_:b27 <https://schema.org/maxValue> "12754" .
+_:b27 <https://schema.org/minValue> "0" .
+_:b27 <https://schema.org/name> "e_groupq" .
+_:b27 <https://schema.org/propertyID> "2052498109" .
+_:b27 <https://schema.org/startDate> "1/1/18" .
+_:b27 <https://schema.org/unitText> "persons" .
+_:b28 <http://qudt.org/schema/qudt/dataType> "int4" .
+_:b28 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://schema.org/PropertyValue> .
+_:b28 <https://schema.org/description> "\"Households estimate, 2014-2018 ACS\"" .
+_:b28 <https://schema.org/endDate> "12/31/18" .
+_:b28 <https://schema.org/maxValue> "4435" .
+_:b28 <https://schema.org/minValue> "0" .
+_:b28 <https://schema.org/name> "e_hh" .
+_:b28 <https://schema.org/propertyID> "2052499093" .
+_:b28 <https://schema.org/startDate> "1/1/18" .
+_:b28 <https://schema.org/unitText> "households" .
+_:b29 <http://qudt.org/schema/qudt/dataType> "int4" .
+_:b29 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://schema.org/PropertyValue> .
+_:b29 <https://schema.org/description> "\"Housing units estimate, 2014-2018 ACS\"" .
+_:b29 <https://schema.org/endDate> "12/31/18" .
+_:b29 <https://schema.org/maxValue> "5165" .
+_:b29 <https://schema.org/minValue> "0" .
+_:b29 <https://schema.org/name> "e_hu" .
+_:b29 <https://schema.org/propertyID> "2052499075" .
+_:b29 <https://schema.org/startDate> "1/1/18" .
+_:b29 <https://schema.org/unitText> "housing units" .
+_:b3 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://schema.org/Event> .
+_:b3 <https://schema.org/description> " direct from source" .
+_:b3 <https://schema.org/name> "ETL process for 2018 Massachusetts CDC Social Vulnerability Index (tracts)" .
+_:b3 <https://schema.org/potentialAction> _:b4 .
+_:b30 <http://qudt.org/schema/qudt/dataType> "int4" .
+_:b30 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://schema.org/PropertyValue> .
+_:b30 <https://schema.org/description> "\"Persons (age 5+) who speak English \"\"less than well\"\" estimate, 2014-2018 ACS\"" .
+_:b30 <https://schema.org/endDate> "12/31/18" .
+_:b30 <https://schema.org/maxValue> "2708" .
+_:b30 <https://schema.org/minValue> "0" .
+_:b30 <https://schema.org/name> "e_limeng" .
+_:b30 <https://schema.org/propertyID> "2052498117" .
+_:b30 <https://schema.org/startDate> "1/1/18" .
+_:b30 <https://schema.org/unitText> "persons" .
+_:b31 <http://qudt.org/schema/qudt/dataType> "int4" .
+_:b31 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://schema.org/PropertyValue> .
+_:b31 <https://schema.org/description> "\"Minority (all persons except white, non-Hispanic) estimate, 2014-2018 ACS\"" .
+_:b31 <https://schema.org/endDate> "12/31/18" .
+_:b31 <https://schema.org/maxValue> "8241" .
+_:b31 <https://schema.org/minValue> "0" .
+_:b31 <https://schema.org/name> "e_minrty" .
+_:b31 <https://schema.org/propertyID> "2052498841" .
+_:b31 <https://schema.org/startDate> "1/1/18" .
+_:b31 <https://schema.org/unitText> "persons" .
+_:b32 <http://qudt.org/schema/qudt/dataType> "int4" .
+_:b32 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://schema.org/PropertyValue> .
+_:b32 <https://schema.org/description> "\"Mobile homes estimate, 2014-2018 ACS\"" .
+_:b32 <https://schema.org/endDate> "12/31/18" .
+_:b32 <https://schema.org/maxValue> "992" .
+_:b32 <https://schema.org/minValue> "0" .
+_:b32 <https://schema.org/name> "e_mobile" .
+_:b32 <https://schema.org/propertyID> "2052498834" .
+_:b32 <https://schema.org/startDate> "1/1/18" .
+_:b32 <https://schema.org/unitText> "mobile homes" .
+_:b33 <http://qudt.org/schema/qudt/dataType> "int4" .
+_:b33 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://schema.org/PropertyValue> .
+_:b33 <https://schema.org/description> "\"Housing in structures with 10 or more units estimate, 2014-2018 ACS\"" .
+_:b33 <https://schema.org/endDate> "12/31/18" .
+_:b33 <https://schema.org/maxValue> "4257" .
+_:b33 <https://schema.org/minValue> "0" .
+_:b33 <https://schema.org/name> "e_munit" .
+_:b33 <https://schema.org/propertyID> "2052499082" .
+_:b33 <https://schema.org/startDate> "1/1/18" .
+_:b33 <https://schema.org/unitText> "structures" .
+_:b34 <http://qudt.org/schema/qudt/dataType> "int4" .
+_:b34 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://schema.org/PropertyValue> .
+_:b34 <https://schema.org/description> "\"Persons (age 25+) with no high school diploma estimate, 2014-2018 ACS\"" .
+_:b34 <https://schema.org/endDate> "12/31/18" .
+_:b34 <https://schema.org/maxValue> "1765" .
+_:b34 <https://schema.org/minValue> "0" .
+_:b34 <https://schema.org/name> "e_nohsdp" .
+_:b34 <https://schema.org/propertyID> "2052498119" .
+_:b34 <https://schema.org/startDate> "1/1/18" .
+_:b34 <https://schema.org/unitText> "persons" .
+_:b35 <http://qudt.org/schema/qudt/dataType> "int4" .
+_:b35 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://schema.org/PropertyValue> .
+_:b35 <https://schema.org/description> "\"Households with no vehicle available estimate, 2014-2018 ACS\"" .
+_:b35 <https://schema.org/endDate> "12/31/18" .
+_:b35 <https://schema.org/maxValue> "2040" .
+_:b35 <https://schema.org/minValue> "0" .
+_:b35 <https://schema.org/name> "e_noveh" .
+_:b35 <https://schema.org/propertyID> "2052499091" .
+_:b35 <https://schema.org/startDate> "1/1/18" .
+_:b35 <https://schema.org/unitText> "households" .
+_:b36 <http://qudt.org/schema/qudt/dataType> "int4" .
+_:b36 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://schema.org/PropertyValue> .
+_:b36 <https://schema.org/description> "\"Per capita income estimate, 2014-2018 ACS\"" .
+_:b36 <https://schema.org/endDate> "12/31/18" .
+_:b36 <https://schema.org/maxValue> "153108" .
+_:b36 <https://schema.org/minValue> "3272" .
+_:b36 <https://schema.org/name> "e_pci" .
+_:b36 <https://schema.org/propertyID> "2052498645" .
+_:b36 <https://schema.org/startDate> "1/1/18" .
+_:b36 <https://schema.org/unitText> "US dollars" .
+_:b37 <http://qudt.org/schema/qudt/dataType> "int4" .
+_:b37 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://schema.org/PropertyValue> .
+_:b37 <https://schema.org/description> "\"Persons below poverty estimate, 2014-2018 ACS\"" .
+_:b37 <https://schema.org/endDate> "12/31/18" .
+_:b37 <https://schema.org/maxValue> "2894" .
+_:b37 <https://schema.org/minValue> "0" .
+_:b37 <https://schema.org/name> "e_pov" .
+_:b37 <https://schema.org/propertyID> "2052498111" .
+_:b37 <https://schema.org/startDate> "1/1/18" .
+_:b37 <https://schema.org/unitText> "persons" .
+_:b38 <http://qudt.org/schema/qudt/dataType> "int4" .
+_:b38 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://schema.org/PropertyValue> .
+_:b38 <https://schema.org/description> "\"Single parent household with children under 18 estimate, 2014-2018 ACS\"" .
+_:b38 <https://schema.org/endDate> "12/31/18" .
+_:b38 <https://schema.org/maxValue> "697" .
+_:b38 <https://schema.org/minValue> "0" .
+_:b38 <https://schema.org/name> "e_sngpnt" .
+_:b38 <https://schema.org/propertyID> "2052497778" .
+_:b38 <https://schema.org/startDate> "1/1/18" .
+_:b38 <https://schema.org/unitText> "households" .
+_:b39 <http://qudt.org/schema/qudt/dataType> "int4" .
+_:b39 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://schema.org/PropertyValue> .
+_:b39 <https://schema.org/description> "\"Population estimate, 2014-2018 ACS\"" .
+_:b39 <https://schema.org/endDate> "12/31/18" .
+_:b39 <https://schema.org/maxValue> "13056" .
+_:b39 <https://schema.org/minValue> "0" .
+_:b39 <https://schema.org/name> "e_totpop" .
+_:b39 <https://schema.org/propertyID> "2052498091" .
+_:b39 <https://schema.org/startDate> "1/1/18" .
+_:b39 <https://schema.org/unitText> "persons" .
+_:b4 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://schema.org/Action> .
+_:b4 <https://schema.org/description> "ETL process for 2018 Massachusetts CDC Social Vulnerability Index (tracts)" .
+_:b4 <https://schema.org/instrument> <https://github.com/Geospatial-Digital-Special-Collections/tools> .
+_:b4 <https://schema.org/name> "wget" .
+_:b4 <https://schema.org/object> _:b5 .
+_:b4 <https://schema.org/result> _:b6 .
+_:b40 <http://qudt.org/schema/qudt/dataType> "int4" .
+_:b40 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://schema.org/PropertyValue> .
+_:b40 <https://schema.org/description> "\"Civilian (age 16+) unemployed estimate, 2014-2018 ACS\"" .
+_:b40 <https://schema.org/endDate> "12/31/18" .
+_:b40 <https://schema.org/maxValue> "1064" .
+_:b40 <https://schema.org/minValue> "0" .
+_:b40 <https://schema.org/name> "e_unemp" .
+_:b40 <https://schema.org/propertyID> "2052499671" .
+_:b40 <https://schema.org/startDate> "1/1/18" .
+_:b40 <https://schema.org/unitText> "persons" .
+_:b41 <http://qudt.org/schema/qudt/dataType> "int4" .
+_:b41 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://schema.org/PropertyValue> .
+_:b41 <https://schema.org/description> "\"Adjunct variable - Uninsured in the total civilian non-institutionalized population estimate, 2014-2018 ACS\"" .
+_:b41 <https://schema.org/endDate> "12/31/18" .
+_:b41 <https://schema.org/maxValue> "906" .
+_:b41 <https://schema.org/minValue> "0" .
+_:b41 <https://schema.org/name> "e_uninsur" .
+_:b41 <https://schema.org/propertyID> "2052497149" .
+_:b41 <https://schema.org/startDate> "1/1/18" .
+_:b41 <https://schema.org/unitText> "persons" .
+_:b42 <http://qudt.org/schema/qudt/dataType> "float8" .
+_:b42 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://schema.org/PropertyValue> .
+_:b42 <https://schema.org/description> "\"Percentage of persons aged 17 and younger estimate, 2014-2018 ACS\"" .
+_:b42 <https://schema.org/endDate> "12/31/18" .
+_:b42 <https://schema.org/maxValue> "47" .
+_:b42 <https://schema.org/minValue> "0" .
+_:b42 <https://schema.org/name> "ep_age17" .
+_:b42 <https://schema.org/propertyID> "2052498382" .
+_:b42 <https://schema.org/startDate> "1/1/18" .
+_:b42 <https://schema.org/unitText> "percentage" .
+_:b43 <http://qudt.org/schema/qudt/dataType> "float8" .
+_:b43 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://schema.org/PropertyValue> .
+_:b43 <https://schema.org/description> "\"Percentage of persons aged 65 and older estimate, 2014-2018 ACS\"" .
+_:b43 <https://schema.org/endDate> "12/31/18" .
+_:b43 <https://schema.org/maxValue> "65.4" .
+_:b43 <https://schema.org/minValue> "0" .
+_:b43 <https://schema.org/name> "ep_age65" .
+_:b43 <https://schema.org/propertyID> "2052498380" .
+_:b43 <https://schema.org/startDate> "1/1/18" .
+_:b43 <https://schema.org/unitText> "percentage" .
+_:b44 <http://qudt.org/schema/qudt/dataType> "float8" .
+_:b44 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://schema.org/PropertyValue> .
+_:b44 <https://schema.org/description> "Percentage of occupied housing units with more people than rooms estimate" .
+_:b44 <https://schema.org/endDate> "12/31/18" .
+_:b44 <https://schema.org/maxValue> "20.8" .
+_:b44 <https://schema.org/minValue> "0" .
+_:b44 <https://schema.org/name> "ep_crowd" .
+_:b44 <https://schema.org/propertyID> "2052498400" .
+_:b44 <https://schema.org/startDate> "1/1/18" .
+_:b44 <https://schema.org/unitText> "percentage" .
+_:b45 <http://qudt.org/schema/qudt/dataType> "float8" .
+_:b45 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://schema.org/PropertyValue> .
+_:b45 <https://schema.org/description> "\"Percentage of civilian non-institutionalized population with a disability estimate, 2014-2018 ACS\"" .
+_:b45 <https://schema.org/endDate> "12/31/18" .
+_:b45 <https://schema.org/maxValue> "73.7" .
+_:b45 <https://schema.org/minValue> "0" .
+_:b45 <https://schema.org/name> "ep_disabl" .
+_:b45 <https://schema.org/propertyID> "2052498558" .
+_:b45 <https://schema.org/startDate> "1/1/18" .
+_:b45 <https://schema.org/unitText> "percentage" .
+_:b46 <http://qudt.org/schema/qudt/dataType> "float8" .
+_:b46 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://schema.org/PropertyValue> .
+_:b46 <https://schema.org/description> "\"Percentage of persons in group quarters estimate, 2014-2018 ACS\"" .
+_:b46 <https://schema.org/endDate> "12/31/18" .
+_:b46 <https://schema.org/maxValue> "100" .
+_:b46 <https://schema.org/minValue> "0" .
+_:b46 <https://schema.org/name> "ep_groupq" .
+_:b46 <https://schema.org/propertyID> "2052498376" .
+_:b46 <https://schema.org/startDate> "1/1/18" .
+_:b46 <https://schema.org/unitText> "percentage" .
+_:b47 <http://qudt.org/schema/qudt/dataType> "float8" .
+_:b47 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://schema.org/PropertyValue> .
+_:b47 <https://schema.org/description> "\"Percentage of persons (age 5+) who speak English \"\"less than well\"\" estimate, 2014-2018 ACS\"" .
+_:b47 <https://schema.org/endDate> "12/31/18" .
+_:b47 <https://schema.org/maxValue> "43.2" .
+_:b47 <https://schema.org/minValue> "0" .
+_:b47 <https://schema.org/name> "ep_limeng" .
+_:b47 <https://schema.org/propertyID> "2052498385" .
+_:b47 <https://schema.org/startDate> "1/1/18" .
+_:b47 <https://schema.org/unitText> "percentage" .
+_:b48 <http://qudt.org/schema/qudt/dataType> "float8" .
+_:b48 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://schema.org/PropertyValue> .
+_:b48 <https://schema.org/description> "\"Percentage minority (all persons except white, non-Hispanic) estimate, 2014-2018 ACS\"" .
+_:b48 <https://schema.org/endDate> "12/31/18" .
+_:b48 <https://schema.org/maxValue> "100" .
+_:b48 <https://schema.org/minValue> "0" .
+_:b48 <https://schema.org/name> "ep_minrty" .
+_:b48 <https://schema.org/propertyID> "2052498423" .
+_:b48 <https://schema.org/startDate> "1/1/18" .
+_:b48 <https://schema.org/unitText> "percentage" .
+_:b49 <http://qudt.org/schema/qudt/dataType> "float8" .
+_:b49 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://schema.org/PropertyValue> .
+_:b49 <https://schema.org/description> "Percentage of mobile homes estimate" .
+_:b49 <https://schema.org/endDate> "12/31/18" .
+_:b49 <https://schema.org/maxValue> "37.1" .
+_:b49 <https://schema.org/minValue> "0" .
+_:b49 <https://schema.org/name> "ep_mobile" .
+_:b49 <https://schema.org/propertyID> "2052498422" .
+_:b49 <https://schema.org/startDate> "1/1/18" .
+_:b49 <https://schema.org/unitText> "percentage" .
+_:b5 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://schema.org/Dataset> .
+_:b5 <https://schema.org/name> " direct from source" .
+_:b5 <https://schema.org/producer> "Center for Disease Control" .
+_:b5 <https://schema.org/url> "https://www.atsdr.cdc.gov/placeandhealth/svi/data_documentation_download.html" .
+_:b50 <http://qudt.org/schema/qudt/dataType> "float8" .
+_:b50 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://schema.org/PropertyValue> .
+_:b50 <https://schema.org/description> "Percentage of housing in structures with 10 or more units estimate" .
+_:b50 <https://schema.org/endDate> "12/31/18" .
+_:b50 <https://schema.org/maxValue> "99" .
+_:b50 <https://schema.org/minValue> "0" .
+_:b50 <https://schema.org/name> "ep_munit" .
+_:b50 <https://schema.org/propertyID> "2052498461" .
+_:b50 <https://schema.org/startDate> "1/1/18" .
+_:b50 <https://schema.org/unitText> "percentage" .
+_:b51 <http://qudt.org/schema/qudt/dataType> "float8" .
+_:b51 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://schema.org/PropertyValue> .
+_:b51 <https://schema.org/description> "Percentage of persons with no high school diploma (age 25+) estimate" .
+_:b51 <https://schema.org/endDate> "12/31/18" .
+_:b51 <https://schema.org/maxValue> "67.5" .
+_:b51 <https://schema.org/minValue> "0" .
+_:b51 <https://schema.org/name> "ep_nohsdp" .
+_:b51 <https://schema.org/propertyID> "2052498369" .
+_:b51 <https://schema.org/startDate> "1/1/18" .
+_:b51 <https://schema.org/unitText> "percentage" .
+_:b52 <http://qudt.org/schema/qudt/dataType> "float8" .
+_:b52 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://schema.org/PropertyValue> .
+_:b52 <https://schema.org/description> "Percentage of households with no vehicle available estimate" .
+_:b52 <https://schema.org/endDate> "12/31/18" .
+_:b52 <https://schema.org/maxValue> "78.8" .
+_:b52 <https://schema.org/minValue> "0" .
+_:b52 <https://schema.org/name> "ep_noveh" .
+_:b52 <https://schema.org/propertyID> "2052498477" .
+_:b52 <https://schema.org/startDate> "1/1/18" .
+_:b52 <https://schema.org/unitText> "percentage" .
+_:b53 <http://qudt.org/schema/qudt/dataType> "float8" .
+_:b53 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://schema.org/PropertyValue> .
+_:b53 <https://schema.org/description> "\"Per capita income estimate, 2014-2018 ACS\"" .
+_:b53 <https://schema.org/endDate> "12/31/18" .
+_:b53 <https://schema.org/maxValue> "153108" .
+_:b53 <https://schema.org/minValue> "3272" .
+_:b53 <https://schema.org/name> "ep_pci" .
+_:b53 <https://schema.org/propertyID> "" .
+_:b53 <https://schema.org/startDate> "1/1/18" .
+_:b53 <https://schema.org/unitText> "US dollars" .
+_:b54 <http://qudt.org/schema/qudt/dataType> "float8" .
+_:b54 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://schema.org/PropertyValue> .
+_:b54 <https://schema.org/description> "Percentage of persons below poverty estimate" .
+_:b54 <https://schema.org/endDate> "12/31/18" .
+_:b54 <https://schema.org/maxValue> "80.6" .
+_:b54 <https://schema.org/minValue> "0" .
+_:b54 <https://schema.org/name> "ep_pov" .
+_:b54 <https://schema.org/propertyID> "2052498378" .
+_:b54 <https://schema.org/startDate> "1/1/18" .
+_:b54 <https://schema.org/unitText> "percentage" .
+_:b55 <http://qudt.org/schema/qudt/dataType> "float8" .
+_:b55 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://schema.org/PropertyValue> .
+_:b55 <https://schema.org/description> "\"Percentage of single parent households with children under 18 estimate, 2014-2018 ACS\"" .
+_:b55 <https://schema.org/endDate> "12/31/18" .
+_:b55 <https://schema.org/maxValue> "56.5" .
+_:b55 <https://schema.org/minValue> "0" .
+_:b55 <https://schema.org/name> "ep_sngpnt" .
+_:b55 <https://schema.org/propertyID> "2052498249" .
+_:b55 <https://schema.org/startDate> "1/1/18" .
+_:b55 <https://schema.org/unitText> "percentage" .
+_:b56 <http://qudt.org/schema/qudt/dataType> "float8" .
+_:b56 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://schema.org/PropertyValue> .
+_:b56 <https://schema.org/description> "Unemployment Rate estimate" .
+_:b56 <https://schema.org/endDate> "12/31/18" .
+_:b56 <https://schema.org/maxValue> "60.6" .
+_:b56 <https://schema.org/minValue> "0" .
+_:b56 <https://schema.org/name> "ep_unemp" .
+_:b56 <https://schema.org/propertyID> "2052497153" .
+_:b56 <https://schema.org/startDate> "1/1/18" .
+_:b56 <https://schema.org/unitText> "percentage" .
+_:b57 <http://qudt.org/schema/qudt/dataType> "float8" .
+_:b57 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://schema.org/PropertyValue> .
+_:b57 <https://schema.org/description> "\"Adjunct variable - Percentage uninsured in the total civilian non-institutionalized population estimate, 2014-2018 ACS\"" .
+_:b57 <https://schema.org/endDate> "12/31/18" .
+_:b57 <https://schema.org/maxValue> "23.5" .
+_:b57 <https://schema.org/minValue> "0" .
+_:b57 <https://schema.org/name> "ep_uninsur" .
+_:b57 <https://schema.org/propertyID> "2052498200" .
+_:b57 <https://schema.org/startDate> "1/1/18" .
+_:b57 <https://schema.org/unitText> "percentage" .
+_:b58 <http://qudt.org/schema/qudt/dataType> "float8" .
+_:b58 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://schema.org/PropertyValue> .
+_:b58 <https://schema.org/description> "Percentile percentage of persons aged 17 and younger estimate" .
+_:b58 <https://schema.org/endDate> "12/31/18" .
+_:b58 <https://schema.org/maxValue> "1" .
+_:b58 <https://schema.org/minValue> "0" .
+_:b58 <https://schema.org/name> "epl_age17" .
+_:b58 <https://schema.org/propertyID> "2052498183" .
+_:b58 <https://schema.org/startDate> "1/1/18" .
+_:b58 <https://schema.org/unitText> "percentile" .
+_:b59 <http://qudt.org/schema/qudt/dataType> "float8" .
+_:b59 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://schema.org/PropertyValue> .
+_:b59 <https://schema.org/description> "Percentile percentage of persons aged 65 and older estimate" .
+_:b59 <https://schema.org/endDate> "12/31/18" .
+_:b59 <https://schema.org/maxValue> "1" .
+_:b59 <https://schema.org/minValue> "0" .
+_:b59 <https://schema.org/name> "epl_age65" .
+_:b59 <https://schema.org/propertyID> "2052498182" .
+_:b59 <https://schema.org/startDate> "1/1/18" .
+_:b59 <https://schema.org/unitText> "percentile" .
+_:b6 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://schema.org/Dataset> .
+_:b6 <https://schema.org/description> "Social vulnerability refers to the potential negative effects on communities caused by external stresses on human health. Such stresses include natural or human-caused disasters, or disease outbreaks. Reducing social vulnerability can decrease both human suffering and economic loss.\n\nThe CDC/ATSDR Social Vulnerability Index (CDC/ATSDR SVI) uses 16 U.S. census variables to help local officials identify communities that may need support before, during, or after disasters." .
+_:b6 <https://schema.org/encodingFormat> "sql" .
+_:b6 <https://schema.org/name> "2018 Massachusetts CDC Social Vulnerability Index (tracts)" .
+_:b6 <https://schema.org/url> "https://gdsc.idsc.miami.edu/download/data/ma_2018_svi_tract/?file=ma_2018_svi_tract&format=sql" .
+_:b60 <http://qudt.org/schema/qudt/dataType> "float8" .
+_:b60 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://schema.org/PropertyValue> .
+_:b60 <https://schema.org/description> "Percentile percentage households with more people than rooms estimate" .
+_:b60 <https://schema.org/endDate> "12/31/18" .
+_:b60 <https://schema.org/maxValue> "1" .
+_:b60 <https://schema.org/minValue> "0" .
+_:b60 <https://schema.org/name> "epl_crowd" .
+_:b60 <https://schema.org/propertyID> "2052498195" .
+_:b60 <https://schema.org/startDate> "1/1/18" .
+_:b60 <https://schema.org/unitText> "percentile" .
+_:b61 <http://qudt.org/schema/qudt/dataType> "float8" .
+_:b61 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://schema.org/PropertyValue> .
+_:b61 <https://schema.org/description> "Percentile percentage of civilian non-institutionalized population with a disability estimate" .
+_:b61 <https://schema.org/endDate> "12/31/18" .
+_:b61 <https://schema.org/maxValue> "1" .
+_:b61 <https://schema.org/minValue> "0" .
+_:b61 <https://schema.org/name> "epl_disabl" .
+_:b61 <https://schema.org/propertyID> "2052498186" .
+_:b61 <https://schema.org/startDate> "1/1/18" .
+_:b61 <https://schema.org/unitText> "percentile" .
+_:b62 <http://qudt.org/schema/qudt/dataType> "float8" .
+_:b62 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://schema.org/PropertyValue> .
+_:b62 <https://schema.org/description> "Percentile percentage of persons in group quarters estimate" .
+_:b62 <https://schema.org/endDate> "12/31/18" .
+_:b62 <https://schema.org/maxValue> "0.9973" .
+_:b62 <https://schema.org/minValue> "0" .
+_:b62 <https://schema.org/name> "epl_groupq" .
+_:b62 <https://schema.org/propertyID> "2052498180" .
+_:b62 <https://schema.org/startDate> "1/1/18" .
+_:b62 <https://schema.org/unitText> "percentile" .
+_:b63 <http://qudt.org/schema/qudt/dataType> "float8" .
+_:b63 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://schema.org/PropertyValue> .
+_:b63 <https://schema.org/description> "\"Percentile percentage of persons (age 5+) who speak English \"\"less than well\"\" estimate\"" .
+_:b63 <https://schema.org/endDate> "12/31/18" .
+_:b63 <https://schema.org/maxValue> "1" .
+_:b63 <https://schema.org/minValue> "0" .
+_:b63 <https://schema.org/name> "epl_limeng" .
+_:b63 <https://schema.org/propertyID> "2052498184" .
+_:b63 <https://schema.org/startDate> "1/1/18" .
+_:b63 <https://schema.org/unitText> "percentile" .
+_:b64 <http://qudt.org/schema/qudt/dataType> "float8" .
+_:b64 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://schema.org/PropertyValue> .
+_:b64 <https://schema.org/description> "\"Percentile percentage minority (all persons except white, non-Hispanic) estimate\"" .
+_:b64 <https://schema.org/endDate> "12/31/18" .
+_:b64 <https://schema.org/maxValue> "1" .
+_:b64 <https://schema.org/minValue> "0" .
+_:b64 <https://schema.org/name> "epl_minrty" .
+_:b64 <https://schema.org/propertyID> "2052498189" .
+_:b64 <https://schema.org/startDate> "1/1/18" .
+_:b64 <https://schema.org/unitText> "percentile" .
+_:b65 <http://qudt.org/schema/qudt/dataType> "float8" .
+_:b65 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://schema.org/PropertyValue> .
+_:b65 <https://schema.org/description> "Percentile percentage mobile homes estimate" .
+_:b65 <https://schema.org/endDate> "12/31/18" .
+_:b65 <https://schema.org/maxValue> "1" .
+_:b65 <https://schema.org/minValue> "0" .
+_:b65 <https://schema.org/name> "epl_mobile" .
+_:b65 <https://schema.org/propertyID> "2052498188" .
+_:b65 <https://schema.org/startDate> "1/1/18" .
+_:b65 <https://schema.org/unitText> "percentile" .
+_:b66 <http://qudt.org/schema/qudt/dataType> "float8" .
+_:b66 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://schema.org/PropertyValue> .
+_:b66 <https://schema.org/description> "Percentile percentage housing in structures with 10 or more units estimate" .
+_:b66 <https://schema.org/endDate> "12/31/18" .
+_:b66 <https://schema.org/maxValue> "1" .
+_:b66 <https://schema.org/minValue> "0" .
+_:b66 <https://schema.org/name> "epl_munit" .
+_:b66 <https://schema.org/propertyID> "2052498193" .
+_:b66 <https://schema.org/startDate> "1/1/18" .
+_:b66 <https://schema.org/unitText> "percentile" .
+_:b67 <http://qudt.org/schema/qudt/dataType> "float8" .
+_:b67 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://schema.org/PropertyValue> .
+_:b67 <https://schema.org/description> "Percentile Percentage of persons with no high school diploma (age 25+) estimate" .
+_:b67 <https://schema.org/endDate> "12/31/18" .
+_:b67 <https://schema.org/maxValue> "1" .
+_:b67 <https://schema.org/minValue> "0" .
+_:b67 <https://schema.org/name> "epl_nohsdp" .
+_:b67 <https://schema.org/propertyID> "2052498179" .
+_:b67 <https://schema.org/startDate> "1/1/18" .
+_:b67 <https://schema.org/unitText> "percentile" .
+_:b68 <http://qudt.org/schema/qudt/dataType> "float8" .
+_:b68 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://schema.org/PropertyValue> .
+_:b68 <https://schema.org/description> "Percentile percentage households with no vehicle available estimate" .
+_:b68 <https://schema.org/endDate> "12/31/18" .
+_:b68 <https://schema.org/maxValue> "1" .
+_:b68 <https://schema.org/minValue> "0" .
+_:b68 <https://schema.org/name> "epl_noveh" .
+_:b68 <https://schema.org/propertyID> "2052498194" .
+_:b68 <https://schema.org/startDate> "1/1/18" .
+_:b68 <https://schema.org/unitText> "percentile" .
+_:b69 <http://qudt.org/schema/qudt/dataType> "float8" .
+_:b69 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://schema.org/PropertyValue> .
+_:b69 <https://schema.org/description> "Percentile per capita income estimate" .
+_:b69 <https://schema.org/endDate> "12/31/18" .
+_:b69 <https://schema.org/maxValue> "1" .
+_:b69 <https://schema.org/minValue> "0" .
+_:b69 <https://schema.org/name> "epl_pci" .
+_:b69 <https://schema.org/propertyID> "" .
+_:b69 <https://schema.org/startDate> "1/1/18" .
+_:b69 <https://schema.org/unitText> "percentile" .
+_:b7 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://schema.org/PropertyValue> .
+_:b7 <https://schema.org/propertyID> "http://dbpedia.org/resource/Spatial_reference_system" .
+_:b7 <https://schema.org/value> "https://epsg.io/4269" .
+_:b70 <http://qudt.org/schema/qudt/dataType> "float8" .
+_:b70 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://schema.org/PropertyValue> .
+_:b70 <https://schema.org/description> "Percentile Percentage of persons below poverty estimate" .
+_:b70 <https://schema.org/endDate> "12/31/18" .
+_:b70 <https://schema.org/maxValue> "1" .
+_:b70 <https://schema.org/minValue> "0" .
+_:b70 <https://schema.org/name> "epl_pov" .
+_:b70 <https://schema.org/propertyID> "2052498181" .
+_:b70 <https://schema.org/startDate> "1/1/18" .
+_:b70 <https://schema.org/unitText> "percentile" .
+_:b71 <http://qudt.org/schema/qudt/dataType> "float8" .
+_:b71 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://schema.org/PropertyValue> .
+_:b71 <https://schema.org/description> "Percentile percentage of single parent households with children under 18 estimate" .
+_:b71 <https://schema.org/endDate> "12/31/18" .
+_:b71 <https://schema.org/maxValue> "1" .
+_:b71 <https://schema.org/minValue> "0" .
+_:b71 <https://schema.org/name> "epl_sngpnt" .
+_:b71 <https://schema.org/propertyID> "2052498178" .
+_:b71 <https://schema.org/startDate> "1/1/18" .
+_:b71 <https://schema.org/unitText> "percentile" .
+_:b72 <http://qudt.org/schema/qudt/dataType> "float8" .
+_:b72 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://schema.org/PropertyValue> .
+_:b72 <https://schema.org/description> "Percentile Percentage of civilian (age 16+) unemployed estimate" .
+_:b72 <https://schema.org/endDate> "12/31/18" .
+_:b72 <https://schema.org/maxValue> "1" .
+_:b72 <https://schema.org/minValue> "0" .
+_:b72 <https://schema.org/name> "epl_unemp" .
+_:b72 <https://schema.org/propertyID> "2052498187" .
+_:b72 <https://schema.org/startDate> "1/1/18" .
+_:b72 <https://schema.org/unitText> "percentile" .
+_:b73 <http://qudt.org/schema/qudt/dataType> "int2" .
+_:b73 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://schema.org/PropertyValue> .
+_:b73 <https://schema.org/description> "\"Flag - the percentage of persons aged 17 and younger is in the 90th percentile (1 = yes, 0 = no)\"" .
+_:b73 <https://schema.org/endDate> "12/31/18" .
+_:b73 <https://schema.org/maxValue> "1" .
+_:b73 <https://schema.org/minValue> "0" .
+_:b73 <https://schema.org/name> "f_age17" .
+_:b73 <https://schema.org/propertyID> "2052499366" .
+_:b73 <https://schema.org/startDate> "1/1/18" .
+_:b74 <http://qudt.org/schema/qudt/dataType> "int2" .
+_:b74 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://schema.org/PropertyValue> .
+_:b74 <https://schema.org/description> "\"Flag - the percentage of persons aged 65 and older is in the 90th percentile (1 = yes, 0 = no)\"" .
+_:b74 <https://schema.org/endDate> "12/31/18" .
+_:b74 <https://schema.org/maxValue> "1" .
+_:b74 <https://schema.org/minValue> "0" .
+_:b74 <https://schema.org/name> "f_age65" .
+_:b74 <https://schema.org/propertyID> "2052499365" .
+_:b74 <https://schema.org/startDate> "1/1/18" .
+_:b75 <http://qudt.org/schema/qudt/dataType> "int2" .
+_:b75 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://schema.org/PropertyValue> .
+_:b75 <https://schema.org/description> "\"Flag - the percentage of crowded households is in the 90th percentile (1 = yes, 0 = no)\"" .
+_:b75 <https://schema.org/endDate> "12/31/18" .
+_:b75 <https://schema.org/maxValue> "1" .
+_:b75 <https://schema.org/minValue> "0" .
+_:b75 <https://schema.org/name> "f_crowd" .
+_:b75 <https://schema.org/propertyID> "2052499372" .
+_:b75 <https://schema.org/startDate> "1/1/18" .
+_:b76 <http://qudt.org/schema/qudt/dataType> "int2" .
+_:b76 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://schema.org/PropertyValue> .
+_:b76 <https://schema.org/description> "\"Flag - the percentage of persons with a disability is in the 90th percentile (1 = yes, 0 = no)\"" .
+_:b76 <https://schema.org/endDate> "12/31/18" .
+_:b76 <https://schema.org/maxValue> "1" .
+_:b76 <https://schema.org/minValue> "0" .
+_:b76 <https://schema.org/name> "f_disabl" .
+_:b76 <https://schema.org/propertyID> "2052499362" .
+_:b76 <https://schema.org/startDate> "1/1/18" .
+_:b77 <http://qudt.org/schema/qudt/dataType> "int2" .
+_:b77 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://schema.org/PropertyValue> .
+_:b77 <https://schema.org/description> "\"Flag - the percentage of persons in institutionalize d group quarters is in the 90th percentile (1 = yes, 0 = no)\"" .
+_:b77 <https://schema.org/endDate> "12/31/18" .
+_:b77 <https://schema.org/maxValue> "1" .
+_:b77 <https://schema.org/minValue> "0" .
+_:b77 <https://schema.org/name> "f_groupq" .
+_:b77 <https://schema.org/propertyID> "2052499363" .
+_:b77 <https://schema.org/startDate> "1/1/18" .
+_:b78 <http://qudt.org/schema/qudt/dataType> "int2" .
+_:b78 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://schema.org/PropertyValue> .
+_:b78 <https://schema.org/description> "\"Flag - the percentage those with limited English is in the 90th percentile (1 = yes, 0 = no)\"" .
+_:b78 <https://schema.org/endDate> "12/31/18" .
+_:b78 <https://schema.org/maxValue> "1" .
+_:b78 <https://schema.org/minValue> "0" .
+_:b78 <https://schema.org/name> "f_limeng" .
+_:b78 <https://schema.org/propertyID> "2052499358" .
+_:b78 <https://schema.org/startDate> "1/1/18" .
+_:b79 <http://qudt.org/schema/qudt/dataType> "int2" .
+_:b79 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://schema.org/PropertyValue> .
+_:b79 <https://schema.org/description> "\"Flag - the percentage of minority is in the 90th percentile (1 = yes, 0 = no)\"" .
+_:b79 <https://schema.org/endDate> "12/31/18" .
+_:b79 <https://schema.org/maxValue> "1" .
+_:b79 <https://schema.org/minValue> "0" .
+_:b79 <https://schema.org/name> "f_minrty" .
+_:b79 <https://schema.org/propertyID> "2052499368" .
+_:b79 <https://schema.org/startDate> "1/1/18" .
+_:b8 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://schema.org/DataCatalog> .
+_:b8 <https://schema.org/name> "Geospatial Digital Special Collections" .
+_:b8 <https://schema.org/url> "https://gdsc.idsc.miami.edu" .
+_:b80 <http://qudt.org/schema/qudt/dataType> "int2" .
+_:b80 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://schema.org/PropertyValue> .
+_:b80 <https://schema.org/description> "\"Flag - the percentage of mobile homes is in the 90th percentile (1 = yes, 0 = no)\"" .
+_:b80 <https://schema.org/endDate> "12/31/18" .
+_:b80 <https://schema.org/maxValue> "1" .
+_:b80 <https://schema.org/minValue> "0" .
+_:b80 <https://schema.org/name> "f_mobile" .
+_:b80 <https://schema.org/propertyID> "2052499367" .
+_:b80 <https://schema.org/startDate> "1/1/18" .
+_:b81 <http://qudt.org/schema/qudt/dataType> "int2" .
+_:b81 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://schema.org/PropertyValue> .
+_:b81 <https://schema.org/description> "\"Flag - the percentage of households in multi-unit housing is in the 90th percentile (1 = yes, 0 = no)\"" .
+_:b81 <https://schema.org/endDate> "12/31/18" .
+_:b81 <https://schema.org/maxValue> "1" .
+_:b81 <https://schema.org/minValue> "0" .
+_:b81 <https://schema.org/name> "f_munit" .
+_:b81 <https://schema.org/propertyID> "2052499371" .
+_:b81 <https://schema.org/startDate> "1/1/18" .
+_:b82 <http://qudt.org/schema/qudt/dataType> "int2" .
+_:b82 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://schema.org/PropertyValue> .
+_:b82 <https://schema.org/description> "\"Flag - the percentage of persons with no high school diploma is in the 90th percentile (1 = yes, 0 = no)\"" .
+_:b82 <https://schema.org/endDate> "12/31/18" .
+_:b82 <https://schema.org/maxValue> "1" .
+_:b82 <https://schema.org/minValue> "0" .
+_:b82 <https://schema.org/name> "f_nohsdp" .
+_:b82 <https://schema.org/propertyID> "2052499361" .
+_:b82 <https://schema.org/startDate> "1/1/18" .
+_:b83 <http://qudt.org/schema/qudt/dataType> "int2" .
+_:b83 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://schema.org/PropertyValue> .
+_:b83 <https://schema.org/description> "\"Flag - the percentage of households with no vehicles is in the 90th percentile (1 = yes, 0 = no)\"" .
+_:b83 <https://schema.org/endDate> "12/31/18" .
+_:b83 <https://schema.org/maxValue> "1" .
+_:b83 <https://schema.org/minValue> "0" .
+_:b83 <https://schema.org/name> "f_noveh" .
+_:b83 <https://schema.org/propertyID> "2052499370" .
+_:b83 <https://schema.org/startDate> "1/1/18" .
+_:b84 <http://qudt.org/schema/qudt/dataType> "int2" .
+_:b84 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://schema.org/PropertyValue> .
+_:b84 <https://schema.org/description> "\"Flag - per capita income is in the 90th percentile (1 = yes, 0 = no)\"" .
+_:b84 <https://schema.org/endDate> "12/31/18" .
+_:b84 <https://schema.org/maxValue> "1" .
+_:b84 <https://schema.org/minValue> "0" .
+_:b84 <https://schema.org/name> "f_pci" .
+_:b84 <https://schema.org/propertyID> "" .
+_:b84 <https://schema.org/startDate> "1/1/18" .
+_:b85 <http://qudt.org/schema/qudt/dataType> "int2" .
+_:b85 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://schema.org/PropertyValue> .
+_:b85 <https://schema.org/description> "\"Flag - the percentage of persons in poverty is in the 90th percentile (1 = yes, 0 = no)\"" .
+_:b85 <https://schema.org/endDate> "12/31/18" .
+_:b85 <https://schema.org/maxValue> "1" .
+_:b85 <https://schema.org/minValue> "0" .
+_:b85 <https://schema.org/name> "f_pov" .
+_:b85 <https://schema.org/propertyID> "2052499364" .
+_:b85 <https://schema.org/startDate> "1/1/18" .
+_:b86 <http://qudt.org/schema/qudt/dataType> "int2" .
+_:b86 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://schema.org/PropertyValue> .
+_:b86 <https://schema.org/description> "\"Flag - the percentage of single parent households is in the 90th percentile (1 = yes, 0 = no)\"" .
+_:b86 <https://schema.org/endDate> "12/31/18" .
+_:b86 <https://schema.org/maxValue> "1" .
+_:b86 <https://schema.org/minValue> "0" .
+_:b86 <https://schema.org/name> "f_sngpnt" .
+_:b86 <https://schema.org/propertyID> "2052499360" .
+_:b86 <https://schema.org/startDate> "1/1/18" .
+_:b87 <http://qudt.org/schema/qudt/dataType> "int2" .
+_:b87 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://schema.org/PropertyValue> .
+_:b87 <https://schema.org/description> "Sum of flags for Socioeconomic Status theme" .
+_:b87 <https://schema.org/endDate> "12/31/18" .
+_:b87 <https://schema.org/maxValue> "4" .
+_:b87 <https://schema.org/minValue> "0" .
+_:b87 <https://schema.org/name> "f_theme1" .
+_:b87 <https://schema.org/propertyID> "2052497702" .
+_:b87 <https://schema.org/startDate> "1/1/18" .
+_:b88 <http://qudt.org/schema/qudt/dataType> "int2" .
+_:b88 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://schema.org/PropertyValue> .
+_:b88 <https://schema.org/description> "Sum of flags for Household Composition theme" .
+_:b88 <https://schema.org/endDate> "12/31/18" .
+_:b88 <https://schema.org/maxValue> "3" .
+_:b88 <https://schema.org/minValue> "0" .
+_:b88 <https://schema.org/name> "f_theme2" .
+_:b88 <https://schema.org/propertyID> "2052497705" .
+_:b88 <https://schema.org/startDate> "1/1/18" .
+_:b89 <http://qudt.org/schema/qudt/dataType> "int2" .
+_:b89 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://schema.org/PropertyValue> .
+_:b89 <https://schema.org/description> "Sum of flags for Minority Status/Languag e theme" .
+_:b89 <https://schema.org/endDate> "12/31/18" .
+_:b89 <https://schema.org/maxValue> "2" .
+_:b89 <https://schema.org/minValue> "0" .
+_:b89 <https://schema.org/name> "f_theme3" .
+_:b89 <https://schema.org/propertyID> "2052497703" .
+_:b89 <https://schema.org/startDate> "1/1/18" .
+_:b9 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://schema.org/DefinedTerm> .
+_:b9 <https://schema.org/description> "GIS Data Structure for Representation" .
+_:b9 <https://schema.org/inDefinedTermSet> _:b10 .
+_:b9 <https://schema.org/termCode> "vector" .
+_:b90 <http://qudt.org/schema/qudt/dataType> "int2" .
+_:b90 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://schema.org/PropertyValue> .
+_:b90 <https://schema.org/description> "Sum of flags for Housing Type/ Transportation theme" .
+_:b90 <https://schema.org/endDate> "12/31/18" .
+_:b90 <https://schema.org/maxValue> "4" .
+_:b90 <https://schema.org/minValue> "0" .
+_:b90 <https://schema.org/name> "f_theme4" .
+_:b90 <https://schema.org/propertyID> "2052497704" .
+_:b90 <https://schema.org/startDate> "1/1/18" .
+_:b91 <http://qudt.org/schema/qudt/dataType> "int2" .
+_:b91 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://schema.org/PropertyValue> .
+_:b91 <https://schema.org/description> "Sum of flags for the four themes" .
+_:b91 <https://schema.org/endDate> "12/31/18" .
+_:b91 <https://schema.org/maxValue> "12" .
+_:b91 <https://schema.org/minValue> "0" .
+_:b91 <https://schema.org/name> "f_total" .
+_:b91 <https://schema.org/propertyID> "2052497701" .
+_:b91 <https://schema.org/startDate> "1/1/18" .
+_:b92 <http://qudt.org/schema/qudt/dataType> "int2" .
+_:b92 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://schema.org/PropertyValue> .
+_:b92 <https://schema.org/description> "\"Flag - the percentage of civilian unemployed is in the 90th percentile (1 = yes, 0 = no)\"" .
+_:b92 <https://schema.org/endDate> "12/31/18" .
+_:b92 <https://schema.org/maxValue> "1" .
+_:b92 <https://schema.org/minValue> "0" .
+_:b92 <https://schema.org/name> "f_unemp" .
+_:b92 <https://schema.org/propertyID> "2052499373" .
+_:b92 <https://schema.org/startDate> "1/1/18" .
+_:b93 <http://qudt.org/schema/qudt/dataType> "varchar" .
+_:b93 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://schema.org/PropertyValue> .
+_:b93 <https://schema.org/description> "FIPS code as STATE(2)COUNTY(3)CENSUSTRACT(6)" .
+_:b93 <https://schema.org/endDate> "12/31/18" .
+_:b93 <https://schema.org/name> "fips" .
+_:b93 <https://schema.org/propertyID> "2052497174" .
+_:b93 <https://schema.org/startDate> "1/1/18" .
+_:b94 <http://qudt.org/schema/qudt/dataType> "varchar" .
+_:b94 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://schema.org/PropertyValue> .
+_:b94 <https://schema.org/description> "Census tract name" .
+_:b94 <https://schema.org/endDate> "12/31/18" .
+_:b94 <https://schema.org/name> "location" .
+_:b94 <https://schema.org/propertyID> "" .
+_:b94 <https://schema.org/startDate> "1/1/18" .
+_:b95 <http://qudt.org/schema/qudt/dataType> "int4" .
+_:b95 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://schema.org/PropertyValue> .
+_:b95 <https://schema.org/description> "\"Persons aged 17 and younger estimate MOE, 2014-2018 ACS\"" .
+_:b95 <https://schema.org/endDate> "12/31/18" .
+_:b95 <https://schema.org/maxValue> "620" .
+_:b95 <https://schema.org/minValue> "5" .
+_:b95 <https://schema.org/name> "m_age17" .
+_:b95 <https://schema.org/propertyID> "2052498114" .
+_:b95 <https://schema.org/startDate> "1/1/18" .
+_:b95 <https://schema.org/unitText> "persons" .
+_:b96 <http://qudt.org/schema/qudt/dataType> "int4" .
+_:b96 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://schema.org/PropertyValue> .
+_:b96 <https://schema.org/description> "\"Persons aged 65 and older estimate MOE, 2014-2018 ACS\"" .
+_:b96 <https://schema.org/endDate> "12/31/18" .
+_:b96 <https://schema.org/maxValue> "643" .
+_:b96 <https://schema.org/minValue> "6" .
+_:b96 <https://schema.org/name> "m_age65" .
+_:b96 <https://schema.org/propertyID> "2052498112" .
+_:b96 <https://schema.org/startDate> "1/1/18" .
+_:b96 <https://schema.org/unitText> "persons" .
+_:b97 <http://qudt.org/schema/qudt/dataType> "int4" .
+_:b97 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://schema.org/PropertyValue> .
+_:b97 <https://schema.org/description> "\"At household level (occupied housing units), more people than rooms estimate MOE, 2014-2018 ACS\"" .
+_:b97 <https://schema.org/endDate> "12/31/18" .
+_:b97 <https://schema.org/maxValue> "151" .
+_:b97 <https://schema.org/minValue> "5" .
+_:b97 <https://schema.org/name> "m_crowd" .
+_:b97 <https://schema.org/propertyID> "2052499827" .
+_:b97 <https://schema.org/startDate> "1/1/18" .
+_:b97 <https://schema.org/unitText> "housing units" .
+_:b98 <http://qudt.org/schema/qudt/dataType> "int4" .
+_:b98 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://schema.org/PropertyValue> .
+_:b98 <https://schema.org/description> "\"Civilian non-institutionalized population with a disability estimate MOE, 2014-2018 ACS\"" .
+_:b98 <https://schema.org/endDate> "12/31/18" .
+_:b98 <https://schema.org/maxValue> "530" .
+_:b98 <https://schema.org/minValue> "12" .
+_:b98 <https://schema.org/name> "m_disabl" .
+_:b98 <https://schema.org/propertyID> "2052499668" .
+_:b98 <https://schema.org/startDate> "1/1/18" .
+_:b98 <https://schema.org/unitText> "persons" .
+_:b99 <http://qudt.org/schema/qudt/dataType> "int4" .
+_:b99 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://schema.org/PropertyValue> .
+_:b99 <https://schema.org/description> "\"Persons in group quarters estimate MOE, 2014-2018 ACS\"" .
+_:b99 <https://schema.org/endDate> "12/31/18" .
+_:b99 <https://schema.org/maxValue> "695" .
+_:b99 <https://schema.org/minValue> "2" .
+_:b99 <https://schema.org/name> "m_groupq" .
+_:b99 <https://schema.org/propertyID> "2052498108" .
+_:b99 <https://schema.org/startDate> "1/1/18" .
+_:b99 <https://schema.org/unitText> "persons" .

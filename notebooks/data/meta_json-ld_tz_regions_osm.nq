@@ -1,0 +1,128 @@
+<https://gdsc.idsc.miami.edu/detail/tz_regions_osm> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://schema.org/Dataset> .
+<https://gdsc.idsc.miami.edu/detail/tz_regions_osm> <https://schema.org/about> _:b0 .
+<https://gdsc.idsc.miami.edu/detail/tz_regions_osm> <https://schema.org/about> _:b3 .
+<https://gdsc.idsc.miami.edu/detail/tz_regions_osm> <https://schema.org/additionalProperty> _:b7 .
+<https://gdsc.idsc.miami.edu/detail/tz_regions_osm> <https://schema.org/creator> _:b8 .
+<https://gdsc.idsc.miami.edu/detail/tz_regions_osm> <https://schema.org/dateModified> "2025-02-24" .
+<https://gdsc.idsc.miami.edu/detail/tz_regions_osm> <https://schema.org/datePublished> "2025-02-24" .
+<https://gdsc.idsc.miami.edu/detail/tz_regions_osm> <https://schema.org/description> "A polygon feature set for the regions of Tanzania sourced from OpenStreetMap." .
+<https://gdsc.idsc.miami.edu/detail/tz_regions_osm> <https://schema.org/distribution> "https://gdsc.idsc.miami.edu/download/data/tz_regions_osm/?file=tz_regions_osm&format=shp" .
+<https://gdsc.idsc.miami.edu/detail/tz_regions_osm> <https://schema.org/includedInDataCatalog> _:b9 .
+<https://gdsc.idsc.miami.edu/detail/tz_regions_osm> <https://schema.org/isBasedOn> <https://gdsc.idsc.miami.edu/details/api> .
+<https://gdsc.idsc.miami.edu/detail/tz_regions_osm> <https://schema.org/keywords> "Administrative Boundaries" .
+<https://gdsc.idsc.miami.edu/detail/tz_regions_osm> <https://schema.org/keywords> "Regions" .
+<https://gdsc.idsc.miami.edu/detail/tz_regions_osm> <https://schema.org/keywords> "Tanzania" .
+<https://gdsc.idsc.miami.edu/detail/tz_regions_osm> <https://schema.org/license> "OpenStreetMap® is open data, licensed under the [Open Data Commons Open Database License](https://opendatacommons.org/licenses/odbl/) (ODbL) by the [OpenStreetMap Foundation](https://osmfoundation.org/) (OSMF)." .
+<https://gdsc.idsc.miami.edu/detail/tz_regions_osm> <https://schema.org/measurementTechnique> _:b10 .
+<https://gdsc.idsc.miami.edu/detail/tz_regions_osm> <https://schema.org/measurementTechnique> _:b15 .
+<https://gdsc.idsc.miami.edu/detail/tz_regions_osm> <https://schema.org/name> "OSM Tanzania Regions" .
+<https://gdsc.idsc.miami.edu/detail/tz_regions_osm> <https://schema.org/provider> "OpenStreetMap" .
+<https://gdsc.idsc.miami.edu/detail/tz_regions_osm> <https://schema.org/spatialCoverage> _:b20 .
+<https://gdsc.idsc.miami.edu/detail/tz_regions_osm> <https://schema.org/type> "Vector Dataset" .
+<https://gdsc.idsc.miami.edu/detail/tz_regions_osm> <https://schema.org/url> "https://www.openstreetmap.org/" .
+<https://gdsc.idsc.miami.edu/detail/tz_regions_osm> <https://schema.org/variableMeasured> _:b21 .
+<https://gdsc.idsc.miami.edu/detail/tz_regions_osm> <https://schema.org/variableMeasured> _:b22 .
+<https://gdsc.idsc.miami.edu/detail/tz_regions_osm> <https://schema.org/variableMeasured> _:b23 .
+<https://gdsc.idsc.miami.edu/detail/tz_regions_osm> <https://schema.org/variableMeasured> _:b24 .
+<https://gdsc.idsc.miami.edu/detail/tz_regions_osm> <https://schema.org/variableMeasured> _:b25 .
+<https://gdsc.idsc.miami.edu/detail/tz_regions_osm> <https://schema.org/variableMeasured> _:b26 .
+<https://gdsc.idsc.miami.edu/detail/tz_regions_osm> <https://schema.org/version> "2025-10-05" .
+<https://gdsc.idsc.miami.edu/details/api> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://schema.org/Dataset> .
+<https://gdsc.idsc.miami.edu/details/api> <https://schema.org/name> "api" .
+<https://gdsc.idsc.miami.edu/details/api> <https://schema.org/url> "https://gdsc.idsc.miami.edu/details/api" .
+<https://github.com/Geospatial-Digital-Special-Collections/tools> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://schema.org/SoftwareApplication> .
+<https://github.com/Geospatial-Digital-Special-Collections/tools> <https://schema.org/downloadUrl> "https://github.com/Geospatial-Digital-Special-Collections/tools.git" .
+<https://github.com/Geospatial-Digital-Special-Collections/tools> <https://schema.org/featureList> "curl" .
+_:b0 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://schema.org/Event> .
+_:b0 <https://schema.org/description> "Direct from source." .
+_:b0 <https://schema.org/name> "ETL process for OSM Tanzania Regions" .
+_:b0 <https://schema.org/potentialAction> _:b1 .
+_:b1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://schema.org/Action> .
+_:b1 <https://schema.org/description> "#########\n# GDSC ETL is performed in two steps: shell script to ETL data into postgres\n# and then additional transformations with SQL in postGIS (if needed).\n####\n\n#########\n# Step 1 - bash script (pseudo code)\n####\n\n# create directory structure and move into it\nmkdir -p /data/tz_regions_osm/{download,etl} && cd /data/tz_regions_osm\n\n# set update flag based on last update and update frequency\ndo_update=0 if date() < last_update + update_frequency else do_update = 1\n\n# download if update flag is set:\nif do_update == 1 then\ncurl -o download/tz_regions_osm.osm 'https://overpass-api.de/api/interpreter?data=rel%5B%22ISO3166-2%22~%22^TZ%22%5D%5Badmin_level=4%5D%5Btype=boundary%5D%5Bboundary=administrative%5D;(._;>;);out;'\n\n# load into postGIS with:\n  ogr2ogr -lco GEOMETRY_NAME=geom -f PostgreSQL PG:\"<postgres connection>\" download/tz_regions_osm.osm\n\n#########\n# Step 2 - SQL script (pseudo code):\n####\n\n# Select proper geometry into the named table\npsql -d gaiaDB -U postgres -p 5432 -h gaia-db -c \"\nSELECT * INTO tz_regions_osm FROM multipolygons;\nDROP TABLE IF EXISTS lines;\nDROP TABLE IF EXISTS multilinestrings;\nDROP TABLE IF EXISTS multipolygons;\nDROP TABLE IF EXISTS other_relations;\nDROP TABLE IF EXISTS points;\"\n\n# remove duplicate points and make geometries valid:\nUPDATE tz_regions_osm\n  SET geom=ST_MakeValid(ST_RemoveRepeatedPoints(geom));\n\n# add local geometry column and reproject existing geometries into local EPSG:\nSELECT AddGeometryColumn (\n  'tz_regions_osm',\n  'geom_local', 4326, 'multipolygon', 2\n);\nUPDATE tz_regions_osm\n  SET geom_local=ST_MakeValid(ST_RemoveRepeatedPoints(ST_Transform(ST_Multi(geom),4326)));\nCREATE INDEX tz_regions_osm_geom_local_idx\n  ON tz_regions_osm\n  USING GIST (geom_local);\nNOTIFY pgrst, 'reload schema';\n# Move into corrrect directory and create derivative directory in data package on osgeo\ncd /data/tz_regions_osm/\nmkdir -p derived\n\nexport PGPASSWORD=SuperSecret\n# Create shapefile of table in derivate directory on osgeo \nogr2ogr -f \"ESRI Shapefile\" -overwrite derived/tz_regions_osm.shp PG:\"<postgres connection>\" tz_regions_osm\n\n# Create downloadable tarfile of shp in derivative directory on osgeo\nrm -f derived/tz_regions_osm.shp.tar.gz\ntar -czf derived/tz_regions_osm.shp.tar.gz meta_dcat_tz_regions_osm.json -C derived tz_regions_osm.shp tz_regions_osm.prj tz_regions_osm.shx tz_regions_osm.dbf\n\n# Move into correct directory\ncd /data/tz_regions_osm/\n\nexport PGPASSWORD=SuperSecret\n" .
+_:b1 <https://schema.org/name> "Pseudo Code" .
+_:b1 <https://schema.org/result> _:b2 .
+_:b10 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://schema.org/DefinedTerm> .
+_:b10 <https://schema.org/description> "GIS Data Structure for Representation" .
+_:b10 <https://schema.org/inDefinedTermSet> _:b11 .
+_:b10 <https://schema.org/termCode> "vector" .
+_:b11 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://schema.org/DefinedTermSet> .
+_:b11 <https://schema.org/hasDefinedTerm> _:b12 .
+_:b11 <https://schema.org/hasDefinedTerm> _:b13 .
+_:b11 <https://schema.org/hasDefinedTerm> _:b14 .
+_:b11 <https://schema.org/name> "dataRepresentation" .
+_:b12 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://schema.org/DefinedTerm> .
+_:b12 <https://schema.org/termCode> "raster" .
+_:b13 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://schema.org/DefinedTerm> .
+_:b13 <https://schema.org/termCode> "vector" .
+_:b14 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://schema.org/DefinedTerm> .
+_:b14 <https://schema.org/termCode> "table" .
+_:b15 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://schema.org/DefinedTerm> .
+_:b15 <https://schema.org/description> "GIS Vector Geometery" .
+_:b15 <https://schema.org/inDefinedTermSet> _:b16 .
+_:b15 <https://schema.org/termCode> "multipolygon" .
+_:b16 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://schema.org/DefinedTermSet> .
+_:b16 <https://schema.org/hasDefinedTerm> _:b17 .
+_:b16 <https://schema.org/hasDefinedTerm> _:b18 .
+_:b16 <https://schema.org/hasDefinedTerm> _:b19 .
+_:b16 <https://schema.org/name> "vectorGeometry" .
+_:b17 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://schema.org/DefinedTerm> .
+_:b17 <https://schema.org/termCode> "point" .
+_:b18 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://schema.org/DefinedTerm> .
+_:b18 <https://schema.org/termCode> "line" .
+_:b19 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://schema.org/DefinedTerm> .
+_:b19 <https://schema.org/termCode> "polygon" .
+_:b2 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://schema.org/Dataset> .
+_:b2 <https://schema.org/encodingFormat> "shp" .
+_:b2 <https://schema.org/url> "https://gdsc.idsc.miami.edu/download/data/tz_regions_osm/?file=tz_regions_osm&format=shp" .
+_:b20 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://schema.org/Place> .
+_:b20 <https://schema.org/name> "Tanzania" .
+_:b21 <http://qudt.org/schema/qudt/dataType> "varchar" .
+_:b21 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://schema.org/PropertyValue> .
+_:b21 <https://schema.org/description> "OpenStreetMap (OSM) ID" .
+_:b21 <https://schema.org/name> "osm_id" .
+_:b22 <http://qudt.org/schema/qudt/dataType> "varchar" .
+_:b22 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://schema.org/PropertyValue> .
+_:b22 <https://schema.org/description> "Region name" .
+_:b22 <https://schema.org/name> "name" .
+_:b23 <http://qudt.org/schema/qudt/dataType> "varchar" .
+_:b23 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://schema.org/PropertyValue> .
+_:b23 <https://schema.org/description> "Type of boundary" .
+_:b23 <https://schema.org/name> "type" .
+_:b24 <http://qudt.org/schema/qudt/dataType> "varchar" .
+_:b24 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://schema.org/PropertyValue> .
+_:b24 <https://schema.org/description> "OSM Administrative level" .
+_:b24 <https://schema.org/name> "admin_level" .
+_:b25 <http://qudt.org/schema/qudt/dataType> "varchar" .
+_:b25 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://schema.org/PropertyValue> .
+_:b25 <https://schema.org/description> "OSM boundary type" .
+_:b25 <https://schema.org/name> "boundary" .
+_:b26 <http://qudt.org/schema/qudt/dataType> "varchar" .
+_:b26 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://schema.org/PropertyValue> .
+_:b26 <https://schema.org/description> "Any other OSM tags with values, first one is the ISO3166-2 code for the administrative region" .
+_:b26 <https://schema.org/name> "other_tags" .
+_:b3 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://schema.org/Event> .
+_:b3 <https://schema.org/description> "Direct from source." .
+_:b3 <https://schema.org/name> "ETL process for OSM Tanzania Regions" .
+_:b3 <https://schema.org/potentialAction> _:b4 .
+_:b4 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://schema.org/Action> .
+_:b4 <https://schema.org/description> "ETL process for OSM Tanzania Regions" .
+_:b4 <https://schema.org/instrument> <https://github.com/Geospatial-Digital-Special-Collections/tools> .
+_:b4 <https://schema.org/name> "curl" .
+_:b4 <https://schema.org/object> _:b5 .
+_:b4 <https://schema.org/result> _:b6 .
+_:b5 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://schema.org/Dataset> .
+_:b5 <https://schema.org/name> "Direct from source." .
+_:b5 <https://schema.org/producer> "OpenStreetMap contributors" .
+_:b5 <https://schema.org/url> "https://www.openstreetmap.org/" .
+_:b6 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://schema.org/Dataset> .
+_:b6 <https://schema.org/description> "A polygon feature set for the regions of Tanzania sourced from OpenStreetMap." .
+_:b6 <https://schema.org/encodingFormat> "shp" .
+_:b6 <https://schema.org/name> "OSM Tanzania Regions" .
+_:b6 <https://schema.org/url> "https://gdsc.idsc.miami.edu/download/data/tz_regions_osm/?file=tz_regions_osm&format=shp" .
+_:b7 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://schema.org/PropertyValue> .
+_:b7 <https://schema.org/propertyID> "http://dbpedia.org/resource/Spatial_reference_system" .
+_:b7 <https://schema.org/value> "https://epsg.io/4326" .
+_:b8 <https://schema.org/name> "OpenStreetMap contributors" .
+_:b9 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://schema.org/DataCatalog> .
+_:b9 <https://schema.org/name> "Geospatial Digital Special Collections" .
+_:b9 <https://schema.org/url> "https://gdsc.idsc.miami.edu" .

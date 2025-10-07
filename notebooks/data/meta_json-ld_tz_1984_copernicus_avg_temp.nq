@@ -1,0 +1,110 @@
+<https://gdsc.idsc.miami.edu/detail/tz_1984_copernicus_avg_temp> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://schema.org/Dataset> .
+<https://gdsc.idsc.miami.edu/detail/tz_1984_copernicus_avg_temp> <https://schema.org/about> _:b0 .
+<https://gdsc.idsc.miami.edu/detail/tz_1984_copernicus_avg_temp> <https://schema.org/about> _:b3 .
+<https://gdsc.idsc.miami.edu/detail/tz_1984_copernicus_avg_temp> <https://schema.org/additionalProperty> _:b7 .
+<https://gdsc.idsc.miami.edu/detail/tz_1984_copernicus_avg_temp> <https://schema.org/additionalProperty> _:b8 .
+<https://gdsc.idsc.miami.edu/detail/tz_1984_copernicus_avg_temp> <https://schema.org/creator> <https://ror.org/00yafkq43> .
+<https://gdsc.idsc.miami.edu/detail/tz_1984_copernicus_avg_temp> <https://schema.org/dateModified> "2025-06-01" .
+<https://gdsc.idsc.miami.edu/detail/tz_1984_copernicus_avg_temp> <https://schema.org/datePublished> "2025-06-01" .
+<https://gdsc.idsc.miami.edu/detail/tz_1984_copernicus_avg_temp> <https://schema.org/description> "A raster dataset with yearly averages of the 2m temperature from the ERA 5 renanalysis data from Copernicus satellite sensors for Tanzania. ERA5 is the fifth generation ECMWF reanalysis for the global climate and weather for the past 8 decades. Data is available from 1940 onwards. ERA5 replaces the ERA-Interim reanalysis." .
+<https://gdsc.idsc.miami.edu/detail/tz_1984_copernicus_avg_temp> <https://schema.org/distribution> "https://gdsc.idsc.miami.edu/download/data/tz_1984_copernicus_avg_temp/?file=tz_1984_copernicus_avg_temp&format=tiff" .
+<https://gdsc.idsc.miami.edu/detail/tz_1984_copernicus_avg_temp> <https://schema.org/includedInDataCatalog> _:b9 .
+<https://gdsc.idsc.miami.edu/detail/tz_1984_copernicus_avg_temp> <https://schema.org/isBasedOn> _:b10 .
+<https://gdsc.idsc.miami.edu/detail/tz_1984_copernicus_avg_temp> <https://schema.org/keywords> "Tanzania" .
+<https://gdsc.idsc.miami.edu/detail/tz_1984_copernicus_avg_temp> <https://schema.org/keywords> "temperature" .
+<https://gdsc.idsc.miami.edu/detail/tz_1984_copernicus_avg_temp> <https://schema.org/license> "Open Data Commons Attribution License (ODC-By): http://opendatacommons.org/licenses/by/1.0/" .
+<https://gdsc.idsc.miami.edu/detail/tz_1984_copernicus_avg_temp> <https://schema.org/measurementTechnique> _:b11 .
+<https://gdsc.idsc.miami.edu/detail/tz_1984_copernicus_avg_temp> <https://schema.org/name> "1984 Tanzania 2m Temperature Yearly Average (Copernicus)" .
+<https://gdsc.idsc.miami.edu/detail/tz_1984_copernicus_avg_temp> <https://schema.org/provider> "OHDSI" .
+<https://gdsc.idsc.miami.edu/detail/tz_1984_copernicus_avg_temp> <https://schema.org/spatialCoverage> <https://www.geonames.org/149590> .
+<https://gdsc.idsc.miami.edu/detail/tz_1984_copernicus_avg_temp> <https://schema.org/spatialCoverage> _:b16 .
+<https://gdsc.idsc.miami.edu/detail/tz_1984_copernicus_avg_temp> <https://schema.org/temporalCoverage> "1984-01-01/1984-12-31" .
+<https://gdsc.idsc.miami.edu/detail/tz_1984_copernicus_avg_temp> <https://schema.org/type> "Raster Dataset" .
+<https://gdsc.idsc.miami.edu/detail/tz_1984_copernicus_avg_temp> <https://schema.org/url> "https://cds.climate.copernicus.eu/datasets/reanalysis-era5-land" .
+<https://gdsc.idsc.miami.edu/detail/tz_1984_copernicus_avg_temp> <https://schema.org/variableMeasured> _:b18 .
+<https://gdsc.idsc.miami.edu/detail/tz_1984_copernicus_avg_temp> <https://schema.org/version> "2025-10-05" .
+<https://github.com/tibbben/copernicus_aggregate> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://schema.org/SoftwareApplication> .
+<https://github.com/tibbben/copernicus_aggregate> <https://schema.org/downloadUrl> "https://github.com/tibbben/copernicus_aggregate.git" .
+<https://github.com/tibbben/copernicus_aggregate> <https://schema.org/featureList> "python copernicus_aggregate.py '{\"table\": \"tz_1984_copernicus_avg_temp\", \"extension\": \"zip\", \"extent\": \"29|-12|41|-0.8\", \"attributes\": \"2m_temperature;Average yearly 2m temperature in Kelvin from Copernicus reanalysis era5 single levels;Copernicus;float;Kelvin;9523;287.315857;301.010986;1984-01-01;1984-12-31;35814756;2m_temperature@tz_1984_copernicus_avg_temp\", \"bands\": \"t2m\", \"format\": \"nc\"}' 1984" .
+<https://ror.org/00yafkq43> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://schema.org/Organization> .
+<https://ror.org/00yafkq43> <https://schema.org/identifier> "https://ror.org/00yafkq43" .
+<https://ror.org/00yafkq43> <https://schema.org/name> "Copernicus" .
+<https://ror.org/00yafkq43> <https://schema.org/sameAs> "https://ror.org/00yafkq43" .
+<https://www.geonames.org/149590> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://schema.org/Place> .
+<https://www.geonames.org/149590> <https://schema.org/name> "Tanzania" .
+_:b0 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://schema.org/Event> .
+_:b0 <https://schema.org/description> "Copernicus" .
+_:b0 <https://schema.org/name> "ETL process for 1984 Tanzania 2m Temperature Yearly Average (Copernicus)" .
+_:b0 <https://schema.org/potentialAction> _:b1 .
+_:b1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://schema.org/Action> .
+_:b1 <https://schema.org/description> "#########\n# GDSC ETL is performed in two steps: shell script to ETL data into postgres\n# and then additional transformations with SQL in postGIS (if needed).\n####\n\n#########\n# Step 1 - bash script (pseudo code)\n####\n\n# create directory structure and move into it\nmkdir -p /data/tz_1984_copernicus_avg_temp/{download,etl} && cd /data/tz_1984_copernicus_avg_temp\n\n# set update flag based on last update and update frequency\ndo_update=0 if date() < last_update + update_frequency else do_update = 1\n\n# clone a git repo and run the code# save netcdf as tif\ncd download\ngdal_translate NETCDF:tz_1984_copernicus_avg_temp.nc:2m_temperature tz_1984_copernicus_avg_temp.tif\ncd ..\n\n\n#########\n# Step 2 - SQL script (pseudo code):\n####\n\n# load raster into postGIS with:\n    raster2pgsql -s 4326 -d -C -I -t auto tz_1984_copernicus_avg_temp.tif -F tz_1984_copernicus_avg_temp > load_raster.sql\npsql <connection options> < load_raster.sql\nrm load_raster.sql\n\n# Move into corrrect directory and create derivative directory in data package on osgeo\ncd /data/tz_1984_copernicus_avg_temp/\nmkdir -p derived\n\nexport PGPASSWORD=SuperSecret\n# Move into correct directory\ncd /data/tz_1984_copernicus_avg_temp/\n\nexport PGPASSWORD=SuperSecret\n" .
+_:b1 <https://schema.org/name> "Pseudo Code" .
+_:b1 <https://schema.org/result> _:b2 .
+_:b10 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://schema.org/Dataset> .
+_:b10 <https://schema.org/description> "A raster dataset with yearly averages of the 2m temperature from the ERA 5 renanalysis data from Copernicus satellite sensors for Tanzania. ERA5 is the fifth generation ECMWF reanalysis for the global climate and weather for the past 8 decades. Data is available from 1940 onwards. ERA5 replaces the ERA-Interim reanalysis." .
+_:b10 <https://schema.org/name> "Copernicus" .
+_:b10 <https://schema.org/producer> "Copernicus" .
+_:b10 <https://schema.org/url> "https://cds.climate.copernicus.eu/datasets/reanalysis-era5-land" .
+_:b11 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://schema.org/DefinedTerm> .
+_:b11 <https://schema.org/description> "GIS Data Structure for Representation" .
+_:b11 <https://schema.org/inDefinedTermSet> _:b12 .
+_:b11 <https://schema.org/termCode> "raster" .
+_:b12 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://schema.org/DefinedTermSet> .
+_:b12 <https://schema.org/hasDefinedTerm> _:b13 .
+_:b12 <https://schema.org/hasDefinedTerm> _:b14 .
+_:b12 <https://schema.org/hasDefinedTerm> _:b15 .
+_:b12 <https://schema.org/name> "dataRepresentation" .
+_:b13 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://schema.org/DefinedTerm> .
+_:b13 <https://schema.org/termCode> "raster" .
+_:b14 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://schema.org/DefinedTerm> .
+_:b14 <https://schema.org/termCode> "vector" .
+_:b15 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://schema.org/DefinedTerm> .
+_:b15 <https://schema.org/termCode> "table" .
+_:b16 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://schema.org/Place> .
+_:b16 <https://schema.org/geo> _:b17 .
+_:b16 <https://schema.org/name> "bbox" .
+_:b17 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://schema.org/GeoShape> .
+_:b17 <https://schema.org/polygon> "28.8750000 -0.8750000 41.1250000 -0.8750000 41.1250000 -12.1250000 28.8750000 -12.1250000 28.8750000 -0.8750000" .
+_:b18 <http://qudt.org/schema/qudt/dataType> "float64" .
+_:b18 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://schema.org/PropertyValue> .
+_:b18 <https://schema.org/description> "Average yearly 2m temperature in Kelvin from Copernicus reanalysis era5 single levels" .
+_:b18 <https://schema.org/endDate> "1984-12-31" .
+_:b18 <https://schema.org/maxValue> "301.010986328125" .
+_:b18 <https://schema.org/minValue> "287.31585693359375" .
+_:b18 <https://schema.org/name> "2m_temperature" .
+_:b18 <https://schema.org/propertyID> "35814756" .
+_:b18 <https://schema.org/startDate> "1984-01-01" .
+_:b18 <https://schema.org/unitCode> "9523" .
+_:b18 <https://schema.org/unitText> "Kelvin" .
+_:b2 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://schema.org/Dataset> .
+_:b2 <https://schema.org/encodingFormat> "tiff" .
+_:b2 <https://schema.org/url> "https://gdsc.idsc.miami.edu/download/data/tz_1984_copernicus_avg_temp/?file=tz_1984_copernicus_avg_temp&format=tiff" .
+_:b3 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://schema.org/Event> .
+_:b3 <https://schema.org/description> "Copernicus" .
+_:b3 <https://schema.org/name> "ETL process for 1984 Tanzania 2m Temperature Yearly Average (Copernicus)" .
+_:b3 <https://schema.org/potentialAction> _:b4 .
+_:b4 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://schema.org/Action> .
+_:b4 <https://schema.org/description> "Custom ETL process for 1984 Tanzania 2m Temperature Yearly Average (Copernicus)" .
+_:b4 <https://schema.org/instrument> <https://github.com/tibbben/copernicus_aggregate> .
+_:b4 <https://schema.org/name> "github_code" .
+_:b4 <https://schema.org/object> _:b5 .
+_:b4 <https://schema.org/result> _:b6 .
+_:b5 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://schema.org/Dataset> .
+_:b5 <https://schema.org/name> "Copernicus" .
+_:b5 <https://schema.org/producer> "Copernicus" .
+_:b5 <https://schema.org/url> "https://cds.climate.copernicus.eu/datasets/reanalysis-era5-land" .
+_:b6 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://schema.org/Dataset> .
+_:b6 <https://schema.org/description> "A raster dataset with yearly averages of the 2m temperature from the ERA 5 renanalysis data from Copernicus satellite sensors for Tanzania. ERA5 is the fifth generation ECMWF reanalysis for the global climate and weather for the past 8 decades. Data is available from 1940 onwards. ERA5 replaces the ERA-Interim reanalysis." .
+_:b6 <https://schema.org/encodingFormat> "tiff" .
+_:b6 <https://schema.org/name> "1984 Tanzania 2m Temperature Yearly Average (Copernicus)" .
+_:b6 <https://schema.org/url> "https://gdsc.idsc.miami.edu/download/data/tz_1984_copernicus_avg_temp/?file=tz_1984_copernicus_avg_temp&format=tiff" .
+_:b7 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://schema.org/PropertyValue> .
+_:b7 <https://schema.org/name> "https://dbpedia.org/resource/Ground_sample_distance" .
+_:b7 <https://schema.org/unitText> "decimal degrees" .
+_:b7 <https://schema.org/value> "2.5E-1"^^<http://www.w3.org/2001/XMLSchema#double> .
+_:b8 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://schema.org/PropertyValue> .
+_:b8 <https://schema.org/propertyID> "http://dbpedia.org/resource/Spatial_reference_system" .
+_:b8 <https://schema.org/value> "https://epsg.io/4326" .
+_:b9 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://schema.org/DataCatalog> .
+_:b9 <https://schema.org/name> "Geospatial Digital Special Collections" .
+_:b9 <https://schema.org/url> "https://gdsc.idsc.miami.edu" .
