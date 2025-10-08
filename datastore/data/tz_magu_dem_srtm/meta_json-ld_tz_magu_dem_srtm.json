@@ -121,9 +121,7 @@
         },
         "instrument": {
           "@type": "SoftwareApplication",
-          "@id": [
-            "https://github.com/Geospatial-Digital-Special-Collections/tools"
-          ],
+          "@id": "https://github.com/Geospatial-Digital-Special-Collections/tools",
           "featureList": "S02E032.SRTMGL1 S02E033.SRTMGL1 S02E034.SRTMGL1 S03E032.SRTMGL1 S03E033.SRTMGL1 S03E034.SRTMGL1 S04E032.SRTMGL1 S04E033.SRTMGL1 S04E034.SRTMGL1 bbox;32.75;-3.09;34.04;-2.13",
           "downloadUrl": [
             "https://github.com/Geospatial-Digital-Special-Collections/tools.git"
