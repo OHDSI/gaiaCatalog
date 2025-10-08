@@ -65,7 +65,6 @@ def query_solr(path,parameters):
     # send query to SOLR and gather paged results
     # parameters['q'] = parameters['q'].replace(' ','+')
     query_string  = urlencode(parameters).replace('-','+')
-    print(query_string)
     while numresults > len(results):
         connection = urlopen("{}{}".format(path, query_string))
         response = simplejson.load(connection)
@@ -175,24 +174,6 @@ def index():
               "qf": qf,
               "q": q
             }
-
-        # build the query parameters for SOLR
-        #q = collection
-        #if collection == 'all' or collection == '*':
-        #    collection = '*'
-        #q = f"+gdsc_collections:{collection}"
-        #if query is not None:
-        #    q += f" (" 
-        #    for field in QUERY_FIELDS:
-        #        q += f"{field}:*{query}* OR "
-        #    q = f"{q[:-4]})" 
-        #if active is not None:
-        #    q += " +gdsc_up:true"
-        #query_parameters = {
-        #  "q.op": "AND",
-        #  "defType": "lucene",
-        #  "q": q
-        #}
 
     # send query to SOLR and gather paged results
     results, numresults = query_solr(BASE_PATH,query_parameters)
