@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 {% block title %}{{ name_id }}{% endblock %}
 {% block head %}
-    {{ super() }}
+    {{ super() -}}
     <style>
       .grid-color {
         background:#ddd
@@ -10,11 +10,36 @@
         background:#fff;
       }
     </style>
-{% endblock %}
+    {% if document['dct_description'] %}<meta name="description" content="{{ document['dct_description'][0] | replace('\n',' ') }}" />{% endif %}
+    {% if document['dct_identifier'] %}<meta name="DC.identifier" content="{{ document['dct_identifier'][0] }}" />{% endif %}
+    <meta name="DC.type" content="Dataset" />
+    {% if document['dct_title'] %}<meta name="DC.title" content="{{ document['dct_title'][0] }}" />{% endif %}
+    {% if document['dct_issued'] %}<meta name="DC.date" content="{{ document['dct_issued'][0] }}" />{% endif %}
+    {% if document['dct_publisher'] %}<meta name="DC.publisher" content="{{ document['dct_publisher'][0] }}" />{% endif %}
+    {% if document['dct_description'] %}<meta name="DC.description" content="{{ document['dct_description'][0] | replace('\n',' ') }}" />{% endif %}
+    {% if document['dct_creator'] %}{% for creator in document['dct_creator'] -%}
+    {%- set creator = creator.split(';') -%}
+    <meta name="DC.creator" content="{{ creator[0] }}" />
+    {%- endfor %}{% endif %}
+    {% if document['dcat_keyword'] %}{% for keyword in document['dcat_keyword'] -%}
+    <meta name="DC.subject" content="{{ keyword[0] }}" />
+    {%- endfor %}{% endif %}
+    {% if document['dct_title'] %}<meta property="og:title" content="{{ document['dct_title'][0] }}" />{% endif %}
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://gdsc.idsc.miami.edu/detail/{{ name_id  }}" />
+    <meta property="og:site_name" content="University of Miami Geospatial Digitial Special Collections" />
+    {% if document['dct_description'] %}<meta property="og:description" content="{{ document['dct_description'][0] | replace('\n',' ') }}" />{% endif -%}
+    {% if document['dct_creator'] %}{% for creator in document['dct_creator'] -%}
+    {% set creator = creator.split(';') %}
+    <meta property="article:author" content="{{ creator[0] }}" />
+    {%- endfor %}{% endif %}
+    {% if document['dct_issued'] %}<meta property="article:published_time" content="{{ document['dct_issued'][0] }}" />{% endif %}
+    <script type="application/ld+json">{{ json_ld | tojson }}</script>
+{%- endblock %}
 
 {% block content %}
       <div class="container mb-6">
-        <div class="row mb-2">
+        <div class="mb-4">
           <form method="post" action="/" id="filterForm" name="filterForm">
             <input type="hidden" id="active" name="active" value="{{ referrer.active }}">
             <input type="hidden" id="collection" name="collection" value="{{ referrer.collection }}">
@@ -26,37 +51,47 @@
           {% endif %}</a>
         </div>
         {% autoescape off %}
-        <div class="row">
-          <div class="col-7 align-top">
-            <h4 class="float-left">{% if document['dct_title'] %}{{ document['dct_title'][0] }}{% endif %}</h4>
+        <div class="row border rounded p-2">
+          <div class="row">
+            <div class="col-md-7 align-top">
+              <h4 class="float-left">{% if document['dct_title'] %}{{ document['dct_title'][0] }}{% endif %}
+                <div class="float-left circle {{ 'green-fill' if document['gdsc_up'][0] or document['gdsc_tileUrl'] else 'red-fill' }}"></div>
+              </h4>
+            </div>
+            <div class="col-md-5 align-top">
+              {% if document['gdsc_collections'] and document['gdsc_collections']|length > 0 %}
+              <span class="d-block float-right align-top text-right"><b>Collections:</b>
+                {% for collection in document['gdsc_collections'] %}{{ collection }}{{ " | " if not loop.last else "" }}{% endfor %}
+              </span>
+              {% endif %}
+            </div>
           </div>
         </div>
         <div class="row">
-          <div class="col ml-4 mt-2">
-            <div class="container">
-              <div class="row">
-                <div class="col-10 pl-0">
-                <b>Citation:</b> 
-                {% if document['dct_creator'] %}{{ document['dct_creator'][0] }}{% endif %}
-                ({% if document['dct_issued'] %}{{ document['dct_issued'][0] }}{% endif %}).
-                {% if document['dct_title'] %}{{ document['dct_title'][0] }}{% endif %} [gis dataset].
-                {% if document['dct_publisher'] %}{{ document['dct_publisher'][0] }}{% endif %}.
-                {% if document['dct_identifier'] %}<a href="{{ document['dct_identifier'][0] }}" target="_blank" class="text-wrap text-break">{{ document['dct_identifier'][0] }}</a>.{% endif %}
-                {% if document['dct_modified'] %} last updated: {{ document['dct_modified'][0][:10] }}{% endif %}
-                <!-- {% if document['dcat_downloadURL'] %} from <a href="{{ document['dcat_downloadURL'][0] }}" target="_blank">{{ document['dcat_downloadURL'][0] }}</a>{% endif %} -->
-                {% if document['dct_accrualPeriodicity'] %} (update frequency: {{ document['dct_accrualPeriodicity'][0] }}){% endif %}.
-                {% if document['dct_description'] %}
-                <span class="mt-2 d-block"><b>Abstract:</b> {{ document['dct_description'][0] }}</span>
-                {% endif %}
-                {% if document['dcat_keyword'] and document['dcat_keyword']|length > 0 %}
-                <span class="mt-1 d-block"><b>key words:</b>
-                  {# {% for keyword in document['dcat_keyword'] %}{{ keyword }}{{ ", " if not loop.last else "" }}{% endfor %} #}
-                  {{ ", ".join(document['dcat_keyword']) }}
-                </span>
-                {% endif %}
-                </div>
-              </div>
-            </div>
+          <div class="col-12 ml-3 mt-2 mr-2">
+            <b>Citation:</b>
+            {% if document['dct_creator'] %}
+              {% for creator in document['dct_creator'] %}
+                {% set creator = creator.split(';') %}
+                {{ creator[0] }}{% if loop.index < document['dct_creator']|length %}, {% endif %}
+              {% endfor %}
+            {% endif %}
+            ({% if document['dct_issued'] %}{{ document['dct_issued'][0][:4] }}{% endif %}).
+            {% if document['dct_title'] %}{{ document['dct_title'][0] }}{% endif %} [gis dataset].
+            {% if document['dct_publisher'] %}{{ document['dct_publisher'][0] }}{% endif %}.
+            {% if document['dct_identifier'] %}<a href="{{ document['dct_identifier'][0] }}" target="_blank" class="text-wrap text-break">{{ document['dct_identifier'][0] }}</a>.{% endif %}
+            {% if document['dct_modified'] %} last updated: {{ document['dct_modified'][0][:10] }}{% endif %}
+            <!-- {% if document['dcat_downloadURL'] %} from <a href="{{ document['dcat_downloadURL'][0] }}" target="_blank" class="text-wrap text-break">{{ document['dcat_downloadURL'][0] }}</a>{% endif %} -->
+            {% if document['dct_accrualPeriodicity'] %} (update frequency: {{ document['dct_accrualPeriodicity'][0] }}){% endif %}.
+            {% if document['dct_description'] %}
+            <span class="mt-2 d-block"><b>Abstract:</b> {{ document['dct_description'][0] }}</span>
+            {% endif %}
+            {% if document['dcat_keyword'] and document['dcat_keyword']|length > 0 %}
+            <span class="mt-1 d-block"><b>Key words:</b>
+              {# {% for keyword in document['dcat_keyword'] %}{{ keyword }}{{ ", " if not loop.last else "" }}{% endfor %} #}
+              {{ ", ".join(document['dcat_keyword']) }}
+            </span>
+            {% endif %}
             {% if document['gdsc_attributes'] and document['gdsc_attributes']|length > 0 %}
             <div class="accordion mt-2" id="attributes-container">
               <div class="accordion-item">
@@ -120,6 +155,7 @@
               </div>
             </div>
             {% endif %}
+            </div>
           </div>
         </div>
       </div>

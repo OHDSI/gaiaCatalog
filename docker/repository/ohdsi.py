@@ -9,6 +9,7 @@ import logging
 import re
 from collections import OrderedDict
 import os
+import json
 
 app = Flask(__name__)
 log = logging.getLogger('werkzeug')
@@ -62,7 +63,7 @@ def query_solr(path,parameters):
     results = []
 
     # send query to SOLR and gather paged results
-    parameters['q'] = parameters['q'].replace(' ','+')
+    # parameters['q'] = parameters['q'].replace(' ','+')
     query_string  = urlencode(parameters).replace('-','+')
     while numresults > len(results):
         connection = urlopen("{}{}".format(path, query_string))
@@ -102,7 +103,7 @@ def highlight_query(document,query):
                         document[field][i] = add_tags(document[field][i],term)
                     row = attr.split(';')
                     if len(row) > 1:
-                        document[field][i] = add_tags(document[field][i],row[0]) 
+                        document[field][i] = add_tags(document[field][i],row[0])
                         for j in range(0,2):
                             for term in terms:
                                 row[j] = add_tags(row[j],term)
@@ -143,7 +144,8 @@ def index():
         # get the form parameters
         if 'ImmutableMultiDict' in str(type(request.form)): args = request.form.to_dict()
         else: args = request.form
-        query = re.sub(r'[\+\-\&\|\!\(\)\{\}\[\]\^\"\~\*\?\:\\]','',args["searchTerm"])
+        if 'searchTerm' in args:
+            query = re.sub(r'[\+\-\&\|\!\(\)\{\}\[\]\^\"\~\*\?\:\\]','',args["searchTerm"])
         if query == "None" or query == "": query = None
         collection = args["collection"]
         if 'active' in args:
@@ -151,21 +153,27 @@ def index():
             if active == 'None': active = None
 
         # build the query parameters for SOLR
+        q = collection
         if collection == 'all' or collection == '*':
             collection = '*'
-        q = f"+gdsc_collections:{collection}"
+            q = ""
+        query_parameters = {"q": "gdsc_collections:" + collection}
         if query is not None:
-            q += f" (" 
-            for field in QUERY_FIELDS:
-                q += f"{field}:*{query}* OR "
-            q = f"{q[:-4]})" 
+            qf += ' '.join(QUERY_FIELDS)
+            if len(q) > 0: q += " "
+            q += query
         if active is not None:
-            q += " +gdsc_up:true"
-        query_parameters = {
-          "q.op": "AND",
-          "defType": "lucene",
-          "q": q
-        }
+            if qf != "gdsc_collections ": qf += " "
+            qf += "gdsc_up"
+            if len(q) > 0: q += " "
+            q += "true"
+        if qf != "gdsc_collections ":
+            query_parameters = {
+              "q.op": "AND",
+              "defType": "dismax",
+              "qf": qf,
+              "q": q
+            }
 
     # send query to SOLR and gather paged results
     results, numresults = query_solr(BASE_PATH,query_parameters)
@@ -227,9 +235,20 @@ def detail(name_id):
     payload = f"\n{apis['postgis']['shell']} get_loaded_variables_for_table.sh {document['gdsc_tablename'][0]}\n\n".encode('utf-8')
     response = call_etl_api('postgis',payload)
     loaded_variables = response.split()[2:-2]
+    
+    # get json_ld 
+    with open(f"/data/{name_id}/meta_json-ld_{name_id}.json", 'r', encoding='utf-8') as f:
+        json_ld = json.load(f)
 
     # render page
-    return render_template('detail.html', name_id=name_id, document=document, loaded_variables=loaded_variables, referrer=request.args)
+    return render_template(
+        'detail.html',
+        name_id=name_id, 
+        document=document, 
+        loaded_variables=loaded_variables, 
+        referrer=request.args,
+        json_ld=json_ld
+    )
 
 ##
  # load layer
@@ -247,16 +266,17 @@ def loadlayer(layer_id):
     payload = f"\n{apis['postgis']['shell']} get_path_and_dependencies.sh {layer_id}\n\n".encode('utf-8')
     response = call_etl_api('postgis',payload).split(' ')
     for layer in response[1:]: loadlayer(layer)
+    data_path = response[0]
 
     # prepare response and get the ETL scripts
     response = {'load': layer_id}
-    scripts = os.listdir(f'{reponse[0]}/etl/')
+    scripts = os.listdir(f'{data_path}/etl/')
     scripts = [x.split('_')[-1][:-3] for x in scripts if x not in ['processStep','.DS_Store']]
 
     # run the ETL scripts
     for api in apis:
         if api in scripts:
-            payload = f"\n{apis[api]['shell']} {reponse[0]}/etl/{layer_id}_{api}.sh\n\n".encode('utf-8')
+            payload = f"\n{apis[api]['shell']} {data_path}/etl/{layer_id}_{api}.sh\n\n".encode('utf-8')
             response[api] = call_etl_api(api,payload)
 
     return response
