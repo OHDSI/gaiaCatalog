@@ -94,7 +94,7 @@
             {% endif %}
             {% if document['gdsc_attributes'] and document['gdsc_attributes']|length > 0 %}
             <div class="accordion mt-2" id="attributes-container">
-              <div class="accordion-item">
+              <div class="accordion-itemb">
                 <div class="accordion-header">
                   <a href="attributes" data-bs-toggle="collapse" data-bs-target="#attributes" aria-expanded="true" aria-controls="attributes">
                     <b>attributes:</b>
@@ -126,7 +126,7 @@
                         <tr>
                           <td>
                             {% if attr[11]|length > 0 %}
-                            <div class="none">
+                            <div class="none"> 
                               <div id="variable-{{ attr[0] }}" class="float-left circle {{ 'green-fill' if attr[0] in loaded_variables else 'red-fill' }}" onclick="javascript:loadvar('{{ document['gdsc_tablename'][0] }}','{{ attr[0] }}')"></div>
                             </div>
                             {% else %}

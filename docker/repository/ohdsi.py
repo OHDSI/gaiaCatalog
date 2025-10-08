@@ -99,16 +99,14 @@ def highlight_query(document,query):
                     if term.upper() not in attr.upper(): found = False
                 if found:
                     document['found_in'][field] = []
-                    for term in terms:
-                        document[field][i] = add_tags(document[field][i],term)
                     row = attr.split(';')
                     if len(row) > 1:
-                        document[field][i] = add_tags(document[field][i],row[0])
-                        for j in range(0,2):
-                            for term in terms:
-                                row[j] = add_tags(row[j],term)
-                        row[0] = add_tags(row[0],row[0])
+                        row[1] = add_tags(row[1],term) # attribute description
                         attrs.append([row[0],row[1]])
+                        document[field][i] = ";".join(row)
+                    else:
+                        for term in terms:
+                            document[field][i] = add_tags(document[field][i],term)
             if len(attrs) > 0: document['found_in'][field] = attrs
 
     return document
