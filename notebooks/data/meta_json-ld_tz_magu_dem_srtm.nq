@@ -1,0 +1,28 @@
+Error: Error parsing JSON.
+    at _typedParse (file:///home/fils/.config/nvm/versions/node/v22.14.0/lib/node_modules/jsonld-cli/node_modules/jsonld-request/lib/index.js:79:15)
+    at _parse (file:///home/fils/.config/nvm/versions/node/v22.14.0/lib/node_modules/jsonld-cli/node_modules/jsonld-request/lib/index.js:183:12)
+    at _requestFile (file:///home/fils/.config/nvm/versions/node/v22.14.0/lib/node_modules/jsonld-cli/node_modules/jsonld-request/lib/index.js:289:17)
+    at async documentLoader (file:///home/fils/.config/nvm/versions/node/v22.14.0/lib/node_modules/jsonld-cli/bin/jsonld.js:217:23)
+    at async jsonld.get (/home/fils/.config/nvm/versions/node/v22.14.0/lib/node_modules/jsonld-cli/node_modules/jsonld/lib/jsonld.js:887:21)
+    at async jsonld.expand (/home/fils/.config/nvm/versions/node/v22.14.0/lib/node_modules/jsonld-cli/node_modules/jsonld/lib/jsonld.js:300:23)
+    at async jsonld.toRDF (/home/fils/.config/nvm/versions/node/v22.14.0/lib/node_modules/jsonld-cli/node_modules/jsonld/lib/jsonld.js:687:16)
+    at async Command.format (file:///home/fils/.config/nvm/versions/node/v22.14.0/lib/node_modules/jsonld-cli/bin/jsonld.js:278:18)
+    at async Command.parseAsync (/home/fils/.config/nvm/versions/node/v22.14.0/lib/node_modules/jsonld-cli/node_modules/commander/lib/command.js:936:5)
+Error: {
+  details: {
+    contentType: [32m'json'[39m,
+    url: [32m'../../datastore/data/tz_magu_dem_srtm/meta_json-ld_tz_magu_dem_srtm.json'[39m
+  }
+}
+SyntaxError: Unexpected token 'N', ..."  "name": NaN,
+     "... is not valid JSON
+    at JSON.parse (<anonymous>)
+    at _typedParse (file:///home/fils/.config/nvm/versions/node/v22.14.0/lib/node_modules/jsonld-cli/node_modules/jsonld-request/lib/index.js:77:21)
+    at _parse (file:///home/fils/.config/nvm/versions/node/v22.14.0/lib/node_modules/jsonld-cli/node_modules/jsonld-request/lib/index.js:183:12)
+    at _requestFile (file:///home/fils/.config/nvm/versions/node/v22.14.0/lib/node_modules/jsonld-cli/node_modules/jsonld-request/lib/index.js:289:17)
+    at async documentLoader (file:///home/fils/.config/nvm/versions/node/v22.14.0/lib/node_modules/jsonld-cli/bin/jsonld.js:217:23)
+    at async jsonld.get (/home/fils/.config/nvm/versions/node/v22.14.0/lib/node_modules/jsonld-cli/node_modules/jsonld/lib/jsonld.js:887:21)
+    at async jsonld.expand (/home/fils/.config/nvm/versions/node/v22.14.0/lib/node_modules/jsonld-cli/node_modules/jsonld/lib/jsonld.js:300:23)
+    at async jsonld.toRDF (/home/fils/.config/nvm/versions/node/v22.14.0/lib/node_modules/jsonld-cli/node_modules/jsonld/lib/jsonld.js:687:16)
+    at async Command.format (file:///home/fils/.config/nvm/versions/node/v22.14.0/lib/node_modules/jsonld-cli/bin/jsonld.js:278:18)
+    at async Command.parseAsync (/home/fils/.config/nvm/versions/node/v22.14.0/lib/node_modules/jsonld-cli/node_modules/commander/lib/command.js:936:5)

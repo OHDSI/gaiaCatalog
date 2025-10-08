@@ -1,0 +1,386 @@
+<https://gdsc.idsc.miami.edu/detail/global_pm25_concentration_1998_2016> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://schema.org/Dataset> .
+<https://gdsc.idsc.miami.edu/detail/global_pm25_concentration_1998_2016> <https://schema.org/about> _:b0 .
+<https://gdsc.idsc.miami.edu/detail/global_pm25_concentration_1998_2016> <https://schema.org/about> _:b3 .
+<https://gdsc.idsc.miami.edu/detail/global_pm25_concentration_1998_2016> <https://schema.org/additionalProperty> _:b7 .
+<https://gdsc.idsc.miami.edu/detail/global_pm25_concentration_1998_2016> <https://schema.org/creator> _:b8 .
+<https://gdsc.idsc.miami.edu/detail/global_pm25_concentration_1998_2016> <https://schema.org/creator> _:b9 .
+<https://gdsc.idsc.miami.edu/detail/global_pm25_concentration_1998_2016> <https://schema.org/dateModified> "2021-04-06" .
+<https://gdsc.idsc.miami.edu/detail/global_pm25_concentration_1998_2016> <https://schema.org/datePublished> "2021-04-06" .
+<https://gdsc.idsc.miami.edu/detail/global_pm25_concentration_1998_2016> <https://schema.org/description> "The Annual PM2.5 Concentrations for Countries and Urban Areas, 1998-2016, consists of mean concentrations of particulate matter (PM2.5) for countries and urban areas. The PM2.5 data are from the Global Annual PM2.5 Grids from MODIS, MISR and SeaWiFS Aerosol Optical Depth (AOD) with GWR, 1998-2016. The urban areas are from the Global Rural-Urban Mapping Project, Version 1 (GRUMPv1): Urban Extent Polygons, Revision 02, and its time series runs from 1998 to 2016. The country averages are population-weighted such that concentrations in populated areas count more toward the country average than concentrations in less populated areas, and its time series runs from 2008 to 2015" .
+<https://gdsc.idsc.miami.edu/detail/global_pm25_concentration_1998_2016> <https://schema.org/distribution> "https://gdsc.idsc.miami.edu/download/data/global_pm25_concentration_1998_2016/?file=global_pm25_concentration_1998_2016&format=shp" .
+<https://gdsc.idsc.miami.edu/detail/global_pm25_concentration_1998_2016> <https://schema.org/distribution> "https://gdsc.idsc.miami.edu/download/data/global_pm25_concentration_1998_2016/?file=global_pm25_concentration_1998_2016&format=sql" .
+<https://gdsc.idsc.miami.edu/detail/global_pm25_concentration_1998_2016> <https://schema.org/includedInDataCatalog> _:b10 .
+<https://gdsc.idsc.miami.edu/detail/global_pm25_concentration_1998_2016> <https://schema.org/keywords> "Air Quality" .
+<https://gdsc.idsc.miami.edu/detail/global_pm25_concentration_1998_2016> <https://schema.org/keywords> "Global" .
+<https://gdsc.idsc.miami.edu/detail/global_pm25_concentration_1998_2016> <https://schema.org/keywords> "PM 2.5" .
+<https://gdsc.idsc.miami.edu/detail/global_pm25_concentration_1998_2016> <https://schema.org/license> "This work is licensed under the Creative Commons Attribution 4.0 International License (https://creativecommons.org/licenses/by/4.0). Users are free to use, copy, distribute, transmit, and adapt the work for commercial and non-commercial purposes, without restriction, as long as clear attribution of the source is provided." .
+<https://gdsc.idsc.miami.edu/detail/global_pm25_concentration_1998_2016> <https://schema.org/measurementTechnique> _:b11 .
+<https://gdsc.idsc.miami.edu/detail/global_pm25_concentration_1998_2016> <https://schema.org/measurementTechnique> _:b16 .
+<https://gdsc.idsc.miami.edu/detail/global_pm25_concentration_1998_2016> <https://schema.org/name> "Annual PM2.5 Concentrations for Countries and Urban Areas, v1 (1998 – 2016)" .
+<https://gdsc.idsc.miami.edu/detail/global_pm25_concentration_1998_2016> <https://schema.org/provider> "University of Miami GDSC" .
+<https://gdsc.idsc.miami.edu/detail/global_pm25_concentration_1998_2016> <https://schema.org/spatialCoverage> _:b21 .
+<https://gdsc.idsc.miami.edu/detail/global_pm25_concentration_1998_2016> <https://schema.org/type> "Vector Dataset" .
+<https://gdsc.idsc.miami.edu/detail/global_pm25_concentration_1998_2016> <https://schema.org/url> "https://ciesin.climate.columbia.edu/content/data" .
+<https://gdsc.idsc.miami.edu/detail/global_pm25_concentration_1998_2016> <https://schema.org/variableMeasured> _:b22 .
+<https://gdsc.idsc.miami.edu/detail/global_pm25_concentration_1998_2016> <https://schema.org/variableMeasured> _:b23 .
+<https://gdsc.idsc.miami.edu/detail/global_pm25_concentration_1998_2016> <https://schema.org/variableMeasured> _:b24 .
+<https://gdsc.idsc.miami.edu/detail/global_pm25_concentration_1998_2016> <https://schema.org/variableMeasured> _:b25 .
+<https://gdsc.idsc.miami.edu/detail/global_pm25_concentration_1998_2016> <https://schema.org/variableMeasured> _:b26 .
+<https://gdsc.idsc.miami.edu/detail/global_pm25_concentration_1998_2016> <https://schema.org/variableMeasured> _:b27 .
+<https://gdsc.idsc.miami.edu/detail/global_pm25_concentration_1998_2016> <https://schema.org/variableMeasured> _:b28 .
+<https://gdsc.idsc.miami.edu/detail/global_pm25_concentration_1998_2016> <https://schema.org/variableMeasured> _:b29 .
+<https://gdsc.idsc.miami.edu/detail/global_pm25_concentration_1998_2016> <https://schema.org/variableMeasured> _:b30 .
+<https://gdsc.idsc.miami.edu/detail/global_pm25_concentration_1998_2016> <https://schema.org/variableMeasured> _:b31 .
+<https://gdsc.idsc.miami.edu/detail/global_pm25_concentration_1998_2016> <https://schema.org/variableMeasured> _:b32 .
+<https://gdsc.idsc.miami.edu/detail/global_pm25_concentration_1998_2016> <https://schema.org/variableMeasured> _:b33 .
+<https://gdsc.idsc.miami.edu/detail/global_pm25_concentration_1998_2016> <https://schema.org/variableMeasured> _:b34 .
+<https://gdsc.idsc.miami.edu/detail/global_pm25_concentration_1998_2016> <https://schema.org/variableMeasured> _:b35 .
+<https://gdsc.idsc.miami.edu/detail/global_pm25_concentration_1998_2016> <https://schema.org/variableMeasured> _:b36 .
+<https://gdsc.idsc.miami.edu/detail/global_pm25_concentration_1998_2016> <https://schema.org/variableMeasured> _:b37 .
+<https://gdsc.idsc.miami.edu/detail/global_pm25_concentration_1998_2016> <https://schema.org/variableMeasured> _:b38 .
+<https://gdsc.idsc.miami.edu/detail/global_pm25_concentration_1998_2016> <https://schema.org/variableMeasured> _:b39 .
+<https://gdsc.idsc.miami.edu/detail/global_pm25_concentration_1998_2016> <https://schema.org/variableMeasured> _:b40 .
+<https://gdsc.idsc.miami.edu/detail/global_pm25_concentration_1998_2016> <https://schema.org/variableMeasured> _:b41 .
+<https://gdsc.idsc.miami.edu/detail/global_pm25_concentration_1998_2016> <https://schema.org/variableMeasured> _:b42 .
+<https://gdsc.idsc.miami.edu/detail/global_pm25_concentration_1998_2016> <https://schema.org/variableMeasured> _:b43 .
+<https://gdsc.idsc.miami.edu/detail/global_pm25_concentration_1998_2016> <https://schema.org/variableMeasured> _:b44 .
+<https://gdsc.idsc.miami.edu/detail/global_pm25_concentration_1998_2016> <https://schema.org/variableMeasured> _:b45 .
+<https://gdsc.idsc.miami.edu/detail/global_pm25_concentration_1998_2016> <https://schema.org/variableMeasured> _:b46 .
+<https://gdsc.idsc.miami.edu/detail/global_pm25_concentration_1998_2016> <https://schema.org/variableMeasured> _:b47 .
+<https://gdsc.idsc.miami.edu/detail/global_pm25_concentration_1998_2016> <https://schema.org/variableMeasured> _:b48 .
+<https://gdsc.idsc.miami.edu/detail/global_pm25_concentration_1998_2016> <https://schema.org/variableMeasured> _:b49 .
+<https://gdsc.idsc.miami.edu/detail/global_pm25_concentration_1998_2016> <https://schema.org/version> "2025-10-05" .
+<https://github.com/Geospatial-Digital-Special-Collections/tools> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://schema.org/SoftwareApplication> .
+<https://github.com/Geospatial-Digital-Special-Collections/tools> <https://schema.org/downloadUrl> "https://github.com/Geospatial-Digital-Special-Collections/tools.git" .
+<https://github.com/Geospatial-Digital-Special-Collections/tools> <https://schema.org/featureList> "wget" .
+_:b0 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://schema.org/Event> .
+_:b0 <https://schema.org/description> "Direct from source" .
+_:b0 <https://schema.org/name> "ETL process for Annual PM2.5 Concentrations for Countries and Urban Areas, v1 (1998 – 2016)" .
+_:b0 <https://schema.org/potentialAction> _:b1 .
+_:b1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://schema.org/Action> .
+_:b1 <https://schema.org/description> "#########\n# GDSC ETL is performed in two steps: shell script to ETL data into postgres\n# and then additional transformations with SQL in postGIS (if needed).\n####\n\n#########\n# Step 1 - bash script (pseudo code)\n####\n\n# create directory structure and move into it\nmkdir -p /data/global_pm25_concentration_1998_2016/{download,etl} && cd /data/global_pm25_concentration_1998_2016\n\n# set update flag based on last update and update frequency\ndo_update=0 if date() < last_update + update_frequency else do_update = 1\n\n# download if update flag is set:\nif do_update == 1 then\nwget -O download/global_pm25_concentration_1998_2016.zip 'https://sedac.ciesin.columbia.edu/downloads/data/sdei/sdei-annual-pm2-5-concentrations-countries-urban-areas-v1-1998-2016/sdei-annual-pm2-5-concentrations-countries-urban-areas-v1-1998-2016-urban-areas-shp.zip'\n\n# unzip to download directory if update flag is set\nif do_update == 1 then\nunzip -d download download/global_pm25_concentration_1998_2016.zip && rm download/global_pm25_concentration_1998_2016.zip\n\n# load into postGIS with:\n  ogr2ogr -lco GEOMETRY_NAME=geom -f PostgreSQL PG:\"<postgres connection>\" download/sdei-annual-pm2-5-concentrations-countries-urban-areas-v1-1998-2016-urban-areas.shp -nlt multipolygon -nln global_pm25_concentration_1998_2016\n\n#########\n# Step 2 - SQL script (pseudo code):\n####\n\n# remove duplicate points and make geometries valid:\nUPDATE global_pm25_concentration_1998_2016\n  SET geom=ST_MakeValid(ST_RemoveRepeatedPoints(geom));\n\n# add local geometry column and reproject existing geometries into local EPSG:\nSELECT AddGeometryColumn (\n  'global_pm25_concentration_1998_2016',\n  'geom_local', 3857, 'multipolygon', 2\n);\nUPDATE global_pm25_concentration_1998_2016\n  SET geom_local=ST_MakeValid(ST_RemoveRepeatedPoints(ST_Transform(ST_Multi(geom),3857)));\nCREATE INDEX global_pm25_concentration_1998_2016_geom_local_idx\n  ON global_pm25_concentration_1998_2016\n  USING GIST (geom_local);\nNOTIFY pgrst, 'reload schema';\n# Move into corrrect directory and create derivative directory in data package on osgeo\ncd /data/global_pm25_concentration_1998_2016/\nmkdir -p derived\n\nexport PGPASSWORD=SuperSecret\n# Create shapefile of table in derivate directory on osgeo \nogr2ogr -f \"ESRI Shapefile\" -overwrite derived/global_pm25_concentration_1998_2016.shp PG:\"<postgres connection>\" global_pm25_concentration_1998_2016\n\n# Create downloadable tarfile of shp in derivative directory on osgeo\nrm -f derived/global_pm25_concentration_1998_2016.shp.tar.gz\ntar -czf derived/global_pm25_concentration_1998_2016.shp.tar.gz meta_dcat_global_pm25_concentration_1998_2016.json -C derived global_pm25_concentration_1998_2016.shp global_pm25_concentration_1998_2016.prj global_pm25_concentration_1998_2016.shx global_pm25_concentration_1998_2016.dbf\n\n# Move into correct directory\ncd /data/global_pm25_concentration_1998_2016/\n\nexport PGPASSWORD=SuperSecret\n# Create pg_dump of table SQL in derivate directory on postgis.\npg_dump <postgres opts> -h gaia-db -t global_pm25_concentration_1998_2016 > derived/global_pm25_concentration_1998_2016.sql\n\n# Create downloadable tarfile of SQL in derivative directory on postgis\nrm -f derived/global_pm25_concentration_1998_2016.sql.tar.gz\ntar -czf derived/global_pm25_concentration_1998_2016.sql.tar.gz meta_dcat_global_pm25_concentration_1998_2016.json -C derived global_pm25_concentration_1998_2016.sql\n\n" .
+_:b1 <https://schema.org/name> "Pseudo Code" .
+_:b1 <https://schema.org/result> _:b2 .
+_:b10 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://schema.org/DataCatalog> .
+_:b10 <https://schema.org/name> "Geospatial Digital Special Collections" .
+_:b10 <https://schema.org/url> "https://gdsc.idsc.miami.edu" .
+_:b11 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://schema.org/DefinedTerm> .
+_:b11 <https://schema.org/description> "GIS Data Structure for Representation" .
+_:b11 <https://schema.org/inDefinedTermSet> _:b12 .
+_:b11 <https://schema.org/termCode> "vector" .
+_:b12 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://schema.org/DefinedTermSet> .
+_:b12 <https://schema.org/hasDefinedTerm> _:b13 .
+_:b12 <https://schema.org/hasDefinedTerm> _:b14 .
+_:b12 <https://schema.org/hasDefinedTerm> _:b15 .
+_:b12 <https://schema.org/name> "dataRepresentation" .
+_:b13 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://schema.org/DefinedTerm> .
+_:b13 <https://schema.org/termCode> "raster" .
+_:b14 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://schema.org/DefinedTerm> .
+_:b14 <https://schema.org/termCode> "vector" .
+_:b15 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://schema.org/DefinedTerm> .
+_:b15 <https://schema.org/termCode> "table" .
+_:b16 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://schema.org/DefinedTerm> .
+_:b16 <https://schema.org/description> "GIS Vector Geometery" .
+_:b16 <https://schema.org/inDefinedTermSet> _:b17 .
+_:b16 <https://schema.org/termCode> "multipolygon" .
+_:b17 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://schema.org/DefinedTermSet> .
+_:b17 <https://schema.org/hasDefinedTerm> _:b18 .
+_:b17 <https://schema.org/hasDefinedTerm> _:b19 .
+_:b17 <https://schema.org/hasDefinedTerm> _:b20 .
+_:b17 <https://schema.org/name> "vectorGeometry" .
+_:b18 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://schema.org/DefinedTerm> .
+_:b18 <https://schema.org/termCode> "point" .
+_:b19 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://schema.org/DefinedTerm> .
+_:b19 <https://schema.org/termCode> "line" .
+_:b2 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://schema.org/Dataset> .
+_:b2 <https://schema.org/encodingFormat> "sql" .
+_:b2 <https://schema.org/url> "https://gdsc.idsc.miami.edu/download/data/global_pm25_concentration_1998_2016/?file=global_pm25_concentration_1998_2016&format=sql" .
+_:b20 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://schema.org/DefinedTerm> .
+_:b20 <https://schema.org/termCode> "polygon" .
+_:b21 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://schema.org/Place> .
+_:b21 <https://schema.org/name> "Global" .
+_:b22 <http://qudt.org/schema/qudt/dataType> "numeric" .
+_:b22 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://schema.org/PropertyValue> .
+_:b22 <https://schema.org/description> "Code of the urban extent polygons (not unique)" .
+_:b22 <https://schema.org/maxValue> "94650.00" .
+_:b22 <https://schema.org/minValue> "8.00" .
+_:b22 <https://schema.org/name> "urbid" .
+_:b22 <https://schema.org/propertyID> "" .
+_:b23 <http://qudt.org/schema/qudt/dataType> "varchar" .
+_:b23 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://schema.org/PropertyValue> .
+_:b23 <https://schema.org/description> "\"Name of the Urban Extent, caps and concatenated. If the urban extents polygons include more than one settlement, the name of the urban extent is the name of the settlement with the highest population\"" .
+_:b23 <https://schema.org/name> "stndrdname" .
+_:b23 <https://schema.org/propertyID> "" .
+_:b24 <http://qudt.org/schema/qudt/dataType> "varchar" .
+_:b24 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://schema.org/PropertyValue> .
+_:b24 <https://schema.org/description> "\"Name of the Urban Extent. If the urban extents polygons include more than one settlement, the name of the urban extent is the name of the settlement with the highest population\"" .
+_:b24 <https://schema.org/name> "name" .
+_:b24 <https://schema.org/propertyID> "" .
+_:b25 <http://qudt.org/schema/qudt/dataType> "varchar" .
+_:b25 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://schema.org/PropertyValue> .
+_:b25 <https://schema.org/description> "Unique code of the urban extent polygons. It is created by concatenation of country ISO code and URBID" .
+_:b25 <https://schema.org/name> "isourbid" .
+_:b25 <https://schema.org/propertyID> "" .
+_:b26 <http://qudt.org/schema/qudt/dataType> "numeric" .
+_:b26 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://schema.org/PropertyValue> .
+_:b26 <https://schema.org/description> "Area of the urban extent polygon" .
+_:b26 <https://schema.org/maxValue> "43605.80" .
+_:b26 <https://schema.org/minValue> "0.00" .
+_:b26 <https://schema.org/name> "sqkm" .
+_:b26 <https://schema.org/propertyID> "" .
+_:b26 <https://schema.org/unitText> "square kilometers" .
+_:b27 <http://qudt.org/schema/qudt/dataType> "varchar" .
+_:b27 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://schema.org/PropertyValue> .
+_:b27 <https://schema.org/description> "3 letter country code" .
+_:b27 <https://schema.org/name> "iso3" .
+_:b27 <https://schema.org/propertyID> "" .
+_:b28 <http://qudt.org/schema/qudt/dataType> "numeric" .
+_:b28 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://schema.org/PropertyValue> .
+_:b28 <https://schema.org/description> "UNSD country numerical code" .
+_:b28 <https://schema.org/maxValue> "1015.00" .
+_:b28 <https://schema.org/minValue> "4.00" .
+_:b28 <https://schema.org/name> "unsdcode" .
+_:b28 <https://schema.org/propertyID> "" .
+_:b29 <http://qudt.org/schema/qudt/dataType> "varchar" .
+_:b29 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://schema.org/PropertyValue> .
+_:b29 <https://schema.org/description> "Country name" .
+_:b29 <https://schema.org/name> "countryeng" .
+_:b29 <https://schema.org/propertyID> "" .
+_:b3 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://schema.org/Event> .
+_:b3 <https://schema.org/description> "Direct from source" .
+_:b3 <https://schema.org/name> "ETL process for Annual PM2.5 Concentrations for Countries and Urban Areas, v1 (1998 – 2016)" .
+_:b3 <https://schema.org/potentialAction> _:b4 .
+_:b30 <http://qudt.org/schema/qudt/dataType> "varchar" .
+_:b30 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://schema.org/PropertyValue> .
+_:b30 <https://schema.org/description> "Continent Name" .
+_:b30 <https://schema.org/name> "continent" .
+_:b30 <https://schema.org/propertyID> "" .
+_:b31 <http://qudt.org/schema/qudt/dataType> "numeric" .
+_:b31 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://schema.org/PropertyValue> .
+_:b31 <https://schema.org/description> "\"PM2.5 Exposure for named urban areas from GRUMPv1: Urban Extent Polygons, Revision 02, from 1998. It is measured in micrograms per cubic meter, and is the average annual concentration of PM2.5 to which the typical citizen of each urban area is exposed. Blanks (-9999) represent missing data.\"" .
+_:b31 <https://schema.org/endDate> "12/31/98" .
+_:b31 <https://schema.org/maxValue> "82.91" .
+_:b31 <https://schema.org/minValue> "0.00" .
+_:b31 <https://schema.org/name> "avpmu_1998" .
+_:b31 <https://schema.org/propertyID> "2052499839" .
+_:b31 <https://schema.org/startDate> "1/1/98" .
+_:b31 <https://schema.org/unitCode> "32964" .
+_:b31 <https://schema.org/unitText> "micrograms/cubic meter" .
+_:b32 <http://qudt.org/schema/qudt/dataType> "numeric" .
+_:b32 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://schema.org/PropertyValue> .
+_:b32 <https://schema.org/description> "\"PM2.5 Exposure for named urban areas from GRUMPv1: Urban Extent Polygons, Revision 02, from 1999. It is measured in micrograms per cubic meter, and is the average annual concentration of PM2.5 to which the typical citizen of each urban area is exposed. Blanks (-9999) represent missing data.\"" .
+_:b32 <https://schema.org/endDate> "12/31/99" .
+_:b32 <https://schema.org/maxValue> "77.47" .
+_:b32 <https://schema.org/minValue> "0.00" .
+_:b32 <https://schema.org/name> "avpmu_1999" .
+_:b32 <https://schema.org/propertyID> "2052499839" .
+_:b32 <https://schema.org/startDate> "1/1/99" .
+_:b32 <https://schema.org/unitCode> "32964" .
+_:b32 <https://schema.org/unitText> "micrograms/cubic meter" .
+_:b33 <http://qudt.org/schema/qudt/dataType> "numeric" .
+_:b33 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://schema.org/PropertyValue> .
+_:b33 <https://schema.org/description> "\"PM2.5 Exposure for named urban areas from GRUMPv1: Urban Extent Polygons, Revision 02, from 2000. It is measured in micrograms per cubic meter, and is the average annual concentration of PM2.5 to which the typical citizen of each urban area is exposed. Blanks (-9999) represent missing data.\"" .
+_:b33 <https://schema.org/endDate> "12/31/00" .
+_:b33 <https://schema.org/maxValue> "81.73" .
+_:b33 <https://schema.org/minValue> "0.00" .
+_:b33 <https://schema.org/name> "avpmu_2000" .
+_:b33 <https://schema.org/propertyID> "2052499839" .
+_:b33 <https://schema.org/startDate> "1/1/00" .
+_:b33 <https://schema.org/unitCode> "32964" .
+_:b33 <https://schema.org/unitText> "micrograms/cubic meter" .
+_:b34 <http://qudt.org/schema/qudt/dataType> "numeric" .
+_:b34 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://schema.org/PropertyValue> .
+_:b34 <https://schema.org/description> "\"PM2.5 Exposure for named urban areas from GRUMPv1: Urban Extent Polygons, Revision 02, from 2001. It is measured in micrograms per cubic meter, and is the average annual concentration of PM2.5 to which the typical citizen of each urban area is exposed. Blanks (-9999) represent missing data.\"" .
+_:b34 <https://schema.org/endDate> "12/31/01" .
+_:b34 <https://schema.org/maxValue> "95.98" .
+_:b34 <https://schema.org/minValue> "0.00" .
+_:b34 <https://schema.org/name> "avpmu_2001" .
+_:b34 <https://schema.org/propertyID> "2052499839" .
+_:b34 <https://schema.org/startDate> "1/1/01" .
+_:b34 <https://schema.org/unitCode> "32964" .
+_:b34 <https://schema.org/unitText> "micrograms/cubic meter" .
+_:b35 <http://qudt.org/schema/qudt/dataType> "numeric" .
+_:b35 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://schema.org/PropertyValue> .
+_:b35 <https://schema.org/description> "\"PM2.5 Exposure for named urban areas from GRUMPv1: Urban Extent Polygons, Revision 02, from 2002. It is measured in micrograms per cubic meter, and is the average annual concentration of PM2.5 to which the typical citizen of each urban area is exposed. Blanks (-9999) represent missing data.\"" .
+_:b35 <https://schema.org/endDate> "12/31/02" .
+_:b35 <https://schema.org/maxValue> "88.72" .
+_:b35 <https://schema.org/minValue> "0.00" .
+_:b35 <https://schema.org/name> "avpmu_2002" .
+_:b35 <https://schema.org/propertyID> "2052499839" .
+_:b35 <https://schema.org/startDate> "1/1/02" .
+_:b35 <https://schema.org/unitCode> "32964" .
+_:b35 <https://schema.org/unitText> "micrograms/cubic meter" .
+_:b36 <http://qudt.org/schema/qudt/dataType> "numeric" .
+_:b36 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://schema.org/PropertyValue> .
+_:b36 <https://schema.org/description> "\"PM2.5 Exposure for named urban areas from GRUMPv1: Urban Extent Polygons, Revision 02, from 2003. It is measured in micrograms per cubic meter, and is the average annual concentration of PM2.5 to which the typical citizen of each urban area is exposed. Blanks (-9999) represent missing data.\"" .
+_:b36 <https://schema.org/endDate> "12/31/03" .
+_:b36 <https://schema.org/maxValue> "103.41" .
+_:b36 <https://schema.org/minValue> "0.00" .
+_:b36 <https://schema.org/name> "avpmu_2003" .
+_:b36 <https://schema.org/propertyID> "2052499839" .
+_:b36 <https://schema.org/startDate> "1/1/03" .
+_:b36 <https://schema.org/unitCode> "32964" .
+_:b36 <https://schema.org/unitText> "micrograms/cubic meter" .
+_:b37 <http://qudt.org/schema/qudt/dataType> "numeric" .
+_:b37 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://schema.org/PropertyValue> .
+_:b37 <https://schema.org/description> "\"PM2.5 Exposure for named urban areas from GRUMPv1: Urban Extent Polygons, Revision 02, from 2004. It is measured in micrograms per cubic meter, and is the average annual concentration of PM2.5 to which the typical citizen of each urban area is exposed. Blanks (-9999) represent missing data.\"" .
+_:b37 <https://schema.org/endDate> "12/31/04" .
+_:b37 <https://schema.org/maxValue> "99.80" .
+_:b37 <https://schema.org/minValue> "0.00" .
+_:b37 <https://schema.org/name> "avpmu_2004" .
+_:b37 <https://schema.org/propertyID> "2052499839" .
+_:b37 <https://schema.org/startDate> "1/1/04" .
+_:b37 <https://schema.org/unitCode> "32964" .
+_:b37 <https://schema.org/unitText> "micrograms/cubic meter" .
+_:b38 <http://qudt.org/schema/qudt/dataType> "numeric" .
+_:b38 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://schema.org/PropertyValue> .
+_:b38 <https://schema.org/description> "\"PM2.5 Exposure for named urban areas from GRUMPv1: Urban Extent Polygons, Revision 02, from 2005. It is measured in micrograms per cubic meter, and is the average annual concentration of PM2.5 to which the typical citizen of each urban area is exposed. Blanks (-9999) represent missing data.\"" .
+_:b38 <https://schema.org/endDate> "12/31/05" .
+_:b38 <https://schema.org/maxValue> "101.18" .
+_:b38 <https://schema.org/minValue> "0.00" .
+_:b38 <https://schema.org/name> "avpmu_2005" .
+_:b38 <https://schema.org/propertyID> "2052499839" .
+_:b38 <https://schema.org/startDate> "1/1/05" .
+_:b38 <https://schema.org/unitCode> "32964" .
+_:b38 <https://schema.org/unitText> "micrograms/cubic meter" .
+_:b39 <http://qudt.org/schema/qudt/dataType> "numeric" .
+_:b39 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://schema.org/PropertyValue> .
+_:b39 <https://schema.org/description> "\"PM2.5 Exposure for named urban areas from GRUMPv1: Urban Extent Polygons, Revision 02, from 2006. It is measured in micrograms per cubic meter, and is the average annual concentration of PM2.5 to which the typical citizen of each urban area is exposed. Blanks (-9999) represent missing data.\"" .
+_:b39 <https://schema.org/endDate> "12/31/06" .
+_:b39 <https://schema.org/maxValue> "103.09" .
+_:b39 <https://schema.org/minValue> "0.00" .
+_:b39 <https://schema.org/name> "avpmu_2006" .
+_:b39 <https://schema.org/propertyID> "2052499839" .
+_:b39 <https://schema.org/startDate> "1/1/06" .
+_:b39 <https://schema.org/unitCode> "32964" .
+_:b39 <https://schema.org/unitText> "micrograms/cubic meter" .
+_:b4 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://schema.org/Action> .
+_:b4 <https://schema.org/description> "ETL process for Annual PM2.5 Concentrations for Countries and Urban Areas, v1 (1998 – 2016)" .
+_:b4 <https://schema.org/instrument> <https://github.com/Geospatial-Digital-Special-Collections/tools> .
+_:b4 <https://schema.org/name> "wget" .
+_:b4 <https://schema.org/object> _:b5 .
+_:b4 <https://schema.org/result> _:b6 .
+_:b40 <http://qudt.org/schema/qudt/dataType> "numeric" .
+_:b40 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://schema.org/PropertyValue> .
+_:b40 <https://schema.org/description> "\"PM2.5 Exposure for named urban areas from GRUMPv1: Urban Extent Polygons, Revision 02, from 2007. It is measured in micrograms per cubic meter, and is the average annual concentration of PM2.5 to which the typical citizen of each urban area is exposed. Blanks (-9999) represent missing data.\"" .
+_:b40 <https://schema.org/endDate> "12/31/07" .
+_:b40 <https://schema.org/maxValue> "104.29" .
+_:b40 <https://schema.org/minValue> "0.00" .
+_:b40 <https://schema.org/name> "avpmu_2007" .
+_:b40 <https://schema.org/propertyID> "2052499839" .
+_:b40 <https://schema.org/startDate> "1/1/07" .
+_:b40 <https://schema.org/unitCode> "32964" .
+_:b40 <https://schema.org/unitText> "micrograms/cubic meter" .
+_:b41 <http://qudt.org/schema/qudt/dataType> "numeric" .
+_:b41 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://schema.org/PropertyValue> .
+_:b41 <https://schema.org/description> "\"PM2.5 Exposure for named urban areas from GRUMPv1: Urban Extent Polygons, Revision 02, from 2008. It is measured in micrograms per cubic meter, and is the average annual concentration of PM2.5 to which the typical citizen of each urban area is exposed. Blanks (-9999) represent missing data.\"" .
+_:b41 <https://schema.org/endDate> "12/31/08" .
+_:b41 <https://schema.org/maxValue> "124.95" .
+_:b41 <https://schema.org/minValue> "0.10" .
+_:b41 <https://schema.org/name> "avpmu_2008" .
+_:b41 <https://schema.org/propertyID> "2052499839" .
+_:b41 <https://schema.org/startDate> "1/1/08" .
+_:b41 <https://schema.org/unitCode> "32964" .
+_:b41 <https://schema.org/unitText> "micrograms/cubic meter" .
+_:b42 <http://qudt.org/schema/qudt/dataType> "numeric" .
+_:b42 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://schema.org/PropertyValue> .
+_:b42 <https://schema.org/description> "\"PM2.5 Exposure for named urban areas from GRUMPv1: Urban Extent Polygons, Revision 02, from 2009. It is measured in micrograms per cubic meter, and is the average annual concentration of PM2.5 to which the typical citizen of each urban area is exposed. Blanks (-9999) represent missing data.\"" .
+_:b42 <https://schema.org/endDate> "12/31/09" .
+_:b42 <https://schema.org/maxValue> "110.21" .
+_:b42 <https://schema.org/minValue> "0.10" .
+_:b42 <https://schema.org/name> "avpmu_2009" .
+_:b42 <https://schema.org/propertyID> "2052499839" .
+_:b42 <https://schema.org/startDate> "1/1/09" .
+_:b42 <https://schema.org/unitCode> "32964" .
+_:b42 <https://schema.org/unitText> "micrograms/cubic meter" .
+_:b43 <http://qudt.org/schema/qudt/dataType> "numeric" .
+_:b43 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://schema.org/PropertyValue> .
+_:b43 <https://schema.org/description> "\"PM2.5 Exposure for named urban areas from GRUMPv1: Urban Extent Polygons, Revision 02, from 2010. It is measured in micrograms per cubic meter, and is the average annual concentration of PM2.5 to which the typical citizen of each urban area is exposed. Blanks (-9999) represent missing data.\"" .
+_:b43 <https://schema.org/endDate> "12/31/10" .
+_:b43 <https://schema.org/maxValue> "104.90" .
+_:b43 <https://schema.org/minValue> "0.10" .
+_:b43 <https://schema.org/name> "avpmu_2010" .
+_:b43 <https://schema.org/propertyID> "2052499839" .
+_:b43 <https://schema.org/startDate> "1/1/10" .
+_:b43 <https://schema.org/unitCode> "32964" .
+_:b43 <https://schema.org/unitText> "micrograms/cubic meter" .
+_:b44 <http://qudt.org/schema/qudt/dataType> "numeric" .
+_:b44 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://schema.org/PropertyValue> .
+_:b44 <https://schema.org/description> "\"PM2.5 Exposure for named urban areas from GRUMPv1: Urban Extent Polygons, Revision 02, from 2011. It is measured in micrograms per cubic meter, and is the average annual concentration of PM2.5 to which the typical citizen of each urban area is exposed. Blanks (-9999) represent missing data.\"" .
+_:b44 <https://schema.org/endDate> "12/31/11" .
+_:b44 <https://schema.org/maxValue> "101.69" .
+_:b44 <https://schema.org/minValue> "0.00" .
+_:b44 <https://schema.org/name> "avpmu_2011" .
+_:b44 <https://schema.org/propertyID> "2052499839" .
+_:b44 <https://schema.org/startDate> "1/1/11" .
+_:b44 <https://schema.org/unitCode> "32964" .
+_:b44 <https://schema.org/unitText> "micrograms/cubic meter" .
+_:b45 <http://qudt.org/schema/qudt/dataType> "numeric" .
+_:b45 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://schema.org/PropertyValue> .
+_:b45 <https://schema.org/description> "\"PM2.5 Exposure for named urban areas from GRUMPv1: Urban Extent Polygons, Revision 02, from 2012. It is measured in micrograms per cubic meter, and is the average annual concentration of PM2.5 to which the typical citizen of each urban area is exposed. Blanks (-9999) represent missing data.\"" .
+_:b45 <https://schema.org/endDate> "12/31/12" .
+_:b45 <https://schema.org/maxValue> "84.48" .
+_:b45 <https://schema.org/minValue> "0.10" .
+_:b45 <https://schema.org/name> "avpmu_2012" .
+_:b45 <https://schema.org/propertyID> "2052499839" .
+_:b45 <https://schema.org/startDate> "1/1/12" .
+_:b45 <https://schema.org/unitCode> "32964" .
+_:b45 <https://schema.org/unitText> "micrograms/cubic meter" .
+_:b46 <http://qudt.org/schema/qudt/dataType> "numeric" .
+_:b46 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://schema.org/PropertyValue> .
+_:b46 <https://schema.org/description> "\"PM2.5 Exposure for named urban areas from GRUMPv1: Urban Extent Polygons, Revision 02, from 2013. It is measured in micrograms per cubic meter, and is the average annual concentration of PM2.5 to which the typical citizen of each urban area is exposed. Blanks (-9999) represent missing data.\"" .
+_:b46 <https://schema.org/endDate> "12/31/13" .
+_:b46 <https://schema.org/maxValue> "99.83" .
+_:b46 <https://schema.org/minValue> "0.10" .
+_:b46 <https://schema.org/name> "avpmu_2013" .
+_:b46 <https://schema.org/propertyID> "2052499839" .
+_:b46 <https://schema.org/startDate> "1/1/13" .
+_:b46 <https://schema.org/unitCode> "32964" .
+_:b46 <https://schema.org/unitText> "micrograms/cubic meter" .
+_:b47 <http://qudt.org/schema/qudt/dataType> "numeric" .
+_:b47 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://schema.org/PropertyValue> .
+_:b47 <https://schema.org/description> "\"PM2.5 Exposure for named urban areas from GRUMPv1: Urban Extent Polygons, Revision 02, from 2014. It is measured in micrograms per cubic meter, and is the average annual concentration of PM2.5 to which the typical citizen of each urban area is exposed. Blanks (-9999) represent missing data.\"" .
+_:b47 <https://schema.org/endDate> "12/31/14" .
+_:b47 <https://schema.org/maxValue> "97.52" .
+_:b47 <https://schema.org/minValue> "0.10" .
+_:b47 <https://schema.org/name> "avpmu_2014" .
+_:b47 <https://schema.org/propertyID> "2052499839" .
+_:b47 <https://schema.org/startDate> "1/1/14" .
+_:b47 <https://schema.org/unitCode> "32964" .
+_:b47 <https://schema.org/unitText> "micrograms/cubic meter" .
+_:b48 <http://qudt.org/schema/qudt/dataType> "numeric" .
+_:b48 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://schema.org/PropertyValue> .
+_:b48 <https://schema.org/description> "\"PM2.5 Exposure for named urban areas from GRUMPv1: Urban Extent Polygons, Revision 02, from 2015. It is measured in micrograms per cubic meter, and is the average annual concentration of PM2.5 to which the typical citizen of each urban area is exposed. Blanks (-9999) represent missing data.\"" .
+_:b48 <https://schema.org/endDate> "12/31/15" .
+_:b48 <https://schema.org/maxValue> "104.41" .
+_:b48 <https://schema.org/minValue> "0.20" .
+_:b48 <https://schema.org/name> "avpmu_2015" .
+_:b48 <https://schema.org/propertyID> "2052499839" .
+_:b48 <https://schema.org/startDate> "1/1/15" .
+_:b48 <https://schema.org/unitCode> "32964" .
+_:b48 <https://schema.org/unitText> "micrograms/cubic meter" .
+_:b49 <http://qudt.org/schema/qudt/dataType> "numeric" .
+_:b49 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://schema.org/PropertyValue> .
+_:b49 <https://schema.org/description> "\"PM2.5 Exposure for named urban areas from GRUMPv1: Urban Extent Polygons, Revision 02, from 2016. It is measured in micrograms per cubic meter, and is the average annual concentration of PM2.5 to which the typical citizen of each urban area is exposed. Blanks (-9999) represent missing data.\"" .
+_:b49 <https://schema.org/endDate> "12/31/16" .
+_:b49 <https://schema.org/maxValue> "126.79" .
+_:b49 <https://schema.org/minValue> "-0.50" .
+_:b49 <https://schema.org/name> "avpmu_2016" .
+_:b49 <https://schema.org/propertyID> "2052499839" .
+_:b49 <https://schema.org/startDate> "1/1/16" .
+_:b49 <https://schema.org/unitCode> "32964" .
+_:b49 <https://schema.org/unitText> "micrograms/cubic meter" .
+_:b5 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://schema.org/Dataset> .
+_:b5 <https://schema.org/name> "Direct from source" .
+_:b5 <https://schema.org/producer> "CIESIN - Center for International Earth Science Information Network" .
+_:b5 <https://schema.org/url> "https://ciesin.climate.columbia.edu/content/data" .
+_:b6 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://schema.org/Dataset> .
+_:b6 <https://schema.org/description> "The Annual PM2.5 Concentrations for Countries and Urban Areas, 1998-2016, consists of mean concentrations of particulate matter (PM2.5) for countries and urban areas. The PM2.5 data are from the Global Annual PM2.5 Grids from MODIS, MISR and SeaWiFS Aerosol Optical Depth (AOD) with GWR, 1998-2016. The urban areas are from the Global Rural-Urban Mapping Project, Version 1 (GRUMPv1): Urban Extent Polygons, Revision 02, and its time series runs from 1998 to 2016. The country averages are population-weighted such that concentrations in populated areas count more toward the country average than concentrations in less populated areas, and its time series runs from 2008 to 2015" .
+_:b6 <https://schema.org/encodingFormat> "sql" .
+_:b6 <https://schema.org/name> "Annual PM2.5 Concentrations for Countries and Urban Areas, v1 (1998 – 2016)" .
+_:b6 <https://schema.org/url> "https://gdsc.idsc.miami.edu/download/data/global_pm25_concentration_1998_2016/?file=global_pm25_concentration_1998_2016&format=sql" .
+_:b7 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://schema.org/PropertyValue> .
+_:b7 <https://schema.org/propertyID> "http://dbpedia.org/resource/Spatial_reference_system" .
+_:b7 <https://schema.org/value> "https://epsg.io/4326" .
+_:b8 <https://schema.org/name> "CIESIN - Center for International Earth Science Information Network" .
+_:b9 <https://schema.org/name> "Columbia University" .

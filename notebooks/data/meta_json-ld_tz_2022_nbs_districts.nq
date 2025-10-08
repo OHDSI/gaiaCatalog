@@ -1,0 +1,110 @@
+<https://gdsc.idsc.miami.edu/detail/tz_2022_nbs_districts> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://schema.org/Dataset> .
+<https://gdsc.idsc.miami.edu/detail/tz_2022_nbs_districts> <https://schema.org/about> _:b0 .
+<https://gdsc.idsc.miami.edu/detail/tz_2022_nbs_districts> <https://schema.org/about> _:b3 .
+<https://gdsc.idsc.miami.edu/detail/tz_2022_nbs_districts> <https://schema.org/additionalProperty> _:b7 .
+<https://gdsc.idsc.miami.edu/detail/tz_2022_nbs_districts> <https://schema.org/creator> _:b8 .
+<https://gdsc.idsc.miami.edu/detail/tz_2022_nbs_districts> <https://schema.org/dateModified> "2025-06-01" .
+<https://gdsc.idsc.miami.edu/detail/tz_2022_nbs_districts> <https://schema.org/datePublished> "2024-01-01" .
+<https://gdsc.idsc.miami.edu/detail/tz_2022_nbs_districts> <https://schema.org/description> "Shapefile for Tanzania Districts from the 2022 Census" .
+<https://gdsc.idsc.miami.edu/detail/tz_2022_nbs_districts> <https://schema.org/distribution> "https://gdsc.idsc.miami.edu/download/data/tz_2022_nbs_districts/?file=tz_2022_nbs_districts&format=shp" .
+<https://gdsc.idsc.miami.edu/detail/tz_2022_nbs_districts> <https://schema.org/includedInDataCatalog> _:b9 .
+<https://gdsc.idsc.miami.edu/detail/tz_2022_nbs_districts> <https://schema.org/keywords> "Census" .
+<https://gdsc.idsc.miami.edu/detail/tz_2022_nbs_districts> <https://schema.org/keywords> "Districs" .
+<https://gdsc.idsc.miami.edu/detail/tz_2022_nbs_districts> <https://schema.org/keywords> "Tanania" .
+<https://gdsc.idsc.miami.edu/detail/tz_2022_nbs_districts> <https://schema.org/measurementTechnique> _:b10 .
+<https://gdsc.idsc.miami.edu/detail/tz_2022_nbs_districts> <https://schema.org/measurementTechnique> _:b15 .
+<https://gdsc.idsc.miami.edu/detail/tz_2022_nbs_districts> <https://schema.org/name> "Tanzania 2022 Districts (NBS)" .
+<https://gdsc.idsc.miami.edu/detail/tz_2022_nbs_districts> <https://schema.org/provider> "Tanzania National Bureau of Statistics" .
+<https://gdsc.idsc.miami.edu/detail/tz_2022_nbs_districts> <https://schema.org/spatialCoverage> _:b20 .
+<https://gdsc.idsc.miami.edu/detail/tz_2022_nbs_districts> <https://schema.org/temporalCoverage> "2020-01-01/2022-12-31" .
+<https://gdsc.idsc.miami.edu/detail/tz_2022_nbs_districts> <https://schema.org/type> "Vector Dataset" .
+<https://gdsc.idsc.miami.edu/detail/tz_2022_nbs_districts> <https://schema.org/url> "https://microdata.nbs.go.tz/index.php/catalog/49/related-materials" .
+<https://gdsc.idsc.miami.edu/detail/tz_2022_nbs_districts> <https://schema.org/variableMeasured> _:b21 .
+<https://gdsc.idsc.miami.edu/detail/tz_2022_nbs_districts> <https://schema.org/variableMeasured> _:b22 .
+<https://gdsc.idsc.miami.edu/detail/tz_2022_nbs_districts> <https://schema.org/variableMeasured> _:b23 .
+<https://gdsc.idsc.miami.edu/detail/tz_2022_nbs_districts> <https://schema.org/variableMeasured> _:b24 .
+<https://gdsc.idsc.miami.edu/detail/tz_2022_nbs_districts> <https://schema.org/version> "2025-10-05" .
+<https://github.com/Geospatial-Digital-Special-Collections/tools> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://schema.org/SoftwareApplication> .
+<https://github.com/Geospatial-Digital-Special-Collections/tools> <https://schema.org/downloadUrl> "https://github.com/Geospatial-Digital-Special-Collections/tools.git" .
+<https://github.com/Geospatial-Digital-Special-Collections/tools> <https://schema.org/featureList> "wget" .
+_:b0 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://schema.org/Event> .
+_:b0 <https://schema.org/description> "Direct from source" .
+_:b0 <https://schema.org/name> "ETL process for Tanzania 2022 Districts (NBS)" .
+_:b0 <https://schema.org/potentialAction> _:b1 .
+_:b1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://schema.org/Action> .
+_:b1 <https://schema.org/description> "#########\n# GDSC ETL is performed in two steps: shell script to ETL data into postgres\n# and then additional transformations with SQL in postGIS (if needed).\n####\n\n#########\n# Step 1 - bash script (pseudo code)\n####\n\n# create directory structure and move into it\nmkdir -p /data/tz_2022_nbs/{download,tz_2022_nbs_districts/etl} && cd /data/tz_2022_nbs\n\n# set update flag based on last update and update frequency\ndo_update=0 if date() < last_update + update_frequency else do_update = 1\n\n# download if update flag is set:\nif do_update == 1 then\nwget -O download/tz_2022_nbs.zip 'https://microdata.nbs.go.tz/index.php/catalog/49/download/317'\n\n# unzip to download directory if update flag is set\nif do_update == 1 then\nunzip -d download download/tz_2022_nbs.zip && rm download/tz_2022_nbs.zip\n\n# extract mpkx to download directory\n7z x download/TANZANIA_2022_POST_PHC_GEODATABASE.mpkx -o'download/TANZANIA_2022_POST_PHC_GEODATABASE'\n\n# load into postGIS with:\n  ogr2ogr -lco GEOMETRY_NAME=geom -f PostgreSQL PG:\"<postgres connection>\" download/TANZANIA_2022_POST_PHC_GEODATABASE/commondata/tanzania_2022phc_geodatabase.gdb Districts -nlt multipolygon -nln tz_2022_nbs_districts\n\n#########\n# Step 2 - SQL script (pseudo code):\n####\n\n# remove duplicate points and make geometries valid:\nUPDATE tz_2022_nbs_districts\n  SET geom=ST_MakeValid(ST_RemoveRepeatedPoints(geom));\n\n# add local geometry column and reproject existing geometries into local EPSG:\nSELECT AddGeometryColumn (\n  'tz_2022_nbs_districts',\n  'geom_local', 4326, 'multipolygon', 2\n);\nUPDATE tz_2022_nbs_districts\n  SET geom_local=ST_MakeValid(ST_RemoveRepeatedPoints(ST_Transform(ST_Multi(geom),4326)));\nCREATE INDEX tz_2022_nbs_districts_geom_local_idx\n  ON tz_2022_nbs_districts\n  USING GIST (geom_local);\nNOTIFY pgrst, 'reload schema';\n# Move into corrrect directory and create derivative directory in data package on osgeo\ncd /data/tz_2022_nbs/tz_2022_nbs_districts/\nmkdir -p derived\n\nexport PGPASSWORD=SuperSecret\n# Create shapefile of table in derivate directory on osgeo \nogr2ogr -f \"ESRI Shapefile\" -overwrite derived/tz_2022_nbs_districts.shp PG:\"<postgres connection>\" tz_2022_nbs_districts\n\n# Create downloadable tarfile of shp in derivative directory on osgeo\nrm -f derived/tz_2022_nbs_districts.shp.tar.gz\ntar -czf derived/tz_2022_nbs_districts.shp.tar.gz meta_dcat_tz_2022_nbs_districts.json -C derived tz_2022_nbs_districts.shp tz_2022_nbs_districts.prj tz_2022_nbs_districts.shx tz_2022_nbs_districts.dbf\n\n# Move into correct directory\ncd /data/tz_2022_nbs/tz_2022_nbs_districts/\n\nexport PGPASSWORD=SuperSecret\n" .
+_:b1 <https://schema.org/name> "Pseudo Code" .
+_:b1 <https://schema.org/result> _:b2 .
+_:b10 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://schema.org/DefinedTerm> .
+_:b10 <https://schema.org/description> "GIS Data Structure for Representation" .
+_:b10 <https://schema.org/inDefinedTermSet> _:b11 .
+_:b10 <https://schema.org/termCode> "vector" .
+_:b11 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://schema.org/DefinedTermSet> .
+_:b11 <https://schema.org/hasDefinedTerm> _:b12 .
+_:b11 <https://schema.org/hasDefinedTerm> _:b13 .
+_:b11 <https://schema.org/hasDefinedTerm> _:b14 .
+_:b11 <https://schema.org/name> "dataRepresentation" .
+_:b12 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://schema.org/DefinedTerm> .
+_:b12 <https://schema.org/termCode> "raster" .
+_:b13 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://schema.org/DefinedTerm> .
+_:b13 <https://schema.org/termCode> "vector" .
+_:b14 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://schema.org/DefinedTerm> .
+_:b14 <https://schema.org/termCode> "table" .
+_:b15 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://schema.org/DefinedTerm> .
+_:b15 <https://schema.org/description> "GIS Vector Geometery" .
+_:b15 <https://schema.org/inDefinedTermSet> _:b16 .
+_:b15 <https://schema.org/termCode> "multipolygon" .
+_:b16 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://schema.org/DefinedTermSet> .
+_:b16 <https://schema.org/hasDefinedTerm> _:b17 .
+_:b16 <https://schema.org/hasDefinedTerm> _:b18 .
+_:b16 <https://schema.org/hasDefinedTerm> _:b19 .
+_:b16 <https://schema.org/name> "vectorGeometry" .
+_:b17 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://schema.org/DefinedTerm> .
+_:b17 <https://schema.org/termCode> "point" .
+_:b18 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://schema.org/DefinedTerm> .
+_:b18 <https://schema.org/termCode> "line" .
+_:b19 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://schema.org/DefinedTerm> .
+_:b19 <https://schema.org/termCode> "polygon" .
+_:b2 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://schema.org/Dataset> .
+_:b2 <https://schema.org/encodingFormat> "shp" .
+_:b2 <https://schema.org/url> "https://gdsc.idsc.miami.edu/download/data/tz_2022_nbs_districts/?file=tz_2022_nbs_districts&format=shp" .
+_:b20 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://schema.org/Place> .
+_:b20 <https://schema.org/name> "Tanzania" .
+_:b21 <http://qudt.org/schema/qudt/dataType> "varchar" .
+_:b21 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://schema.org/PropertyValue> .
+_:b21 <https://schema.org/name> "dist_code" .
+_:b22 <http://qudt.org/schema/qudt/dataType> "varchar" .
+_:b22 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://schema.org/PropertyValue> .
+_:b22 <https://schema.org/name> "dist_name" .
+_:b23 <http://qudt.org/schema/qudt/dataType> "varchar" .
+_:b23 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://schema.org/PropertyValue> .
+_:b23 <https://schema.org/name> "reg_code" .
+_:b24 <http://qudt.org/schema/qudt/dataType> "varchar" .
+_:b24 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://schema.org/PropertyValue> .
+_:b24 <https://schema.org/name> "reg_name" .
+_:b3 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://schema.org/Event> .
+_:b3 <https://schema.org/description> "Direct from source" .
+_:b3 <https://schema.org/name> "ETL process for Tanzania 2022 Districts (NBS)" .
+_:b3 <https://schema.org/potentialAction> _:b4 .
+_:b4 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://schema.org/Action> .
+_:b4 <https://schema.org/description> "ETL process for Tanzania 2022 Districts (NBS)" .
+_:b4 <https://schema.org/instrument> <https://github.com/Geospatial-Digital-Special-Collections/tools> .
+_:b4 <https://schema.org/name> "wget" .
+_:b4 <https://schema.org/object> _:b5 .
+_:b4 <https://schema.org/result> _:b6 .
+_:b5 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://schema.org/Dataset> .
+_:b5 <https://schema.org/name> "Direct from source" .
+_:b5 <https://schema.org/producer> "Tanzania National Bureau of Statistics" .
+_:b5 <https://schema.org/url> "https://microdata.nbs.go.tz/index.php/catalog/49/related-materials" .
+_:b6 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://schema.org/Dataset> .
+_:b6 <https://schema.org/description> "Shapefile for Tanzania Districts from the 2022 Census" .
+_:b6 <https://schema.org/encodingFormat> "shp" .
+_:b6 <https://schema.org/name> "Tanzania 2022 Districts (NBS)" .
+_:b6 <https://schema.org/url> "https://gdsc.idsc.miami.edu/download/data/tz_2022_nbs_districts/?file=tz_2022_nbs_districts&format=shp" .
+_:b7 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://schema.org/PropertyValue> .
+_:b7 <https://schema.org/propertyID> "http://dbpedia.org/resource/Spatial_reference_system" .
+_:b7 <https://schema.org/value> "https://epsg.io/4326" .
+_:b8 <https://schema.org/name> "Tanzania National Bureau of Statistics" .
+_:b9 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://schema.org/DataCatalog> .
+_:b9 <https://schema.org/name> "Geospatial Digital Special Collections" .
+_:b9 <https://schema.org/url> "https://gdsc.idsc.miami.edu" .

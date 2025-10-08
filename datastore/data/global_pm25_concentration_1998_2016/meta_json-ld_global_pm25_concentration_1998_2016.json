@@ -5,9 +5,9 @@
     "qudt": "http://qudt.org/schema/qudt/",
     "quantitykind": "http://qudt.org/vocab/quantitykind/",
     "unit": "http://qudt.org/vocab/unit/",
-    "xsd": "http://www.w3.org/2001/XMLSchema",
-    "extendedConstraintProperty": "http://codata.org/vocab/extendedConstraintProperty",
-    "sdmx": "https://sdmx.org"
+    "xsd": "http://www.w3.org/2001/XMLSchema/",
+    "extendedConstraintProperty": "http://codata.org/vocab/extendedConstraintProperty/",
+    "sdmx": "https://sdmx.org/"
   },
   "@type": "Dataset",
   "@id": "https://gdsc.idsc.miami.edu/detail/global_pm25_concentration_1998_2016",
@@ -132,9 +132,7 @@
         },
         "instrument": {
           "@type": "SoftwareApplication",
-          "@id": [
-            "https://github.com/Geospatial-Digital-Special-Collections/tools"
-          ],
+          "@id": "https://github.com/Geospatial-Digital-Special-Collections/tools",
           "featureList": "wget",
           "downloadUrl": [
             "https://github.com/Geospatial-Digital-Special-Collections/tools.git"

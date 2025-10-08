@@ -128,9 +128,7 @@
         },
         "instrument": {
           "@type": "SoftwareApplication",
-          "@id": [
-            "https://github.com/Geospatial-Digital-Special-Collections/tools"
-          ],
+          "@id":  "https://github.com/Geospatial-Digital-Special-Collections/tools",
           "featureList": "curl",
           "downloadUrl": [
             "https://github.com/Geospatial-Digital-Special-Collections/tools.git"

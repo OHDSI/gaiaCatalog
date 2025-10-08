@@ -1,0 +1,3290 @@
+<?xml version="1.0" ?>
+<graphml>
+    <key id="label" attr.name="label" attr.type="string"/>
+    <key id="type" attr.name="type" attr.type="string"/>
+    <graph id="" edgedefault="undirected">
+        <node id="_:cc37762df86d926ad82cbf1460099eff">
+            <data key="type">&lt;https://schema.org/DefinedTerm&gt;</data>
+        </node>
+        <node id="_:fb56eb64716f3ba39bf0a327fef67a42">
+            <data key="type">tType</data>
+        </node>
+        <node id="_:cb5f0c6438f220be71dbd57ff3325c80">
+            <data key="type">&lt;https://schema.org/Action&gt;</data>
+        </node>
+        <node id="_:cf4725c0836224a8a7831a555351294a">
+            <data key="type">tType</data>
+        </node>
+        <node id="_:cb5f0c6438f220be71dbd57ff3325c80">
+            <data key="type">&lt;https://schema.org/Action&gt;</data>
+        </node>
+        <node id="_:c78a6134455d3242a459ed710f80eafd">
+            <data key="type">tType</data>
+        </node>
+        <node id="_:cb5f0c6438f220be71dbd57ff3325c80">
+            <data key="type">&lt;https://schema.org/Action&gt;</data>
+        </node>
+        <node id="&lt;https://github.com/Geospatial-Digital-Special-Collections/tools&gt;">
+            <data key="type">tType</data>
+        </node>
+        <node id="_:a143899f664d9a4828651b3e9094f8a">
+            <data key="type">&lt;https://schema.org/Event&gt;</data>
+        </node>
+        <node id="_:cb5f0c6438f220be71dbd57ff3325c80">
+            <data key="type">tType</data>
+        </node>
+        <node id="_:bf1c7c41f2f416d9abf6743a8d2a36f6">
+            <data key="type">&lt;https://schema.org/DefinedTermSet&gt;</data>
+        </node>
+        <node id="_:dbf9036d5728bc153932dff25525ac3d">
+            <data key="type">tType</data>
+        </node>
+        <node id="_:bf1c7c41f2f416d9abf6743a8d2a36f6">
+            <data key="type">&lt;https://schema.org/DefinedTermSet&gt;</data>
+        </node>
+        <node id="_:ba3e8786afdafb9c66c9425e60bbbd61">
+            <data key="type">tType</data>
+        </node>
+        <node id="_:bf1c7c41f2f416d9abf6743a8d2a36f6">
+            <data key="type">&lt;https://schema.org/DefinedTermSet&gt;</data>
+        </node>
+        <node id="_:d49fb7ce1e9aaf886827667002e3548e">
+            <data key="type">tType</data>
+        </node>
+        <node id="_:a004c4a71c023eefeec32b152065a88">
+            <data key="type">&lt;https://schema.org/DefinedTerm&gt;</data>
+        </node>
+        <node id="_:bf1c7c41f2f416d9abf6743a8d2a36f6">
+            <data key="type">tType</data>
+        </node>
+        <node id="_:fb56eb64716f3ba39bf0a327fef67a42">
+            <data key="type">&lt;https://schema.org/DefinedTermSet&gt;</data>
+        </node>
+        <node id="_:b624343f10496954cf08ac0fc1afbdc">
+            <data key="type">tType</data>
+        </node>
+        <node id="_:fb56eb64716f3ba39bf0a327fef67a42">
+            <data key="type">&lt;https://schema.org/DefinedTermSet&gt;</data>
+        </node>
+        <node id="_:e1a0761450639cc10e6020afa18c3921">
+            <data key="type">tType</data>
+        </node>
+        <node id="_:fb56eb64716f3ba39bf0a327fef67a42">
+            <data key="type">&lt;https://schema.org/DefinedTermSet&gt;</data>
+        </node>
+        <node id="_:ca7d72aae0c0b7236989e227c24be17">
+            <data key="type">tType</data>
+        </node>
+        <node id="_:e2691e4977c8b9bac06fb9871156ca02">
+            <data key="type">&lt;https://schema.org/Action&gt;</data>
+        </node>
+        <node id="_:d32fb5b138808da84addaea94345c417">
+            <data key="type">tType</data>
+        </node>
+        <node id="_:cea0ccccadc737fb57a8554d23b08433">
+            <data key="type">&lt;https://schema.org/Event&gt;</data>
+        </node>
+        <node id="_:e2691e4977c8b9bac06fb9871156ca02">
+            <data key="type">tType</data>
+        </node>
+        <node id="&lt;https://gdsc.idsc.miami.edu/detail/us_2018_svi_county&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="_:ef1e28f3654c9c8a18360150fb5d3478">
+            <data key="type">tType</data>
+        </node>
+        <node id="&lt;https://gdsc.idsc.miami.edu/detail/us_2018_svi_county&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="_:c7c767dfd48998f443e5cd4a389939df">
+            <data key="type">tType</data>
+        </node>
+        <node id="&lt;https://gdsc.idsc.miami.edu/detail/us_2018_svi_county&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="_:daa787885aab2a3d7a23a787c47321eb">
+            <data key="type">tType</data>
+        </node>
+        <node id="&lt;https://gdsc.idsc.miami.edu/detail/us_2018_svi_county&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="_:e79fc804e104514bd15824867847dfb0">
+            <data key="type">tType</data>
+        </node>
+        <node id="&lt;https://gdsc.idsc.miami.edu/detail/us_2018_svi_county&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="_:c869048048c13277cc4ef682f4801db">
+            <data key="type">tType</data>
+        </node>
+        <node id="&lt;https://gdsc.idsc.miami.edu/detail/us_2018_svi_county&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="_:a38c0d5f308412602ae401f3335899ff">
+            <data key="type">tType</data>
+        </node>
+        <node id="&lt;https://gdsc.idsc.miami.edu/detail/us_2018_svi_county&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="_:c1232e1ca39f195828ebcf032a0902d9">
+            <data key="type">tType</data>
+        </node>
+        <node id="&lt;https://gdsc.idsc.miami.edu/detail/us_2018_svi_county&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="_:effc028aaa221c0696dea0009171893">
+            <data key="type">tType</data>
+        </node>
+        <node id="&lt;https://gdsc.idsc.miami.edu/detail/us_2018_svi_county&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="_:ad3539a38ad2e7d73586eef656e8719a">
+            <data key="type">tType</data>
+        </node>
+        <node id="&lt;https://gdsc.idsc.miami.edu/detail/us_2018_svi_county&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="_:ce63fbf0f37952e4194fa2766cb01d83">
+            <data key="type">tType</data>
+        </node>
+        <node id="&lt;https://gdsc.idsc.miami.edu/detail/us_2018_svi_county&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="_:fc4154ba8f5e7f6358c383668dc93070">
+            <data key="type">tType</data>
+        </node>
+        <node id="&lt;https://gdsc.idsc.miami.edu/detail/us_2018_svi_county&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="_:a82f9800447c22646e1ad51fdde7ff74">
+            <data key="type">tType</data>
+        </node>
+        <node id="&lt;https://gdsc.idsc.miami.edu/detail/us_2018_svi_county&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="_:cf0dc02dab7a4200da4c63e00181b5a2">
+            <data key="type">tType</data>
+        </node>
+        <node id="&lt;https://gdsc.idsc.miami.edu/detail/us_2018_svi_county&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="_:d70e0d7853fcd42d5c5707854de26270">
+            <data key="type">tType</data>
+        </node>
+        <node id="&lt;https://gdsc.idsc.miami.edu/detail/us_2018_svi_county&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="_:c1233627904643c1fd19d7838b39f250">
+            <data key="type">tType</data>
+        </node>
+        <node id="&lt;https://gdsc.idsc.miami.edu/detail/us_2018_svi_county&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="_:d0e486bbb05a0666f9c2e730ddc92b12">
+            <data key="type">tType</data>
+        </node>
+        <node id="&lt;https://gdsc.idsc.miami.edu/detail/us_2018_svi_county&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="_:e4cdff176148d8a3dfed510012cc5431">
+            <data key="type">tType</data>
+        </node>
+        <node id="&lt;https://gdsc.idsc.miami.edu/detail/us_2018_svi_county&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="_:e6ee6d4b3ce3d7f20f671b447e4bf0df">
+            <data key="type">tType</data>
+        </node>
+        <node id="&lt;https://gdsc.idsc.miami.edu/detail/us_2018_svi_county&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="_:e4201f5b7a13f61e25dc8d560620046c">
+            <data key="type">tType</data>
+        </node>
+        <node id="&lt;https://gdsc.idsc.miami.edu/detail/us_2018_svi_county&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="_:f38e3241b106c4a2227b76faa72e24dd">
+            <data key="type">tType</data>
+        </node>
+        <node id="&lt;https://gdsc.idsc.miami.edu/detail/us_2018_svi_county&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="_:d388c45550ee33f227a60afa41e45d1a">
+            <data key="type">tType</data>
+        </node>
+        <node id="&lt;https://gdsc.idsc.miami.edu/detail/us_2018_svi_county&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="_:bec3836a0297c63a474739b8934d5b40">
+            <data key="type">tType</data>
+        </node>
+        <node id="&lt;https://gdsc.idsc.miami.edu/detail/us_2018_svi_county&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="_:cc4309a8fe0fe442494958c7c47b8a7f">
+            <data key="type">tType</data>
+        </node>
+        <node id="&lt;https://gdsc.idsc.miami.edu/detail/us_2018_svi_county&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="_:baa3ad8659bae3ffba084872fa935193">
+            <data key="type">tType</data>
+        </node>
+        <node id="&lt;https://gdsc.idsc.miami.edu/detail/us_2018_svi_county&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="_:e5eab870d0fd9c7744c68daf0bb03735">
+            <data key="type">tType</data>
+        </node>
+        <node id="&lt;https://gdsc.idsc.miami.edu/detail/us_2018_svi_county&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="_:e049d745e66326d3f76852d11366663a">
+            <data key="type">tType</data>
+        </node>
+        <node id="&lt;https://gdsc.idsc.miami.edu/detail/us_2018_svi_county&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="_:a48d73354ec68b0d36a836d521a8076">
+            <data key="type">tType</data>
+        </node>
+        <node id="&lt;https://gdsc.idsc.miami.edu/detail/us_2018_svi_county&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="_:acf809303d53fcb2534db7b32c75b80c">
+            <data key="type">tType</data>
+        </node>
+        <node id="&lt;https://gdsc.idsc.miami.edu/detail/us_2018_svi_county&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="_:da4e82bfca779b3da76a8531b26bb462">
+            <data key="type">tType</data>
+        </node>
+        <node id="&lt;https://gdsc.idsc.miami.edu/detail/us_2018_svi_county&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="_:f3ce06218d70f4be82503f04a220ff4f">
+            <data key="type">tType</data>
+        </node>
+        <node id="&lt;https://gdsc.idsc.miami.edu/detail/us_2018_svi_county&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="_:cd15a53e281e2e5526ef7fd43c3d3189">
+            <data key="type">tType</data>
+        </node>
+        <node id="&lt;https://gdsc.idsc.miami.edu/detail/us_2018_svi_county&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="_:aa118690632f8f02d72189cdac71dfe2">
+            <data key="type">tType</data>
+        </node>
+        <node id="&lt;https://gdsc.idsc.miami.edu/detail/us_2018_svi_county&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="_:dac82c62f7affc735d66f7aed917278d">
+            <data key="type">tType</data>
+        </node>
+        <node id="&lt;https://gdsc.idsc.miami.edu/detail/us_2018_svi_county&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="_:f6de969e3b580b878ab69dcbffce9dd9">
+            <data key="type">tType</data>
+        </node>
+        <node id="&lt;https://gdsc.idsc.miami.edu/detail/us_2018_svi_county&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="_:c49ef8678d1f78b59679019a79468460">
+            <data key="type">tType</data>
+        </node>
+        <node id="&lt;https://gdsc.idsc.miami.edu/detail/us_2018_svi_county&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="_:ea08067043e9cddaa98c880a16ffc5cd">
+            <data key="type">tType</data>
+        </node>
+        <node id="&lt;https://gdsc.idsc.miami.edu/detail/us_2018_svi_county&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="_:a2ae8e0489303db65f197119dd0cbeab">
+            <data key="type">tType</data>
+        </node>
+        <node id="&lt;https://gdsc.idsc.miami.edu/detail/us_2018_svi_county&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="_:ca30beb9dab9019685cd50dc85207483">
+            <data key="type">tType</data>
+        </node>
+        <node id="&lt;https://gdsc.idsc.miami.edu/detail/us_2018_svi_county&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="_:e1b699df00e57ab81ddb4f376745b2a7">
+            <data key="type">tType</data>
+        </node>
+        <node id="&lt;https://gdsc.idsc.miami.edu/detail/us_2018_svi_county&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="_:c3920beef98a954541050b947acdc3f4">
+            <data key="type">tType</data>
+        </node>
+        <node id="&lt;https://gdsc.idsc.miami.edu/detail/us_2018_svi_county&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="_:e35f0f4ee6fb0ab3359c3966826708a9">
+            <data key="type">tType</data>
+        </node>
+        <node id="&lt;https://gdsc.idsc.miami.edu/detail/us_2018_svi_county&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="_:a9c3af6a50d0bdebd2d8e611f000e12c">
+            <data key="type">tType</data>
+        </node>
+        <node id="&lt;https://gdsc.idsc.miami.edu/detail/us_2018_svi_county&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="_:db4663cca4786c94f244ebf49188ab63">
+            <data key="type">tType</data>
+        </node>
+        <node id="&lt;https://gdsc.idsc.miami.edu/detail/us_2018_svi_county&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="_:e649c950a12c45c8d1df01950d99d61e">
+            <data key="type">tType</data>
+        </node>
+        <node id="&lt;https://gdsc.idsc.miami.edu/detail/us_2018_svi_county&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="_:dcd4b916acd9e6bb640ca83b50ee6a24">
+            <data key="type">tType</data>
+        </node>
+        <node id="&lt;https://gdsc.idsc.miami.edu/detail/us_2018_svi_county&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="_:a9f1f600b83e4b5bc6b21286e37efc1c">
+            <data key="type">tType</data>
+        </node>
+        <node id="&lt;https://gdsc.idsc.miami.edu/detail/us_2018_svi_county&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="_:bc0b4bbedbb6508076efff92f8fd7cd2">
+            <data key="type">tType</data>
+        </node>
+        <node id="&lt;https://gdsc.idsc.miami.edu/detail/us_2018_svi_county&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="_:d6e3ce6163004840e0bc4bdd20043bb9">
+            <data key="type">tType</data>
+        </node>
+        <node id="&lt;https://gdsc.idsc.miami.edu/detail/us_2018_svi_county&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="_:aa60f14eb685075140e512f0f877a2f0">
+            <data key="type">tType</data>
+        </node>
+        <node id="&lt;https://gdsc.idsc.miami.edu/detail/us_2018_svi_county&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="_:a2c555d370cc00cad9155f85e9ee33cb">
+            <data key="type">tType</data>
+        </node>
+        <node id="&lt;https://gdsc.idsc.miami.edu/detail/us_2018_svi_county&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="_:b449d40f3b0c965863cf0c33a98c4f58">
+            <data key="type">tType</data>
+        </node>
+        <node id="&lt;https://gdsc.idsc.miami.edu/detail/us_2018_svi_county&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="_:c8ca98f03b6f7e3b875f2fd2dfe4dbd9">
+            <data key="type">tType</data>
+        </node>
+        <node id="&lt;https://gdsc.idsc.miami.edu/detail/us_2018_svi_county&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="_:b6afc2e007ef6aca37a3e407bbbe4985">
+            <data key="type">tType</data>
+        </node>
+        <node id="&lt;https://gdsc.idsc.miami.edu/detail/us_2018_svi_county&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="_:a3da52b7b6c9a6f5f1bdc644246374f1">
+            <data key="type">tType</data>
+        </node>
+        <node id="&lt;https://gdsc.idsc.miami.edu/detail/us_2018_svi_county&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="_:a7633a2337f0ca1c9e5e27004df277df">
+            <data key="type">tType</data>
+        </node>
+        <node id="&lt;https://gdsc.idsc.miami.edu/detail/us_2018_svi_county&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="_:fddc97217dcf6da0ebd3cdd558db10ce">
+            <data key="type">tType</data>
+        </node>
+        <node id="&lt;https://gdsc.idsc.miami.edu/detail/us_2018_svi_county&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="_:d2b1bdbf437cb84a12af011bd5ec93be">
+            <data key="type">tType</data>
+        </node>
+        <node id="&lt;https://gdsc.idsc.miami.edu/detail/us_2018_svi_county&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="_:dfc5e317627bca26796693bd8f0c7b85">
+            <data key="type">tType</data>
+        </node>
+        <node id="&lt;https://gdsc.idsc.miami.edu/detail/us_2018_svi_county&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="_:b716ab98df8c118ddcf116f4b801c947">
+            <data key="type">tType</data>
+        </node>
+        <node id="&lt;https://gdsc.idsc.miami.edu/detail/us_2018_svi_county&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="_:a11919d9744af19b3bfa2d471677e713">
+            <data key="type">tType</data>
+        </node>
+        <node id="&lt;https://gdsc.idsc.miami.edu/detail/us_2018_svi_county&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="_:ec5af75031195728c45e0037d4ad8d92">
+            <data key="type">tType</data>
+        </node>
+        <node id="&lt;https://gdsc.idsc.miami.edu/detail/us_2018_svi_county&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="_:f6a97344f313bec09bd758d0e4dd76a2">
+            <data key="type">tType</data>
+        </node>
+        <node id="&lt;https://gdsc.idsc.miami.edu/detail/us_2018_svi_county&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="_:b7a90fd5fc5644456543238273407065">
+            <data key="type">tType</data>
+        </node>
+        <node id="&lt;https://gdsc.idsc.miami.edu/detail/us_2018_svi_county&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="_:e3657e87292a188e5052c611b3a9e239">
+            <data key="type">tType</data>
+        </node>
+        <node id="&lt;https://gdsc.idsc.miami.edu/detail/us_2018_svi_county&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="_:fe53c45fa035ddd2c80273699e6e8994">
+            <data key="type">tType</data>
+        </node>
+        <node id="&lt;https://gdsc.idsc.miami.edu/detail/us_2018_svi_county&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="_:e3c785d0493b9a131447d403079b06f4">
+            <data key="type">tType</data>
+        </node>
+        <node id="&lt;https://gdsc.idsc.miami.edu/detail/us_2018_svi_county&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="_:ce92f9446d096448e1af35cca28a6e86">
+            <data key="type">tType</data>
+        </node>
+        <node id="&lt;https://gdsc.idsc.miami.edu/detail/us_2018_svi_county&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="_:e6c1e073cb138794dbeaa13be3eb2d9c">
+            <data key="type">tType</data>
+        </node>
+        <node id="&lt;https://gdsc.idsc.miami.edu/detail/us_2018_svi_county&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="_:be3e3d34c4a59aaa40153a541c93b1c5">
+            <data key="type">tType</data>
+        </node>
+        <node id="&lt;https://gdsc.idsc.miami.edu/detail/us_2018_svi_county&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="_:b8ba1f21b7d0d68d5afb44f3e7184d8e">
+            <data key="type">tType</data>
+        </node>
+        <node id="&lt;https://gdsc.idsc.miami.edu/detail/us_2018_svi_county&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="_:c4cf10d605ae05b37a0b93df875be63">
+            <data key="type">tType</data>
+        </node>
+        <node id="&lt;https://gdsc.idsc.miami.edu/detail/us_2018_svi_county&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="_:c7c8072961efb6078e49493f216c6c38">
+            <data key="type">tType</data>
+        </node>
+        <node id="&lt;https://gdsc.idsc.miami.edu/detail/us_2018_svi_county&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="_:c03aa38cb062b29a3da2ae52f199072d">
+            <data key="type">tType</data>
+        </node>
+        <node id="&lt;https://gdsc.idsc.miami.edu/detail/us_2018_svi_county&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="_:c51dcb29da40126e71485d854c5044d4">
+            <data key="type">tType</data>
+        </node>
+        <node id="&lt;https://gdsc.idsc.miami.edu/detail/us_2018_svi_county&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="_:ac4bd67742b8b4c8360004ae0ebe9259">
+            <data key="type">tType</data>
+        </node>
+        <node id="&lt;https://gdsc.idsc.miami.edu/detail/us_2018_svi_county&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="_:cece5eaf0e1c968170effcc780ceaf88">
+            <data key="type">tType</data>
+        </node>
+        <node id="&lt;https://gdsc.idsc.miami.edu/detail/us_2018_svi_county&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="_:c667477c5cd145a088f24acc5685f6dc">
+            <data key="type">tType</data>
+        </node>
+        <node id="&lt;https://gdsc.idsc.miami.edu/detail/us_2018_svi_county&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="_:ec68a69e7a599eb19bb7d19dc00459de">
+            <data key="type">tType</data>
+        </node>
+        <node id="&lt;https://gdsc.idsc.miami.edu/detail/us_2018_svi_county&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="_:ef753e9e471d7fd39f006d16b09b7a41">
+            <data key="type">tType</data>
+        </node>
+        <node id="&lt;https://gdsc.idsc.miami.edu/detail/us_2018_svi_county&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="_:e4f62edf70638ade115125a82d2a2f97">
+            <data key="type">tType</data>
+        </node>
+        <node id="&lt;https://gdsc.idsc.miami.edu/detail/us_2018_svi_county&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="_:f8e3c6e4b880870382f283b2929a475b">
+            <data key="type">tType</data>
+        </node>
+        <node id="&lt;https://gdsc.idsc.miami.edu/detail/us_2018_svi_county&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="_:d03aca69905a47676fef777cf7add8b5">
+            <data key="type">tType</data>
+        </node>
+        <node id="&lt;https://gdsc.idsc.miami.edu/detail/us_2018_svi_county&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="_:ec3e8cce4770efd5666ae071fa264568">
+            <data key="type">tType</data>
+        </node>
+        <node id="&lt;https://gdsc.idsc.miami.edu/detail/us_2018_svi_county&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="_:b1b08417281e86f98ce5762f6536be45">
+            <data key="type">tType</data>
+        </node>
+        <node id="&lt;https://gdsc.idsc.miami.edu/detail/us_2018_svi_county&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="_:be35f3fdfbe4dc76f5bc2752ed16da98">
+            <data key="type">tType</data>
+        </node>
+        <node id="&lt;https://gdsc.idsc.miami.edu/detail/us_2018_svi_county&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="_:d89170962039c4badb6b7eeb210a947c">
+            <data key="type">tType</data>
+        </node>
+        <node id="&lt;https://gdsc.idsc.miami.edu/detail/us_2018_svi_county&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="_:b2fb6b8005f0d57dd2c3fa87b16ad94b">
+            <data key="type">tType</data>
+        </node>
+        <node id="&lt;https://gdsc.idsc.miami.edu/detail/us_2018_svi_county&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="_:e38a5df4053673f69107908db51ec963">
+            <data key="type">tType</data>
+        </node>
+        <node id="&lt;https://gdsc.idsc.miami.edu/detail/us_2018_svi_county&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="_:bf8e1aff18b9c563d6996e7a032b28a">
+            <data key="type">tType</data>
+        </node>
+        <node id="&lt;https://gdsc.idsc.miami.edu/detail/us_2018_svi_county&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="_:b205858cd9020dc61b586a676b2f2240">
+            <data key="type">tType</data>
+        </node>
+        <node id="&lt;https://gdsc.idsc.miami.edu/detail/us_2018_svi_county&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="_:c22494b87fc711df287436b0ed7bc624">
+            <data key="type">tType</data>
+        </node>
+        <node id="&lt;https://gdsc.idsc.miami.edu/detail/us_2018_svi_county&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="_:d7659d0e751c477b210ceabd96539080">
+            <data key="type">tType</data>
+        </node>
+        <node id="&lt;https://gdsc.idsc.miami.edu/detail/us_2018_svi_county&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="_:f369f2ce7c5e7852c95fe7a8470e9b4c">
+            <data key="type">tType</data>
+        </node>
+        <node id="&lt;https://gdsc.idsc.miami.edu/detail/us_2018_svi_county&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="_:cdcb3369ed31c23617ed4de908128e0">
+            <data key="type">tType</data>
+        </node>
+        <node id="&lt;https://gdsc.idsc.miami.edu/detail/us_2018_svi_county&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="_:e10af251000591e07f871026e8fa93ba">
+            <data key="type">tType</data>
+        </node>
+        <node id="&lt;https://gdsc.idsc.miami.edu/detail/us_2018_svi_county&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="_:d26e996af9284e5c1128a6dd07d3a866">
+            <data key="type">tType</data>
+        </node>
+        <node id="&lt;https://gdsc.idsc.miami.edu/detail/us_2018_svi_county&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="_:d4a93e0b5e2dbb5c4a530aa0682b4f48">
+            <data key="type">tType</data>
+        </node>
+        <node id="&lt;https://gdsc.idsc.miami.edu/detail/us_2018_svi_county&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="_:f6ab5fe228f6f9d8aa51373afe8b4954">
+            <data key="type">tType</data>
+        </node>
+        <node id="&lt;https://gdsc.idsc.miami.edu/detail/us_2018_svi_county&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="_:eb35e792dddee9bfd2bb45b5c44eabbd">
+            <data key="type">tType</data>
+        </node>
+        <node id="&lt;https://gdsc.idsc.miami.edu/detail/us_2018_svi_county&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="_:b96f8253d723ab366ab829fb958528a8">
+            <data key="type">tType</data>
+        </node>
+        <node id="&lt;https://gdsc.idsc.miami.edu/detail/us_2018_svi_county&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="_:e9d67ed2dba03dd465d85b8705e39c78">
+            <data key="type">tType</data>
+        </node>
+        <node id="&lt;https://gdsc.idsc.miami.edu/detail/us_2018_svi_county&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="_:a65cd50a43c895e25afae2b1e58a5266">
+            <data key="type">tType</data>
+        </node>
+        <node id="&lt;https://gdsc.idsc.miami.edu/detail/us_2018_svi_county&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="_:e4e2bd9827ca5b11cfa73e131eb285e6">
+            <data key="type">tType</data>
+        </node>
+        <node id="&lt;https://gdsc.idsc.miami.edu/detail/us_2018_svi_county&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="_:f7b15323fdc3b8b6866f31a1dbdb163c">
+            <data key="type">tType</data>
+        </node>
+        <node id="&lt;https://gdsc.idsc.miami.edu/detail/us_2018_svi_county&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="_:c2586765d2842c0342600c9c38ebe193">
+            <data key="type">tType</data>
+        </node>
+        <node id="&lt;https://gdsc.idsc.miami.edu/detail/us_2018_svi_county&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="_:ee5e0976cb92504d5373bb9b02af3d89">
+            <data key="type">tType</data>
+        </node>
+        <node id="&lt;https://gdsc.idsc.miami.edu/detail/us_2018_svi_county&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="_:d37eca31fedfd55bdfa4d9622e5cb214">
+            <data key="type">tType</data>
+        </node>
+        <node id="&lt;https://gdsc.idsc.miami.edu/detail/us_2018_svi_county&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="_:cc7b3366404428ec8483686bc652eefc">
+            <data key="type">tType</data>
+        </node>
+        <node id="&lt;https://gdsc.idsc.miami.edu/detail/us_2018_svi_county&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="_:a168051f8cf5b3a93f563a289e522af9">
+            <data key="type">tType</data>
+        </node>
+        <node id="&lt;https://gdsc.idsc.miami.edu/detail/us_2018_svi_county&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="_:c4e8b783b1671384cf8e807cd00482ed">
+            <data key="type">tType</data>
+        </node>
+        <node id="&lt;https://gdsc.idsc.miami.edu/detail/us_2018_svi_county&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="_:ab1efd0dc6da18bdbf35fbc860b5fd67">
+            <data key="type">tType</data>
+        </node>
+        <node id="&lt;https://gdsc.idsc.miami.edu/detail/us_2018_svi_county&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="_:c6f340f42b85621cb2955cbc81530189">
+            <data key="type">tType</data>
+        </node>
+        <node id="&lt;https://gdsc.idsc.miami.edu/detail/us_2018_svi_county&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="_:d14b0e1047d0fc6e33bf30a40bd33ee2">
+            <data key="type">tType</data>
+        </node>
+        <node id="&lt;https://gdsc.idsc.miami.edu/detail/us_2018_svi_county&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="_:f8069aa6471445b158f7e6527824aa3">
+            <data key="type">tType</data>
+        </node>
+        <node id="&lt;https://gdsc.idsc.miami.edu/detail/us_2018_svi_county&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="_:e0347bfe7efd9b4e9b6214a7c086d8a7">
+            <data key="type">tType</data>
+        </node>
+        <node id="&lt;https://gdsc.idsc.miami.edu/detail/us_2018_svi_county&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="_:f42608860fd173edab6927b2e9272463">
+            <data key="type">tType</data>
+        </node>
+        <node id="&lt;https://gdsc.idsc.miami.edu/detail/us_2018_svi_county&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="_:d47ff36f10a23af4e43f96febfdcf685">
+            <data key="type">tType</data>
+        </node>
+        <node id="&lt;https://gdsc.idsc.miami.edu/detail/us_2018_svi_county&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="_:b1fb68b9279431f15bc68a7a3f24d37c">
+            <data key="type">tType</data>
+        </node>
+        <node id="&lt;https://gdsc.idsc.miami.edu/detail/us_2018_svi_county&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="_:a725c061987c7fc06c92e7aa4faaa383">
+            <data key="type">tType</data>
+        </node>
+        <node id="&lt;https://gdsc.idsc.miami.edu/detail/us_2018_svi_county&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="_:e2b3267e5d5452098b8e3d796f9ed3a">
+            <data key="type">tType</data>
+        </node>
+        <node id="&lt;https://gdsc.idsc.miami.edu/detail/us_2018_svi_county&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="_:ddade4958c9c68a69be0750b2bc5af83">
+            <data key="type">tType</data>
+        </node>
+        <node id="&lt;https://gdsc.idsc.miami.edu/detail/us_2018_svi_county&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="_:b695cfdda4dbe3e14e8bb72cc2ee08bf">
+            <data key="type">tType</data>
+        </node>
+        <node id="&lt;https://gdsc.idsc.miami.edu/detail/us_2018_svi_county&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="_:b6cc667576fd85b6a3c8751cb27fcf12">
+            <data key="type">tType</data>
+        </node>
+        <node id="&lt;https://gdsc.idsc.miami.edu/detail/us_2018_svi_county&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="_:d7114d811c4b65d9a90fa85211c85404">
+            <data key="type">tType</data>
+        </node>
+        <node id="&lt;https://gdsc.idsc.miami.edu/detail/us_2018_svi_county&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="_:b873d6a2c83a892220edf6424fe53b11">
+            <data key="type">tType</data>
+        </node>
+        <node id="&lt;https://gdsc.idsc.miami.edu/detail/us_2018_svi_county&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="_:cc37762df86d926ad82cbf1460099eff">
+            <data key="type">tType</data>
+        </node>
+        <node id="&lt;https://gdsc.idsc.miami.edu/detail/us_2018_svi_county&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="_:a004c4a71c023eefeec32b152065a88">
+            <data key="type">tType</data>
+        </node>
+        <node id="&lt;https://gdsc.idsc.miami.edu/detail/us_2018_svi_county&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="_:a4370bd6b1690de38fc6316e9753266a">
+            <data key="type">tType</data>
+        </node>
+        <node id="&lt;https://gdsc.idsc.miami.edu/detail/us_2018_svi_county&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="&lt;https://ror.org/04hsdam77&gt;">
+            <data key="type">tType</data>
+        </node>
+        <node id="&lt;https://gdsc.idsc.miami.edu/detail/us_2018_svi_county&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="_:b5a2fcaad693f9bd4936aa3b7d09add9">
+            <data key="type">tType</data>
+        </node>
+        <node id="&lt;https://gdsc.idsc.miami.edu/detail/us_2018_svi_county&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="_:a143899f664d9a4828651b3e9094f8a">
+            <data key="type">tType</data>
+        </node>
+        <node id="&lt;https://gdsc.idsc.miami.edu/detail/us_2018_svi_county&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="_:cea0ccccadc737fb57a8554d23b08433">
+            <data key="type">tType</data>
+        </node>
+        <node id="_:a3096a663974f8a9a5205593af478f86">
+            <data key="type">&lt;https://schema.org/Action&gt;</data>
+        </node>
+        <node id="_:f67736fb45a6498fb1b8873fc1ee6736">
+            <data key="type">tType</data>
+        </node>
+        <node id="_:a3096a663974f8a9a5205593af478f86">
+            <data key="type">&lt;https://schema.org/Action&gt;</data>
+        </node>
+        <node id="_:af78d436fbfb35ac1edcd9209643a108">
+            <data key="type">tType</data>
+        </node>
+        <node id="_:a3096a663974f8a9a5205593af478f86">
+            <data key="type">&lt;https://schema.org/Action&gt;</data>
+        </node>
+        <node id="&lt;https://github.com/Geospatial-Digital-Special-Collections/tools&gt;">
+            <data key="type">tType</data>
+        </node>
+        <node id="_:e5d2fc6078c16ccfaeaf641db76ae435">
+            <data key="type">&lt;https://schema.org/Event&gt;</data>
+        </node>
+        <node id="_:a3096a663974f8a9a5205593af478f86">
+            <data key="type">tType</data>
+        </node>
+        <node id="_:e255a719990840468b17066fd9ab9161">
+            <data key="type">&lt;https://schema.org/DefinedTermSet&gt;</data>
+        </node>
+        <node id="_:aa2da9b59f5110a87b72d1144d0ae659">
+            <data key="type">tType</data>
+        </node>
+        <node id="_:e255a719990840468b17066fd9ab9161">
+            <data key="type">&lt;https://schema.org/DefinedTermSet&gt;</data>
+        </node>
+        <node id="_:ba113ef490a69da0d5333325e3c986cc">
+            <data key="type">tType</data>
+        </node>
+        <node id="_:e255a719990840468b17066fd9ab9161">
+            <data key="type">&lt;https://schema.org/DefinedTermSet&gt;</data>
+        </node>
+        <node id="_:ec3154dbbdda985a9eda326a50b1ac08">
+            <data key="type">tType</data>
+        </node>
+        <node id="_:c7261e8f7d182cf3be1be461cdb2c5cf">
+            <data key="type">&lt;https://schema.org/DefinedTerm&gt;</data>
+        </node>
+        <node id="_:e255a719990840468b17066fd9ab9161">
+            <data key="type">tType</data>
+        </node>
+        <node id="_:f172fa73a03b3c27fd1cc8b2772dbd12">
+            <data key="type">&lt;https://schema.org/DefinedTermSet&gt;</data>
+        </node>
+        <node id="_:b86bd20b43c9f0c972b1ab5505991d8">
+            <data key="type">tType</data>
+        </node>
+        <node id="_:f172fa73a03b3c27fd1cc8b2772dbd12">
+            <data key="type">&lt;https://schema.org/DefinedTermSet&gt;</data>
+        </node>
+        <node id="_:d7513025ffe8c0c1fdbba28f46ac7757">
+            <data key="type">tType</data>
+        </node>
+        <node id="_:f172fa73a03b3c27fd1cc8b2772dbd12">
+            <data key="type">&lt;https://schema.org/DefinedTermSet&gt;</data>
+        </node>
+        <node id="_:f1923e058ee443c2182ff68aa257e134">
+            <data key="type">tType</data>
+        </node>
+        <node id="_:c4d3a8b2ab50cc3189e4aa37f12018c1">
+            <data key="type">&lt;https://schema.org/DefinedTerm&gt;</data>
+        </node>
+        <node id="_:f172fa73a03b3c27fd1cc8b2772dbd12">
+            <data key="type">tType</data>
+        </node>
+        <node id="_:fd53b9af42fb5a5475319747b39902cf">
+            <data key="type">&lt;https://schema.org/Action&gt;</data>
+        </node>
+        <node id="_:c084b0b3b5e4f8fe3d68899e05dc341c">
+            <data key="type">tType</data>
+        </node>
+        <node id="_:caa45b660598f12e6a65a278018517dc">
+            <data key="type">&lt;https://schema.org/Event&gt;</data>
+        </node>
+        <node id="_:fd53b9af42fb5a5475319747b39902cf">
+            <data key="type">tType</data>
+        </node>
+        <node id="&lt;https://gdsc.idsc.miami.edu/detail/tz_regions_osm&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="_:f5d0477d9f0026a783af02634c3c7096">
+            <data key="type">tType</data>
+        </node>
+        <node id="&lt;https://gdsc.idsc.miami.edu/detail/tz_regions_osm&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="_:f65922088a8592144d2b1b1ebefc103c">
+            <data key="type">tType</data>
+        </node>
+        <node id="&lt;https://gdsc.idsc.miami.edu/detail/tz_regions_osm&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="_:e42ea809e3f233494f7a7e8df270c023">
+            <data key="type">tType</data>
+        </node>
+        <node id="&lt;https://gdsc.idsc.miami.edu/detail/tz_regions_osm&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="_:e337f26ade78c0ad923d491a0d9d04cc">
+            <data key="type">tType</data>
+        </node>
+        <node id="&lt;https://gdsc.idsc.miami.edu/detail/tz_regions_osm&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="_:bc942e846bcf51b69e801ab8a7e9f2d">
+            <data key="type">tType</data>
+        </node>
+        <node id="&lt;https://gdsc.idsc.miami.edu/detail/tz_regions_osm&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="_:cbb8d99991a0f01b86cfa14b33767cf">
+            <data key="type">tType</data>
+        </node>
+        <node id="&lt;https://gdsc.idsc.miami.edu/detail/tz_regions_osm&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="_:f605170fa29e50684e131c6a77184767">
+            <data key="type">tType</data>
+        </node>
+        <node id="&lt;https://gdsc.idsc.miami.edu/detail/tz_regions_osm&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="_:c7261e8f7d182cf3be1be461cdb2c5cf">
+            <data key="type">tType</data>
+        </node>
+        <node id="&lt;https://gdsc.idsc.miami.edu/detail/tz_regions_osm&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="_:c4d3a8b2ab50cc3189e4aa37f12018c1">
+            <data key="type">tType</data>
+        </node>
+        <node id="&lt;https://gdsc.idsc.miami.edu/detail/tz_regions_osm&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="&lt;https://gdsc.idsc.miami.edu/details/api&gt;">
+            <data key="type">tType</data>
+        </node>
+        <node id="&lt;https://gdsc.idsc.miami.edu/detail/tz_regions_osm&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="_:f312e817699428ea2032f0968d4f7e10">
+            <data key="type">tType</data>
+        </node>
+        <node id="&lt;https://gdsc.idsc.miami.edu/detail/tz_regions_osm&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="_:fcd1e58659d4064e034d336427fb7c75">
+            <data key="type">tType</data>
+        </node>
+        <node id="&lt;https://gdsc.idsc.miami.edu/detail/tz_regions_osm&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="_:e5d2fc6078c16ccfaeaf641db76ae435">
+            <data key="type">tType</data>
+        </node>
+        <node id="&lt;https://gdsc.idsc.miami.edu/detail/tz_regions_osm&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="_:caa45b660598f12e6a65a278018517dc">
+            <data key="type">tType</data>
+        </node>
+        <node id="_:f2d746ccd87a5cbe89d37a9e1ed65279">
+            <data key="type">&lt;https://schema.org/Action&gt;</data>
+        </node>
+        <node id="_:b90c354aae42e8809d20bb3e0661b752">
+            <data key="type">tType</data>
+        </node>
+        <node id="_:f2d746ccd87a5cbe89d37a9e1ed65279">
+            <data key="type">&lt;https://schema.org/Action&gt;</data>
+        </node>
+        <node id="_:dbba9fe2f2d57b10f48a6301bfdb2753">
+            <data key="type">tType</data>
+        </node>
+        <node id="_:f2d746ccd87a5cbe89d37a9e1ed65279">
+            <data key="type">&lt;https://schema.org/Action&gt;</data>
+        </node>
+        <node id="&lt;https://github.com/Geospatial-Digital-Special-Collections/tools&gt;">
+            <data key="type">tType</data>
+        </node>
+        <node id="_:b61e2a6aaefd975fa2c164239cabcaec">
+            <data key="type">&lt;https://schema.org/Event&gt;</data>
+        </node>
+        <node id="_:f2d746ccd87a5cbe89d37a9e1ed65279">
+            <data key="type">tType</data>
+        </node>
+        <node id="_:afd21a163ce4bfd5e3bafb374996066f">
+            <data key="type">&lt;https://schema.org/DefinedTermSet&gt;</data>
+        </node>
+        <node id="_:ec6e7b98a549e43699ca25be5448c49b">
+            <data key="type">tType</data>
+        </node>
+        <node id="_:afd21a163ce4bfd5e3bafb374996066f">
+            <data key="type">&lt;https://schema.org/DefinedTermSet&gt;</data>
+        </node>
+        <node id="_:a28cb0e2fbdf885cbe09fcfba273cb2d">
+            <data key="type">tType</data>
+        </node>
+        <node id="_:afd21a163ce4bfd5e3bafb374996066f">
+            <data key="type">&lt;https://schema.org/DefinedTermSet&gt;</data>
+        </node>
+        <node id="_:c26c4b11790b585ee97109b38ae58494">
+            <data key="type">tType</data>
+        </node>
+        <node id="_:fcdb1b4391fd47134fac4f6d7cc465f2">
+            <data key="type">&lt;https://schema.org/DefinedTerm&gt;</data>
+        </node>
+        <node id="_:afd21a163ce4bfd5e3bafb374996066f">
+            <data key="type">tType</data>
+        </node>
+        <node id="_:b47b7a26a53643c1de3a274b2e00a3a0">
+            <data key="type">&lt;https://schema.org/DefinedTermSet&gt;</data>
+        </node>
+        <node id="_:d262ee8279bc779a0e40afc02c905b6e">
+            <data key="type">tType</data>
+        </node>
+        <node id="_:b47b7a26a53643c1de3a274b2e00a3a0">
+            <data key="type">&lt;https://schema.org/DefinedTermSet&gt;</data>
+        </node>
+        <node id="_:a5f49bb144a58e941a20a27811639b9f">
+            <data key="type">tType</data>
+        </node>
+        <node id="_:b47b7a26a53643c1de3a274b2e00a3a0">
+            <data key="type">&lt;https://schema.org/DefinedTermSet&gt;</data>
+        </node>
+        <node id="_:a610febac93d470c6aedae0aeca3cb24">
+            <data key="type">tType</data>
+        </node>
+        <node id="_:bbaa4bf26b2e8e3ffd6dfd06e93e9fd4">
+            <data key="type">&lt;https://schema.org/DefinedTerm&gt;</data>
+        </node>
+        <node id="_:b47b7a26a53643c1de3a274b2e00a3a0">
+            <data key="type">tType</data>
+        </node>
+        <node id="_:c62537bdc758caa8e362e7b248602530">
+            <data key="type">&lt;https://schema.org/Action&gt;</data>
+        </node>
+        <node id="_:bd16142604ad61250e68021fa8e3c91">
+            <data key="type">tType</data>
+        </node>
+        <node id="_:c3524bfa5a064b3f0178e5462ab88bbe">
+            <data key="type">&lt;https://schema.org/Event&gt;</data>
+        </node>
+        <node id="_:c62537bdc758caa8e362e7b248602530">
+            <data key="type">tType</data>
+        </node>
+        <node id="&lt;https://gdsc.idsc.miami.edu/detail/tz_populated_places_osm&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="_:de9936541f0f630663370cf8139acbd9">
+            <data key="type">tType</data>
+        </node>
+        <node id="&lt;https://gdsc.idsc.miami.edu/detail/tz_populated_places_osm&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="_:be6883af69b0343eaaf34f5e225fae3f">
+            <data key="type">tType</data>
+        </node>
+        <node id="&lt;https://gdsc.idsc.miami.edu/detail/tz_populated_places_osm&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="_:c8a12599db486912feaa74f635f4e4fb">
+            <data key="type">tType</data>
+        </node>
+        <node id="&lt;https://gdsc.idsc.miami.edu/detail/tz_populated_places_osm&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="_:c096e5a594cb5e54378428766604bef7">
+            <data key="type">tType</data>
+        </node>
+        <node id="&lt;https://gdsc.idsc.miami.edu/detail/tz_populated_places_osm&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="_:fcb7ca197536206e0fbc43fac10399bf">
+            <data key="type">tType</data>
+        </node>
+        <node id="&lt;https://gdsc.idsc.miami.edu/detail/tz_populated_places_osm&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="_:dc97d51bf83ce22e25840c26f68c4bef">
+            <data key="type">tType</data>
+        </node>
+        <node id="&lt;https://gdsc.idsc.miami.edu/detail/tz_populated_places_osm&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="_:fcdb1b4391fd47134fac4f6d7cc465f2">
+            <data key="type">tType</data>
+        </node>
+        <node id="&lt;https://gdsc.idsc.miami.edu/detail/tz_populated_places_osm&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="_:bbaa4bf26b2e8e3ffd6dfd06e93e9fd4">
+            <data key="type">tType</data>
+        </node>
+        <node id="&lt;https://gdsc.idsc.miami.edu/detail/tz_populated_places_osm&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="&lt;https://gdsc.idsc.miami.edu/details/api&gt;">
+            <data key="type">tType</data>
+        </node>
+        <node id="&lt;https://gdsc.idsc.miami.edu/detail/tz_populated_places_osm&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="_:e72f7e9a51101a707a7db857f0597c7b">
+            <data key="type">tType</data>
+        </node>
+        <node id="&lt;https://gdsc.idsc.miami.edu/detail/tz_populated_places_osm&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="_:be700284c7d6419c0a578aebc3d197a1">
+            <data key="type">tType</data>
+        </node>
+        <node id="&lt;https://gdsc.idsc.miami.edu/detail/tz_populated_places_osm&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="_:b61e2a6aaefd975fa2c164239cabcaec">
+            <data key="type">tType</data>
+        </node>
+        <node id="&lt;https://gdsc.idsc.miami.edu/detail/tz_populated_places_osm&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="_:c3524bfa5a064b3f0178e5462ab88bbe">
+            <data key="type">tType</data>
+        </node>
+        <node id="_:f7dd434f65af60790b46755d1196f940">
+            <data key="type">&lt;https://schema.org/Action&gt;</data>
+        </node>
+        <node id="_:abc28a900dc56e38a49c0f7cd70e7c39">
+            <data key="type">tType</data>
+        </node>
+        <node id="_:f7dd434f65af60790b46755d1196f940">
+            <data key="type">&lt;https://schema.org/Action&gt;</data>
+        </node>
+        <node id="_:d0887fd2eebe584ae77e152bbc69b34a">
+            <data key="type">tType</data>
+        </node>
+        <node id="_:f7dd434f65af60790b46755d1196f940">
+            <data key="type">&lt;https://schema.org/Action&gt;</data>
+        </node>
+        <node id="&lt;https://github.com/Geospatial-Digital-Special-Collections/tools&gt;">
+            <data key="type">tType</data>
+        </node>
+        <node id="_:a054df43a01d5a78a6ba7ea5557e262e">
+            <data key="type">&lt;https://schema.org/Event&gt;</data>
+        </node>
+        <node id="_:f7dd434f65af60790b46755d1196f940">
+            <data key="type">tType</data>
+        </node>
+        <node id="_:c54db7188289783eb752e1cfb8d07717">
+            <data key="type">&lt;https://schema.org/DefinedTermSet&gt;</data>
+        </node>
+        <node id="_:ba3a6aeea7124346aaa423da12648578">
+            <data key="type">tType</data>
+        </node>
+        <node id="_:c54db7188289783eb752e1cfb8d07717">
+            <data key="type">&lt;https://schema.org/DefinedTermSet&gt;</data>
+        </node>
+        <node id="_:dda5168049dcaba0c3078c76eeed3ed7">
+            <data key="type">tType</data>
+        </node>
+        <node id="_:c54db7188289783eb752e1cfb8d07717">
+            <data key="type">&lt;https://schema.org/DefinedTermSet&gt;</data>
+        </node>
+        <node id="_:d7e97937da8bbe234dd96b140f1a65e6">
+            <data key="type">tType</data>
+        </node>
+        <node id="_:c12c1a91cec4daf05a620beffe3bc37">
+            <data key="type">&lt;https://schema.org/DefinedTerm&gt;</data>
+        </node>
+        <node id="_:c54db7188289783eb752e1cfb8d07717">
+            <data key="type">tType</data>
+        </node>
+        <node id="_:cbcdd0e234c3893ba20960537a1c667">
+            <data key="type">&lt;https://schema.org/DefinedTermSet&gt;</data>
+        </node>
+        <node id="_:cdd4b298e704da21c8c52229f9920e82">
+            <data key="type">tType</data>
+        </node>
+        <node id="_:cbcdd0e234c3893ba20960537a1c667">
+            <data key="type">&lt;https://schema.org/DefinedTermSet&gt;</data>
+        </node>
+        <node id="_:c033dae1971f58c9a99d0791b52a34c7">
+            <data key="type">tType</data>
+        </node>
+        <node id="_:cbcdd0e234c3893ba20960537a1c667">
+            <data key="type">&lt;https://schema.org/DefinedTermSet&gt;</data>
+        </node>
+        <node id="_:b6b8e68dfaecbf6941812cb28df3254b">
+            <data key="type">tType</data>
+        </node>
+        <node id="_:c19d8a30617853a2054aae17d97cc38a">
+            <data key="type">&lt;https://schema.org/DefinedTerm&gt;</data>
+        </node>
+        <node id="_:cbcdd0e234c3893ba20960537a1c667">
+            <data key="type">tType</data>
+        </node>
+        <node id="_:b77404239f0fea0568903430e214264e">
+            <data key="type">&lt;https://schema.org/Action&gt;</data>
+        </node>
+        <node id="_:be281d4749545edcc806713fe9ffd845">
+            <data key="type">tType</data>
+        </node>
+        <node id="_:ec2eeae6b81d2334a55223dc56c8a722">
+            <data key="type">&lt;https://schema.org/Event&gt;</data>
+        </node>
+        <node id="_:b77404239f0fea0568903430e214264e">
+            <data key="type">tType</data>
+        </node>
+        <node id="&lt;https://gdsc.idsc.miami.edu/detail/tz_2022_nbs_magu_district&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="_:a6764c76842776b0bb38e673cc9ab9e3">
+            <data key="type">tType</data>
+        </node>
+        <node id="&lt;https://gdsc.idsc.miami.edu/detail/tz_2022_nbs_magu_district&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="_:b2993617218e1336aad23e8b19e40537">
+            <data key="type">tType</data>
+        </node>
+        <node id="&lt;https://gdsc.idsc.miami.edu/detail/tz_2022_nbs_magu_district&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="_:cbbac9be3011057ef8ff98a0255418fa">
+            <data key="type">tType</data>
+        </node>
+        <node id="&lt;https://gdsc.idsc.miami.edu/detail/tz_2022_nbs_magu_district&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="_:e47146708fe548b38aa8a693d7a2e9f3">
+            <data key="type">tType</data>
+        </node>
+        <node id="&lt;https://gdsc.idsc.miami.edu/detail/tz_2022_nbs_magu_district&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="_:fce00a75ba2ffdf9c726443869575e6d">
+            <data key="type">tType</data>
+        </node>
+        <node id="&lt;https://gdsc.idsc.miami.edu/detail/tz_2022_nbs_magu_district&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="_:c12c1a91cec4daf05a620beffe3bc37">
+            <data key="type">tType</data>
+        </node>
+        <node id="&lt;https://gdsc.idsc.miami.edu/detail/tz_2022_nbs_magu_district&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="_:c19d8a30617853a2054aae17d97cc38a">
+            <data key="type">tType</data>
+        </node>
+        <node id="&lt;https://gdsc.idsc.miami.edu/detail/tz_2022_nbs_magu_district&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="&lt;https://gdsc.idsc.miami.edu/details/tz_2022_nbs_districts&gt;">
+            <data key="type">tType</data>
+        </node>
+        <node id="&lt;https://gdsc.idsc.miami.edu/detail/tz_2022_nbs_magu_district&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="_:c4848d7dfab777c7613bdc338287a7eb">
+            <data key="type">tType</data>
+        </node>
+        <node id="&lt;https://gdsc.idsc.miami.edu/detail/tz_2022_nbs_magu_district&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="_:d59a7e8abfa41360114501a8d0d9acef">
+            <data key="type">tType</data>
+        </node>
+        <node id="&lt;https://gdsc.idsc.miami.edu/detail/tz_2022_nbs_magu_district&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="_:a054df43a01d5a78a6ba7ea5557e262e">
+            <data key="type">tType</data>
+        </node>
+        <node id="&lt;https://gdsc.idsc.miami.edu/detail/tz_2022_nbs_magu_district&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="_:ec2eeae6b81d2334a55223dc56c8a722">
+            <data key="type">tType</data>
+        </node>
+        <node id="_:baf644a4759d8df840a3a704cab8f7e5">
+            <data key="type">&lt;https://schema.org/Action&gt;</data>
+        </node>
+        <node id="_:bd9cba70e121ce45388a20062ed0a82d">
+            <data key="type">tType</data>
+        </node>
+        <node id="_:baf644a4759d8df840a3a704cab8f7e5">
+            <data key="type">&lt;https://schema.org/Action&gt;</data>
+        </node>
+        <node id="_:c51e9ef66809401355e2a51b66377233">
+            <data key="type">tType</data>
+        </node>
+        <node id="_:baf644a4759d8df840a3a704cab8f7e5">
+            <data key="type">&lt;https://schema.org/Action&gt;</data>
+        </node>
+        <node id="&lt;https://github.com/Geospatial-Digital-Special-Collections/tools&gt;">
+            <data key="type">tType</data>
+        </node>
+        <node id="_:ebde46a090ed0d62443bc0f89a4d790a">
+            <data key="type">&lt;https://schema.org/Event&gt;</data>
+        </node>
+        <node id="_:baf644a4759d8df840a3a704cab8f7e5">
+            <data key="type">tType</data>
+        </node>
+        <node id="_:c729fc90eb1792f13403f03509041fc0">
+            <data key="type">&lt;https://schema.org/DefinedTermSet&gt;</data>
+        </node>
+        <node id="_:aa907f5ba0390f06cfe6796f7a4f9f19">
+            <data key="type">tType</data>
+        </node>
+        <node id="_:c729fc90eb1792f13403f03509041fc0">
+            <data key="type">&lt;https://schema.org/DefinedTermSet&gt;</data>
+        </node>
+        <node id="_:a2bd157712141d6a574bf8b5443d8673">
+            <data key="type">tType</data>
+        </node>
+        <node id="_:c729fc90eb1792f13403f03509041fc0">
+            <data key="type">&lt;https://schema.org/DefinedTermSet&gt;</data>
+        </node>
+        <node id="_:b27d779467666d21f7148f4fb53227ee">
+            <data key="type">tType</data>
+        </node>
+        <node id="_:e32bc1f15b25952e061b016391078a53">
+            <data key="type">&lt;https://schema.org/DefinedTerm&gt;</data>
+        </node>
+        <node id="_:c729fc90eb1792f13403f03509041fc0">
+            <data key="type">tType</data>
+        </node>
+        <node id="_:a45b971ee0a6f9551ae23b8190c2cde2">
+            <data key="type">&lt;https://schema.org/DefinedTermSet&gt;</data>
+        </node>
+        <node id="_:aef5c8b669fc8b3dc6ca2fe718be00ba">
+            <data key="type">tType</data>
+        </node>
+        <node id="_:a45b971ee0a6f9551ae23b8190c2cde2">
+            <data key="type">&lt;https://schema.org/DefinedTermSet&gt;</data>
+        </node>
+        <node id="_:af813f20e28e149a2fd56fad922c741b">
+            <data key="type">tType</data>
+        </node>
+        <node id="_:a45b971ee0a6f9551ae23b8190c2cde2">
+            <data key="type">&lt;https://schema.org/DefinedTermSet&gt;</data>
+        </node>
+        <node id="_:ffcd732d7fc3e5afd0fce3d6bbba0687">
+            <data key="type">tType</data>
+        </node>
+        <node id="_:cdcc8a584baca1daae9040be9e6a705c">
+            <data key="type">&lt;https://schema.org/DefinedTerm&gt;</data>
+        </node>
+        <node id="_:a45b971ee0a6f9551ae23b8190c2cde2">
+            <data key="type">tType</data>
+        </node>
+        <node id="_:dd44a25694fa14857a43c2b00a6c657">
+            <data key="type">&lt;https://schema.org/Action&gt;</data>
+        </node>
+        <node id="_:f56c8edf346787143c6f4ba89a68865b">
+            <data key="type">tType</data>
+        </node>
+        <node id="_:a1265b34e78a0232f297ae252cbfe396">
+            <data key="type">&lt;https://schema.org/Event&gt;</data>
+        </node>
+        <node id="_:dd44a25694fa14857a43c2b00a6c657">
+            <data key="type">tType</data>
+        </node>
+        <node id="&lt;https://gdsc.idsc.miami.edu/detail/tz_2022_nbs_districts&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="_:c531b19e39abc76520627f7d2ce0d5ef">
+            <data key="type">tType</data>
+        </node>
+        <node id="&lt;https://gdsc.idsc.miami.edu/detail/tz_2022_nbs_districts&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="_:e61365cb7cba006b122a3007c01f7051">
+            <data key="type">tType</data>
+        </node>
+        <node id="&lt;https://gdsc.idsc.miami.edu/detail/tz_2022_nbs_districts&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="_:f9f0408dd04cb3ffdc16d4d06281fd4a">
+            <data key="type">tType</data>
+        </node>
+        <node id="&lt;https://gdsc.idsc.miami.edu/detail/tz_2022_nbs_districts&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="_:e1eed53e96bda59265b6ce4860cf07f">
+            <data key="type">tType</data>
+        </node>
+        <node id="&lt;https://gdsc.idsc.miami.edu/detail/tz_2022_nbs_districts&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="_:a7e2c661845d02313f01fd7e452f23b6">
+            <data key="type">tType</data>
+        </node>
+        <node id="&lt;https://gdsc.idsc.miami.edu/detail/tz_2022_nbs_districts&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="_:e32bc1f15b25952e061b016391078a53">
+            <data key="type">tType</data>
+        </node>
+        <node id="&lt;https://gdsc.idsc.miami.edu/detail/tz_2022_nbs_districts&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="_:cdcc8a584baca1daae9040be9e6a705c">
+            <data key="type">tType</data>
+        </node>
+        <node id="&lt;https://gdsc.idsc.miami.edu/detail/tz_2022_nbs_districts&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="_:d49c0e06af3893f10c638c24bc87200b">
+            <data key="type">tType</data>
+        </node>
+        <node id="&lt;https://gdsc.idsc.miami.edu/detail/tz_2022_nbs_districts&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="_:feda0df51cee1209be18f2f7397fcd43">
+            <data key="type">tType</data>
+        </node>
+        <node id="&lt;https://gdsc.idsc.miami.edu/detail/tz_2022_nbs_districts&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="_:ebde46a090ed0d62443bc0f89a4d790a">
+            <data key="type">tType</data>
+        </node>
+        <node id="&lt;https://gdsc.idsc.miami.edu/detail/tz_2022_nbs_districts&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="_:a1265b34e78a0232f297ae252cbfe396">
+            <data key="type">tType</data>
+        </node>
+        <node id="_:cd418fc1c0cdb9717585bc3a9aa7e696">
+            <data key="type">&lt;https://schema.org/Action&gt;</data>
+        </node>
+        <node id="_:d2bf8dee1d738a1666e916db4773c18f">
+            <data key="type">tType</data>
+        </node>
+        <node id="_:cd418fc1c0cdb9717585bc3a9aa7e696">
+            <data key="type">&lt;https://schema.org/Action&gt;</data>
+        </node>
+        <node id="_:c74ec58fed9494277769156e48924b9c">
+            <data key="type">tType</data>
+        </node>
+        <node id="_:cd418fc1c0cdb9717585bc3a9aa7e696">
+            <data key="type">&lt;https://schema.org/Action&gt;</data>
+        </node>
+        <node id="&lt;https://github.com/tibbben/copernicus_aggregate&gt;">
+            <data key="type">tType</data>
+        </node>
+        <node id="_:b0c46fadce1f7f6dfcef5decd7e33a79">
+            <data key="type">&lt;https://schema.org/Event&gt;</data>
+        </node>
+        <node id="_:cd418fc1c0cdb9717585bc3a9aa7e696">
+            <data key="type">tType</data>
+        </node>
+        <node id="_:ec49b6f9885a980a35c8ae9e6864ef9c">
+            <data key="type">&lt;https://schema.org/Place&gt;</data>
+        </node>
+        <node id="_:b108ae6067fe1220b8bf7a2041267d9a">
+            <data key="type">tType</data>
+        </node>
+        <node id="_:a915345104a1f43668c5b8e8effe9f7b">
+            <data key="type">&lt;https://schema.org/DefinedTermSet&gt;</data>
+        </node>
+        <node id="_:e568b2391ceed8cce5f2af5a96747272">
+            <data key="type">tType</data>
+        </node>
+        <node id="_:a915345104a1f43668c5b8e8effe9f7b">
+            <data key="type">&lt;https://schema.org/DefinedTermSet&gt;</data>
+        </node>
+        <node id="_:bc5512065e75e301303b6857d5f8363b">
+            <data key="type">tType</data>
+        </node>
+        <node id="_:a915345104a1f43668c5b8e8effe9f7b">
+            <data key="type">&lt;https://schema.org/DefinedTermSet&gt;</data>
+        </node>
+        <node id="_:c39fe3fe2a4720803b839f01654b88db">
+            <data key="type">tType</data>
+        </node>
+        <node id="_:edca85fc29dcf212646a4045a13b46d7">
+            <data key="type">&lt;https://schema.org/DefinedTerm&gt;</data>
+        </node>
+        <node id="_:a915345104a1f43668c5b8e8effe9f7b">
+            <data key="type">tType</data>
+        </node>
+        <node id="_:f5a3103b9aca2a44eb039b4a7d2dc047">
+            <data key="type">&lt;https://schema.org/Action&gt;</data>
+        </node>
+        <node id="_:a198058abf0924abce29b5738aae0752">
+            <data key="type">tType</data>
+        </node>
+        <node id="_:b327abad5c1772a92223c67f191fa24">
+            <data key="type">&lt;https://schema.org/Event&gt;</data>
+        </node>
+        <node id="_:f5a3103b9aca2a44eb039b4a7d2dc047">
+            <data key="type">tType</data>
+        </node>
+        <node id="&lt;https://gdsc.idsc.miami.edu/detail/tz_1984_copernicus_avg_temp&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="_:a980a391e6c5b6f130ab2dd572ec6104">
+            <data key="type">tType</data>
+        </node>
+        <node id="&lt;https://gdsc.idsc.miami.edu/detail/tz_1984_copernicus_avg_temp&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="_:ec49b6f9885a980a35c8ae9e6864ef9c">
+            <data key="type">tType</data>
+        </node>
+        <node id="&lt;https://gdsc.idsc.miami.edu/detail/tz_1984_copernicus_avg_temp&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="&lt;https://www.geonames.org/149590&gt;">
+            <data key="type">tType</data>
+        </node>
+        <node id="&lt;https://gdsc.idsc.miami.edu/detail/tz_1984_copernicus_avg_temp&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="_:edca85fc29dcf212646a4045a13b46d7">
+            <data key="type">tType</data>
+        </node>
+        <node id="&lt;https://gdsc.idsc.miami.edu/detail/tz_1984_copernicus_avg_temp&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="_:f34bbadfda8cc21ece45bd6ebb9c5e27">
+            <data key="type">tType</data>
+        </node>
+        <node id="&lt;https://gdsc.idsc.miami.edu/detail/tz_1984_copernicus_avg_temp&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="_:ca3e0d6266ac5e80a9afdbfcc28c2e5e">
+            <data key="type">tType</data>
+        </node>
+        <node id="&lt;https://gdsc.idsc.miami.edu/detail/tz_1984_copernicus_avg_temp&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="&lt;https://ror.org/00yafkq43&gt;">
+            <data key="type">tType</data>
+        </node>
+        <node id="&lt;https://gdsc.idsc.miami.edu/detail/tz_1984_copernicus_avg_temp&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="_:ab11b877cde0c1f2756a70d9cd88094e">
+            <data key="type">tType</data>
+        </node>
+        <node id="&lt;https://gdsc.idsc.miami.edu/detail/tz_1984_copernicus_avg_temp&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="_:a7365e9b7cbe13c62d3181ed2754bfe">
+            <data key="type">tType</data>
+        </node>
+        <node id="&lt;https://gdsc.idsc.miami.edu/detail/tz_1984_copernicus_avg_temp&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="_:b0c46fadce1f7f6dfcef5decd7e33a79">
+            <data key="type">tType</data>
+        </node>
+        <node id="&lt;https://gdsc.idsc.miami.edu/detail/tz_1984_copernicus_avg_temp&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="_:b327abad5c1772a92223c67f191fa24">
+            <data key="type">tType</data>
+        </node>
+        <node id="_:ee50513030098fe4e6763347cde7e40f">
+            <data key="type">&lt;https://schema.org/DefinedTerm&gt;</data>
+        </node>
+        <node id="_:a6a7ede06f00e26a81d6cc229ba62b54">
+            <data key="type">tType</data>
+        </node>
+        <node id="_:bb2d8b0c07359eb399fb568c3370ea38">
+            <data key="type">&lt;https://schema.org/Action&gt;</data>
+        </node>
+        <node id="_:fbf801d9ce440aaa26d2b0988e1665bd">
+            <data key="type">tType</data>
+        </node>
+        <node id="_:bb2d8b0c07359eb399fb568c3370ea38">
+            <data key="type">&lt;https://schema.org/Action&gt;</data>
+        </node>
+        <node id="_:c5eefa7640e9ca8e947c4ae19ff8959a">
+            <data key="type">tType</data>
+        </node>
+        <node id="_:bb2d8b0c07359eb399fb568c3370ea38">
+            <data key="type">&lt;https://schema.org/Action&gt;</data>
+        </node>
+        <node id="&lt;https://github.com/Geospatial-Digital-Special-Collections/tools&gt;">
+            <data key="type">tType</data>
+        </node>
+        <node id="_:c7ad6b85f862fe6e17e2119c9d4bf736">
+            <data key="type">&lt;https://schema.org/Event&gt;</data>
+        </node>
+        <node id="_:bb2d8b0c07359eb399fb568c3370ea38">
+            <data key="type">tType</data>
+        </node>
+        <node id="_:c7e2f11df900b1b37312acee2161e3ae">
+            <data key="type">&lt;https://schema.org/DefinedTermSet&gt;</data>
+        </node>
+        <node id="_:a530dd9f7745401541c82ba3e72eddf5">
+            <data key="type">tType</data>
+        </node>
+        <node id="_:c7e2f11df900b1b37312acee2161e3ae">
+            <data key="type">&lt;https://schema.org/DefinedTermSet&gt;</data>
+        </node>
+        <node id="_:a8b8e3ee0170f7ae9d22343a1ebb12b8">
+            <data key="type">tType</data>
+        </node>
+        <node id="_:c7e2f11df900b1b37312acee2161e3ae">
+            <data key="type">&lt;https://schema.org/DefinedTermSet&gt;</data>
+        </node>
+        <node id="_:f8107518463c2077da3a7e23bbe3c3ba">
+            <data key="type">tType</data>
+        </node>
+        <node id="_:ef94402b8e47e7bc8b2c7fdd2f6490f9">
+            <data key="type">&lt;https://schema.org/DefinedTerm&gt;</data>
+        </node>
+        <node id="_:c7e2f11df900b1b37312acee2161e3ae">
+            <data key="type">tType</data>
+        </node>
+        <node id="_:a6a7ede06f00e26a81d6cc229ba62b54">
+            <data key="type">&lt;https://schema.org/DefinedTermSet&gt;</data>
+        </node>
+        <node id="_:ff5ce29251d12cb421d27d8d91de3b40">
+            <data key="type">tType</data>
+        </node>
+        <node id="_:a6a7ede06f00e26a81d6cc229ba62b54">
+            <data key="type">&lt;https://schema.org/DefinedTermSet&gt;</data>
+        </node>
+        <node id="_:e42dcc1ef67f3560e5eaaeb85f7106c">
+            <data key="type">tType</data>
+        </node>
+        <node id="_:a6a7ede06f00e26a81d6cc229ba62b54">
+            <data key="type">&lt;https://schema.org/DefinedTermSet&gt;</data>
+        </node>
+        <node id="_:e29e990be3bfd3a14a2eaf503d580996">
+            <data key="type">tType</data>
+        </node>
+        <node id="_:a3090511585e047459fd73fba72df30f">
+            <data key="type">&lt;https://schema.org/Action&gt;</data>
+        </node>
+        <node id="_:d27a3f353e17fb05a19013ab3302e073">
+            <data key="type">tType</data>
+        </node>
+        <node id="_:d73b04bb4449850be1bfa19386d976e9">
+            <data key="type">&lt;https://schema.org/Event&gt;</data>
+        </node>
+        <node id="_:a3090511585e047459fd73fba72df30f">
+            <data key="type">tType</data>
+        </node>
+        <node id="&lt;https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="_:cf98b658d3b8e2242d9c806cf587c3b6">
+            <data key="type">tType</data>
+        </node>
+        <node id="&lt;https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="_:c81204b3750e4ac037565c9b498cc350">
+            <data key="type">tType</data>
+        </node>
+        <node id="&lt;https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="_:a6ad93e3efd1f9dae9c74a6f3aa816a7">
+            <data key="type">tType</data>
+        </node>
+        <node id="&lt;https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="_:f129f7e8d7f800a3e73eef923970a64">
+            <data key="type">tType</data>
+        </node>
+        <node id="&lt;https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="_:e64c767c766d06bf67912d0666a24240">
+            <data key="type">tType</data>
+        </node>
+        <node id="&lt;https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="_:b27431247061414f776c4135123c837e">
+            <data key="type">tType</data>
+        </node>
+        <node id="&lt;https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="_:e1b1e9fa17c3f373fa86dddf430c8358">
+            <data key="type">tType</data>
+        </node>
+        <node id="&lt;https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="_:a7e00574209f7f170560e387fa1c81cb">
+            <data key="type">tType</data>
+        </node>
+        <node id="&lt;https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="_:ffe17ab090ecfc99e5db402642a9e118">
+            <data key="type">tType</data>
+        </node>
+        <node id="&lt;https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="_:def04e93fceea698f3922835c1dccef">
+            <data key="type">tType</data>
+        </node>
+        <node id="&lt;https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="_:f1ca5f93514f4f9e9f01a401251784d9">
+            <data key="type">tType</data>
+        </node>
+        <node id="&lt;https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="_:e227bb255ab267b9b2e9236ddd7e4dff">
+            <data key="type">tType</data>
+        </node>
+        <node id="&lt;https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="_:c35809d15a92085ee05fe194359cae56">
+            <data key="type">tType</data>
+        </node>
+        <node id="&lt;https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="_:ced4ee3c8e791c7e775720e5ae27c94c">
+            <data key="type">tType</data>
+        </node>
+        <node id="&lt;https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="_:ed6bcfb1d65a91779d9fa701c6b4ae88">
+            <data key="type">tType</data>
+        </node>
+        <node id="&lt;https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="_:d5a955c7c6d46c596fb519ecdcb1bb93">
+            <data key="type">tType</data>
+        </node>
+        <node id="&lt;https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="_:e326fdc320e993e7a654b3ca526fb75c">
+            <data key="type">tType</data>
+        </node>
+        <node id="&lt;https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="_:b506abd0b78ff0baec3fa405944ae1b4">
+            <data key="type">tType</data>
+        </node>
+        <node id="&lt;https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="_:ff2202b6feb9486e4aa47635c9707631">
+            <data key="type">tType</data>
+        </node>
+        <node id="&lt;https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="_:d6b298c05afa4446627102a40ffe3106">
+            <data key="type">tType</data>
+        </node>
+        <node id="&lt;https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="_:cce1b3181dec3d831a52d67f86f355a0">
+            <data key="type">tType</data>
+        </node>
+        <node id="&lt;https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="_:f445be55c6eaf8d3f168c1940e86517">
+            <data key="type">tType</data>
+        </node>
+        <node id="&lt;https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="_:e99fa191a78307a4162f07ffca2ca68a">
+            <data key="type">tType</data>
+        </node>
+        <node id="&lt;https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="_:b0c55898c70659f4be717987dfce925b">
+            <data key="type">tType</data>
+        </node>
+        <node id="&lt;https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="_:cda5824c0ad0c1447c03830012502496">
+            <data key="type">tType</data>
+        </node>
+        <node id="&lt;https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="_:b5e16562c16b0199a2a0b3ba10451ae1">
+            <data key="type">tType</data>
+        </node>
+        <node id="&lt;https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="_:efeff41fe9241dacbb4144e1c55a2af0">
+            <data key="type">tType</data>
+        </node>
+        <node id="&lt;https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="_:f4a7677e0c555e5e8e76799f753d9f6b">
+            <data key="type">tType</data>
+        </node>
+        <node id="&lt;https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="_:cf9d76187ec56bab36899ee901a6a36c">
+            <data key="type">tType</data>
+        </node>
+        <node id="&lt;https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="_:fd7c3d40227bf91f06b9f8cda8e7151">
+            <data key="type">tType</data>
+        </node>
+        <node id="&lt;https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="_:f101953f27375f42c331aa592c6e2fd5">
+            <data key="type">tType</data>
+        </node>
+        <node id="&lt;https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="_:d7ae8476390a4dd10c14d3b676ce8c1f">
+            <data key="type">tType</data>
+        </node>
+        <node id="&lt;https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="_:dce3cf194ccba901d2acfdcb5f0850a4">
+            <data key="type">tType</data>
+        </node>
+        <node id="&lt;https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="_:d96d88f2b8eb115ad5dab50c684af9">
+            <data key="type">tType</data>
+        </node>
+        <node id="&lt;https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="_:c5fe0361d049a5b3badce8872362b38">
+            <data key="type">tType</data>
+        </node>
+        <node id="&lt;https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="_:a0919f6822cb7e7d3909319edd65acca">
+            <data key="type">tType</data>
+        </node>
+        <node id="&lt;https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="_:ec525f3115ad6e8d168129363f39c5b5">
+            <data key="type">tType</data>
+        </node>
+        <node id="&lt;https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="_:cf5e79d4a78bd1703619e924bcc56f86">
+            <data key="type">tType</data>
+        </node>
+        <node id="&lt;https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="_:f71c25fb526afae3ca8cf2dfdbcd36f1">
+            <data key="type">tType</data>
+        </node>
+        <node id="&lt;https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="_:b7dd3fa160aaadd40359e905fa35a7dc">
+            <data key="type">tType</data>
+        </node>
+        <node id="&lt;https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="_:d32ffce6fb88a5628718fdb132f074b0">
+            <data key="type">tType</data>
+        </node>
+        <node id="&lt;https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="_:f475a1874e3e6684488606495e537f60">
+            <data key="type">tType</data>
+        </node>
+        <node id="&lt;https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="_:ad115a9665cc68f02845fbeedf8ed50c">
+            <data key="type">tType</data>
+        </node>
+        <node id="&lt;https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="_:a376473f7b12266ffc7c17cb7021a551">
+            <data key="type">tType</data>
+        </node>
+        <node id="&lt;https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="_:bbe3fc9d8da6bb7a51df507be01911c3">
+            <data key="type">tType</data>
+        </node>
+        <node id="&lt;https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="_:f103ea11282328d7eef4752b4a80a840">
+            <data key="type">tType</data>
+        </node>
+        <node id="&lt;https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="_:d196ba4eb98047da2984c67ca682eae1">
+            <data key="type">tType</data>
+        </node>
+        <node id="&lt;https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="_:ece083876a49415b1cea5214d6635a80">
+            <data key="type">tType</data>
+        </node>
+        <node id="&lt;https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="_:bb88f7b262d9ebcc18d245e262b4120b">
+            <data key="type">tType</data>
+        </node>
+        <node id="&lt;https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="_:fdcf69f290fed6a54b55a23190c667f7">
+            <data key="type">tType</data>
+        </node>
+        <node id="&lt;https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="_:ea468408bafff6de875261fcd14f9b25">
+            <data key="type">tType</data>
+        </node>
+        <node id="&lt;https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="_:a61a733806e71c86e31d2b62dfc5de75">
+            <data key="type">tType</data>
+        </node>
+        <node id="&lt;https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="_:eff2659efd07583bee8da646aad14dac">
+            <data key="type">tType</data>
+        </node>
+        <node id="&lt;https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="_:a89d43eada027823ea38b79c246e7d26">
+            <data key="type">tType</data>
+        </node>
+        <node id="&lt;https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="_:c340502984324abd1a41562db77ea9af">
+            <data key="type">tType</data>
+        </node>
+        <node id="&lt;https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="_:fc376eda1b9d99f3933fbeaf125d2861">
+            <data key="type">tType</data>
+        </node>
+        <node id="&lt;https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="_:a8e8f984320385f4c43962be828df1e2">
+            <data key="type">tType</data>
+        </node>
+        <node id="&lt;https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="_:ea7acaf2362f68dc4cbf1cc549ebe19">
+            <data key="type">tType</data>
+        </node>
+        <node id="&lt;https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="_:aa86630165e2bc53bac85e3fb2b4ff98">
+            <data key="type">tType</data>
+        </node>
+        <node id="&lt;https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="_:c97fab8b6271a4f06856eb8c6672e464">
+            <data key="type">tType</data>
+        </node>
+        <node id="&lt;https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="_:f34a120ed790fddad9ed782ee757b242">
+            <data key="type">tType</data>
+        </node>
+        <node id="&lt;https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="_:bc551f2bd236113257d30b6ffc7a9f4e">
+            <data key="type">tType</data>
+        </node>
+        <node id="&lt;https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="_:ad43fa83b656cee9b0c1016552730597">
+            <data key="type">tType</data>
+        </node>
+        <node id="&lt;https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="_:e457c51db7c62ab12a3243da0cda7b8a">
+            <data key="type">tType</data>
+        </node>
+        <node id="&lt;https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="_:f467313dbb523631ee08c2af43929625">
+            <data key="type">tType</data>
+        </node>
+        <node id="&lt;https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="_:ed942338b59b3acdf666bce85dc5006a">
+            <data key="type">tType</data>
+        </node>
+        <node id="&lt;https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="_:b10de8579bd9d3fa906a492f9709fb23">
+            <data key="type">tType</data>
+        </node>
+        <node id="&lt;https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="_:f99a7411ba0e32f0084c7accfd94768d">
+            <data key="type">tType</data>
+        </node>
+        <node id="&lt;https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="_:d567bb5a89bb3ab92d687627f42daa89">
+            <data key="type">tType</data>
+        </node>
+        <node id="&lt;https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="_:d671c6d6edb95c255d588113f9e628d2">
+            <data key="type">tType</data>
+        </node>
+        <node id="&lt;https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="_:ed35516b2938706683182e123a815632">
+            <data key="type">tType</data>
+        </node>
+        <node id="&lt;https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="_:f967bf280302c74958074884c57856dd">
+            <data key="type">tType</data>
+        </node>
+        <node id="&lt;https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="_:caf98103326f8e2b22cff3ef57f998f1">
+            <data key="type">tType</data>
+        </node>
+        <node id="&lt;https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="_:c94aaeb78771498cf3400a2d2f99aa1a">
+            <data key="type">tType</data>
+        </node>
+        <node id="&lt;https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="_:aa1e244ade8c03f73d25e6c0d0cc0dca">
+            <data key="type">tType</data>
+        </node>
+        <node id="&lt;https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="_:d519d76bae67e0796694d127922ef3c6">
+            <data key="type">tType</data>
+        </node>
+        <node id="&lt;https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="_:d89f9f57632b476cbace37d36557ea1e">
+            <data key="type">tType</data>
+        </node>
+        <node id="&lt;https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="_:b00900d242c546b4271d29773260a039">
+            <data key="type">tType</data>
+        </node>
+        <node id="&lt;https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="_:e19a4c9aea74b0f639d25afe4cbe263e">
+            <data key="type">tType</data>
+        </node>
+        <node id="&lt;https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="_:f3706808c4059785eb8c14ff1e485feb">
+            <data key="type">tType</data>
+        </node>
+        <node id="&lt;https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="_:db0c7c9ac12fc6d51862d0f4f153dd58">
+            <data key="type">tType</data>
+        </node>
+        <node id="&lt;https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="_:bfff049e788de51cfb6bf9c012baa448">
+            <data key="type">tType</data>
+        </node>
+        <node id="&lt;https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="_:e1279f5bab6f5ef8a3e843be67256225">
+            <data key="type">tType</data>
+        </node>
+        <node id="&lt;https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="_:c3f271d6170f3a13734e8daea86a46f7">
+            <data key="type">tType</data>
+        </node>
+        <node id="&lt;https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="_:a002b85a4b05bd4c80f7472e1f9bd047">
+            <data key="type">tType</data>
+        </node>
+        <node id="&lt;https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="_:d88550148be0ca52fe291212f14b6692">
+            <data key="type">tType</data>
+        </node>
+        <node id="&lt;https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="_:f1945dca7c35d5de32a4d9518bc80dc9">
+            <data key="type">tType</data>
+        </node>
+        <node id="&lt;https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="_:c87fca35adf31dc847f0ad22ccc83c5f">
+            <data key="type">tType</data>
+        </node>
+        <node id="&lt;https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="_:c68d392c4dccad30afbb0eef05d1bd9">
+            <data key="type">tType</data>
+        </node>
+        <node id="&lt;https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="_:ff82522f686722731ed250f5ab2085cf">
+            <data key="type">tType</data>
+        </node>
+        <node id="&lt;https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="_:d273b48a149c6cf992b6be6dcf297b04">
+            <data key="type">tType</data>
+        </node>
+        <node id="&lt;https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="_:b5d8768356d4a54255623d19d76dcc96">
+            <data key="type">tType</data>
+        </node>
+        <node id="&lt;https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="_:a9e35e244fe497dc93fce7a95fca8c0a">
+            <data key="type">tType</data>
+        </node>
+        <node id="&lt;https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="_:f7876dd915de7eab853004fa5b605a1d">
+            <data key="type">tType</data>
+        </node>
+        <node id="&lt;https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="_:d121d43638a6a68b1fde36c30a247a1">
+            <data key="type">tType</data>
+        </node>
+        <node id="&lt;https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="_:bb8d9989a88414f96593ccdb94f6d2b8">
+            <data key="type">tType</data>
+        </node>
+        <node id="&lt;https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="_:f72aa61eba2db1a82e8367278d831925">
+            <data key="type">tType</data>
+        </node>
+        <node id="&lt;https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="_:d380a247204a0a81e1365c52b7834317">
+            <data key="type">tType</data>
+        </node>
+        <node id="&lt;https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="_:fdcef8c6a7645f6cbf74545c25f64126">
+            <data key="type">tType</data>
+        </node>
+        <node id="&lt;https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="_:be6b1c0b1dc8ebde1c846a026c657696">
+            <data key="type">tType</data>
+        </node>
+        <node id="&lt;https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="_:cbcfcb0f3d22a60bdfe24bb6bfd54c4b">
+            <data key="type">tType</data>
+        </node>
+        <node id="&lt;https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="_:fb78587d228b35fd6239c6bdec5c7667">
+            <data key="type">tType</data>
+        </node>
+        <node id="&lt;https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="_:fc9c1dbf114d5e9d781f0898cc5bdff5">
+            <data key="type">tType</data>
+        </node>
+        <node id="&lt;https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="_:f9d4378d6cfb34b8d730860acfceee6">
+            <data key="type">tType</data>
+        </node>
+        <node id="&lt;https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="_:eb15bf3ae1427fa1070fbc37e4c51bc4">
+            <data key="type">tType</data>
+        </node>
+        <node id="&lt;https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="_:dbc30b58c8e8bb034476ccafe8084c14">
+            <data key="type">tType</data>
+        </node>
+        <node id="&lt;https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="_:e7e0e6eb1092a65e7949696c79f755cc">
+            <data key="type">tType</data>
+        </node>
+        <node id="&lt;https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="_:fafa3f4ccf6ac5dfe62ada4d32b6b66c">
+            <data key="type">tType</data>
+        </node>
+        <node id="&lt;https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="_:b16931669f819e6fd356591fe895b669">
+            <data key="type">tType</data>
+        </node>
+        <node id="&lt;https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="_:d2c67f0d3938167ea5ef5bfd710be373">
+            <data key="type">tType</data>
+        </node>
+        <node id="&lt;https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="_:ba5273c69ba2a296cdf7389e76f824b">
+            <data key="type">tType</data>
+        </node>
+        <node id="&lt;https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="_:cac7253bde1f595ffd1e45118522a4fc">
+            <data key="type">tType</data>
+        </node>
+        <node id="&lt;https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="_:f33a22a456ed3e323d2447a0af6085f7">
+            <data key="type">tType</data>
+        </node>
+        <node id="&lt;https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="_:ff5873cfdaa958ee995defe58b04be46">
+            <data key="type">tType</data>
+        </node>
+        <node id="&lt;https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="_:a476dd696bc9739e259e70cdc61ebea1">
+            <data key="type">tType</data>
+        </node>
+        <node id="&lt;https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="_:b640624761e9916fcb22c8af149924cc">
+            <data key="type">tType</data>
+        </node>
+        <node id="&lt;https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="_:de8c676c200fa8cd6b5be886530a5a18">
+            <data key="type">tType</data>
+        </node>
+        <node id="&lt;https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="_:e188470d3f35442824bbaef6963e0f0d">
+            <data key="type">tType</data>
+        </node>
+        <node id="&lt;https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="_:e83913c66d2ac74aa0923b20500cb0e8">
+            <data key="type">tType</data>
+        </node>
+        <node id="&lt;https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="_:bbd59b05e9557b9466a6eeded34f8fca">
+            <data key="type">tType</data>
+        </node>
+        <node id="&lt;https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="_:b47b4c25019f07dacefbf6ee7f066f11">
+            <data key="type">tType</data>
+        </node>
+        <node id="&lt;https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="_:d0c82d91e92d626fd1e5949d7635d960">
+            <data key="type">tType</data>
+        </node>
+        <node id="&lt;https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="_:c18d81a72a038e24e467588ce3f633b2">
+            <data key="type">tType</data>
+        </node>
+        <node id="&lt;https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="_:f7b12eb902dc156cb3180e84d5adca4b">
+            <data key="type">tType</data>
+        </node>
+        <node id="&lt;https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="_:b5a285259b9feddc28efd0c8598f4aa6">
+            <data key="type">tType</data>
+        </node>
+        <node id="&lt;https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="_:ee50513030098fe4e6763347cde7e40f">
+            <data key="type">tType</data>
+        </node>
+        <node id="&lt;https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="_:ef94402b8e47e7bc8b2c7fdd2f6490f9">
+            <data key="type">tType</data>
+        </node>
+        <node id="&lt;https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="_:a8172dcd9cc726cfb5e069d1b6a855ab">
+            <data key="type">tType</data>
+        </node>
+        <node id="&lt;https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="&lt;https://ror.org/04hsdam77&gt;">
+            <data key="type">tType</data>
+        </node>
+        <node id="&lt;https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="_:c76d46a4c0e86fa6dc0c67c768ba9fb5">
+            <data key="type">tType</data>
+        </node>
+        <node id="&lt;https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="_:c7ad6b85f862fe6e17e2119c9d4bf736">
+            <data key="type">tType</data>
+        </node>
+        <node id="&lt;https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="_:d73b04bb4449850be1bfa19386d976e9">
+            <data key="type">tType</data>
+        </node>
+        <node id="_:fb3e34f4df858c17b91e16914fab84cc">
+            <data key="type">&lt;https://schema.org/Action&gt;</data>
+        </node>
+        <node id="_:b9f0f03e98300baa308e98f9427362c7">
+            <data key="type">tType</data>
+        </node>
+        <node id="_:fb3e34f4df858c17b91e16914fab84cc">
+            <data key="type">&lt;https://schema.org/Action&gt;</data>
+        </node>
+        <node id="_:c43a02ea2b68a39739e16bf4d7794e84">
+            <data key="type">tType</data>
+        </node>
+        <node id="_:fb3e34f4df858c17b91e16914fab84cc">
+            <data key="type">&lt;https://schema.org/Action&gt;</data>
+        </node>
+        <node id="&lt;https://github.com/Geospatial-Digital-Special-Collections/tools&gt;">
+            <data key="type">tType</data>
+        </node>
+        <node id="_:df82218aed7ccfde0874e0c58ca595eb">
+            <data key="type">&lt;https://schema.org/Event&gt;</data>
+        </node>
+        <node id="_:fb3e34f4df858c17b91e16914fab84cc">
+            <data key="type">tType</data>
+        </node>
+        <node id="_:c5520f63dca65554a41987d83f434c7">
+            <data key="type">&lt;https://schema.org/DefinedTermSet&gt;</data>
+        </node>
+        <node id="_:da8047ba4cbfe414b702f4498ff39604">
+            <data key="type">tType</data>
+        </node>
+        <node id="_:c5520f63dca65554a41987d83f434c7">
+            <data key="type">&lt;https://schema.org/DefinedTermSet&gt;</data>
+        </node>
+        <node id="_:e3d198723f5dc980fbd8f568c8a5343b">
+            <data key="type">tType</data>
+        </node>
+        <node id="_:c5520f63dca65554a41987d83f434c7">
+            <data key="type">&lt;https://schema.org/DefinedTermSet&gt;</data>
+        </node>
+        <node id="_:e9c1b0747befa34c848d7054f249fe48">
+            <data key="type">tType</data>
+        </node>
+        <node id="_:c9be4046c20752d80bbbafac781a2ae8">
+            <data key="type">&lt;https://schema.org/DefinedTerm&gt;</data>
+        </node>
+        <node id="_:c5520f63dca65554a41987d83f434c7">
+            <data key="type">tType</data>
+        </node>
+        <node id="_:fd5231aa619f92f0691d0f7aa957fd20">
+            <data key="type">&lt;https://schema.org/DefinedTermSet&gt;</data>
+        </node>
+        <node id="_:a1242e20e2f57d41be798ac34959a3d3">
+            <data key="type">tType</data>
+        </node>
+        <node id="_:fd5231aa619f92f0691d0f7aa957fd20">
+            <data key="type">&lt;https://schema.org/DefinedTermSet&gt;</data>
+        </node>
+        <node id="_:e21f81da0201d4bf0698aeaf84de787e">
+            <data key="type">tType</data>
+        </node>
+        <node id="_:fd5231aa619f92f0691d0f7aa957fd20">
+            <data key="type">&lt;https://schema.org/DefinedTermSet&gt;</data>
+        </node>
+        <node id="_:c56bbd94ac877ca19d274b35f621e979">
+            <data key="type">tType</data>
+        </node>
+        <node id="_:c459fedb208ba044b9d00ff15d6dcc45">
+            <data key="type">&lt;https://schema.org/DefinedTerm&gt;</data>
+        </node>
+        <node id="_:fd5231aa619f92f0691d0f7aa957fd20">
+            <data key="type">tType</data>
+        </node>
+        <node id="_:e0dac577a012070fc3b8fc2f4e6ad12f">
+            <data key="type">&lt;https://schema.org/Action&gt;</data>
+        </node>
+        <node id="_:caf9ee2092baf4c5ae7514463decfc24">
+            <data key="type">tType</data>
+        </node>
+        <node id="_:d46ada41cce52c10ece4e5b73adab05f">
+            <data key="type">&lt;https://schema.org/Event&gt;</data>
+        </node>
+        <node id="_:e0dac577a012070fc3b8fc2f4e6ad12f">
+            <data key="type">tType</data>
+        </node>
+        <node id="&lt;https://gdsc.idsc.miami.edu/detail/global_pm25_concentration_1998_2016&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="_:d5864b69ff74cb37072de996f010e186">
+            <data key="type">tType</data>
+        </node>
+        <node id="&lt;https://gdsc.idsc.miami.edu/detail/global_pm25_concentration_1998_2016&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="_:e7c1c3f4bf2ec399022ee02b6548c56e">
+            <data key="type">tType</data>
+        </node>
+        <node id="&lt;https://gdsc.idsc.miami.edu/detail/global_pm25_concentration_1998_2016&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="_:a78393c6c61c54f4e13afb178302a715">
+            <data key="type">tType</data>
+        </node>
+        <node id="&lt;https://gdsc.idsc.miami.edu/detail/global_pm25_concentration_1998_2016&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="_:f1a65a56b4f97ed8ddd6201e89fab2d3">
+            <data key="type">tType</data>
+        </node>
+        <node id="&lt;https://gdsc.idsc.miami.edu/detail/global_pm25_concentration_1998_2016&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="_:bd97be2ef6e3f992138f4cdd7189ce87">
+            <data key="type">tType</data>
+        </node>
+        <node id="&lt;https://gdsc.idsc.miami.edu/detail/global_pm25_concentration_1998_2016&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="_:d8b8072649b9a147d4f9ad7a72e45dae">
+            <data key="type">tType</data>
+        </node>
+        <node id="&lt;https://gdsc.idsc.miami.edu/detail/global_pm25_concentration_1998_2016&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="_:b95adfb845a3798f9f0f0495f46d95ff">
+            <data key="type">tType</data>
+        </node>
+        <node id="&lt;https://gdsc.idsc.miami.edu/detail/global_pm25_concentration_1998_2016&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="_:f2d37306c54abb3b94aaa54ea7b38186">
+            <data key="type">tType</data>
+        </node>
+        <node id="&lt;https://gdsc.idsc.miami.edu/detail/global_pm25_concentration_1998_2016&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="_:a887a1774f61f7de68958f27a2df9eb4">
+            <data key="type">tType</data>
+        </node>
+        <node id="&lt;https://gdsc.idsc.miami.edu/detail/global_pm25_concentration_1998_2016&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="_:c62ce829bde774c735a955d5bc7c6e76">
+            <data key="type">tType</data>
+        </node>
+        <node id="&lt;https://gdsc.idsc.miami.edu/detail/global_pm25_concentration_1998_2016&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="_:ad14626d09d7f0b24c18b7df1ee91919">
+            <data key="type">tType</data>
+        </node>
+        <node id="&lt;https://gdsc.idsc.miami.edu/detail/global_pm25_concentration_1998_2016&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="_:bc6cd3bdf2523e1849818c87676ff39">
+            <data key="type">tType</data>
+        </node>
+        <node id="&lt;https://gdsc.idsc.miami.edu/detail/global_pm25_concentration_1998_2016&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="_:a9a474c287e0cd9a50d51373f5842f40">
+            <data key="type">tType</data>
+        </node>
+        <node id="&lt;https://gdsc.idsc.miami.edu/detail/global_pm25_concentration_1998_2016&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="_:cda2a2b93e14d4cf67516c932bb4d6e2">
+            <data key="type">tType</data>
+        </node>
+        <node id="&lt;https://gdsc.idsc.miami.edu/detail/global_pm25_concentration_1998_2016&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="_:edc415b5c068e9790d557f944b8186f2">
+            <data key="type">tType</data>
+        </node>
+        <node id="&lt;https://gdsc.idsc.miami.edu/detail/global_pm25_concentration_1998_2016&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="_:f9eef7c83391220c0723d1b1b941dfe3">
+            <data key="type">tType</data>
+        </node>
+        <node id="&lt;https://gdsc.idsc.miami.edu/detail/global_pm25_concentration_1998_2016&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="_:f457d524a42e1fd2851963dc3ef508ae">
+            <data key="type">tType</data>
+        </node>
+        <node id="&lt;https://gdsc.idsc.miami.edu/detail/global_pm25_concentration_1998_2016&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="_:caadd68210ecd944cd9c800a32f09795">
+            <data key="type">tType</data>
+        </node>
+        <node id="&lt;https://gdsc.idsc.miami.edu/detail/global_pm25_concentration_1998_2016&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="_:ed9d3645f3fe33818bbea2c19c316eaa">
+            <data key="type">tType</data>
+        </node>
+        <node id="&lt;https://gdsc.idsc.miami.edu/detail/global_pm25_concentration_1998_2016&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="_:af7e5eae56f8e51d3b6c6b12d764699e">
+            <data key="type">tType</data>
+        </node>
+        <node id="&lt;https://gdsc.idsc.miami.edu/detail/global_pm25_concentration_1998_2016&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="_:f833adc4985bf1566f096e8d5494b6d4">
+            <data key="type">tType</data>
+        </node>
+        <node id="&lt;https://gdsc.idsc.miami.edu/detail/global_pm25_concentration_1998_2016&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="_:a687ac5d9e82b72eb2cc19568fd63c27">
+            <data key="type">tType</data>
+        </node>
+        <node id="&lt;https://gdsc.idsc.miami.edu/detail/global_pm25_concentration_1998_2016&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="_:d35324b0316afbe5453ab1c914f5a0ff">
+            <data key="type">tType</data>
+        </node>
+        <node id="&lt;https://gdsc.idsc.miami.edu/detail/global_pm25_concentration_1998_2016&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="_:e80b3efda599037371a8581bc9b8314d">
+            <data key="type">tType</data>
+        </node>
+        <node id="&lt;https://gdsc.idsc.miami.edu/detail/global_pm25_concentration_1998_2016&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="_:af95237ed65440a92b3237f1a3163939">
+            <data key="type">tType</data>
+        </node>
+        <node id="&lt;https://gdsc.idsc.miami.edu/detail/global_pm25_concentration_1998_2016&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="_:c2550ae5ac1f54ec504d9424c37120ba">
+            <data key="type">tType</data>
+        </node>
+        <node id="&lt;https://gdsc.idsc.miami.edu/detail/global_pm25_concentration_1998_2016&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="_:a73220f7f78d1614fac71ea16e47908b">
+            <data key="type">tType</data>
+        </node>
+        <node id="&lt;https://gdsc.idsc.miami.edu/detail/global_pm25_concentration_1998_2016&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="_:a02f214f0ca992c1448e7ea5e2022835">
+            <data key="type">tType</data>
+        </node>
+        <node id="&lt;https://gdsc.idsc.miami.edu/detail/global_pm25_concentration_1998_2016&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="_:c863951ceebf44513b9eb779e83c8452">
+            <data key="type">tType</data>
+        </node>
+        <node id="&lt;https://gdsc.idsc.miami.edu/detail/global_pm25_concentration_1998_2016&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="_:c9be4046c20752d80bbbafac781a2ae8">
+            <data key="type">tType</data>
+        </node>
+        <node id="&lt;https://gdsc.idsc.miami.edu/detail/global_pm25_concentration_1998_2016&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="_:c459fedb208ba044b9d00ff15d6dcc45">
+            <data key="type">tType</data>
+        </node>
+        <node id="&lt;https://gdsc.idsc.miami.edu/detail/global_pm25_concentration_1998_2016&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="_:d1f0dba9b108620dadd210de6f6eace1">
+            <data key="type">tType</data>
+        </node>
+        <node id="&lt;https://gdsc.idsc.miami.edu/detail/global_pm25_concentration_1998_2016&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="_:fc5671f83a165927de4e49a3346e04b6">
+            <data key="type">tType</data>
+        </node>
+        <node id="&lt;https://gdsc.idsc.miami.edu/detail/global_pm25_concentration_1998_2016&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="_:df82218aed7ccfde0874e0c58ca595eb">
+            <data key="type">tType</data>
+        </node>
+        <node id="&lt;https://gdsc.idsc.miami.edu/detail/global_pm25_concentration_1998_2016&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="_:d46ada41cce52c10ece4e5b73adab05f">
+            <data key="type">tType</data>
+        </node>
+        <edge source="_:cc37762df86d926ad82cbf1460099eff" target="_:fb56eb64716f3ba39bf0a327fef67a42"/>
+        <edge source="_:cb5f0c6438f220be71dbd57ff3325c80" target="_:cf4725c0836224a8a7831a555351294a"/>
+        <edge source="_:cb5f0c6438f220be71dbd57ff3325c80" target="_:c78a6134455d3242a459ed710f80eafd"/>
+        <edge source="_:cb5f0c6438f220be71dbd57ff3325c80" target="&lt;https://github.com/Geospatial-Digital-Special-Collections/tools&gt;"/>
+        <edge source="_:a143899f664d9a4828651b3e9094f8a" target="_:cb5f0c6438f220be71dbd57ff3325c80"/>
+        <edge source="_:bf1c7c41f2f416d9abf6743a8d2a36f6" target="_:dbf9036d5728bc153932dff25525ac3d"/>
+        <edge source="_:bf1c7c41f2f416d9abf6743a8d2a36f6" target="_:ba3e8786afdafb9c66c9425e60bbbd61"/>
+        <edge source="_:bf1c7c41f2f416d9abf6743a8d2a36f6" target="_:d49fb7ce1e9aaf886827667002e3548e"/>
+        <edge source="_:a004c4a71c023eefeec32b152065a88" target="_:bf1c7c41f2f416d9abf6743a8d2a36f6"/>
+        <edge source="_:fb56eb64716f3ba39bf0a327fef67a42" target="_:b624343f10496954cf08ac0fc1afbdc"/>
+        <edge source="_:fb56eb64716f3ba39bf0a327fef67a42" target="_:e1a0761450639cc10e6020afa18c3921"/>
+        <edge source="_:fb56eb64716f3ba39bf0a327fef67a42" target="_:ca7d72aae0c0b7236989e227c24be17"/>
+        <edge source="_:e2691e4977c8b9bac06fb9871156ca02" target="_:d32fb5b138808da84addaea94345c417"/>
+        <edge source="_:cea0ccccadc737fb57a8554d23b08433" target="_:e2691e4977c8b9bac06fb9871156ca02"/>
+        <edge source="&lt;https://gdsc.idsc.miami.edu/detail/us_2018_svi_county&gt;" target="_:ef1e28f3654c9c8a18360150fb5d3478"/>
+        <edge source="&lt;https://gdsc.idsc.miami.edu/detail/us_2018_svi_county&gt;" target="_:c7c767dfd48998f443e5cd4a389939df"/>
+        <edge source="&lt;https://gdsc.idsc.miami.edu/detail/us_2018_svi_county&gt;" target="_:daa787885aab2a3d7a23a787c47321eb"/>
+        <edge source="&lt;https://gdsc.idsc.miami.edu/detail/us_2018_svi_county&gt;" target="_:e79fc804e104514bd15824867847dfb0"/>
+        <edge source="&lt;https://gdsc.idsc.miami.edu/detail/us_2018_svi_county&gt;" target="_:c869048048c13277cc4ef682f4801db"/>
+        <edge source="&lt;https://gdsc.idsc.miami.edu/detail/us_2018_svi_county&gt;" target="_:a38c0d5f308412602ae401f3335899ff"/>
+        <edge source="&lt;https://gdsc.idsc.miami.edu/detail/us_2018_svi_county&gt;" target="_:c1232e1ca39f195828ebcf032a0902d9"/>
+        <edge source="&lt;https://gdsc.idsc.miami.edu/detail/us_2018_svi_county&gt;" target="_:effc028aaa221c0696dea0009171893"/>
+        <edge source="&lt;https://gdsc.idsc.miami.edu/detail/us_2018_svi_county&gt;" target="_:ad3539a38ad2e7d73586eef656e8719a"/>
+        <edge source="&lt;https://gdsc.idsc.miami.edu/detail/us_2018_svi_county&gt;" target="_:ce63fbf0f37952e4194fa2766cb01d83"/>
+        <edge source="&lt;https://gdsc.idsc.miami.edu/detail/us_2018_svi_county&gt;" target="_:fc4154ba8f5e7f6358c383668dc93070"/>
+        <edge source="&lt;https://gdsc.idsc.miami.edu/detail/us_2018_svi_county&gt;" target="_:a82f9800447c22646e1ad51fdde7ff74"/>
+        <edge source="&lt;https://gdsc.idsc.miami.edu/detail/us_2018_svi_county&gt;" target="_:cf0dc02dab7a4200da4c63e00181b5a2"/>
+        <edge source="&lt;https://gdsc.idsc.miami.edu/detail/us_2018_svi_county&gt;" target="_:d70e0d7853fcd42d5c5707854de26270"/>
+        <edge source="&lt;https://gdsc.idsc.miami.edu/detail/us_2018_svi_county&gt;" target="_:c1233627904643c1fd19d7838b39f250"/>
+        <edge source="&lt;https://gdsc.idsc.miami.edu/detail/us_2018_svi_county&gt;" target="_:d0e486bbb05a0666f9c2e730ddc92b12"/>
+        <edge source="&lt;https://gdsc.idsc.miami.edu/detail/us_2018_svi_county&gt;" target="_:e4cdff176148d8a3dfed510012cc5431"/>
+        <edge source="&lt;https://gdsc.idsc.miami.edu/detail/us_2018_svi_county&gt;" target="_:e6ee6d4b3ce3d7f20f671b447e4bf0df"/>
+        <edge source="&lt;https://gdsc.idsc.miami.edu/detail/us_2018_svi_county&gt;" target="_:e4201f5b7a13f61e25dc8d560620046c"/>
+        <edge source="&lt;https://gdsc.idsc.miami.edu/detail/us_2018_svi_county&gt;" target="_:f38e3241b106c4a2227b76faa72e24dd"/>
+        <edge source="&lt;https://gdsc.idsc.miami.edu/detail/us_2018_svi_county&gt;" target="_:d388c45550ee33f227a60afa41e45d1a"/>
+        <edge source="&lt;https://gdsc.idsc.miami.edu/detail/us_2018_svi_county&gt;" target="_:bec3836a0297c63a474739b8934d5b40"/>
+        <edge source="&lt;https://gdsc.idsc.miami.edu/detail/us_2018_svi_county&gt;" target="_:cc4309a8fe0fe442494958c7c47b8a7f"/>
+        <edge source="&lt;https://gdsc.idsc.miami.edu/detail/us_2018_svi_county&gt;" target="_:baa3ad8659bae3ffba084872fa935193"/>
+        <edge source="&lt;https://gdsc.idsc.miami.edu/detail/us_2018_svi_county&gt;" target="_:e5eab870d0fd9c7744c68daf0bb03735"/>
+        <edge source="&lt;https://gdsc.idsc.miami.edu/detail/us_2018_svi_county&gt;" target="_:e049d745e66326d3f76852d11366663a"/>
+        <edge source="&lt;https://gdsc.idsc.miami.edu/detail/us_2018_svi_county&gt;" target="_:a48d73354ec68b0d36a836d521a8076"/>
+        <edge source="&lt;https://gdsc.idsc.miami.edu/detail/us_2018_svi_county&gt;" target="_:acf809303d53fcb2534db7b32c75b80c"/>
+        <edge source="&lt;https://gdsc.idsc.miami.edu/detail/us_2018_svi_county&gt;" target="_:da4e82bfca779b3da76a8531b26bb462"/>
+        <edge source="&lt;https://gdsc.idsc.miami.edu/detail/us_2018_svi_county&gt;" target="_:f3ce06218d70f4be82503f04a220ff4f"/>
+        <edge source="&lt;https://gdsc.idsc.miami.edu/detail/us_2018_svi_county&gt;" target="_:cd15a53e281e2e5526ef7fd43c3d3189"/>
+        <edge source="&lt;https://gdsc.idsc.miami.edu/detail/us_2018_svi_county&gt;" target="_:aa118690632f8f02d72189cdac71dfe2"/>
+        <edge source="&lt;https://gdsc.idsc.miami.edu/detail/us_2018_svi_county&gt;" target="_:dac82c62f7affc735d66f7aed917278d"/>
+        <edge source="&lt;https://gdsc.idsc.miami.edu/detail/us_2018_svi_county&gt;" target="_:f6de969e3b580b878ab69dcbffce9dd9"/>
+        <edge source="&lt;https://gdsc.idsc.miami.edu/detail/us_2018_svi_county&gt;" target="_:c49ef8678d1f78b59679019a79468460"/>
+        <edge source="&lt;https://gdsc.idsc.miami.edu/detail/us_2018_svi_county&gt;" target="_:ea08067043e9cddaa98c880a16ffc5cd"/>
+        <edge source="&lt;https://gdsc.idsc.miami.edu/detail/us_2018_svi_county&gt;" target="_:a2ae8e0489303db65f197119dd0cbeab"/>
+        <edge source="&lt;https://gdsc.idsc.miami.edu/detail/us_2018_svi_county&gt;" target="_:ca30beb9dab9019685cd50dc85207483"/>
+        <edge source="&lt;https://gdsc.idsc.miami.edu/detail/us_2018_svi_county&gt;" target="_:e1b699df00e57ab81ddb4f376745b2a7"/>
+        <edge source="&lt;https://gdsc.idsc.miami.edu/detail/us_2018_svi_county&gt;" target="_:c3920beef98a954541050b947acdc3f4"/>
+        <edge source="&lt;https://gdsc.idsc.miami.edu/detail/us_2018_svi_county&gt;" target="_:e35f0f4ee6fb0ab3359c3966826708a9"/>
+        <edge source="&lt;https://gdsc.idsc.miami.edu/detail/us_2018_svi_county&gt;" target="_:a9c3af6a50d0bdebd2d8e611f000e12c"/>
+        <edge source="&lt;https://gdsc.idsc.miami.edu/detail/us_2018_svi_county&gt;" target="_:db4663cca4786c94f244ebf49188ab63"/>
+        <edge source="&lt;https://gdsc.idsc.miami.edu/detail/us_2018_svi_county&gt;" target="_:e649c950a12c45c8d1df01950d99d61e"/>
+        <edge source="&lt;https://gdsc.idsc.miami.edu/detail/us_2018_svi_county&gt;" target="_:dcd4b916acd9e6bb640ca83b50ee6a24"/>
+        <edge source="&lt;https://gdsc.idsc.miami.edu/detail/us_2018_svi_county&gt;" target="_:a9f1f600b83e4b5bc6b21286e37efc1c"/>
+        <edge source="&lt;https://gdsc.idsc.miami.edu/detail/us_2018_svi_county&gt;" target="_:bc0b4bbedbb6508076efff92f8fd7cd2"/>
+        <edge source="&lt;https://gdsc.idsc.miami.edu/detail/us_2018_svi_county&gt;" target="_:d6e3ce6163004840e0bc4bdd20043bb9"/>
+        <edge source="&lt;https://gdsc.idsc.miami.edu/detail/us_2018_svi_county&gt;" target="_:aa60f14eb685075140e512f0f877a2f0"/>
+        <edge source="&lt;https://gdsc.idsc.miami.edu/detail/us_2018_svi_county&gt;" target="_:a2c555d370cc00cad9155f85e9ee33cb"/>
+        <edge source="&lt;https://gdsc.idsc.miami.edu/detail/us_2018_svi_county&gt;" target="_:b449d40f3b0c965863cf0c33a98c4f58"/>
+        <edge source="&lt;https://gdsc.idsc.miami.edu/detail/us_2018_svi_county&gt;" target="_:c8ca98f03b6f7e3b875f2fd2dfe4dbd9"/>
+        <edge source="&lt;https://gdsc.idsc.miami.edu/detail/us_2018_svi_county&gt;" target="_:b6afc2e007ef6aca37a3e407bbbe4985"/>
+        <edge source="&lt;https://gdsc.idsc.miami.edu/detail/us_2018_svi_county&gt;" target="_:a3da52b7b6c9a6f5f1bdc644246374f1"/>
+        <edge source="&lt;https://gdsc.idsc.miami.edu/detail/us_2018_svi_county&gt;" target="_:a7633a2337f0ca1c9e5e27004df277df"/>
+        <edge source="&lt;https://gdsc.idsc.miami.edu/detail/us_2018_svi_county&gt;" target="_:fddc97217dcf6da0ebd3cdd558db10ce"/>
+        <edge source="&lt;https://gdsc.idsc.miami.edu/detail/us_2018_svi_county&gt;" target="_:d2b1bdbf437cb84a12af011bd5ec93be"/>
+        <edge source="&lt;https://gdsc.idsc.miami.edu/detail/us_2018_svi_county&gt;" target="_:dfc5e317627bca26796693bd8f0c7b85"/>
+        <edge source="&lt;https://gdsc.idsc.miami.edu/detail/us_2018_svi_county&gt;" target="_:b716ab98df8c118ddcf116f4b801c947"/>
+        <edge source="&lt;https://gdsc.idsc.miami.edu/detail/us_2018_svi_county&gt;" target="_:a11919d9744af19b3bfa2d471677e713"/>
+        <edge source="&lt;https://gdsc.idsc.miami.edu/detail/us_2018_svi_county&gt;" target="_:ec5af75031195728c45e0037d4ad8d92"/>
+        <edge source="&lt;https://gdsc.idsc.miami.edu/detail/us_2018_svi_county&gt;" target="_:f6a97344f313bec09bd758d0e4dd76a2"/>
+        <edge source="&lt;https://gdsc.idsc.miami.edu/detail/us_2018_svi_county&gt;" target="_:b7a90fd5fc5644456543238273407065"/>
+        <edge source="&lt;https://gdsc.idsc.miami.edu/detail/us_2018_svi_county&gt;" target="_:e3657e87292a188e5052c611b3a9e239"/>
+        <edge source="&lt;https://gdsc.idsc.miami.edu/detail/us_2018_svi_county&gt;" target="_:fe53c45fa035ddd2c80273699e6e8994"/>
+        <edge source="&lt;https://gdsc.idsc.miami.edu/detail/us_2018_svi_county&gt;" target="_:e3c785d0493b9a131447d403079b06f4"/>
+        <edge source="&lt;https://gdsc.idsc.miami.edu/detail/us_2018_svi_county&gt;" target="_:ce92f9446d096448e1af35cca28a6e86"/>
+        <edge source="&lt;https://gdsc.idsc.miami.edu/detail/us_2018_svi_county&gt;" target="_:e6c1e073cb138794dbeaa13be3eb2d9c"/>
+        <edge source="&lt;https://gdsc.idsc.miami.edu/detail/us_2018_svi_county&gt;" target="_:be3e3d34c4a59aaa40153a541c93b1c5"/>
+        <edge source="&lt;https://gdsc.idsc.miami.edu/detail/us_2018_svi_county&gt;" target="_:b8ba1f21b7d0d68d5afb44f3e7184d8e"/>
+        <edge source="&lt;https://gdsc.idsc.miami.edu/detail/us_2018_svi_county&gt;" target="_:c4cf10d605ae05b37a0b93df875be63"/>
+        <edge source="&lt;https://gdsc.idsc.miami.edu/detail/us_2018_svi_county&gt;" target="_:c7c8072961efb6078e49493f216c6c38"/>
+        <edge source="&lt;https://gdsc.idsc.miami.edu/detail/us_2018_svi_county&gt;" target="_:c03aa38cb062b29a3da2ae52f199072d"/>
+        <edge source="&lt;https://gdsc.idsc.miami.edu/detail/us_2018_svi_county&gt;" target="_:c51dcb29da40126e71485d854c5044d4"/>
+        <edge source="&lt;https://gdsc.idsc.miami.edu/detail/us_2018_svi_county&gt;" target="_:ac4bd67742b8b4c8360004ae0ebe9259"/>
+        <edge source="&lt;https://gdsc.idsc.miami.edu/detail/us_2018_svi_county&gt;" target="_:cece5eaf0e1c968170effcc780ceaf88"/>
+        <edge source="&lt;https://gdsc.idsc.miami.edu/detail/us_2018_svi_county&gt;" target="_:c667477c5cd145a088f24acc5685f6dc"/>
+        <edge source="&lt;https://gdsc.idsc.miami.edu/detail/us_2018_svi_county&gt;" target="_:ec68a69e7a599eb19bb7d19dc00459de"/>
+        <edge source="&lt;https://gdsc.idsc.miami.edu/detail/us_2018_svi_county&gt;" target="_:ef753e9e471d7fd39f006d16b09b7a41"/>
+        <edge source="&lt;https://gdsc.idsc.miami.edu/detail/us_2018_svi_county&gt;" target="_:e4f62edf70638ade115125a82d2a2f97"/>
+        <edge source="&lt;https://gdsc.idsc.miami.edu/detail/us_2018_svi_county&gt;" target="_:f8e3c6e4b880870382f283b2929a475b"/>
+        <edge source="&lt;https://gdsc.idsc.miami.edu/detail/us_2018_svi_county&gt;" target="_:d03aca69905a47676fef777cf7add8b5"/>
+        <edge source="&lt;https://gdsc.idsc.miami.edu/detail/us_2018_svi_county&gt;" target="_:ec3e8cce4770efd5666ae071fa264568"/>
+        <edge source="&lt;https://gdsc.idsc.miami.edu/detail/us_2018_svi_county&gt;" target="_:b1b08417281e86f98ce5762f6536be45"/>
+        <edge source="&lt;https://gdsc.idsc.miami.edu/detail/us_2018_svi_county&gt;" target="_:be35f3fdfbe4dc76f5bc2752ed16da98"/>
+        <edge source="&lt;https://gdsc.idsc.miami.edu/detail/us_2018_svi_county&gt;" target="_:d89170962039c4badb6b7eeb210a947c"/>
+        <edge source="&lt;https://gdsc.idsc.miami.edu/detail/us_2018_svi_county&gt;" target="_:b2fb6b8005f0d57dd2c3fa87b16ad94b"/>
+        <edge source="&lt;https://gdsc.idsc.miami.edu/detail/us_2018_svi_county&gt;" target="_:e38a5df4053673f69107908db51ec963"/>
+        <edge source="&lt;https://gdsc.idsc.miami.edu/detail/us_2018_svi_county&gt;" target="_:bf8e1aff18b9c563d6996e7a032b28a"/>
+        <edge source="&lt;https://gdsc.idsc.miami.edu/detail/us_2018_svi_county&gt;" target="_:b205858cd9020dc61b586a676b2f2240"/>
+        <edge source="&lt;https://gdsc.idsc.miami.edu/detail/us_2018_svi_county&gt;" target="_:c22494b87fc711df287436b0ed7bc624"/>
+        <edge source="&lt;https://gdsc.idsc.miami.edu/detail/us_2018_svi_county&gt;" target="_:d7659d0e751c477b210ceabd96539080"/>
+        <edge source="&lt;https://gdsc.idsc.miami.edu/detail/us_2018_svi_county&gt;" target="_:f369f2ce7c5e7852c95fe7a8470e9b4c"/>
+        <edge source="&lt;https://gdsc.idsc.miami.edu/detail/us_2018_svi_county&gt;" target="_:cdcb3369ed31c23617ed4de908128e0"/>
+        <edge source="&lt;https://gdsc.idsc.miami.edu/detail/us_2018_svi_county&gt;" target="_:e10af251000591e07f871026e8fa93ba"/>
+        <edge source="&lt;https://gdsc.idsc.miami.edu/detail/us_2018_svi_county&gt;" target="_:d26e996af9284e5c1128a6dd07d3a866"/>
+        <edge source="&lt;https://gdsc.idsc.miami.edu/detail/us_2018_svi_county&gt;" target="_:d4a93e0b5e2dbb5c4a530aa0682b4f48"/>
+        <edge source="&lt;https://gdsc.idsc.miami.edu/detail/us_2018_svi_county&gt;" target="_:f6ab5fe228f6f9d8aa51373afe8b4954"/>
+        <edge source="&lt;https://gdsc.idsc.miami.edu/detail/us_2018_svi_county&gt;" target="_:eb35e792dddee9bfd2bb45b5c44eabbd"/>
+        <edge source="&lt;https://gdsc.idsc.miami.edu/detail/us_2018_svi_county&gt;" target="_:b96f8253d723ab366ab829fb958528a8"/>
+        <edge source="&lt;https://gdsc.idsc.miami.edu/detail/us_2018_svi_county&gt;" target="_:e9d67ed2dba03dd465d85b8705e39c78"/>
+        <edge source="&lt;https://gdsc.idsc.miami.edu/detail/us_2018_svi_county&gt;" target="_:a65cd50a43c895e25afae2b1e58a5266"/>
+        <edge source="&lt;https://gdsc.idsc.miami.edu/detail/us_2018_svi_county&gt;" target="_:e4e2bd9827ca5b11cfa73e131eb285e6"/>
+        <edge source="&lt;https://gdsc.idsc.miami.edu/detail/us_2018_svi_county&gt;" target="_:f7b15323fdc3b8b6866f31a1dbdb163c"/>
+        <edge source="&lt;https://gdsc.idsc.miami.edu/detail/us_2018_svi_county&gt;" target="_:c2586765d2842c0342600c9c38ebe193"/>
+        <edge source="&lt;https://gdsc.idsc.miami.edu/detail/us_2018_svi_county&gt;" target="_:ee5e0976cb92504d5373bb9b02af3d89"/>
+        <edge source="&lt;https://gdsc.idsc.miami.edu/detail/us_2018_svi_county&gt;" target="_:d37eca31fedfd55bdfa4d9622e5cb214"/>
+        <edge source="&lt;https://gdsc.idsc.miami.edu/detail/us_2018_svi_county&gt;" target="_:cc7b3366404428ec8483686bc652eefc"/>
+        <edge source="&lt;https://gdsc.idsc.miami.edu/detail/us_2018_svi_county&gt;" target="_:a168051f8cf5b3a93f563a289e522af9"/>
+        <edge source="&lt;https://gdsc.idsc.miami.edu/detail/us_2018_svi_county&gt;" target="_:c4e8b783b1671384cf8e807cd00482ed"/>
+        <edge source="&lt;https://gdsc.idsc.miami.edu/detail/us_2018_svi_county&gt;" target="_:ab1efd0dc6da18bdbf35fbc860b5fd67"/>
+        <edge source="&lt;https://gdsc.idsc.miami.edu/detail/us_2018_svi_county&gt;" target="_:c6f340f42b85621cb2955cbc81530189"/>
+        <edge source="&lt;https://gdsc.idsc.miami.edu/detail/us_2018_svi_county&gt;" target="_:d14b0e1047d0fc6e33bf30a40bd33ee2"/>
+        <edge source="&lt;https://gdsc.idsc.miami.edu/detail/us_2018_svi_county&gt;" target="_:f8069aa6471445b158f7e6527824aa3"/>
+        <edge source="&lt;https://gdsc.idsc.miami.edu/detail/us_2018_svi_county&gt;" target="_:e0347bfe7efd9b4e9b6214a7c086d8a7"/>
+        <edge source="&lt;https://gdsc.idsc.miami.edu/detail/us_2018_svi_county&gt;" target="_:f42608860fd173edab6927b2e9272463"/>
+        <edge source="&lt;https://gdsc.idsc.miami.edu/detail/us_2018_svi_county&gt;" target="_:d47ff36f10a23af4e43f96febfdcf685"/>
+        <edge source="&lt;https://gdsc.idsc.miami.edu/detail/us_2018_svi_county&gt;" target="_:b1fb68b9279431f15bc68a7a3f24d37c"/>
+        <edge source="&lt;https://gdsc.idsc.miami.edu/detail/us_2018_svi_county&gt;" target="_:a725c061987c7fc06c92e7aa4faaa383"/>
+        <edge source="&lt;https://gdsc.idsc.miami.edu/detail/us_2018_svi_county&gt;" target="_:e2b3267e5d5452098b8e3d796f9ed3a"/>
+        <edge source="&lt;https://gdsc.idsc.miami.edu/detail/us_2018_svi_county&gt;" target="_:ddade4958c9c68a69be0750b2bc5af83"/>
+        <edge source="&lt;https://gdsc.idsc.miami.edu/detail/us_2018_svi_county&gt;" target="_:b695cfdda4dbe3e14e8bb72cc2ee08bf"/>
+        <edge source="&lt;https://gdsc.idsc.miami.edu/detail/us_2018_svi_county&gt;" target="_:b6cc667576fd85b6a3c8751cb27fcf12"/>
+        <edge source="&lt;https://gdsc.idsc.miami.edu/detail/us_2018_svi_county&gt;" target="_:d7114d811c4b65d9a90fa85211c85404"/>
+        <edge source="&lt;https://gdsc.idsc.miami.edu/detail/us_2018_svi_county&gt;" target="_:b873d6a2c83a892220edf6424fe53b11"/>
+        <edge source="&lt;https://gdsc.idsc.miami.edu/detail/us_2018_svi_county&gt;" target="_:cc37762df86d926ad82cbf1460099eff"/>
+        <edge source="&lt;https://gdsc.idsc.miami.edu/detail/us_2018_svi_county&gt;" target="_:a004c4a71c023eefeec32b152065a88"/>
+        <edge source="&lt;https://gdsc.idsc.miami.edu/detail/us_2018_svi_county&gt;" target="_:a4370bd6b1690de38fc6316e9753266a"/>
+        <edge source="&lt;https://gdsc.idsc.miami.edu/detail/us_2018_svi_county&gt;" target="&lt;https://ror.org/04hsdam77&gt;"/>
+        <edge source="&lt;https://gdsc.idsc.miami.edu/detail/us_2018_svi_county&gt;" target="_:b5a2fcaad693f9bd4936aa3b7d09add9"/>
+        <edge source="&lt;https://gdsc.idsc.miami.edu/detail/us_2018_svi_county&gt;" target="_:a143899f664d9a4828651b3e9094f8a"/>
+        <edge source="&lt;https://gdsc.idsc.miami.edu/detail/us_2018_svi_county&gt;" target="_:cea0ccccadc737fb57a8554d23b08433"/>
+        <edge source="_:a3096a663974f8a9a5205593af478f86" target="_:f67736fb45a6498fb1b8873fc1ee6736"/>
+        <edge source="_:a3096a663974f8a9a5205593af478f86" target="_:af78d436fbfb35ac1edcd9209643a108"/>
+        <edge source="_:a3096a663974f8a9a5205593af478f86" target="&lt;https://github.com/Geospatial-Digital-Special-Collections/tools&gt;"/>
+        <edge source="_:e5d2fc6078c16ccfaeaf641db76ae435" target="_:a3096a663974f8a9a5205593af478f86"/>
+        <edge source="_:e255a719990840468b17066fd9ab9161" target="_:aa2da9b59f5110a87b72d1144d0ae659"/>
+        <edge source="_:e255a719990840468b17066fd9ab9161" target="_:ba113ef490a69da0d5333325e3c986cc"/>
+        <edge source="_:e255a719990840468b17066fd9ab9161" target="_:ec3154dbbdda985a9eda326a50b1ac08"/>
+        <edge source="_:c7261e8f7d182cf3be1be461cdb2c5cf" target="_:e255a719990840468b17066fd9ab9161"/>
+        <edge source="_:f172fa73a03b3c27fd1cc8b2772dbd12" target="_:b86bd20b43c9f0c972b1ab5505991d8"/>
+        <edge source="_:f172fa73a03b3c27fd1cc8b2772dbd12" target="_:d7513025ffe8c0c1fdbba28f46ac7757"/>
+        <edge source="_:f172fa73a03b3c27fd1cc8b2772dbd12" target="_:f1923e058ee443c2182ff68aa257e134"/>
+        <edge source="_:c4d3a8b2ab50cc3189e4aa37f12018c1" target="_:f172fa73a03b3c27fd1cc8b2772dbd12"/>
+        <edge source="_:fd53b9af42fb5a5475319747b39902cf" target="_:c084b0b3b5e4f8fe3d68899e05dc341c"/>
+        <edge source="_:caa45b660598f12e6a65a278018517dc" target="_:fd53b9af42fb5a5475319747b39902cf"/>
+        <edge source="&lt;https://gdsc.idsc.miami.edu/detail/tz_regions_osm&gt;" target="_:f5d0477d9f0026a783af02634c3c7096"/>
+        <edge source="&lt;https://gdsc.idsc.miami.edu/detail/tz_regions_osm&gt;" target="_:f65922088a8592144d2b1b1ebefc103c"/>
+        <edge source="&lt;https://gdsc.idsc.miami.edu/detail/tz_regions_osm&gt;" target="_:e42ea809e3f233494f7a7e8df270c023"/>
+        <edge source="&lt;https://gdsc.idsc.miami.edu/detail/tz_regions_osm&gt;" target="_:e337f26ade78c0ad923d491a0d9d04cc"/>
+        <edge source="&lt;https://gdsc.idsc.miami.edu/detail/tz_regions_osm&gt;" target="_:bc942e846bcf51b69e801ab8a7e9f2d"/>
+        <edge source="&lt;https://gdsc.idsc.miami.edu/detail/tz_regions_osm&gt;" target="_:cbb8d99991a0f01b86cfa14b33767cf"/>
+        <edge source="&lt;https://gdsc.idsc.miami.edu/detail/tz_regions_osm&gt;" target="_:f605170fa29e50684e131c6a77184767"/>
+        <edge source="&lt;https://gdsc.idsc.miami.edu/detail/tz_regions_osm&gt;" target="_:c7261e8f7d182cf3be1be461cdb2c5cf"/>
+        <edge source="&lt;https://gdsc.idsc.miami.edu/detail/tz_regions_osm&gt;" target="_:c4d3a8b2ab50cc3189e4aa37f12018c1"/>
+        <edge source="&lt;https://gdsc.idsc.miami.edu/detail/tz_regions_osm&gt;" target="&lt;https://gdsc.idsc.miami.edu/details/api&gt;"/>
+        <edge source="&lt;https://gdsc.idsc.miami.edu/detail/tz_regions_osm&gt;" target="_:f312e817699428ea2032f0968d4f7e10"/>
+        <edge source="&lt;https://gdsc.idsc.miami.edu/detail/tz_regions_osm&gt;" target="_:fcd1e58659d4064e034d336427fb7c75"/>
+        <edge source="&lt;https://gdsc.idsc.miami.edu/detail/tz_regions_osm&gt;" target="_:e5d2fc6078c16ccfaeaf641db76ae435"/>
+        <edge source="&lt;https://gdsc.idsc.miami.edu/detail/tz_regions_osm&gt;" target="_:caa45b660598f12e6a65a278018517dc"/>
+        <edge source="_:f2d746ccd87a5cbe89d37a9e1ed65279" target="_:b90c354aae42e8809d20bb3e0661b752"/>
+        <edge source="_:f2d746ccd87a5cbe89d37a9e1ed65279" target="_:dbba9fe2f2d57b10f48a6301bfdb2753"/>
+        <edge source="_:f2d746ccd87a5cbe89d37a9e1ed65279" target="&lt;https://github.com/Geospatial-Digital-Special-Collections/tools&gt;"/>
+        <edge source="_:b61e2a6aaefd975fa2c164239cabcaec" target="_:f2d746ccd87a5cbe89d37a9e1ed65279"/>
+        <edge source="_:afd21a163ce4bfd5e3bafb374996066f" target="_:ec6e7b98a549e43699ca25be5448c49b"/>
+        <edge source="_:afd21a163ce4bfd5e3bafb374996066f" target="_:a28cb0e2fbdf885cbe09fcfba273cb2d"/>
+        <edge source="_:afd21a163ce4bfd5e3bafb374996066f" target="_:c26c4b11790b585ee97109b38ae58494"/>
+        <edge source="_:fcdb1b4391fd47134fac4f6d7cc465f2" target="_:afd21a163ce4bfd5e3bafb374996066f"/>
+        <edge source="_:b47b7a26a53643c1de3a274b2e00a3a0" target="_:d262ee8279bc779a0e40afc02c905b6e"/>
+        <edge source="_:b47b7a26a53643c1de3a274b2e00a3a0" target="_:a5f49bb144a58e941a20a27811639b9f"/>
+        <edge source="_:b47b7a26a53643c1de3a274b2e00a3a0" target="_:a610febac93d470c6aedae0aeca3cb24"/>
+        <edge source="_:bbaa4bf26b2e8e3ffd6dfd06e93e9fd4" target="_:b47b7a26a53643c1de3a274b2e00a3a0"/>
+        <edge source="_:c62537bdc758caa8e362e7b248602530" target="_:bd16142604ad61250e68021fa8e3c91"/>
+        <edge source="_:c3524bfa5a064b3f0178e5462ab88bbe" target="_:c62537bdc758caa8e362e7b248602530"/>
+        <edge source="&lt;https://gdsc.idsc.miami.edu/detail/tz_populated_places_osm&gt;" target="_:de9936541f0f630663370cf8139acbd9"/>
+        <edge source="&lt;https://gdsc.idsc.miami.edu/detail/tz_populated_places_osm&gt;" target="_:be6883af69b0343eaaf34f5e225fae3f"/>
+        <edge source="&lt;https://gdsc.idsc.miami.edu/detail/tz_populated_places_osm&gt;" target="_:c8a12599db486912feaa74f635f4e4fb"/>
+        <edge source="&lt;https://gdsc.idsc.miami.edu/detail/tz_populated_places_osm&gt;" target="_:c096e5a594cb5e54378428766604bef7"/>
+        <edge source="&lt;https://gdsc.idsc.miami.edu/detail/tz_populated_places_osm&gt;" target="_:fcb7ca197536206e0fbc43fac10399bf"/>
+        <edge source="&lt;https://gdsc.idsc.miami.edu/detail/tz_populated_places_osm&gt;" target="_:dc97d51bf83ce22e25840c26f68c4bef"/>
+        <edge source="&lt;https://gdsc.idsc.miami.edu/detail/tz_populated_places_osm&gt;" target="_:fcdb1b4391fd47134fac4f6d7cc465f2"/>
+        <edge source="&lt;https://gdsc.idsc.miami.edu/detail/tz_populated_places_osm&gt;" target="_:bbaa4bf26b2e8e3ffd6dfd06e93e9fd4"/>
+        <edge source="&lt;https://gdsc.idsc.miami.edu/detail/tz_populated_places_osm&gt;" target="&lt;https://gdsc.idsc.miami.edu/details/api&gt;"/>
+        <edge source="&lt;https://gdsc.idsc.miami.edu/detail/tz_populated_places_osm&gt;" target="_:e72f7e9a51101a707a7db857f0597c7b"/>
+        <edge source="&lt;https://gdsc.idsc.miami.edu/detail/tz_populated_places_osm&gt;" target="_:be700284c7d6419c0a578aebc3d197a1"/>
+        <edge source="&lt;https://gdsc.idsc.miami.edu/detail/tz_populated_places_osm&gt;" target="_:b61e2a6aaefd975fa2c164239cabcaec"/>
+        <edge source="&lt;https://gdsc.idsc.miami.edu/detail/tz_populated_places_osm&gt;" target="_:c3524bfa5a064b3f0178e5462ab88bbe"/>
+        <edge source="_:f7dd434f65af60790b46755d1196f940" target="_:abc28a900dc56e38a49c0f7cd70e7c39"/>
+        <edge source="_:f7dd434f65af60790b46755d1196f940" target="_:d0887fd2eebe584ae77e152bbc69b34a"/>
+        <edge source="_:f7dd434f65af60790b46755d1196f940" target="&lt;https://github.com/Geospatial-Digital-Special-Collections/tools&gt;"/>
+        <edge source="_:a054df43a01d5a78a6ba7ea5557e262e" target="_:f7dd434f65af60790b46755d1196f940"/>
+        <edge source="_:c54db7188289783eb752e1cfb8d07717" target="_:ba3a6aeea7124346aaa423da12648578"/>
+        <edge source="_:c54db7188289783eb752e1cfb8d07717" target="_:dda5168049dcaba0c3078c76eeed3ed7"/>
+        <edge source="_:c54db7188289783eb752e1cfb8d07717" target="_:d7e97937da8bbe234dd96b140f1a65e6"/>
+        <edge source="_:c12c1a91cec4daf05a620beffe3bc37" target="_:c54db7188289783eb752e1cfb8d07717"/>
+        <edge source="_:cbcdd0e234c3893ba20960537a1c667" target="_:cdd4b298e704da21c8c52229f9920e82"/>
+        <edge source="_:cbcdd0e234c3893ba20960537a1c667" target="_:c033dae1971f58c9a99d0791b52a34c7"/>
+        <edge source="_:cbcdd0e234c3893ba20960537a1c667" target="_:b6b8e68dfaecbf6941812cb28df3254b"/>
+        <edge source="_:c19d8a30617853a2054aae17d97cc38a" target="_:cbcdd0e234c3893ba20960537a1c667"/>
+        <edge source="_:b77404239f0fea0568903430e214264e" target="_:be281d4749545edcc806713fe9ffd845"/>
+        <edge source="_:ec2eeae6b81d2334a55223dc56c8a722" target="_:b77404239f0fea0568903430e214264e"/>
+        <edge source="&lt;https://gdsc.idsc.miami.edu/detail/tz_2022_nbs_magu_district&gt;" target="_:a6764c76842776b0bb38e673cc9ab9e3"/>
+        <edge source="&lt;https://gdsc.idsc.miami.edu/detail/tz_2022_nbs_magu_district&gt;" target="_:b2993617218e1336aad23e8b19e40537"/>
+        <edge source="&lt;https://gdsc.idsc.miami.edu/detail/tz_2022_nbs_magu_district&gt;" target="_:cbbac9be3011057ef8ff98a0255418fa"/>
+        <edge source="&lt;https://gdsc.idsc.miami.edu/detail/tz_2022_nbs_magu_district&gt;" target="_:e47146708fe548b38aa8a693d7a2e9f3"/>
+        <edge source="&lt;https://gdsc.idsc.miami.edu/detail/tz_2022_nbs_magu_district&gt;" target="_:fce00a75ba2ffdf9c726443869575e6d"/>
+        <edge source="&lt;https://gdsc.idsc.miami.edu/detail/tz_2022_nbs_magu_district&gt;" target="_:c12c1a91cec4daf05a620beffe3bc37"/>
+        <edge source="&lt;https://gdsc.idsc.miami.edu/detail/tz_2022_nbs_magu_district&gt;" target="_:c19d8a30617853a2054aae17d97cc38a"/>
+        <edge source="&lt;https://gdsc.idsc.miami.edu/detail/tz_2022_nbs_magu_district&gt;" target="&lt;https://gdsc.idsc.miami.edu/details/tz_2022_nbs_districts&gt;"/>
+        <edge source="&lt;https://gdsc.idsc.miami.edu/detail/tz_2022_nbs_magu_district&gt;" target="_:c4848d7dfab777c7613bdc338287a7eb"/>
+        <edge source="&lt;https://gdsc.idsc.miami.edu/detail/tz_2022_nbs_magu_district&gt;" target="_:d59a7e8abfa41360114501a8d0d9acef"/>
+        <edge source="&lt;https://gdsc.idsc.miami.edu/detail/tz_2022_nbs_magu_district&gt;" target="_:a054df43a01d5a78a6ba7ea5557e262e"/>
+        <edge source="&lt;https://gdsc.idsc.miami.edu/detail/tz_2022_nbs_magu_district&gt;" target="_:ec2eeae6b81d2334a55223dc56c8a722"/>
+        <edge source="_:baf644a4759d8df840a3a704cab8f7e5" target="_:bd9cba70e121ce45388a20062ed0a82d"/>
+        <edge source="_:baf644a4759d8df840a3a704cab8f7e5" target="_:c51e9ef66809401355e2a51b66377233"/>
+        <edge source="_:baf644a4759d8df840a3a704cab8f7e5" target="&lt;https://github.com/Geospatial-Digital-Special-Collections/tools&gt;"/>
+        <edge source="_:ebde46a090ed0d62443bc0f89a4d790a" target="_:baf644a4759d8df840a3a704cab8f7e5"/>
+        <edge source="_:c729fc90eb1792f13403f03509041fc0" target="_:aa907f5ba0390f06cfe6796f7a4f9f19"/>
+        <edge source="_:c729fc90eb1792f13403f03509041fc0" target="_:a2bd157712141d6a574bf8b5443d8673"/>
+        <edge source="_:c729fc90eb1792f13403f03509041fc0" target="_:b27d779467666d21f7148f4fb53227ee"/>
+        <edge source="_:e32bc1f15b25952e061b016391078a53" target="_:c729fc90eb1792f13403f03509041fc0"/>
+        <edge source="_:a45b971ee0a6f9551ae23b8190c2cde2" target="_:aef5c8b669fc8b3dc6ca2fe718be00ba"/>
+        <edge source="_:a45b971ee0a6f9551ae23b8190c2cde2" target="_:af813f20e28e149a2fd56fad922c741b"/>
+        <edge source="_:a45b971ee0a6f9551ae23b8190c2cde2" target="_:ffcd732d7fc3e5afd0fce3d6bbba0687"/>
+        <edge source="_:cdcc8a584baca1daae9040be9e6a705c" target="_:a45b971ee0a6f9551ae23b8190c2cde2"/>
+        <edge source="_:dd44a25694fa14857a43c2b00a6c657" target="_:f56c8edf346787143c6f4ba89a68865b"/>
+        <edge source="_:a1265b34e78a0232f297ae252cbfe396" target="_:dd44a25694fa14857a43c2b00a6c657"/>
+        <edge source="&lt;https://gdsc.idsc.miami.edu/detail/tz_2022_nbs_districts&gt;" target="_:c531b19e39abc76520627f7d2ce0d5ef"/>
+        <edge source="&lt;https://gdsc.idsc.miami.edu/detail/tz_2022_nbs_districts&gt;" target="_:e61365cb7cba006b122a3007c01f7051"/>
+        <edge source="&lt;https://gdsc.idsc.miami.edu/detail/tz_2022_nbs_districts&gt;" target="_:f9f0408dd04cb3ffdc16d4d06281fd4a"/>
+        <edge source="&lt;https://gdsc.idsc.miami.edu/detail/tz_2022_nbs_districts&gt;" target="_:e1eed53e96bda59265b6ce4860cf07f"/>
+        <edge source="&lt;https://gdsc.idsc.miami.edu/detail/tz_2022_nbs_districts&gt;" target="_:a7e2c661845d02313f01fd7e452f23b6"/>
+        <edge source="&lt;https://gdsc.idsc.miami.edu/detail/tz_2022_nbs_districts&gt;" target="_:e32bc1f15b25952e061b016391078a53"/>
+        <edge source="&lt;https://gdsc.idsc.miami.edu/detail/tz_2022_nbs_districts&gt;" target="_:cdcc8a584baca1daae9040be9e6a705c"/>
+        <edge source="&lt;https://gdsc.idsc.miami.edu/detail/tz_2022_nbs_districts&gt;" target="_:d49c0e06af3893f10c638c24bc87200b"/>
+        <edge source="&lt;https://gdsc.idsc.miami.edu/detail/tz_2022_nbs_districts&gt;" target="_:feda0df51cee1209be18f2f7397fcd43"/>
+        <edge source="&lt;https://gdsc.idsc.miami.edu/detail/tz_2022_nbs_districts&gt;" target="_:ebde46a090ed0d62443bc0f89a4d790a"/>
+        <edge source="&lt;https://gdsc.idsc.miami.edu/detail/tz_2022_nbs_districts&gt;" target="_:a1265b34e78a0232f297ae252cbfe396"/>
+        <edge source="_:cd418fc1c0cdb9717585bc3a9aa7e696" target="_:d2bf8dee1d738a1666e916db4773c18f"/>
+        <edge source="_:cd418fc1c0cdb9717585bc3a9aa7e696" target="_:c74ec58fed9494277769156e48924b9c"/>
+        <edge source="_:cd418fc1c0cdb9717585bc3a9aa7e696" target="&lt;https://github.com/tibbben/copernicus_aggregate&gt;"/>
+        <edge source="_:b0c46fadce1f7f6dfcef5decd7e33a79" target="_:cd418fc1c0cdb9717585bc3a9aa7e696"/>
+        <edge source="_:ec49b6f9885a980a35c8ae9e6864ef9c" target="_:b108ae6067fe1220b8bf7a2041267d9a"/>
+        <edge source="_:a915345104a1f43668c5b8e8effe9f7b" target="_:e568b2391ceed8cce5f2af5a96747272"/>
+        <edge source="_:a915345104a1f43668c5b8e8effe9f7b" target="_:bc5512065e75e301303b6857d5f8363b"/>
+        <edge source="_:a915345104a1f43668c5b8e8effe9f7b" target="_:c39fe3fe2a4720803b839f01654b88db"/>
+        <edge source="_:edca85fc29dcf212646a4045a13b46d7" target="_:a915345104a1f43668c5b8e8effe9f7b"/>
+        <edge source="_:f5a3103b9aca2a44eb039b4a7d2dc047" target="_:a198058abf0924abce29b5738aae0752"/>
+        <edge source="_:b327abad5c1772a92223c67f191fa24" target="_:f5a3103b9aca2a44eb039b4a7d2dc047"/>
+        <edge source="&lt;https://gdsc.idsc.miami.edu/detail/tz_1984_copernicus_avg_temp&gt;" target="_:a980a391e6c5b6f130ab2dd572ec6104"/>
+        <edge source="&lt;https://gdsc.idsc.miami.edu/detail/tz_1984_copernicus_avg_temp&gt;" target="_:ec49b6f9885a980a35c8ae9e6864ef9c"/>
+        <edge source="&lt;https://gdsc.idsc.miami.edu/detail/tz_1984_copernicus_avg_temp&gt;" target="&lt;https://www.geonames.org/149590&gt;"/>
+        <edge source="&lt;https://gdsc.idsc.miami.edu/detail/tz_1984_copernicus_avg_temp&gt;" target="_:edca85fc29dcf212646a4045a13b46d7"/>
+        <edge source="&lt;https://gdsc.idsc.miami.edu/detail/tz_1984_copernicus_avg_temp&gt;" target="_:f34bbadfda8cc21ece45bd6ebb9c5e27"/>
+        <edge source="&lt;https://gdsc.idsc.miami.edu/detail/tz_1984_copernicus_avg_temp&gt;" target="_:ca3e0d6266ac5e80a9afdbfcc28c2e5e"/>
+        <edge source="&lt;https://gdsc.idsc.miami.edu/detail/tz_1984_copernicus_avg_temp&gt;" target="&lt;https://ror.org/00yafkq43&gt;"/>
+        <edge source="&lt;https://gdsc.idsc.miami.edu/detail/tz_1984_copernicus_avg_temp&gt;" target="_:ab11b877cde0c1f2756a70d9cd88094e"/>
+        <edge source="&lt;https://gdsc.idsc.miami.edu/detail/tz_1984_copernicus_avg_temp&gt;" target="_:a7365e9b7cbe13c62d3181ed2754bfe"/>
+        <edge source="&lt;https://gdsc.idsc.miami.edu/detail/tz_1984_copernicus_avg_temp&gt;" target="_:b0c46fadce1f7f6dfcef5decd7e33a79"/>
+        <edge source="&lt;https://gdsc.idsc.miami.edu/detail/tz_1984_copernicus_avg_temp&gt;" target="_:b327abad5c1772a92223c67f191fa24"/>
+        <edge source="_:ee50513030098fe4e6763347cde7e40f" target="_:a6a7ede06f00e26a81d6cc229ba62b54"/>
+        <edge source="_:bb2d8b0c07359eb399fb568c3370ea38" target="_:fbf801d9ce440aaa26d2b0988e1665bd"/>
+        <edge source="_:bb2d8b0c07359eb399fb568c3370ea38" target="_:c5eefa7640e9ca8e947c4ae19ff8959a"/>
+        <edge source="_:bb2d8b0c07359eb399fb568c3370ea38" target="&lt;https://github.com/Geospatial-Digital-Special-Collections/tools&gt;"/>
+        <edge source="_:c7ad6b85f862fe6e17e2119c9d4bf736" target="_:bb2d8b0c07359eb399fb568c3370ea38"/>
+        <edge source="_:c7e2f11df900b1b37312acee2161e3ae" target="_:a530dd9f7745401541c82ba3e72eddf5"/>
+        <edge source="_:c7e2f11df900b1b37312acee2161e3ae" target="_:a8b8e3ee0170f7ae9d22343a1ebb12b8"/>
+        <edge source="_:c7e2f11df900b1b37312acee2161e3ae" target="_:f8107518463c2077da3a7e23bbe3c3ba"/>
+        <edge source="_:ef94402b8e47e7bc8b2c7fdd2f6490f9" target="_:c7e2f11df900b1b37312acee2161e3ae"/>
+        <edge source="_:a6a7ede06f00e26a81d6cc229ba62b54" target="_:ff5ce29251d12cb421d27d8d91de3b40"/>
+        <edge source="_:a6a7ede06f00e26a81d6cc229ba62b54" target="_:e42dcc1ef67f3560e5eaaeb85f7106c"/>
+        <edge source="_:a6a7ede06f00e26a81d6cc229ba62b54" target="_:e29e990be3bfd3a14a2eaf503d580996"/>
+        <edge source="_:a3090511585e047459fd73fba72df30f" target="_:d27a3f353e17fb05a19013ab3302e073"/>
+        <edge source="_:d73b04bb4449850be1bfa19386d976e9" target="_:a3090511585e047459fd73fba72df30f"/>
+        <edge source="&lt;https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract&gt;" target="_:cf98b658d3b8e2242d9c806cf587c3b6"/>
+        <edge source="&lt;https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract&gt;" target="_:c81204b3750e4ac037565c9b498cc350"/>
+        <edge source="&lt;https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract&gt;" target="_:a6ad93e3efd1f9dae9c74a6f3aa816a7"/>
+        <edge source="&lt;https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract&gt;" target="_:f129f7e8d7f800a3e73eef923970a64"/>
+        <edge source="&lt;https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract&gt;" target="_:e64c767c766d06bf67912d0666a24240"/>
+        <edge source="&lt;https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract&gt;" target="_:b27431247061414f776c4135123c837e"/>
+        <edge source="&lt;https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract&gt;" target="_:e1b1e9fa17c3f373fa86dddf430c8358"/>
+        <edge source="&lt;https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract&gt;" target="_:a7e00574209f7f170560e387fa1c81cb"/>
+        <edge source="&lt;https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract&gt;" target="_:ffe17ab090ecfc99e5db402642a9e118"/>
+        <edge source="&lt;https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract&gt;" target="_:def04e93fceea698f3922835c1dccef"/>
+        <edge source="&lt;https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract&gt;" target="_:f1ca5f93514f4f9e9f01a401251784d9"/>
+        <edge source="&lt;https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract&gt;" target="_:e227bb255ab267b9b2e9236ddd7e4dff"/>
+        <edge source="&lt;https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract&gt;" target="_:c35809d15a92085ee05fe194359cae56"/>
+        <edge source="&lt;https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract&gt;" target="_:ced4ee3c8e791c7e775720e5ae27c94c"/>
+        <edge source="&lt;https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract&gt;" target="_:ed6bcfb1d65a91779d9fa701c6b4ae88"/>
+        <edge source="&lt;https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract&gt;" target="_:d5a955c7c6d46c596fb519ecdcb1bb93"/>
+        <edge source="&lt;https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract&gt;" target="_:e326fdc320e993e7a654b3ca526fb75c"/>
+        <edge source="&lt;https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract&gt;" target="_:b506abd0b78ff0baec3fa405944ae1b4"/>
+        <edge source="&lt;https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract&gt;" target="_:ff2202b6feb9486e4aa47635c9707631"/>
+        <edge source="&lt;https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract&gt;" target="_:d6b298c05afa4446627102a40ffe3106"/>
+        <edge source="&lt;https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract&gt;" target="_:cce1b3181dec3d831a52d67f86f355a0"/>
+        <edge source="&lt;https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract&gt;" target="_:f445be55c6eaf8d3f168c1940e86517"/>
+        <edge source="&lt;https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract&gt;" target="_:e99fa191a78307a4162f07ffca2ca68a"/>
+        <edge source="&lt;https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract&gt;" target="_:b0c55898c70659f4be717987dfce925b"/>
+        <edge source="&lt;https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract&gt;" target="_:cda5824c0ad0c1447c03830012502496"/>
+        <edge source="&lt;https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract&gt;" target="_:b5e16562c16b0199a2a0b3ba10451ae1"/>
+        <edge source="&lt;https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract&gt;" target="_:efeff41fe9241dacbb4144e1c55a2af0"/>
+        <edge source="&lt;https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract&gt;" target="_:f4a7677e0c555e5e8e76799f753d9f6b"/>
+        <edge source="&lt;https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract&gt;" target="_:cf9d76187ec56bab36899ee901a6a36c"/>
+        <edge source="&lt;https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract&gt;" target="_:fd7c3d40227bf91f06b9f8cda8e7151"/>
+        <edge source="&lt;https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract&gt;" target="_:f101953f27375f42c331aa592c6e2fd5"/>
+        <edge source="&lt;https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract&gt;" target="_:d7ae8476390a4dd10c14d3b676ce8c1f"/>
+        <edge source="&lt;https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract&gt;" target="_:dce3cf194ccba901d2acfdcb5f0850a4"/>
+        <edge source="&lt;https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract&gt;" target="_:d96d88f2b8eb115ad5dab50c684af9"/>
+        <edge source="&lt;https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract&gt;" target="_:c5fe0361d049a5b3badce8872362b38"/>
+        <edge source="&lt;https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract&gt;" target="_:a0919f6822cb7e7d3909319edd65acca"/>
+        <edge source="&lt;https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract&gt;" target="_:ec525f3115ad6e8d168129363f39c5b5"/>
+        <edge source="&lt;https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract&gt;" target="_:cf5e79d4a78bd1703619e924bcc56f86"/>
+        <edge source="&lt;https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract&gt;" target="_:f71c25fb526afae3ca8cf2dfdbcd36f1"/>
+        <edge source="&lt;https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract&gt;" target="_:b7dd3fa160aaadd40359e905fa35a7dc"/>
+        <edge source="&lt;https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract&gt;" target="_:d32ffce6fb88a5628718fdb132f074b0"/>
+        <edge source="&lt;https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract&gt;" target="_:f475a1874e3e6684488606495e537f60"/>
+        <edge source="&lt;https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract&gt;" target="_:ad115a9665cc68f02845fbeedf8ed50c"/>
+        <edge source="&lt;https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract&gt;" target="_:a376473f7b12266ffc7c17cb7021a551"/>
+        <edge source="&lt;https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract&gt;" target="_:bbe3fc9d8da6bb7a51df507be01911c3"/>
+        <edge source="&lt;https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract&gt;" target="_:f103ea11282328d7eef4752b4a80a840"/>
+        <edge source="&lt;https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract&gt;" target="_:d196ba4eb98047da2984c67ca682eae1"/>
+        <edge source="&lt;https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract&gt;" target="_:ece083876a49415b1cea5214d6635a80"/>
+        <edge source="&lt;https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract&gt;" target="_:bb88f7b262d9ebcc18d245e262b4120b"/>
+        <edge source="&lt;https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract&gt;" target="_:fdcf69f290fed6a54b55a23190c667f7"/>
+        <edge source="&lt;https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract&gt;" target="_:ea468408bafff6de875261fcd14f9b25"/>
+        <edge source="&lt;https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract&gt;" target="_:a61a733806e71c86e31d2b62dfc5de75"/>
+        <edge source="&lt;https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract&gt;" target="_:eff2659efd07583bee8da646aad14dac"/>
+        <edge source="&lt;https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract&gt;" target="_:a89d43eada027823ea38b79c246e7d26"/>
+        <edge source="&lt;https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract&gt;" target="_:c340502984324abd1a41562db77ea9af"/>
+        <edge source="&lt;https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract&gt;" target="_:fc376eda1b9d99f3933fbeaf125d2861"/>
+        <edge source="&lt;https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract&gt;" target="_:a8e8f984320385f4c43962be828df1e2"/>
+        <edge source="&lt;https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract&gt;" target="_:ea7acaf2362f68dc4cbf1cc549ebe19"/>
+        <edge source="&lt;https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract&gt;" target="_:aa86630165e2bc53bac85e3fb2b4ff98"/>
+        <edge source="&lt;https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract&gt;" target="_:c97fab8b6271a4f06856eb8c6672e464"/>
+        <edge source="&lt;https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract&gt;" target="_:f34a120ed790fddad9ed782ee757b242"/>
+        <edge source="&lt;https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract&gt;" target="_:bc551f2bd236113257d30b6ffc7a9f4e"/>
+        <edge source="&lt;https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract&gt;" target="_:ad43fa83b656cee9b0c1016552730597"/>
+        <edge source="&lt;https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract&gt;" target="_:e457c51db7c62ab12a3243da0cda7b8a"/>
+        <edge source="&lt;https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract&gt;" target="_:f467313dbb523631ee08c2af43929625"/>
+        <edge source="&lt;https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract&gt;" target="_:ed942338b59b3acdf666bce85dc5006a"/>
+        <edge source="&lt;https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract&gt;" target="_:b10de8579bd9d3fa906a492f9709fb23"/>
+        <edge source="&lt;https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract&gt;" target="_:f99a7411ba0e32f0084c7accfd94768d"/>
+        <edge source="&lt;https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract&gt;" target="_:d567bb5a89bb3ab92d687627f42daa89"/>
+        <edge source="&lt;https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract&gt;" target="_:d671c6d6edb95c255d588113f9e628d2"/>
+        <edge source="&lt;https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract&gt;" target="_:ed35516b2938706683182e123a815632"/>
+        <edge source="&lt;https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract&gt;" target="_:f967bf280302c74958074884c57856dd"/>
+        <edge source="&lt;https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract&gt;" target="_:caf98103326f8e2b22cff3ef57f998f1"/>
+        <edge source="&lt;https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract&gt;" target="_:c94aaeb78771498cf3400a2d2f99aa1a"/>
+        <edge source="&lt;https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract&gt;" target="_:aa1e244ade8c03f73d25e6c0d0cc0dca"/>
+        <edge source="&lt;https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract&gt;" target="_:d519d76bae67e0796694d127922ef3c6"/>
+        <edge source="&lt;https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract&gt;" target="_:d89f9f57632b476cbace37d36557ea1e"/>
+        <edge source="&lt;https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract&gt;" target="_:b00900d242c546b4271d29773260a039"/>
+        <edge source="&lt;https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract&gt;" target="_:e19a4c9aea74b0f639d25afe4cbe263e"/>
+        <edge source="&lt;https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract&gt;" target="_:f3706808c4059785eb8c14ff1e485feb"/>
+        <edge source="&lt;https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract&gt;" target="_:db0c7c9ac12fc6d51862d0f4f153dd58"/>
+        <edge source="&lt;https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract&gt;" target="_:bfff049e788de51cfb6bf9c012baa448"/>
+        <edge source="&lt;https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract&gt;" target="_:e1279f5bab6f5ef8a3e843be67256225"/>
+        <edge source="&lt;https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract&gt;" target="_:c3f271d6170f3a13734e8daea86a46f7"/>
+        <edge source="&lt;https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract&gt;" target="_:a002b85a4b05bd4c80f7472e1f9bd047"/>
+        <edge source="&lt;https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract&gt;" target="_:d88550148be0ca52fe291212f14b6692"/>
+        <edge source="&lt;https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract&gt;" target="_:f1945dca7c35d5de32a4d9518bc80dc9"/>
+        <edge source="&lt;https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract&gt;" target="_:c87fca35adf31dc847f0ad22ccc83c5f"/>
+        <edge source="&lt;https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract&gt;" target="_:c68d392c4dccad30afbb0eef05d1bd9"/>
+        <edge source="&lt;https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract&gt;" target="_:ff82522f686722731ed250f5ab2085cf"/>
+        <edge source="&lt;https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract&gt;" target="_:d273b48a149c6cf992b6be6dcf297b04"/>
+        <edge source="&lt;https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract&gt;" target="_:b5d8768356d4a54255623d19d76dcc96"/>
+        <edge source="&lt;https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract&gt;" target="_:a9e35e244fe497dc93fce7a95fca8c0a"/>
+        <edge source="&lt;https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract&gt;" target="_:f7876dd915de7eab853004fa5b605a1d"/>
+        <edge source="&lt;https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract&gt;" target="_:d121d43638a6a68b1fde36c30a247a1"/>
+        <edge source="&lt;https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract&gt;" target="_:bb8d9989a88414f96593ccdb94f6d2b8"/>
+        <edge source="&lt;https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract&gt;" target="_:f72aa61eba2db1a82e8367278d831925"/>
+        <edge source="&lt;https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract&gt;" target="_:d380a247204a0a81e1365c52b7834317"/>
+        <edge source="&lt;https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract&gt;" target="_:fdcef8c6a7645f6cbf74545c25f64126"/>
+        <edge source="&lt;https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract&gt;" target="_:be6b1c0b1dc8ebde1c846a026c657696"/>
+        <edge source="&lt;https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract&gt;" target="_:cbcfcb0f3d22a60bdfe24bb6bfd54c4b"/>
+        <edge source="&lt;https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract&gt;" target="_:fb78587d228b35fd6239c6bdec5c7667"/>
+        <edge source="&lt;https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract&gt;" target="_:fc9c1dbf114d5e9d781f0898cc5bdff5"/>
+        <edge source="&lt;https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract&gt;" target="_:f9d4378d6cfb34b8d730860acfceee6"/>
+        <edge source="&lt;https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract&gt;" target="_:eb15bf3ae1427fa1070fbc37e4c51bc4"/>
+        <edge source="&lt;https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract&gt;" target="_:dbc30b58c8e8bb034476ccafe8084c14"/>
+        <edge source="&lt;https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract&gt;" target="_:e7e0e6eb1092a65e7949696c79f755cc"/>
+        <edge source="&lt;https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract&gt;" target="_:fafa3f4ccf6ac5dfe62ada4d32b6b66c"/>
+        <edge source="&lt;https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract&gt;" target="_:b16931669f819e6fd356591fe895b669"/>
+        <edge source="&lt;https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract&gt;" target="_:d2c67f0d3938167ea5ef5bfd710be373"/>
+        <edge source="&lt;https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract&gt;" target="_:ba5273c69ba2a296cdf7389e76f824b"/>
+        <edge source="&lt;https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract&gt;" target="_:cac7253bde1f595ffd1e45118522a4fc"/>
+        <edge source="&lt;https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract&gt;" target="_:f33a22a456ed3e323d2447a0af6085f7"/>
+        <edge source="&lt;https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract&gt;" target="_:ff5873cfdaa958ee995defe58b04be46"/>
+        <edge source="&lt;https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract&gt;" target="_:a476dd696bc9739e259e70cdc61ebea1"/>
+        <edge source="&lt;https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract&gt;" target="_:b640624761e9916fcb22c8af149924cc"/>
+        <edge source="&lt;https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract&gt;" target="_:de8c676c200fa8cd6b5be886530a5a18"/>
+        <edge source="&lt;https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract&gt;" target="_:e188470d3f35442824bbaef6963e0f0d"/>
+        <edge source="&lt;https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract&gt;" target="_:e83913c66d2ac74aa0923b20500cb0e8"/>
+        <edge source="&lt;https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract&gt;" target="_:bbd59b05e9557b9466a6eeded34f8fca"/>
+        <edge source="&lt;https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract&gt;" target="_:b47b4c25019f07dacefbf6ee7f066f11"/>
+        <edge source="&lt;https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract&gt;" target="_:d0c82d91e92d626fd1e5949d7635d960"/>
+        <edge source="&lt;https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract&gt;" target="_:c18d81a72a038e24e467588ce3f633b2"/>
+        <edge source="&lt;https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract&gt;" target="_:f7b12eb902dc156cb3180e84d5adca4b"/>
+        <edge source="&lt;https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract&gt;" target="_:b5a285259b9feddc28efd0c8598f4aa6"/>
+        <edge source="&lt;https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract&gt;" target="_:ee50513030098fe4e6763347cde7e40f"/>
+        <edge source="&lt;https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract&gt;" target="_:ef94402b8e47e7bc8b2c7fdd2f6490f9"/>
+        <edge source="&lt;https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract&gt;" target="_:a8172dcd9cc726cfb5e069d1b6a855ab"/>
+        <edge source="&lt;https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract&gt;" target="&lt;https://ror.org/04hsdam77&gt;"/>
+        <edge source="&lt;https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract&gt;" target="_:c76d46a4c0e86fa6dc0c67c768ba9fb5"/>
+        <edge source="&lt;https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract&gt;" target="_:c7ad6b85f862fe6e17e2119c9d4bf736"/>
+        <edge source="&lt;https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract&gt;" target="_:d73b04bb4449850be1bfa19386d976e9"/>
+        <edge source="_:fb3e34f4df858c17b91e16914fab84cc" target="_:b9f0f03e98300baa308e98f9427362c7"/>
+        <edge source="_:fb3e34f4df858c17b91e16914fab84cc" target="_:c43a02ea2b68a39739e16bf4d7794e84"/>
+        <edge source="_:fb3e34f4df858c17b91e16914fab84cc" target="&lt;https://github.com/Geospatial-Digital-Special-Collections/tools&gt;"/>
+        <edge source="_:df82218aed7ccfde0874e0c58ca595eb" target="_:fb3e34f4df858c17b91e16914fab84cc"/>
+        <edge source="_:c5520f63dca65554a41987d83f434c7" target="_:da8047ba4cbfe414b702f4498ff39604"/>
+        <edge source="_:c5520f63dca65554a41987d83f434c7" target="_:e3d198723f5dc980fbd8f568c8a5343b"/>
+        <edge source="_:c5520f63dca65554a41987d83f434c7" target="_:e9c1b0747befa34c848d7054f249fe48"/>
+        <edge source="_:c9be4046c20752d80bbbafac781a2ae8" target="_:c5520f63dca65554a41987d83f434c7"/>
+        <edge source="_:fd5231aa619f92f0691d0f7aa957fd20" target="_:a1242e20e2f57d41be798ac34959a3d3"/>
+        <edge source="_:fd5231aa619f92f0691d0f7aa957fd20" target="_:e21f81da0201d4bf0698aeaf84de787e"/>
+        <edge source="_:fd5231aa619f92f0691d0f7aa957fd20" target="_:c56bbd94ac877ca19d274b35f621e979"/>
+        <edge source="_:c459fedb208ba044b9d00ff15d6dcc45" target="_:fd5231aa619f92f0691d0f7aa957fd20"/>
+        <edge source="_:e0dac577a012070fc3b8fc2f4e6ad12f" target="_:caf9ee2092baf4c5ae7514463decfc24"/>
+        <edge source="_:d46ada41cce52c10ece4e5b73adab05f" target="_:e0dac577a012070fc3b8fc2f4e6ad12f"/>
+        <edge source="&lt;https://gdsc.idsc.miami.edu/detail/global_pm25_concentration_1998_2016&gt;" target="_:d5864b69ff74cb37072de996f010e186"/>
+        <edge source="&lt;https://gdsc.idsc.miami.edu/detail/global_pm25_concentration_1998_2016&gt;" target="_:e7c1c3f4bf2ec399022ee02b6548c56e"/>
+        <edge source="&lt;https://gdsc.idsc.miami.edu/detail/global_pm25_concentration_1998_2016&gt;" target="_:a78393c6c61c54f4e13afb178302a715"/>
+        <edge source="&lt;https://gdsc.idsc.miami.edu/detail/global_pm25_concentration_1998_2016&gt;" target="_:f1a65a56b4f97ed8ddd6201e89fab2d3"/>
+        <edge source="&lt;https://gdsc.idsc.miami.edu/detail/global_pm25_concentration_1998_2016&gt;" target="_:bd97be2ef6e3f992138f4cdd7189ce87"/>
+        <edge source="&lt;https://gdsc.idsc.miami.edu/detail/global_pm25_concentration_1998_2016&gt;" target="_:d8b8072649b9a147d4f9ad7a72e45dae"/>
+        <edge source="&lt;https://gdsc.idsc.miami.edu/detail/global_pm25_concentration_1998_2016&gt;" target="_:b95adfb845a3798f9f0f0495f46d95ff"/>
+        <edge source="&lt;https://gdsc.idsc.miami.edu/detail/global_pm25_concentration_1998_2016&gt;" target="_:f2d37306c54abb3b94aaa54ea7b38186"/>
+        <edge source="&lt;https://gdsc.idsc.miami.edu/detail/global_pm25_concentration_1998_2016&gt;" target="_:a887a1774f61f7de68958f27a2df9eb4"/>
+        <edge source="&lt;https://gdsc.idsc.miami.edu/detail/global_pm25_concentration_1998_2016&gt;" target="_:c62ce829bde774c735a955d5bc7c6e76"/>
+        <edge source="&lt;https://gdsc.idsc.miami.edu/detail/global_pm25_concentration_1998_2016&gt;" target="_:ad14626d09d7f0b24c18b7df1ee91919"/>
+        <edge source="&lt;https://gdsc.idsc.miami.edu/detail/global_pm25_concentration_1998_2016&gt;" target="_:bc6cd3bdf2523e1849818c87676ff39"/>
+        <edge source="&lt;https://gdsc.idsc.miami.edu/detail/global_pm25_concentration_1998_2016&gt;" target="_:a9a474c287e0cd9a50d51373f5842f40"/>
+        <edge source="&lt;https://gdsc.idsc.miami.edu/detail/global_pm25_concentration_1998_2016&gt;" target="_:cda2a2b93e14d4cf67516c932bb4d6e2"/>
+        <edge source="&lt;https://gdsc.idsc.miami.edu/detail/global_pm25_concentration_1998_2016&gt;" target="_:edc415b5c068e9790d557f944b8186f2"/>
+        <edge source="&lt;https://gdsc.idsc.miami.edu/detail/global_pm25_concentration_1998_2016&gt;" target="_:f9eef7c83391220c0723d1b1b941dfe3"/>
+        <edge source="&lt;https://gdsc.idsc.miami.edu/detail/global_pm25_concentration_1998_2016&gt;" target="_:f457d524a42e1fd2851963dc3ef508ae"/>
+        <edge source="&lt;https://gdsc.idsc.miami.edu/detail/global_pm25_concentration_1998_2016&gt;" target="_:caadd68210ecd944cd9c800a32f09795"/>
+        <edge source="&lt;https://gdsc.idsc.miami.edu/detail/global_pm25_concentration_1998_2016&gt;" target="_:ed9d3645f3fe33818bbea2c19c316eaa"/>
+        <edge source="&lt;https://gdsc.idsc.miami.edu/detail/global_pm25_concentration_1998_2016&gt;" target="_:af7e5eae56f8e51d3b6c6b12d764699e"/>
+        <edge source="&lt;https://gdsc.idsc.miami.edu/detail/global_pm25_concentration_1998_2016&gt;" target="_:f833adc4985bf1566f096e8d5494b6d4"/>
+        <edge source="&lt;https://gdsc.idsc.miami.edu/detail/global_pm25_concentration_1998_2016&gt;" target="_:a687ac5d9e82b72eb2cc19568fd63c27"/>
+        <edge source="&lt;https://gdsc.idsc.miami.edu/detail/global_pm25_concentration_1998_2016&gt;" target="_:d35324b0316afbe5453ab1c914f5a0ff"/>
+        <edge source="&lt;https://gdsc.idsc.miami.edu/detail/global_pm25_concentration_1998_2016&gt;" target="_:e80b3efda599037371a8581bc9b8314d"/>
+        <edge source="&lt;https://gdsc.idsc.miami.edu/detail/global_pm25_concentration_1998_2016&gt;" target="_:af95237ed65440a92b3237f1a3163939"/>
+        <edge source="&lt;https://gdsc.idsc.miami.edu/detail/global_pm25_concentration_1998_2016&gt;" target="_:c2550ae5ac1f54ec504d9424c37120ba"/>
+        <edge source="&lt;https://gdsc.idsc.miami.edu/detail/global_pm25_concentration_1998_2016&gt;" target="_:a73220f7f78d1614fac71ea16e47908b"/>
+        <edge source="&lt;https://gdsc.idsc.miami.edu/detail/global_pm25_concentration_1998_2016&gt;" target="_:a02f214f0ca992c1448e7ea5e2022835"/>
+        <edge source="&lt;https://gdsc.idsc.miami.edu/detail/global_pm25_concentration_1998_2016&gt;" target="_:c863951ceebf44513b9eb779e83c8452"/>
+        <edge source="&lt;https://gdsc.idsc.miami.edu/detail/global_pm25_concentration_1998_2016&gt;" target="_:c9be4046c20752d80bbbafac781a2ae8"/>
+        <edge source="&lt;https://gdsc.idsc.miami.edu/detail/global_pm25_concentration_1998_2016&gt;" target="_:c459fedb208ba044b9d00ff15d6dcc45"/>
+        <edge source="&lt;https://gdsc.idsc.miami.edu/detail/global_pm25_concentration_1998_2016&gt;" target="_:d1f0dba9b108620dadd210de6f6eace1"/>
+        <edge source="&lt;https://gdsc.idsc.miami.edu/detail/global_pm25_concentration_1998_2016&gt;" target="_:fc5671f83a165927de4e49a3346e04b6"/>
+        <edge source="&lt;https://gdsc.idsc.miami.edu/detail/global_pm25_concentration_1998_2016&gt;" target="_:df82218aed7ccfde0874e0c58ca595eb"/>
+        <edge source="&lt;https://gdsc.idsc.miami.edu/detail/global_pm25_concentration_1998_2016&gt;" target="_:d46ada41cce52c10ece4e5b73adab05f"/>
+    </graph>
+</graphml>
