@@ -1,5 +1,5 @@
 # start from an official solr base image
-FROM solr
+FROM solr:9.8.1
 
 USER root
 
