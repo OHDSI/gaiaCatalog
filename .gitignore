@@ -10,3 +10,6 @@ atlas/add_cdm
 strategus/
 secret/
 derived/
+nquads/
+.ipynb_checkpoints/
+store/
