@@ -32,9 +32,6 @@ Input --> LDB["LanceDB"]
 
 LDB --> Chunk["Chunking"]
 RDF --> Chunk --> Extraction --> Standardize --> Inference --> Use
-
-
-
 ```
 
 1) Input
