@@ -8,10 +8,10 @@ import numpy as np
 from typing import Optional
 from chonkie import LateChunker, RecursiveRules, SemanticChunker
 import transformers
-transformers.logging.set_verbosity_error()
 import warnings
 import logging
 
+transformers.logging.set_verbosity_error()
 logging.getLogger("transformers").setLevel(logging.ERROR)
 
 # Suppress specific warnings

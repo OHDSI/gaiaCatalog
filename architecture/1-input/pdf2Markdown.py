@@ -1,6 +1,7 @@
 from docling.document_converter import DocumentConverter
 import os
 from pathlib import Path
+import argparse
 
 
 def extract_document_to_markdown(source_path, output_file=None):
@@ -118,15 +119,21 @@ def extract_tables_only(source_path, output_file=None):
 
 # Example usage
 if __name__ == "__main__":
-    # Example 1: Extract a full document
-    # source_url = "https://arxiv.org/pdf/2408.09869"
-    source_url = "/home/fils/src/Projects/NIAID/domainAssessment/sof/source_docs/reports/BV_BRC_BriefSummary_OfBlueprintAlignment_Revised_.pdf"  # Docling Technical Report
-    extract_document_to_markdown(source_url, "docling_paper.md")
+    parser = argparse.ArgumentParser(description="Extract text and tables from PDF documents using Docling.")
+    parser.add_argument('--source', required=True, help='Source URL or local path to the PDF document')
+    parser.add_argument('--text-output', required=True, help='Output file for the full text markdown')
+    parser.add_argument('--tables-output', required=True, help='Output file for the extracted tables markdown')
 
-    # Example 2: Extract only tables
-    extract_tables_only(source_url, "docling_tables.md")
+    args = parser.parse_args()
 
-    # Example 3: Process local file
-    # extract_document_to_markdown("path/to/your/document.pdf", "output.md")
+    source_url = args.source
+    text_output_file = args.text_output
+    tables_output_file = args.tables_output
+
+    # Extract full document to markdown
+    extract_document_to_markdown(source_url, text_output_file)
+
+    # Extract only tables
+    extract_tables_only(source_url, tables_output_file)
 
     print("\n Processing complete! Check the generated markdown files.")

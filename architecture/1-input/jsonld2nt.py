@@ -3,6 +3,8 @@ import json
 from rdflib import Graph, plugin
 from rdflib.serializer import Serializer
 
+# TODO:  rdflib, not the best.  Would be good to move to pyoxigraph
+
 # This script converts JSON-LD files to N-Triples format (.nt).
 # It processes all .json files in the specified input directory and saves the
 # output to a single .nt file in the output directory.
