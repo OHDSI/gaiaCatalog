@@ -13,3 +13,5 @@ derived/
 nquads/
 .ipynb_checkpoints/
 store/
+architecture/stores
+*.pyc
