@@ -1,0 +1,151 @@
+category,query
+Census,& Demographics What is the total population in census tract 12086000100?
+Census,& Demographics Show me the percentage of Hispanic residents in Miami-Dade County.
+Census,& Demographics How many people under 18 live in each census tract?
+Census,& Demographics Give me the number of households without a vehicle in tract 12086000302.
+Census,& Demographics What is the median household income for tracts in the 90th percentile?
+Census,& Demographics Find tracts where more than 30% of residents speak English less than well.
+Census,& Demographics Which tracts have the highest proportion of single-parent households?
+Census,& Demographics Show poverty rates by census tract for 2016-2020 ACS data.
+Census,& Demographics What is the racial breakdown (White  Black  Asian  etc.) for tract 12086000700?
+Census,& Demographics How many people are uninsured in tracts near downtown Miami?
+Geography,& Administrative Boundaries What is the FIPS code for Miami-Dade County?
+Geography,& Administrative Boundaries List all census tracts that intersect the City of Miami.
+Geography,& Administrative Boundaries Show the municipal boundaries for Coral Gables.
+Geography,& Administrative Boundaries What is the land area in square miles for tract 12086009000?
+Geography,& Administrative Boundaries Give me the latitude and longitude of the centroid for each census tract.
+Geography,& Administrative Boundaries Which county zones overlap with FEMA flood hazard zones?
+Geography,& Administrative Boundaries Find all parcels inside the Urban Development Boundary (UDB).
+Geography,& Administrative Boundaries What is the name of the neighborhood for parcel folio 01-1234-567-890?
+Geography,& Administrative Boundaries Show me the zoning district for address 1234 SW 8th St.
+Geography,& Administrative Boundaries List all Qualified Opportunity Zones in Miami-Dade.
+Housing,& Property How many mobile homes are in census tract 12086011400?
+Housing,& Property What is the median housing cost for owner-occupied units?
+Housing,& Property Find parcels with a building footprint larger than 5 000 sq ft.
+Housing,& Property Show me the assessed value and year for folio 30-9876-543-210.
+Housing,& Property Which parcels have a condo flag set?
+Housing,& Property Give me the number of bedrooms and bathrooms for address 4567 NW 12th Ave.
+Housing,& Property What is the year built for the building at 7890 Biscayne Blvd?
+Housing,& Property List all properties with a DOR code indicating commercial use.
+Housing,& Property How many housing units are cost-burdened (spending >30% on housing)?
+Housing,& Property Find parcels with a floor-area ratio (FAR) above 2.0.
+Infrastructure,& Facilities Where are the nearest fire stations to zip code 33139?
+Infrastructure,& Facilities List all public libraries in Miami-Dade County.
+Infrastructure,& Facilities Show me the locations of all Metrorail stations.
+Infrastructure,& Facilities Which parks have a playground and a picnic shelter?
+Infrastructure,& Facilities Find hospitals with more than 200 beds.
+Infrastructure,& Facilities Give me the address and phone number of the nearest police station.
+Infrastructure,& Facilities What cooling centers are open during a heat emergency?
+Infrastructure,& Facilities List all charter schools and their enrollment capacity.
+Infrastructure,& Facilities Show bike lanes within 1 mile of downtown Miami.
+Infrastructure,& Facilities Find all stormwater pump stations in flood zone AE.
+Parks, Recreation & Amenities Which county parks have a swimming pool?
+Parks, Recreation & Amenities List parks with tennis courts and a fitness zone.
+Parks, Recreation & Amenities Find all dog parks in the City of Hialeah.
+Parks, Recreation & Amenities Show parks that offer summer camp programs.
+Parks, Recreation & Amenities Which municipal parks have a nature trail?
+Parks, Recreation & Amenities Give me parks with a boat ramp and canoe launch.
+Parks, Recreation & Amenities Find recreation centers with a gymnasium.
+Parks, Recreation & Amenities List all parks with Wi-Fi access.
+Parks, Recreation & Amenities Which parks are classified as “natural areas”?
+Parks, Recreation & Amenities Show parks with an amphitheater or stadium.
+Environmental,& Hazard Data What is the storm surge risk (category 3) for my address?
+Environmental,& Hazard Data Show FEMA flood zones for parcel folio 01-2345-678-901.
+Environmental,& Hazard Data Which areas are in a high wildfire risk zone?
+Environmental,& Hazard Data Find brownfield sites near schools.
+Environmental,& Hazard Data What is the air quality index (AQI) 90th percentile for 2022?
+Environmental,& Hazard Data List census tracts with PM2.5 exposure above 12 µg/m³.
+Environmental,& Hazard Data Show areas with tree canopy cover less than 20%.
+Environmental,& Hazard Data Which zones have contaminated groundwater?
+Environmental,& Hazard Data Find parcels overlapping with a managed conservation area.
+Environmental,& Hazard Data What is the heat island intensity for downtown Miami?
+Transportation,& Roads What is the road type (expressway  major road  etc.) for SW 8th Street?
+Transportation,& Roads Show all streets with seamless address ranges in Coral Gables.
+Transportation,& Roads Find ferry routes in Miami-Dade.
+Transportation,& Roads List Metromover tracks and stations.
+Transportation,& Roads Which roads have a speed limit tag in OSM?
+Transportation,& Roads Show primary and secondary roads from OpenStreetMap.
+Transportation,& Roads Find streets with bike lanes and their length in miles.
+Transportation,& Roads What is the one-way direction for NW 7th Ave?
+Transportation,& Roads List all bus stops near Miami International Airport.
+Transportation,& Roads Show road segments with a rank of 1 (primary).
+Health,& Social Vulnerability Which census tracts have the highest social vulnerability index?
+Health,& Social Vulnerability Find areas with more than 15% uninsured population.
+Health,& Social Vulnerability Show disability rates by census tract.
+Health,& Social Vulnerability What is the percentage of residents with no high school diploma?
+Health,& Social Vulnerability List tracts in the 90th percentile for poverty.
+Health,& Social Vulnerability Find areas with high percentages of limited-English speakers.
+Health,& Social Vulnerability Show per capita income and unemployment rate together.
+Health,& Social Vulnerability Which tracts have a high concentration of Medicare recipients?
+Health,& Social Vulnerability Find areas with many SNAP recipients.
+Health,& Social Vulnerability Show the overall SVI percentile ranking by tract.
+Land,Use & Zoning What zoning code applies to 9876 Collins Ave?
+Land,Use & Zoning List all commercial zoning districts.
+Land,Use & Zoning Find industrial areas near residential zones.
+Land,Use & Zoning Show agricultural land use parcels.
+Land,Use & Zoning Which parcels are in a Community Redevelopment Area (CRA)?
+Land,Use & Zoning What is the maximum lot coverage allowed in RU-1 zones?
+Land,Use & Zoning Find parcels with mixed-use zoning.
+Land,Use & Zoning Show minimum lot size requirements by zone.
+Land,Use & Zoning List all overlay zones (historic  coastal  etc.).
+Land,Use & Zoning What is the land use description for DOR code 0800?
+Buildings,& Planimetrics Show building footprints updated from 2018 LiDAR.
+Buildings,& Planimetrics What is the height of the tallest building in downtown?
+Buildings,& Planimetrics Find buildings with a roof type tag in OSM.
+Buildings,& Planimetrics List all structures with more than 10 floors.
+Buildings,& Planimetrics Show building area vs. parcel area (FAR) for downtown.
+Buildings,& Planimetrics Which buildings are sourced from planimetric vs. LiDAR?
+Buildings,& Planimetrics Find buildings inside the UDB vs. outside.
+Buildings,& Planimetrics Show building age distribution (year built).
+Buildings,& Planimetrics List all structures tagged as “school” or “hospital”.
+Buildings,& Planimetrics What is the total heated area for commercial buildings?
+Air,Quality & Pollution What was the median AQI in 2022 for Miami-Dade?
+Air,Quality & Pollution Show days with AQI > 100 by monitoring site.
+Air,Quality & Pollution Find monitors measuring PM2.5 and Ozone.
+Air,Quality & Pollution What is the 90th percentile AQI value for each year?
+Air,Quality & Pollution List sites with exceptional event exclusions.
+Air,Quality & Pollution Show the primary pollutant on the worst air quality day.
+Air,Quality & Pollution Find monitors near schools or hospitals.
+Air,Quality & Pollution What is the annual mean PM2.5 concentration by site?
+Air,Quality & Pollution Show AQI trend from 2018–2022.
+Air,Quality & Pollution Which parameter has the most “unhealthy” days?
+Aggregated,ACS / DVMT / SVI Queries Show the Displacement Vulnerability Mitigation Tool (DVMT) score per tract.
+Aggregated,ACS / DVMT / SVI Queries Find tracts flagged in the 90th percentile for housing cost burden.
+Aggregated,ACS / DVMT / SVI Queries List the four theme summary percentiles (Socioeconomic  Minority  etc.).
+Aggregated,ACS / DVMT / SVI Queries Show the sum of flags for Household Characteristics.
+Aggregated,ACS / DVMT / SVI Queries Which tracts are in the top decile for all four SVI themes?
+Aggregated,ACS / DVMT / SVI Queries Give me the overall percentile ranking for tract 12086000204.
+Aggregated,ACS / DVMT / SVI Queries Find tracts with high minority + high poverty + low vehicle access.
+Aggregated,ACS / DVMT / SVI Queries Show the number of cost-burdened renter households.
+Aggregated,ACS / DVMT / SVI Queries List tracts with >50% mobile homes.
+Aggregated,ACS / DVMT / SVI Queries What is the per-capita income percentile vs. unemployment percentile?
+Time-Series,& Historical Compare population change from 2010 to 2020 by tract.
+Time-Series,& Historical Show median income trend 2014-2018 vs. 2016-2020.
+Time-Series,& Historical What is the change in PM2.5 exposure from 1998 to 2016?
+Time-Series,& Historical List parcels sold in the last 12 months.
+Time-Series,& Historical Show building permits issued after 2020.
+Time-Series,& Historical Find parks added since the 2015 planimetric update.
+Time-Series,& Historical What is the year-over-year change in AQI 90th percentile?
+Time-Series,& Historical Show land area change for tracts due to annexation.
+Time-Series,& Historical List properties with assessment year 2023.
+Time-Series,& Historical When was the last edit to the zoning layer?
+Spatial,/ Proximity Queries Find all schools within 0.5 miles of a fire station.
+Spatial,/ Proximity Queries List hospitals within 1 mile of a Metrorail station.
+Spatial,/ Proximity Queries Show parks within 500 ft of a bus stop.
+Spatial,/ Proximity Queries Find residential parcels within 100 ft of a major road.
+Spatial,/ Proximity Queries Which commercial properties are inside a flood zone?
+Spatial,/ Proximity Queries List libraries within a 10-minute walk of a cooling center.
+Spatial,/ Proximity Queries Find daycare centers near high-social-vulnerability tracts.
+Spatial,/ Proximity Queries Show bike lanes within 0.25 miles of a school.
+Spatial,/ Proximity Queries Which superfund sites are within 1 mile of a playground?
+Spatial,/ Proximity Queries Find parcels that intersect both a CRA and a QOZ.
+Miscellaneous,/ Meta What data source was used for building footprints (LiDAR or planimetric)?
+Miscellaneous,/ Meta Show the creation date and last editor for each feature class.
+Miscellaneous,/ Meta List all datasets updated weekly.
+Miscellaneous,/ Meta What is the coordinate system of the parcel layer?
+Miscellaneous,/ Meta Find features with missing geometry or NODATA.
+Miscellaneous,/ Meta Show the provenance documentation for the augmented parcel layer.
+Miscellaneous,/ Meta List all columns that contain a Margin of Error (MOE).
+Miscellaneous,/ Meta What is the difference between “estimate” and “percentage” fields?
+Miscellaneous,/ Meta Find all descriptions that mention “ACS”.
+Miscellaneous,/ Meta Show the list of DOR codes and their descriptions.
