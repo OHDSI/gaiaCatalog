@@ -2,6 +2,7 @@ import os
 from typing import List
 import numpy as np
 from sentence_transformers import SentenceTransformer
+import pandas as pd
 
 import dspy
 import lancedb
@@ -9,7 +10,6 @@ from lancedb.embeddings import get_registry
 
 db = lancedb.connect('/home/fils/src/Projects/CODATA/INSPIRE/gaiaCatalog/architecture/stores/lance/db')
 tbl = db.open_table("source")
-
 
 # TODO
 #  look at https://colab.research.google.com/github/mporraProactive/BeatyPets-RAG-System/blob/main/DSPy-LanceDB-demo.ipynb#scrollTo=WP2o6D5qc6F9 
@@ -83,11 +83,33 @@ class SimpleRAG(dspy.Module):
         )
 
 
+class RewriteQuery(dspy.Signature):
+    """Rewrite the user's query to be used in embedding search.
+    Data is from a set of state-level resources and services."""
+    user_query: str = dspy.InputField(desc="User's query which will be used to summarize selected transcripts")
+    context: str = dspy.InputField(desc="A sample of transcript data")
+    query_phrases: list[str] = dspy.OutputField(desc="a list of 5-10 queries that feed semantic search to get chunks of transcripts")
+
+
 # Instantiate and test (no compile needed)
-rag = SimpleRAG()
-query = ("What are the described features in Florida?")
-result = rag(question=query)
-print(f"Question: {result.question}")
-print(f"Context: {result.context}")
-print(f"Answer: {result.answer}")
+query = ("What information do you have about emergency services in Dade country?")
+
+# rewrite query with RewriteQuery
+## Provide some general context
+df = pd.read_csv('./data/contextv3.csv', nrows=100)
+context = df.to_dict(orient='records')
+## the re-write
+rewrite = dspy.ChainOfThought(RewriteQuery)
+response = rewrite(user_query=query, context=context)
+
+print(response.query_phrases)
+
+# TODO look into how to best use the array of query_phrases returned in the re-write
+
+# results section
+# rag = SimpleRAG()
+# result = rag(question=query)
+# print(f"Question: {result.question}")
+# print(f"Context: {result.context}")
+# print(f"Answer: {result.answer}")
 
