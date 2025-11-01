@@ -9,18 +9,18 @@
 [data]
 NAME              = gaiacatalog
 BASE_URL          = http://example.org/gaiacatalog
-GET_DATA_CMD      = cp ../../stores/output.nt .
+GET_DATA_CMD      = cp ../../stores/sourceinput.nt .
 DESCRIPTION       = GAIACatalog ${BASE_URL}
 TEXT_DESCRIPTION  = Test graph for GaiaCatalog
 FORMAT            = nt
 
 [index]
-INPUT_FILES     = output.nt
+INPUT_FILES     = sourceinput.nt
 CAT_INPUT_FILES = cat ${INPUT_FILES}
 SETTINGS_JSON   = { "add-text-index": true, "ascii-prefixes-only": false, "num-triples-per-batch": 100000 }
 
 [server]
-PORT               = 7007
+PORT               = 7077
 ACCESS_TOKEN       = ${data:NAME}_7643543846_6dMISzlPrD7i
 MEMORY_FOR_QUERIES = 25G
 CACHE_MAX_SIZE     = 20G

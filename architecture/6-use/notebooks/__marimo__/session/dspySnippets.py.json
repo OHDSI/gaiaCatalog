@@ -1,0 +1,177 @@
+{
+  "version": "1",
+  "metadata": {
+    "marimo_version": "0.17.5"
+  },
+  "cells": [
+    {
+      "id": "Hbol",
+      "code_hash": "e630bb3a1f522b54c86c6e6b0a95d78d",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "MJUe",
+      "code_hash": "477d4ce1cefacb6a45deb10561b8d6f1",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "PSgi",
+      "code_hash": "d44d8b66e68d3c77f516e73075f2a20d",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "vblA",
+      "code_hash": "bd94490f13bd6d41259ea41dd9a905ec",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "bkHC",
+      "code_hash": "8e109a46d459ecf6c1e6aa69feaffb4b",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "lEQa",
+      "code_hash": "8373727a1e6993ea75c9ff49031f8627",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "PKri",
+      "code_hash": "d52809d3449069a882e4ac93850b4822",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "Xref",
+      "code_hash": "5ba3535da6a33e90074ed4c65d9af1a2",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "SFPL",
+      "code_hash": "3204bab57e060c0962d65507c3743735",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "BYtC",
+      "code_hash": "f5ac65ba372d5513de8627c4253e38cc",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "RGSE",
+      "code_hash": "09c72be6907296ea71d82fc2adc736c5",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "Kclp",
+      "code_hash": "a8e3f05371f19119decbbd4e4f6a4710",
+      "outputs": [
+        {
+          "type": "error",
+          "ename": "exception",
+          "evalue": "Table 'sources' was not found",
+          "traceback": []
+        }
+      ],
+      "console": [
+        {
+          "type": "stream",
+          "name": "stdout",
+          "text": "Searching table with query type: hybrid, table: sources, query: Is it open on Tuesday?\n",
+          "mimetype": "text/plain"
+        },
+        {
+          "type": "stream",
+          "name": "stderr",
+          "text": "<span class=\"codehilite\"><div class=\"highlight\"><pre><span></span><span class=\"gt\">Traceback (most recent call last):</span>\n  File <span class=\"nb\">&quot;/tmp/marimo_1274880/__marimo__cell_Kclp_.py&quot;</span>, line <span class=\"m\">2</span>, in <span class=\"n\">&lt;module&gt;</span>\n<span class=\"w\">    </span><span class=\"n\">result</span> <span class=\"o\">=</span> <span class=\"n\">assistant</span><span class=\"o\">.</span><span class=\"n\">process_question</span><span class=\"p\">(</span><span class=\"n\">test_question</span><span class=\"p\">)</span>\n  File <span class=\"nb\">&quot;/tmp/marimo_1274880/__marimo__cell_SFPL_.py&quot;</span>, line <span class=\"m\">10</span>, in <span class=\"n\">process_question</span>\n<span class=\"w\">    </span><span class=\"n\">result</span> <span class=\"o\">=</span> <span class=\"bp\">self</span><span class=\"o\">.</span><span class=\"n\">rag</span><span class=\"p\">(</span><span class=\"n\">query</span><span class=\"p\">)</span>\n  File <span class=\"nb\">&quot;/home/fils/src/Projects/CODATA/INSPIRE/gaiaCatalog/.venv/lib/python3.13/site-packages/dspy/utils/callback.py&quot;</span>, line <span class=\"m\">326</span>, in <span class=\"n\">sync_wrapper</span>\n<span class=\"w\">    </span><span class=\"k\">return</span> <span class=\"n\">fn</span><span class=\"p\">(</span><span class=\"n\">instance</span><span class=\"p\">,</span> <span class=\"o\">*</span><span class=\"n\">args</span><span class=\"p\">,</span> <span class=\"o\">**</span><span class=\"n\">kwargs</span><span class=\"p\">)</span>\n  File <span class=\"nb\">&quot;/home/fils/src/Projects/CODATA/INSPIRE/gaiaCatalog/.venv/lib/python3.13/site-packages/dspy/primitives/module.py&quot;</span>, line <span class=\"m\">78</span>, in <span class=\"n\">__call__</span>\n<span class=\"w\">    </span><span class=\"k\">return</span> <span class=\"bp\">self</span><span class=\"o\">.</span><span class=\"n\">forward</span><span class=\"p\">(</span><span class=\"o\">*</span><span class=\"n\">args</span><span class=\"p\">,</span> <span class=\"o\">**</span><span class=\"n\">kwargs</span><span class=\"p\">)</span>\n<span class=\"w\">           </span><span class=\"pm\">~~~~~~~~~~~~^^^^^^^^^^^^^^^^^</span>\n  File <span class=\"nb\">&quot;/tmp/marimo_1274880/__marimo__cell_lEQa_.py&quot;</span>, line <span class=\"m\">12</span>, in <span class=\"n\">forward</span>\n<span class=\"w\">    </span><span class=\"n\">relevant_contexts</span> <span class=\"o\">=</span> <span class=\"bp\">self</span><span class=\"o\">.</span><span class=\"n\">vectorstore</span><span class=\"o\">.</span><span class=\"n\">search_table</span><span class=\"p\">(</span>\n<span class=\"w\">    </span>    <span class=\"n\">query_string</span><span class=\"o\">=</span><span class=\"n\">query</span><span class=\"p\">,</span>\n<span class=\"w\">    </span>    <span class=\"n\">query_type</span><span class=\"o\">=</span><span class=\"s1\">&#39;hybrid&#39;</span><span class=\"p\">,</span>\n<span class=\"w\">    </span>    <span class=\"n\">top_k</span><span class=\"o\">=</span><span class=\"mi\">3</span>\n<span class=\"w\">    </span><span class=\"p\">)</span>\n  File <span class=\"nb\">&quot;/tmp/marimo_1274880/__marimo__cell_PSgi_.py&quot;</span>, line <span class=\"m\">37</span>, in <span class=\"n\">search_table</span>\n<span class=\"w\">    </span><span class=\"n\">tbl</span> <span class=\"o\">=</span> <span class=\"bp\">self</span><span class=\"o\">.</span><span class=\"n\">db</span><span class=\"o\">.</span><span class=\"n\">open_table</span><span class=\"p\">(</span><span class=\"bp\">self</span><span class=\"o\">.</span><span class=\"n\">tablename</span><span class=\"p\">)</span>\n  File <span class=\"nb\">&quot;/home/fils/src/Projects/CODATA/INSPIRE/gaiaCatalog/.venv/lib/python3.13/site-packages/lancedb/db.py&quot;</span>, line <span class=\"m\">496</span>, in <span class=\"n\">open_table</span>\n<span class=\"w\">    </span><span class=\"k\">return</span> <span class=\"n\">LanceTable</span><span class=\"o\">.</span><span class=\"n\">open</span><span class=\"p\">(</span>\n<span class=\"w\">           </span><span class=\"pm\">~~~~~~~~~~~~~~~^</span>\n<span class=\"w\">    </span>    <span class=\"bp\">self</span><span class=\"p\">,</span>\n<span class=\"w\">        </span><span class=\"pm\">^^^^^</span>\n<span class=\"w\">    </span><span class=\"o\">...&lt;</span><span class=\"mi\">2</span> <span class=\"n\">lines</span><span class=\"o\">&gt;...</span>\n<span class=\"w\">    </span>    <span class=\"n\">index_cache_size</span><span class=\"o\">=</span><span class=\"n\">index_cache_size</span><span class=\"p\">,</span>\n<span class=\"w\">        </span><span class=\"pm\">^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^</span>\n<span class=\"w\">    </span><span class=\"p\">)</span>\n<span class=\"w\">    </span><span class=\"pm\">^</span>\n  File <span class=\"nb\">&quot;/home/fils/src/Projects/CODATA/INSPIRE/gaiaCatalog/.venv/lib/python3.13/site-packages/lancedb/table.py&quot;</span>, line <span class=\"m\">1598</span>, in <span class=\"n\">open</span>\n<span class=\"w\">    </span><span class=\"n\">tbl</span> <span class=\"o\">=</span> <span class=\"bp\">cls</span><span class=\"p\">(</span><span class=\"n\">db</span><span class=\"p\">,</span> <span class=\"n\">name</span><span class=\"p\">,</span> <span class=\"o\">**</span><span class=\"n\">kwargs</span><span class=\"p\">)</span>\n  File <span class=\"nb\">&quot;/home/fils/src/Projects/CODATA/INSPIRE/gaiaCatalog/.venv/lib/python3.13/site-packages/lancedb/table.py&quot;</span>, line <span class=\"m\">1584</span>, in <span class=\"n\">__init__</span>\n<span class=\"w\">    </span><span class=\"bp\">self</span><span class=\"o\">.</span><span class=\"n\">_table</span> <span class=\"o\">=</span> <span class=\"n\">LOOP</span><span class=\"o\">.</span><span class=\"n\">run</span><span class=\"p\">(</span>\n<span class=\"w\">                  </span><span class=\"pm\">~~~~~~~~^</span>\n<span class=\"w\">    </span>    <span class=\"n\">connection</span><span class=\"o\">.</span><span class=\"n\">_conn</span><span class=\"o\">.</span><span class=\"n\">open_table</span><span class=\"p\">(</span>\n<span class=\"w\">        </span><span class=\"pm\">^^^^^^^^^^^^^^^^^^^^^^^^^^^^</span>\n<span class=\"w\">    </span><span class=\"o\">...&lt;</span><span class=\"mi\">3</span> <span class=\"n\">lines</span><span class=\"o\">&gt;...</span>\n<span class=\"w\">    </span>    <span class=\"p\">)</span>\n<span class=\"w\">        </span><span class=\"pm\">^</span>\n<span class=\"w\">    </span><span class=\"p\">)</span>\n<span class=\"w\">    </span><span class=\"pm\">^</span>\n  File <span class=\"nb\">&quot;/home/fils/src/Projects/CODATA/INSPIRE/gaiaCatalog/.venv/lib/python3.13/site-packages/lancedb/background_loop.py&quot;</span>, line <span class=\"m\">25</span>, in <span class=\"n\">run</span>\n<span class=\"w\">    </span><span class=\"k\">return</span> <span class=\"n\">asyncio</span><span class=\"o\">.</span><span class=\"n\">run_coroutine_threadsafe</span><span class=\"p\">(</span><span class=\"n\">future</span><span class=\"p\">,</span> <span class=\"bp\">self</span><span class=\"o\">.</span><span class=\"n\">loop</span><span class=\"p\">)</span><span class=\"o\">.</span><span class=\"n\">result</span><span class=\"p\">()</span>\n<span class=\"w\">           </span><span class=\"pm\">~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^</span>\n  File <span class=\"nb\">&quot;/home/fils/.local/share/uv/python/cpython-3.13.1-linux-x86_64-gnu/lib/python3.13/concurrent/futures/_base.py&quot;</span>, line <span class=\"m\">456</span>, in <span class=\"n\">result</span>\n<span class=\"w\">    </span><span class=\"k\">return</span> <span class=\"bp\">self</span><span class=\"o\">.</span><span class=\"n\">__get_result</span><span class=\"p\">()</span>\n<span class=\"w\">           </span><span class=\"pm\">~~~~~~~~~~~~~~~~~^^</span>\n  File <span class=\"nb\">&quot;/home/fils/.local/share/uv/python/cpython-3.13.1-linux-x86_64-gnu/lib/python3.13/concurrent/futures/_base.py&quot;</span>, line <span class=\"m\">401</span>, in <span class=\"n\">__get_result</span>\n<span class=\"w\">    </span><span class=\"k\">raise</span> <span class=\"bp\">self</span><span class=\"o\">.</span><span class=\"n\">_exception</span>\n  File <span class=\"nb\">&quot;/home/fils/src/Projects/CODATA/INSPIRE/gaiaCatalog/.venv/lib/python3.13/site-packages/lancedb/db.py&quot;</span>, line <span class=\"m\">858</span>, in <span class=\"n\">open_table</span>\n<span class=\"w\">    </span><span class=\"n\">table</span> <span class=\"o\">=</span> <span class=\"k\">await</span> <span class=\"bp\">self</span><span class=\"o\">.</span><span class=\"n\">_inner</span><span class=\"o\">.</span><span class=\"n\">open_table</span><span class=\"p\">(</span><span class=\"n\">name</span><span class=\"p\">,</span> <span class=\"n\">storage_options</span><span class=\"p\">,</span> <span class=\"n\">index_cache_size</span><span class=\"p\">)</span>\n<span class=\"w\">            </span><span class=\"pm\">^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^</span>\n<span class=\"gr\">ValueError</span>: <span class=\"n\">Table &#39;sources&#39; was not found</span>\n</pre></div>\n</span>",
+          "mimetype": "application/vnd.marimo+traceback"
+        }
+      ]
+    }
+  ]
+}

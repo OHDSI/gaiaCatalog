@@ -2,13 +2,15 @@ PREFIX pathSearch: <https://qlever.cs.uni-freiburg.de/pathSearch/>
 PREFIX schema: <https://schema.org/>
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 
-SELECT ?s ?name ?description (GROUP_CONCAT(DISTINCT ?variablemeasured_name; SEPARATOR=", ") AS ?all_variablemeasured_names) (GROUP_CONCAT(DISTINCT ?keywords; SEPARATOR=", ") AS ?all_keywords)
+SELECT DISTINCT ?s ?name ?description (GROUP_CONCAT(DISTINCT ?variablemeasured_name; SEPARATOR=", ") AS ?all_variablemeasured_names) (GROUP_CONCAT(DISTINCT ?keywords; SEPARATOR=", ") AS ?all_keywords)
 WHERE {
   ?s a schema:Dataset .
   ?s schema:description ?description .
-  ?s schema:keywords ?keywords .
+  OPTIONAL { ?s schema:keywords ?keywords .}
   ?s schema:name ?name .
-  ?s schema:variableMeasured ?variablemeasured .
-  ?variablemeasured schema:name ?variablemeasured_name .
+  OPTIONAL {
+      ?s schema:variableMeasured ?variablemeasured .
+      ?variablemeasured schema:name ?variablemeasured_name .
+  }
 }
 GROUP BY ?s ?name ?description

@@ -289,15 +289,37 @@ def chat_search_old(n):
 
     return stream['message']['content']
 
-
-# Create a true light theme with lite tones
-light_theme = gr.themes.Soft(
-    primary_hue=gr.themes.colors.blue,
-    secondary_hue=gr.themes.colors.gray,
-    neutral_hue=gr.themes.colors.gray
+# Create a true light theme with explicit light colors
+light_theme = gr.themes.Default().set(
+    body_background_fill="white",
+    body_text_color="#2c3e50",
+    background_fill_primary="white",
+    background_fill_secondary="#f8f9fa",
+    background_fill_secondary_dark="#f8f9fa",
+    border_color_primary="#dee2e6",
+    button_primary_background_fill="#007bff",
+    button_primary_text_color="white"
 )
 
-with gr.Blocks(title="DSWB playground", theme=light_theme) as demo:
+# Add custom CSS for light mode
+custom_css = """
+body, .gradio-container {
+    background-color: white !important;
+    color: black !important;
+}
+.dark {
+    background-color: white !important;
+    color: black !important;
+}
+"""
+
+#with gr.Blocks(theme=gr.themes.Soft()) as demo:
+# with gr.Blocks(title="DSWB playground", theme=light_theme, css=custom_css) as demo:
+
+my_theme = gr.Theme.from_hub("gradio/seafoam")
+
+#with gr.Blocks(title="DSWB playground", theme=gr.themes.Soft()) as demo:
+with gr.Blocks(title="DSWB playground", theme=my_theme) as demo:
     gr.Markdown("# DSWB playground")
 
     with gr.Tab("Comparative Search"):

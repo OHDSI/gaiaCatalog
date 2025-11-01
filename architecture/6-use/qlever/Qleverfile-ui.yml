@@ -3,7 +3,7 @@ config:
     name: Default
     slug: default
     sortKey: 1
-    baseUrl: http://workstation.lan:7007
+    baseUrl: http://workstation.lan:7077
     apiToken: ""
     isDefault: true
     isNoSlugMode: "False"
@@ -249,5 +249,5 @@ config:
       } GROUP BY ?qleverui_entity ORDER BY DESC(?qleverui_count)
 
       # ENDIF #
-    mapViewBaseURL: "http://localhost:9090"
+    mapViewBaseURL: "http://localhost:9999"
   examples: []

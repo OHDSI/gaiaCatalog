@@ -1,7 +1,5 @@
 # Architecture Flow
 
-> this work is in flux... expect changes.
-
 ## Notes
 
 Overview document for some of the basic AI testing being done.
@@ -19,13 +17,52 @@ Conversely, Knowledge Graphs are
    * Support inference and validation
    * Support more than just "similarity" with multi-path relations (motifs)
 
+TODOs:
+- [ ] add in the ai based entity resolution elements from coffe code
+
+## Command snippets
+
+
+#### For generating the input files
+
+```bash
+python masterControl.py jsonld2lance --json_dir ./stores/input/ --db_path ./stores/lance/db --table_name source
+```
+
+```bash
+python masterControl.py gliner2lance --db_path ./stores/lance/db --source_table source --output_table entities
+```
+
+```bash
+python masterControl.py jsonld2ntfile --input_dir ./stores/input/ --output_file ./stores/sourceinput.nt
+```
+
+
+#### For reindexing and running Qlever
+
+```bash
+qlever -q Qleverfile get-data  
+ ```
+
+```bash
+qlever -q Qleverfile index --overwrite-existing
+```
+
+```bash
+qlever -q Qleverfile start 
+ ```
+
+```bash
+qlever -q Qleverfile ui 
+ ```
+
 
 ## The flow
 
 ```mermaid
 flowchart LR
 
-Input("1-Input \n Here we generate both a RDF file \nand also populate a LanceDB table")
+Input("Input \n Here we generate both a RDF file \nand also populate a LanceDB table")
 
 Input --> RDF["RDF File"]
 Input --> LDB["LanceDB"]
