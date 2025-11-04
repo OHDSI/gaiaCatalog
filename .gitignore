@@ -15,3 +15,4 @@ nquads/
 store/
 architecture/stores
 *.pyc
+__pycache__/
