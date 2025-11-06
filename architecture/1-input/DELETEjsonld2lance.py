@@ -63,7 +63,7 @@ def main():
     # df['description'] = df['description'].apply(lambda x: ' '.join(x) if isinstance(x, list) else
     #                                           (str(x) if x is not None else ""))
     
-    # Handle None values in license
+    # Handle None values in a license
     df['license'] = df['license'].fillna("")
     
     # Add an 'id' column by creating a SHA256 hash of the filename
