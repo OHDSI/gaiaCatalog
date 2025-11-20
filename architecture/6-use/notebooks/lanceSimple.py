@@ -24,7 +24,7 @@ embedding_model = SentenceTransformer('jinaai/jina-embeddings-v2-small-en')
 
 OPENROUTER_API_KEY = os.environ.get("OPENROUTER_API_KEY")
 lm = dspy.LM(
-    model="openrouter/x-ai/grok-code-fast-1",
+    model="openrouter/x-ai/grok-4-fast",  # grok-code-fast-1
     api_base="https://openrouter.ai/api/v1",
     api_key=OPENROUTER_API_KEY,
     cache=False,
@@ -73,7 +73,7 @@ class SimpleRAG(dspy.Module):
 
     def forward(self, question: str):
         # Use direct retrieval instead of dspy.Retrieve
-        context = lance_retriever(question, k=3)
+        context = lance_retriever(question, k=5)
         context_str = "\n\n".join(context)
         prediction = self.generate(question=question, context=context_str)
         return dspy.Prediction(
@@ -84,32 +84,34 @@ class SimpleRAG(dspy.Module):
 
 
 class RewriteQuery(dspy.Signature):
-    """Rewrite the user's query to be used in embedding search.
+    """Rewrite the user's query to be used in embedding search. Make sure it is a question
+    that enhances the original query with the category and example question from the context.
     Data is from a set of state-level resources and services."""
-    user_query: str = dspy.InputField(desc="User's query which will be used to summarize selected transcripts")
-    context: str = dspy.InputField(desc="A sample of transcript data")
-    query_phrases: list[str] = dspy.OutputField(desc="a list of 5-10 queries that feed semantic search to get chunks of transcripts")
+    user_query: str = dspy.InputField(desc="User's query which will be used to access resources from a geospatial index.")
+    context: str = dspy.InputField(desc="A set of queries associated with categories and example questions")
+    query_phrase: str = dspy.OutputField(desc="a query that feed semantic search to get geospatial and geopolitical resources")
+    # query_phrases: list[str] = dspy.OutputField(desc="a list of 5-10 queries that feed semantic search to get chunks of transcripts")
 
 
 # Instantiate and test (no compile needed)
-query = ("What information do you have about emergency services in Dade country?")
+query = ("What geospatial features can you describe for  Dade country?")
 
 # rewrite query with RewriteQuery
 ## Provide some general context
 df = pd.read_csv('./data/contextv3.csv', nrows=100)
 context = df.to_dict(orient='records')
-## the re-write
+## the re-write stage
 rewrite = dspy.ChainOfThought(RewriteQuery)
 response = rewrite(user_query=query, context=context)
 
-print(response.query_phrases)
+print("-"*60+  "\n" + query + "\n" + "-"*60 + "\n")
 
 # TODO look into how to best use the array of query_phrases returned in the re-write
 
 # results section
-# rag = SimpleRAG()
-# result = rag(question=query)
-# print(f"Question: {result.question}")
-# print(f"Context: {result.context}")
-# print(f"Answer: {result.answer}")
+rag = SimpleRAG()
+result = rag(question=response.query_phrase)
+print(f"\nQuestion: {result.question}")
+print(f"\nContext: {result.context}")
+print(f"\nAnswer: {result.answer}")
 

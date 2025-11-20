@@ -1,0 +1,56 @@
+{
+  "@context": {
+    "@vocab": "https://schema.org/",
+    "input": "https://pending.schema.org/input",
+    "output": "https://pending.schema.org/output"
+  },
+  "@type": "SoftwareApplication",
+  "@id": "https://example.org/etl/pipelines/customer-etl",
+  "name": "Customer ETL Pipeline",
+  "description": "ETL pipeline that loads customers from a CSV file and writes them to a warehouse table.",
+  "softwareVersion": "1.3.0",
+  "applicationCategory": "ETL",
+  "subjectOf": {
+    "@type": "SoftwareSourceCode",
+    "@id": "https://example.org/etl/scripts/customer-etl.py",
+    "name": "customer-etl.py",
+    "codeRepository": "https://git.example.org/data-eng/etl",
+    "programmingLanguage": "Python",
+    "version": "2.4.1",
+    "additionalProperty": [
+      {
+        "@type": "PropertyValue",
+        "name": "command",
+        "value": "python customer-etl.py --config config.yml"
+      }
+    ]
+  },
+  "potentialAction": {
+    "@type": "Action",
+    "name": "Run Customer ETL Pipeline",
+
+    "input": {
+      "@type": "Dataset",
+      "@id": "https://example.org/datasets/raw-customers",
+      "name": "Raw Customers CSV",
+      "description": "Raw customer data exported daily from the CRM.",
+      "distribution": {
+        "@type": "DataDownload",
+        "encodingFormat": "text/csv",
+        "contentUrl": "s3://raw-bucket/crm/customers/*.csv"
+      }
+    },
+
+    "output": {
+      "@type": "Dataset",
+      "@id": "https://example.org/datasets/wh-customers",
+      "name": "Warehouse Customers Table",
+      "description": "Cleaned and conformed customer records in the analytics warehouse.",
+      "distribution": {
+        "@type": "DataDownload",
+        "encodingFormat": "application/sql",
+        "contentUrl": "warehouse://analytics.public.customers"
+      }
+    }
+  }
+}

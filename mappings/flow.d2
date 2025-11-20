@@ -1,0 +1,71 @@
+classes: {
+
+  node: {
+   shape: circle
+   width: 125
+   height: 125
+    style: {
+        stroke-width: 0
+       fill: honeydew
+       shadow: true
+       border-radius: 5
+  }
+}
+  point: {
+   width: 150
+      height: 100
+    style: {
+        stroke-width: 0
+       fill: honeydew
+       shadow: true
+       border-radius: 5
+  }
+}
+  group: {
+
+    style: {
+        stroke-width: 0
+       fill: pink
+       shadow: true
+       border-radius: 5
+  }
+}
+
+}
+
+*.class: point
+etl_curl.class: node
+mappings.class: group
+
+c: census data
+g: geospatial data
+o: other data
+
+rdf: RDF \nCDIF Discovery
+is: integrated data
+ohdsi: Postgis\nOHDSI
+
+etl_curl: API calls
+
+o --> etl_curl
+g --> etl_curl
+c --> etl_curl --> is
+
+is --> mappings.xslt
+is --> mappings.RML
+is --> mappings.SQL
+
+mappings: {
+xslt: XSLT\nRDF(JSON-LD)
+SQL: SQL\n R2RML(?)
+     RML
+
+    RML.class: node
+    SQL.class: node
+    xslt.class: node
+
+}
+
+mappings.xslt --> rdf
+mappings.RML --> rdf
+mappings.SQL --> ohdsi

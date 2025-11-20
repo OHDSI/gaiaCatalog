@@ -1,0 +1,125 @@
+@prefix rml: <http://w3id.org/rml/> .
+@prefix sd: <https://w3id.org/okn/o/sd#> .
+@prefix insta: <http://instagram.com/data/> .
+@prefix rr: <http://www.w3.org/ns/r2rml#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix kg4di: <https://w3id.org/kg4di/definedBy> .
+@prefix schema: <https://schema.org/> .
+@prefix fnml: <http://semweb.mmlab.be/ns/fnml#> .
+@prefix fno: <https://w3id.org/function/ontology#> .
+@prefix grel: <http://users.ugent.be/~bjdmeest/function/grel.ttl#> .
+@prefix ql: <http://semweb.mmlab.be/ns/ql#> .
+@prefix morph-kgc: <https://github.com/morph-kgc/morph-kgc/function/built-in.ttl#> .
+@prefix geosparql: <http://www.opengis.net/ont/geosparql#> .
+
+@base <http://example.com/ns#> .
+
+
+
+<https://example.org/GeoMapping/Geometry> a rml:TriplesMap ;
+
+    rml:logicalSource
+        [
+            a rml:LogicalSource ;
+            rml:source
+                [
+                    a sd:DatasetSpecification ;
+                    sd:name "variable1" ;
+                    sd:hasDataTransformation
+                        [
+                            sd:hasSoftwareRequirements "pandas>=1.1.0" ;
+                            sd:hasSourceCode
+                                [
+                                    sd:programmingLanguage "Python3.9" ;
+                                ] ;
+                        ] ;
+                ] ;
+            rml:referenceFormulation rml:DataFrame ;
+        ] ;
+
+
+    rml:subjectMap
+        [
+            a rml:SubjectMap ;
+            rml:template "http://ohdsi_gis.org/id/{hashid}" ;
+        ] ;
+
+
+    rml:predicateObjectMap
+        [
+            rml:predicateMap
+                [
+                    a rml:PredicateMap ;
+                    rml:constant geosparql:hasGeometry ;
+                ] ;
+            rml:objectMap
+                [
+                    a rml:ObjectMap ;
+                    rml:template "https://ohdsi_gis.org/.well-known/genid/geo/{hashid}" ;
+                ] ;
+        ] .
+
+
+<https://example.org/GeoMapping/Polygon1>  a rml:TriplesMap ;
+
+    rml:logicalSource
+        [
+            a rml:LogicalSource ;
+            rml:source
+                [
+                    a sd:DatasetSpecification ;
+                    sd:name "variable1" ;
+                    sd:hasDataTransformation
+                        [
+                            sd:hasSoftwareRequirements "pandas>=1.1.0" ;
+                            sd:hasSourceCode
+                                [
+                                    sd:programmingLanguage "Python3.9" ;
+                                ] ;
+                        ] ;
+                ] ;
+            rml:referenceFormulation rml:DataFrame ;
+        ] ;
+
+
+    rml:subjectMap
+        [
+            a rml:SubjectMap ;
+            rml:template "https://ohdsi_gis.org/.well-known/genid/geo/{hashid}" ;
+        ] ;
+
+    rml:predicateObjectMap
+        [
+            rml:predicateMap
+                [
+                    a rml:PredicateMap ;
+                    rml:constant rdf:type ;
+                ] ;
+            rml:objectMap
+                [
+                    a rml:ObjectMap ;
+                    rml:constant <http://www.opengis.net/ont/sf#Polygon> ;
+                ] ;
+        ] ;
+
+    rml:predicateObjectMap
+        [
+            rml:predicateMap
+                [
+                    a rml:PredicateMap ;
+                    rml:constant geosparql:asWKT ;
+                ] ;
+            rml:objectMap
+                [
+                    rml:template "{geometry}" ;
+                    rr:termType rr:Literal ;
+                    rr:datatype geosparql:wktLiteral ;
+
+                ] ;
+        ] .
+
+
+rml:DataFrame a rml:ReferenceFormulation ;
+    kg4di:definedBy "Pandas" .
