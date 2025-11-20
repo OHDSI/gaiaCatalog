@@ -2,32 +2,28 @@
 
 # About
 
-This document is a conceptual representation of the CDIF Mapping process applied to the OHDSI/Gaia Catalog.
+This document describes a representation of the CDIF Mapping process applied to the OHDSI/Gaia Catalog.
+ 
+The gaiaCatalog contains the materials to build the gaiaCatalog containers for use in the OHDSI/GIS toolchain as a part of the Information on Observational Health Data Sciences and Informatics (OHDSI) organization.  See https://github.com/OHDSI/gaiaCatalog
 
-Developed a use case around the gaiaCatalog.  The gaiaCatalog contains all the materials to build the gaiaCatalog containers for use in the OHDSI/GIS toolchain as a part of the Information on Observational Health Data Sciences and Informatics (OHDSI) organization.  See https://github.com/OHDSI/gaiaCatalog
+For this mapping the use case is based around the use of R2RML and RML mapping languages. The process takes data from census and governmental geospatial resources to be integrated and mapped to RDF types and properties and mapped into the OHDSI Postgis database.  
 
-For this a mapping use case based around the use of R2RML and RML mapping languages.   In this use case, data from census and governmental geospatial resources are integrated and mapped to RDF types and properties.  
+The goal then is to represent this specific mapping use
+case to a conceptual representation based on a 
+modification of the SSSOM mapping representation.     
+We will use this use case, and others, to 
+explore this representation in this conceptual model.  
 
-These resources are located at: https://github.com/OHDSI/gaiaCatalog/tree/main/mappings
-
-The goal then is to represent this specific mapping use case to a conceptual representation based on a modification of the SSSOM mapping representation.     We will use this use case, and others, to explore this representation in this conceptual model.  
-
-Additionally the OHDSI work will express the discovery metadata aligned to the CDIF Discovery profile and leverage the CDIF Mapping profile as it evolves.  The goal is to leverage the CDIF patterns within the ODHSI effort to facilitate interoperability with other clinic trails efforts (Ask Jay to review this)
+The goal is to leverage the CDIF patterns within the 
+ODHSI effort to facilitate interoperability with other 
+clinic trails efforts (Ask Jay to review this)
 
 
 ## ToDo
 
-- [ ] align the OHDSI work with the CDIF Discovery profile.
+- [ ] align the mapping of the input data with the CDIF Discovery profile.
 - [ ] leverage the CDIF Discovery profile SHACL shapes to validate the discovery metadata.
-- [ ] need an approach to express the RML pipeline (link to the RML GitHub raw URL) and further information.  Leveraing an approach around PyLODE will be explored.  The goal is to represent the RML pipeline as a graph that aligns with the CDIF profile publishing approaches. 
-
-
-## Snipets  
-__example validation command__
-```bash
-pyshacl -s https://smrgeoinfo.github.io/OCGbuildingBlockTest/_sources/properties/identifier/rules.shacl -sf turtle -df json-ld -f table reference1.json
-```
-
+- [ ] need an approach to project the RML transform into SSSOM model.    
 
 
 ## Elements related to the CDIF mapping process
