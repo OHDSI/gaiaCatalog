@@ -1,0 +1,2518 @@
+<?xml version="1.0" ?>
+<graphml>
+    <key id="label" attr.name="label" attr.type="string"/>
+    <key id="type" attr.name="type" attr.type="string"/>
+    <graph id="" edgedefault="undirected">
+        <node id="&lt;http://ohdsi_gis.org/id/7b7434c73442&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="&quot;e_noveh&quot;">
+            <data key="type">&lt;https://schema.org/PropertyValue&gt;</data>
+        </node>
+        <node id="&lt;http://ohdsi_gis.org/id/7b7434c73442&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="&quot;mp_age65&quot;">
+            <data key="type">&lt;https://schema.org/PropertyValue&gt;</data>
+        </node>
+        <node id="&lt;http://ohdsi_gis.org/id/7b7434c73442&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="&quot;f_groupq&quot;">
+            <data key="type">&lt;https://schema.org/PropertyValue&gt;</data>
+        </node>
+        <node id="&lt;http://ohdsi_gis.org/id/7b7434c73442&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="&quot;stcnty&quot;">
+            <data key="type">&lt;https://schema.org/PropertyValue&gt;</data>
+        </node>
+        <node id="&lt;http://ohdsi_gis.org/id/7b7434c73442&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="&quot;f_pov&quot;">
+            <data key="type">&lt;https://schema.org/PropertyValue&gt;</data>
+        </node>
+        <node id="&lt;http://ohdsi_gis.org/id/7b7434c73442&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="&quot;ep_groupq&quot;">
+            <data key="type">&lt;https://schema.org/PropertyValue&gt;</data>
+        </node>
+        <node id="&lt;http://ohdsi_gis.org/id/7b7434c73442&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="&quot;ep_crowd&quot;">
+            <data key="type">&lt;https://schema.org/PropertyValue&gt;</data>
+        </node>
+        <node id="&lt;http://ohdsi_gis.org/id/7b7434c73442&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="&quot;spl_theme4&quot;">
+            <data key="type">&lt;https://schema.org/PropertyValue&gt;</data>
+        </node>
+        <node id="&lt;http://ohdsi_gis.org/id/7b7434c73442&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="&quot;mp_nohsdp&quot;">
+            <data key="type">&lt;https://schema.org/PropertyValue&gt;</data>
+        </node>
+        <node id="&lt;http://ohdsi_gis.org/id/7b7434c73442&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="&quot;rpl_theme4&quot;">
+            <data key="type">&lt;https://schema.org/PropertyValue&gt;</data>
+        </node>
+        <node id="&lt;http://ohdsi_gis.org/id/7b7434c73442&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="&quot;m_hu&quot;">
+            <data key="type">&lt;https://schema.org/PropertyValue&gt;</data>
+        </node>
+        <node id="&lt;http://ohdsi_gis.org/id/7b7434c73442&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="&quot;state&quot;">
+            <data key="type">&lt;https://schema.org/PropertyValue&gt;</data>
+        </node>
+        <node id="&lt;http://ohdsi_gis.org/id/7b7434c73442&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="&quot;ep_disabl&quot;">
+            <data key="type">&lt;https://schema.org/PropertyValue&gt;</data>
+        </node>
+        <node id="&lt;http://ohdsi_gis.org/id/7b7434c73442&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="&quot;spl_theme2&quot;">
+            <data key="type">&lt;https://schema.org/PropertyValue&gt;</data>
+        </node>
+        <node id="&lt;http://ohdsi_gis.org/id/7b7434c73442&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="&quot;epl_minrty&quot;">
+            <data key="type">&lt;https://schema.org/PropertyValue&gt;</data>
+        </node>
+        <node id="&lt;http://ohdsi_gis.org/id/7b7434c73442&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="&quot;f_sngpnt&quot;">
+            <data key="type">&lt;https://schema.org/PropertyValue&gt;</data>
+        </node>
+        <node id="&lt;http://ohdsi_gis.org/id/7b7434c73442&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="&quot;f_munit&quot;">
+            <data key="type">&lt;https://schema.org/PropertyValue&gt;</data>
+        </node>
+        <node id="&lt;http://ohdsi_gis.org/id/7b7434c73442&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="&quot;ep_mobile&quot;">
+            <data key="type">&lt;https://schema.org/PropertyValue&gt;</data>
+        </node>
+        <node id="&lt;http://ohdsi_gis.org/id/7b7434c73442&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="&quot;e_mobile&quot;">
+            <data key="type">&lt;https://schema.org/PropertyValue&gt;</data>
+        </node>
+        <node id="&lt;http://ohdsi_gis.org/id/7b7434c73442&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="&quot;mp_disabl&quot;">
+            <data key="type">&lt;https://schema.org/PropertyValue&gt;</data>
+        </node>
+        <node id="&lt;http://ohdsi_gis.org/id/7b7434c73442&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="&quot;epl_munit&quot;">
+            <data key="type">&lt;https://schema.org/PropertyValue&gt;</data>
+        </node>
+        <node id="&lt;http://ohdsi_gis.org/id/7b7434c73442&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="&quot;epl_age17&quot;">
+            <data key="type">&lt;https://schema.org/PropertyValue&gt;</data>
+        </node>
+        <node id="&lt;http://ohdsi_gis.org/id/7b7434c73442&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="&quot;e_unemp&quot;">
+            <data key="type">&lt;https://schema.org/PropertyValue&gt;</data>
+        </node>
+        <node id="&lt;http://ohdsi_gis.org/id/7b7434c73442&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="&quot;f_minrty&quot;">
+            <data key="type">&lt;https://schema.org/PropertyValue&gt;</data>
+        </node>
+        <node id="&lt;http://ohdsi_gis.org/id/7b7434c73442&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="&quot;e_crowd&quot;">
+            <data key="type">&lt;https://schema.org/PropertyValue&gt;</data>
+        </node>
+        <node id="&lt;http://ohdsi_gis.org/id/7b7434c73442&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="&quot;f_crowd&quot;">
+            <data key="type">&lt;https://schema.org/PropertyValue&gt;</data>
+        </node>
+        <node id="&lt;http://ohdsi_gis.org/id/7b7434c73442&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="&quot;m_noveh&quot;">
+            <data key="type">&lt;https://schema.org/PropertyValue&gt;</data>
+        </node>
+        <node id="&lt;http://ohdsi_gis.org/id/7b7434c73442&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="&quot;f_theme3&quot;">
+            <data key="type">&lt;https://schema.org/PropertyValue&gt;</data>
+        </node>
+        <node id="&lt;http://ohdsi_gis.org/id/7b7434c73442&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="&quot;st&quot;">
+            <data key="type">&lt;https://schema.org/PropertyValue&gt;</data>
+        </node>
+        <node id="&lt;http://ohdsi_gis.org/id/7b7434c73442&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="&quot;spl_theme3&quot;">
+            <data key="type">&lt;https://schema.org/PropertyValue&gt;</data>
+        </node>
+        <node id="&lt;http://ohdsi_gis.org/id/7b7434c73442&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="&quot;m_pov&quot;">
+            <data key="type">&lt;https://schema.org/PropertyValue&gt;</data>
+        </node>
+        <node id="&lt;http://ohdsi_gis.org/id/7b7434c73442&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="&quot;f_disabl&quot;">
+            <data key="type">&lt;https://schema.org/PropertyValue&gt;</data>
+        </node>
+        <node id="&lt;http://ohdsi_gis.org/id/7b7434c73442&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="&quot;epl_unemp&quot;">
+            <data key="type">&lt;https://schema.org/PropertyValue&gt;</data>
+        </node>
+        <node id="&lt;http://ohdsi_gis.org/id/7b7434c73442&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="&quot;m_minrty&quot;">
+            <data key="type">&lt;https://schema.org/PropertyValue&gt;</data>
+        </node>
+        <node id="&lt;http://ohdsi_gis.org/id/7b7434c73442&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="&quot;f_pci&quot;">
+            <data key="type">&lt;https://schema.org/PropertyValue&gt;</data>
+        </node>
+        <node id="&lt;http://ohdsi_gis.org/id/7b7434c73442&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="&quot;rpl_themes&quot;">
+            <data key="type">&lt;https://schema.org/PropertyValue&gt;</data>
+        </node>
+        <node id="&lt;http://ohdsi_gis.org/id/7b7434c73442&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="&quot;m_nohsdp&quot;">
+            <data key="type">&lt;https://schema.org/PropertyValue&gt;</data>
+        </node>
+        <node id="&lt;http://ohdsi_gis.org/id/7b7434c73442&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="&quot;mp_groupq&quot;">
+            <data key="type">&lt;https://schema.org/PropertyValue&gt;</data>
+        </node>
+        <node id="&lt;http://ohdsi_gis.org/id/7b7434c73442&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="&quot;e_nohsdp&quot;">
+            <data key="type">&lt;https://schema.org/PropertyValue&gt;</data>
+        </node>
+        <node id="&lt;http://ohdsi_gis.org/id/7b7434c73442&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="&quot;mp_mobile&quot;">
+            <data key="type">&lt;https://schema.org/PropertyValue&gt;</data>
+        </node>
+        <node id="&lt;http://ohdsi_gis.org/id/7b7434c73442&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="&quot;f_theme2&quot;">
+            <data key="type">&lt;https://schema.org/PropertyValue&gt;</data>
+        </node>
+        <node id="&lt;http://ohdsi_gis.org/id/7b7434c73442&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="&quot;m_mobile&quot;">
+            <data key="type">&lt;https://schema.org/PropertyValue&gt;</data>
+        </node>
+        <node id="&lt;http://ohdsi_gis.org/id/7b7434c73442&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="&quot;epl_sngpnt&quot;">
+            <data key="type">&lt;https://schema.org/PropertyValue&gt;</data>
+        </node>
+        <node id="&lt;http://ohdsi_gis.org/id/7b7434c73442&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="&quot;mp_noveh&quot;">
+            <data key="type">&lt;https://schema.org/PropertyValue&gt;</data>
+        </node>
+        <node id="&lt;http://ohdsi_gis.org/id/7b7434c73442&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="&quot;ep_pci&quot;">
+            <data key="type">&lt;https://schema.org/PropertyValue&gt;</data>
+        </node>
+        <node id="&lt;http://ohdsi_gis.org/id/7b7434c73442&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="&quot;county&quot;">
+            <data key="type">&lt;https://schema.org/PropertyValue&gt;</data>
+        </node>
+        <node id="&lt;http://ohdsi_gis.org/id/7b7434c73442&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="&quot;epl_noveh&quot;">
+            <data key="type">&lt;https://schema.org/PropertyValue&gt;</data>
+        </node>
+        <node id="&lt;http://ohdsi_gis.org/id/7b7434c73442&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="&quot;st_abbr&quot;">
+            <data key="type">&lt;https://schema.org/PropertyValue&gt;</data>
+        </node>
+        <node id="&lt;http://ohdsi_gis.org/id/7b7434c73442&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="&quot;m_pci&quot;">
+            <data key="type">&lt;https://schema.org/PropertyValue&gt;</data>
+        </node>
+        <node id="&lt;http://ohdsi_gis.org/id/7b7434c73442&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="&quot;ep_age65&quot;">
+            <data key="type">&lt;https://schema.org/PropertyValue&gt;</data>
+        </node>
+        <node id="&lt;http://ohdsi_gis.org/id/7b7434c73442&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="&quot;e_age17&quot;">
+            <data key="type">&lt;https://schema.org/PropertyValue&gt;</data>
+        </node>
+        <node id="&lt;http://ohdsi_gis.org/id/7b7434c73442&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="&quot;ep_noveh&quot;">
+            <data key="type">&lt;https://schema.org/PropertyValue&gt;</data>
+        </node>
+        <node id="&lt;http://ohdsi_gis.org/id/7b7434c73442&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="&quot;m_age17&quot;">
+            <data key="type">&lt;https://schema.org/PropertyValue&gt;</data>
+        </node>
+        <node id="&lt;http://ohdsi_gis.org/id/7b7434c73442&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="&quot;m_crowd&quot;">
+            <data key="type">&lt;https://schema.org/PropertyValue&gt;</data>
+        </node>
+        <node id="&lt;http://ohdsi_gis.org/id/7b7434c73442&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="&quot;m_sngpnt&quot;">
+            <data key="type">&lt;https://schema.org/PropertyValue&gt;</data>
+        </node>
+        <node id="&lt;http://ohdsi_gis.org/id/7b7434c73442&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="&quot;spl_themes&quot;">
+            <data key="type">&lt;https://schema.org/PropertyValue&gt;</data>
+        </node>
+        <node id="&lt;http://ohdsi_gis.org/id/7b7434c73442&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="&quot;epl_pci&quot;">
+            <data key="type">&lt;https://schema.org/PropertyValue&gt;</data>
+        </node>
+        <node id="&lt;http://ohdsi_gis.org/id/7b7434c73442&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="&quot;f_age65&quot;">
+            <data key="type">&lt;https://schema.org/PropertyValue&gt;</data>
+        </node>
+        <node id="&lt;http://ohdsi_gis.org/id/7b7434c73442&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="&quot;m_groupq&quot;">
+            <data key="type">&lt;https://schema.org/PropertyValue&gt;</data>
+        </node>
+        <node id="&lt;http://ohdsi_gis.org/id/7b7434c73442&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="&quot;f_limeng&quot;">
+            <data key="type">&lt;https://schema.org/PropertyValue&gt;</data>
+        </node>
+        <node id="&lt;http://ohdsi_gis.org/id/7b7434c73442&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="&quot;e_hh&quot;">
+            <data key="type">&lt;https://schema.org/PropertyValue&gt;</data>
+        </node>
+        <node id="&lt;http://ohdsi_gis.org/id/7b7434c73442&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="&quot;ep_limeng&quot;">
+            <data key="type">&lt;https://schema.org/PropertyValue&gt;</data>
+        </node>
+        <node id="&lt;http://ohdsi_gis.org/id/7b7434c73442&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="&quot;mp_uninsur&quot;">
+            <data key="type">&lt;https://schema.org/PropertyValue&gt;</data>
+        </node>
+        <node id="&lt;http://ohdsi_gis.org/id/7b7434c73442&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="&quot;epl_pov&quot;">
+            <data key="type">&lt;https://schema.org/PropertyValue&gt;</data>
+        </node>
+        <node id="&lt;http://ohdsi_gis.org/id/7b7434c73442&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="&quot;f_total&quot;">
+            <data key="type">&lt;https://schema.org/PropertyValue&gt;</data>
+        </node>
+        <node id="&lt;http://ohdsi_gis.org/id/7b7434c73442&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="&quot;mp_limeng&quot;">
+            <data key="type">&lt;https://schema.org/PropertyValue&gt;</data>
+        </node>
+        <node id="&lt;http://ohdsi_gis.org/id/7b7434c73442&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="&quot;m_age65&quot;">
+            <data key="type">&lt;https://schema.org/PropertyValue&gt;</data>
+        </node>
+        <node id="&lt;http://ohdsi_gis.org/id/7b7434c73442&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="&quot;e_pov&quot;">
+            <data key="type">&lt;https://schema.org/PropertyValue&gt;</data>
+        </node>
+        <node id="&lt;http://ohdsi_gis.org/id/7b7434c73442&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="&quot;ep_nohsdp&quot;">
+            <data key="type">&lt;https://schema.org/PropertyValue&gt;</data>
+        </node>
+        <node id="&lt;http://ohdsi_gis.org/id/7b7434c73442&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="&quot;f_age17&quot;">
+            <data key="type">&lt;https://schema.org/PropertyValue&gt;</data>
+        </node>
+        <node id="&lt;http://ohdsi_gis.org/id/7b7434c73442&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="&quot;m_hh&quot;">
+            <data key="type">&lt;https://schema.org/PropertyValue&gt;</data>
+        </node>
+        <node id="&lt;http://ohdsi_gis.org/id/7b7434c73442&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="&quot;rpl_theme3&quot;">
+            <data key="type">&lt;https://schema.org/PropertyValue&gt;</data>
+        </node>
+        <node id="&lt;http://ohdsi_gis.org/id/7b7434c73442&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="&quot;ep_age17&quot;">
+            <data key="type">&lt;https://schema.org/PropertyValue&gt;</data>
+        </node>
+        <node id="&lt;http://ohdsi_gis.org/id/7b7434c73442&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="&quot;f_nohsdp&quot;">
+            <data key="type">&lt;https://schema.org/PropertyValue&gt;</data>
+        </node>
+        <node id="&lt;http://ohdsi_gis.org/id/7b7434c73442&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="&quot;e_disabl&quot;">
+            <data key="type">&lt;https://schema.org/PropertyValue&gt;</data>
+        </node>
+        <node id="&lt;http://ohdsi_gis.org/id/7b7434c73442&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="&quot;e_pci&quot;">
+            <data key="type">&lt;https://schema.org/PropertyValue&gt;</data>
+        </node>
+        <node id="&lt;http://ohdsi_gis.org/id/7b7434c73442&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="&quot;f_theme1&quot;">
+            <data key="type">&lt;https://schema.org/PropertyValue&gt;</data>
+        </node>
+        <node id="&lt;http://ohdsi_gis.org/id/7b7434c73442&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="&quot;m_unemp&quot;">
+            <data key="type">&lt;https://schema.org/PropertyValue&gt;</data>
+        </node>
+        <node id="&lt;http://ohdsi_gis.org/id/7b7434c73442&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="&quot;rpl_theme2&quot;">
+            <data key="type">&lt;https://schema.org/PropertyValue&gt;</data>
+        </node>
+        <node id="&lt;http://ohdsi_gis.org/id/7b7434c73442&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="&quot;e_groupq&quot;">
+            <data key="type">&lt;https://schema.org/PropertyValue&gt;</data>
+        </node>
+        <node id="&lt;http://ohdsi_gis.org/id/7b7434c73442&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="&quot;epl_age65&quot;">
+            <data key="type">&lt;https://schema.org/PropertyValue&gt;</data>
+        </node>
+        <node id="&lt;http://ohdsi_gis.org/id/7b7434c73442&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="&quot;fips&quot;">
+            <data key="type">&lt;https://schema.org/PropertyValue&gt;</data>
+        </node>
+        <node id="&lt;http://ohdsi_gis.org/id/7b7434c73442&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="&quot;e_hu&quot;">
+            <data key="type">&lt;https://schema.org/PropertyValue&gt;</data>
+        </node>
+        <node id="&lt;http://ohdsi_gis.org/id/7b7434c73442&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="&quot;epl_nohsdp&quot;">
+            <data key="type">&lt;https://schema.org/PropertyValue&gt;</data>
+        </node>
+        <node id="&lt;http://ohdsi_gis.org/id/7b7434c73442&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="&quot;mp_pov&quot;">
+            <data key="type">&lt;https://schema.org/PropertyValue&gt;</data>
+        </node>
+        <node id="&lt;http://ohdsi_gis.org/id/7b7434c73442&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="&quot;e_limeng&quot;">
+            <data key="type">&lt;https://schema.org/PropertyValue&gt;</data>
+        </node>
+        <node id="&lt;http://ohdsi_gis.org/id/7b7434c73442&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="&quot;f_theme4&quot;">
+            <data key="type">&lt;https://schema.org/PropertyValue&gt;</data>
+        </node>
+        <node id="&lt;http://ohdsi_gis.org/id/7b7434c73442&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="&quot;m_uninsur&quot;">
+            <data key="type">&lt;https://schema.org/PropertyValue&gt;</data>
+        </node>
+        <node id="&lt;http://ohdsi_gis.org/id/7b7434c73442&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="&quot;mp_sngpnt&quot;">
+            <data key="type">&lt;https://schema.org/PropertyValue&gt;</data>
+        </node>
+        <node id="&lt;http://ohdsi_gis.org/id/7b7434c73442&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="&quot;mp_unemp&quot;">
+            <data key="type">&lt;https://schema.org/PropertyValue&gt;</data>
+        </node>
+        <node id="&lt;http://ohdsi_gis.org/id/7b7434c73442&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="&quot;f_noveh&quot;">
+            <data key="type">&lt;https://schema.org/PropertyValue&gt;</data>
+        </node>
+        <node id="&lt;http://ohdsi_gis.org/id/7b7434c73442&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="&quot;m_limeng&quot;">
+            <data key="type">&lt;https://schema.org/PropertyValue&gt;</data>
+        </node>
+        <node id="&lt;http://ohdsi_gis.org/id/7b7434c73442&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="&quot;ep_minrty&quot;">
+            <data key="type">&lt;https://schema.org/PropertyValue&gt;</data>
+        </node>
+        <node id="&lt;http://ohdsi_gis.org/id/7b7434c73442&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="&quot;m_totpop&quot;">
+            <data key="type">&lt;https://schema.org/PropertyValue&gt;</data>
+        </node>
+        <node id="&lt;http://ohdsi_gis.org/id/7b7434c73442&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="&quot;epl_crowd&quot;">
+            <data key="type">&lt;https://schema.org/PropertyValue&gt;</data>
+        </node>
+        <node id="&lt;http://ohdsi_gis.org/id/7b7434c73442&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="&quot;epl_disabl&quot;">
+            <data key="type">&lt;https://schema.org/PropertyValue&gt;</data>
+        </node>
+        <node id="&lt;http://ohdsi_gis.org/id/7b7434c73442&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="&quot;e_sngpnt&quot;">
+            <data key="type">&lt;https://schema.org/PropertyValue&gt;</data>
+        </node>
+        <node id="&lt;http://ohdsi_gis.org/id/7b7434c73442&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="&quot;mp_munit&quot;">
+            <data key="type">&lt;https://schema.org/PropertyValue&gt;</data>
+        </node>
+        <node id="&lt;http://ohdsi_gis.org/id/7b7434c73442&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="&quot;mp_crowd&quot;">
+            <data key="type">&lt;https://schema.org/PropertyValue&gt;</data>
+        </node>
+        <node id="&lt;http://ohdsi_gis.org/id/7b7434c73442&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="&quot;m_munit&quot;">
+            <data key="type">&lt;https://schema.org/PropertyValue&gt;</data>
+        </node>
+        <node id="&lt;http://ohdsi_gis.org/id/7b7434c73442&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="&quot;location&quot;">
+            <data key="type">&lt;https://schema.org/PropertyValue&gt;</data>
+        </node>
+        <node id="&lt;http://ohdsi_gis.org/id/7b7434c73442&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="&quot;mp_pci&quot;">
+            <data key="type">&lt;https://schema.org/PropertyValue&gt;</data>
+        </node>
+        <node id="&lt;http://ohdsi_gis.org/id/7b7434c73442&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="&quot;mp_age17&quot;">
+            <data key="type">&lt;https://schema.org/PropertyValue&gt;</data>
+        </node>
+        <node id="&lt;http://ohdsi_gis.org/id/7b7434c73442&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="&quot;e_daypop&quot;">
+            <data key="type">&lt;https://schema.org/PropertyValue&gt;</data>
+        </node>
+        <node id="&lt;http://ohdsi_gis.org/id/7b7434c73442&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="&quot;e_age65&quot;">
+            <data key="type">&lt;https://schema.org/PropertyValue&gt;</data>
+        </node>
+        <node id="&lt;http://ohdsi_gis.org/id/7b7434c73442&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="&quot;area_sqmi&quot;">
+            <data key="type">&lt;https://schema.org/PropertyValue&gt;</data>
+        </node>
+        <node id="&lt;http://ohdsi_gis.org/id/7b7434c73442&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="&quot;e_minrty&quot;">
+            <data key="type">&lt;https://schema.org/PropertyValue&gt;</data>
+        </node>
+        <node id="&lt;http://ohdsi_gis.org/id/7b7434c73442&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="&quot;e_munit&quot;">
+            <data key="type">&lt;https://schema.org/PropertyValue&gt;</data>
+        </node>
+        <node id="&lt;http://ohdsi_gis.org/id/7b7434c73442&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="&quot;mp_minrty&quot;">
+            <data key="type">&lt;https://schema.org/PropertyValue&gt;</data>
+        </node>
+        <node id="&lt;http://ohdsi_gis.org/id/7b7434c73442&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="&quot;f_unemp&quot;">
+            <data key="type">&lt;https://schema.org/PropertyValue&gt;</data>
+        </node>
+        <node id="&lt;http://ohdsi_gis.org/id/7b7434c73442&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="&quot;rpl_theme1&quot;">
+            <data key="type">&lt;https://schema.org/PropertyValue&gt;</data>
+        </node>
+        <node id="&lt;http://ohdsi_gis.org/id/7b7434c73442&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="&quot;ep_sngpnt&quot;">
+            <data key="type">&lt;https://schema.org/PropertyValue&gt;</data>
+        </node>
+        <node id="&lt;http://ohdsi_gis.org/id/7b7434c73442&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="&quot;spl_theme1&quot;">
+            <data key="type">&lt;https://schema.org/PropertyValue&gt;</data>
+        </node>
+        <node id="&lt;http://ohdsi_gis.org/id/7b7434c73442&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="&quot;ep_pov&quot;">
+            <data key="type">&lt;https://schema.org/PropertyValue&gt;</data>
+        </node>
+        <node id="&lt;http://ohdsi_gis.org/id/7b7434c73442&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="&quot;e_totpop&quot;">
+            <data key="type">&lt;https://schema.org/PropertyValue&gt;</data>
+        </node>
+        <node id="&lt;http://ohdsi_gis.org/id/7b7434c73442&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="&quot;m_disabl&quot;">
+            <data key="type">&lt;https://schema.org/PropertyValue&gt;</data>
+        </node>
+        <node id="&lt;http://ohdsi_gis.org/id/7b7434c73442&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="&quot;e_uninsur&quot;">
+            <data key="type">&lt;https://schema.org/PropertyValue&gt;</data>
+        </node>
+        <node id="&lt;http://ohdsi_gis.org/id/7b7434c73442&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="&quot;epl_mobile&quot;">
+            <data key="type">&lt;https://schema.org/PropertyValue&gt;</data>
+        </node>
+        <node id="&lt;http://ohdsi_gis.org/id/7b7434c73442&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="&quot;ep_unemp&quot;">
+            <data key="type">&lt;https://schema.org/PropertyValue&gt;</data>
+        </node>
+        <node id="&lt;http://ohdsi_gis.org/id/7b7434c73442&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="&quot;ep_munit&quot;">
+            <data key="type">&lt;https://schema.org/PropertyValue&gt;</data>
+        </node>
+        <node id="&lt;http://ohdsi_gis.org/id/7b7434c73442&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="&quot;epl_groupq&quot;">
+            <data key="type">&lt;https://schema.org/PropertyValue&gt;</data>
+        </node>
+        <node id="&lt;http://ohdsi_gis.org/id/7b7434c73442&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="&quot;f_mobile&quot;">
+            <data key="type">&lt;https://schema.org/PropertyValue&gt;</data>
+        </node>
+        <node id="&lt;http://ohdsi_gis.org/id/7b7434c73442&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="&quot;ep_uninsur&quot;">
+            <data key="type">&lt;https://schema.org/PropertyValue&gt;</data>
+        </node>
+        <node id="&lt;http://ohdsi_gis.org/id/7b7434c73442&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="&quot;epl_limeng&quot;">
+            <data key="type">&lt;https://schema.org/PropertyValue&gt;</data>
+        </node>
+        <node id="&lt;http://ohdsi_gis.org/id/7b7434c73442&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="&quot;Massachusetts&quot;^^&lt;http://www.w3.org/2000/01/rdf-schema#Literal&gt;">
+            <data key="type">&lt;https://schema.org/Place&gt;</data>
+        </node>
+        <node id="&lt;http://ohdsi_gis.org/id/408b8a13ef6a&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="&quot;ep_pci&quot;">
+            <data key="type">&lt;https://schema.org/PropertyValue&gt;</data>
+        </node>
+        <node id="&lt;http://ohdsi_gis.org/id/408b8a13ef6a&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="&quot;m_munit&quot;">
+            <data key="type">&lt;https://schema.org/PropertyValue&gt;</data>
+        </node>
+        <node id="&lt;http://ohdsi_gis.org/id/408b8a13ef6a&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="&quot;mp_noveh&quot;">
+            <data key="type">&lt;https://schema.org/PropertyValue&gt;</data>
+        </node>
+        <node id="&lt;http://ohdsi_gis.org/id/408b8a13ef6a&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="&quot;mp_crowd&quot;">
+            <data key="type">&lt;https://schema.org/PropertyValue&gt;</data>
+        </node>
+        <node id="&lt;http://ohdsi_gis.org/id/408b8a13ef6a&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="&quot;rpl_theme2&quot;">
+            <data key="type">&lt;https://schema.org/PropertyValue&gt;</data>
+        </node>
+        <node id="&lt;http://ohdsi_gis.org/id/408b8a13ef6a&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="&quot;e_unemp&quot;">
+            <data key="type">&lt;https://schema.org/PropertyValue&gt;</data>
+        </node>
+        <node id="&lt;http://ohdsi_gis.org/id/408b8a13ef6a&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="&quot;e_groupq&quot;">
+            <data key="type">&lt;https://schema.org/PropertyValue&gt;</data>
+        </node>
+        <node id="&lt;http://ohdsi_gis.org/id/408b8a13ef6a&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="&quot;m_pov&quot;">
+            <data key="type">&lt;https://schema.org/PropertyValue&gt;</data>
+        </node>
+        <node id="&lt;http://ohdsi_gis.org/id/408b8a13ef6a&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="&quot;ep_uninsur&quot;">
+            <data key="type">&lt;https://schema.org/PropertyValue&gt;</data>
+        </node>
+        <node id="&lt;http://ohdsi_gis.org/id/408b8a13ef6a&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="&quot;e_age17&quot;">
+            <data key="type">&lt;https://schema.org/PropertyValue&gt;</data>
+        </node>
+        <node id="&lt;http://ohdsi_gis.org/id/408b8a13ef6a&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="&quot;epl_limeng&quot;">
+            <data key="type">&lt;https://schema.org/PropertyValue&gt;</data>
+        </node>
+        <node id="&lt;http://ohdsi_gis.org/id/408b8a13ef6a&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="&quot;ep_age65&quot;">
+            <data key="type">&lt;https://schema.org/PropertyValue&gt;</data>
+        </node>
+        <node id="&lt;http://ohdsi_gis.org/id/408b8a13ef6a&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="&quot;f_mobile&quot;">
+            <data key="type">&lt;https://schema.org/PropertyValue&gt;</data>
+        </node>
+        <node id="&lt;http://ohdsi_gis.org/id/408b8a13ef6a&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="&quot;ep_minrty&quot;">
+            <data key="type">&lt;https://schema.org/PropertyValue&gt;</data>
+        </node>
+        <node id="&lt;http://ohdsi_gis.org/id/408b8a13ef6a&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="&quot;ep_mobile&quot;">
+            <data key="type">&lt;https://schema.org/PropertyValue&gt;</data>
+        </node>
+        <node id="&lt;http://ohdsi_gis.org/id/408b8a13ef6a&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="&quot;ep_noveh&quot;">
+            <data key="type">&lt;https://schema.org/PropertyValue&gt;</data>
+        </node>
+        <node id="&lt;http://ohdsi_gis.org/id/408b8a13ef6a&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="&quot;f_noveh&quot;">
+            <data key="type">&lt;https://schema.org/PropertyValue&gt;</data>
+        </node>
+        <node id="&lt;http://ohdsi_gis.org/id/408b8a13ef6a&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="&quot;area_sqmi&quot;">
+            <data key="type">&lt;https://schema.org/PropertyValue&gt;</data>
+        </node>
+        <node id="&lt;http://ohdsi_gis.org/id/408b8a13ef6a&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="&quot;county&quot;">
+            <data key="type">&lt;https://schema.org/PropertyValue&gt;</data>
+        </node>
+        <node id="&lt;http://ohdsi_gis.org/id/408b8a13ef6a&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="&quot;f_age65&quot;">
+            <data key="type">&lt;https://schema.org/PropertyValue&gt;</data>
+        </node>
+        <node id="&lt;http://ohdsi_gis.org/id/408b8a13ef6a&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="&quot;f_sngpnt&quot;">
+            <data key="type">&lt;https://schema.org/PropertyValue&gt;</data>
+        </node>
+        <node id="&lt;http://ohdsi_gis.org/id/408b8a13ef6a&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="&quot;e_daypop&quot;">
+            <data key="type">&lt;https://schema.org/PropertyValue&gt;</data>
+        </node>
+        <node id="&lt;http://ohdsi_gis.org/id/408b8a13ef6a&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="&quot;ep_crowd&quot;">
+            <data key="type">&lt;https://schema.org/PropertyValue&gt;</data>
+        </node>
+        <node id="&lt;http://ohdsi_gis.org/id/408b8a13ef6a&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="&quot;mp_sngpnt&quot;">
+            <data key="type">&lt;https://schema.org/PropertyValue&gt;</data>
+        </node>
+        <node id="&lt;http://ohdsi_gis.org/id/408b8a13ef6a&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="&quot;m_disabl&quot;">
+            <data key="type">&lt;https://schema.org/PropertyValue&gt;</data>
+        </node>
+        <node id="&lt;http://ohdsi_gis.org/id/408b8a13ef6a&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="&quot;mp_disabl&quot;">
+            <data key="type">&lt;https://schema.org/PropertyValue&gt;</data>
+        </node>
+        <node id="&lt;http://ohdsi_gis.org/id/408b8a13ef6a&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="&quot;e_pci&quot;">
+            <data key="type">&lt;https://schema.org/PropertyValue&gt;</data>
+        </node>
+        <node id="&lt;http://ohdsi_gis.org/id/408b8a13ef6a&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="&quot;epl_minrty&quot;">
+            <data key="type">&lt;https://schema.org/PropertyValue&gt;</data>
+        </node>
+        <node id="&lt;http://ohdsi_gis.org/id/408b8a13ef6a&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="&quot;e_totpop&quot;">
+            <data key="type">&lt;https://schema.org/PropertyValue&gt;</data>
+        </node>
+        <node id="&lt;http://ohdsi_gis.org/id/408b8a13ef6a&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="&quot;spl_theme2&quot;">
+            <data key="type">&lt;https://schema.org/PropertyValue&gt;</data>
+        </node>
+        <node id="&lt;http://ohdsi_gis.org/id/408b8a13ef6a&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="&quot;mp_munit&quot;">
+            <data key="type">&lt;https://schema.org/PropertyValue&gt;</data>
+        </node>
+        <node id="&lt;http://ohdsi_gis.org/id/408b8a13ef6a&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="&quot;rpl_theme1&quot;">
+            <data key="type">&lt;https://schema.org/PropertyValue&gt;</data>
+        </node>
+        <node id="&lt;http://ohdsi_gis.org/id/408b8a13ef6a&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="&quot;m_crowd&quot;">
+            <data key="type">&lt;https://schema.org/PropertyValue&gt;</data>
+        </node>
+        <node id="&lt;http://ohdsi_gis.org/id/408b8a13ef6a&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="&quot;spl_theme4&quot;">
+            <data key="type">&lt;https://schema.org/PropertyValue&gt;</data>
+        </node>
+        <node id="&lt;http://ohdsi_gis.org/id/408b8a13ef6a&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="&quot;m_limeng&quot;">
+            <data key="type">&lt;https://schema.org/PropertyValue&gt;</data>
+        </node>
+        <node id="&lt;http://ohdsi_gis.org/id/408b8a13ef6a&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="&quot;epl_groupq&quot;">
+            <data key="type">&lt;https://schema.org/PropertyValue&gt;</data>
+        </node>
+        <node id="&lt;http://ohdsi_gis.org/id/408b8a13ef6a&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="&quot;ep_groupq&quot;">
+            <data key="type">&lt;https://schema.org/PropertyValue&gt;</data>
+        </node>
+        <node id="&lt;http://ohdsi_gis.org/id/408b8a13ef6a&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="&quot;stcnty&quot;">
+            <data key="type">&lt;https://schema.org/PropertyValue&gt;</data>
+        </node>
+        <node id="&lt;http://ohdsi_gis.org/id/408b8a13ef6a&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="&quot;mp_unemp&quot;">
+            <data key="type">&lt;https://schema.org/PropertyValue&gt;</data>
+        </node>
+        <node id="&lt;http://ohdsi_gis.org/id/408b8a13ef6a&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="&quot;e_limeng&quot;">
+            <data key="type">&lt;https://schema.org/PropertyValue&gt;</data>
+        </node>
+        <node id="&lt;http://ohdsi_gis.org/id/408b8a13ef6a&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="&quot;e_hh&quot;">
+            <data key="type">&lt;https://schema.org/PropertyValue&gt;</data>
+        </node>
+        <node id="&lt;http://ohdsi_gis.org/id/408b8a13ef6a&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="&quot;f_theme4&quot;">
+            <data key="type">&lt;https://schema.org/PropertyValue&gt;</data>
+        </node>
+        <node id="&lt;http://ohdsi_gis.org/id/408b8a13ef6a&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="&quot;e_hu&quot;">
+            <data key="type">&lt;https://schema.org/PropertyValue&gt;</data>
+        </node>
+        <node id="&lt;http://ohdsi_gis.org/id/408b8a13ef6a&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="&quot;rpl_theme4&quot;">
+            <data key="type">&lt;https://schema.org/PropertyValue&gt;</data>
+        </node>
+        <node id="&lt;http://ohdsi_gis.org/id/408b8a13ef6a&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="&quot;e_mobile&quot;">
+            <data key="type">&lt;https://schema.org/PropertyValue&gt;</data>
+        </node>
+        <node id="&lt;http://ohdsi_gis.org/id/408b8a13ef6a&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="&quot;st_abbr&quot;">
+            <data key="type">&lt;https://schema.org/PropertyValue&gt;</data>
+        </node>
+        <node id="&lt;http://ohdsi_gis.org/id/408b8a13ef6a&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="&quot;mp_limeng&quot;">
+            <data key="type">&lt;https://schema.org/PropertyValue&gt;</data>
+        </node>
+        <node id="&lt;http://ohdsi_gis.org/id/408b8a13ef6a&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="&quot;mp_groupq&quot;">
+            <data key="type">&lt;https://schema.org/PropertyValue&gt;</data>
+        </node>
+        <node id="&lt;http://ohdsi_gis.org/id/408b8a13ef6a&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="&quot;epl_crowd&quot;">
+            <data key="type">&lt;https://schema.org/PropertyValue&gt;</data>
+        </node>
+        <node id="&lt;http://ohdsi_gis.org/id/408b8a13ef6a&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="&quot;e_pov&quot;">
+            <data key="type">&lt;https://schema.org/PropertyValue&gt;</data>
+        </node>
+        <node id="&lt;http://ohdsi_gis.org/id/408b8a13ef6a&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="&quot;mp_minrty&quot;">
+            <data key="type">&lt;https://schema.org/PropertyValue&gt;</data>
+        </node>
+        <node id="&lt;http://ohdsi_gis.org/id/408b8a13ef6a&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="&quot;epl_nohsdp&quot;">
+            <data key="type">&lt;https://schema.org/PropertyValue&gt;</data>
+        </node>
+        <node id="&lt;http://ohdsi_gis.org/id/408b8a13ef6a&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="&quot;e_sngpnt&quot;">
+            <data key="type">&lt;https://schema.org/PropertyValue&gt;</data>
+        </node>
+        <node id="&lt;http://ohdsi_gis.org/id/408b8a13ef6a&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="&quot;f_limeng&quot;">
+            <data key="type">&lt;https://schema.org/PropertyValue&gt;</data>
+        </node>
+        <node id="&lt;http://ohdsi_gis.org/id/408b8a13ef6a&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="&quot;m_hu&quot;">
+            <data key="type">&lt;https://schema.org/PropertyValue&gt;</data>
+        </node>
+        <node id="&lt;http://ohdsi_gis.org/id/408b8a13ef6a&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="&quot;mp_pci&quot;">
+            <data key="type">&lt;https://schema.org/PropertyValue&gt;</data>
+        </node>
+        <node id="&lt;http://ohdsi_gis.org/id/408b8a13ef6a&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="&quot;m_age17&quot;">
+            <data key="type">&lt;https://schema.org/PropertyValue&gt;</data>
+        </node>
+        <node id="&lt;http://ohdsi_gis.org/id/408b8a13ef6a&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="&quot;f_theme1&quot;">
+            <data key="type">&lt;https://schema.org/PropertyValue&gt;</data>
+        </node>
+        <node id="&lt;http://ohdsi_gis.org/id/408b8a13ef6a&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="&quot;e_crowd&quot;">
+            <data key="type">&lt;https://schema.org/PropertyValue&gt;</data>
+        </node>
+        <node id="&lt;http://ohdsi_gis.org/id/408b8a13ef6a&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="&quot;ep_sngpnt&quot;">
+            <data key="type">&lt;https://schema.org/PropertyValue&gt;</data>
+        </node>
+        <node id="&lt;http://ohdsi_gis.org/id/408b8a13ef6a&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="&quot;rpl_themes&quot;">
+            <data key="type">&lt;https://schema.org/PropertyValue&gt;</data>
+        </node>
+        <node id="&lt;http://ohdsi_gis.org/id/408b8a13ef6a&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="&quot;rpl_theme3&quot;">
+            <data key="type">&lt;https://schema.org/PropertyValue&gt;</data>
+        </node>
+        <node id="&lt;http://ohdsi_gis.org/id/408b8a13ef6a&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="&quot;mp_age65&quot;">
+            <data key="type">&lt;https://schema.org/PropertyValue&gt;</data>
+        </node>
+        <node id="&lt;http://ohdsi_gis.org/id/408b8a13ef6a&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="&quot;state&quot;">
+            <data key="type">&lt;https://schema.org/PropertyValue&gt;</data>
+        </node>
+        <node id="&lt;http://ohdsi_gis.org/id/408b8a13ef6a&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="&quot;spl_theme3&quot;">
+            <data key="type">&lt;https://schema.org/PropertyValue&gt;</data>
+        </node>
+        <node id="&lt;http://ohdsi_gis.org/id/408b8a13ef6a&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="&quot;epl_sngpnt&quot;">
+            <data key="type">&lt;https://schema.org/PropertyValue&gt;</data>
+        </node>
+        <node id="&lt;http://ohdsi_gis.org/id/408b8a13ef6a&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="&quot;st&quot;">
+            <data key="type">&lt;https://schema.org/PropertyValue&gt;</data>
+        </node>
+        <node id="&lt;http://ohdsi_gis.org/id/408b8a13ef6a&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="&quot;e_munit&quot;">
+            <data key="type">&lt;https://schema.org/PropertyValue&gt;</data>
+        </node>
+        <node id="&lt;http://ohdsi_gis.org/id/408b8a13ef6a&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="&quot;m_uninsur&quot;">
+            <data key="type">&lt;https://schema.org/PropertyValue&gt;</data>
+        </node>
+        <node id="&lt;http://ohdsi_gis.org/id/408b8a13ef6a&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="&quot;e_minrty&quot;">
+            <data key="type">&lt;https://schema.org/PropertyValue&gt;</data>
+        </node>
+        <node id="&lt;http://ohdsi_gis.org/id/408b8a13ef6a&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="&quot;fips&quot;">
+            <data key="type">&lt;https://schema.org/PropertyValue&gt;</data>
+        </node>
+        <node id="&lt;http://ohdsi_gis.org/id/408b8a13ef6a&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="&quot;f_nohsdp&quot;">
+            <data key="type">&lt;https://schema.org/PropertyValue&gt;</data>
+        </node>
+        <node id="&lt;http://ohdsi_gis.org/id/408b8a13ef6a&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="&quot;epl_mobile&quot;">
+            <data key="type">&lt;https://schema.org/PropertyValue&gt;</data>
+        </node>
+        <node id="&lt;http://ohdsi_gis.org/id/408b8a13ef6a&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="&quot;ep_nohsdp&quot;">
+            <data key="type">&lt;https://schema.org/PropertyValue&gt;</data>
+        </node>
+        <node id="&lt;http://ohdsi_gis.org/id/408b8a13ef6a&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="&quot;f_theme3&quot;">
+            <data key="type">&lt;https://schema.org/PropertyValue&gt;</data>
+        </node>
+        <node id="&lt;http://ohdsi_gis.org/id/408b8a13ef6a&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="&quot;epl_age17&quot;">
+            <data key="type">&lt;https://schema.org/PropertyValue&gt;</data>
+        </node>
+        <node id="&lt;http://ohdsi_gis.org/id/408b8a13ef6a&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="&quot;m_groupq&quot;">
+            <data key="type">&lt;https://schema.org/PropertyValue&gt;</data>
+        </node>
+        <node id="&lt;http://ohdsi_gis.org/id/408b8a13ef6a&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="&quot;ep_pov&quot;">
+            <data key="type">&lt;https://schema.org/PropertyValue&gt;</data>
+        </node>
+        <node id="&lt;http://ohdsi_gis.org/id/408b8a13ef6a&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="&quot;mp_age17&quot;">
+            <data key="type">&lt;https://schema.org/PropertyValue&gt;</data>
+        </node>
+        <node id="&lt;http://ohdsi_gis.org/id/408b8a13ef6a&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="&quot;m_totpop&quot;">
+            <data key="type">&lt;https://schema.org/PropertyValue&gt;</data>
+        </node>
+        <node id="&lt;http://ohdsi_gis.org/id/408b8a13ef6a&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="&quot;ep_munit&quot;">
+            <data key="type">&lt;https://schema.org/PropertyValue&gt;</data>
+        </node>
+        <node id="&lt;http://ohdsi_gis.org/id/408b8a13ef6a&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="&quot;f_disabl&quot;">
+            <data key="type">&lt;https://schema.org/PropertyValue&gt;</data>
+        </node>
+        <node id="&lt;http://ohdsi_gis.org/id/408b8a13ef6a&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="&quot;f_total&quot;">
+            <data key="type">&lt;https://schema.org/PropertyValue&gt;</data>
+        </node>
+        <node id="&lt;http://ohdsi_gis.org/id/408b8a13ef6a&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="&quot;spl_themes&quot;">
+            <data key="type">&lt;https://schema.org/PropertyValue&gt;</data>
+        </node>
+        <node id="&lt;http://ohdsi_gis.org/id/408b8a13ef6a&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="&quot;mp_pov&quot;">
+            <data key="type">&lt;https://schema.org/PropertyValue&gt;</data>
+        </node>
+        <node id="&lt;http://ohdsi_gis.org/id/408b8a13ef6a&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="&quot;e_noveh&quot;">
+            <data key="type">&lt;https://schema.org/PropertyValue&gt;</data>
+        </node>
+        <node id="&lt;http://ohdsi_gis.org/id/408b8a13ef6a&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="&quot;epl_disabl&quot;">
+            <data key="type">&lt;https://schema.org/PropertyValue&gt;</data>
+        </node>
+        <node id="&lt;http://ohdsi_gis.org/id/408b8a13ef6a&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="&quot;f_groupq&quot;">
+            <data key="type">&lt;https://schema.org/PropertyValue&gt;</data>
+        </node>
+        <node id="&lt;http://ohdsi_gis.org/id/408b8a13ef6a&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="&quot;m_noveh&quot;">
+            <data key="type">&lt;https://schema.org/PropertyValue&gt;</data>
+        </node>
+        <node id="&lt;http://ohdsi_gis.org/id/408b8a13ef6a&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="&quot;ep_disabl&quot;">
+            <data key="type">&lt;https://schema.org/PropertyValue&gt;</data>
+        </node>
+        <node id="&lt;http://ohdsi_gis.org/id/408b8a13ef6a&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="&quot;epl_pov&quot;">
+            <data key="type">&lt;https://schema.org/PropertyValue&gt;</data>
+        </node>
+        <node id="&lt;http://ohdsi_gis.org/id/408b8a13ef6a&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="&quot;m_mobile&quot;">
+            <data key="type">&lt;https://schema.org/PropertyValue&gt;</data>
+        </node>
+        <node id="&lt;http://ohdsi_gis.org/id/408b8a13ef6a&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="&quot;f_pci&quot;">
+            <data key="type">&lt;https://schema.org/PropertyValue&gt;</data>
+        </node>
+        <node id="&lt;http://ohdsi_gis.org/id/408b8a13ef6a&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="&quot;f_unemp&quot;">
+            <data key="type">&lt;https://schema.org/PropertyValue&gt;</data>
+        </node>
+        <node id="&lt;http://ohdsi_gis.org/id/408b8a13ef6a&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="&quot;m_age65&quot;">
+            <data key="type">&lt;https://schema.org/PropertyValue&gt;</data>
+        </node>
+        <node id="&lt;http://ohdsi_gis.org/id/408b8a13ef6a&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="&quot;ep_unemp&quot;">
+            <data key="type">&lt;https://schema.org/PropertyValue&gt;</data>
+        </node>
+        <node id="&lt;http://ohdsi_gis.org/id/408b8a13ef6a&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="&quot;epl_noveh&quot;">
+            <data key="type">&lt;https://schema.org/PropertyValue&gt;</data>
+        </node>
+        <node id="&lt;http://ohdsi_gis.org/id/408b8a13ef6a&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="&quot;m_unemp&quot;">
+            <data key="type">&lt;https://schema.org/PropertyValue&gt;</data>
+        </node>
+        <node id="&lt;http://ohdsi_gis.org/id/408b8a13ef6a&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="&quot;mp_nohsdp&quot;">
+            <data key="type">&lt;https://schema.org/PropertyValue&gt;</data>
+        </node>
+        <node id="&lt;http://ohdsi_gis.org/id/408b8a13ef6a&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="&quot;epl_age65&quot;">
+            <data key="type">&lt;https://schema.org/PropertyValue&gt;</data>
+        </node>
+        <node id="&lt;http://ohdsi_gis.org/id/408b8a13ef6a&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="&quot;epl_pci&quot;">
+            <data key="type">&lt;https://schema.org/PropertyValue&gt;</data>
+        </node>
+        <node id="&lt;http://ohdsi_gis.org/id/408b8a13ef6a&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="&quot;f_pov&quot;">
+            <data key="type">&lt;https://schema.org/PropertyValue&gt;</data>
+        </node>
+        <node id="&lt;http://ohdsi_gis.org/id/408b8a13ef6a&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="&quot;e_nohsdp&quot;">
+            <data key="type">&lt;https://schema.org/PropertyValue&gt;</data>
+        </node>
+        <node id="&lt;http://ohdsi_gis.org/id/408b8a13ef6a&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="&quot;mp_mobile&quot;">
+            <data key="type">&lt;https://schema.org/PropertyValue&gt;</data>
+        </node>
+        <node id="&lt;http://ohdsi_gis.org/id/408b8a13ef6a&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="&quot;ep_limeng&quot;">
+            <data key="type">&lt;https://schema.org/PropertyValue&gt;</data>
+        </node>
+        <node id="&lt;http://ohdsi_gis.org/id/408b8a13ef6a&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="&quot;f_age17&quot;">
+            <data key="type">&lt;https://schema.org/PropertyValue&gt;</data>
+        </node>
+        <node id="&lt;http://ohdsi_gis.org/id/408b8a13ef6a&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="&quot;f_minrty&quot;">
+            <data key="type">&lt;https://schema.org/PropertyValue&gt;</data>
+        </node>
+        <node id="&lt;http://ohdsi_gis.org/id/408b8a13ef6a&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="&quot;e_uninsur&quot;">
+            <data key="type">&lt;https://schema.org/PropertyValue&gt;</data>
+        </node>
+        <node id="&lt;http://ohdsi_gis.org/id/408b8a13ef6a&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="&quot;location&quot;">
+            <data key="type">&lt;https://schema.org/PropertyValue&gt;</data>
+        </node>
+        <node id="&lt;http://ohdsi_gis.org/id/408b8a13ef6a&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="&quot;m_hh&quot;">
+            <data key="type">&lt;https://schema.org/PropertyValue&gt;</data>
+        </node>
+        <node id="&lt;http://ohdsi_gis.org/id/408b8a13ef6a&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="&quot;m_minrty&quot;">
+            <data key="type">&lt;https://schema.org/PropertyValue&gt;</data>
+        </node>
+        <node id="&lt;http://ohdsi_gis.org/id/408b8a13ef6a&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="&quot;f_theme2&quot;">
+            <data key="type">&lt;https://schema.org/PropertyValue&gt;</data>
+        </node>
+        <node id="&lt;http://ohdsi_gis.org/id/408b8a13ef6a&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="&quot;mp_uninsur&quot;">
+            <data key="type">&lt;https://schema.org/PropertyValue&gt;</data>
+        </node>
+        <node id="&lt;http://ohdsi_gis.org/id/408b8a13ef6a&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="&quot;f_crowd&quot;">
+            <data key="type">&lt;https://schema.org/PropertyValue&gt;</data>
+        </node>
+        <node id="&lt;http://ohdsi_gis.org/id/408b8a13ef6a&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="&quot;e_disabl&quot;">
+            <data key="type">&lt;https://schema.org/PropertyValue&gt;</data>
+        </node>
+        <node id="&lt;http://ohdsi_gis.org/id/408b8a13ef6a&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="&quot;epl_unemp&quot;">
+            <data key="type">&lt;https://schema.org/PropertyValue&gt;</data>
+        </node>
+        <node id="&lt;http://ohdsi_gis.org/id/408b8a13ef6a&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="&quot;m_sngpnt&quot;">
+            <data key="type">&lt;https://schema.org/PropertyValue&gt;</data>
+        </node>
+        <node id="&lt;http://ohdsi_gis.org/id/408b8a13ef6a&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="&quot;f_munit&quot;">
+            <data key="type">&lt;https://schema.org/PropertyValue&gt;</data>
+        </node>
+        <node id="&lt;http://ohdsi_gis.org/id/408b8a13ef6a&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="&quot;e_age65&quot;">
+            <data key="type">&lt;https://schema.org/PropertyValue&gt;</data>
+        </node>
+        <node id="&lt;http://ohdsi_gis.org/id/408b8a13ef6a&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="&quot;ep_age17&quot;">
+            <data key="type">&lt;https://schema.org/PropertyValue&gt;</data>
+        </node>
+        <node id="&lt;http://ohdsi_gis.org/id/408b8a13ef6a&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="&quot;epl_munit&quot;">
+            <data key="type">&lt;https://schema.org/PropertyValue&gt;</data>
+        </node>
+        <node id="&lt;http://ohdsi_gis.org/id/408b8a13ef6a&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="&quot;m_pci&quot;">
+            <data key="type">&lt;https://schema.org/PropertyValue&gt;</data>
+        </node>
+        <node id="&lt;http://ohdsi_gis.org/id/408b8a13ef6a&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="&quot;spl_theme1&quot;">
+            <data key="type">&lt;https://schema.org/PropertyValue&gt;</data>
+        </node>
+        <node id="&lt;http://ohdsi_gis.org/id/408b8a13ef6a&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="&quot;m_nohsdp&quot;">
+            <data key="type">&lt;https://schema.org/PropertyValue&gt;</data>
+        </node>
+        <node id="&lt;http://ohdsi_gis.org/id/408b8a13ef6a&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="&quot;United States&quot;^^&lt;http://www.w3.org/2000/01/rdf-schema#Literal&gt;">
+            <data key="type">&lt;https://schema.org/Place&gt;</data>
+        </node>
+        <node id="&lt;http://ohdsi_gis.org/id/096cbb634605&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="&quot;avpmu_2001&quot;">
+            <data key="type">&lt;https://schema.org/PropertyValue&gt;</data>
+        </node>
+        <node id="&lt;http://ohdsi_gis.org/id/096cbb634605&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="&quot;stndrdname&quot;">
+            <data key="type">&lt;https://schema.org/PropertyValue&gt;</data>
+        </node>
+        <node id="&lt;http://ohdsi_gis.org/id/096cbb634605&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="&quot;avpmu_2015&quot;">
+            <data key="type">&lt;https://schema.org/PropertyValue&gt;</data>
+        </node>
+        <node id="&lt;http://ohdsi_gis.org/id/096cbb634605&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="&quot;name&quot;">
+            <data key="type">&lt;https://schema.org/PropertyValue&gt;</data>
+        </node>
+        <node id="&lt;http://ohdsi_gis.org/id/096cbb634605&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="&quot;countryeng&quot;">
+            <data key="type">&lt;https://schema.org/PropertyValue&gt;</data>
+        </node>
+        <node id="&lt;http://ohdsi_gis.org/id/096cbb634605&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="&quot;sqkm&quot;">
+            <data key="type">&lt;https://schema.org/PropertyValue&gt;</data>
+        </node>
+        <node id="&lt;http://ohdsi_gis.org/id/096cbb634605&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="&quot;unsdcode&quot;">
+            <data key="type">&lt;https://schema.org/PropertyValue&gt;</data>
+        </node>
+        <node id="&lt;http://ohdsi_gis.org/id/096cbb634605&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="&quot;avpmu_2016&quot;">
+            <data key="type">&lt;https://schema.org/PropertyValue&gt;</data>
+        </node>
+        <node id="&lt;http://ohdsi_gis.org/id/096cbb634605&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="&quot;avpmu_2007&quot;">
+            <data key="type">&lt;https://schema.org/PropertyValue&gt;</data>
+        </node>
+        <node id="&lt;http://ohdsi_gis.org/id/096cbb634605&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="&quot;avpmu_2006&quot;">
+            <data key="type">&lt;https://schema.org/PropertyValue&gt;</data>
+        </node>
+        <node id="&lt;http://ohdsi_gis.org/id/096cbb634605&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="&quot;avpmu_2014&quot;">
+            <data key="type">&lt;https://schema.org/PropertyValue&gt;</data>
+        </node>
+        <node id="&lt;http://ohdsi_gis.org/id/096cbb634605&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="&quot;urbid&quot;">
+            <data key="type">&lt;https://schema.org/PropertyValue&gt;</data>
+        </node>
+        <node id="&lt;http://ohdsi_gis.org/id/096cbb634605&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="&quot;avpmu_2005&quot;">
+            <data key="type">&lt;https://schema.org/PropertyValue&gt;</data>
+        </node>
+        <node id="&lt;http://ohdsi_gis.org/id/096cbb634605&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="&quot;avpmu_1998&quot;">
+            <data key="type">&lt;https://schema.org/PropertyValue&gt;</data>
+        </node>
+        <node id="&lt;http://ohdsi_gis.org/id/096cbb634605&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="&quot;avpmu_2012&quot;">
+            <data key="type">&lt;https://schema.org/PropertyValue&gt;</data>
+        </node>
+        <node id="&lt;http://ohdsi_gis.org/id/096cbb634605&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="&quot;avpmu_2011&quot;">
+            <data key="type">&lt;https://schema.org/PropertyValue&gt;</data>
+        </node>
+        <node id="&lt;http://ohdsi_gis.org/id/096cbb634605&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="&quot;iso3&quot;">
+            <data key="type">&lt;https://schema.org/PropertyValue&gt;</data>
+        </node>
+        <node id="&lt;http://ohdsi_gis.org/id/096cbb634605&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="&quot;avpmu_1999&quot;">
+            <data key="type">&lt;https://schema.org/PropertyValue&gt;</data>
+        </node>
+        <node id="&lt;http://ohdsi_gis.org/id/096cbb634605&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="&quot;avpmu_2013&quot;">
+            <data key="type">&lt;https://schema.org/PropertyValue&gt;</data>
+        </node>
+        <node id="&lt;http://ohdsi_gis.org/id/096cbb634605&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="&quot;avpmu_2000&quot;">
+            <data key="type">&lt;https://schema.org/PropertyValue&gt;</data>
+        </node>
+        <node id="&lt;http://ohdsi_gis.org/id/096cbb634605&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="&quot;continent&quot;">
+            <data key="type">&lt;https://schema.org/PropertyValue&gt;</data>
+        </node>
+        <node id="&lt;http://ohdsi_gis.org/id/096cbb634605&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="&quot;avpmu_2010&quot;">
+            <data key="type">&lt;https://schema.org/PropertyValue&gt;</data>
+        </node>
+        <node id="&lt;http://ohdsi_gis.org/id/096cbb634605&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="&quot;avpmu_2008&quot;">
+            <data key="type">&lt;https://schema.org/PropertyValue&gt;</data>
+        </node>
+        <node id="&lt;http://ohdsi_gis.org/id/096cbb634605&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="&quot;isourbid&quot;">
+            <data key="type">&lt;https://schema.org/PropertyValue&gt;</data>
+        </node>
+        <node id="&lt;http://ohdsi_gis.org/id/096cbb634605&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="&quot;avpmu_2002&quot;">
+            <data key="type">&lt;https://schema.org/PropertyValue&gt;</data>
+        </node>
+        <node id="&lt;http://ohdsi_gis.org/id/096cbb634605&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="&quot;avpmu_2004&quot;">
+            <data key="type">&lt;https://schema.org/PropertyValue&gt;</data>
+        </node>
+        <node id="&lt;http://ohdsi_gis.org/id/096cbb634605&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="&quot;avpmu_2009&quot;">
+            <data key="type">&lt;https://schema.org/PropertyValue&gt;</data>
+        </node>
+        <node id="&lt;http://ohdsi_gis.org/id/096cbb634605&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="&quot;avpmu_2003&quot;">
+            <data key="type">&lt;https://schema.org/PropertyValue&gt;</data>
+        </node>
+        <node id="&lt;http://ohdsi_gis.org/id/096cbb634605&gt;">
+            <data key="type">&lt;https://schema.org/Dataset&gt;</data>
+        </node>
+        <node id="&quot;Global&quot;^^&lt;http://www.w3.org/2000/01/rdf-schema#Literal&gt;">
+            <data key="type">&lt;https://schema.org/Place&gt;</data>
+        </node>
+        <edge source="&lt;http://ohdsi_gis.org/id/7b7434c73442&gt;" target="&quot;e_noveh&quot;">
+            <data key="type">&lt;https://schema.org/variableMeasured&gt;</data>
+        </edge>
+        <edge source="&lt;http://ohdsi_gis.org/id/7b7434c73442&gt;" target="&quot;mp_age65&quot;">
+            <data key="type">&lt;https://schema.org/variableMeasured&gt;</data>
+        </edge>
+        <edge source="&lt;http://ohdsi_gis.org/id/7b7434c73442&gt;" target="&quot;f_groupq&quot;">
+            <data key="type">&lt;https://schema.org/variableMeasured&gt;</data>
+        </edge>
+        <edge source="&lt;http://ohdsi_gis.org/id/7b7434c73442&gt;" target="&quot;stcnty&quot;">
+            <data key="type">&lt;https://schema.org/variableMeasured&gt;</data>
+        </edge>
+        <edge source="&lt;http://ohdsi_gis.org/id/7b7434c73442&gt;" target="&quot;f_pov&quot;">
+            <data key="type">&lt;https://schema.org/variableMeasured&gt;</data>
+        </edge>
+        <edge source="&lt;http://ohdsi_gis.org/id/7b7434c73442&gt;" target="&quot;ep_groupq&quot;">
+            <data key="type">&lt;https://schema.org/variableMeasured&gt;</data>
+        </edge>
+        <edge source="&lt;http://ohdsi_gis.org/id/7b7434c73442&gt;" target="&quot;ep_crowd&quot;">
+            <data key="type">&lt;https://schema.org/variableMeasured&gt;</data>
+        </edge>
+        <edge source="&lt;http://ohdsi_gis.org/id/7b7434c73442&gt;" target="&quot;spl_theme4&quot;">
+            <data key="type">&lt;https://schema.org/variableMeasured&gt;</data>
+        </edge>
+        <edge source="&lt;http://ohdsi_gis.org/id/7b7434c73442&gt;" target="&quot;mp_nohsdp&quot;">
+            <data key="type">&lt;https://schema.org/variableMeasured&gt;</data>
+        </edge>
+        <edge source="&lt;http://ohdsi_gis.org/id/7b7434c73442&gt;" target="&quot;rpl_theme4&quot;">
+            <data key="type">&lt;https://schema.org/variableMeasured&gt;</data>
+        </edge>
+        <edge source="&lt;http://ohdsi_gis.org/id/7b7434c73442&gt;" target="&quot;m_hu&quot;">
+            <data key="type">&lt;https://schema.org/variableMeasured&gt;</data>
+        </edge>
+        <edge source="&lt;http://ohdsi_gis.org/id/7b7434c73442&gt;" target="&quot;state&quot;">
+            <data key="type">&lt;https://schema.org/variableMeasured&gt;</data>
+        </edge>
+        <edge source="&lt;http://ohdsi_gis.org/id/7b7434c73442&gt;" target="&quot;ep_disabl&quot;">
+            <data key="type">&lt;https://schema.org/variableMeasured&gt;</data>
+        </edge>
+        <edge source="&lt;http://ohdsi_gis.org/id/7b7434c73442&gt;" target="&quot;spl_theme2&quot;">
+            <data key="type">&lt;https://schema.org/variableMeasured&gt;</data>
+        </edge>
+        <edge source="&lt;http://ohdsi_gis.org/id/7b7434c73442&gt;" target="&quot;epl_minrty&quot;">
+            <data key="type">&lt;https://schema.org/variableMeasured&gt;</data>
+        </edge>
+        <edge source="&lt;http://ohdsi_gis.org/id/7b7434c73442&gt;" target="&quot;f_sngpnt&quot;">
+            <data key="type">&lt;https://schema.org/variableMeasured&gt;</data>
+        </edge>
+        <edge source="&lt;http://ohdsi_gis.org/id/7b7434c73442&gt;" target="&quot;f_munit&quot;">
+            <data key="type">&lt;https://schema.org/variableMeasured&gt;</data>
+        </edge>
+        <edge source="&lt;http://ohdsi_gis.org/id/7b7434c73442&gt;" target="&quot;ep_mobile&quot;">
+            <data key="type">&lt;https://schema.org/variableMeasured&gt;</data>
+        </edge>
+        <edge source="&lt;http://ohdsi_gis.org/id/7b7434c73442&gt;" target="&quot;e_mobile&quot;">
+            <data key="type">&lt;https://schema.org/variableMeasured&gt;</data>
+        </edge>
+        <edge source="&lt;http://ohdsi_gis.org/id/7b7434c73442&gt;" target="&quot;mp_disabl&quot;">
+            <data key="type">&lt;https://schema.org/variableMeasured&gt;</data>
+        </edge>
+        <edge source="&lt;http://ohdsi_gis.org/id/7b7434c73442&gt;" target="&quot;epl_munit&quot;">
+            <data key="type">&lt;https://schema.org/variableMeasured&gt;</data>
+        </edge>
+        <edge source="&lt;http://ohdsi_gis.org/id/7b7434c73442&gt;" target="&quot;epl_age17&quot;">
+            <data key="type">&lt;https://schema.org/variableMeasured&gt;</data>
+        </edge>
+        <edge source="&lt;http://ohdsi_gis.org/id/7b7434c73442&gt;" target="&quot;e_unemp&quot;">
+            <data key="type">&lt;https://schema.org/variableMeasured&gt;</data>
+        </edge>
+        <edge source="&lt;http://ohdsi_gis.org/id/7b7434c73442&gt;" target="&quot;f_minrty&quot;">
+            <data key="type">&lt;https://schema.org/variableMeasured&gt;</data>
+        </edge>
+        <edge source="&lt;http://ohdsi_gis.org/id/7b7434c73442&gt;" target="&quot;e_crowd&quot;">
+            <data key="type">&lt;https://schema.org/variableMeasured&gt;</data>
+        </edge>
+        <edge source="&lt;http://ohdsi_gis.org/id/7b7434c73442&gt;" target="&quot;f_crowd&quot;">
+            <data key="type">&lt;https://schema.org/variableMeasured&gt;</data>
+        </edge>
+        <edge source="&lt;http://ohdsi_gis.org/id/7b7434c73442&gt;" target="&quot;m_noveh&quot;">
+            <data key="type">&lt;https://schema.org/variableMeasured&gt;</data>
+        </edge>
+        <edge source="&lt;http://ohdsi_gis.org/id/7b7434c73442&gt;" target="&quot;f_theme3&quot;">
+            <data key="type">&lt;https://schema.org/variableMeasured&gt;</data>
+        </edge>
+        <edge source="&lt;http://ohdsi_gis.org/id/7b7434c73442&gt;" target="&quot;st&quot;">
+            <data key="type">&lt;https://schema.org/variableMeasured&gt;</data>
+        </edge>
+        <edge source="&lt;http://ohdsi_gis.org/id/7b7434c73442&gt;" target="&quot;spl_theme3&quot;">
+            <data key="type">&lt;https://schema.org/variableMeasured&gt;</data>
+        </edge>
+        <edge source="&lt;http://ohdsi_gis.org/id/7b7434c73442&gt;" target="&quot;m_pov&quot;">
+            <data key="type">&lt;https://schema.org/variableMeasured&gt;</data>
+        </edge>
+        <edge source="&lt;http://ohdsi_gis.org/id/7b7434c73442&gt;" target="&quot;f_disabl&quot;">
+            <data key="type">&lt;https://schema.org/variableMeasured&gt;</data>
+        </edge>
+        <edge source="&lt;http://ohdsi_gis.org/id/7b7434c73442&gt;" target="&quot;epl_unemp&quot;">
+            <data key="type">&lt;https://schema.org/variableMeasured&gt;</data>
+        </edge>
+        <edge source="&lt;http://ohdsi_gis.org/id/7b7434c73442&gt;" target="&quot;m_minrty&quot;">
+            <data key="type">&lt;https://schema.org/variableMeasured&gt;</data>
+        </edge>
+        <edge source="&lt;http://ohdsi_gis.org/id/7b7434c73442&gt;" target="&quot;f_pci&quot;">
+            <data key="type">&lt;https://schema.org/variableMeasured&gt;</data>
+        </edge>
+        <edge source="&lt;http://ohdsi_gis.org/id/7b7434c73442&gt;" target="&quot;rpl_themes&quot;">
+            <data key="type">&lt;https://schema.org/variableMeasured&gt;</data>
+        </edge>
+        <edge source="&lt;http://ohdsi_gis.org/id/7b7434c73442&gt;" target="&quot;m_nohsdp&quot;">
+            <data key="type">&lt;https://schema.org/variableMeasured&gt;</data>
+        </edge>
+        <edge source="&lt;http://ohdsi_gis.org/id/7b7434c73442&gt;" target="&quot;mp_groupq&quot;">
+            <data key="type">&lt;https://schema.org/variableMeasured&gt;</data>
+        </edge>
+        <edge source="&lt;http://ohdsi_gis.org/id/7b7434c73442&gt;" target="&quot;e_nohsdp&quot;">
+            <data key="type">&lt;https://schema.org/variableMeasured&gt;</data>
+        </edge>
+        <edge source="&lt;http://ohdsi_gis.org/id/7b7434c73442&gt;" target="&quot;mp_mobile&quot;">
+            <data key="type">&lt;https://schema.org/variableMeasured&gt;</data>
+        </edge>
+        <edge source="&lt;http://ohdsi_gis.org/id/7b7434c73442&gt;" target="&quot;f_theme2&quot;">
+            <data key="type">&lt;https://schema.org/variableMeasured&gt;</data>
+        </edge>
+        <edge source="&lt;http://ohdsi_gis.org/id/7b7434c73442&gt;" target="&quot;m_mobile&quot;">
+            <data key="type">&lt;https://schema.org/variableMeasured&gt;</data>
+        </edge>
+        <edge source="&lt;http://ohdsi_gis.org/id/7b7434c73442&gt;" target="&quot;epl_sngpnt&quot;">
+            <data key="type">&lt;https://schema.org/variableMeasured&gt;</data>
+        </edge>
+        <edge source="&lt;http://ohdsi_gis.org/id/7b7434c73442&gt;" target="&quot;mp_noveh&quot;">
+            <data key="type">&lt;https://schema.org/variableMeasured&gt;</data>
+        </edge>
+        <edge source="&lt;http://ohdsi_gis.org/id/7b7434c73442&gt;" target="&quot;ep_pci&quot;">
+            <data key="type">&lt;https://schema.org/variableMeasured&gt;</data>
+        </edge>
+        <edge source="&lt;http://ohdsi_gis.org/id/7b7434c73442&gt;" target="&quot;county&quot;">
+            <data key="type">&lt;https://schema.org/variableMeasured&gt;</data>
+        </edge>
+        <edge source="&lt;http://ohdsi_gis.org/id/7b7434c73442&gt;" target="&quot;epl_noveh&quot;">
+            <data key="type">&lt;https://schema.org/variableMeasured&gt;</data>
+        </edge>
+        <edge source="&lt;http://ohdsi_gis.org/id/7b7434c73442&gt;" target="&quot;st_abbr&quot;">
+            <data key="type">&lt;https://schema.org/variableMeasured&gt;</data>
+        </edge>
+        <edge source="&lt;http://ohdsi_gis.org/id/7b7434c73442&gt;" target="&quot;m_pci&quot;">
+            <data key="type">&lt;https://schema.org/variableMeasured&gt;</data>
+        </edge>
+        <edge source="&lt;http://ohdsi_gis.org/id/7b7434c73442&gt;" target="&quot;ep_age65&quot;">
+            <data key="type">&lt;https://schema.org/variableMeasured&gt;</data>
+        </edge>
+        <edge source="&lt;http://ohdsi_gis.org/id/7b7434c73442&gt;" target="&quot;e_age17&quot;">
+            <data key="type">&lt;https://schema.org/variableMeasured&gt;</data>
+        </edge>
+        <edge source="&lt;http://ohdsi_gis.org/id/7b7434c73442&gt;" target="&quot;ep_noveh&quot;">
+            <data key="type">&lt;https://schema.org/variableMeasured&gt;</data>
+        </edge>
+        <edge source="&lt;http://ohdsi_gis.org/id/7b7434c73442&gt;" target="&quot;m_age17&quot;">
+            <data key="type">&lt;https://schema.org/variableMeasured&gt;</data>
+        </edge>
+        <edge source="&lt;http://ohdsi_gis.org/id/7b7434c73442&gt;" target="&quot;m_crowd&quot;">
+            <data key="type">&lt;https://schema.org/variableMeasured&gt;</data>
+        </edge>
+        <edge source="&lt;http://ohdsi_gis.org/id/7b7434c73442&gt;" target="&quot;m_sngpnt&quot;">
+            <data key="type">&lt;https://schema.org/variableMeasured&gt;</data>
+        </edge>
+        <edge source="&lt;http://ohdsi_gis.org/id/7b7434c73442&gt;" target="&quot;spl_themes&quot;">
+            <data key="type">&lt;https://schema.org/variableMeasured&gt;</data>
+        </edge>
+        <edge source="&lt;http://ohdsi_gis.org/id/7b7434c73442&gt;" target="&quot;epl_pci&quot;">
+            <data key="type">&lt;https://schema.org/variableMeasured&gt;</data>
+        </edge>
+        <edge source="&lt;http://ohdsi_gis.org/id/7b7434c73442&gt;" target="&quot;f_age65&quot;">
+            <data key="type">&lt;https://schema.org/variableMeasured&gt;</data>
+        </edge>
+        <edge source="&lt;http://ohdsi_gis.org/id/7b7434c73442&gt;" target="&quot;m_groupq&quot;">
+            <data key="type">&lt;https://schema.org/variableMeasured&gt;</data>
+        </edge>
+        <edge source="&lt;http://ohdsi_gis.org/id/7b7434c73442&gt;" target="&quot;f_limeng&quot;">
+            <data key="type">&lt;https://schema.org/variableMeasured&gt;</data>
+        </edge>
+        <edge source="&lt;http://ohdsi_gis.org/id/7b7434c73442&gt;" target="&quot;e_hh&quot;">
+            <data key="type">&lt;https://schema.org/variableMeasured&gt;</data>
+        </edge>
+        <edge source="&lt;http://ohdsi_gis.org/id/7b7434c73442&gt;" target="&quot;ep_limeng&quot;">
+            <data key="type">&lt;https://schema.org/variableMeasured&gt;</data>
+        </edge>
+        <edge source="&lt;http://ohdsi_gis.org/id/7b7434c73442&gt;" target="&quot;mp_uninsur&quot;">
+            <data key="type">&lt;https://schema.org/variableMeasured&gt;</data>
+        </edge>
+        <edge source="&lt;http://ohdsi_gis.org/id/7b7434c73442&gt;" target="&quot;epl_pov&quot;">
+            <data key="type">&lt;https://schema.org/variableMeasured&gt;</data>
+        </edge>
+        <edge source="&lt;http://ohdsi_gis.org/id/7b7434c73442&gt;" target="&quot;f_total&quot;">
+            <data key="type">&lt;https://schema.org/variableMeasured&gt;</data>
+        </edge>
+        <edge source="&lt;http://ohdsi_gis.org/id/7b7434c73442&gt;" target="&quot;mp_limeng&quot;">
+            <data key="type">&lt;https://schema.org/variableMeasured&gt;</data>
+        </edge>
+        <edge source="&lt;http://ohdsi_gis.org/id/7b7434c73442&gt;" target="&quot;m_age65&quot;">
+            <data key="type">&lt;https://schema.org/variableMeasured&gt;</data>
+        </edge>
+        <edge source="&lt;http://ohdsi_gis.org/id/7b7434c73442&gt;" target="&quot;e_pov&quot;">
+            <data key="type">&lt;https://schema.org/variableMeasured&gt;</data>
+        </edge>
+        <edge source="&lt;http://ohdsi_gis.org/id/7b7434c73442&gt;" target="&quot;ep_nohsdp&quot;">
+            <data key="type">&lt;https://schema.org/variableMeasured&gt;</data>
+        </edge>
+        <edge source="&lt;http://ohdsi_gis.org/id/7b7434c73442&gt;" target="&quot;f_age17&quot;">
+            <data key="type">&lt;https://schema.org/variableMeasured&gt;</data>
+        </edge>
+        <edge source="&lt;http://ohdsi_gis.org/id/7b7434c73442&gt;" target="&quot;m_hh&quot;">
+            <data key="type">&lt;https://schema.org/variableMeasured&gt;</data>
+        </edge>
+        <edge source="&lt;http://ohdsi_gis.org/id/7b7434c73442&gt;" target="&quot;rpl_theme3&quot;">
+            <data key="type">&lt;https://schema.org/variableMeasured&gt;</data>
+        </edge>
+        <edge source="&lt;http://ohdsi_gis.org/id/7b7434c73442&gt;" target="&quot;ep_age17&quot;">
+            <data key="type">&lt;https://schema.org/variableMeasured&gt;</data>
+        </edge>
+        <edge source="&lt;http://ohdsi_gis.org/id/7b7434c73442&gt;" target="&quot;f_nohsdp&quot;">
+            <data key="type">&lt;https://schema.org/variableMeasured&gt;</data>
+        </edge>
+        <edge source="&lt;http://ohdsi_gis.org/id/7b7434c73442&gt;" target="&quot;e_disabl&quot;">
+            <data key="type">&lt;https://schema.org/variableMeasured&gt;</data>
+        </edge>
+        <edge source="&lt;http://ohdsi_gis.org/id/7b7434c73442&gt;" target="&quot;e_pci&quot;">
+            <data key="type">&lt;https://schema.org/variableMeasured&gt;</data>
+        </edge>
+        <edge source="&lt;http://ohdsi_gis.org/id/7b7434c73442&gt;" target="&quot;f_theme1&quot;">
+            <data key="type">&lt;https://schema.org/variableMeasured&gt;</data>
+        </edge>
+        <edge source="&lt;http://ohdsi_gis.org/id/7b7434c73442&gt;" target="&quot;m_unemp&quot;">
+            <data key="type">&lt;https://schema.org/variableMeasured&gt;</data>
+        </edge>
+        <edge source="&lt;http://ohdsi_gis.org/id/7b7434c73442&gt;" target="&quot;rpl_theme2&quot;">
+            <data key="type">&lt;https://schema.org/variableMeasured&gt;</data>
+        </edge>
+        <edge source="&lt;http://ohdsi_gis.org/id/7b7434c73442&gt;" target="&quot;e_groupq&quot;">
+            <data key="type">&lt;https://schema.org/variableMeasured&gt;</data>
+        </edge>
+        <edge source="&lt;http://ohdsi_gis.org/id/7b7434c73442&gt;" target="&quot;epl_age65&quot;">
+            <data key="type">&lt;https://schema.org/variableMeasured&gt;</data>
+        </edge>
+        <edge source="&lt;http://ohdsi_gis.org/id/7b7434c73442&gt;" target="&quot;fips&quot;">
+            <data key="type">&lt;https://schema.org/variableMeasured&gt;</data>
+        </edge>
+        <edge source="&lt;http://ohdsi_gis.org/id/7b7434c73442&gt;" target="&quot;e_hu&quot;">
+            <data key="type">&lt;https://schema.org/variableMeasured&gt;</data>
+        </edge>
+        <edge source="&lt;http://ohdsi_gis.org/id/7b7434c73442&gt;" target="&quot;epl_nohsdp&quot;">
+            <data key="type">&lt;https://schema.org/variableMeasured&gt;</data>
+        </edge>
+        <edge source="&lt;http://ohdsi_gis.org/id/7b7434c73442&gt;" target="&quot;mp_pov&quot;">
+            <data key="type">&lt;https://schema.org/variableMeasured&gt;</data>
+        </edge>
+        <edge source="&lt;http://ohdsi_gis.org/id/7b7434c73442&gt;" target="&quot;e_limeng&quot;">
+            <data key="type">&lt;https://schema.org/variableMeasured&gt;</data>
+        </edge>
+        <edge source="&lt;http://ohdsi_gis.org/id/7b7434c73442&gt;" target="&quot;f_theme4&quot;">
+            <data key="type">&lt;https://schema.org/variableMeasured&gt;</data>
+        </edge>
+        <edge source="&lt;http://ohdsi_gis.org/id/7b7434c73442&gt;" target="&quot;m_uninsur&quot;">
+            <data key="type">&lt;https://schema.org/variableMeasured&gt;</data>
+        </edge>
+        <edge source="&lt;http://ohdsi_gis.org/id/7b7434c73442&gt;" target="&quot;mp_sngpnt&quot;">
+            <data key="type">&lt;https://schema.org/variableMeasured&gt;</data>
+        </edge>
+        <edge source="&lt;http://ohdsi_gis.org/id/7b7434c73442&gt;" target="&quot;mp_unemp&quot;">
+            <data key="type">&lt;https://schema.org/variableMeasured&gt;</data>
+        </edge>
+        <edge source="&lt;http://ohdsi_gis.org/id/7b7434c73442&gt;" target="&quot;f_noveh&quot;">
+            <data key="type">&lt;https://schema.org/variableMeasured&gt;</data>
+        </edge>
+        <edge source="&lt;http://ohdsi_gis.org/id/7b7434c73442&gt;" target="&quot;m_limeng&quot;">
+            <data key="type">&lt;https://schema.org/variableMeasured&gt;</data>
+        </edge>
+        <edge source="&lt;http://ohdsi_gis.org/id/7b7434c73442&gt;" target="&quot;ep_minrty&quot;">
+            <data key="type">&lt;https://schema.org/variableMeasured&gt;</data>
+        </edge>
+        <edge source="&lt;http://ohdsi_gis.org/id/7b7434c73442&gt;" target="&quot;m_totpop&quot;">
+            <data key="type">&lt;https://schema.org/variableMeasured&gt;</data>
+        </edge>
+        <edge source="&lt;http://ohdsi_gis.org/id/7b7434c73442&gt;" target="&quot;epl_crowd&quot;">
+            <data key="type">&lt;https://schema.org/variableMeasured&gt;</data>
+        </edge>
+        <edge source="&lt;http://ohdsi_gis.org/id/7b7434c73442&gt;" target="&quot;epl_disabl&quot;">
+            <data key="type">&lt;https://schema.org/variableMeasured&gt;</data>
+        </edge>
+        <edge source="&lt;http://ohdsi_gis.org/id/7b7434c73442&gt;" target="&quot;e_sngpnt&quot;">
+            <data key="type">&lt;https://schema.org/variableMeasured&gt;</data>
+        </edge>
+        <edge source="&lt;http://ohdsi_gis.org/id/7b7434c73442&gt;" target="&quot;mp_munit&quot;">
+            <data key="type">&lt;https://schema.org/variableMeasured&gt;</data>
+        </edge>
+        <edge source="&lt;http://ohdsi_gis.org/id/7b7434c73442&gt;" target="&quot;mp_crowd&quot;">
+            <data key="type">&lt;https://schema.org/variableMeasured&gt;</data>
+        </edge>
+        <edge source="&lt;http://ohdsi_gis.org/id/7b7434c73442&gt;" target="&quot;m_munit&quot;">
+            <data key="type">&lt;https://schema.org/variableMeasured&gt;</data>
+        </edge>
+        <edge source="&lt;http://ohdsi_gis.org/id/7b7434c73442&gt;" target="&quot;location&quot;">
+            <data key="type">&lt;https://schema.org/variableMeasured&gt;</data>
+        </edge>
+        <edge source="&lt;http://ohdsi_gis.org/id/7b7434c73442&gt;" target="&quot;mp_pci&quot;">
+            <data key="type">&lt;https://schema.org/variableMeasured&gt;</data>
+        </edge>
+        <edge source="&lt;http://ohdsi_gis.org/id/7b7434c73442&gt;" target="&quot;mp_age17&quot;">
+            <data key="type">&lt;https://schema.org/variableMeasured&gt;</data>
+        </edge>
+        <edge source="&lt;http://ohdsi_gis.org/id/7b7434c73442&gt;" target="&quot;e_daypop&quot;">
+            <data key="type">&lt;https://schema.org/variableMeasured&gt;</data>
+        </edge>
+        <edge source="&lt;http://ohdsi_gis.org/id/7b7434c73442&gt;" target="&quot;e_age65&quot;">
+            <data key="type">&lt;https://schema.org/variableMeasured&gt;</data>
+        </edge>
+        <edge source="&lt;http://ohdsi_gis.org/id/7b7434c73442&gt;" target="&quot;area_sqmi&quot;">
+            <data key="type">&lt;https://schema.org/variableMeasured&gt;</data>
+        </edge>
+        <edge source="&lt;http://ohdsi_gis.org/id/7b7434c73442&gt;" target="&quot;e_minrty&quot;">
+            <data key="type">&lt;https://schema.org/variableMeasured&gt;</data>
+        </edge>
+        <edge source="&lt;http://ohdsi_gis.org/id/7b7434c73442&gt;" target="&quot;e_munit&quot;">
+            <data key="type">&lt;https://schema.org/variableMeasured&gt;</data>
+        </edge>
+        <edge source="&lt;http://ohdsi_gis.org/id/7b7434c73442&gt;" target="&quot;mp_minrty&quot;">
+            <data key="type">&lt;https://schema.org/variableMeasured&gt;</data>
+        </edge>
+        <edge source="&lt;http://ohdsi_gis.org/id/7b7434c73442&gt;" target="&quot;f_unemp&quot;">
+            <data key="type">&lt;https://schema.org/variableMeasured&gt;</data>
+        </edge>
+        <edge source="&lt;http://ohdsi_gis.org/id/7b7434c73442&gt;" target="&quot;rpl_theme1&quot;">
+            <data key="type">&lt;https://schema.org/variableMeasured&gt;</data>
+        </edge>
+        <edge source="&lt;http://ohdsi_gis.org/id/7b7434c73442&gt;" target="&quot;ep_sngpnt&quot;">
+            <data key="type">&lt;https://schema.org/variableMeasured&gt;</data>
+        </edge>
+        <edge source="&lt;http://ohdsi_gis.org/id/7b7434c73442&gt;" target="&quot;spl_theme1&quot;">
+            <data key="type">&lt;https://schema.org/variableMeasured&gt;</data>
+        </edge>
+        <edge source="&lt;http://ohdsi_gis.org/id/7b7434c73442&gt;" target="&quot;ep_pov&quot;">
+            <data key="type">&lt;https://schema.org/variableMeasured&gt;</data>
+        </edge>
+        <edge source="&lt;http://ohdsi_gis.org/id/7b7434c73442&gt;" target="&quot;e_totpop&quot;">
+            <data key="type">&lt;https://schema.org/variableMeasured&gt;</data>
+        </edge>
+        <edge source="&lt;http://ohdsi_gis.org/id/7b7434c73442&gt;" target="&quot;m_disabl&quot;">
+            <data key="type">&lt;https://schema.org/variableMeasured&gt;</data>
+        </edge>
+        <edge source="&lt;http://ohdsi_gis.org/id/7b7434c73442&gt;" target="&quot;e_uninsur&quot;">
+            <data key="type">&lt;https://schema.org/variableMeasured&gt;</data>
+        </edge>
+        <edge source="&lt;http://ohdsi_gis.org/id/7b7434c73442&gt;" target="&quot;epl_mobile&quot;">
+            <data key="type">&lt;https://schema.org/variableMeasured&gt;</data>
+        </edge>
+        <edge source="&lt;http://ohdsi_gis.org/id/7b7434c73442&gt;" target="&quot;ep_unemp&quot;">
+            <data key="type">&lt;https://schema.org/variableMeasured&gt;</data>
+        </edge>
+        <edge source="&lt;http://ohdsi_gis.org/id/7b7434c73442&gt;" target="&quot;ep_munit&quot;">
+            <data key="type">&lt;https://schema.org/variableMeasured&gt;</data>
+        </edge>
+        <edge source="&lt;http://ohdsi_gis.org/id/7b7434c73442&gt;" target="&quot;epl_groupq&quot;">
+            <data key="type">&lt;https://schema.org/variableMeasured&gt;</data>
+        </edge>
+        <edge source="&lt;http://ohdsi_gis.org/id/7b7434c73442&gt;" target="&quot;f_mobile&quot;">
+            <data key="type">&lt;https://schema.org/variableMeasured&gt;</data>
+        </edge>
+        <edge source="&lt;http://ohdsi_gis.org/id/7b7434c73442&gt;" target="&quot;ep_uninsur&quot;">
+            <data key="type">&lt;https://schema.org/variableMeasured&gt;</data>
+        </edge>
+        <edge source="&lt;http://ohdsi_gis.org/id/7b7434c73442&gt;" target="&quot;epl_limeng&quot;">
+            <data key="type">&lt;https://schema.org/variableMeasured&gt;</data>
+        </edge>
+        <edge source="&lt;http://ohdsi_gis.org/id/7b7434c73442&gt;" target="&quot;Massachusetts&quot;^^&lt;http://www.w3.org/2000/01/rdf-schema#Literal&gt;">
+            <data key="type">&lt;https://schema.org/spatialCoverage&gt;</data>
+        </edge>
+        <edge source="&lt;http://ohdsi_gis.org/id/408b8a13ef6a&gt;" target="&quot;ep_pci&quot;">
+            <data key="type">&lt;https://schema.org/variableMeasured&gt;</data>
+        </edge>
+        <edge source="&lt;http://ohdsi_gis.org/id/408b8a13ef6a&gt;" target="&quot;m_munit&quot;">
+            <data key="type">&lt;https://schema.org/variableMeasured&gt;</data>
+        </edge>
+        <edge source="&lt;http://ohdsi_gis.org/id/408b8a13ef6a&gt;" target="&quot;mp_noveh&quot;">
+            <data key="type">&lt;https://schema.org/variableMeasured&gt;</data>
+        </edge>
+        <edge source="&lt;http://ohdsi_gis.org/id/408b8a13ef6a&gt;" target="&quot;mp_crowd&quot;">
+            <data key="type">&lt;https://schema.org/variableMeasured&gt;</data>
+        </edge>
+        <edge source="&lt;http://ohdsi_gis.org/id/408b8a13ef6a&gt;" target="&quot;rpl_theme2&quot;">
+            <data key="type">&lt;https://schema.org/variableMeasured&gt;</data>
+        </edge>
+        <edge source="&lt;http://ohdsi_gis.org/id/408b8a13ef6a&gt;" target="&quot;e_unemp&quot;">
+            <data key="type">&lt;https://schema.org/variableMeasured&gt;</data>
+        </edge>
+        <edge source="&lt;http://ohdsi_gis.org/id/408b8a13ef6a&gt;" target="&quot;e_groupq&quot;">
+            <data key="type">&lt;https://schema.org/variableMeasured&gt;</data>
+        </edge>
+        <edge source="&lt;http://ohdsi_gis.org/id/408b8a13ef6a&gt;" target="&quot;m_pov&quot;">
+            <data key="type">&lt;https://schema.org/variableMeasured&gt;</data>
+        </edge>
+        <edge source="&lt;http://ohdsi_gis.org/id/408b8a13ef6a&gt;" target="&quot;ep_uninsur&quot;">
+            <data key="type">&lt;https://schema.org/variableMeasured&gt;</data>
+        </edge>
+        <edge source="&lt;http://ohdsi_gis.org/id/408b8a13ef6a&gt;" target="&quot;e_age17&quot;">
+            <data key="type">&lt;https://schema.org/variableMeasured&gt;</data>
+        </edge>
+        <edge source="&lt;http://ohdsi_gis.org/id/408b8a13ef6a&gt;" target="&quot;epl_limeng&quot;">
+            <data key="type">&lt;https://schema.org/variableMeasured&gt;</data>
+        </edge>
+        <edge source="&lt;http://ohdsi_gis.org/id/408b8a13ef6a&gt;" target="&quot;ep_age65&quot;">
+            <data key="type">&lt;https://schema.org/variableMeasured&gt;</data>
+        </edge>
+        <edge source="&lt;http://ohdsi_gis.org/id/408b8a13ef6a&gt;" target="&quot;f_mobile&quot;">
+            <data key="type">&lt;https://schema.org/variableMeasured&gt;</data>
+        </edge>
+        <edge source="&lt;http://ohdsi_gis.org/id/408b8a13ef6a&gt;" target="&quot;ep_minrty&quot;">
+            <data key="type">&lt;https://schema.org/variableMeasured&gt;</data>
+        </edge>
+        <edge source="&lt;http://ohdsi_gis.org/id/408b8a13ef6a&gt;" target="&quot;ep_mobile&quot;">
+            <data key="type">&lt;https://schema.org/variableMeasured&gt;</data>
+        </edge>
+        <edge source="&lt;http://ohdsi_gis.org/id/408b8a13ef6a&gt;" target="&quot;ep_noveh&quot;">
+            <data key="type">&lt;https://schema.org/variableMeasured&gt;</data>
+        </edge>
+        <edge source="&lt;http://ohdsi_gis.org/id/408b8a13ef6a&gt;" target="&quot;f_noveh&quot;">
+            <data key="type">&lt;https://schema.org/variableMeasured&gt;</data>
+        </edge>
+        <edge source="&lt;http://ohdsi_gis.org/id/408b8a13ef6a&gt;" target="&quot;area_sqmi&quot;">
+            <data key="type">&lt;https://schema.org/variableMeasured&gt;</data>
+        </edge>
+        <edge source="&lt;http://ohdsi_gis.org/id/408b8a13ef6a&gt;" target="&quot;county&quot;">
+            <data key="type">&lt;https://schema.org/variableMeasured&gt;</data>
+        </edge>
+        <edge source="&lt;http://ohdsi_gis.org/id/408b8a13ef6a&gt;" target="&quot;f_age65&quot;">
+            <data key="type">&lt;https://schema.org/variableMeasured&gt;</data>
+        </edge>
+        <edge source="&lt;http://ohdsi_gis.org/id/408b8a13ef6a&gt;" target="&quot;f_sngpnt&quot;">
+            <data key="type">&lt;https://schema.org/variableMeasured&gt;</data>
+        </edge>
+        <edge source="&lt;http://ohdsi_gis.org/id/408b8a13ef6a&gt;" target="&quot;e_daypop&quot;">
+            <data key="type">&lt;https://schema.org/variableMeasured&gt;</data>
+        </edge>
+        <edge source="&lt;http://ohdsi_gis.org/id/408b8a13ef6a&gt;" target="&quot;ep_crowd&quot;">
+            <data key="type">&lt;https://schema.org/variableMeasured&gt;</data>
+        </edge>
+        <edge source="&lt;http://ohdsi_gis.org/id/408b8a13ef6a&gt;" target="&quot;mp_sngpnt&quot;">
+            <data key="type">&lt;https://schema.org/variableMeasured&gt;</data>
+        </edge>
+        <edge source="&lt;http://ohdsi_gis.org/id/408b8a13ef6a&gt;" target="&quot;m_disabl&quot;">
+            <data key="type">&lt;https://schema.org/variableMeasured&gt;</data>
+        </edge>
+        <edge source="&lt;http://ohdsi_gis.org/id/408b8a13ef6a&gt;" target="&quot;mp_disabl&quot;">
+            <data key="type">&lt;https://schema.org/variableMeasured&gt;</data>
+        </edge>
+        <edge source="&lt;http://ohdsi_gis.org/id/408b8a13ef6a&gt;" target="&quot;e_pci&quot;">
+            <data key="type">&lt;https://schema.org/variableMeasured&gt;</data>
+        </edge>
+        <edge source="&lt;http://ohdsi_gis.org/id/408b8a13ef6a&gt;" target="&quot;epl_minrty&quot;">
+            <data key="type">&lt;https://schema.org/variableMeasured&gt;</data>
+        </edge>
+        <edge source="&lt;http://ohdsi_gis.org/id/408b8a13ef6a&gt;" target="&quot;e_totpop&quot;">
+            <data key="type">&lt;https://schema.org/variableMeasured&gt;</data>
+        </edge>
+        <edge source="&lt;http://ohdsi_gis.org/id/408b8a13ef6a&gt;" target="&quot;spl_theme2&quot;">
+            <data key="type">&lt;https://schema.org/variableMeasured&gt;</data>
+        </edge>
+        <edge source="&lt;http://ohdsi_gis.org/id/408b8a13ef6a&gt;" target="&quot;mp_munit&quot;">
+            <data key="type">&lt;https://schema.org/variableMeasured&gt;</data>
+        </edge>
+        <edge source="&lt;http://ohdsi_gis.org/id/408b8a13ef6a&gt;" target="&quot;rpl_theme1&quot;">
+            <data key="type">&lt;https://schema.org/variableMeasured&gt;</data>
+        </edge>
+        <edge source="&lt;http://ohdsi_gis.org/id/408b8a13ef6a&gt;" target="&quot;m_crowd&quot;">
+            <data key="type">&lt;https://schema.org/variableMeasured&gt;</data>
+        </edge>
+        <edge source="&lt;http://ohdsi_gis.org/id/408b8a13ef6a&gt;" target="&quot;spl_theme4&quot;">
+            <data key="type">&lt;https://schema.org/variableMeasured&gt;</data>
+        </edge>
+        <edge source="&lt;http://ohdsi_gis.org/id/408b8a13ef6a&gt;" target="&quot;m_limeng&quot;">
+            <data key="type">&lt;https://schema.org/variableMeasured&gt;</data>
+        </edge>
+        <edge source="&lt;http://ohdsi_gis.org/id/408b8a13ef6a&gt;" target="&quot;epl_groupq&quot;">
+            <data key="type">&lt;https://schema.org/variableMeasured&gt;</data>
+        </edge>
+        <edge source="&lt;http://ohdsi_gis.org/id/408b8a13ef6a&gt;" target="&quot;ep_groupq&quot;">
+            <data key="type">&lt;https://schema.org/variableMeasured&gt;</data>
+        </edge>
+        <edge source="&lt;http://ohdsi_gis.org/id/408b8a13ef6a&gt;" target="&quot;stcnty&quot;">
+            <data key="type">&lt;https://schema.org/variableMeasured&gt;</data>
+        </edge>
+        <edge source="&lt;http://ohdsi_gis.org/id/408b8a13ef6a&gt;" target="&quot;mp_unemp&quot;">
+            <data key="type">&lt;https://schema.org/variableMeasured&gt;</data>
+        </edge>
+        <edge source="&lt;http://ohdsi_gis.org/id/408b8a13ef6a&gt;" target="&quot;e_limeng&quot;">
+            <data key="type">&lt;https://schema.org/variableMeasured&gt;</data>
+        </edge>
+        <edge source="&lt;http://ohdsi_gis.org/id/408b8a13ef6a&gt;" target="&quot;e_hh&quot;">
+            <data key="type">&lt;https://schema.org/variableMeasured&gt;</data>
+        </edge>
+        <edge source="&lt;http://ohdsi_gis.org/id/408b8a13ef6a&gt;" target="&quot;f_theme4&quot;">
+            <data key="type">&lt;https://schema.org/variableMeasured&gt;</data>
+        </edge>
+        <edge source="&lt;http://ohdsi_gis.org/id/408b8a13ef6a&gt;" target="&quot;e_hu&quot;">
+            <data key="type">&lt;https://schema.org/variableMeasured&gt;</data>
+        </edge>
+        <edge source="&lt;http://ohdsi_gis.org/id/408b8a13ef6a&gt;" target="&quot;rpl_theme4&quot;">
+            <data key="type">&lt;https://schema.org/variableMeasured&gt;</data>
+        </edge>
+        <edge source="&lt;http://ohdsi_gis.org/id/408b8a13ef6a&gt;" target="&quot;e_mobile&quot;">
+            <data key="type">&lt;https://schema.org/variableMeasured&gt;</data>
+        </edge>
+        <edge source="&lt;http://ohdsi_gis.org/id/408b8a13ef6a&gt;" target="&quot;st_abbr&quot;">
+            <data key="type">&lt;https://schema.org/variableMeasured&gt;</data>
+        </edge>
+        <edge source="&lt;http://ohdsi_gis.org/id/408b8a13ef6a&gt;" target="&quot;mp_limeng&quot;">
+            <data key="type">&lt;https://schema.org/variableMeasured&gt;</data>
+        </edge>
+        <edge source="&lt;http://ohdsi_gis.org/id/408b8a13ef6a&gt;" target="&quot;mp_groupq&quot;">
+            <data key="type">&lt;https://schema.org/variableMeasured&gt;</data>
+        </edge>
+        <edge source="&lt;http://ohdsi_gis.org/id/408b8a13ef6a&gt;" target="&quot;epl_crowd&quot;">
+            <data key="type">&lt;https://schema.org/variableMeasured&gt;</data>
+        </edge>
+        <edge source="&lt;http://ohdsi_gis.org/id/408b8a13ef6a&gt;" target="&quot;e_pov&quot;">
+            <data key="type">&lt;https://schema.org/variableMeasured&gt;</data>
+        </edge>
+        <edge source="&lt;http://ohdsi_gis.org/id/408b8a13ef6a&gt;" target="&quot;mp_minrty&quot;">
+            <data key="type">&lt;https://schema.org/variableMeasured&gt;</data>
+        </edge>
+        <edge source="&lt;http://ohdsi_gis.org/id/408b8a13ef6a&gt;" target="&quot;epl_nohsdp&quot;">
+            <data key="type">&lt;https://schema.org/variableMeasured&gt;</data>
+        </edge>
+        <edge source="&lt;http://ohdsi_gis.org/id/408b8a13ef6a&gt;" target="&quot;e_sngpnt&quot;">
+            <data key="type">&lt;https://schema.org/variableMeasured&gt;</data>
+        </edge>
+        <edge source="&lt;http://ohdsi_gis.org/id/408b8a13ef6a&gt;" target="&quot;f_limeng&quot;">
+            <data key="type">&lt;https://schema.org/variableMeasured&gt;</data>
+        </edge>
+        <edge source="&lt;http://ohdsi_gis.org/id/408b8a13ef6a&gt;" target="&quot;m_hu&quot;">
+            <data key="type">&lt;https://schema.org/variableMeasured&gt;</data>
+        </edge>
+        <edge source="&lt;http://ohdsi_gis.org/id/408b8a13ef6a&gt;" target="&quot;mp_pci&quot;">
+            <data key="type">&lt;https://schema.org/variableMeasured&gt;</data>
+        </edge>
+        <edge source="&lt;http://ohdsi_gis.org/id/408b8a13ef6a&gt;" target="&quot;m_age17&quot;">
+            <data key="type">&lt;https://schema.org/variableMeasured&gt;</data>
+        </edge>
+        <edge source="&lt;http://ohdsi_gis.org/id/408b8a13ef6a&gt;" target="&quot;f_theme1&quot;">
+            <data key="type">&lt;https://schema.org/variableMeasured&gt;</data>
+        </edge>
+        <edge source="&lt;http://ohdsi_gis.org/id/408b8a13ef6a&gt;" target="&quot;e_crowd&quot;">
+            <data key="type">&lt;https://schema.org/variableMeasured&gt;</data>
+        </edge>
+        <edge source="&lt;http://ohdsi_gis.org/id/408b8a13ef6a&gt;" target="&quot;ep_sngpnt&quot;">
+            <data key="type">&lt;https://schema.org/variableMeasured&gt;</data>
+        </edge>
+        <edge source="&lt;http://ohdsi_gis.org/id/408b8a13ef6a&gt;" target="&quot;rpl_themes&quot;">
+            <data key="type">&lt;https://schema.org/variableMeasured&gt;</data>
+        </edge>
+        <edge source="&lt;http://ohdsi_gis.org/id/408b8a13ef6a&gt;" target="&quot;rpl_theme3&quot;">
+            <data key="type">&lt;https://schema.org/variableMeasured&gt;</data>
+        </edge>
+        <edge source="&lt;http://ohdsi_gis.org/id/408b8a13ef6a&gt;" target="&quot;mp_age65&quot;">
+            <data key="type">&lt;https://schema.org/variableMeasured&gt;</data>
+        </edge>
+        <edge source="&lt;http://ohdsi_gis.org/id/408b8a13ef6a&gt;" target="&quot;state&quot;">
+            <data key="type">&lt;https://schema.org/variableMeasured&gt;</data>
+        </edge>
+        <edge source="&lt;http://ohdsi_gis.org/id/408b8a13ef6a&gt;" target="&quot;spl_theme3&quot;">
+            <data key="type">&lt;https://schema.org/variableMeasured&gt;</data>
+        </edge>
+        <edge source="&lt;http://ohdsi_gis.org/id/408b8a13ef6a&gt;" target="&quot;epl_sngpnt&quot;">
+            <data key="type">&lt;https://schema.org/variableMeasured&gt;</data>
+        </edge>
+        <edge source="&lt;http://ohdsi_gis.org/id/408b8a13ef6a&gt;" target="&quot;st&quot;">
+            <data key="type">&lt;https://schema.org/variableMeasured&gt;</data>
+        </edge>
+        <edge source="&lt;http://ohdsi_gis.org/id/408b8a13ef6a&gt;" target="&quot;e_munit&quot;">
+            <data key="type">&lt;https://schema.org/variableMeasured&gt;</data>
+        </edge>
+        <edge source="&lt;http://ohdsi_gis.org/id/408b8a13ef6a&gt;" target="&quot;m_uninsur&quot;">
+            <data key="type">&lt;https://schema.org/variableMeasured&gt;</data>
+        </edge>
+        <edge source="&lt;http://ohdsi_gis.org/id/408b8a13ef6a&gt;" target="&quot;e_minrty&quot;">
+            <data key="type">&lt;https://schema.org/variableMeasured&gt;</data>
+        </edge>
+        <edge source="&lt;http://ohdsi_gis.org/id/408b8a13ef6a&gt;" target="&quot;fips&quot;">
+            <data key="type">&lt;https://schema.org/variableMeasured&gt;</data>
+        </edge>
+        <edge source="&lt;http://ohdsi_gis.org/id/408b8a13ef6a&gt;" target="&quot;f_nohsdp&quot;">
+            <data key="type">&lt;https://schema.org/variableMeasured&gt;</data>
+        </edge>
+        <edge source="&lt;http://ohdsi_gis.org/id/408b8a13ef6a&gt;" target="&quot;epl_mobile&quot;">
+            <data key="type">&lt;https://schema.org/variableMeasured&gt;</data>
+        </edge>
+        <edge source="&lt;http://ohdsi_gis.org/id/408b8a13ef6a&gt;" target="&quot;ep_nohsdp&quot;">
+            <data key="type">&lt;https://schema.org/variableMeasured&gt;</data>
+        </edge>
+        <edge source="&lt;http://ohdsi_gis.org/id/408b8a13ef6a&gt;" target="&quot;f_theme3&quot;">
+            <data key="type">&lt;https://schema.org/variableMeasured&gt;</data>
+        </edge>
+        <edge source="&lt;http://ohdsi_gis.org/id/408b8a13ef6a&gt;" target="&quot;epl_age17&quot;">
+            <data key="type">&lt;https://schema.org/variableMeasured&gt;</data>
+        </edge>
+        <edge source="&lt;http://ohdsi_gis.org/id/408b8a13ef6a&gt;" target="&quot;m_groupq&quot;">
+            <data key="type">&lt;https://schema.org/variableMeasured&gt;</data>
+        </edge>
+        <edge source="&lt;http://ohdsi_gis.org/id/408b8a13ef6a&gt;" target="&quot;ep_pov&quot;">
+            <data key="type">&lt;https://schema.org/variableMeasured&gt;</data>
+        </edge>
+        <edge source="&lt;http://ohdsi_gis.org/id/408b8a13ef6a&gt;" target="&quot;mp_age17&quot;">
+            <data key="type">&lt;https://schema.org/variableMeasured&gt;</data>
+        </edge>
+        <edge source="&lt;http://ohdsi_gis.org/id/408b8a13ef6a&gt;" target="&quot;m_totpop&quot;">
+            <data key="type">&lt;https://schema.org/variableMeasured&gt;</data>
+        </edge>
+        <edge source="&lt;http://ohdsi_gis.org/id/408b8a13ef6a&gt;" target="&quot;ep_munit&quot;">
+            <data key="type">&lt;https://schema.org/variableMeasured&gt;</data>
+        </edge>
+        <edge source="&lt;http://ohdsi_gis.org/id/408b8a13ef6a&gt;" target="&quot;f_disabl&quot;">
+            <data key="type">&lt;https://schema.org/variableMeasured&gt;</data>
+        </edge>
+        <edge source="&lt;http://ohdsi_gis.org/id/408b8a13ef6a&gt;" target="&quot;f_total&quot;">
+            <data key="type">&lt;https://schema.org/variableMeasured&gt;</data>
+        </edge>
+        <edge source="&lt;http://ohdsi_gis.org/id/408b8a13ef6a&gt;" target="&quot;spl_themes&quot;">
+            <data key="type">&lt;https://schema.org/variableMeasured&gt;</data>
+        </edge>
+        <edge source="&lt;http://ohdsi_gis.org/id/408b8a13ef6a&gt;" target="&quot;mp_pov&quot;">
+            <data key="type">&lt;https://schema.org/variableMeasured&gt;</data>
+        </edge>
+        <edge source="&lt;http://ohdsi_gis.org/id/408b8a13ef6a&gt;" target="&quot;e_noveh&quot;">
+            <data key="type">&lt;https://schema.org/variableMeasured&gt;</data>
+        </edge>
+        <edge source="&lt;http://ohdsi_gis.org/id/408b8a13ef6a&gt;" target="&quot;epl_disabl&quot;">
+            <data key="type">&lt;https://schema.org/variableMeasured&gt;</data>
+        </edge>
+        <edge source="&lt;http://ohdsi_gis.org/id/408b8a13ef6a&gt;" target="&quot;f_groupq&quot;">
+            <data key="type">&lt;https://schema.org/variableMeasured&gt;</data>
+        </edge>
+        <edge source="&lt;http://ohdsi_gis.org/id/408b8a13ef6a&gt;" target="&quot;m_noveh&quot;">
+            <data key="type">&lt;https://schema.org/variableMeasured&gt;</data>
+        </edge>
+        <edge source="&lt;http://ohdsi_gis.org/id/408b8a13ef6a&gt;" target="&quot;ep_disabl&quot;">
+            <data key="type">&lt;https://schema.org/variableMeasured&gt;</data>
+        </edge>
+        <edge source="&lt;http://ohdsi_gis.org/id/408b8a13ef6a&gt;" target="&quot;epl_pov&quot;">
+            <data key="type">&lt;https://schema.org/variableMeasured&gt;</data>
+        </edge>
+        <edge source="&lt;http://ohdsi_gis.org/id/408b8a13ef6a&gt;" target="&quot;m_mobile&quot;">
+            <data key="type">&lt;https://schema.org/variableMeasured&gt;</data>
+        </edge>
+        <edge source="&lt;http://ohdsi_gis.org/id/408b8a13ef6a&gt;" target="&quot;f_pci&quot;">
+            <data key="type">&lt;https://schema.org/variableMeasured&gt;</data>
+        </edge>
+        <edge source="&lt;http://ohdsi_gis.org/id/408b8a13ef6a&gt;" target="&quot;f_unemp&quot;">
+            <data key="type">&lt;https://schema.org/variableMeasured&gt;</data>
+        </edge>
+        <edge source="&lt;http://ohdsi_gis.org/id/408b8a13ef6a&gt;" target="&quot;m_age65&quot;">
+            <data key="type">&lt;https://schema.org/variableMeasured&gt;</data>
+        </edge>
+        <edge source="&lt;http://ohdsi_gis.org/id/408b8a13ef6a&gt;" target="&quot;ep_unemp&quot;">
+            <data key="type">&lt;https://schema.org/variableMeasured&gt;</data>
+        </edge>
+        <edge source="&lt;http://ohdsi_gis.org/id/408b8a13ef6a&gt;" target="&quot;epl_noveh&quot;">
+            <data key="type">&lt;https://schema.org/variableMeasured&gt;</data>
+        </edge>
+        <edge source="&lt;http://ohdsi_gis.org/id/408b8a13ef6a&gt;" target="&quot;m_unemp&quot;">
+            <data key="type">&lt;https://schema.org/variableMeasured&gt;</data>
+        </edge>
+        <edge source="&lt;http://ohdsi_gis.org/id/408b8a13ef6a&gt;" target="&quot;mp_nohsdp&quot;">
+            <data key="type">&lt;https://schema.org/variableMeasured&gt;</data>
+        </edge>
+        <edge source="&lt;http://ohdsi_gis.org/id/408b8a13ef6a&gt;" target="&quot;epl_age65&quot;">
+            <data key="type">&lt;https://schema.org/variableMeasured&gt;</data>
+        </edge>
+        <edge source="&lt;http://ohdsi_gis.org/id/408b8a13ef6a&gt;" target="&quot;epl_pci&quot;">
+            <data key="type">&lt;https://schema.org/variableMeasured&gt;</data>
+        </edge>
+        <edge source="&lt;http://ohdsi_gis.org/id/408b8a13ef6a&gt;" target="&quot;f_pov&quot;">
+            <data key="type">&lt;https://schema.org/variableMeasured&gt;</data>
+        </edge>
+        <edge source="&lt;http://ohdsi_gis.org/id/408b8a13ef6a&gt;" target="&quot;e_nohsdp&quot;">
+            <data key="type">&lt;https://schema.org/variableMeasured&gt;</data>
+        </edge>
+        <edge source="&lt;http://ohdsi_gis.org/id/408b8a13ef6a&gt;" target="&quot;mp_mobile&quot;">
+            <data key="type">&lt;https://schema.org/variableMeasured&gt;</data>
+        </edge>
+        <edge source="&lt;http://ohdsi_gis.org/id/408b8a13ef6a&gt;" target="&quot;ep_limeng&quot;">
+            <data key="type">&lt;https://schema.org/variableMeasured&gt;</data>
+        </edge>
+        <edge source="&lt;http://ohdsi_gis.org/id/408b8a13ef6a&gt;" target="&quot;f_age17&quot;">
+            <data key="type">&lt;https://schema.org/variableMeasured&gt;</data>
+        </edge>
+        <edge source="&lt;http://ohdsi_gis.org/id/408b8a13ef6a&gt;" target="&quot;f_minrty&quot;">
+            <data key="type">&lt;https://schema.org/variableMeasured&gt;</data>
+        </edge>
+        <edge source="&lt;http://ohdsi_gis.org/id/408b8a13ef6a&gt;" target="&quot;e_uninsur&quot;">
+            <data key="type">&lt;https://schema.org/variableMeasured&gt;</data>
+        </edge>
+        <edge source="&lt;http://ohdsi_gis.org/id/408b8a13ef6a&gt;" target="&quot;location&quot;">
+            <data key="type">&lt;https://schema.org/variableMeasured&gt;</data>
+        </edge>
+        <edge source="&lt;http://ohdsi_gis.org/id/408b8a13ef6a&gt;" target="&quot;m_hh&quot;">
+            <data key="type">&lt;https://schema.org/variableMeasured&gt;</data>
+        </edge>
+        <edge source="&lt;http://ohdsi_gis.org/id/408b8a13ef6a&gt;" target="&quot;m_minrty&quot;">
+            <data key="type">&lt;https://schema.org/variableMeasured&gt;</data>
+        </edge>
+        <edge source="&lt;http://ohdsi_gis.org/id/408b8a13ef6a&gt;" target="&quot;f_theme2&quot;">
+            <data key="type">&lt;https://schema.org/variableMeasured&gt;</data>
+        </edge>
+        <edge source="&lt;http://ohdsi_gis.org/id/408b8a13ef6a&gt;" target="&quot;mp_uninsur&quot;">
+            <data key="type">&lt;https://schema.org/variableMeasured&gt;</data>
+        </edge>
+        <edge source="&lt;http://ohdsi_gis.org/id/408b8a13ef6a&gt;" target="&quot;f_crowd&quot;">
+            <data key="type">&lt;https://schema.org/variableMeasured&gt;</data>
+        </edge>
+        <edge source="&lt;http://ohdsi_gis.org/id/408b8a13ef6a&gt;" target="&quot;e_disabl&quot;">
+            <data key="type">&lt;https://schema.org/variableMeasured&gt;</data>
+        </edge>
+        <edge source="&lt;http://ohdsi_gis.org/id/408b8a13ef6a&gt;" target="&quot;epl_unemp&quot;">
+            <data key="type">&lt;https://schema.org/variableMeasured&gt;</data>
+        </edge>
+        <edge source="&lt;http://ohdsi_gis.org/id/408b8a13ef6a&gt;" target="&quot;m_sngpnt&quot;">
+            <data key="type">&lt;https://schema.org/variableMeasured&gt;</data>
+        </edge>
+        <edge source="&lt;http://ohdsi_gis.org/id/408b8a13ef6a&gt;" target="&quot;f_munit&quot;">
+            <data key="type">&lt;https://schema.org/variableMeasured&gt;</data>
+        </edge>
+        <edge source="&lt;http://ohdsi_gis.org/id/408b8a13ef6a&gt;" target="&quot;e_age65&quot;">
+            <data key="type">&lt;https://schema.org/variableMeasured&gt;</data>
+        </edge>
+        <edge source="&lt;http://ohdsi_gis.org/id/408b8a13ef6a&gt;" target="&quot;ep_age17&quot;">
+            <data key="type">&lt;https://schema.org/variableMeasured&gt;</data>
+        </edge>
+        <edge source="&lt;http://ohdsi_gis.org/id/408b8a13ef6a&gt;" target="&quot;epl_munit&quot;">
+            <data key="type">&lt;https://schema.org/variableMeasured&gt;</data>
+        </edge>
+        <edge source="&lt;http://ohdsi_gis.org/id/408b8a13ef6a&gt;" target="&quot;m_pci&quot;">
+            <data key="type">&lt;https://schema.org/variableMeasured&gt;</data>
+        </edge>
+        <edge source="&lt;http://ohdsi_gis.org/id/408b8a13ef6a&gt;" target="&quot;spl_theme1&quot;">
+            <data key="type">&lt;https://schema.org/variableMeasured&gt;</data>
+        </edge>
+        <edge source="&lt;http://ohdsi_gis.org/id/408b8a13ef6a&gt;" target="&quot;m_nohsdp&quot;">
+            <data key="type">&lt;https://schema.org/variableMeasured&gt;</data>
+        </edge>
+        <edge source="&lt;http://ohdsi_gis.org/id/408b8a13ef6a&gt;" target="&quot;United States&quot;^^&lt;http://www.w3.org/2000/01/rdf-schema#Literal&gt;">
+            <data key="type">&lt;https://schema.org/spatialCoverage&gt;</data>
+        </edge>
+        <edge source="&lt;http://ohdsi_gis.org/id/096cbb634605&gt;" target="&quot;avpmu_2001&quot;">
+            <data key="type">&lt;https://schema.org/variableMeasured&gt;</data>
+        </edge>
+        <edge source="&lt;http://ohdsi_gis.org/id/096cbb634605&gt;" target="&quot;stndrdname&quot;">
+            <data key="type">&lt;https://schema.org/variableMeasured&gt;</data>
+        </edge>
+        <edge source="&lt;http://ohdsi_gis.org/id/096cbb634605&gt;" target="&quot;avpmu_2015&quot;">
+            <data key="type">&lt;https://schema.org/variableMeasured&gt;</data>
+        </edge>
+        <edge source="&lt;http://ohdsi_gis.org/id/096cbb634605&gt;" target="&quot;name&quot;">
+            <data key="type">&lt;https://schema.org/variableMeasured&gt;</data>
+        </edge>
+        <edge source="&lt;http://ohdsi_gis.org/id/096cbb634605&gt;" target="&quot;countryeng&quot;">
+            <data key="type">&lt;https://schema.org/variableMeasured&gt;</data>
+        </edge>
+        <edge source="&lt;http://ohdsi_gis.org/id/096cbb634605&gt;" target="&quot;sqkm&quot;">
+            <data key="type">&lt;https://schema.org/variableMeasured&gt;</data>
+        </edge>
+        <edge source="&lt;http://ohdsi_gis.org/id/096cbb634605&gt;" target="&quot;unsdcode&quot;">
+            <data key="type">&lt;https://schema.org/variableMeasured&gt;</data>
+        </edge>
+        <edge source="&lt;http://ohdsi_gis.org/id/096cbb634605&gt;" target="&quot;avpmu_2016&quot;">
+            <data key="type">&lt;https://schema.org/variableMeasured&gt;</data>
+        </edge>
+        <edge source="&lt;http://ohdsi_gis.org/id/096cbb634605&gt;" target="&quot;avpmu_2007&quot;">
+            <data key="type">&lt;https://schema.org/variableMeasured&gt;</data>
+        </edge>
+        <edge source="&lt;http://ohdsi_gis.org/id/096cbb634605&gt;" target="&quot;avpmu_2006&quot;">
+            <data key="type">&lt;https://schema.org/variableMeasured&gt;</data>
+        </edge>
+        <edge source="&lt;http://ohdsi_gis.org/id/096cbb634605&gt;" target="&quot;avpmu_2014&quot;">
+            <data key="type">&lt;https://schema.org/variableMeasured&gt;</data>
+        </edge>
+        <edge source="&lt;http://ohdsi_gis.org/id/096cbb634605&gt;" target="&quot;urbid&quot;">
+            <data key="type">&lt;https://schema.org/variableMeasured&gt;</data>
+        </edge>
+        <edge source="&lt;http://ohdsi_gis.org/id/096cbb634605&gt;" target="&quot;avpmu_2005&quot;">
+            <data key="type">&lt;https://schema.org/variableMeasured&gt;</data>
+        </edge>
+        <edge source="&lt;http://ohdsi_gis.org/id/096cbb634605&gt;" target="&quot;avpmu_1998&quot;">
+            <data key="type">&lt;https://schema.org/variableMeasured&gt;</data>
+        </edge>
+        <edge source="&lt;http://ohdsi_gis.org/id/096cbb634605&gt;" target="&quot;avpmu_2012&quot;">
+            <data key="type">&lt;https://schema.org/variableMeasured&gt;</data>
+        </edge>
+        <edge source="&lt;http://ohdsi_gis.org/id/096cbb634605&gt;" target="&quot;avpmu_2011&quot;">
+            <data key="type">&lt;https://schema.org/variableMeasured&gt;</data>
+        </edge>
+        <edge source="&lt;http://ohdsi_gis.org/id/096cbb634605&gt;" target="&quot;iso3&quot;">
+            <data key="type">&lt;https://schema.org/variableMeasured&gt;</data>
+        </edge>
+        <edge source="&lt;http://ohdsi_gis.org/id/096cbb634605&gt;" target="&quot;avpmu_1999&quot;">
+            <data key="type">&lt;https://schema.org/variableMeasured&gt;</data>
+        </edge>
+        <edge source="&lt;http://ohdsi_gis.org/id/096cbb634605&gt;" target="&quot;avpmu_2013&quot;">
+            <data key="type">&lt;https://schema.org/variableMeasured&gt;</data>
+        </edge>
+        <edge source="&lt;http://ohdsi_gis.org/id/096cbb634605&gt;" target="&quot;avpmu_2000&quot;">
+            <data key="type">&lt;https://schema.org/variableMeasured&gt;</data>
+        </edge>
+        <edge source="&lt;http://ohdsi_gis.org/id/096cbb634605&gt;" target="&quot;continent&quot;">
+            <data key="type">&lt;https://schema.org/variableMeasured&gt;</data>
+        </edge>
+        <edge source="&lt;http://ohdsi_gis.org/id/096cbb634605&gt;" target="&quot;avpmu_2010&quot;">
+            <data key="type">&lt;https://schema.org/variableMeasured&gt;</data>
+        </edge>
+        <edge source="&lt;http://ohdsi_gis.org/id/096cbb634605&gt;" target="&quot;avpmu_2008&quot;">
+            <data key="type">&lt;https://schema.org/variableMeasured&gt;</data>
+        </edge>
+        <edge source="&lt;http://ohdsi_gis.org/id/096cbb634605&gt;" target="&quot;isourbid&quot;">
+            <data key="type">&lt;https://schema.org/variableMeasured&gt;</data>
+        </edge>
+        <edge source="&lt;http://ohdsi_gis.org/id/096cbb634605&gt;" target="&quot;avpmu_2002&quot;">
+            <data key="type">&lt;https://schema.org/variableMeasured&gt;</data>
+        </edge>
+        <edge source="&lt;http://ohdsi_gis.org/id/096cbb634605&gt;" target="&quot;avpmu_2004&quot;">
+            <data key="type">&lt;https://schema.org/variableMeasured&gt;</data>
+        </edge>
+        <edge source="&lt;http://ohdsi_gis.org/id/096cbb634605&gt;" target="&quot;avpmu_2009&quot;">
+            <data key="type">&lt;https://schema.org/variableMeasured&gt;</data>
+        </edge>
+        <edge source="&lt;http://ohdsi_gis.org/id/096cbb634605&gt;" target="&quot;avpmu_2003&quot;">
+            <data key="type">&lt;https://schema.org/variableMeasured&gt;</data>
+        </edge>
+        <edge source="&lt;http://ohdsi_gis.org/id/096cbb634605&gt;" target="&quot;Global&quot;^^&lt;http://www.w3.org/2000/01/rdf-schema#Literal&gt;">
+            <data key="type">&lt;https://schema.org/spatialCoverage&gt;</data>
+        </edge>
+    </graph>
+</graphml>

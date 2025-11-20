@@ -4,8 +4,6 @@
 
 This document is a conceptual representation of the CDIF Mapping process applied to the OHDSI/Gaia Catalog.
 
-
-
 Developed a use case around the gaiaCatalog.  The gaiaCatalog contains all the materials to build the gaiaCatalog containers for use in the OHDSI/GIS toolchain as a part of the Information on Observational Health Data Sciences and Informatics (OHDSI) organization.  See https://github.com/OHDSI/gaiaCatalog
 
 For this a mapping use case based around the use of R2RML and RML mapping languages.   In this use case, data from census and governmental geospatial resources are integrated and mapped to RDF types and properties.  
