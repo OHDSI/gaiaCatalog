@@ -15,29 +15,27 @@
 
 @base <http://example.com/ns#> .
 
-
-<https://example.org/DatasetMapping> a rml:TriplesMap ;
-
-    schema:name "First triple mapping";
-
-    rml:logicalSource
+<https://example.org/AttributeMapping/source> a rml:LogicalSource ;
+    rml:source
         [
-            a rml:LogicalSource ;
-            rml:source
+            a sd:DatasetSpecification ;
+            sd:name "variable1" ;
+            sd:hasDataTransformation
                 [
-                    a sd:DatasetSpecification ;
-                    sd:name "variable1" ;
-                    sd:hasDataTransformation
+                    sd:hasSoftwareRequirements "pandas>=1.1.0" ;
+                    sd:hasSourceCode
                         [
-                            sd:hasSoftwareRequirements "pandas>=1.1.0" ;
-                            sd:hasSourceCode
-                                [
-                                    sd:programmingLanguage "Python3.9" ;
-                                ] ;
+                            sd:programmingLanguage "Python3.9" ;
                         ] ;
                 ] ;
-            rml:referenceFormulation rml:DataFrame ;
         ] ;
+    rml:referenceFormulation rml:DataFrame .
+
+<https://example.org/AttributeMapping> a rml:TriplesMap ;
+
+    schema:name "OHDSI Attribute mapping";
+
+    rml:logicalSource <https://example.org/AttributeMapping/source> ;
 
 
     rml:subjectMap

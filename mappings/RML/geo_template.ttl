@@ -17,7 +17,6 @@
 @base <http://example.com/ns#> .
 
 
-
 <https://example.org/GeoMapping/Geometry> a rml:TriplesMap ;
 
     rml:logicalSource
@@ -62,7 +61,7 @@
         ] .
 
 
-<https://example.org/GeoMapping/Polygon1>  a rml:TriplesMap ;
+<https://example.org/GeoMapping/Polygon1> a rml:TriplesMap ;
 
     rml:logicalSource
         [
