@@ -12,12 +12,9 @@ The goal then is to represent this specific mapping use
 case to a conceptual representation based on a 
 modification of the SSSOM mapping representation. We will use this use case, and others, to explore this representation in this conceptual model.  
 
-To achieve this goal we will explore types and properties that can be added to the RML graph that can be leveraged to provide metadata about the mapping process.   This metadata could then be extracted via SPARQL.  We would explore how this metadata could be algined to the SSSOM model.  The goal being to provide a representation of the mapping process that could be leveraged in a catalog search and discovery process for mapping resources.
+To achieve this goal we will explore types and properties that can be added to the RML graph that can be leveraged to provide metadata about the mapping process.   This metadata could then be extracted via SPARQL.  We would explore how this metadata could be aligned to the SSSOM model.  The goal is to provide a representation of the mapping process that could be leveraged in a catalog search and discovery process for mapping resources.
 
-The goal is to leverage the CDIF patterns within the 
-ODHSI effort to facilitate interoperability with other 
-clinic trails efforts (Ask Jay to review this)
-
+Leveraging the CDIF patterns, R2RML and/or RML within the ODHSI effort can facilitate interoperability with other data analysis frameworks, expecially frontier ones. Specific mappings between OHDSI and other data analysis frameworks is a way of connecting them for use in federated research conducted across research platforms.
 
 ## ToDo
 
