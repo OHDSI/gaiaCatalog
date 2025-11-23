@@ -1,0 +1,121 @@
+{
+  "@context": {
+    "rml": "http://w3id.org/rml/",
+    "sd": "https://w3id.org/okn/o/sd#",
+    "rr": "http://www.w3.org/ns/r2rml#",
+    "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "kg4di": "https://w3id.org/kg4di/definedBy",
+    "schema": "https://schema.org/",
+    "fnml": "http://semweb.mmlab.be/ns/fnml#",
+    "fno": "https://w3id.org/function/ontology#",
+    "grel": "http://users.ugent.be/~bjdmeest/function/grel.ttl#",
+    "ql": "http://semweb.mmlab.be/ns/ql#",
+    "morph-kgc": "https://github.com/morph-kgc/morph-kgc/function/built-in.ttl#",
+    "geosparql": "http://www.opengis.net/ont/geosparql#",
+    "base": "http://example.com/ns#"
+  },
+  "@graph": [
+    {
+      "@id": "https://example.org/GeoMapping/Geometry",
+      "@type": "rml:TriplesMap",
+      "rml:logicalSource": {
+        "@type": "rml:LogicalSource",
+        "rml:source": {
+          "@type": "sd:DatasetSpecification",
+          "sd:name": "variable1",
+          "sd:hasDataTransformation": {
+            "sd:hasSoftwareRequirements": "pandas>=1.1.0",
+            "sd:hasSourceCode": {
+              "sd:programmingLanguage": "Python3.9"
+            }
+          }
+        },
+        "rml:referenceFormulation": {
+          "@id": "rml:DataFrame"
+        }
+      },
+      "rml:subjectMap": {
+        "@type": "rml:SubjectMap",
+        "rml:template": "http://ohdsi_gis.org/id/{hashid}"
+      },
+      "rml:predicateObjectMap": [
+        {
+          "rml:predicateMap": {
+            "@type": "rml:PredicateMap",
+            "rml:constant": {
+              "@id": "geosparql:hasGeometry"
+            }
+          },
+          "rml:objectMap": {
+            "@type": "rml:ObjectMap",
+            "rml:template": "https://ohdsi_gis.org/.well-known/genid/geo/{hashid}"
+          }
+        }
+      ]
+    },
+    {
+      "@id": "https://example.org/GeoMapping/Polygon1",
+      "@type": "rml:TriplesMap",
+      "rml:logicalSource": {
+        "@type": "rml:LogicalSource",
+        "rml:source": {
+          "@type": "sd:DatasetSpecification",
+          "sd:name": "variable1",
+          "sd:hasDataTransformation": {
+            "sd:hasSoftwareRequirements": "pandas>=1.1.0",
+            "sd:hasSourceCode": {
+              "sd:programmingLanguage": "Python3.9"
+            }
+          }
+        },
+        "rml:referenceFormulation": {
+          "@id": "rml:DataFrame"
+        }
+      },
+      "rml:subjectMap": {
+        "@type": "rml:SubjectMap",
+        "rml:template": "https://ohdsi_gis.org/.well-known/genid/geo/{hashid}"
+      },
+      "rml:predicateObjectMap": [
+        {
+          "rml:predicateMap": {
+            "@type": "rml:PredicateMap",
+            "rml:constant": {
+              "@id": "rdf:type"
+            }
+          },
+          "rml:objectMap": {
+            "@type": "rml:ObjectMap",
+            "rml:constant": {
+              "@id": "http://www.opengis.net/ont/sf#Polygon"
+            }
+          }
+        },
+        {
+          "rml:predicateMap": {
+            "@type": "rml:PredicateMap",
+            "rml:constant": {
+              "@id": "geosparql:asWKT"
+            }
+          },
+          "rml:objectMap": {
+            "rml:template": "{geometry}",
+            "rr:termType": {
+              "@id": "rr:Literal"
+            },
+            "rr:datatype": {
+              "@id": "geosparql:wktLiteral"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "@id": "rml:DataFrame",
+      "@type": "rml:ReferenceFormulation",
+      "kg4di:definedBy": "Pandas"
+    }
+  ]
+}
