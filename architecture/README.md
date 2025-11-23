@@ -19,6 +19,10 @@ Conversely, Knowledge Graphs are
 
 TODOs:
 - [ ] add in the ai based entity resolution elements from coffe code
+- [ ] using the JSON-LD input, generate some examples and SHACL shaped leveraging the OGC Building blocks (https://github.com/opengeospatial/bblock-template).  
+- [ ] use these shapes and example SPPARQL as elements of the context engineering
+- [ ] OPTIONAL: explore prompt generation via DSpy with these examples.  
+- [ ] add chainlit UI example  (connect with MCP)
 
 ## Command snippets
 
