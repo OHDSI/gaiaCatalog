@@ -15,6 +15,8 @@ from baml_client import b
 import kuzu
 from sentence_transformers import SentenceTransformer
 import polars
+from gradio_multimodalchatbot import MultimodalChatbot
+from gradio.data_classes import FileData
 
 from defs import usage_info
 
@@ -319,7 +321,7 @@ body, .gradio-container {
 my_theme = gr.Theme.from_hub("gradio/seafoam")
 
 #with gr.Blocks(title="DSWB playground", theme=gr.themes.Soft()) as demo:
-with gr.Blocks(title="DSWB playground", theme=my_theme) as demo:
+with gr.Blocks(title="DSWB playground") as demo:   # , theme=my_theme
     gr.Markdown("# DSWB playground")
 
     with gr.Tab("Comparative Search"):
@@ -343,14 +345,12 @@ with gr.Blocks(title="DSWB playground", theme=my_theme) as demo:
 
         greet_button.click(fn=chat_search, inputs=name_input, outputs=greeting_output)
 
-
     with gr.Tab("Graph Search"):
         gs_input = gr.Textbox(label="Enter your question")
         gs_button = gr.Button("NO GRAPH generated yet, do not use:      Generate graph query summary")
         gs_output = gr.Markdown(label="Response")
 
         gs_button.click(fn=graph_search, inputs=gs_input, outputs=gs_output)
-
 
     with gr.Tab("About & Examples"):
         gr.HTML(usage_info.about())
