@@ -1,5 +1,19 @@
 # Architecture Flow
 
+
+TODOs:
+- [ ] The generated graph needs to connect to the lance resources via the named graph holding the ID generated in the source phase with lance which is currently just   Add an 'id' column by creating a SHA256 hash of the filename, should this be the file contents?
+- [ ] Ensure the lexical graph connects in with a similar approach as the RDF graph
+- [ ] add in the AI-based entity resolution elements from coffee code
+- [ ] using the JSON-LD input, generate some examples and SHACL shaped leveraging the OGC Building blocks (https://github.com/opengeospatial/bblock-template).  
+- [ ] use these shapes and example SPARQL as elements of the context engineering
+- [ ] OPTIONAL: explore prompt generation via DSpy with these examples.  
+- [X] add a chainlit UI example 
+- [ ] modify the gradio code to be an MCP server and connect with chainlit
+- [ ] Add in a table to parquet function. 
+- [ ] Could also add in a simple FTS and vector search on a table
+
+
 ## Notes
 
 Overview document for some of the basic AI testing being done.
@@ -16,13 +30,6 @@ Conversely, Knowledge Graphs are
    * Deterministic and Accurate; big S semantics
    * Support inference and validation
    * Support more than just "similarity" with multi-path relations (motifs)
-
-TODOs:
-- [ ] add in the ai based entity resolution elements from coffe code
-- [ ] using the JSON-LD input, generate some examples and SHACL shaped leveraging the OGC Building blocks (https://github.com/opengeospatial/bblock-template).  
-- [ ] use these shapes and example SPPARQL as elements of the context engineering
-- [ ] OPTIONAL: explore prompt generation via DSpy with these examples.  
-- [ ] add chainlit UI example  (connect with MCP)
 
 ## Command snippets
 
@@ -41,6 +48,15 @@ python masterControl.py gliner2lance --db_path ./stores/lance/db --source_table 
 python masterControl.py jsonld2ntfile --input_dir ./stores/input/ --output_file ./stores/sourceinput.nt
 ```
 
+#### Lance inspection commands
+
+```bash
+python masterControl.py lance_list --db_path ./stores/lance/db 
+```
+
+```bash
+python masterControl.py lance_head --db_path ./stores/lance/db --table_name sources --n 10  
+```
 
 #### For reindexing and running Qlever
 

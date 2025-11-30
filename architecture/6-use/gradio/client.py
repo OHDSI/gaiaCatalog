@@ -362,4 +362,4 @@ if __name__ == "__main__":
     parser.add_argument('--share', action='store_true', help='Enable Gradio sharing')
     args = parser.parse_args()
 
-    demo.launch(server_name="0.0.0.0", share=args.share)
+    demo.launch(server_name="0.0.0.0", share=args.share, mcp_server=True)

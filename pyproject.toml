@@ -7,6 +7,7 @@ requires-python = ">=3.13"
 dependencies = [
     "advertools>=0.17.1",
     "baml-py==0.86.1",
+    "chainlit>=2.9.2",
     "chonkie>=1.1.1",
     "datasets>=4.0.0",
     "docling>=2.42.2",
