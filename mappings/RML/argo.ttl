@@ -1,0 +1,168 @@
+@prefix rml: <http://w3id.org/rml/> .
+@prefix sd: <https://w3id.org/okn/o/sd#> .
+@prefix insta: <http://instagram.com/data/> .
+@prefix rr: <http://www.w3.org/ns/r2rml#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix kg4di: <https://w3id.org/kg4di/definedBy> .
+@prefix schema: <https://schema.org/> .
+@prefix fnml: <http://semweb.mmlab.be/ns/fnml#> .
+@prefix fno: <https://w3id.org/function/ontology#> .
+@prefix grel: <http://users.ugent.be/~bjdmeest/function/grel.ttl#> .
+@prefix ql: <http://semweb.mmlab.be/ns/ql#> .
+@prefix morph-kgc: <https://github.com/morph-kgc/morph-kgc/function/built-in.ttl#> .
+@prefix param: <http://example.com/param#> .
+
+@base <http://example.com/ns#> .
+
+
+<thing_0> a rml:TriplesMap ;
+
+    rml:logicalSource
+        [
+            a rml:LogicalSource ;
+            rml:source
+                [
+                    a sd:DatasetSpecification ;
+                    sd:name "variable1" ;
+                    sd:hasDataTransformation
+                        [
+                            sd:hasSoftwareRequirements "pandas>=1.1.0" ;
+                            sd:hasSourceCode
+                                [
+                                    sd:programmingLanguage "Python3.9" ;
+                                ] ;
+                        ] ;
+                ] ;
+            rml:referenceFormulation rml:DataFrame ;
+        ] ;
+
+
+    rml:subjectMap
+        [
+            a rml:SubjectMap ;
+            rml:template "http://ohdsi_gis.org/id/{id}" ;
+        ] ;
+
+
+    rml:predicateObjectMap
+        [
+            rml:predicateMap
+                [
+                    a rml:PredicateMap ;
+                    rml:constant rdf:type ;
+                ] ;
+            rml:objectMap
+                [
+                    a rml:ObjectMap ;
+                    rml:constant schema:Dataset ;
+                ] ;
+        ] ;
+
+
+    rml:predicateObjectMap
+        [
+            rml:predicateMap
+                [
+                    a rml:PredicateMap ;
+                    rml:constant schema:name ;
+                ] ;
+            rml:objectMap
+                [
+                    a rml:ObjectMap ;
+                    rml:reference "title" ;
+                ] ;
+        ] ;
+
+
+    rml:predicateObjectMap
+        [
+            rml:predicateMap
+                [
+                    a rml:PredicateMap ;
+                    rml:constant schema:description ;
+                ] ;
+            rml:objectMap
+                [
+                    a rml:ObjectMap ;
+                    rml:reference "description" ;
+                ] ;
+        ] ;
+
+
+    rml:predicateObjectMap
+        [
+            rml:predicateMap
+                [
+                    a rml:PredicateMap ;
+                    rml:constant schema:spatialCoverage ;
+                ] ;
+            rml:objectMap
+                [
+                    a rml:ObjectMap ;
+                    rml:template "https://ohdsi_gis.org/.well-known/genid/{id}" ;
+                ] ;
+        ] .
+
+
+<place_01> a rml:TriplesMap ;
+
+    rml:logicalSource
+        [
+            a rml:LogicalSource ;
+            rml:source
+                [
+                    a sd:DatasetSpecification ;
+                    sd:name "variable1" ;
+                    sd:hasDataTransformation
+                        [
+                            sd:hasSoftwareRequirements "pandas>=1.1.0" ;
+                            sd:hasSourceCode
+                                [
+                                    sd:programmingLanguage "Python3.9" ;
+                                ] ;
+                        ] ;
+                ] ;
+            rml:referenceFormulation rml:DataFrame ;
+        ] ;
+
+
+    rml:subjectMap
+        [
+            a rml:SubjectMap ;
+            rml:template "https://ohdsi_gis.org/.well-known/genid/{id}" ;
+        ] ;
+
+    rml:predicateObjectMap
+        [
+            rml:predicateMap
+                [
+                    a rml:PredicateMap ;
+                    rml:constant rdf:type ;
+                ] ;
+            rml:objectMap
+                [
+                    a rml:ObjectMap ;
+                    rml:constant schema:Place ;
+                ] ;
+        ] ;
+
+
+    rml:predicateObjectMap
+        [
+            rml:predicateMap
+                [
+                    a rml:PredicateMap ;
+                    rml:constant schema:spatialCoverage ;
+                ] ;
+            rml:objectMap
+                [
+                    a rml:ObjectMap ;
+                    rml:template "{title}" ;
+                ] ;
+        ] .
+
+
+rml:DataFrame a rml:ReferenceFormulation ;
+    kg4di:definedBy "Pandas" .
