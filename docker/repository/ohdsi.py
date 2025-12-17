@@ -283,27 +283,21 @@ def loadlayer(layer_id):
 @app.route('/load/<layer_id>/<variable_id>', methods=["GET","POST"])
 def load(layer_id,variable_id):
     """
+    py:function:: load(layer_id,variable_id)
+
     Load one variable given a variable_id. 
 
-    :param layer_id:
-        The ID for the layer for the variable
-    :type layer_id:
-        'str'
-    :param variable_id:
-        The ID for the variable to be loaded
-    :type variable_id:
-        'str'
-    :return:
-        The response body as dict from the postgres API
-    :rtype:
-        'dict'
+    :param str layer_id: the ID for the layer for the variable
+    :param str variable_id: the ID for the variable to be loaded
+    :return: the response body as dict from the postgres API
+    :rtype: dict
     """
 
     # make sure the source layer is loaded
     load_layer = loadlayer(layer_id)
 
     # get the layer and variable metadata from SOLR
-    document = get_layer_meta(name_id)
+    document = get_layer_meta(layer_id)
     variable = [attr for attr in document['gdsc_attributes'] if variable_id in attr][0].split(";")
     variable = [var if var !='' else 'Null' for var in variable]
 
