@@ -64,9 +64,6 @@ def schunkText(full_text: str = None,):
     return schunks
 
 def processor(json_dir: str = None, db_path: str = None, table_name: str = None, ):
-    # Directory containing the JSON files
-    # json_dir = '../stores/input/'  # Change this to your directory
-
     # Directly query a JSON file
     df = duckdb.sql(f"""
             SELECT name, description, license, filename 

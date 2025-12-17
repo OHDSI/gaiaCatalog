@@ -1,15 +1,16 @@
 # Architecture Flow
 
-
 TODOs:
-- [ ] The generated graph needs to connect to the lance resources via the named graph holding the ID generated in the source phase with lance which is currently just   Add an 'id' column by creating a SHA256 hash of the filename, should this be the file contents?
-- [ ] Ensure the lexical graph connects in with a similar approach as the RDF graph
+- [ ] Demo the building blocks concept Steve showed me
+- [X] The generated graph needs to connect to the lance resources via the named graph holding the ID generated in the source phase with lance which is currently just, Add an 'id' column by creating a SHA256 hash of the filename, should this be the file contents?
+- [ ] Ensure the lexical graph connects in with a similar approach as the RDF graph.  Convert the gliner output via RML to a graph.  Need to ensure the graph has an id (based on the filename hash) and then make RML map the graph to the RDF graph.
 - [ ] add in the AI-based entity resolution elements from coffee code
 - [ ] using the JSON-LD input, generate some examples and SHACL shaped leveraging the OGC Building blocks (https://github.com/opengeospatial/bblock-template).  
 - [ ] use these shapes and example SPARQL as elements of the context engineering
+- [ ] align with mapping goals in CODATA - CDIF
 - [ ] OPTIONAL: explore prompt generation via DSpy with these examples.  
 - [X] add a chainlit UI example 
-- [ ] modify the gradio code to be an MCP server and connect with chainlit
+- [X] modify the gradio code to be an MCP server and connect with chainlit
 - [ ] Add in a table to parquet function. 
 - [ ] Could also add in a simple FTS and vector search on a table
 
