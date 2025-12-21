@@ -1,8 +1,7 @@
 # Architecture Flow
 
 TODOs:
-- [ ] Demo the building blocks concept Steve showed me
-- [X] The generated graph needs to connect to the lance resources via the named graph holding the ID generated in the source phase with lance which is currently just, Add an 'id' column by creating a SHA256 hash of the filename, should this be the file contents?
+- [X] The generated graph needs to connect to the lance resources via the named graph holding the ID generated in the source phase with lance which is currently just, Add an 'id' column by creating a SHA256 hash of the filename. Should this be the file contents?
 - [ ] Ensure the lexical graph connects in with a similar approach as the RDF graph.  Convert the gliner output via RML to a graph.  Need to ensure the graph has an id (based on the filename hash) and then make RML map the graph to the RDF graph.
 - [ ] add in the AI-based entity resolution elements from coffee code
 - [ ] using the JSON-LD input, generate some examples and SHACL shaped leveraging the OGC Building blocks (https://github.com/opengeospatial/bblock-template).  
@@ -31,6 +30,8 @@ Conversely, Knowledge Graphs are
    * Deterministic and Accurate; big S semantics
    * Support inference and validation
    * Support more than just "similarity" with multi-path relations (motifs)
+
+
 
 ## Command snippets
 
@@ -76,6 +77,26 @@ qlever -q Qleverfile start
 ```bash
 qlever -q Qleverfile ui 
  ```
+
+## Stages
+
+1) Input
+   * JSON-LD to LanceDB (jsonld2lance)
+   * JSON-LD to NT and triplestore (jsonld2ntfile)
+   * Conversion from various formats to some set of input formats like Markdown (jsonld2md)
+2) Chunk & embedding
+   * Chonkie to lance (chonkie2lance)
+3) Extraction
+   * Gliner for ER and RE  (gliner2lance)
+4) Standardize
+   * TBD
+5) Inference
+   * TBD
+6) Use
+   * Gradio
+   * Chainlit
+7) Deployment
+   * MCP server for lance
 
 
 ## The flow
