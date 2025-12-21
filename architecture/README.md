@@ -31,7 +31,11 @@ Conversely, Knowledge Graphs are
    * Support inference and validation
    * Support more than just "similarity" with multi-path relations (motifs)
 
+## JSON-LD collection
 
+This code is for working with the JSON-LD collection of resources.  To do the indexing of resources at the start
+there are various approaches.  One approach is to use 
+the Gleaner software stack described at https://gleaner.io.
 
 ## Command snippets
 
@@ -142,7 +146,20 @@ RDF --> Chunk --> Extraction --> Standardize --> Inference --> Use
       * [BAML RAG](https://docs.boundaryml.com/examples/prompt-engineering/retrieval-augmented-generation)
       * Gemini CLI example via MCP to demonstrate the same stuff being done in the RAG example.
 
+## User interface
+
+All this UI code is older versions that don't run with the 
+current MCP and services endpoints.   I have the updated versions
+in a private repo that I will port over to here.  
+
+### Chainlit
+
+This code base needs to be updated to use the latest version from the coffeecode repo.  Also, it leverage the MCP server exposing the triplestore.   Qlever in our case.  
+
+
 ## Docling Notes
+
+TBD
 
 ### References
   * https://docling-project.github.io/docling/examples/hybrid_chunking/
