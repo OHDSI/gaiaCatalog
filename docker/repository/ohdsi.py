@@ -6,18 +6,24 @@ from os import getenv
 from json import loads, dumps
 import simplejson
 import logging
+from datetime import datetime
 import re
 from collections import OrderedDict
 import os
 import json
 
+# create app
 app = Flask(__name__)
 log = logging.getLogger('werkzeug')
 log.disabled = True
 
+# get ENV variables
 X_API_KEY_FILE = getenv('GAIA_X_API_KEY_FILE')
+GAIA_CATALOG_FLAVOR = getenv('GAIA_CATALOG_FLAVOR')
 with open(X_API_KEY_FILE) as f:
     X_API_KEY = f.read().strip()
+
+# define API parameters for different containers
 apis = {
     "git": {
         "url": f"http://gaia-git:{getenv('GAIA_GIT_API_PORT')}",
@@ -34,30 +40,86 @@ apis = {
     "postgis": {
         "url": f"http://gaia-postgis:{getenv('GAIA_POSTGIS_API_PORT')}",
         "shell": "bash"
+    },
+    "postgrest" : {
+        "url": f"http://gaia-postgrest:{getenv('GAIA_POSTGREST_API_PORT')}/rpc/",
+        "shell": "bash"   
     }
 }
+
+# define headers for different API flavors
 headers = {
-    "x-api-key": X_API_KEY,
-    "Content-Type": "application/octet-stream"
+    "gdsc-api": {
+        "x-api-key": X_API_KEY,
+        "Content-Type": "application/octet-stream"
+    },
+    "gdsc-pg": {
+        "Content-Type": "application/json; charset=utf-8",
+        "Accept": "application/json"
+    },
+    "gaia-pg": {}
 }
 
+# set CONSTANTS
 BASE_PATH='http://gaia-solr:8983/solr/dcat/select?wt=json&'
 SNIP_LENGTH = 180
 QUERY_FIELDS = ['gdsc_collections','dct_title','dcat_keyword','dct_description','gdsc_attributes']
 
-##
- # call api on ETL containers
- ##
-def call_etl_api(api,payload):
-    req = Request(apis[api]['url'], data=payload, headers=headers, method='POST')
-    resp = urlopen(req).read()
-    output = loads(resp.decode('utf-8').strip(),strict=False)
-    return output['res']
 
 ##
- # get solr data
+ # helper functions for communication and formatting
  ##
+
+
+def call_etl_api(api,func,params):
+    """
+    call api on ETL containers
+    """
+
+    # build payload according to api type
+    if GAIA_CATALOG_FLAVOR == "gdsc-api":
+        if func == "gdsc_exec": func = params['script']
+        if "params" in params: parameters = f"'{dumps(params['params'])}'"
+        else: parameters = ' '.join([params[param] for param in params])
+        payload = f"\n{apis[api]['shell']} {func}.sh {parameters}\n\n".encode('utf-8')
+    elif GAIA_CATALOG_FLAVOR == "gdsc-pg":
+        api = "postgrest"
+        payload = dumps(params).encode('utf-8')
+    elif GAIA_CATALOG_FLAVOR == "gaia-pg":
+        # not implemented
+        payload = "check if gaia table is loaded"
+
+    # build the request
+    req = Request(apis[api]['url'] if GAIA_CATALOG_FLAVOR == "gdsc-api" else f"{apis[api]['url']}{func}",data=payload,method='POST')
+    for header in headers[GAIA_CATALOG_FLAVOR]:
+        req.add_header(header,headers[GAIA_CATALOG_FLAVOR][header])
+
+    # make the request and read the response
+    resp = urlopen(req).read()
+    output = loads(resp.decode('utf-8').strip(),strict=False)
+    if output in ['null','None'] or output == None: output = []
+
+    return output['res'] if GAIA_CATALOG_FLAVOR == "gdsc-api" else output
+
+
+def get_layer_meta(layer_id):
+    """
+    get SOLR data for one layer
+    """
+
+    query_parameters = {"q": "gdsc_tablename:" + layer_id}
+    query_string  = urlencode(query_parameters)
+    connection = urlopen("{}{}".format(BASE_PATH, query_string))
+    response = simplejson.load(connection)
+    document = response['response']['docs'][0]
+
+    return document
+    
+
 def query_solr(path,parameters):
+    """
+    query solr api
+    """
 
     numresults = 1
     results = []
@@ -76,10 +138,11 @@ def query_solr(path,parameters):
 
     return results, numresults
 
-##
- # highlight found instances of query in document metadata
- ##
+
 def highlight_query(document,query):
+    """
+    highlight found instances of query in document metadata
+    """
 
     def add_tags(string_value,query):
         return re.sub(
@@ -112,16 +175,9 @@ def highlight_query(document,query):
     return document
 
 
-def get_layer_meta(layer_id):
-    """
-    get SOLR data for one layer
-    """
-    query_parameters = {"q": "gdsc_tablename:" + layer_id}
-    query_string  = urlencode(query_parameters)
-    connection = urlopen("{}{}".format(BASE_PATH, query_string))
-    response = simplejson.load(connection)
-    document = response['response']['docs'][0]
-    return document
+##
+ # route functions for app 
+ ##
 
 
 @app.route('/', methods=["GET","POST"])
@@ -129,6 +185,7 @@ def index():
     """
     run SOLR query and render results for main page
     """
+
     collection = 'all'
     query, active = None, None
     query_parameters = {"q": "gdsc_collections:*"}
@@ -190,9 +247,8 @@ def index():
                 entry['display_description'] = entry['dct_description'][0][0:SNIP_LENGTH] + '...'
 
     # check for loaded tables
-    payload = f"\n{apis['postgis']['shell']} get_public_tables.sh\n\n".encode('utf-8')
-    response = call_etl_api('postgis',payload)
-    loaded_tables = response.split()[2:-2]
+    loaded_tables = call_etl_api("postgis","gdsc_get_schema_tables",{"schema_name": "public"})
+    if GAIA_CATALOG_FLAVOR == "gdsc-api": loaded_tables = loaded_tables.split()[2:-2]
 
     # render the page
     if collection == "*": collection = 'all'
@@ -230,9 +286,8 @@ def detail(name_id):
         document['gdsc_derived'] = [attr.split(';') for attr in document['gdsc_derived']]
 
     # check for loaded variables
-    payload = f"\n{apis['postgis']['shell']} get_loaded_variables_for_table.sh {document['gdsc_tablename'][0]}\n\n".encode('utf-8')
-    response = call_etl_api('postgis',payload)
-    loaded_variables = response.split()[2:-2]
+    loaded_variables = call_etl_api("postgis","gdsc_get_loaded_variables_for_table",{"table_id": document['gdsc_tablename'][0]})
+    if GAIA_CATALOG_FLAVOR == "gdsc-api": loaded_variables = loaded_variables.split()[2:-2]
     
     # get json_ld 
     with open(f"/data/{name_id}/meta_json-ld_{name_id}.json", 'r', encoding='utf-8') as f:
@@ -248,34 +303,33 @@ def detail(name_id):
         json_ld=json_ld
     )
 
-##
- # load layer
- ##
+
 @app.route('/loadlayer/<layer_id>', methods=["GET","POST"])
 def loadlayer(layer_id):
+    """
+    load a layer given an id from the catalog
+    """
 
     # check if layer is already loaded
-    payload = f"\n{apis['postgis']['shell']} check_table_exists.sh {layer_id}\n\n".encode('utf-8')
-    response = call_etl_api('postgis',payload)
-    if response.split()[2] == 't':
-        return {'already loaded': layer_id}
+    loaded_tables = call_etl_api("postgis","gdsc_get_schema_tables",{"schema_name": "public"})
+    if GAIA_CATALOG_FLAVOR == "gdsc-api": loaded_tables = loaded_tables.split()[2:-2]
+    if layer_id in loaded_tables: return {'already loaded': layer_id}
 
     # check for dependencies and load recursively if needed
-    payload = f"\n{apis['postgis']['shell']} get_path_and_dependencies.sh {layer_id}\n\n".encode('utf-8')
-    response = call_etl_api('postgis',payload).split(' ')
+    response = call_etl_api("postgis","gdsc_path_and_dependencies",{"table_id": layer_id})
+    response = response.split(" ") if GAIA_CATALOG_FLAVOR == "gdsc-api" else response.split("\n")
     for layer in response[1:]: loadlayer(layer)
     data_path = response[0]
 
     # prepare response and get the ETL scripts
     response = {'load': layer_id}
     scripts = os.listdir(f'{data_path}/etl/')
-    scripts = [x.split('_')[-1][:-3] for x in scripts if x not in ['processStep','.DS_Store']]
+    scripts = [x.split('_')[-1][:-3] for x in scripts if x not in ['processStep','.DS_Store'] and 'derivative' not in x]
 
     # run the ETL scripts
     for api in apis:
         if api in scripts:
-            payload = f"\n{apis[api]['shell']} {data_path}/etl/{layer_id}_{api}.sh\n\n".encode('utf-8')
-            response[api] = call_etl_api(api,payload)
+            response[api] = call_etl_api(api,"gdsc_exec",{"shell": apis[api]['shell'], "script": f"{data_path}/etl/{layer_id}_{api}"})
 
     return response
 
@@ -298,23 +352,45 @@ def load(layer_id,variable_id):
 
     # get the layer and variable metadata from SOLR
     document = get_layer_meta(layer_id)
-    variable = [attr for attr in document['gdsc_attributes'] if variable_id in attr][0].split(";")
+    variable = [attr for attr in document['gdsc_attributes'] if variable_id in attr][0].split(";")  
     variable = [var if var !='' else 'Null' for var in variable]
 
     # construct and make request
-    parameters = "' '".join(variable[:-1])
-    payload = (
-        f"\n{apis['postgis']['shell']} load_variable.sh "
-        f"{layer_id} '{document['dct_description'][0]}' '{document['locn_geometry'][0]}' '{document['gdsc_label'][0]}' "
-        f"'{'Null' if 'gdsc_nodata' not in document else document['gdsc_nodata'][1]}' '{parameters}'\n\n"
-    ).encode('utf-8')
-    response = call_etl_api('postgis',payload)
+    #parameters = "' '".join(variable[:-1])
+    #payload = (
+    #    f"\n{apis['postgis']['shell']} load_variable.sh "
+    #    f"{layer_id} '{document['dct_description'][0]}' '{document['locn_geometry'][0]}' '{document['gdsc_label'][0]}' "
+    #    f"'{'Null' if 'gdsc_nodata' not in document else document['gdsc_nodata'][1]}' '{parameters}'\n\n"
+    #).encode('utf-8')
+    parameters = {
+        "params": {
+            "table_id": layer_id,
+            "table_description": document['dct_description'][0],
+            "geom_type": document['locn_geometry'][0],
+            "geom_label": document['gdsc_label'][0],
+            "variable_nodata": 'Null' if 'gdsc_nodata' not in document else document['gdsc_nodata'][1],
+            "variable_id": variable[0],
+            "description": variable[1],
+            "source": variable[2],
+            "type": variable[3],
+            "unit": variable[4],
+            "unit_concept_id": None if variable[5] == "Null" else int(variable[5]),
+            "min_val": float(variable[6]),
+            "max_val": float(variable[7]),
+            "start_date": datetime.strptime(variable[8],"%m/%d/%y").strftime("%Y-%m-%d"),
+            "end_date": datetime.strptime(variable[9],"%m/%d/%y").strftime("%Y-%m-%d"),
+            "concept_id": None if variable[10] == "Null" else int(variable[10])
+        }
+    }
+    response = call_etl_api("postgis","gdsc_load_variable",parameters)
 
     return response
+
 
 ##
  # always get the list of collections for reference
  ##
+
 COLLECTIONS, COLLECTIONS_COUNT = query_solr(
     'http://gaia-solr:8983/solr/collections/select?wt=json&',
     {
@@ -326,8 +402,10 @@ keys = [item['Collection_ID'][0] for item in COLLECTIONS]
 COLLECTIONS = dict(zip(keys, COLLECTIONS))
 COLLECTIONS = OrderedDict(sorted(COLLECTIONS.items(), key=lambda i: i[0].lower()))
 
+
 ##
  # run the app if called from the command line
  ##
+
 if __name__ == '__main__':
     app.run(host='0.0.0.0',debug=True,use_reloader=True,port=5000)

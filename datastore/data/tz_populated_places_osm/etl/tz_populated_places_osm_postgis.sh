@@ -9,8 +9,6 @@
 # Created by etl() on 2025-10-05 15:59:50
 # Do not edit directly
 
-export PGPASSWORD=$(cat $POSTGRES_PASSWORD_FILE)
-export POSTGRES_PASSWORD=$(cat $POSTGRES_PASSWORD_FILE)
 # Select proper geometry into the named table
 psql -d $POSTGRES_DB -U $POSTGRES_USER -p $POSTGRES_PORT -h gaia-db -c "
 SELECT * INTO tz_populated_places_osm FROM points;

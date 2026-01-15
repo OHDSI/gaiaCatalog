@@ -9,8 +9,6 @@
 # Created by etl() on 2025-10-05 15:59:43
 # Do not edit directly
 
-export PGPASSWORD=$(cat $POSTGRES_PASSWORD_FILE)
-export POSTGRES_PASSWORD=$(cat $POSTGRES_PASSWORD_FILE)
 # Create copy of geom dependency
 pg_dump -d $POSTGRES_DB -U $POSTGRES_USER -p $POSTGRES_PORT -h gaia-db -t tz_2022_nbs_districts | sed 's/tz_2022_nbs_districts/tz_2022_nbs_magu_district/g' | psql -d $POSTGRES_DB -U $POSTGRES_USER -p $POSTGRES_PORT -h gaia-db 
 
