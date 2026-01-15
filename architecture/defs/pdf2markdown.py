@@ -3,6 +3,7 @@ import os
 from pathlib import Path
 import argparse
 
+#TODO   convert this to using Chonkie
 
 def extract_document_to_markdown(source_path, output_file=None):
     """
