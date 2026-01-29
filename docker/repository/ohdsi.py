@@ -347,6 +347,17 @@ def load(layer_id,variable_id):
     :rtype: dict
     """
 
+    def make_iso_date(date_string):
+        """
+        validates if a time string matches the expected format pattern.
+        """
+        try:
+            datetime.strptime(date_string, "%m/%d/%y")
+            return datetime.strptime(date_string,"%m/%d/%y").strftime("%Y-%m-%d")
+        except ValueError:
+            # assumes it is already iso
+            return datetime.strptime(date_string,"%Y-%m-%d").strftime("%Y-%m-%d")
+
     # make sure the source layer is loaded
     load_layer = loadlayer(layer_id)
 
@@ -377,8 +388,8 @@ def load(layer_id,variable_id):
             "unit_concept_id": None if variable[5] == "Null" else int(variable[5]),
             "min_val": float(variable[6]),
             "max_val": float(variable[7]),
-            "start_date": datetime.strptime(variable[8],"%m/%d/%y").strftime("%Y-%m-%d"),
-            "end_date": datetime.strptime(variable[9],"%m/%d/%y").strftime("%Y-%m-%d"),
+            "start_date": make_iso_date(variable[8]),
+            "end_date": make_iso_date(variable[9]),
             "concept_id": None if variable[10] == "Null" else int(variable[10])
         }
     }
