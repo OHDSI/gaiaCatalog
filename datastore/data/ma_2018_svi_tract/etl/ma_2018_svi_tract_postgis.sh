@@ -6,9 +6,11 @@
 # Data source: https://svi.cdc.gov/Documents/Data/2018/db/states/Massachusetts.zip
 # Destination postGIS table: ma_2018_svi_tract
 #
-# Created by etl() on 2025-10-05 15:59:39
+# Created by etl() on 2026-02-10 13:37:46
 # Do not edit directly
 
+export PGPASSWORD=$(cat $POSTGRES_PASSWORD_FILE)
+export POSTGRES_PASSWORD=$(cat $POSTGRES_PASSWORD_FILE)
 # remove duplicate points and make geometries valid:
 psql -d $POSTGRES_DB -U $POSTGRES_USER -p $POSTGRES_PORT -h gaia-db -c "
 UPDATE ma_2018_svi_tract

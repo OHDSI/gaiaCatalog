@@ -11,11 +11,20 @@
   },
   "@type": "Dataset",
   "@id": "https://gdsc.idsc.miami.edu/detail/ma_2022_svi_tract",
-  "includedInDataCatalog": {
-    "@type": "DataCatalog",
-    "name": "Geospatial Digital Special Collections",
-    "url": "https://gdsc.idsc.miami.edu"
-  },
+  "includedInDataCatalog": [
+    {
+      "@type": "DataCatalog",
+      "@id": "https://gdsc.idsc.miami.edu",
+      "name": "Geospatial Digital Special Collections",
+      "url": "https://gdsc.idsc.miami.edu"
+    },
+    {
+      "@type": "DataCatalog",
+      "name": "mdc-health-outcomes",
+      "@id": "https://gdsc.idsc.miami.edu/?collection=mdc-health-outcomes",
+      "url": "https://gdsc.idsc.miami.edu/?collection=mdc-health-outcomes"
+    }
+  ],
   "name": "2022 Massachusetts CDC Social Vulnerability Index (tracts)",
   "creator": [
     {
@@ -32,8 +41,17 @@
   ],
   "spatialCoverage": [
     {
+      "@id": "https://www.geonames.org/6254926",
       "@type": "Place",
       "name": "Massachusetts"
+    },
+    {
+      "@type": "Place",
+      "name": "bbox",
+      "geo": {
+        "@type": "GeoShape",
+        "polygon": "-73.508142 41.237964 -69.928393 41.237964 -69.928393 42.886589 -73.508142 42.886589 -73.508142 41.237964"
+      }
     }
   ],
   "type": "Vector Dataset",
@@ -111,7 +129,7 @@
       "potentialAction": {
         "@type": "Action",
         "name": "Pseudo Code",
-        "description": "#########\n# GDSC ETL is performed in two steps: shell script to ETL data into postgres\n# and then additional transformations with SQL in postGIS (if needed).\n####\n\n#########\n# Step 1 - bash script (pseudo code)\n####\n\n# create directory structure and move into it\nmkdir -p /data/ma_2022_svi_tract/{download,etl} && cd /data/ma_2022_svi_tract\n\n# set update flag based on last update and update frequency\ndo_update=0 if date() < last_update + update_frequency else do_update = 1\n\n# download if update flag is set:\nif do_update == 1 then\nwget -O download/ma_2022_svi_tract.zip 'https://svi.cdc.gov/Documents/Data/2022/db/states/Massachusetts.zip'\n\n# unzip to download directory if update flag is set\nif do_update == 1 then\nunzip -d download download/ma_2022_svi_tract.zip && rm download/ma_2022_svi_tract.zip\n\n# load into postGIS with:\n  ogr2ogr -lco GEOMETRY_NAME=geom -f PostgreSQL PG:\"<postgres connection>\" download/SVI2022_MASSACHUSETTS_tract.gdb -nlt multipolygon -nln ma_2022_svi_tract\n\n#########\n# Step 2 - SQL script (pseudo code):\n####\n\n# remove duplicate points and make geometries valid:\nUPDATE ma_2022_svi_tract\n  SET geom=ST_MakeValid(ST_RemoveRepeatedPoints(geom));\n\n# add local geometry column and reproject existing geometries into local EPSG:\nSELECT AddGeometryColumn (\n  'ma_2022_svi_tract',\n  'geom_local', 26986, 'multipolygon', 2\n);\nUPDATE ma_2022_svi_tract\n  SET geom_local=ST_MakeValid(ST_RemoveRepeatedPoints(ST_Transform(ST_Multi(geom),26986)));\nCREATE INDEX ma_2022_svi_tract_geom_local_idx\n  ON ma_2022_svi_tract\n  USING GIST (geom_local);\nNOTIFY pgrst, 'reload schema';\n# Move into corrrect directory and create derivative directory in data package on osgeo\ncd /data/ma_2022_svi_tract/\nmkdir -p derived\n\nexport PGPASSWORD=SuperSecret\n# Move into correct directory\ncd /data/ma_2022_svi_tract/\n\nexport PGPASSWORD=SuperSecret\n# Create pg_dump of table SQL in derivate directory on postgis.\npg_dump <postgres opts> -h gaia-db -t ma_2022_svi_tract > derived/ma_2022_svi_tract.sql\n\n# Create downloadable tarfile of SQL in derivative directory on postgis\nrm -f derived/ma_2022_svi_tract.sql.tar.gz\ntar -czf derived/ma_2022_svi_tract.sql.tar.gz meta_dcat_ma_2022_svi_tract.json -C derived ma_2022_svi_tract.sql\n\n",
+        "description": "TODO",
         "result": {
           "@type": "Dataset",
           "encodingFormat": "sql",
@@ -135,13 +153,9 @@
         },
         "instrument": {
           "@type": "SoftwareApplication",
-          "@id": [
-            "https://github.com/Geospatial-Digital-Special-Collections/tools"
-          ],
+          "@id": "https://github.com/Geospatial-Digital-Special-Collections/tools",
           "featureList": "wget",
-          "downloadUrl": [
-            "https://github.com/Geospatial-Digital-Special-Collections/tools.git"
-          ]
+          "downloadUrl": "https://github.com/Geospatial-Digital-Special-Collections/tools.git"
         },
         "result": {
           "@type": "Dataset",
@@ -162,9 +176,7 @@
         "2052497175"
       ],
       "qudt:dataType": "float8",
-      "unitText": "square miles",
-      "minValue": "0.016749490862",
-      "maxValue": "158.848971707934"
+      "unitText": "square miles"
     },
     {
       "@type": "PropertyValue",
@@ -184,8 +196,6 @@
       ],
       "qudt:dataType": "int4",
       "unitText": "persons",
-      "minValue": "0",
-      "maxValue": "5835",
       "startDate": "2020-01-01",
       "endDate": "2020-12-31"
     },
@@ -198,8 +208,6 @@
       ],
       "qudt:dataType": "int4",
       "unitText": "persons",
-      "minValue": "0",
-      "maxValue": "2415",
       "startDate": "2020-01-01",
       "endDate": "2020-12-31"
     },
@@ -212,8 +220,6 @@
       ],
       "qudt:dataType": "int4",
       "unitText": "persons",
-      "minValue": "0",
-      "maxValue": "3082",
       "startDate": "2020-01-01",
       "endDate": "2020-12-31"
     },
@@ -226,8 +232,6 @@
       ],
       "qudt:dataType": "int4",
       "unitText": "persons",
-      "minValue": "0",
-      "maxValue": "218",
       "startDate": "2020-01-01",
       "endDate": "2020-12-31"
     },
@@ -240,8 +244,6 @@
       ],
       "qudt:dataType": "int4",
       "unitText": "persons",
-      "minValue": "0",
-      "maxValue": "2982",
       "startDate": "2020-01-01",
       "endDate": "2020-12-31"
     },
@@ -254,8 +256,6 @@
       ],
       "qudt:dataType": "int4",
       "unitText": "housing units",
-      "minValue": "0",
-      "maxValue": "438",
       "startDate": "2020-01-01",
       "endDate": "2020-12-31"
     },
@@ -268,8 +268,6 @@
       ],
       "qudt:dataType": "int4",
       "unitText": "persons",
-      "minValue": "0",
-      "maxValue": "91121",
       "startDate": "2020-01-01",
       "endDate": "2020-12-31"
     },
@@ -282,8 +280,6 @@
       ],
       "qudt:dataType": "int4",
       "unitText": "persons",
-      "minValue": "0",
-      "maxValue": "1976",
       "startDate": "2020-01-01",
       "endDate": "2020-12-31"
     },
@@ -296,8 +292,6 @@
       ],
       "qudt:dataType": "int4",
       "unitText": "persons",
-      "minValue": "0",
-      "maxValue": "11854",
       "startDate": "2020-01-01",
       "endDate": "2020-12-31"
     },
@@ -310,8 +304,6 @@
       ],
       "qudt:dataType": "int4",
       "unitText": "housing units",
-      "minValue": "0",
-      "maxValue": "1875",
       "startDate": "2020-01-01",
       "endDate": "2020-12-31"
     },
@@ -324,8 +316,6 @@
       ],
       "qudt:dataType": "int4",
       "unitText": "households",
-      "minValue": "0",
-      "maxValue": "4117",
       "startDate": "2020-01-01",
       "endDate": "2020-12-31"
     },
@@ -338,8 +328,6 @@
       ],
       "qudt:dataType": "int4",
       "unitText": "persons",
-      "minValue": "0",
-      "maxValue": "6732",
       "startDate": "2020-01-01",
       "endDate": "2020-12-31"
     },
@@ -352,8 +340,6 @@
       ],
       "qudt:dataType": "int4",
       "unitText": "housing units",
-      "minValue": "0",
-      "maxValue": "5176",
       "startDate": "2020-01-01",
       "endDate": "2020-12-31"
     },
@@ -366,8 +352,6 @@
       ],
       "qudt:dataType": "int4",
       "unitText": "persons",
-      "minValue": "0",
-      "maxValue": "2424",
       "startDate": "2020-01-01",
       "endDate": "2020-12-31"
     },
@@ -380,8 +364,6 @@
       ],
       "qudt:dataType": "int4",
       "unitText": "persons",
-      "minValue": "0",
-      "maxValue": "8430",
       "startDate": "2020-01-01",
       "endDate": "2020-12-31"
     },
@@ -394,8 +376,6 @@
       ],
       "qudt:dataType": "int4",
       "unitText": "mobile homes",
-      "minValue": "0",
-      "maxValue": "885",
       "startDate": "2020-01-01",
       "endDate": "2020-12-31"
     },
@@ -408,8 +388,6 @@
       ],
       "qudt:dataType": "int4",
       "unitText": "structures",
-      "minValue": "0",
-      "maxValue": "2709",
       "startDate": "2020-01-01",
       "endDate": "2020-12-31"
     },
@@ -422,8 +400,6 @@
       ],
       "qudt:dataType": "int4",
       "unitText": "persons",
-      "minValue": "0",
-      "maxValue": "126",
       "startDate": "2020-01-01",
       "endDate": "2020-12-31"
     },
@@ -436,8 +412,6 @@
       ],
       "qudt:dataType": "int4",
       "unitText": "persons",
-      "minValue": "0",
-      "maxValue": "1702",
       "startDate": "2020-01-01",
       "endDate": "2020-12-31"
     },
@@ -450,8 +424,6 @@
       ],
       "qudt:dataType": "int4",
       "unitText": "households",
-      "minValue": "0",
-      "maxValue": "888",
       "startDate": "2020-01-01",
       "endDate": "2020-12-31"
     },
@@ -464,8 +436,6 @@
       ],
       "qudt:dataType": "int4",
       "unitText": "households",
-      "minValue": "0",
-      "maxValue": "1586",
       "startDate": "2020-01-01",
       "endDate": "2020-12-31"
     },
@@ -478,8 +448,6 @@
       ],
       "qudt:dataType": "int4",
       "unitText": "persons",
-      "minValue": "0",
-      "maxValue": "856",
       "startDate": "2020-01-01",
       "endDate": "2020-12-31"
     },
@@ -492,8 +460,6 @@
       ],
       "qudt:dataType": "int4",
       "unitText": "households",
-      "minValue": "0",
-      "maxValue": "3302",
       "startDate": "2020-01-01",
       "endDate": "2020-12-31"
     },
@@ -506,8 +472,6 @@
       ],
       "qudt:dataType": "int4",
       "unitText": "persons",
-      "minValue": "0",
-      "maxValue": "717",
       "startDate": "2020-01-01",
       "endDate": "2020-12-31"
     },
@@ -520,8 +484,6 @@
       ],
       "qudt:dataType": "int4",
       "unitText": "persons",
-      "minValue": "0",
-      "maxValue": "11895",
       "startDate": "2020-01-01",
       "endDate": "2020-12-31"
     },
@@ -534,8 +496,6 @@
       ],
       "qudt:dataType": "int4",
       "unitText": "persons",
-      "minValue": "0",
-      "maxValue": "1271",
       "startDate": "2020-01-01",
       "endDate": "2020-12-31"
     },
@@ -548,8 +508,6 @@
       ],
       "qudt:dataType": "int4",
       "unitText": "persons",
-      "minValue": "0",
-      "maxValue": "746",
       "startDate": "2020-01-01",
       "endDate": "2020-12-31"
     },
@@ -562,8 +520,6 @@
       ],
       "qudt:dataType": "int4",
       "unitText": "persons",
-      "minValue": "0",
-      "maxValue": "1276",
       "startDate": "2020-01-01",
       "endDate": "2020-12-31"
     },
@@ -576,8 +532,6 @@
       ],
       "qudt:dataType": "float8",
       "unitText": "percent",
-      "minValue": "0",
-      "maxValue": "76.7",
       "startDate": "2020-01-01",
       "endDate": "2020-12-31"
     },
@@ -590,8 +544,6 @@
       ],
       "qudt:dataType": "float8",
       "unitText": "percent",
-      "minValue": "0",
-      "maxValue": "45",
       "startDate": "2020-01-01",
       "endDate": "2020-12-31"
     },
@@ -604,8 +556,6 @@
       ],
       "qudt:dataType": "float8",
       "unitText": "percent",
-      "minValue": "0",
-      "maxValue": "100",
       "startDate": "2020-01-01",
       "endDate": "2020-12-31"
     },
@@ -618,8 +568,6 @@
       ],
       "qudt:dataType": "float8",
       "unitText": "percent",
-      "minValue": "0",
-      "maxValue": "5.9",
       "startDate": "2020-01-01",
       "endDate": "2020-12-31"
     },
@@ -632,8 +580,6 @@
       ],
       "qudt:dataType": "float8",
       "unitText": "percent",
-      "minValue": "0",
-      "maxValue": "60.3",
       "startDate": "2020-01-01",
       "endDate": "2020-12-31"
     },
@@ -646,8 +592,6 @@
       ],
       "qudt:dataType": "float8",
       "unitText": "percent",
-      "minValue": "0",
-      "maxValue": "27.3",
       "startDate": "2020-01-01",
       "endDate": "2020-12-31"
     },
@@ -660,8 +604,6 @@
       ],
       "qudt:dataType": "float8",
       "unitText": "percent",
-      "minValue": "0",
-      "maxValue": "100",
       "startDate": "2020-01-01",
       "endDate": "2020-12-31"
     },
@@ -674,8 +616,6 @@
       ],
       "qudt:dataType": "float8",
       "unitText": "percent",
-      "minValue": "0",
-      "maxValue": "100",
       "startDate": "2020-01-01",
       "endDate": "2020-12-31"
     },
@@ -688,8 +628,6 @@
       ],
       "qudt:dataType": "float8",
       "unitText": "percent",
-      "minValue": "0",
-      "maxValue": "87.5",
       "startDate": "2020-01-01",
       "endDate": "2020-12-31"
     },
@@ -702,8 +640,6 @@
       ],
       "qudt:dataType": "float8",
       "unitText": "percent",
-      "minValue": "0",
-      "maxValue": "97.4",
       "startDate": "2020-01-01",
       "endDate": "2020-12-31"
     },
@@ -716,8 +652,6 @@
       ],
       "qudt:dataType": "float8",
       "unitText": "percent",
-      "minValue": "0",
-      "maxValue": "46",
       "startDate": "2020-01-01",
       "endDate": "2020-12-31"
     },
@@ -730,8 +664,6 @@
       ],
       "qudt:dataType": "float8",
       "unitText": "percent",
-      "minValue": "0",
-      "maxValue": "99.9",
       "startDate": "2020-01-01",
       "endDate": "2020-12-31"
     },
@@ -744,8 +676,6 @@
       ],
       "qudt:dataType": "float8",
       "unitText": "percent",
-      "minValue": "0",
-      "maxValue": "31.7",
       "startDate": "2020-01-01",
       "endDate": "2020-12-31"
     },
@@ -758,8 +688,6 @@
       ],
       "qudt:dataType": "float8",
       "unitText": "percent",
-      "minValue": "0",
-      "maxValue": "100",
       "startDate": "2020-01-01",
       "endDate": "2020-12-31"
     },
@@ -772,8 +700,6 @@
       ],
       "qudt:dataType": "float8",
       "unitText": "percent",
-      "minValue": "0",
-      "maxValue": "4.8",
       "startDate": "2020-01-01",
       "endDate": "2020-12-31"
     },
@@ -786,8 +712,6 @@
       ],
       "qudt:dataType": "float8",
       "unitText": "percent",
-      "minValue": "0",
-      "maxValue": "54",
       "startDate": "2020-01-01",
       "endDate": "2020-12-31"
     },
@@ -800,8 +724,6 @@
       ],
       "qudt:dataType": "float8",
       "unitText": "percent",
-      "minValue": "0",
-      "maxValue": "51.1",
       "startDate": "2020-01-01",
       "endDate": "2020-12-31"
     },
@@ -814,8 +736,6 @@
       ],
       "qudt:dataType": "float8",
       "unitText": "percent",
-      "minValue": "0",
-      "maxValue": "100",
       "startDate": "2020-01-01",
       "endDate": "2020-12-31"
     },
@@ -828,8 +748,6 @@
       ],
       "qudt:dataType": "float8",
       "unitText": "percent",
-      "minValue": "0",
-      "maxValue": "23.6",
       "startDate": "2020-01-01",
       "endDate": "2020-12-31"
     },
@@ -842,8 +760,6 @@
       ],
       "qudt:dataType": "float8",
       "unitText": "percent",
-      "minValue": "0",
-      "maxValue": "100",
       "startDate": "2020-01-01",
       "endDate": "2020-12-31"
     },
@@ -856,8 +772,6 @@
       ],
       "qudt:dataType": "float8",
       "unitText": "percent",
-      "minValue": "0",
-      "maxValue": "46.4",
       "startDate": "2020-01-01",
       "endDate": "2020-12-31"
     },
@@ -870,8 +784,6 @@
       ],
       "qudt:dataType": "float8",
       "unitText": "percent",
-      "minValue": "0",
-      "maxValue": "39.1",
       "startDate": "2020-01-01",
       "endDate": "2020-12-31"
     },
@@ -884,8 +796,6 @@
       ],
       "qudt:dataType": "float8",
       "unitText": "percent",
-      "minValue": "0",
-      "maxValue": "62.6",
       "startDate": "2020-01-01",
       "endDate": "2020-12-31"
     },
@@ -898,8 +808,6 @@
       ],
       "qudt:dataType": "float8",
       "unitText": "percent",
-      "minValue": "0",
-      "maxValue": "22.3",
       "startDate": "2020-01-01",
       "endDate": "2020-12-31"
     },
@@ -912,8 +820,6 @@
       ],
       "qudt:dataType": "float8",
       "unitText": "percentile",
-      "minValue": "0",
-      "maxValue": "1",
       "startDate": "2020-01-01",
       "endDate": "2020-12-31"
     },
@@ -926,8 +832,6 @@
       ],
       "qudt:dataType": "float8",
       "unitText": "percentile",
-      "minValue": "0",
-      "maxValue": "1",
       "startDate": "2020-01-01",
       "endDate": "2020-12-31"
     },
@@ -940,8 +844,6 @@
       ],
       "qudt:dataType": "float8",
       "unitText": "percentile",
-      "minValue": "0",
-      "maxValue": "1",
       "startDate": "2020-01-01",
       "endDate": "2020-12-31"
     },
@@ -954,8 +856,6 @@
       ],
       "qudt:dataType": "float8",
       "unitText": "percentile",
-      "minValue": "0",
-      "maxValue": "1",
       "startDate": "2020-01-01",
       "endDate": "2020-12-31"
     },
@@ -968,8 +868,6 @@
       ],
       "qudt:dataType": "float8",
       "unitText": "percentile",
-      "minValue": "0",
-      "maxValue": "0.9956",
       "startDate": "2020-01-01",
       "endDate": "2020-12-31"
     },
@@ -982,8 +880,6 @@
       ],
       "qudt:dataType": "float8",
       "unitText": "percentile",
-      "minValue": "0",
-      "maxValue": "1",
       "startDate": "2020-01-01",
       "endDate": "2020-12-31"
     },
@@ -996,8 +892,6 @@
       ],
       "qudt:dataType": "float8",
       "unitText": "percentile",
-      "minValue": "0",
-      "maxValue": "1",
       "startDate": "2020-01-01",
       "endDate": "2020-12-31"
     },
@@ -1010,8 +904,6 @@
       ],
       "qudt:dataType": "float8",
       "unitText": "percentile",
-      "minValue": "0",
-      "maxValue": "1",
       "startDate": "2020-01-01",
       "endDate": "2020-12-31"
     },
@@ -1024,8 +916,6 @@
       ],
       "qudt:dataType": "float8",
       "unitText": "percentile",
-      "minValue": "0",
-      "maxValue": "1",
       "startDate": "2020-01-01",
       "endDate": "2020-12-31"
     },
@@ -1038,8 +928,6 @@
       ],
       "qudt:dataType": "float8",
       "unitText": "percentile",
-      "minValue": "0",
-      "maxValue": "0.9994",
       "startDate": "2020-01-01",
       "endDate": "2020-12-31"
     },
@@ -1052,8 +940,6 @@
       ],
       "qudt:dataType": "float8",
       "unitText": "percentile",
-      "minValue": "0",
-      "maxValue": "1",
       "startDate": "2020-01-01",
       "endDate": "2020-12-31"
     },
@@ -1066,8 +952,6 @@
       ],
       "qudt:dataType": "float8",
       "unitText": "percentile",
-      "minValue": "0",
-      "maxValue": "1",
       "startDate": "2020-01-01",
       "endDate": "2020-12-31"
     },
@@ -1080,8 +964,6 @@
       ],
       "qudt:dataType": "float8",
       "unitText": "percentile",
-      "minValue": "0",
-      "maxValue": "1",
       "startDate": "2020-01-01",
       "endDate": "2020-12-31"
     },
@@ -1094,8 +976,6 @@
       ],
       "qudt:dataType": "float8",
       "unitText": "percentile",
-      "minValue": "0",
-      "maxValue": "1",
       "startDate": "2020-01-01",
       "endDate": "2020-12-31"
     },
@@ -1108,8 +988,6 @@
       ],
       "qudt:dataType": "float8",
       "unitText": "percentile",
-      "minValue": "0",
-      "maxValue": "1",
       "startDate": "2020-01-01",
       "endDate": "2020-12-31"
     },
@@ -1122,8 +1000,6 @@
       ],
       "qudt:dataType": "float8",
       "unitText": "percentile",
-      "minValue": "0",
-      "maxValue": "1",
       "startDate": "2020-01-01",
       "endDate": "2020-12-31"
     },
@@ -1134,9 +1010,7 @@
       "propertyID": [
         "2052499366"
       ],
-      "qudt:dataType": "int2",
-      "minValue": "0",
-      "maxValue": "1",
+      "qudt:dataType": "boolean",
       "startDate": "2020-01-01",
       "endDate": "2020-12-31"
     },
@@ -1147,9 +1021,7 @@
       "propertyID": [
         "2052499365"
       ],
-      "qudt:dataType": "int2",
-      "minValue": "0",
-      "maxValue": "1",
+      "qudt:dataType": "boolean",
       "startDate": "2020-01-01",
       "endDate": "2020-12-31"
     },
@@ -1160,9 +1032,7 @@
       "propertyID": [
         "2052499372"
       ],
-      "qudt:dataType": "int2",
-      "minValue": "0",
-      "maxValue": "1",
+      "qudt:dataType": "boolean",
       "startDate": "2020-01-01",
       "endDate": "2020-12-31"
     },
@@ -1173,9 +1043,7 @@
       "propertyID": [
         "2052499362"
       ],
-      "qudt:dataType": "int2",
-      "minValue": "0",
-      "maxValue": "1",
+      "qudt:dataType": "boolean",
       "startDate": "2020-01-01",
       "endDate": "2020-12-31"
     },
@@ -1186,9 +1054,7 @@
       "propertyID": [
         "2052499363"
       ],
-      "qudt:dataType": "int2",
-      "minValue": "0",
-      "maxValue": "1",
+      "qudt:dataType": "boolean",
       "startDate": "2020-01-01",
       "endDate": "2020-12-31"
     },
@@ -1199,9 +1065,7 @@
       "propertyID": [
         "2052499369"
       ],
-      "qudt:dataType": "int2",
-      "minValue": "0",
-      "maxValue": "1",
+      "qudt:dataType": "boolean",
       "startDate": "2020-01-01",
       "endDate": "2020-12-31"
     },
@@ -1212,9 +1076,7 @@
       "propertyID": [
         "2052499358"
       ],
-      "qudt:dataType": "int2",
-      "minValue": "0",
-      "maxValue": "1",
+      "qudt:dataType": "boolean",
       "startDate": "2020-01-01",
       "endDate": "2020-12-31"
     },
@@ -1225,9 +1087,7 @@
       "propertyID": [
         "2052499368"
       ],
-      "qudt:dataType": "int2",
-      "minValue": "0",
-      "maxValue": "1",
+      "qudt:dataType": "boolean",
       "startDate": "2020-01-01",
       "endDate": "2020-12-31"
     },
@@ -1238,9 +1098,7 @@
       "propertyID": [
         "2052499367"
       ],
-      "qudt:dataType": "int2",
-      "minValue": "0",
-      "maxValue": "1",
+      "qudt:dataType": "boolean",
       "startDate": "2020-01-01",
       "endDate": "2020-12-31"
     },
@@ -1251,9 +1109,7 @@
       "propertyID": [
         "2052499371"
       ],
-      "qudt:dataType": "int2",
-      "minValue": "0",
-      "maxValue": "1",
+      "qudt:dataType": "boolean",
       "startDate": "2020-01-01",
       "endDate": "2020-12-31"
     },
@@ -1264,9 +1120,7 @@
       "propertyID": [
         "2052499361"
       ],
-      "qudt:dataType": "int2",
-      "minValue": "0",
-      "maxValue": "1",
+      "qudt:dataType": "boolean",
       "startDate": "2020-01-01",
       "endDate": "2020-12-31"
     },
@@ -1277,9 +1131,7 @@
       "propertyID": [
         "2052499370"
       ],
-      "qudt:dataType": "int2",
-      "minValue": "0",
-      "maxValue": "1",
+      "qudt:dataType": "boolean",
       "startDate": "2020-01-01",
       "endDate": "2020-12-31"
     },
@@ -1290,9 +1142,7 @@
       "propertyID": [
         "2052499364"
       ],
-      "qudt:dataType": "int2",
-      "minValue": "0",
-      "maxValue": "1",
+      "qudt:dataType": "boolean",
       "startDate": "2020-01-01",
       "endDate": "2020-12-31"
     },
@@ -1303,9 +1153,7 @@
       "propertyID": [
         "2052499360"
       ],
-      "qudt:dataType": "int2",
-      "minValue": "0",
-      "maxValue": "1",
+      "qudt:dataType": "boolean",
       "startDate": "2020-01-01",
       "endDate": "2020-12-31"
     },
@@ -1316,9 +1164,7 @@
       "propertyID": [
         "2052497702"
       ],
-      "qudt:dataType": "int2",
-      "minValue": "0",
-      "maxValue": "5",
+      "qudt:dataType": "int4",
       "startDate": "2020-01-01",
       "endDate": "2020-12-31"
     },
@@ -1329,9 +1175,7 @@
       "propertyID": [
         "2052497705"
       ],
-      "qudt:dataType": "int2",
-      "minValue": "0",
-      "maxValue": "4",
+      "qudt:dataType": "int4",
       "startDate": "2020-01-01",
       "endDate": "2020-12-31"
     },
@@ -1342,9 +1186,7 @@
       "propertyID": [
         "2052497703"
       ],
-      "qudt:dataType": "int2",
-      "minValue": "0",
-      "maxValue": "1",
+      "qudt:dataType": "int4",
       "startDate": "2020-01-01",
       "endDate": "2020-12-31"
     },
@@ -1355,9 +1197,7 @@
       "propertyID": [
         "2052497704"
       ],
-      "qudt:dataType": "int2",
-      "minValue": "0",
-      "maxValue": "4",
+      "qudt:dataType": "int4",
       "startDate": "2020-01-01",
       "endDate": "2020-12-31"
     },
@@ -1368,9 +1208,7 @@
       "propertyID": [
         "2052497701"
       ],
-      "qudt:dataType": "int2",
-      "minValue": "0",
-      "maxValue": "12",
+      "qudt:dataType": "int4",
       "startDate": "2020-01-01",
       "endDate": "2020-12-31"
     },
@@ -1381,9 +1219,7 @@
       "propertyID": [
         "2052499373"
       ],
-      "qudt:dataType": "int2",
-      "minValue": "0",
-      "maxValue": "1",
+      "qudt:dataType": "boolean",
       "startDate": "2020-01-01",
       "endDate": "2020-12-31"
     },
@@ -1394,9 +1230,7 @@
       "propertyID": [
         "2052499359"
       ],
-      "qudt:dataType": "int2",
-      "minValue": "0",
-      "maxValue": "1",
+      "qudt:dataType": "boolean",
       "startDate": "2020-01-01",
       "endDate": "2020-12-31"
     },
@@ -1429,10 +1263,8 @@
       "propertyID": [
         "2052499782"
       ],
-      "qudt:dataType": "int4",
+      "qudt:dataType": "float8",
       "unitText": "moe",
-      "minValue": "2",
-      "maxValue": "1217",
       "startDate": "2020-01-01",
       "endDate": "2020-12-31"
     },
@@ -1443,10 +1275,8 @@
       "propertyID": [
         "2052498114"
       ],
-      "qudt:dataType": "int4",
+      "qudt:dataType": "float8",
       "unitText": "moe",
-      "minValue": "2",
-      "maxValue": "781",
       "startDate": "2020-01-01",
       "endDate": "2020-12-31"
     },
@@ -1457,10 +1287,8 @@
       "propertyID": [
         "2052498112"
       ],
-      "qudt:dataType": "int4",
+      "qudt:dataType": "float8",
       "unitText": "moe",
-      "minValue": "2",
-      "maxValue": "730",
       "startDate": "2020-01-01",
       "endDate": "2020-12-31"
     },
@@ -1471,10 +1299,8 @@
       "propertyID": [
         "2052499860"
       ],
-      "qudt:dataType": "int4",
+      "qudt:dataType": "float8",
       "unitText": "moe",
-      "minValue": "1",
-      "maxValue": "174",
       "startDate": "2020-01-01",
       "endDate": "2020-12-31"
     },
@@ -1485,10 +1311,8 @@
       "propertyID": [
         "2052499832"
       ],
-      "qudt:dataType": "int4",
+      "qudt:dataType": "float8",
       "unitText": "moe",
-      "minValue": "2",
-      "maxValue": "1027",
       "startDate": "2020-01-01",
       "endDate": "2020-12-31"
     },
@@ -1499,10 +1323,8 @@
       "propertyID": [
         "2052499827"
       ],
-      "qudt:dataType": "int4",
+      "qudt:dataType": "float8",
       "unitText": "moe",
-      "minValue": "5",
-      "maxValue": "328",
       "startDate": "2020-01-01",
       "endDate": "2020-12-31"
     },
@@ -1513,10 +1335,8 @@
       "propertyID": [
         "2052499668"
       ],
-      "qudt:dataType": "int4",
+      "qudt:dataType": "float8",
       "unitText": "moe",
-      "minValue": "6",
-      "maxValue": "800",
       "startDate": "2020-01-01",
       "endDate": "2020-12-31"
     },
@@ -1527,10 +1347,8 @@
       "propertyID": [
         "2052498108"
       ],
-      "qudt:dataType": "int4",
+      "qudt:dataType": "float8",
       "unitText": "moe",
-      "minValue": "1",
-      "maxValue": "411",
       "startDate": "2020-01-01",
       "endDate": "2020-12-31"
     },
@@ -1541,10 +1359,8 @@
       "propertyID": [
         "2052499084"
       ],
-      "qudt:dataType": "int4",
+      "qudt:dataType": "float8",
       "unitText": "moe",
-      "minValue": "20",
-      "maxValue": "506",
       "startDate": "2020-01-01",
       "endDate": "2020-12-31"
     },
@@ -1555,10 +1371,8 @@
       "propertyID": [
         "2052499092"
       ],
-      "qudt:dataType": "int4",
+      "qudt:dataType": "float8",
       "unitText": "moe",
-      "minValue": "6",
-      "maxValue": "518",
       "startDate": "2020-01-01",
       "endDate": "2020-12-31"
     },
@@ -1569,10 +1383,8 @@
       "propertyID": [
         "2052499103"
       ],
-      "qudt:dataType": "int4",
+      "qudt:dataType": "float8",
       "unitText": "moe",
-      "minValue": "2",
-      "maxValue": "1505",
       "startDate": "2020-01-01",
       "endDate": "2020-12-31"
     },
@@ -1583,10 +1395,8 @@
       "propertyID": [
         "2052499074"
       ],
-      "qudt:dataType": "int4",
+      "qudt:dataType": "float8",
       "unitText": "moe",
-      "minValue": "6",
-      "maxValue": "513",
       "startDate": "2020-01-01",
       "endDate": "2020-12-31"
     },
@@ -1597,10 +1407,8 @@
       "propertyID": [
         "2052498116"
       ],
-      "qudt:dataType": "int4",
+      "qudt:dataType": "float8",
       "unitText": "moe",
-      "minValue": "50",
-      "maxValue": "741",
       "startDate": "2020-01-01",
       "endDate": "2020-12-31"
     },
@@ -1611,10 +1419,8 @@
       "propertyID": [
         "2052490073"
       ],
-      "qudt:dataType": "int4",
+      "qudt:dataType": "float8",
       "unitText": "moe",
-      "minValue": "2",
-      "maxValue": "2208",
       "startDate": "2020-01-01",
       "endDate": "2020-12-31"
     },
@@ -1625,10 +1431,8 @@
       "propertyID": [
         "2052498833"
       ],
-      "qudt:dataType": "int4",
+      "qudt:dataType": "float8",
       "unitText": "moe",
-      "minValue": "3",
-      "maxValue": "259",
       "startDate": "2020-01-01",
       "endDate": "2020-12-31"
     },
@@ -1639,10 +1443,8 @@
       "propertyID": [
         "2052499081"
       ],
-      "qudt:dataType": "int4",
+      "qudt:dataType": "float8",
       "unitText": "moe",
-      "minValue": "8",
-      "maxValue": "540",
       "startDate": "2020-01-01",
       "endDate": "2020-12-31"
     },
@@ -1653,10 +1455,8 @@
       "propertyID": [
         "2052498763"
       ],
-      "qudt:dataType": "int4",
+      "qudt:dataType": "float8",
       "unitText": "moe",
-      "minValue": "3",
-      "maxValue": "156",
       "startDate": "2020-01-01",
       "endDate": "2020-12-31"
     },
@@ -1667,10 +1467,8 @@
       "propertyID": [
         "2052498118"
       ],
-      "qudt:dataType": "int4",
+      "qudt:dataType": "float8",
       "unitText": "moe",
-      "minValue": "2",
-      "maxValue": "531",
       "startDate": "2020-01-01",
       "endDate": "2020-12-31"
     },
@@ -1681,10 +1479,8 @@
       "propertyID": [
         "2052499088"
       ],
-      "qudt:dataType": "int4",
+      "qudt:dataType": "float8",
       "unitText": "moe",
-      "minValue": "6",
-      "maxValue": "408",
       "startDate": "2020-01-01",
       "endDate": "2020-12-31"
     },
@@ -1695,10 +1491,8 @@
       "propertyID": [
         "2052499090"
       ],
-      "qudt:dataType": "int4",
+      "qudt:dataType": "float8",
       "unitText": "moe",
-      "minValue": "5",
-      "maxValue": "493",
       "startDate": "2020-01-01",
       "endDate": "2020-12-31"
     },
@@ -1709,10 +1503,8 @@
       "propertyID": [
         "2052497740"
       ],
-      "qudt:dataType": "int4",
+      "qudt:dataType": "float8",
       "unitText": "moe",
-      "minValue": "2",
-      "maxValue": "892",
       "startDate": "2020-01-01",
       "endDate": "2020-12-31"
     },
@@ -1723,10 +1515,8 @@
       "propertyID": [
         "2052498110"
       ],
-      "qudt:dataType": "int4",
+      "qudt:dataType": "float8",
       "unitText": "moe",
-      "minValue": "2",
-      "maxValue": "1127",
       "startDate": "2020-01-01",
       "endDate": "2020-12-31"
     },
@@ -1737,10 +1527,8 @@
       "propertyID": [
         "2052497777"
       ],
-      "qudt:dataType": "int4",
+      "qudt:dataType": "float8",
       "unitText": "moe",
-      "minValue": "6",
-      "maxValue": "400",
       "startDate": "2020-01-01",
       "endDate": "2020-12-31"
     },
@@ -1751,10 +1539,8 @@
       "propertyID": [
         "2052498090"
       ],
-      "qudt:dataType": "int4",
+      "qudt:dataType": "float8",
       "unitText": "moe",
-      "minValue": "2",
-      "maxValue": "1745",
       "startDate": "2020-01-01",
       "endDate": "2020-12-31"
     },
@@ -1765,10 +1551,8 @@
       "propertyID": [
         "2052497159"
       ],
-      "qudt:dataType": "int4",
+      "qudt:dataType": "float8",
       "unitText": "moe",
-      "minValue": "2",
-      "maxValue": "1128",
       "startDate": "2020-01-01",
       "endDate": "2020-12-31"
     },
@@ -1779,10 +1563,8 @@
       "propertyID": [
         "2052499670"
       ],
-      "qudt:dataType": "int4",
+      "qudt:dataType": "float8",
       "unitText": "moe",
-      "minValue": "7",
-      "maxValue": "440",
       "startDate": "2020-01-01",
       "endDate": "2020-12-31"
     },
@@ -1793,10 +1575,8 @@
       "propertyID": [
         "2052497148"
       ],
-      "qudt:dataType": "int4",
+      "qudt:dataType": "float8",
       "unitText": "moe",
-      "minValue": "4",
-      "maxValue": "927",
       "startDate": "2020-01-01",
       "endDate": "2020-12-31"
     },
@@ -1809,8 +1589,6 @@
       ],
       "qudt:dataType": "float8",
       "unitText": "moe",
-      "minValue": "0.1",
-      "maxValue": "100",
       "startDate": "2020-01-01",
       "endDate": "2020-12-31"
     },
@@ -1823,8 +1601,6 @@
       ],
       "qudt:dataType": "float8",
       "unitText": "moe",
-      "minValue": "0.6",
-      "maxValue": "100",
       "startDate": "2020-01-01",
       "endDate": "2020-12-31"
     },
@@ -1837,8 +1613,6 @@
       ],
       "qudt:dataType": "float8",
       "unitText": "moe",
-      "minValue": "0.1",
-      "maxValue": "100",
       "startDate": "2020-01-01",
       "endDate": "2020-12-31"
     },
@@ -1851,8 +1625,6 @@
       ],
       "qudt:dataType": "float8",
       "unitText": "moe",
-      "minValue": "0.1",
-      "maxValue": "100",
       "startDate": "2020-01-01",
       "endDate": "2020-12-31"
     },
@@ -1865,8 +1637,6 @@
       ],
       "qudt:dataType": "float8",
       "unitText": "moe",
-      "minValue": "0.1",
-      "maxValue": "100",
       "startDate": "2020-01-01",
       "endDate": "2020-12-31"
     },
@@ -1879,8 +1649,6 @@
       ],
       "qudt:dataType": "float8",
       "unitText": "moe",
-      "minValue": "0.3",
-      "maxValue": "100",
       "startDate": "2020-01-01",
       "endDate": "2020-12-31"
     },
@@ -1893,8 +1661,6 @@
       ],
       "qudt:dataType": "float8",
       "unitText": "moe",
-      "minValue": "0.9",
-      "maxValue": "100",
       "startDate": "2020-01-01",
       "endDate": "2020-12-31"
     },
@@ -1907,8 +1673,6 @@
       ],
       "qudt:dataType": "float8",
       "unitText": "moe",
-      "minValue": "0",
-      "maxValue": "60.9",
       "startDate": "2020-01-01",
       "endDate": "2020-12-31"
     },
@@ -1921,8 +1685,6 @@
       ],
       "qudt:dataType": "float8",
       "unitText": "moe",
-      "minValue": "2.4",
-      "maxValue": "100",
       "startDate": "2020-01-01",
       "endDate": "2020-12-31"
     },
@@ -1935,8 +1697,6 @@
       ],
       "qudt:dataType": "float8",
       "unitText": "moe",
-      "minValue": "0.1",
-      "maxValue": "100",
       "startDate": "2020-01-01",
       "endDate": "2020-12-31"
     },
@@ -1949,8 +1709,6 @@
       ],
       "qudt:dataType": "float8",
       "unitText": "moe",
-      "minValue": "0.7",
-      "maxValue": "100",
       "startDate": "2020-01-01",
       "endDate": "2020-12-31"
     },
@@ -1963,8 +1721,6 @@
       ],
       "qudt:dataType": "float8",
       "unitText": "moe",
-      "minValue": "0.8",
-      "maxValue": "100",
       "startDate": "2020-01-01",
       "endDate": "2020-12-31"
     },
@@ -1977,8 +1733,6 @@
       ],
       "qudt:dataType": "float8",
       "unitText": "moe",
-      "minValue": "0.1",
-      "maxValue": "100",
       "startDate": "2020-01-01",
       "endDate": "2020-12-31"
     },
@@ -1991,8 +1745,6 @@
       ],
       "qudt:dataType": "float8",
       "unitText": "moe",
-      "minValue": "0.2",
-      "maxValue": "100",
       "startDate": "2020-01-01",
       "endDate": "2020-12-31"
     },
@@ -2005,8 +1757,6 @@
       ],
       "qudt:dataType": "float8",
       "unitText": "moe",
-      "minValue": "0.1",
-      "maxValue": "100",
       "startDate": "2020-01-01",
       "endDate": "2020-12-31"
     },
@@ -2019,8 +1769,6 @@
       ],
       "qudt:dataType": "float8",
       "unitText": "moe",
-      "minValue": "0.1",
-      "maxValue": "100",
       "startDate": "2020-01-01",
       "endDate": "2020-12-31"
     },
@@ -2033,8 +1781,6 @@
       ],
       "qudt:dataType": "float8",
       "unitText": "moe",
-      "minValue": "0.5",
-      "maxValue": "100",
       "startDate": "2020-01-01",
       "endDate": "2020-12-31"
     },
@@ -2047,8 +1793,6 @@
       ],
       "qudt:dataType": "float8",
       "unitText": "moe",
-      "minValue": "0.4",
-      "maxValue": "100",
       "startDate": "2020-01-01",
       "endDate": "2020-12-31"
     },
@@ -2061,8 +1805,6 @@
       ],
       "qudt:dataType": "float8",
       "unitText": "moe",
-      "minValue": "0.1",
-      "maxValue": "100",
       "startDate": "2020-01-01",
       "endDate": "2020-12-31"
     },
@@ -2075,8 +1817,6 @@
       ],
       "qudt:dataType": "float8",
       "unitText": "moe",
-      "minValue": "0",
-      "maxValue": "100",
       "startDate": "2020-01-01",
       "endDate": "2020-12-31"
     },
@@ -2089,8 +1829,6 @@
       ],
       "qudt:dataType": "float8",
       "unitText": "moe",
-      "minValue": "0.5",
-      "maxValue": "100",
       "startDate": "2020-01-01",
       "endDate": "2020-12-31"
     },
@@ -2103,8 +1841,6 @@
       ],
       "qudt:dataType": "float8",
       "unitText": "moe",
-      "minValue": "0.1",
-      "maxValue": "100",
       "startDate": "2020-01-01",
       "endDate": "2020-12-31"
     },
@@ -2117,8 +1853,6 @@
       ],
       "qudt:dataType": "float8",
       "unitText": "moe",
-      "minValue": "0.3",
-      "maxValue": "100",
       "startDate": "2020-01-01",
       "endDate": "2020-12-31"
     },
@@ -2131,8 +1865,6 @@
       ],
       "qudt:dataType": "float8",
       "unitText": "moe",
-      "minValue": "0.1",
-      "maxValue": "100",
       "startDate": "2020-01-01",
       "endDate": "2020-12-31"
     },
@@ -2145,8 +1877,6 @@
       ],
       "qudt:dataType": "float8",
       "unitText": "moe",
-      "minValue": "0",
-      "maxValue": "1",
       "startDate": "2020-01-01",
       "endDate": "2020-12-31"
     },
@@ -2159,8 +1889,6 @@
       ],
       "qudt:dataType": "float8",
       "unitText": "percentile",
-      "minValue": "0",
-      "maxValue": "1",
       "startDate": "2020-01-01",
       "endDate": "2020-12-31"
     },
@@ -2173,8 +1901,6 @@
       ],
       "qudt:dataType": "float8",
       "unitText": "percentile",
-      "minValue": "0",
-      "maxValue": "1",
       "startDate": "2020-01-01",
       "endDate": "2020-12-31"
     },
@@ -2187,8 +1913,6 @@
       ],
       "qudt:dataType": "float8",
       "unitText": "percentile",
-      "minValue": "0",
-      "maxValue": "1",
       "startDate": "2020-01-01",
       "endDate": "2020-12-31"
     },
@@ -2201,8 +1925,6 @@
       ],
       "qudt:dataType": "float8",
       "unitText": "percentile",
-      "minValue": "0",
-      "maxValue": "1",
       "startDate": "2020-01-01",
       "endDate": "2020-12-31"
     },
@@ -2215,8 +1937,6 @@
       ],
       "qudt:dataType": "float8",
       "unitText": "svi index",
-      "minValue": "0",
-      "maxValue": "4.9356",
       "startDate": "2020-01-01",
       "endDate": "2020-12-31"
     },
@@ -2229,8 +1949,6 @@
       ],
       "qudt:dataType": "float8",
       "unitText": "svi index",
-      "minValue": "0",
-      "maxValue": "4.6312",
       "startDate": "2020-01-01",
       "endDate": "2020-12-31"
     },
@@ -2243,8 +1961,6 @@
       ],
       "qudt:dataType": "float8",
       "unitText": "svi index",
-      "minValue": "0",
-      "maxValue": "1",
       "startDate": "2020-01-01",
       "endDate": "2020-12-31"
     },
@@ -2257,8 +1973,6 @@
       ],
       "qudt:dataType": "float8",
       "unitText": "svi index",
-      "minValue": "0",
-      "maxValue": "4.604",
       "startDate": "2020-01-01",
       "endDate": "2020-12-31"
     },
@@ -2271,8 +1985,6 @@
       ],
       "qudt:dataType": "float8",
       "unitText": "svi index",
-      "minValue": "0",
-      "maxValue": "14.3088",
       "startDate": "2020-01-01",
       "endDate": "2020-12-31"
     },
@@ -2317,5 +2029,5 @@
     "https://gdsc.idsc.miami.edu/download/data/ma_2022_svi_tract/?file=ma_2022_svi_tract&format=sql"
   ],
   "dateModified": "2022-02-08",
-  "version": "2026-01-29"
+  "version": "2026-02-10"
 }

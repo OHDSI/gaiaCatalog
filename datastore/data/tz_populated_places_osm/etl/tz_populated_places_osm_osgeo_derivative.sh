@@ -6,7 +6,7 @@
 # Data source: https://overpass-api.de/api/interpreter?data=area%28id:3600195270%29-%3E.searchArea;node%5B%22place%22~%22city|town|village|hamlet%22%5D%28area.searchArea%29;%28._;%3E;%29;out;
 # Destination postGIS table: tz_populated_places_osm
 #
-# Created by etl() on 2025-10-05 15:59:50
+# Created by etl() on 2026-02-10 13:37:48
 # Do not edit directly
 
 # Move into corrrect directory and create derivative directory in data package on osgeo

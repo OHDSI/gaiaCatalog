@@ -6,7 +6,7 @@
 # Data source: https://e4ftl01.cr.usgs.gov/MEASURES/SRTMGL1.003/2000.02.11/
 # Destination postGIS table: tz_magu_dem_srtm
 #
-# Created by etl() on 2025-10-05 15:59:47
+# Created by etl() on 2026-02-10 13:37:48
 # Do not edit directly
 
 export PGPASSWORD=$(cat $POSTGRES_PASSWORD_FILE)
@@ -56,4 +56,9 @@ unzip -d download download/S04E033.SRTMGL1.hgt.zip && rm download/S04E033.SRTMGL
 wget --load-cookies ~/.urs_cookies --save-cookies ~/.urs_cookies --keep-session-cookies -O download/S04E034.SRTMGL1.hgt.zip 'https://e4ftl01.cr.usgs.gov/MEASURES/SRTMGL1.003/2000.02.11/S04E034.SRTMGL1.hgt.zip'
 unzip -d download download/S04E034.SRTMGL1.hgt.zip && rm download/S04E034.SRTMGL1.hgt.zip
 gdal_merge -o download/tz_magu_dem_srtm_full.tif download/S02E032.hgt download/S02E033.hgt download/S02E034.hgt download/S03E032.hgt download/S03E033.hgt download/S03E034.hgt download/S04E032.hgt download/S04E033.hgt download/S04E034.hgt 
-gdalwarp -cutline 'POLYGON ((32.75 -3.09, 32.75 -2.13, 34.04 -2.13, 34.04 -3.09, 32.75 -3.09))' -crop_to_cutline -cutline_srs EPSG:4326 -s_srs EPSG:4326 -t_srs EPSG:4326 download/tz_magu_dem_srtm_full.tif download/tz_magu_dem_srtm.tif && rm download/tz_magu_dem_srtm_full.tif
+gdalwarp -cutline 'POLYGON ((32.75 -3.09, 32.75 -2.13, 34.04 -2.13, 34.04 -3.09, 32.75 -3.09))' -crop_to_cutline -cutline_srs EPSG:4326 -s_srs EPSG:4326 -t_srs EPSG:4326 download/tz_magu_dem_srtm_full.tif download/tz_magu_dem_srtm.tif && rm download/tz_magu_dem_srtm_full.tifif [[ $do_update = 1 ]]; then
+  # record download datestamp
+  echo $(date '+%F %T') > datestamp
+fi
+
+

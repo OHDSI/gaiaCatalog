@@ -13,8 +13,10 @@ mkdir -p /data/tz_2022_nbs_magu_district/{download,etl} && cd /data/tz_2022_nbs_
 # set update flag based on last update and update frequency
 do_update=0 if date() < last_update + update_frequency else do_update = 1
 
+# load tz_2022_nbs_districts as dependency (see tz_2022_nbs_districts for details).
+
 # Create copy of geom dependency
-pg_dump -d $POSTGRES_DB -U $POSTGRES_USER -p $POSTGRES_PORT -h gaia-db -t tz_2022_nbs_districts | sed 's/tz_2022_nbs_districts/tz_2022_nbs_magu_district/g' | psql -d $POSTGRES_DB -U $POSTGRES_USER -p $POSTGRES_PORT -h gaia-db 
+pg_dump -d $POSTGRES_DB -U $POSTGRES_USER -p $POSTGRES_PORT -h None -t tz_2022_nbs_districts | sed 's/tz_2022_nbs_districts/tz_2022_nbs_magu_district/g' | psql -d $POSTGRES_DB -U $POSTGRES_USER -p $POSTGRES_PORT -h gaia-db 
 
 # drop geom_local and subset as per custom parameters
 psql -d $POSTGRES_DB -U $POSTGRES_USER -p $POSTGRES_PORT -h gaia-db -c "
@@ -22,6 +24,17 @@ ALTER TABLE tz_2022_nbs_magu_district DROP COLUMN IF EXISTS geom_local;
 DELETE FROM tz_2022_nbs_magu_district
   WHERE NOT (reg_code = '19' AND dist_code = '02');
 COMMIT;"
+# add local geometry column and reproject existing geometries into local EPSG:
+SELECT AddGeometryColumn (
+  'tz_2022_nbs_magu_district',
+  'geom_local', 4326, 'multipolygon', 2
+);
+UPDATE tz_2022_nbs_magu_district
+  SET geom_local=ST_MakeValid(ST_RemoveRepeatedPoints(ST_Transform(ST_Multi(geom),4326)));
+CREATE INDEX tz_2022_nbs_magu_district_geom_local_idx
+  ON tz_2022_nbs_magu_district
+  USING GIST (geom_local);
+NOTIFY pgrst, 'reload schema';
 # add local geometry column and reproject existing geometries into local EPSG:
 SELECT AddGeometryColumn (
   'tz_2022_nbs_magu_district',
