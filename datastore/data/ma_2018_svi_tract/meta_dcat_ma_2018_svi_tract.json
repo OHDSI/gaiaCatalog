@@ -35,7 +35,7 @@
   "gdsc:podID": "gaia-db",
   "dct:modified": "2025-12-10T18:03:34Z",
   "dct:accrualPeriodicity": "Never",
-  "gdsc:version": "2026-02-10T13:37:46Z",
+  "gdsc:version": "2026-02-12T10:25:42Z",
   "spdx:checksum": "TBD",
   "dct:extent": ["2743838", "2.7M"],
   "dcat:bbox": "POLYGON((-73.508142 41.237964, -69.928393 41.237964, -69.928393 42.886589, -73.508142 42.886589, -73.508142 41.237964))"

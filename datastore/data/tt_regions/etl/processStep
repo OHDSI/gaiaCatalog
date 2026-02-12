@@ -1,0 +1,51 @@
+#########
+# GDSC ETL is performed in two steps: shell script to ETL data into postgres
+# and then additional transformations with SQL in postGIS (if needed).
+####
+
+#########
+# Step 1 - bash script (pseudo code)
+####
+
+# create directory structure and move into it
+mkdir -p /data/tt_regions/{download,etl} && cd /data/tt_regions
+
+# set update flag based on last update and update frequency
+do_update=0 if date() < last_update + update_frequency else do_update = 1
+
+# download if update flag is set:
+if do_update == 1 then
+curl -o download/tt_regions.osm 'https://overpass-api.de/api/interpreter?data=rel%5B%22ISO3166-2%22~%22^TT%22%5D%5Badmin_level=4%5D%5Btype=boundary%5D%5Bboundary=administrative%5D;(._;>;);out;'
+
+# load into postGIS with:
+  ogr2ogr -lco GEOMETRY_NAME=geom -f PostgreSQL PG:"<postgres connection>" download/tt_regions.osm
+
+#########
+# Step 2 - SQL script (pseudo code):
+####
+
+# Select proper geometry into the named table
+psql -d $POSTGRES_DB -U $POSTGRES_USER -p $POSTGRES_PORT -h gaia-db -c "
+SELECT * INTO tt_regions FROM multipolygons;
+DROP TABLE IF EXISTS lines;
+DROP TABLE IF EXISTS multilinestrings;
+DROP TABLE IF EXISTS multipolygons;
+DROP TABLE IF EXISTS other_relations;
+DROP TABLE IF EXISTS points;"
+
+# remove duplicate points and make geometries valid:
+UPDATE tt_regions
+  SET geom=ST_MakeValid(ST_RemoveRepeatedPoints(geom));
+
+# add local geometry column and reproject existing geometries into local EPSG:
+SELECT AddGeometryColumn (
+  'tt_regions',
+  'geom_local', 8035, 'multipolygon', 2
+);
+UPDATE tt_regions
+  SET geom_local=ST_MakeValid(ST_RemoveRepeatedPoints(ST_Transform(ST_Multi(geom),8035)));
+CREATE INDEX tt_regions_geom_local_idx
+  ON tt_regions
+  USING GIST (geom_local);
+NOTIFY pgrst, 'reload schema';
+

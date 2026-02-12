@@ -120,10 +120,8 @@ def query_solr(path,parameters):
     """
     query solr api
     """
-
     numresults = 1
     results = []
-
     # send query to SOLR and gather paged results
     # parameters['q'] = parameters['q'].replace(' ','+')
     query_string  = urlencode(parameters).replace('-','+')
@@ -135,7 +133,6 @@ def query_solr(path,parameters):
         parameters["rows"] = numresults
         query_string  = urlencode(parameters).replace('-','+')
     if results == None: results = []
-
     return results, numresults
 
 
@@ -409,7 +406,7 @@ COLLECTIONS, COLLECTIONS_COUNT = query_solr(
       "q": "Status:published"
     }
 )
-keys = [item['Collection_ID'][0] for item in COLLECTIONS]
+keys = [item['CollectionID'][0] for item in COLLECTIONS]
 COLLECTIONS = dict(zip(keys, COLLECTIONS))
 COLLECTIONS = OrderedDict(sorted(COLLECTIONS.items(), key=lambda i: i[0].lower()))
 

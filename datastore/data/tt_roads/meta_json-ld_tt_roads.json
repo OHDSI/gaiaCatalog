@@ -1,0 +1,229 @@
+{
+  "@context": {
+    "@vocab": "https://schema.org/",
+    "dct": "http://purl.org/dc/terms/",
+    "qudt": "http://qudt.org/schema/qudt/",
+    "quantitykind": "http://qudt.org/vocab/quantitykind/",
+    "unit": "http://qudt.org/vocab/unit/",
+    "xsd": "http://www.w3.org/2001/XMLSchema",
+    "extendedConstraintProperty": "http://codata.org/vocab/extendedConstraintProperty",
+    "sdmx": "https://sdmx.org"
+  },
+  "@type": "Dataset",
+  "@id": "https://gdsc.idsc.miami.edu/detail/tt_roads",
+  "includedInDataCatalog": [
+    {
+      "@type": "DataCatalog",
+      "@id": "https://gdsc.idsc.miami.edu",
+      "name": "Geospatial Digital Special Collections",
+      "url": "https://gdsc.idsc.miami.edu"
+    },
+    {
+      "@type": "DataCatalog",
+      "name": "tt-disease-risk",
+      "@id": "https://gdsc.idsc.miami.edu/?collection=tt-disease-risk",
+      "url": "https://gdsc.idsc.miami.edu/?collection=tt-disease-risk"
+    }
+  ],
+  "name": "Trinidad and Tobago Main Roads",
+  "creator": [
+    {
+      "name": "OpenStreetMap contributors"
+    }
+  ],
+  "url": "https://www.openstreetmap.org/",
+  "provider": [
+    "OpenStreetMap"
+  ],
+  "license": "OpenStreetMap\u00ae is open data, licensed under the [Open Data Commons Open Database License](https://opendatacommons.org/licenses/odbl/) (ODbL) by the [OpenStreetMap Foundation](https://osmfoundation.org/) (OSMF).",
+  "spatialCoverage": [
+    {
+      "@id": "https://www.geonames.org/3573591",
+      "@type": "Place",
+      "name": "Trinidad and Tobago"
+    },
+    {
+      "@type": "Place",
+      "name": "bbox",
+      "geo": {
+        "@type": "GeoShape",
+        "polygon": "-61.861942 10.074078 -61.861942 11.3246857 -60.5329641 11.3246857 -60.5329641 10.074078 -61.861942 10.074078"
+      }
+    }
+  ],
+  "type": "Vector Dataset",
+  "datePublished": "2023-11-30",
+  "description": "A line feature set for the primary and secondary roads of Trindad and Tobago sourced from OpenStreetMap.",
+  "keywords": [
+    "Trinidad and Tobago",
+    "Roads",
+    "primary",
+    "secondary",
+    "transportation"
+  ],
+  "measurementTechnique": [
+    {
+      "@type": "DefinedTerm",
+      "description": "GIS Data Structure for Representation",
+      "inDefinedTermSet": {
+        "@type": "DefinedTermSet",
+        "name": "dataRepresentation",
+        "hasDefinedTerm": [
+          {
+            "@type": "DefinedTerm",
+            "termCode": "raster"
+          },
+          {
+            "@type": "DefinedTerm",
+            "termCode": "vector"
+          },
+          {
+            "@type": "DefinedTerm",
+            "termCode": "table"
+          }
+        ]
+      },
+      "termCode": "vector"
+    },
+    {
+      "@type": "DefinedTerm",
+      "description": "GIS Vector Geometery",
+      "inDefinedTermSet": {
+        "@type": "DefinedTermSet",
+        "name": "vectorGeometry",
+        "hasDefinedTerm": [
+          {
+            "@type": "DefinedTerm",
+            "termCode": "point"
+          },
+          {
+            "@type": "DefinedTerm",
+            "termCode": "line"
+          },
+          {
+            "@type": "DefinedTerm",
+            "termCode": "polygon"
+          }
+        ]
+      },
+      "termCode": "multilinestring"
+    }
+  ],
+  "additionalProperty": [
+    {
+      "@type": "PropertyValue",
+      "propertyID": "http://dbpedia.org/resource/Spatial_reference_system",
+      "value": "https://epsg.io/4326"
+    }
+  ],
+  "about": [
+    {
+      "@type": "Event",
+      "description": "Direct from source.",
+      "name": "ETL process for Trinidad and Tobago Main Roads",
+      "potentialAction": {
+        "@type": "Action",
+        "name": "Pseudo Code",
+        "description": "TODO"
+      }
+    },
+    {
+      "@type": "Event",
+      "description": "Direct from source.",
+      "name": "ETL process for Trinidad and Tobago Main Roads",
+      "potentialAction": {
+        "@type": "Action",
+        "name": "curl",
+        "description": "ETL process for Trinidad and Tobago Main Roads",
+        "object": {
+          "@type": "Dataset",
+          "name": "Direct from source.",
+          "producer": "OpenStreetMap contributors",
+          "url": "https://www.openstreetmap.org/"
+        },
+        "instrument": {
+          "@type": "SoftwareApplication",
+          "@id": "https://github.com/Geospatial-Digital-Special-Collections/tools",
+          "featureList": "curl",
+          "downloadUrl": "https://github.com/Geospatial-Digital-Special-Collections/tools.git"
+        },
+        "result": {
+          "@type": "Dataset",
+          "name": "Trinidad and Tobago Main Roads",
+          "description": "A line feature set for the primary and secondary roads of Trindad and Tobago sourced from OpenStreetMap.",
+          "encodingFormat": "osm"
+        }
+      }
+    }
+  ],
+  "variableMeasured": [
+    {
+      "@type": "PropertyValue",
+      "name": "osm_id",
+      "description": "OpenStreetMap (OSM) ID",
+      "qudt:dataType": "varchar"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "name",
+      "description": "Road name",
+      "qudt:dataType": "varchar"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "highway",
+      "description": "Type of road (primary, secondary, etc)",
+      "qudt:dataType": "varchar"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "waterway",
+      "qudt:dataType": "varchar"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "aerialway",
+      "qudt:dataType": "varchar"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "barrier",
+      "qudt:dataType": "varchar"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "man_made",
+      "qudt:dataType": "varchar"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "railway",
+      "qudt:dataType": "varchar"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "z_order",
+      "description": "Drawing order",
+      "qudt:dataType": "int4",
+      "minValue": "-14",
+      "maxValue": "27"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "other_tags",
+      "description": "Any other OSM tags with values, can include values for oneway, est_width, foot, lanes, maxspeed, surface",
+      "qudt:dataType": "varchar"
+    }
+  ],
+  "distribution": "TBD",
+  "isBasedOn": [
+    {
+      "@id": "https://gdsc.idsc.miami.edu/details/api",
+      "@type": "Dataset",
+      "name": "api",
+      "url": "https://gdsc.idsc.miami.edu/details/api"
+    }
+  ],
+  "dateModified": "2023-11-30",
+  "version": "2026-02-12"
+}
