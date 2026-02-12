@@ -386,8 +386,8 @@ def load(layer_id,variable_id):
             "type": variable[3],
             "unit": variable[4],
             "unit_concept_id": None if variable[5] == "Null" else int(variable[5]),
-            "min_val": float(variable[6]),
-            "max_val": float(variable[7]),
+            "min_val": None if variable[6] == "Null" else float(variable[6]),
+            "max_val": None if variable[7] == "Null" else float(variable[7]),
             "start_date": make_iso_date(variable[8]),
             "end_date": make_iso_date(variable[9]),
             "concept_id": None if variable[10] == "Null" else int(variable[10])
