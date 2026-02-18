@@ -1,0 +1,23 @@
+# DSPy Configuration
+# Define your language models and their settings here
+
+app_id: lance-mcp
+models:
+  # The default model to use if no per-program override is specified
+  default: openrouter:grok4fast
+
+  # Model registry - define all available models here
+  registry:
+    ollama:llama2:
+      model: ollama/llama2
+      model_type: chat
+      max_tokens: 8192
+      temperature: 1.0
+    openrouter:grok4fast:
+      model: openrouter/x-ai/grok-4-fast
+      model_type: chat
+      max_tokens: 8192
+      temperature: 1.0
+# Optional: Override the model for specific programs
+# program_models:
+#   MySpecialProgram: ollama:llama2

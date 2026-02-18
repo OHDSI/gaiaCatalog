@@ -1,214 +1,33 @@
-2025-10-31 14:03:10.216 - INFO: [1mQLever Server, compiled on Mon Sep 15 02:16:24 UTC 2025 using git hash 3db56e[22m
-2025-10-31 14:03:10.218 - INFO: Initializing server ...
-2025-10-31 14:03:10.219 - INFO: The git hash used to build this index was "3db56e"
-2025-10-31 14:03:10.220 - INFO: Reading vocabulary from file gaiacatalog.vocabulary.words ...
-2025-10-31 14:03:10.221 - INFO: Done, number of words: 4,700
-2025-10-31 14:03:10.221 - INFO: Number of words in internal vocabulary (these are also part of the external vocabulary): 9
-2025-10-31 14:03:10.221 - INFO: Registered PSO permutation: #relations = 1, #blocks = 1, #triples = 1,870
-2025-10-31 14:03:10.221 - INFO: Registered PSO permutation: #relations = 18, #blocks = 1, #triples = 12,159
-2025-10-31 14:03:10.221 - INFO: Registered POS permutation: #relations = 1, #blocks = 1, #triples = 1,870
-2025-10-31 14:03:10.221 - INFO: Registered POS permutation: #relations = 18, #blocks = 1, #triples = 12,159
-2025-10-31 14:03:10.221 - INFO: Registered OPS permutation: #relations = 4,585, #blocks = 1, #triples = 12,159
-2025-10-31 14:03:10.221 - INFO: Registered OSP permutation: #relations = 4,585, #blocks = 1, #triples = 12,159
-2025-10-31 14:03:10.221 - INFO: Registered SPO permutation: #relations = 1,870, #blocks = 1, #triples = 12,159
-2025-10-31 14:03:10.221 - INFO: Registered SOP permutation: #relations = 1,870, #blocks = 1, #triples = 12,159
-2025-10-31 14:03:10.221 - INFO: Reading patterns from file gaiacatalog.index.patterns ...
-2025-10-31 14:03:10.221 - INFO: Sorting random result tables to estimate the sorting performance of this machine ...
-2025-10-31 14:03:10.223 - INFO: Access token for restricted API calls is "gaiacatalog_7643543846_6dMISzlPrD7i"
-2025-10-31 14:03:10.223 - INFO: The server is ready, listening for requests on port 7077 ...
-2025-10-31 14:03:11.226 - INFO: 
-2025-10-31 14:03:11.226 - INFO: Request received via POST, content type "application/x-www-form-urlencoded"
-2025-10-31 14:03:11.231 - INFO: Alive check with message "from the `qlever` CLI"
-2025-10-31 14:03:11.242 - INFO: 
-2025-10-31 14:03:11.242 - INFO: Request received via GET, no content type specified
-2025-10-31 14:03:11.243 - INFO: Setting index description to: "GAIACatalog http://example.org/gaiacatalog"
-2025-10-31 14:03:11.252 - INFO: 
-2025-10-31 14:03:11.252 - INFO: Request received via GET, no content type specified
-2025-10-31 14:03:11.252 - INFO: Setting text description to: "Test graph for GaiaCatalog"
-2025-10-31 14:03:11.261 - INFO: 
-2025-10-31 14:03:11.261 - INFO: Request received via POST, content type "application/x-www-form-urlencoded"
-2025-10-31 14:03:11.261 - INFO: Processing command "cache-stats": get cache statistics
-2025-10-31 14:03:11.269 - INFO: 
-2025-10-31 14:03:11.269 - INFO: Request received via POST, content type "application/x-www-form-urlencoded"
-2025-10-31 14:03:11.269 - INFO: Processing command "get-settings": get server settings
-2025-10-31 14:03:56.623 - INFO: 
-2025-10-31 14:03:56.623 - INFO: Request received via GET, no content type specified
-2025-10-31 14:03:56.628 - INFO: Processing the following SPARQL Query:
-ASK
-WHERE
-  { ?x  ?y  ?z }
-
-2025-10-31 14:03:56.629 - INFO: Requested media types of the result are: "application/sparql-results+json", "application/sparql-results+xml"
-2025-10-31 14:03:56.630 - INFO: Query planning done in 6 ms
-2025-10-31 14:03:56.632 - INFO: Done processing query and sending result, total time was 8 ms
-2025-10-31 14:04:16.099 - INFO: 
-2025-10-31 14:04:16.099 - INFO: Request received via GET, no content type specified
-2025-10-31 14:04:16.113 - INFO: Processing the following SPARQL Query:
-PREFIX  schema: <https://schema.org/>
-PREFIX  rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
-PREFIX  pathSearch: <https://qlever.cs.uni-freiburg.de/pathSearch/>
-
-SELECT  ?s ?name ?description (GROUP_CONCAT(DISTINCT ?variablemeasured_name ; separator=', ') AS ?all_variablemeasured_names) (GROUP_CONCAT(DISTINCT ?keywords ; separator=', ') AS ?all_keywords)
-WHERE
-  { ?s        rdf:type              schema:Dataset ;
-              schema:description    ?description ;
-              schema:keywords       ?keywords ;
-              schema:name           ?name ;
-              schema:variableMeasured  ?variablemeasured .
-    ?variablemeasured
-              schema:name           ?variablemeasured_name
-  }
-GROUP BY ?s ?name ?description
-LIMIT   1000
-
-2025-10-31 14:04:16.113 - INFO: Requested media types of the result are: "application/sparql-results+json", "application/sparql-results+xml", "text/tab-separated-values", "text/csv"
-2025-10-31 14:04:16.123 - INFO: Query planning done in 23 ms
-2025-10-31 14:04:16.136 - INFO: Result has size 65 x 5
-2025-10-31 14:04:16.137 - INFO: Done processing query and sending result, total time was 37 ms
-2025-10-31 14:05:19.139 - INFO: 
-2025-10-31 14:05:19.139 - INFO: Request received via GET, no content type specified
-2025-10-31 14:05:19.141 - INFO: Processing the following SPARQL Query:
-PREFIX  schema: <https://schema.org/>
-PREFIX  rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
-PREFIX  pathSearch: <https://qlever.cs.uni-freiburg.de/pathSearch/>
-
-SELECT  ?s ?name ?description (GROUP_CONCAT(DISTINCT ?variablemeasured_name ; separator=', ') AS ?all_variablemeasured_names) (GROUP_CONCAT(DISTINCT ?keywords ; separator=', ') AS ?all_keywords)
-WHERE
-  { ?s  rdf:type            schema:Dataset ;
-        schema:description  ?description
-    OPTIONAL
-      { ?s  schema:keywords  ?keywords }
-    ?s        schema:name           ?name ;
-              schema:variableMeasured  ?variablemeasured .
-    ?variablemeasured
-              schema:name           ?variablemeasured_name
-  }
-GROUP BY ?s ?name ?description
-LIMIT   1000
-
-2025-10-31 14:05:19.141 - INFO: Requested media types of the result are: "application/sparql-results+json", "application/sparql-results+xml", "text/tab-separated-values", "text/csv"
-2025-10-31 14:05:19.158 - INFO: Query planning done in 18 ms
-2025-10-31 14:05:19.164 - INFO: Result has size 65 x 5
-2025-10-31 14:05:19.165 - INFO: Done processing query and sending result, total time was 25 ms
-2025-10-31 14:05:45.545 - INFO: 
-2025-10-31 14:05:45.545 - INFO: Request received via GET, no content type specified
-2025-10-31 14:05:45.546 - INFO: Processing the following SPARQL Query:
-PREFIX  schema: <https://schema.org/>
-PREFIX  rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
-PREFIX  pathSearch: <https://qlever.cs.uni-freiburg.de/pathSearch/>
-
-SELECT  ?s ?name ?description (GROUP_CONCAT(DISTINCT ?variablemeasured_name ; separator=', ') AS ?all_variablemeasured_names) (GROUP_CONCAT(DISTINCT ?keywords ; separator=', ') AS ?all_keywords)
-WHERE
-  { ?s  rdf:type            schema:Dataset ;
-        schema:description  ?description
-    OPTIONAL
-      { ?s  schema:keywords  ?keywords }
-    ?s  schema:name  ?name
-    OPTIONAL
-      { ?s        schema:variableMeasured  ?variablemeasured .
-        ?variablemeasured
-                  schema:name           ?variablemeasured_name
-      }
-  }
-GROUP BY ?s ?name ?description
-LIMIT   1000
-
-2025-10-31 14:05:45.546 - INFO: Requested media types of the result are: "application/sparql-results+json", "application/sparql-results+xml", "text/tab-separated-values", "text/csv"
-2025-10-31 14:05:45.554 - INFO: Query planning done in 8 ms
-2025-10-31 14:05:45.558 - INFO: Result has size 92 x 5
-2025-10-31 14:05:45.559 - INFO: Done processing query and sending result, total time was 13 ms
-2025-10-31 14:06:15.326 - INFO: 
-2025-10-31 14:06:15.327 - INFO: Request received via GET, no content type specified
-2025-10-31 14:06:15.327 - INFO: Processing the following SPARQL Query:
-PREFIX  schema: <https://schema.org/>
-PREFIX  rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
-PREFIX  pathSearch: <https://qlever.cs.uni-freiburg.de/pathSearch/>
-
-SELECT DISTINCT  ?s ?name ?description (GROUP_CONCAT(DISTINCT ?variablemeasured_name ; separator=', ') AS ?all_variablemeasured_names) (GROUP_CONCAT(DISTINCT ?keywords ; separator=', ') AS ?all_keywords)
-WHERE
-  { ?s  rdf:type            schema:Dataset ;
-        schema:description  ?description
-    OPTIONAL
-      { ?s  schema:keywords  ?keywords }
-    ?s  schema:name  ?name
-    OPTIONAL
-      { ?s        schema:variableMeasured  ?variablemeasured .
-        ?variablemeasured
-                  schema:name           ?variablemeasured_name
-      }
-  }
-GROUP BY ?s ?name ?description
-LIMIT   1000
-
-2025-10-31 14:06:15.327 - INFO: Requested media types of the result are: "application/sparql-results+json", "application/sparql-results+xml", "text/tab-separated-values", "text/csv"
-2025-10-31 14:06:15.347 - INFO: Query planning done in 20 ms
-2025-10-31 14:06:15.348 - INFO: Result has size 92 x 5
-2025-10-31 14:06:15.350 - INFO: Done processing query and sending result, total time was 23 ms
-2025-10-31 14:06:28.131 - INFO: 
-2025-10-31 14:06:28.131 - INFO: Request received via GET, no content type specified
-2025-10-31 14:06:28.138 - INFO: Processing the following SPARQL Query:
-PREFIX  schema: <https://schema.org/>
-PREFIX  rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
-PREFIX  pathSearch: <https://qlever.cs.uni-freiburg.de/pathSearch/>
-
-SELECT  ?start ?pred ?end ?source ?path ?edge ?target ?start_name
-WHERE
-  { SERVICE pathSearch:
-      { _:b0  pathSearch:algorithm  pathSearch:allPaths ;
-              pathSearch:source     ?source ;
-              pathSearch:target     ?target ;
-              pathSearch:edgeProperty  ?pred ;
-              pathSearch:pathColumn  ?path ;
-              pathSearch:edgeColumn  ?edge ;
-              pathSearch:start      ?start ;
-              pathSearch:end        ?end
-        { SELECT  *
-          WHERE
-            { VALUES ?pred { schema:keywords }
-              ?start  ?pred  ?end
-            }
-        }
-      }
-    OPTIONAL
-      { ?start  schema:name  ?start_name }
-  }
-LIMIT   1000
-
-2025-10-31 14:06:28.138 - INFO: Requested media types of the result are: "application/sparql-results+json", "application/sparql-results+xml", "text/tab-separated-values", "text/csv"
-2025-10-31 14:06:28.140 - INFO: Query planning done in 9 ms
-2025-10-31 14:06:28.141 - INFO: Number of tuples in VALUES clause: 1
-2025-10-31 14:06:28.141 - INFO: Number of entries in local vocabulary per column: 0
-2025-10-31 14:06:28.144 - INFO: Result has unknown size (not computed yet)
-2025-10-31 14:06:28.151 - INFO: Done processing query and sending result, total time was 20 ms
-2025-10-31 14:07:25.018 - INFO: 
-2025-10-31 14:07:25.018 - INFO: Request received via GET, no content type specified
-2025-10-31 14:07:25.019 - INFO: Processing the following SPARQL Query:
-PREFIX  schema: <https://schema.org/>
-PREFIX  rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
-PREFIX  pathSearch: <https://qlever.cs.uni-freiburg.de/pathSearch/>
-
-SELECT  ?start ?pred ?end ?source ?path ?edge ?target ?start_type ?end_type
-WHERE
-  { SERVICE pathSearch:
-      { _:b0  pathSearch:algorithm  pathSearch:allPaths ;
-              pathSearch:source     ?source ;
-              pathSearch:target     ?target ;
-              pathSearch:edgeProperty  ?pred ;
-              pathSearch:pathColumn  ?path ;
-              pathSearch:edgeColumn  ?edge ;
-              pathSearch:start      ?start ;
-              pathSearch:end        ?end
-        { SELECT  *
-          WHERE
-            { ?start  ?pred  ?end }
-        }
-      }
-    ?start  rdf:type  ?start_type .
-    ?end    rdf:type  ?end_type
-  }
-LIMIT   1000
-
-2025-10-31 14:07:25.019 - INFO: Requested media types of the result are: "application/sparql-results+json", "application/sparql-results+xml", "text/tab-separated-values", "text/csv"
-2025-10-31 14:07:25.023 - INFO: Query planning done in 4 ms
-2025-10-31 14:07:25.055 - INFO: Result has size 11,073 x 9
-2025-10-31 14:07:25.065 - INFO: Done processing query and sending result, total time was 46 ms
+2026-02-18 06:59:31.729 - INFO: [1mQLever server, compiled on Wed Feb  4 05:30:47 UTC 2026 using git hash f35a29[22m
+2026-02-18 06:59:31.730 - INFO: Initializing server ...
+2026-02-18 06:59:31.730 - INFO: The git hash used to build this index was "f35a29"
+2026-02-18 06:59:31.731 - INFO: Reading vocabulary from file gaiacatalog.vocabulary.words ...
+2026-02-18 06:59:31.731 - INFO: Done, number of words: 4,700
+2026-02-18 06:59:31.731 - INFO: Number of words in internal vocabulary (these are also part of the external vocabulary): 9
+2026-02-18 06:59:31.732 - INFO: Registered PSO permutation: #relations = 1, #blocks = 1, #triples = 1,870
+2026-02-18 06:59:31.732 - INFO: Registered PSO permutation: #relations = 18, #blocks = 1, #triples = 12,159
+2026-02-18 06:59:31.732 - INFO: Registered POS permutation: #relations = 1, #blocks = 1, #triples = 1,870
+2026-02-18 06:59:31.732 - INFO: Registered POS permutation: #relations = 18, #blocks = 1, #triples = 12,159
+2026-02-18 06:59:31.732 - INFO: Registered OPS permutation: #relations = 4,585, #blocks = 1, #triples = 12,159
+2026-02-18 06:59:31.732 - INFO: Registered OSP permutation: #relations = 4,585, #blocks = 1, #triples = 12,159
+2026-02-18 06:59:31.732 - INFO: Registered SPO permutation: #relations = 1,870, #blocks = 1, #triples = 12,159
+2026-02-18 06:59:31.732 - INFO: Registered SOP permutation: #relations = 1,870, #blocks = 1, #triples = 12,159
+2026-02-18 06:59:31.732 - INFO: Reading patterns from file gaiacatalog.index.patterns ...
+2026-02-18 06:59:31.732 - INFO: Sorting random result tables to estimate the sorting performance of this machine ...
+2026-02-18 06:59:31.734 - INFO: Access token for restricted API calls is "gaiacatalog_7643543846_6dMISzlPrD7i"
+2026-02-18 06:59:31.734 - INFO: The server is ready, listening for requests on port 7077 ...
+2026-02-18 06:59:31.743 - INFO: 
+2026-02-18 06:59:31.743 - INFO: Request received via POST, content type "application/x-www-form-urlencoded"
+2026-02-18 06:59:31.743 - INFO: Alive check with message "from the `qlever` CLI"
+2026-02-18 06:59:31.752 - INFO: 
+2026-02-18 06:59:31.752 - INFO: Request received via GET, no content type specified
+2026-02-18 06:59:31.752 - INFO: Setting index description to: "GAIACatalog http://example.org/gaiacatalog"
+2026-02-18 06:59:31.759 - INFO: 
+2026-02-18 06:59:31.759 - INFO: Request received via GET, no content type specified
+2026-02-18 06:59:31.759 - INFO: Setting text description to: "Test graph for GaiaCatalog"
+2026-02-18 06:59:31.777 - INFO: 
+2026-02-18 06:59:31.777 - INFO: Request received via POST, content type "application/x-www-form-urlencoded"
+2026-02-18 06:59:31.777 - INFO: Processing command "cache-stats": get cache statistics
+2026-02-18 06:59:31.794 - INFO: 
+2026-02-18 06:59:31.794 - INFO: Request received via POST, content type "application/x-www-form-urlencoded"
+2026-02-18 06:59:31.794 - INFO: Processing command "get-settings": get server settings

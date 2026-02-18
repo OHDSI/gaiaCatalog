@@ -15,7 +15,7 @@ class Citation {
  // "CustomGPT4o"
 
 function RAGWithCitations(question: string, context: string) -> ResponseWithCitations {
-  client "CustomGPT4o"
+  client "XAI4"
   prompt #"
    Provide a comprehensive and cohesive answer to the question in full sentences, synthesizing information from all relevant context chunks provided.
 

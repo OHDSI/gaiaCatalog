@@ -1,0 +1,16 @@
+README.md
+pyproject.toml
+src/lance_mcp/__init__.py
+src/lance_mcp.egg-info/PKG-INFO
+src/lance_mcp.egg-info/SOURCES.txt
+src/lance_mcp.egg-info/dependency_links.txt
+src/lance_mcp.egg-info/requires.txt
+src/lance_mcp.egg-info/top_level.txt
+src/lance_mcp/metrics/__init__.py
+src/lance_mcp/modules/__init__.py
+src/lance_mcp/modules/lance_mcp_predict.py
+src/lance_mcp/optimizers/__init__.py
+src/lance_mcp/signatures/__init__.py
+src/lance_mcp/signatures/lance_mcp.py
+src/lance_mcp/utils/__init__.py
+tests/test_modules.py

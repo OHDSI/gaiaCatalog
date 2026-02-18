@@ -154,7 +154,7 @@ in a private repo that I will port over to here.
 
 ### Chainlit
 
-This code base needs to be updated to use the latest version from the coffeecode repo.  Also, it leverage the MCP server exposing the triplestore.   Qlever in our case.  
+This code base needs to be updated to use the latest version from the coffeecode repo.  Also, it leverages the MCP server exposing the triplestore.   Qlever in our case.  
 
 
 ## Docling Notes
@@ -165,3 +165,9 @@ TBD
   * https://docling-project.github.io/docling/examples/hybrid_chunking/
   * https://docling-project.github.io/docling/examples/advanced_chunking_and_serialization/
   * https://docling-project.github.io/docling/examples/rag_haystack/
+
+
+## Demo hacks
+
+* MCP is currently in coffee code, need to resolve that
+* 
