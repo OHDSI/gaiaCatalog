@@ -11,11 +11,20 @@
   },
   "@type": "Dataset",
   "@id": "https://gdsc.idsc.miami.edu/detail/tz_magu_dem_srtm",
-  "includedInDataCatalog": {
-    "@type": "DataCatalog",
-    "name": "Geospatial Digital Special Collections",
-    "url": "https://gdsc.idsc.miami.edu"
-  },
+  "includedInDataCatalog": [
+    {
+      "@type": "DataCatalog",
+      "@id": "https://gdsc.idsc.miami.edu",
+      "name": "Geospatial Digital Special Collections",
+      "url": "https://gdsc.idsc.miami.edu"
+    },
+    {
+      "@type": "DataCatalog",
+      "name": "tz-climate-change",
+      "@id": "https://gdsc.idsc.miami.edu/?collection=tz-climate-change",
+      "url": "https://gdsc.idsc.miami.edu/?collection=tz-climate-change"
+    }
+  ],
   "name": "Magu District DEM (SRTM)",
   "creator": [
     {
@@ -29,8 +38,14 @@
   "license": "This data is open to the public and browse images are freely available without\nrestriction.",
   "spatialCoverage": [
     {
+      "@id": "https://www.geonames.org/155313",
       "@type": "Place",
-      "name": "Magu District, Tanzania"
+      "name": "Magu District"
+    },
+    {
+      "@id": "https://www.geonames.org/149590",
+      "@type": "Place",
+      "name": "Tanzania"
     },
     {
       "@type": "Place",
@@ -97,7 +112,7 @@
       "potentialAction": {
         "@type": "Action",
         "name": "Pseudo Code",
-        "description": "#########\n# GDSC ETL is performed in two steps: shell script to ETL data into postgres\n# and then additional transformations with SQL in postGIS (if needed).\n####\n\n#########\n# Step 1 - bash script (pseudo code)\n####\n\n# create directory structure and move into it\nmkdir -p /data/tz_magu_dem_srtm/{download,etl} && cd /data/tz_magu_dem_srtm\n\n# set update flag based on last update and update frequency\ndo_update=0 if date() < last_update + update_frequency else do_update = 1\n\n# load raster into postGIS with:\n    raster2pgsql -s 4326 -d -C -I -t auto tz_magu_dem_srtm.tif -F tz_magu_dem_srtm > load_raster.sql\npsql <connection options> < load_raster.sql\nrm load_raster.sql\n\n# render raster tiles \ncd /data/tz_magu_dem_srtm/\ngdal2tiles.py -ex --xyz -z 14-18 /data/tz_magu_dem_srtm/download/tz_magu_dem_srtm.tif /tiles/raster/tz_magu_dem_srtm\n# Move into corrrect directory and create derivative directory in data package on osgeo\ncd /data/tz_magu_dem_srtm/\nmkdir -p derived\n\nexport PGPASSWORD=SuperSecret\n# Move into correct directory\ncd /data/tz_magu_dem_srtm/\n\nexport PGPASSWORD=SuperSecret\n",
+        "description": "TODO",
         "result": {
           "@type": "Dataset",
           "encodingFormat": "tiff",
@@ -115,7 +130,6 @@
         "description": "Custom ETL process for Magu District DEM (SRTM)",
         "object": {
           "@type": "Dataset",
-          "name": NaN,
           "producer": "NASA JPL",
           "url": "https://lpdaac.usgs.gov/products/srtmgl1v003/"
         },
@@ -123,9 +137,7 @@
           "@type": "SoftwareApplication",
           "@id": "https://github.com/Geospatial-Digital-Special-Collections/tools",
           "featureList": "S02E032.SRTMGL1 S02E033.SRTMGL1 S02E034.SRTMGL1 S03E032.SRTMGL1 S03E033.SRTMGL1 S03E034.SRTMGL1 S04E032.SRTMGL1 S04E033.SRTMGL1 S04E034.SRTMGL1 bbox;32.75;-3.09;34.04;-2.13",
-          "downloadUrl": [
-            "https://github.com/Geospatial-Digital-Special-Collections/tools.git"
-          ]
+          "downloadUrl": "https://github.com/Geospatial-Digital-Special-Collections/tools.git"
         },
         "result": {
           "@type": "Dataset",
@@ -142,15 +154,13 @@
       "@type": "PropertyValue",
       "name": "elevation",
       "description": "Mean elevation above sea level",
-      "qudt:dataType": "int16",
-      "unitText": "meters",
-      "minValue": "1125",
-      "maxValue": "1508"
+      "qudt:dataType": "float",
+      "unitText": "meters\n"
     }
   ],
   "distribution": [
     "https://gdsc.idsc.miami.edu/download/data/tz_magu_dem_srtm/?file=tz_magu_dem_srtm&format=tiff"
   ],
   "dateModified": "2025-02-24",
-  "version": "2025-10-05"
+  "version": "2026-02-12"
 }

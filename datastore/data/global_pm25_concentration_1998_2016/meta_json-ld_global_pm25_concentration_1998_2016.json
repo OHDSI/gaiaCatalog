@@ -11,11 +11,20 @@
   },
   "@type": "Dataset",
   "@id": "https://gdsc.idsc.miami.edu/detail/global_pm25_concentration_1998_2016",
-  "includedInDataCatalog": {
-    "@type": "DataCatalog",
-    "name": "Geospatial Digital Special Collections",
-    "url": "https://gdsc.idsc.miami.edu"
-  },
+  "includedInDataCatalog": [
+    {
+      "@type": "DataCatalog",
+      "@id": "https://gdsc.idsc.miami.edu",
+      "name": "Geospatial Digital Special Collections",
+      "url": "https://gdsc.idsc.miami.edu"
+    },
+    {
+      "@type": "DataCatalog",
+      "name": "mdc-health-outcomes",
+      "@id": "https://gdsc.idsc.miami.edu/?collection=mdc-health-outcomes",
+      "url": "https://gdsc.idsc.miami.edu/?collection=mdc-health-outcomes"
+    }
+  ],
   "name": "Annual PM2.5 Concentrations for Countries and Urban Areas, v1 (1998\u200a\u2013\u200a2016)",
   "creator": [
     {
@@ -32,8 +41,17 @@
   "license": "This work is licensed under the Creative Commons Attribution 4.0 International License (https://creativecommons.org/licenses/by/4.0). Users are free to use, copy, distribute, transmit, and adapt the work for commercial and non-commercial purposes, without restriction, as long as clear attribution of the source is provided.",
   "spatialCoverage": [
     {
+      "@id": "https://www.geonames.org/6295630",
       "@type": "Place",
-      "name": "Global"
+      "name": "Earth"
+    },
+    {
+      "@type": "Place",
+      "name": "bbox",
+      "geo": {
+        "@type": "GeoShape",
+        "polygon": "-176.733337 -54.858002 179.458313 -54.858002 179.458313 78.274611 -176.733337 78.274611 -176.733337 -54.858002"
+      }
     }
   ],
   "type": "Vector Dataset",
@@ -108,7 +126,7 @@
       "potentialAction": {
         "@type": "Action",
         "name": "Pseudo Code",
-        "description": "#########\n# GDSC ETL is performed in two steps: shell script to ETL data into postgres\n# and then additional transformations with SQL in postGIS (if needed).\n####\n\n#########\n# Step 1 - bash script (pseudo code)\n####\n\n# create directory structure and move into it\nmkdir -p /data/global_pm25_concentration_1998_2016/{download,etl} && cd /data/global_pm25_concentration_1998_2016\n\n# set update flag based on last update and update frequency\ndo_update=0 if date() < last_update + update_frequency else do_update = 1\n\n# download if update flag is set:\nif do_update == 1 then\nwget -O download/global_pm25_concentration_1998_2016.zip 'https://sedac.ciesin.columbia.edu/downloads/data/sdei/sdei-annual-pm2-5-concentrations-countries-urban-areas-v1-1998-2016/sdei-annual-pm2-5-concentrations-countries-urban-areas-v1-1998-2016-urban-areas-shp.zip'\n\n# unzip to download directory if update flag is set\nif do_update == 1 then\nunzip -d download download/global_pm25_concentration_1998_2016.zip && rm download/global_pm25_concentration_1998_2016.zip\n\n# load into postGIS with:\n  ogr2ogr -lco GEOMETRY_NAME=geom -f PostgreSQL PG:\"<postgres connection>\" download/sdei-annual-pm2-5-concentrations-countries-urban-areas-v1-1998-2016-urban-areas.shp -nlt multipolygon -nln global_pm25_concentration_1998_2016\n\n#########\n# Step 2 - SQL script (pseudo code):\n####\n\n# remove duplicate points and make geometries valid:\nUPDATE global_pm25_concentration_1998_2016\n  SET geom=ST_MakeValid(ST_RemoveRepeatedPoints(geom));\n\n# add local geometry column and reproject existing geometries into local EPSG:\nSELECT AddGeometryColumn (\n  'global_pm25_concentration_1998_2016',\n  'geom_local', 3857, 'multipolygon', 2\n);\nUPDATE global_pm25_concentration_1998_2016\n  SET geom_local=ST_MakeValid(ST_RemoveRepeatedPoints(ST_Transform(ST_Multi(geom),3857)));\nCREATE INDEX global_pm25_concentration_1998_2016_geom_local_idx\n  ON global_pm25_concentration_1998_2016\n  USING GIST (geom_local);\nNOTIFY pgrst, 'reload schema';\n# Move into corrrect directory and create derivative directory in data package on osgeo\ncd /data/global_pm25_concentration_1998_2016/\nmkdir -p derived\n\nexport PGPASSWORD=SuperSecret\n# Create shapefile of table in derivate directory on osgeo \nogr2ogr -f \"ESRI Shapefile\" -overwrite derived/global_pm25_concentration_1998_2016.shp PG:\"<postgres connection>\" global_pm25_concentration_1998_2016\n\n# Create downloadable tarfile of shp in derivative directory on osgeo\nrm -f derived/global_pm25_concentration_1998_2016.shp.tar.gz\ntar -czf derived/global_pm25_concentration_1998_2016.shp.tar.gz meta_dcat_global_pm25_concentration_1998_2016.json -C derived global_pm25_concentration_1998_2016.shp global_pm25_concentration_1998_2016.prj global_pm25_concentration_1998_2016.shx global_pm25_concentration_1998_2016.dbf\n\n# Move into correct directory\ncd /data/global_pm25_concentration_1998_2016/\n\nexport PGPASSWORD=SuperSecret\n# Create pg_dump of table SQL in derivate directory on postgis.\npg_dump <postgres opts> -h gaia-db -t global_pm25_concentration_1998_2016 > derived/global_pm25_concentration_1998_2016.sql\n\n# Create downloadable tarfile of SQL in derivative directory on postgis\nrm -f derived/global_pm25_concentration_1998_2016.sql.tar.gz\ntar -czf derived/global_pm25_concentration_1998_2016.sql.tar.gz meta_dcat_global_pm25_concentration_1998_2016.json -C derived global_pm25_concentration_1998_2016.sql\n\n",
+        "description": "TODO",
         "result": {
           "@type": "Dataset",
           "encodingFormat": "sql",
@@ -132,13 +150,9 @@
         },
         "instrument": {
           "@type": "SoftwareApplication",
-          "@id": [
-            "https://github.com/Geospatial-Digital-Special-Collections/tools"
-          ],
+          "@id": "https://github.com/Geospatial-Digital-Special-Collections/tools",
           "featureList": "wget",
-          "downloadUrl": [
-            "https://github.com/Geospatial-Digital-Special-Collections/tools.git"
-          ]
+          "downloadUrl": "https://github.com/Geospatial-Digital-Special-Collections/tools.git"
         },
         "result": {
           "@type": "Dataset",
@@ -155,9 +169,7 @@
       "@type": "PropertyValue",
       "name": "urbid",
       "description": "Code of the urban extent polygons (not unique)",
-      "qudt:dataType": "numeric",
-      "minValue": "8.00",
-      "maxValue": "94650.00"
+      "qudt:dataType": "int4"
     },
     {
       "@type": "PropertyValue",
@@ -384,11 +396,9 @@
       "propertyID": [
         "2052499839"
       ],
-      "qudt:dataType": "numeric",
+      "qudt:dataType": "double",
       "unitCode": "32964",
       "unitText": "micrograms/cubic meter",
-      "minValue": "0.00",
-      "maxValue": "101.69",
       "startDate": "1/1/11",
       "endDate": "12/31/11"
     },
@@ -463,5 +473,5 @@
     "https://gdsc.idsc.miami.edu/download/data/global_pm25_concentration_1998_2016/?file=global_pm25_concentration_1998_2016&format=shp"
   ],
   "dateModified": "2021-04-06",
-  "version": "2025-12-05"
+  "version": "2026-02-12"
 }

@@ -6,7 +6,7 @@
 # Data source: https://github.com/tibbben/copernicus_aggregate.git
 # Destination postGIS table: tz_1984_copernicus_avg_temp
 #
-# Created by etl() on 2025-10-05 15:59:40
+# Created by etl() on 2026-02-12 10:25:44
 # Do not edit directly
 
 export PGPASSWORD=$(cat $POSTGRES_PASSWORD_FILE)
@@ -38,5 +38,10 @@ else do_update=1; fi
 cd download
 gdal_translate NETCDF:tz_1984_copernicus_avg_temp.nc:2m_temperature tz_1984_copernicus_avg_temp.tif
 cd ..
+
+if [[ $do_update = 1 ]]; then
+  # record download datestamp
+  echo $(date '+%F %T') > datestamp
+fi
 
 

@@ -6,7 +6,7 @@
 # Data source: tz_2022_nbs_districts
 # Destination postGIS table: tz_2022_nbs_magu_district
 #
-# Created by etl() on 2025-10-05 15:59:43
+# Created by etl() on 2026-02-12 10:25:44
 # Do not edit directly
 
 export PGPASSWORD=$(cat $POSTGRES_PASSWORD_FILE)
@@ -34,5 +34,10 @@ if [[ $exists ]]; then
 
 # does not exist
 else do_update=1; fi
+
+if [[ $do_update = 1 ]]; then
+  # record download datestamp
+  echo $(date '+%F %T') > datestamp
+fi
 
 

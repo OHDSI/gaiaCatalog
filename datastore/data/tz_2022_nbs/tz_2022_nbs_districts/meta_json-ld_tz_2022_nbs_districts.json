@@ -11,11 +11,20 @@
   },
   "@type": "Dataset",
   "@id": "https://gdsc.idsc.miami.edu/detail/tz_2022_nbs_districts",
-  "includedInDataCatalog": {
-    "@type": "DataCatalog",
-    "name": "Geospatial Digital Special Collections",
-    "url": "https://gdsc.idsc.miami.edu"
-  },
+  "includedInDataCatalog": [
+    {
+      "@type": "DataCatalog",
+      "@id": "https://gdsc.idsc.miami.edu",
+      "name": "Geospatial Digital Special Collections",
+      "url": "https://gdsc.idsc.miami.edu"
+    },
+    {
+      "@type": "DataCatalog",
+      "name": "tz-climate-change",
+      "@id": "https://gdsc.idsc.miami.edu/?collection=tz-climate-change",
+      "url": "https://gdsc.idsc.miami.edu/?collection=tz-climate-change"
+    }
+  ],
   "name": "Tanzania 2022 Districts (NBS)",
   "creator": [
     {
@@ -28,8 +37,17 @@
   ],
   "spatialCoverage": [
     {
+      "@id": "https://www.geonames.org/149590",
       "@type": "Place",
       "name": "Tanzania"
+    },
+    {
+      "@type": "Place",
+      "name": "bbox",
+      "geo": {
+        "@type": "GeoShape",
+        "polygon": "29.636010 -11.255900 39.868100 -11.255900 39.868100 -1.072270)\nExtent: (29.611330 29.636010 -1.072270)\nExtent: (29.611330 29.636010 -11.255900"
+      }
     }
   ],
   "temporalCoverage": "2020-01-01/2022-12-31",
@@ -105,7 +123,7 @@
       "potentialAction": {
         "@type": "Action",
         "name": "Pseudo Code",
-        "description": "#########\n# GDSC ETL is performed in two steps: shell script to ETL data into postgres\n# and then additional transformations with SQL in postGIS (if needed).\n####\n\n#########\n# Step 1 - bash script (pseudo code)\n####\n\n# create directory structure and move into it\nmkdir -p /data/tz_2022_nbs/{download,tz_2022_nbs_districts/etl} && cd /data/tz_2022_nbs\n\n# set update flag based on last update and update frequency\ndo_update=0 if date() < last_update + update_frequency else do_update = 1\n\n# download if update flag is set:\nif do_update == 1 then\nwget -O download/tz_2022_nbs.zip 'https://microdata.nbs.go.tz/index.php/catalog/49/download/317'\n\n# unzip to download directory if update flag is set\nif do_update == 1 then\nunzip -d download download/tz_2022_nbs.zip && rm download/tz_2022_nbs.zip\n\n# extract mpkx to download directory\n7z x download/TANZANIA_2022_POST_PHC_GEODATABASE.mpkx -o'download/TANZANIA_2022_POST_PHC_GEODATABASE'\n\n# load into postGIS with:\n  ogr2ogr -lco GEOMETRY_NAME=geom -f PostgreSQL PG:\"<postgres connection>\" download/TANZANIA_2022_POST_PHC_GEODATABASE/commondata/tanzania_2022phc_geodatabase.gdb Districts -nlt multipolygon -nln tz_2022_nbs_districts\n\n#########\n# Step 2 - SQL script (pseudo code):\n####\n\n# remove duplicate points and make geometries valid:\nUPDATE tz_2022_nbs_districts\n  SET geom=ST_MakeValid(ST_RemoveRepeatedPoints(geom));\n\n# add local geometry column and reproject existing geometries into local EPSG:\nSELECT AddGeometryColumn (\n  'tz_2022_nbs_districts',\n  'geom_local', 4326, 'multipolygon', 2\n);\nUPDATE tz_2022_nbs_districts\n  SET geom_local=ST_MakeValid(ST_RemoveRepeatedPoints(ST_Transform(ST_Multi(geom),4326)));\nCREATE INDEX tz_2022_nbs_districts_geom_local_idx\n  ON tz_2022_nbs_districts\n  USING GIST (geom_local);\nNOTIFY pgrst, 'reload schema';\n# Move into corrrect directory and create derivative directory in data package on osgeo\ncd /data/tz_2022_nbs/tz_2022_nbs_districts/\nmkdir -p derived\n\nexport PGPASSWORD=SuperSecret\n# Create shapefile of table in derivate directory on osgeo \nogr2ogr -f \"ESRI Shapefile\" -overwrite derived/tz_2022_nbs_districts.shp PG:\"<postgres connection>\" tz_2022_nbs_districts\n\n# Create downloadable tarfile of shp in derivative directory on osgeo\nrm -f derived/tz_2022_nbs_districts.shp.tar.gz\ntar -czf derived/tz_2022_nbs_districts.shp.tar.gz meta_dcat_tz_2022_nbs_districts.json -C derived tz_2022_nbs_districts.shp tz_2022_nbs_districts.prj tz_2022_nbs_districts.shx tz_2022_nbs_districts.dbf\n\n# Move into correct directory\ncd /data/tz_2022_nbs/tz_2022_nbs_districts/\n\nexport PGPASSWORD=SuperSecret\n",
+        "description": "TODO",
         "result": {
           "@type": "Dataset",
           "encodingFormat": "shp",
@@ -129,11 +147,9 @@
         },
         "instrument": {
           "@type": "SoftwareApplication",
-          "@id":  "https://github.com/Geospatial-Digital-Special-Collections/tools",
+          "@id": "https://github.com/Geospatial-Digital-Special-Collections/tools",
           "featureList": "wget",
-          "downloadUrl": [
-            "https://github.com/Geospatial-Digital-Special-Collections/tools.git"
-          ]
+          "downloadUrl": "https://github.com/Geospatial-Digital-Special-Collections/tools.git"
         },
         "result": {
           "@type": "Dataset",
@@ -149,21 +165,25 @@
     {
       "@type": "PropertyValue",
       "name": "dist_code",
-      "qudt:dataType": "varchar"
+      "description": "Unique district code",
+      "qudt:dataType": "numeric"
     },
     {
       "@type": "PropertyValue",
-      "name": "dist_name",
-      "qudt:dataType": "varchar"
+      "name": "\ndist_name",
+      "description": " District names",
+      "qudt:dataType": "string"
     },
     {
       "@type": "PropertyValue",
-      "name": "reg_code",
-      "qudt:dataType": "varchar"
+      "name": "\nreg_code",
+      "description": " unique code",
+      "qudt:dataType": "numeric"
     },
     {
       "@type": "PropertyValue",
-      "name": "reg_name",
+      "name": "\nreg_name",
+      "description": " name",
       "qudt:dataType": "varchar"
     }
   ],
@@ -171,5 +191,5 @@
     "https://gdsc.idsc.miami.edu/download/data/tz_2022_nbs_districts/?file=tz_2022_nbs_districts&format=shp"
   ],
   "dateModified": "2025-06-01",
-  "version": "2025-10-05"
+  "version": "2026-02-12"
 }

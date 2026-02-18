@@ -11,11 +11,20 @@
   },
   "@type": "Dataset",
   "@id": "https://gdsc.idsc.miami.edu/detail/ma_2018_svi_tract",
-  "includedInDataCatalog": {
-    "@type": "DataCatalog",
-    "name": "Geospatial Digital Special Collections",
-    "url": "https://gdsc.idsc.miami.edu"
-  },
+  "includedInDataCatalog": [
+    {
+      "@type": "DataCatalog",
+      "@id": "https://gdsc.idsc.miami.edu",
+      "name": "Geospatial Digital Special Collections",
+      "url": "https://gdsc.idsc.miami.edu"
+    },
+    {
+      "@type": "DataCatalog",
+      "name": "mdc-health-outcomes",
+      "@id": "https://gdsc.idsc.miami.edu/?collection=mdc-health-outcomes",
+      "url": "https://gdsc.idsc.miami.edu/?collection=mdc-health-outcomes"
+    }
+  ],
   "name": "2018 Massachusetts CDC Social Vulnerability Index (tracts)",
   "creator": [
     {
@@ -26,14 +35,23 @@
       "name": "Center for Disease Control"
     }
   ],
-  "url": "https://www.atsdr.cdc.gov/placeandhealth/svi/data_documentation_download.html",
+  "url": "https://www.atsdr.cdc.gov/place-health/php/svi/svi-data-documentation-download.html",
   "provider": [
     "CDC"
   ],
   "spatialCoverage": [
     {
+      "@id": "https://www.geonames.org/6254926",
       "@type": "Place",
       "name": "Massachusetts"
+    },
+    {
+      "@type": "Place",
+      "name": "bbox",
+      "geo": {
+        "@type": "GeoShape",
+        "polygon": "-73.508142 41.237964 -69.928393 41.237964 -69.928393 42.886589 -73.508142 42.886589 -73.508142 41.237964"
+      }
     }
   ],
   "type": "Vector Dataset",
@@ -111,7 +129,7 @@
       "potentialAction": {
         "@type": "Action",
         "name": "Pseudo Code",
-        "description": "#########\n# GDSC ETL is performed in two steps: shell script to ETL data into postgres\n# and then additional transformations with SQL in postGIS (if needed).\n####\n\n#########\n# Step 1 - bash script (pseudo code)\n####\n\n# create directory structure and move into it\nmkdir -p /data/ma_2018_svi_tract/{download,etl} && cd /data/ma_2018_svi_tract\n\n# set update flag based on last update and update frequency\ndo_update=0 if date() < last_update + update_frequency else do_update = 1\n\n# download if update flag is set:\nif do_update == 1 then\nwget -O download/ma_2018_svi_tract.zip 'https://svi.cdc.gov/Documents/Data/2018/db/states/Massachusetts.zip'\n\n# unzip to download directory if update flag is set\nif do_update == 1 then\nunzip -d download download/ma_2018_svi_tract.zip && rm download/ma_2018_svi_tract.zip\n\n# load into postGIS with:\n  ogr2ogr -lco GEOMETRY_NAME=geom -f PostgreSQL PG:\"<postgres connection>\" download/SVI2018_MASSACHUSETTS_tract.gdb -nlt multipolygon -nln ma_2018_svi_tract\n\n#########\n# Step 2 - SQL script (pseudo code):\n####\n\n# remove duplicate points and make geometries valid:\nUPDATE ma_2018_svi_tract\n  SET geom=ST_MakeValid(ST_RemoveRepeatedPoints(geom));\n\n# add local geometry column and reproject existing geometries into local EPSG:\nSELECT AddGeometryColumn (\n  'ma_2018_svi_tract',\n  'geom_local', 26986, 'multipolygon', 2\n);\nUPDATE ma_2018_svi_tract\n  SET geom_local=ST_MakeValid(ST_RemoveRepeatedPoints(ST_Transform(ST_Multi(geom),26986)));\nCREATE INDEX ma_2018_svi_tract_geom_local_idx\n  ON ma_2018_svi_tract\n  USING GIST (geom_local);\nNOTIFY pgrst, 'reload schema';\n# Move into corrrect directory and create derivative directory in data package on osgeo\ncd /data/ma_2018_svi_tract/\nmkdir -p derived\n\nexport PGPASSWORD=SuperSecret\n# Move into correct directory\ncd /data/ma_2018_svi_tract/\n\nexport PGPASSWORD=SuperSecret\n# Create pg_dump of table SQL in derivate directory on postgis.\npg_dump <postgres opts> -h gaia-db -t ma_2018_svi_tract > derived/ma_2018_svi_tract.sql\n\n# Create downloadable tarfile of SQL in derivative directory on postgis\nrm -f derived/ma_2018_svi_tract.sql.tar.gz\ntar -czf derived/ma_2018_svi_tract.sql.tar.gz meta_dcat_ma_2018_svi_tract.json -C derived ma_2018_svi_tract.sql\n\n",
+        "description": "TODO",
         "result": {
           "@type": "Dataset",
           "encodingFormat": "sql",
@@ -131,15 +149,13 @@
           "@type": "Dataset",
           "name": " direct from source",
           "producer": "Center for Disease Control",
-          "url": "https://www.atsdr.cdc.gov/placeandhealth/svi/data_documentation_download.html"
+          "url": "https://www.atsdr.cdc.gov/place-health/php/svi/svi-data-documentation-download.html"
         },
         "instrument": {
           "@type": "SoftwareApplication",
           "@id": "https://github.com/Geospatial-Digital-Special-Collections/tools",
           "featureList": "wget",
-          "downloadUrl": [
-            "https://github.com/Geospatial-Digital-Special-Collections/tools.git"
-          ]
+          "downloadUrl": "https://github.com/Geospatial-Digital-Special-Collections/tools.git"
         },
         "result": {
           "@type": "Dataset",
@@ -160,13 +176,11 @@
         "2052497175"
       ],
       "qudt:dataType": "float8",
-      "unitText": "square miles",
-      "minValue": "0",
-      "maxValue": "194.451590410428"
+      "unitText": "square miles"
     },
     {
       "@type": "PropertyValue",
-      "name": "county",
+      "name": "\ncounty",
       "description": "County name",
       "propertyID": [
         "2052499639"
@@ -175,981 +189,830 @@
     },
     {
       "@type": "PropertyValue",
-      "name": "e_age17",
+      "name": "\ne_age17",
       "description": "\"Persons aged 17 and younger estimate, 2014-2018 ACS\"",
       "propertyID": [
         "2052498115"
       ],
       "qudt:dataType": "int4",
       "unitText": "persons",
-      "minValue": "0",
-      "maxValue": "2943",
       "startDate": "1/1/18",
       "endDate": "12/31/18"
     },
     {
       "@type": "PropertyValue",
-      "name": "e_age65",
+      "name": "\ne_age65",
       "description": "\"Persons aged 65 and older estimate, 2014-2018 ACS\"",
       "propertyID": [
         "2052498113"
       ],
       "qudt:dataType": "int4",
       "unitText": "persons",
-      "minValue": "0",
-      "maxValue": "3337",
       "startDate": "1/1/18",
       "endDate": "12/31/18"
     },
     {
       "@type": "PropertyValue",
-      "name": "e_crowd",
+      "name": "\ne_crowd",
       "description": "\"At household level (occupied housing units), more people than rooms estimate, 2014-2018 ACS\"",
       "propertyID": [
         "2052499828"
       ],
       "qudt:dataType": "int4",
       "unitText": "households",
-      "minValue": "0",
-      "maxValue": "346",
       "startDate": "1/1/18",
       "endDate": "12/31/18"
     },
     {
       "@type": "PropertyValue",
-      "name": "e_daypop",
+      "name": "\ne_daypop",
       "description": "\"Adjunct variable - Estimated daytime population, LandScan 2018\"",
       "propertyID": [
         "2052499427"
       ],
       "qudt:dataType": "int4",
       "unitText": "persons",
-      "minValue": "0",
-      "maxValue": "37119",
       "startDate": "1/1/18",
       "endDate": "12/31/18"
     },
     {
       "@type": "PropertyValue",
-      "name": "e_disabl",
+      "name": "\ne_disabl",
       "description": "\"Civilian non-institutionalized population with a disability estimate, 2014-2018 ACS\"",
       "propertyID": [
         "2052499669"
       ],
       "qudt:dataType": "int4",
       "unitText": "persons",
-      "minValue": "0",
-      "maxValue": "2179",
       "startDate": "1/1/18",
       "endDate": "12/31/18"
     },
     {
       "@type": "PropertyValue",
-      "name": "e_groupq",
+      "name": "\ne_groupq",
       "description": "\"Persons in group quarters estimate, 2014-2018 ACS\"",
       "propertyID": [
         "2052498109"
       ],
       "qudt:dataType": "int4",
       "unitText": "persons",
-      "minValue": "0",
-      "maxValue": "12754",
       "startDate": "1/1/18",
       "endDate": "12/31/18"
     },
     {
       "@type": "PropertyValue",
-      "name": "e_hh",
+      "name": "\ne_hh",
       "description": "\"Households estimate, 2014-2018 ACS\"",
       "propertyID": [
         "2052499093"
       ],
       "qudt:dataType": "int4",
       "unitText": "households",
-      "minValue": "0",
-      "maxValue": "4435",
       "startDate": "1/1/18",
       "endDate": "12/31/18"
     },
     {
       "@type": "PropertyValue",
-      "name": "e_hu",
+      "name": "\ne_hu",
       "description": "\"Housing units estimate, 2014-2018 ACS\"",
       "propertyID": [
         "2052499075"
       ],
       "qudt:dataType": "int4",
       "unitText": "housing units",
-      "minValue": "0",
-      "maxValue": "5165",
       "startDate": "1/1/18",
       "endDate": "12/31/18"
     },
     {
       "@type": "PropertyValue",
-      "name": "e_limeng",
+      "name": "\ne_limeng",
       "description": "\"Persons (age 5+) who speak English \"\"less than well\"\" estimate, 2014-2018 ACS\"",
       "propertyID": [
         "2052498117"
       ],
       "qudt:dataType": "int4",
       "unitText": "persons",
-      "minValue": "0",
-      "maxValue": "2708",
       "startDate": "1/1/18",
       "endDate": "12/31/18"
     },
     {
       "@type": "PropertyValue",
-      "name": "e_minrty",
+      "name": "\ne_minrty",
       "description": "\"Minority (all persons except white, non-Hispanic) estimate, 2014-2018 ACS\"",
       "propertyID": [
         "2052498841"
       ],
       "qudt:dataType": "int4",
       "unitText": "persons",
-      "minValue": "0",
-      "maxValue": "8241",
       "startDate": "1/1/18",
       "endDate": "12/31/18"
     },
     {
       "@type": "PropertyValue",
-      "name": "e_mobile",
+      "name": "\ne_mobile",
       "description": "\"Mobile homes estimate, 2014-2018 ACS\"",
       "propertyID": [
         "2052498834"
       ],
       "qudt:dataType": "int4",
       "unitText": "mobile homes",
-      "minValue": "0",
-      "maxValue": "992",
       "startDate": "1/1/18",
       "endDate": "12/31/18"
     },
     {
       "@type": "PropertyValue",
-      "name": "e_munit",
+      "name": "\ne_munit",
       "description": "\"Housing in structures with 10 or more units estimate, 2014-2018 ACS\"",
       "propertyID": [
         "2052499082"
       ],
       "qudt:dataType": "int4",
       "unitText": "structures",
-      "minValue": "0",
-      "maxValue": "4257",
       "startDate": "1/1/18",
       "endDate": "12/31/18"
     },
     {
       "@type": "PropertyValue",
-      "name": "e_nohsdp",
+      "name": "\ne_nohsdp",
       "description": "\"Persons (age 25+) with no high school diploma estimate, 2014-2018 ACS\"",
       "propertyID": [
         "2052498119"
       ],
       "qudt:dataType": "int4",
       "unitText": "persons",
-      "minValue": "0",
-      "maxValue": "1765",
       "startDate": "1/1/18",
       "endDate": "12/31/18"
     },
     {
       "@type": "PropertyValue",
-      "name": "e_noveh",
+      "name": "\ne_noveh",
       "description": "\"Households with no vehicle available estimate, 2014-2018 ACS\"",
       "propertyID": [
         "2052499091"
       ],
       "qudt:dataType": "int4",
       "unitText": "households",
-      "minValue": "0",
-      "maxValue": "2040",
       "startDate": "1/1/18",
       "endDate": "12/31/18"
     },
     {
       "@type": "PropertyValue",
-      "name": "e_pci",
+      "name": "\ne_pci",
       "description": "\"Per capita income estimate, 2014-2018 ACS\"",
       "propertyID": [
         "2052498645"
       ],
       "qudt:dataType": "int4",
       "unitText": "US dollars",
-      "minValue": "3272",
-      "maxValue": "153108",
       "startDate": "1/1/18",
       "endDate": "12/31/18"
     },
     {
       "@type": "PropertyValue",
-      "name": "e_pov",
+      "name": "\ne_pov",
       "description": "\"Persons below poverty estimate, 2014-2018 ACS\"",
       "propertyID": [
         "2052498111"
       ],
       "qudt:dataType": "int4",
       "unitText": "persons",
-      "minValue": "0",
-      "maxValue": "2894",
       "startDate": "1/1/18",
       "endDate": "12/31/18"
     },
     {
       "@type": "PropertyValue",
-      "name": "e_sngpnt",
+      "name": "\ne_sngpnt",
       "description": "\"Single parent household with children under 18 estimate, 2014-2018 ACS\"",
       "propertyID": [
         "2052497778"
       ],
       "qudt:dataType": "int4",
       "unitText": "households",
-      "minValue": "0",
-      "maxValue": "697",
       "startDate": "1/1/18",
       "endDate": "12/31/18"
     },
     {
       "@type": "PropertyValue",
-      "name": "e_totpop",
+      "name": "\ne_totpop",
       "description": "\"Population estimate, 2014-2018 ACS\"",
       "propertyID": [
         "2052498091"
       ],
       "qudt:dataType": "int4",
       "unitText": "persons",
-      "minValue": "0",
-      "maxValue": "13056",
       "startDate": "1/1/18",
       "endDate": "12/31/18"
     },
     {
       "@type": "PropertyValue",
-      "name": "e_unemp",
+      "name": "\ne_unemp",
       "description": "\"Civilian (age 16+) unemployed estimate, 2014-2018 ACS\"",
       "propertyID": [
         "2052499671"
       ],
       "qudt:dataType": "int4",
       "unitText": "persons",
-      "minValue": "0",
-      "maxValue": "1064",
       "startDate": "1/1/18",
       "endDate": "12/31/18"
     },
     {
       "@type": "PropertyValue",
-      "name": "e_uninsur",
+      "name": "\ne_uninsur",
       "description": "\"Adjunct variable - Uninsured in the total civilian non-institutionalized population estimate, 2014-2018 ACS\"",
       "propertyID": [
         "2052497149"
       ],
       "qudt:dataType": "int4",
       "unitText": "persons",
-      "minValue": "0",
-      "maxValue": "906",
       "startDate": "1/1/18",
       "endDate": "12/31/18"
     },
     {
       "@type": "PropertyValue",
-      "name": "ep_age17",
+      "name": "\nep_age17",
       "description": "\"Percentage of persons aged 17 and younger estimate, 2014-2018 ACS\"",
       "propertyID": [
         "2052498382"
       ],
       "qudt:dataType": "float8",
       "unitText": "percentage",
-      "minValue": "0",
-      "maxValue": "47",
       "startDate": "1/1/18",
       "endDate": "12/31/18"
     },
     {
       "@type": "PropertyValue",
-      "name": "ep_age65",
+      "name": "\nep_age65",
       "description": "\"Percentage of persons aged 65 and older estimate, 2014-2018 ACS\"",
       "propertyID": [
         "2052498380"
       ],
       "qudt:dataType": "float8",
       "unitText": "percentage",
-      "minValue": "0",
-      "maxValue": "65.4",
       "startDate": "1/1/18",
       "endDate": "12/31/18"
     },
     {
       "@type": "PropertyValue",
-      "name": "ep_crowd",
+      "name": "\nep_crowd",
       "description": "Percentage of occupied housing units with more people than rooms estimate",
       "propertyID": [
         "2052498400"
       ],
       "qudt:dataType": "float8",
       "unitText": "percentage",
-      "minValue": "0",
-      "maxValue": "20.8",
       "startDate": "1/1/18",
       "endDate": "12/31/18"
     },
     {
       "@type": "PropertyValue",
-      "name": "ep_disabl",
+      "name": "\nep_disabl",
       "description": "\"Percentage of civilian non-institutionalized population with a disability estimate, 2014-2018 ACS\"",
       "propertyID": [
         "2052498558"
       ],
       "qudt:dataType": "float8",
       "unitText": "percentage",
-      "minValue": "0",
-      "maxValue": "73.7",
       "startDate": "1/1/18",
       "endDate": "12/31/18"
     },
     {
       "@type": "PropertyValue",
-      "name": "ep_groupq",
+      "name": "\nep_groupq",
       "description": "\"Percentage of persons in group quarters estimate, 2014-2018 ACS\"",
       "propertyID": [
         "2052498376"
       ],
       "qudt:dataType": "float8",
       "unitText": "percentage",
-      "minValue": "0",
-      "maxValue": "100",
       "startDate": "1/1/18",
       "endDate": "12/31/18"
     },
     {
       "@type": "PropertyValue",
-      "name": "ep_limeng",
+      "name": "\nep_limeng",
       "description": "\"Percentage of persons (age 5+) who speak English \"\"less than well\"\" estimate, 2014-2018 ACS\"",
       "propertyID": [
         "2052498385"
       ],
       "qudt:dataType": "float8",
       "unitText": "percentage",
-      "minValue": "0",
-      "maxValue": "43.2",
       "startDate": "1/1/18",
       "endDate": "12/31/18"
     },
     {
       "@type": "PropertyValue",
-      "name": "ep_minrty",
+      "name": "\nep_minrty",
       "description": "\"Percentage minority (all persons except white, non-Hispanic) estimate, 2014-2018 ACS\"",
       "propertyID": [
         "2052498423"
       ],
       "qudt:dataType": "float8",
       "unitText": "percentage",
-      "minValue": "0",
-      "maxValue": "100",
       "startDate": "1/1/18",
       "endDate": "12/31/18"
     },
     {
       "@type": "PropertyValue",
-      "name": "ep_mobile",
+      "name": "\nep_mobile",
       "description": "Percentage of mobile homes estimate",
       "propertyID": [
         "2052498422"
       ],
       "qudt:dataType": "float8",
       "unitText": "percentage",
-      "minValue": "0",
-      "maxValue": "37.1",
       "startDate": "1/1/18",
       "endDate": "12/31/18"
     },
     {
       "@type": "PropertyValue",
-      "name": "ep_munit",
+      "name": "\nep_munit",
       "description": "Percentage of housing in structures with 10 or more units estimate",
       "propertyID": [
         "2052498461"
       ],
       "qudt:dataType": "float8",
       "unitText": "percentage",
-      "minValue": "0",
-      "maxValue": "99",
       "startDate": "1/1/18",
       "endDate": "12/31/18"
     },
     {
       "@type": "PropertyValue",
-      "name": "ep_nohsdp",
+      "name": "\nep_nohsdp",
       "description": "Percentage of persons with no high school diploma (age 25+) estimate",
       "propertyID": [
         "2052498369"
       ],
       "qudt:dataType": "float8",
       "unitText": "percentage",
-      "minValue": "0",
-      "maxValue": "67.5",
       "startDate": "1/1/18",
       "endDate": "12/31/18"
     },
     {
       "@type": "PropertyValue",
-      "name": "ep_noveh",
+      "name": "\nep_noveh",
       "description": "Percentage of households with no vehicle available estimate",
       "propertyID": [
         "2052498477"
       ],
       "qudt:dataType": "float8",
       "unitText": "percentage",
-      "minValue": "0",
-      "maxValue": "78.8",
       "startDate": "1/1/18",
       "endDate": "12/31/18"
     },
     {
       "@type": "PropertyValue",
-      "name": "ep_pci",
+      "name": "\nep_pci",
       "description": "\"Per capita income estimate, 2014-2018 ACS\"",
-      "propertyID": [
-        ""
-      ],
-      "qudt:dataType": "float8",
+      "qudt:dataType": "int4",
       "unitText": "US dollars",
-      "minValue": "3272",
-      "maxValue": "153108",
       "startDate": "1/1/18",
       "endDate": "12/31/18"
     },
     {
       "@type": "PropertyValue",
-      "name": "ep_pov",
+      "name": "\nep_pov",
       "description": "Percentage of persons below poverty estimate",
       "propertyID": [
         "2052498378"
       ],
       "qudt:dataType": "float8",
       "unitText": "percentage",
-      "minValue": "0",
-      "maxValue": "80.6",
       "startDate": "1/1/18",
       "endDate": "12/31/18"
     },
     {
       "@type": "PropertyValue",
-      "name": "ep_sngpnt",
+      "name": "\nep_sngpnt",
       "description": "\"Percentage of single parent households with children under 18 estimate, 2014-2018 ACS\"",
       "propertyID": [
         "2052498249"
       ],
       "qudt:dataType": "float8",
       "unitText": "percentage",
-      "minValue": "0",
-      "maxValue": "56.5",
       "startDate": "1/1/18",
       "endDate": "12/31/18"
     },
     {
       "@type": "PropertyValue",
-      "name": "ep_unemp",
+      "name": "\nep_unemp",
       "description": "Unemployment Rate estimate",
       "propertyID": [
         "2052497153"
       ],
       "qudt:dataType": "float8",
       "unitText": "percentage",
-      "minValue": "0",
-      "maxValue": "60.6",
       "startDate": "1/1/18",
       "endDate": "12/31/18"
     },
     {
       "@type": "PropertyValue",
-      "name": "ep_uninsur",
+      "name": "\nep_uninsur",
       "description": "\"Adjunct variable - Percentage uninsured in the total civilian non-institutionalized population estimate, 2014-2018 ACS\"",
       "propertyID": [
         "2052498200"
       ],
       "qudt:dataType": "float8",
       "unitText": "percentage",
-      "minValue": "0",
-      "maxValue": "23.5",
       "startDate": "1/1/18",
       "endDate": "12/31/18"
     },
     {
       "@type": "PropertyValue",
-      "name": "epl_age17",
+      "name": "\nepl_age17",
       "description": "Percentile percentage of persons aged 17 and younger estimate",
       "propertyID": [
         "2052498183"
       ],
       "qudt:dataType": "float8",
       "unitText": "percentile",
-      "minValue": "0",
-      "maxValue": "1",
       "startDate": "1/1/18",
       "endDate": "12/31/18"
     },
     {
       "@type": "PropertyValue",
-      "name": "epl_age65",
+      "name": "\nepl_age65",
       "description": "Percentile percentage of persons aged 65 and older estimate",
       "propertyID": [
         "2052498182"
       ],
       "qudt:dataType": "float8",
       "unitText": "percentile",
-      "minValue": "0",
-      "maxValue": "1",
       "startDate": "1/1/18",
       "endDate": "12/31/18"
     },
     {
       "@type": "PropertyValue",
-      "name": "epl_crowd",
+      "name": "\nepl_crowd",
       "description": "Percentile percentage households with more people than rooms estimate",
       "propertyID": [
         "2052498195"
       ],
       "qudt:dataType": "float8",
       "unitText": "percentile",
-      "minValue": "0",
-      "maxValue": "1",
       "startDate": "1/1/18",
       "endDate": "12/31/18"
     },
     {
       "@type": "PropertyValue",
-      "name": "epl_disabl",
+      "name": "\nepl_disabl",
       "description": "Percentile percentage of civilian non-institutionalized population with a disability estimate",
       "propertyID": [
         "2052498186"
       ],
       "qudt:dataType": "float8",
       "unitText": "percentile",
-      "minValue": "0",
-      "maxValue": "1",
       "startDate": "1/1/18",
       "endDate": "12/31/18"
     },
     {
       "@type": "PropertyValue",
-      "name": "epl_groupq",
+      "name": "\nepl_groupq",
       "description": "Percentile percentage of persons in group quarters estimate",
       "propertyID": [
         "2052498180"
       ],
       "qudt:dataType": "float8",
       "unitText": "percentile",
-      "minValue": "0",
-      "maxValue": "0.9973",
       "startDate": "1/1/18",
       "endDate": "12/31/18"
     },
     {
       "@type": "PropertyValue",
-      "name": "epl_limeng",
+      "name": "\nepl_limeng",
       "description": "\"Percentile percentage of persons (age 5+) who speak English \"\"less than well\"\" estimate\"",
       "propertyID": [
         "2052498184"
       ],
       "qudt:dataType": "float8",
       "unitText": "percentile",
-      "minValue": "0",
-      "maxValue": "1",
       "startDate": "1/1/18",
       "endDate": "12/31/18"
     },
     {
       "@type": "PropertyValue",
-      "name": "epl_minrty",
+      "name": "\nepl_minrty",
       "description": "\"Percentile percentage minority (all persons except white, non-Hispanic) estimate\"",
       "propertyID": [
         "2052498189"
       ],
       "qudt:dataType": "float8",
       "unitText": "percentile",
-      "minValue": "0",
-      "maxValue": "1",
       "startDate": "1/1/18",
       "endDate": "12/31/18"
     },
     {
       "@type": "PropertyValue",
-      "name": "epl_mobile",
+      "name": "\nepl_mobile",
       "description": "Percentile percentage mobile homes estimate",
       "propertyID": [
         "2052498188"
       ],
       "qudt:dataType": "float8",
       "unitText": "percentile",
-      "minValue": "0",
-      "maxValue": "1",
       "startDate": "1/1/18",
       "endDate": "12/31/18"
     },
     {
       "@type": "PropertyValue",
-      "name": "epl_munit",
+      "name": "\nepl_munit",
       "description": "Percentile percentage housing in structures with 10 or more units estimate",
       "propertyID": [
         "2052498193"
       ],
       "qudt:dataType": "float8",
       "unitText": "percentile",
-      "minValue": "0",
-      "maxValue": "1",
       "startDate": "1/1/18",
       "endDate": "12/31/18"
     },
     {
       "@type": "PropertyValue",
-      "name": "epl_nohsdp",
+      "name": "\nepl_nohsdp",
       "description": "Percentile Percentage of persons with no high school diploma (age 25+) estimate",
       "propertyID": [
         "2052498179"
       ],
       "qudt:dataType": "float8",
       "unitText": "percentile",
-      "minValue": "0",
-      "maxValue": "1",
       "startDate": "1/1/18",
       "endDate": "12/31/18"
     },
     {
       "@type": "PropertyValue",
-      "name": "epl_noveh",
+      "name": "\nepl_noveh",
       "description": "Percentile percentage households with no vehicle available estimate",
       "propertyID": [
         "2052498194"
       ],
       "qudt:dataType": "float8",
       "unitText": "percentile",
-      "minValue": "0",
-      "maxValue": "1",
       "startDate": "1/1/18",
       "endDate": "12/31/18"
     },
     {
       "@type": "PropertyValue",
-      "name": "epl_pci",
+      "name": "\nepl_pci",
       "description": "Percentile per capita income estimate",
-      "propertyID": [
-        ""
-      ],
       "qudt:dataType": "float8",
       "unitText": "percentile",
-      "minValue": "0",
-      "maxValue": "1",
       "startDate": "1/1/18",
       "endDate": "12/31/18"
     },
     {
       "@type": "PropertyValue",
-      "name": "epl_pov",
+      "name": "\nepl_pov",
       "description": "Percentile Percentage of persons below poverty estimate",
       "propertyID": [
         "2052498181"
       ],
       "qudt:dataType": "float8",
       "unitText": "percentile",
-      "minValue": "0",
-      "maxValue": "1",
       "startDate": "1/1/18",
       "endDate": "12/31/18"
     },
     {
       "@type": "PropertyValue",
-      "name": "epl_sngpnt",
+      "name": "\nepl_sngpnt",
       "description": "Percentile percentage of single parent households with children under 18 estimate",
       "propertyID": [
         "2052498178"
       ],
       "qudt:dataType": "float8",
       "unitText": "percentile",
-      "minValue": "0",
-      "maxValue": "1",
       "startDate": "1/1/18",
       "endDate": "12/31/18"
     },
     {
       "@type": "PropertyValue",
-      "name": "epl_unemp",
+      "name": "\nepl_unemp",
       "description": "Percentile Percentage of civilian (age 16+) unemployed estimate",
       "propertyID": [
         "2052498187"
       ],
       "qudt:dataType": "float8",
       "unitText": "percentile",
-      "minValue": "0",
-      "maxValue": "1",
       "startDate": "1/1/18",
       "endDate": "12/31/18"
     },
     {
       "@type": "PropertyValue",
-      "name": "f_age17",
+      "name": "\nf_age17",
       "description": "\"Flag - the percentage of persons aged 17 and younger is in the 90th percentile (1 = yes, 0 = no)\"",
       "propertyID": [
         "2052499366"
       ],
-      "qudt:dataType": "int2",
-      "minValue": "0",
-      "maxValue": "1",
+      "qudt:dataType": "boolean",
       "startDate": "1/1/18",
       "endDate": "12/31/18"
     },
     {
       "@type": "PropertyValue",
-      "name": "f_age65",
+      "name": "\nf_age65",
       "description": "\"Flag - the percentage of persons aged 65 and older is in the 90th percentile (1 = yes, 0 = no)\"",
       "propertyID": [
         "2052499365"
       ],
-      "qudt:dataType": "int2",
-      "minValue": "0",
-      "maxValue": "1",
+      "qudt:dataType": "boolean",
       "startDate": "1/1/18",
       "endDate": "12/31/18"
     },
     {
       "@type": "PropertyValue",
-      "name": "f_crowd",
+      "name": "\nf_crowd",
       "description": "\"Flag - the percentage of crowded households is in the 90th percentile (1 = yes, 0 = no)\"",
       "propertyID": [
         "2052499372"
       ],
-      "qudt:dataType": "int2",
-      "minValue": "0",
-      "maxValue": "1",
+      "qudt:dataType": "boolean",
       "startDate": "1/1/18",
       "endDate": "12/31/18"
     },
     {
       "@type": "PropertyValue",
-      "name": "f_disabl",
+      "name": "\nf_disabl",
       "description": "\"Flag - the percentage of persons with a disability is in the 90th percentile (1 = yes, 0 = no)\"",
       "propertyID": [
         "2052499362"
       ],
-      "qudt:dataType": "int2",
-      "minValue": "0",
-      "maxValue": "1",
+      "qudt:dataType": "boolean",
       "startDate": "1/1/18",
       "endDate": "12/31/18"
     },
     {
       "@type": "PropertyValue",
-      "name": "f_groupq",
-      "description": "\"Flag - the percentage of persons in institutionalize d group quarters is in the 90th percentile (1 = yes, 0 = no)\"",
+      "name": "\nf_groupq",
+      "description": "\"Flag - the percentage of persons in institutionalized group quarters is in the 90th percentile (1 = yes, 0 = no)\"",
       "propertyID": [
         "2052499363"
       ],
-      "qudt:dataType": "int2",
-      "minValue": "0",
-      "maxValue": "1",
+      "qudt:dataType": "boolean",
       "startDate": "1/1/18",
       "endDate": "12/31/18"
     },
     {
       "@type": "PropertyValue",
-      "name": "f_limeng",
+      "name": "\nf_limeng",
       "description": "\"Flag - the percentage those with limited English is in the 90th percentile (1 = yes, 0 = no)\"",
       "propertyID": [
         "2052499358"
       ],
-      "qudt:dataType": "int2",
-      "minValue": "0",
-      "maxValue": "1",
+      "qudt:dataType": "boolean",
       "startDate": "1/1/18",
       "endDate": "12/31/18"
     },
     {
       "@type": "PropertyValue",
-      "name": "f_minrty",
+      "name": "\nf_minrty",
       "description": "\"Flag - the percentage of minority is in the 90th percentile (1 = yes, 0 = no)\"",
       "propertyID": [
         "2052499368"
       ],
-      "qudt:dataType": "int2",
-      "minValue": "0",
-      "maxValue": "1",
+      "qudt:dataType": "boolean",
       "startDate": "1/1/18",
       "endDate": "12/31/18"
     },
     {
       "@type": "PropertyValue",
-      "name": "f_mobile",
+      "name": "\nf_mobile",
       "description": "\"Flag - the percentage of mobile homes is in the 90th percentile (1 = yes, 0 = no)\"",
       "propertyID": [
         "2052499367"
       ],
-      "qudt:dataType": "int2",
-      "minValue": "0",
-      "maxValue": "1",
+      "qudt:dataType": "boolean",
       "startDate": "1/1/18",
       "endDate": "12/31/18"
     },
     {
       "@type": "PropertyValue",
-      "name": "f_munit",
+      "name": "\nf_munit",
       "description": "\"Flag - the percentage of households in multi-unit housing is in the 90th percentile (1 = yes, 0 = no)\"",
       "propertyID": [
         "2052499371"
       ],
-      "qudt:dataType": "int2",
-      "minValue": "0",
-      "maxValue": "1",
+      "qudt:dataType": "boolean",
       "startDate": "1/1/18",
       "endDate": "12/31/18"
     },
     {
       "@type": "PropertyValue",
-      "name": "f_nohsdp",
+      "name": "\nf_nohsdp",
       "description": "\"Flag - the percentage of persons with no high school diploma is in the 90th percentile (1 = yes, 0 = no)\"",
       "propertyID": [
         "2052499361"
       ],
-      "qudt:dataType": "int2",
-      "minValue": "0",
-      "maxValue": "1",
+      "qudt:dataType": "boolean",
       "startDate": "1/1/18",
       "endDate": "12/31/18"
     },
     {
       "@type": "PropertyValue",
-      "name": "f_noveh",
+      "name": "\nf_noveh",
       "description": "\"Flag - the percentage of households with no vehicles is in the 90th percentile (1 = yes, 0 = no)\"",
       "propertyID": [
         "2052499370"
       ],
-      "qudt:dataType": "int2",
-      "minValue": "0",
-      "maxValue": "1",
+      "qudt:dataType": "boolean",
       "startDate": "1/1/18",
       "endDate": "12/31/18"
     },
     {
       "@type": "PropertyValue",
-      "name": "f_pci",
+      "name": "\nf_pci",
       "description": "\"Flag - per capita income is in the 90th percentile (1 = yes, 0 = no)\"",
-      "propertyID": [
-        ""
-      ],
-      "qudt:dataType": "int2",
-      "minValue": "0",
-      "maxValue": "1",
+      "qudt:dataType": "boolean",
       "startDate": "1/1/18",
       "endDate": "12/31/18"
     },
     {
       "@type": "PropertyValue",
-      "name": "f_pov",
+      "name": "\nf_pov",
       "description": "\"Flag - the percentage of persons in poverty is in the 90th percentile (1 = yes, 0 = no)\"",
       "propertyID": [
         "2052499364"
       ],
-      "qudt:dataType": "int2",
-      "minValue": "0",
-      "maxValue": "1",
+      "qudt:dataType": "boolean",
       "startDate": "1/1/18",
       "endDate": "12/31/18"
     },
     {
       "@type": "PropertyValue",
-      "name": "f_sngpnt",
+      "name": "\nf_sngpnt",
       "description": "\"Flag - the percentage of single parent households is in the 90th percentile (1 = yes, 0 = no)\"",
       "propertyID": [
         "2052499360"
       ],
-      "qudt:dataType": "int2",
-      "minValue": "0",
-      "maxValue": "1",
+      "qudt:dataType": "boolean",
       "startDate": "1/1/18",
       "endDate": "12/31/18"
     },
     {
       "@type": "PropertyValue",
-      "name": "f_theme1",
+      "name": "\nf_theme1",
       "description": "Sum of flags for Socioeconomic Status theme",
       "propertyID": [
         "2052497702"
       ],
-      "qudt:dataType": "int2",
-      "minValue": "0",
-      "maxValue": "4",
+      "qudt:dataType": "int4",
       "startDate": "1/1/18",
       "endDate": "12/31/18"
     },
     {
       "@type": "PropertyValue",
-      "name": "f_theme2",
+      "name": "\nf_theme2",
       "description": "Sum of flags for Household Composition theme",
       "propertyID": [
         "2052497705"
       ],
-      "qudt:dataType": "int2",
-      "minValue": "0",
-      "maxValue": "3",
+      "qudt:dataType": "int4",
       "startDate": "1/1/18",
       "endDate": "12/31/18"
     },
     {
       "@type": "PropertyValue",
-      "name": "f_theme3",
-      "description": "Sum of flags for Minority Status/Languag e theme",
+      "name": "\nf_theme3",
+      "description": "Sum of flags for Minority Status/Language theme",
       "propertyID": [
         "2052497703"
       ],
-      "qudt:dataType": "int2",
-      "minValue": "0",
-      "maxValue": "2",
+      "qudt:dataType": "int4",
       "startDate": "1/1/18",
       "endDate": "12/31/18"
     },
     {
       "@type": "PropertyValue",
-      "name": "f_theme4",
+      "name": "\nf_theme4",
       "description": "Sum of flags for Housing Type/ Transportation theme",
       "propertyID": [
         "2052497704"
       ],
-      "qudt:dataType": "int2",
-      "minValue": "0",
-      "maxValue": "4",
+      "qudt:dataType": "int4",
       "startDate": "1/1/18",
       "endDate": "12/31/18"
     },
     {
       "@type": "PropertyValue",
-      "name": "f_total",
+      "name": "\nf_total",
       "description": "Sum of flags for the four themes",
       "propertyID": [
         "2052497701"
       ],
-      "qudt:dataType": "int2",
-      "minValue": "0",
-      "maxValue": "12",
+      "qudt:dataType": "int4",
       "startDate": "1/1/18",
       "endDate": "12/31/18"
     },
     {
       "@type": "PropertyValue",
-      "name": "f_unemp",
+      "name": "\nf_unemp",
       "description": "\"Flag - the percentage of civilian unemployed is in the 90th percentile (1 = yes, 0 = no)\"",
       "propertyID": [
         "2052499373"
       ],
-      "qudt:dataType": "int2",
-      "minValue": "0",
-      "maxValue": "1",
+      "qudt:dataType": "boolean",
       "startDate": "1/1/18",
       "endDate": "12/31/18"
     },
     {
       "@type": "PropertyValue",
-      "name": "fips",
+      "name": "\nfips",
       "description": "FIPS code as STATE(2)COUNTY(3)CENSUSTRACT(6)",
       "propertyID": [
         "2052497174"
@@ -1160,648 +1023,543 @@
     },
     {
       "@type": "PropertyValue",
-      "name": "location",
+      "name": "\nlocation",
       "description": "Census tract name",
-      "propertyID": [
-        ""
-      ],
       "qudt:dataType": "varchar",
       "startDate": "1/1/18",
       "endDate": "12/31/18"
     },
     {
       "@type": "PropertyValue",
-      "name": "m_age17",
+      "name": "\nm_age17",
       "description": "\"Persons aged 17 and younger estimate MOE, 2014-2018 ACS\"",
       "propertyID": [
         "2052498114"
       ],
       "qudt:dataType": "int4",
       "unitText": "persons",
-      "minValue": "5",
-      "maxValue": "620",
       "startDate": "1/1/18",
       "endDate": "12/31/18"
     },
     {
       "@type": "PropertyValue",
-      "name": "m_age65",
+      "name": "\nm_age65",
       "description": "\"Persons aged 65 and older estimate MOE, 2014-2018 ACS\"",
       "propertyID": [
         "2052498112"
       ],
       "qudt:dataType": "int4",
       "unitText": "persons",
-      "minValue": "6",
-      "maxValue": "643",
       "startDate": "1/1/18",
       "endDate": "12/31/18"
     },
     {
       "@type": "PropertyValue",
-      "name": "m_crowd",
+      "name": "\nm_crowd",
       "description": "\"At household level (occupied housing units), more people than rooms estimate MOE, 2014-2018 ACS\"",
       "propertyID": [
         "2052499827"
       ],
       "qudt:dataType": "int4",
       "unitText": "housing units",
-      "minValue": "5",
-      "maxValue": "151",
       "startDate": "1/1/18",
       "endDate": "12/31/18"
     },
     {
       "@type": "PropertyValue",
-      "name": "m_disabl",
+      "name": "\nm_disabl",
       "description": "\"Civilian non-institutionalized population with a disability estimate MOE, 2014-2018 ACS\"",
       "propertyID": [
         "2052499668"
       ],
       "qudt:dataType": "int4",
       "unitText": "persons",
-      "minValue": "12",
-      "maxValue": "530",
       "startDate": "1/1/18",
       "endDate": "12/31/18"
     },
     {
       "@type": "PropertyValue",
-      "name": "m_groupq",
+      "name": "\nm_groupq",
       "description": "\"Persons in group quarters estimate MOE, 2014-2018 ACS\"",
       "propertyID": [
         "2052498108"
       ],
       "qudt:dataType": "int4",
       "unitText": "persons",
-      "minValue": "2",
-      "maxValue": "695",
       "startDate": "1/1/18",
       "endDate": "12/31/18"
     },
     {
       "@type": "PropertyValue",
-      "name": "m_hh",
+      "name": "\nm_hh",
       "description": "\"Households estimate MOE, 2014-2018 ACS\"",
       "propertyID": [
         "2052499092"
       ],
       "qudt:dataType": "int4",
       "unitText": "households",
-      "minValue": "6",
-      "maxValue": "280",
       "startDate": "1/1/18",
       "endDate": "12/31/18"
     },
     {
       "@type": "PropertyValue",
-      "name": "m_hu",
+      "name": "\nm_hu",
       "description": "\"Housing units estimate MOE, 2014-2018 ACS\"",
       "propertyID": [
         "2052499074"
       ],
       "qudt:dataType": "int4",
       "unitText": "housing units",
-      "minValue": "6",
-      "maxValue": "300",
       "startDate": "1/1/18",
       "endDate": "12/31/18"
     },
     {
       "@type": "PropertyValue",
-      "name": "m_limeng",
+      "name": "\nm_limeng",
       "description": "\"Persons (age 5+) who speak English \"\"less than well\"\" estimate MOE, 2014-2018 ACS\"",
       "propertyID": [
         "2052498116"
       ],
       "qudt:dataType": "int4",
       "unitText": "persons",
-      "minValue": "44",
-      "maxValue": "710",
       "startDate": "1/1/18",
       "endDate": "12/31/18"
     },
     {
       "@type": "PropertyValue",
-      "name": "m_minrty",
+      "name": "\nm_minrty",
       "description": "\"Minority (all persons except white, non-Hispanic) estimate MOE, 2014-2018 ACS\"",
-      "propertyID": [
-        ""
-      ],
       "qudt:dataType": "int4",
       "unitText": "persons",
-      "minValue": "17",
-      "maxValue": "1108",
       "startDate": "1/1/18",
       "endDate": "12/31/18"
     },
     {
       "@type": "PropertyValue",
-      "name": "m_mobile",
+      "name": "\nm_mobile",
       "description": "\"Mobile homes estimate MOE, 2014-2018 ACS\"",
       "propertyID": [
         "2052498833"
       ],
       "qudt:dataType": "int4",
       "unitText": "mobile homes",
-      "minValue": "4",
-      "maxValue": "156",
       "startDate": "1/1/18",
       "endDate": "12/31/18"
     },
     {
       "@type": "PropertyValue",
-      "name": "m_munit",
+      "name": "\nm_munit",
       "description": "\"Housing in structures with 10 or more units estimate MOE, 2014- 2018 ACS\"",
       "propertyID": [
         "2052499081"
       ],
       "qudt:dataType": "int4",
       "unitText": "housing units",
-      "minValue": "7",
-      "maxValue": "331",
       "startDate": "1/1/18",
       "endDate": "12/31/18"
     },
     {
       "@type": "PropertyValue",
-      "name": "m_nohsdp",
+      "name": "\nm_nohsdp",
       "description": "\"Persons (age 25+) with no high school diploma estimate MOE, 2014-2018 ACS\"",
       "propertyID": [
         "2052498118"
       ],
       "qudt:dataType": "int4",
       "unitText": "persons",
-      "minValue": "4",
-      "maxValue": "451",
       "startDate": "1/1/18",
       "endDate": "12/31/18"
     },
     {
       "@type": "PropertyValue",
-      "name": "m_noveh",
+      "name": "\nm_noveh",
       "description": "\"Households with no vehicle available estimate MOE, 2014-2018 ACS\"",
       "propertyID": [
         "2052499090"
       ],
       "qudt:dataType": "int4",
       "unitText": "households",
-      "minValue": "4",
-      "maxValue": "299",
       "startDate": "1/1/18",
       "endDate": "12/31/18"
     },
     {
       "@type": "PropertyValue",
-      "name": "m_pci",
+      "name": "\nm_pci",
       "description": "\"Per capita income estimate MOE, 2014-2018 ACS\"",
-      "propertyID": [
-        ""
-      ],
       "qudt:dataType": "int4",
       "unitText": "US dollars",
-      "minValue": "391",
-      "maxValue": "98137",
       "startDate": "1/1/18",
       "endDate": "12/31/18"
     },
     {
       "@type": "PropertyValue",
-      "name": "m_pov",
+      "name": "\nm_pov",
       "description": "\"Persons below poverty estimate MOE, 2014-2018 ACS\"",
       "propertyID": [
         "2052498110"
       ],
       "qudt:dataType": "int4",
       "unitText": "persons",
-      "minValue": "5",
-      "maxValue": "873",
       "startDate": "1/1/18",
       "endDate": "12/31/18"
     },
     {
       "@type": "PropertyValue",
-      "name": "m_sngpnt",
+      "name": "\nm_sngpnt",
       "description": "\"Single parent household with children under 18 estimate MOE, 2014-2018 ACS\"",
       "propertyID": [
         "2052497777"
       ],
       "qudt:dataType": "int4",
       "unitText": "households",
-      "minValue": "11",
-      "maxValue": "236",
       "startDate": "1/1/18",
       "endDate": "12/31/18"
     },
     {
       "@type": "PropertyValue",
-      "name": "m_totpop",
+      "name": "\nm_totpop",
       "description": "\"Population estimate MOE, 2014-2018 ACS\"",
       "propertyID": [
         "2052498090"
       ],
       "qudt:dataType": "int4",
       "unitText": "persons",
-      "minValue": "12",
-      "maxValue": "949",
       "startDate": "1/1/18",
       "endDate": "12/31/18"
     },
     {
       "@type": "PropertyValue",
-      "name": "m_unemp",
+      "name": "\nm_unemp",
       "description": "\"Civilian (age 16+) unemployed estimate MOE, 2014-2018 ACS\"",
       "propertyID": [
         "2052499670"
       ],
       "qudt:dataType": "int4",
       "unitText": "persons",
-      "minValue": "6",
-      "maxValue": "289",
       "startDate": "1/1/18",
       "endDate": "12/31/18"
     },
     {
       "@type": "PropertyValue",
-      "name": "m_uninsur",
+      "name": "\nm_uninsur",
       "description": "\"Adjunct variable - Uninsured in the total civilian non-institutionalized population estimate MOE, 2014-2018 ACS\"",
       "propertyID": [
         "2052497148"
       ],
       "qudt:dataType": "int4",
       "unitText": "persons",
-      "minValue": "2",
-      "maxValue": "474",
       "startDate": "1/1/18",
       "endDate": "12/31/18"
     },
     {
       "@type": "PropertyValue",
-      "name": "mp_age17",
+      "name": "\nmp_age17",
       "description": "\"Percentage of persons aged 17 and younger estimate MOE, 2014-2018 ACS\"",
       "propertyID": [
         "2052498381"
       ],
       "qudt:dataType": "float8",
       "unitText": "percentage",
-      "minValue": "0.1",
-      "maxValue": "31.3",
       "startDate": "1/1/18",
       "endDate": "12/31/18"
     },
     {
       "@type": "PropertyValue",
-      "name": "mp_age65",
+      "name": "\nmp_age65",
       "description": "\"Percentage of persons aged 65 and older estimate MOE, 2014-2018 ACS\"",
       "propertyID": [
         "2052498379"
       ],
       "qudt:dataType": "float8",
       "unitText": "percentage",
-      "minValue": "0.1",
-      "maxValue": "44.4",
       "startDate": "1/1/18",
       "endDate": "12/31/18"
     },
     {
       "@type": "PropertyValue",
-      "name": "mp_crowd",
+      "name": "\nmp_crowd",
       "description": "Percentage of occupied housing units with more people than rooms estimate MOE",
       "propertyID": [
         "2052498399"
       ],
       "qudt:dataType": "float8",
       "unitText": "percentage",
-      "minValue": "0.6",
-      "maxValue": "566.7",
       "startDate": "1/1/18",
       "endDate": "12/31/18"
     },
     {
       "@type": "PropertyValue",
-      "name": "mp_disabl",
+      "name": "\nmp_disabl",
       "description": "\"Percentage of civilian non-institutionalized population with a disability estimate MOE, 2014-2018 ACS\"",
       "propertyID": [
         "2052498557"
       ],
       "qudt:dataType": "float8",
       "unitText": "percentage",
-      "minValue": "0.7",
-      "maxValue": "100",
       "startDate": "1/1/18",
       "endDate": "12/31/18"
     },
     {
       "@type": "PropertyValue",
-      "name": "mp_groupq",
+      "name": "\nmp_groupq",
       "description": "\"Percentage of persons in group quarters estimate MOE, 2014-2018 ACS\"",
       "propertyID": [
         "2052498375"
       ],
       "qudt:dataType": "float8",
       "unitText": "percentage",
-      "minValue": "0",
-      "maxValue": "46.2",
       "startDate": "1/1/18",
       "endDate": "12/31/18"
     },
     {
       "@type": "PropertyValue",
-      "name": "mp_limeng",
+      "name": "\nmp_limeng",
       "description": "\"Percentage of persons (age 5+) who speak English \"\"less than well\"\" estimate MOE, 2014-2018 ACS\"",
       "propertyID": [
         "2052498383"
       ],
       "qudt:dataType": "float8",
       "unitText": "percentage",
-      "minValue": "0.6",
-      "maxValue": "228.6",
       "startDate": "1/1/18",
       "endDate": "12/31/18"
     },
     {
       "@type": "PropertyValue",
-      "name": "mp_minrty",
+      "name": "\nmp_minrty",
       "description": "\"Percentage minority (all persons except white, non-Hispanic) estimate MOE, 2014-2018 ACS\"",
       "propertyID": [
         "2052498609"
       ],
       "qudt:dataType": "float8",
       "unitText": "percentage",
-      "minValue": "1.2",
-      "maxValue": "103.5",
       "startDate": "1/1/18",
       "endDate": "12/31/18"
     },
     {
       "@type": "PropertyValue",
-      "name": "mp_mobile",
+      "name": "\nmp_mobile",
       "description": "Percentage of mobile homes estimate MOE",
       "propertyID": [
         "2052498421"
       ],
       "qudt:dataType": "float8",
       "unitText": "percentage",
-      "minValue": "0.2",
-      "maxValue": "100",
       "startDate": "1/1/18",
       "endDate": "12/31/18"
     },
     {
       "@type": "PropertyValue",
-      "name": "mp_munit",
+      "name": "\nmp_munit",
       "description": "Percentage of housing in structures with 10 or more units estimate MOE",
       "propertyID": [
         "2052498460"
       ],
       "qudt:dataType": "float8",
       "unitText": "percentage",
-      "minValue": "0.4",
-      "maxValue": "566.7",
       "startDate": "1/1/18",
       "endDate": "12/31/18"
     },
     {
       "@type": "PropertyValue",
-      "name": "mp_nohsdp",
+      "name": "\nmp_nohsdp",
       "description": "Percentage of persons with no high school diploma (25+) estimate MOE",
       "propertyID": [
         "2052498370"
       ],
       "qudt:dataType": "float8",
       "unitText": "percentage",
-      "minValue": "0.1",
-      "maxValue": "100",
       "startDate": "1/1/18",
       "endDate": "12/31/18"
     },
     {
       "@type": "PropertyValue",
-      "name": "mp_noveh",
+      "name": "\nmp_noveh",
       "description": "Percentage of households with no vehicle available estimate MOE",
       "propertyID": [
         "2052498476"
       ],
       "qudt:dataType": "float8",
       "unitText": "percentage",
-      "minValue": "0.4",
-      "maxValue": "100",
       "startDate": "1/1/18",
       "endDate": "12/31/18"
     },
     {
       "@type": "PropertyValue",
-      "name": "mp_pci",
+      "name": "\nmp_pci",
       "description": "\"Per capita income estimate MOE, 2014-2018 ACS\"",
-      "propertyID": [
-        ""
-      ],
-      "qudt:dataType": "float8",
+      "qudt:dataType": "int4",
       "unitText": "US dollars",
-      "minValue": "391",
-      "maxValue": "98137",
       "startDate": "1/1/18",
       "endDate": "12/31/18"
     },
     {
       "@type": "PropertyValue",
-      "name": "mp_pov",
+      "name": "\nmp_pov",
       "description": "Percentage of persons below poverty estimate MOE",
       "propertyID": [
         "2052498377"
       ],
       "qudt:dataType": "float8",
       "unitText": "percentage",
-      "minValue": "0.1",
-      "maxValue": "100",
       "startDate": "1/1/18",
       "endDate": "12/31/18"
     },
     {
       "@type": "PropertyValue",
-      "name": "mp_sngpnt",
+      "name": "\nmp_sngpnt",
       "description": "\"Percentage of single parent households with children under 18 estimate MOE, 2014-2018 ACS\"",
       "propertyID": [
         "2052498248"
       ],
       "qudt:dataType": "float8",
       "unitText": "percentage",
-      "minValue": "0.6",
-      "maxValue": "566.7",
       "startDate": "1/1/18",
       "endDate": "12/31/18"
     },
     {
       "@type": "PropertyValue",
-      "name": "mp_unemp",
+      "name": "\nmp_unemp",
       "description": "Unemployment Rate estimate MOE",
       "propertyID": [
         "2052497152"
       ],
       "qudt:dataType": "float8",
       "unitText": "percentage",
-      "minValue": "0.2",
-      "maxValue": "53.6",
       "startDate": "1/1/18",
       "endDate": "12/31/18"
     },
     {
       "@type": "PropertyValue",
-      "name": "mp_uninsur",
+      "name": "\nmp_uninsur",
       "description": "\"Adjunct variable - Percentage uninsured in the total civilian non-institutionalized population estimate MOE, 2014-2018 ACS\"",
       "propertyID": [
         "2052498199"
       ],
       "qudt:dataType": "float8",
       "unitText": "percentage",
-      "minValue": "0.1",
-      "maxValue": "100",
       "startDate": "1/1/18",
       "endDate": "12/31/18"
     },
     {
       "@type": "PropertyValue",
-      "name": "rpl_theme1",
+      "name": "\nrpl_theme1",
       "description": "Percentile ranking for Socioeconomic theme summary",
       "propertyID": [
         "2052498129"
       ],
       "qudt:dataType": "float8",
       "unitText": "percentile",
-      "minValue": "0",
-      "maxValue": "1",
       "startDate": "1/1/18",
       "endDate": "12/31/18"
     },
     {
       "@type": "PropertyValue",
-      "name": "rpl_theme2",
+      "name": "\nrpl_theme2",
       "description": "Percentile ranking for Household Composition theme summary",
       "propertyID": [
         "2052498134"
       ],
       "qudt:dataType": "float8",
       "unitText": "percentile",
-      "minValue": "0",
-      "maxValue": "1",
       "startDate": "1/1/18",
       "endDate": "12/31/18"
     },
     {
       "@type": "PropertyValue",
-      "name": "rpl_theme3",
+      "name": "\nrpl_theme3",
       "description": "Percentile ranking for Minority Status/Language theme",
       "propertyID": [
         "2052498130"
       ],
       "qudt:dataType": "float8",
       "unitText": "percentile",
-      "minValue": "0",
-      "maxValue": "1",
       "startDate": "1/1/18",
       "endDate": "12/31/18"
     },
     {
       "@type": "PropertyValue",
-      "name": "rpl_theme4",
+      "name": "\nrpl_theme4",
       "description": "Percentile ranking for Housing Type/Transportation theme",
       "propertyID": [
         "2052498133"
       ],
       "qudt:dataType": "float8",
       "unitText": "percentile",
-      "minValue": "0",
-      "maxValue": "1",
       "startDate": "1/1/18",
       "endDate": "12/31/18"
     },
     {
       "@type": "PropertyValue",
-      "name": "rpl_themes",
+      "name": "\nrpl_themes",
       "description": "Overall percentile ranking",
       "propertyID": [
         "2052498131"
       ],
       "qudt:dataType": "float8",
       "unitText": "percentile",
-      "minValue": "0",
-      "maxValue": "1",
       "startDate": "1/1/18",
       "endDate": "12/31/18"
     },
     {
       "@type": "PropertyValue",
-      "name": "spl_theme1",
+      "name": "\nspl_theme1",
       "description": "Sum of series for Socioeconomic theme",
       "propertyID": [
         "2052497697"
       ],
       "qudt:dataType": "float8",
       "unitText": "svi index",
-      "minValue": "0.0815",
-      "maxValue": "3.9857",
       "startDate": "1/1/18",
       "endDate": "12/31/18"
     },
     {
       "@type": "PropertyValue",
-      "name": "spl_theme2",
+      "name": "\nspl_theme2",
       "description": "Sum of series for Household Composition theme",
       "propertyID": [
         "2052497700"
       ],
       "qudt:dataType": "float8",
       "unitText": "svi index",
-      "minValue": "0",
-      "maxValue": "3.5619",
       "startDate": "1/1/18",
       "endDate": "12/31/18"
     },
     {
       "@type": "PropertyValue",
-      "name": "spl_theme3",
+      "name": "\nspl_theme3",
       "description": "Sum of series for Minority Status/Languag e theme",
       "propertyID": [
         "2052497698"
       ],
       "qudt:dataType": "float8",
       "unitText": "svi index",
-      "minValue": "0.0014",
-      "maxValue": "1.9904",
       "startDate": "1/1/18",
       "endDate": "12/31/18"
     },
     {
       "@type": "PropertyValue",
-      "name": "spl_theme4",
+      "name": "\nspl_theme4",
       "description": "Sum of series for Housing Type/ Transportation theme",
       "propertyID": [
         "2052497699"
       ],
       "qudt:dataType": "float8",
       "unitText": "svi index",
-      "minValue": "0",
-      "maxValue": "4.6218",
       "startDate": "1/1/18",
       "endDate": "12/31/18"
     },
     {
       "@type": "PropertyValue",
-      "name": "spl_themes",
+      "name": "\nspl_themes",
       "description": "Sum of series themes",
-      "propertyID": [
-        ""
-      ],
       "qudt:dataType": "float8",
       "unitText": "svi index",
-      "minValue": "1.9351",
-      "maxValue": "12.5931",
       "startDate": "1/1/18",
       "endDate": "12/31/18"
     },
     {
       "@type": "PropertyValue",
-      "name": "st",
+      "name": "\nst",
       "description": "State FIPS code",
       "propertyID": [
         "2052497725"
@@ -1810,7 +1568,7 @@
     },
     {
       "@type": "PropertyValue",
-      "name": "st_abbr",
+      "name": "\nst_abbr",
       "description": "State abbreviation",
       "propertyID": [
         "2052497733"
@@ -1819,7 +1577,7 @@
     },
     {
       "@type": "PropertyValue",
-      "name": "state",
+      "name": "\nstate",
       "description": "State name",
       "propertyID": [
         "2052497730"
@@ -1828,7 +1586,7 @@
     },
     {
       "@type": "PropertyValue",
-      "name": "stcnty",
+      "name": "\nstcnty",
       "description": "State and county FIPS code as STATE(2)COUNTY(3)",
       "propertyID": [
         "2052499638"
@@ -1840,5 +1598,5 @@
     "https://gdsc.idsc.miami.edu/download/data/ma_2018_svi_tract/?file=ma_2018_svi_tract&format=sql"
   ],
   "dateModified": "2022-02-08",
-  "version": "2025-10-05"
+  "version": "2026-02-12"
 }

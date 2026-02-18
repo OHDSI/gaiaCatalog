@@ -108,7 +108,7 @@
                       <thead>
                         <tr>
                           <th scope="col">Status</th>
-                          <th scope="col">Gaia ID</th>
+                          <!-- <th scope="col">Gaia ID</th> -->
                           <th scope="col">Name</th>
                           <th scope="col">Description</th>
                           <th scope="col">Type</th>
@@ -125,7 +125,7 @@
                         {% for attr in document['gdsc_attributes'] %}
                         <tr>
                           <td>
-                            {% if attr[11]|length > 0 %}
+                            {% if attr[10]|length > 0 %}
                             <div class="none"> 
                               <div id="variable-{{ attr[0] }}" class="float-left circle {{ 'green-fill' if attr[0] in loaded_variables else 'red-fill' }}" onclick="javascript:loadvar('{{ document['gdsc_tablename'][0] }}','{{ attr[0] }}')"></div>
                             </div>
@@ -133,7 +133,7 @@
                               &nbsp;
                             {% endif %}
                           </td>
-                          <td>{{ attr[11] }}</td>
+                          <!-- <td>{{ attr[11] }}</td> -->
                           <td>{{ attr[0] }}</td>
                           <td>{{ attr[1] }}</td>
                           <td>{{ attr[3] }}</td>

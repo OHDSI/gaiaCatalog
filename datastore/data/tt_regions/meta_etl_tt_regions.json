@@ -1,0 +1,22 @@
+{
+  "rights": "Open Data",
+  "structure": "vector",
+  "geometry": "multipolygon",
+  "epsg": "EPSG:4326",
+  "attributes": ["osm_id;OpenStreetMap (OSM) ID;;varchar;;;;", "name;Region name;;varchar;;;;", "type;Type of boundary;;varchar;;;;", "admin_level;OSM Administrative level;;varchar;;;;", "boundary;OSM boundary type;;varchar;;;;", "other_tags;Any other OSM tags with values, first one is the ISO3166-2 code for the administrative region;;varchar;;;;"],
+  "local_epsg": "EPSG:8035",
+  "service": ["api"],
+  "source": "https://overpass-api.de/api/interpreter?data=rel%5B%22ISO3166-2%22~%22^TT%22%5D%5Badmin_level=4%5D%5Btype=boundary%5D%5Bboundary=administrative%5D;(._;>;);out;",
+  "file": ["tt_regions"],
+  "extension": "osm",
+  "download": "curl",
+  "table": "tt_regions",
+  "format": "osm",
+  "etl_parameters": "multipolygons",
+  "up": "true",
+  "podID": "gaia-db",
+  "last_updated": "2026-02-12T11:05:09Z",
+  "update_frequency": "As Needed",
+  "checksum": "TBD",
+  "extent": "POLYGON((-62.0154447 10.042842,-62.0154447 11.3467272,-60.5176038 11.3467272,-60.5176038 10.042842,-62.0154447 10.042842))"
+}

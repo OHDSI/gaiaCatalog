@@ -6,7 +6,7 @@
 # Data source: https://svi.cdc.gov/Documents/Data/2018/db/states_counties/SVI_2018_US_county.zip
 # Destination postGIS table: us_2018_svi_county
 #
-# Created by etl() on 2025-10-05 15:59:52
+# Created by etl() on 2026-02-12 10:25:46
 # Do not edit directly
 
 # Move into corrrect directory and create derivative directory in data package on osgeo

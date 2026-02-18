@@ -1,0 +1,22 @@
+{
+  "rights": "Open Data",
+  "structure": "vector",
+  "geometry": "multilinestring",
+  "epsg": "EPSG:4326",
+  "attributes": ["osm_id;OpenStreetMap (OSM) ID;;varchar;;;;", "name;Ferry route name name;;varchar;;;;", "route;kind of route (only ferry);;varchar;", "other_tags;Any other OSM tags with values, can include values for oneway, from, to, operator, duration, charge;;varchar;;;;"],
+  "local_epsg": "EPSG:8035",
+  "service": ["api"],
+  "source": "https://overpass-api.de/api/interpreter?data=way%5B%22route%22~%22ferry%22%5D(area:3600555717);(._;>;);out;",
+  "file": ["tt_ferry_routes"],
+  "extension": "osm",
+  "download": "curl",
+  "table": "tt_ferry_routes",
+  "format": "osm",
+  "etl_parameters": "lines",
+  "up": "true",
+  "podID": "gaia-db",
+  "last_updated": "2026-02-12T11:05:27Z",
+  "update_frequency": "As Needed",
+  "checksum": "TBD",
+  "extent": "POLYGON((-61.7927875 10.2821958,-61.7927875 11.1817512,-60.7238938 11.1817512,-60.7238938 10.2821958,-61.7927875 10.2821958))"
+}

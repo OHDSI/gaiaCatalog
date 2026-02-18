@@ -1,0 +1,22 @@
+{
+  "rights": "Open Data",
+  "structure": "vector",
+  "geometry": "point",
+  "epsg": "EPSG:4326",
+  "attributes": ["osm_id;OpenStreetMap (OSM) ID;;varchar;;;;", "name;Place Name;;varchar;;;;", "place;kind of place (i.e. village, town, city);;varchar;;;;", "other_tags;Any other OSM tags with values, can include values for population and some wikipedia data;;varchar;;;;"],
+  "local_epsg": "EPSG:8035",
+  "service": ["api"],
+  "source": "https://overpass-api.de/api/interpreter?data=node%5B%22place%22~%22city|town|village%22%5D(area:3600555717);(._;>;);out;",
+  "file": ["tt_populated_places"],
+  "extension": "osm",
+  "download": "curl",
+  "table": "tt_populated_places",
+  "format": "osm",
+  "etl_parameters": "points",
+  "up": "true",
+  "podID": "gaia-db",
+  "last_updated": "2026-02-12T11:05:32Z",
+  "update_frequency": "As Needed",
+  "checksum": "TBD",
+  "extent": "POLYGON((-61.9115551 10.0466232,-61.9115551 11.3223399,-60.533741 11.3223399,-60.533741 10.0466232,-61.9115551 10.0466232))"
+}
