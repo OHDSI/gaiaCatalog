@@ -1,0 +1,369 @@
+# shapeGraphs/gaiaRequirements.ttl
+#
+# SHACL Shape Graph for schema:Dataset validation
+# Generated from: requirements.md
+# Severity: sh:Violation = REQUIRED, sh:Warning = RECOMMENDED
+
+@prefix schema: <https://schema.org/> .
+@prefix rdf:    <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix sh:     <http://www.w3.org/ns/shacl#> .
+@prefix xsd:    <http://www.w3.org/2001/XMLSchema#> .
+@prefix qudt:   <http://qudt.org/schema/qudt/> .
+@prefix gaia:   <https://gaia.earthcube.org/validation/shacl#> .
+
+
+# ============================================================
+# Top-level Dataset Shape — groups all property constraints
+# ============================================================
+
+gaia:DatasetShape
+    a sh:NodeShape ;
+    sh:targetClass schema:Dataset ;
+    sh:nodeKind sh:IRI ;
+    sh:message "GAIA Dataset validation" ;
+    sh:description "Validates a schema:Dataset graph against GAIA catalog requirements." ;
+    sh:property
+        gaia:typeProperty ,
+        gaia:nameProperty ,
+        gaia:versionProperty ,
+        gaia:descriptionProperty ,
+        gaia:creatorProperty ,
+        gaia:providerProperty ,
+        gaia:licenseProperty ,
+        gaia:spatialCoverageProperty ,
+        gaia:datePublishedProperty ,
+        gaia:dateModifiedProperty ,
+        gaia:keywordsProperty ,
+        gaia:urlProperty ,
+        gaia:aboutProperty ,
+        gaia:measurementTechniqueProperty ,
+        gaia:additionalPropertyProperty ,
+        gaia:variableMeasuredProperty ;
+.
+
+# ============================================================
+# Top-level Descriptive Metadata — VIOLATION (required)
+# ============================================================
+
+gaia:typeProperty
+    a sh:PropertyShape ;
+    sh:path rdf:type ;
+    sh:severity sh:Violation ;
+    sh:message "@type is required on the Dataset node."@en ;
+    sh:minCount 1 ;
+.
+
+gaia:nameProperty
+    a sh:PropertyShape ;
+    sh:path schema:name ;
+    sh:severity sh:Violation ;
+    sh:message "name is required and must be a string."@en ;
+    sh:minCount 1 ;
+    sh:nodeKind sh:Literal ;
+.
+
+gaia:versionProperty
+    a sh:PropertyShape ;
+    sh:path schema:version ;
+    sh:severity sh:Violation ;
+    sh:message "version is required (expected YYYY-MM-DD date string)."@en ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+    sh:or (
+        [ sh:datatype xsd:date ]
+        [ sh:datatype xsd:string ]
+    ) ;
+.
+
+gaia:descriptionProperty
+    a sh:PropertyShape ;
+    sh:path schema:description ;
+    sh:severity sh:Violation ;
+    sh:message "description is required and must be a string."@en ;
+    sh:minCount 1 ;
+    sh:nodeKind sh:Literal ;
+.
+
+gaia:creatorProperty
+    a sh:PropertyShape ;
+    sh:path schema:creator ;
+    sh:severity sh:Violation ;
+    sh:message "creator is required and must include a name."@en ;
+    sh:minCount 1 ;
+    sh:node gaia:CreatorShape ;
+.
+
+gaia:providerProperty
+    a sh:PropertyShape ;
+    sh:path schema:provider ;
+    sh:severity sh:Violation ;
+    sh:message "provider is required (one or more strings)."@en ;
+    sh:minCount 1 ;
+.
+
+gaia:licenseProperty
+    a sh:PropertyShape ;
+    sh:path schema:license ;
+    sh:severity sh:Violation ;
+    sh:message "license is required."@en ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+    sh:nodeKind sh:IRIOrLiteral ;
+.
+
+gaia:spatialCoverageProperty
+    a sh:PropertyShape ;
+    sh:path schema:spatialCoverage ;
+    sh:severity sh:Violation ;
+    sh:message "spatialCoverage is required and must include a name."@en ;
+    sh:minCount 1 ;
+    sh:node gaia:SpatialCoverageNodeShape ;
+.
+
+gaia:datePublishedProperty
+    a sh:PropertyShape ;
+    sh:path schema:datePublished ;
+    sh:severity sh:Violation ;
+    sh:message "datePublished is required."@en ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+    sh:or (
+        [ sh:datatype xsd:date ]
+        [ sh:datatype xsd:dateTime ]
+        [ sh:datatype xsd:string ]
+    ) ;
+.
+
+gaia:dateModifiedProperty
+    a sh:PropertyShape ;
+    sh:path schema:dateModified ;
+    sh:severity sh:Warning ;
+    sh:message "dateModified is recommended."@en ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+    sh:or (
+        [ sh:datatype xsd:date ]
+        [ sh:datatype xsd:dateTime ]
+        [ sh:datatype xsd:string ]
+    ) ;
+.
+
+gaia:keywordsProperty
+    a sh:PropertyShape ;
+    sh:path schema:keywords ;
+    sh:severity sh:Violation ;
+    sh:message "keywords is required (one or more strings)."@en ;
+    sh:minCount 1 ;
+    sh:nodeKind sh:Literal ;
+.
+
+gaia:urlProperty
+    a sh:PropertyShape ;
+    sh:path schema:url ;
+    sh:severity sh:Violation ;
+    sh:message "url (landing page) is required."@en ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+    sh:nodeKind sh:IRIOrLiteral ;
+.
+
+gaia:aboutProperty
+    a sh:PropertyShape ;
+    sh:path schema:about ;
+    sh:severity sh:Warning ;
+    sh:message "about is recommended for provenance (each entry should include a name)."@en ;
+    sh:minCount 1 ;
+    sh:node gaia:AboutNodeShape ;
+.
+
+
+# ============================================================
+# GIS and ETL Metadata — VIOLATION (required)
+# ============================================================
+
+gaia:measurementTechniqueProperty
+    a sh:PropertyShape ;
+    sh:path schema:measurementTechnique ;
+    sh:severity sh:Violation ;
+    sh:message "measurementTechnique is required (list of DefinedTerm nodes with termCode)."@en ;
+    sh:minCount 1 ;
+    sh:node gaia:MeasurementTechniqueNodeShape ;
+.
+
+gaia:additionalPropertyProperty
+    a sh:PropertyShape ;
+    sh:path schema:additionalProperty ;
+    sh:severity sh:Violation ;
+    sh:message "additionalProperty is required (EPSG code value)."@en ;
+    sh:minCount 1 ;
+    sh:node gaia:AdditionalPropertyNodeShape ;
+.
+
+
+# ============================================================
+# Variable-level Metadata — on variableMeasured items
+# ============================================================
+
+gaia:variableMeasuredProperty
+    a sh:PropertyShape ;
+    sh:path schema:variableMeasured ;
+    sh:severity sh:Violation ;
+    sh:message "variableMeasured is required (list of PropertyValue nodes)."@en ;
+    sh:minCount 1 ;
+    sh:node gaia:VariableMeasuredNodeShape ;
+.
+
+
+# ============================================================
+# Supporting Node Shapes
+# ============================================================
+
+gaia:CreatorShape
+    a sh:NodeShape ;
+    sh:property [
+        sh:path schema:name ;
+        sh:minCount 1 ;
+        sh:nodeKind sh:Literal ;
+        sh:severity sh:Violation ;
+        sh:message "creator must have a name."@en ;
+    ] ;
+.
+
+gaia:SpatialCoverageNodeShape
+    a sh:NodeShape ;
+    sh:property [
+        sh:path schema:name ;
+        sh:minCount 1 ;
+        sh:nodeKind sh:Literal ;
+        sh:severity sh:Violation ;
+        sh:message "spatialCoverage must have a name."@en ;
+    ] ;
+.
+
+gaia:AboutNodeShape
+    a sh:NodeShape ;
+    sh:property [
+        sh:path schema:name ;
+        sh:minCount 1 ;
+        sh:nodeKind sh:Literal ;
+        sh:severity sh:Warning ;
+        sh:message "about entry should have a name."@en ;
+    ] ;
+.
+
+gaia:MeasurementTechniqueNodeShape
+    a sh:NodeShape ;
+    sh:description "Each measurementTechnique entry must be a DefinedTerm with a termCode." ;
+    sh:property [
+        sh:path schema:termCode ;
+        sh:minCount 1 ;
+        sh:nodeKind sh:Literal ;
+        sh:severity sh:Violation ;
+        sh:message "measurementTechnique entry must have a termCode (vector|raster|table or point|line|polygon)."@en ;
+    ] ;
+.
+
+gaia:AdditionalPropertyNodeShape
+    a sh:NodeShape ;
+    sh:property [
+        sh:path schema:value ;
+        sh:minCount 1 ;
+        sh:nodeKind sh:Literal ;
+        sh:severity sh:Violation ;
+        sh:message "additionalProperty must have a value (e.g. EPSG code)."@en ;
+    ] ;
+.
+
+gaia:VariableMeasuredNodeShape
+    a sh:NodeShape ;
+    sh:description "Validates each variableMeasured PropertyValue entry." ;
+
+    # --- VIOLATION (required) ---
+    sh:property [
+        sh:path schema:name ;
+        sh:minCount 1 ;
+        sh:nodeKind sh:Literal ;
+        sh:severity sh:Violation ;
+        sh:message "variableMeasured entry must have a name."@en ;
+    ] ;
+    sh:property [
+        sh:path qudt:dataType ;
+        sh:minCount 1 ;
+        sh:severity sh:Violation ;
+        sh:message "variableMeasured entry must have a qudt:dataType."@en ;
+    ] ;
+
+    # --- RECOMMENDED ---
+    sh:property [
+        sh:path schema:propertyID ;
+        sh:minCount 1 ;
+        sh:nodeKind sh:IRIOrLiteral ;
+        sh:severity sh:Warning ;
+        sh:message "variableMeasured entry should have a propertyID (conceptID)."@en ;
+    ] ;
+    sh:property [
+        sh:path schema:description ;
+        sh:minCount 1 ;
+        sh:nodeKind sh:Literal ;
+        sh:severity sh:Warning ;
+        sh:message "variableMeasured entry should have a description."@en ;
+    ] ;
+    sh:property [
+        sh:path schema:unitCode ;
+        sh:minCount 1 ;
+        sh:nodeKind sh:IRIOrLiteral ;
+        sh:severity sh:Warning ;
+        sh:message "variableMeasured entry should have a unitCode."@en ;
+    ] ;
+    sh:property [
+        sh:path schema:unitText ;
+        sh:minCount 1 ;
+        sh:nodeKind sh:Literal ;
+        sh:severity sh:Warning ;
+        sh:message "variableMeasured entry should have a unitText."@en ;
+    ] ;
+    sh:property [
+        sh:path schema:minValue ;
+        sh:minCount 1 ;
+        sh:severity sh:Warning ;
+        sh:message "variableMeasured entry should have a minValue."@en ;
+        sh:or (
+            [ sh:datatype xsd:decimal ]
+            [ sh:datatype xsd:float ]
+            [ sh:datatype xsd:double ]
+            [ sh:datatype xsd:integer ]
+        ) ;
+    ] ;
+    sh:property [
+        sh:path schema:maxValue ;
+        sh:minCount 1 ;
+        sh:severity sh:Warning ;
+        sh:message "variableMeasured entry should have a maxValue."@en ;
+        sh:or (
+            [ sh:datatype xsd:decimal ]
+            [ sh:datatype xsd:float ]
+            [ sh:datatype xsd:double ]
+            [ sh:datatype xsd:integer ]
+        ) ;
+    ] ;
+    sh:property [
+        sh:path schema:startDate ;
+        sh:minCount 1 ;
+        sh:severity sh:Warning ;
+        sh:message "variableMeasured entry should have a startDate (YYYY-MM-DD)."@en ;
+        sh:or (
+            [ sh:datatype xsd:date ]
+            [ sh:datatype xsd:string ]
+        ) ;
+    ] ;
+    sh:property [
+        sh:path schema:endDate ;
+        sh:minCount 1 ;
+        sh:severity sh:Warning ;
+        sh:message "variableMeasured entry should have an endDate (YYYY-MM-DD)."@en ;
+        sh:or (
+            [ sh:datatype xsd:date ]
+            [ sh:datatype xsd:string ]
+        ) ;
+    ] ;
+.

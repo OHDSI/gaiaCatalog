@@ -68,6 +68,14 @@ Errors can have three levels: WARNING, VIOLATION and RECOMMENDED.  So we can des
 ```
        
 
+## Appendix
+
+### Current testing
+
+```bash
+ pyshacl -s ./gaiaRequirements.ttl -sf turtle -df json-ld -f table /home/fils/src/Projects/CODATA/INSPIRE/OHDSI-GIS-Metadata-Mapping/input/repo/mdc_private_schools/meta_json-ld_mdc_private_schools.json
+ ```
+
 
 
 
