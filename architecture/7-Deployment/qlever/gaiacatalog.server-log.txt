@@ -1,33 +1,18 @@
-2026-02-18 06:59:31.729 - INFO: [1mQLever server, compiled on Wed Feb  4 05:30:47 UTC 2026 using git hash f35a29[22m
-2026-02-18 06:59:31.730 - INFO: Initializing server ...
-2026-02-18 06:59:31.730 - INFO: The git hash used to build this index was "f35a29"
-2026-02-18 06:59:31.731 - INFO: Reading vocabulary from file gaiacatalog.vocabulary.words ...
-2026-02-18 06:59:31.731 - INFO: Done, number of words: 4,700
-2026-02-18 06:59:31.731 - INFO: Number of words in internal vocabulary (these are also part of the external vocabulary): 9
-2026-02-18 06:59:31.732 - INFO: Registered PSO permutation: #relations = 1, #blocks = 1, #triples = 1,870
-2026-02-18 06:59:31.732 - INFO: Registered PSO permutation: #relations = 18, #blocks = 1, #triples = 12,159
-2026-02-18 06:59:31.732 - INFO: Registered POS permutation: #relations = 1, #blocks = 1, #triples = 1,870
-2026-02-18 06:59:31.732 - INFO: Registered POS permutation: #relations = 18, #blocks = 1, #triples = 12,159
-2026-02-18 06:59:31.732 - INFO: Registered OPS permutation: #relations = 4,585, #blocks = 1, #triples = 12,159
-2026-02-18 06:59:31.732 - INFO: Registered OSP permutation: #relations = 4,585, #blocks = 1, #triples = 12,159
-2026-02-18 06:59:31.732 - INFO: Registered SPO permutation: #relations = 1,870, #blocks = 1, #triples = 12,159
-2026-02-18 06:59:31.732 - INFO: Registered SOP permutation: #relations = 1,870, #blocks = 1, #triples = 12,159
-2026-02-18 06:59:31.732 - INFO: Reading patterns from file gaiacatalog.index.patterns ...
-2026-02-18 06:59:31.732 - INFO: Sorting random result tables to estimate the sorting performance of this machine ...
-2026-02-18 06:59:31.734 - INFO: Access token for restricted API calls is "gaiacatalog_7643543846_6dMISzlPrD7i"
-2026-02-18 06:59:31.734 - INFO: The server is ready, listening for requests on port 7077 ...
-2026-02-18 06:59:31.743 - INFO: 
-2026-02-18 06:59:31.743 - INFO: Request received via POST, content type "application/x-www-form-urlencoded"
-2026-02-18 06:59:31.743 - INFO: Alive check with message "from the `qlever` CLI"
-2026-02-18 06:59:31.752 - INFO: 
-2026-02-18 06:59:31.752 - INFO: Request received via GET, no content type specified
-2026-02-18 06:59:31.752 - INFO: Setting index description to: "GAIACatalog http://example.org/gaiacatalog"
-2026-02-18 06:59:31.759 - INFO: 
-2026-02-18 06:59:31.759 - INFO: Request received via GET, no content type specified
-2026-02-18 06:59:31.759 - INFO: Setting text description to: "Test graph for GaiaCatalog"
-2026-02-18 06:59:31.777 - INFO: 
-2026-02-18 06:59:31.777 - INFO: Request received via POST, content type "application/x-www-form-urlencoded"
-2026-02-18 06:59:31.777 - INFO: Processing command "cache-stats": get cache statistics
-2026-02-18 06:59:31.794 - INFO: 
-2026-02-18 06:59:31.794 - INFO: Request received via POST, content type "application/x-www-form-urlencoded"
-2026-02-18 06:59:31.794 - INFO: Processing command "get-settings": get server settings
+2026-02-20 18:15:00.108 - INFO: [1mQLever server, compiled on Wed Feb  4 05:30:47 UTC 2026 using git hash f35a29[22m
+2026-02-20 18:15:00.114 - INFO: Initializing server ...
+2026-02-20 18:15:00.115 - INFO: The git hash used to build this index was "f35a29"
+2026-02-20 18:15:00.116 - INFO: Reading vocabulary from file gaiacatalog.vocabulary.words ...
+2026-02-20 18:15:00.118 - INFO: Done, number of words: 4,700
+2026-02-20 18:15:00.118 - INFO: Number of words in internal vocabulary (these are also part of the external vocabulary): 9
+2026-02-20 18:15:00.120 - INFO: Registered PSO permutation: #relations = 1, #blocks = 1, #triples = 1,870
+2026-02-20 18:15:00.121 - INFO: Registered PSO permutation: #relations = 18, #blocks = 1, #triples = 12,159
+2026-02-20 18:15:00.122 - INFO: Registered POS permutation: #relations = 1, #blocks = 1, #triples = 1,870
+2026-02-20 18:15:00.122 - INFO: Registered POS permutation: #relations = 18, #blocks = 1, #triples = 12,159
+2026-02-20 18:15:00.122 - INFO: Registered OPS permutation: #relations = 4,585, #blocks = 1, #triples = 12,159
+2026-02-20 18:15:00.123 - INFO: Registered OSP permutation: #relations = 4,585, #blocks = 1, #triples = 12,159
+2026-02-20 18:15:00.123 - INFO: Registered SPO permutation: #relations = 1,870, #blocks = 1, #triples = 12,159
+2026-02-20 18:15:00.124 - INFO: Registered SOP permutation: #relations = 1,870, #blocks = 1, #triples = 12,159
+2026-02-20 18:15:00.124 - INFO: Reading patterns from file gaiacatalog.index.patterns ...
+2026-02-20 18:15:00.124 - INFO: Sorting random result tables to estimate the sorting performance of this machine ...
+2026-02-20 18:15:00.128 - INFO: Access token for restricted API calls is "gaiacatalog_7643543846_6dMISzlPrD7i"
+2026-02-20 18:15:00.128 - INFO: The server is ready, listening for requests on port 7077 ...
