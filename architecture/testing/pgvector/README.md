@@ -1,11 +1,8 @@
-# Ppstgres
-
-pg_vector
-
-pg_search (bm25)
+# Postgres
 
 
-This group has an image with both pg_search and pg_vector in it.
+This container has an image with both pg_search (bm25) and pg_vector in it.
+
 
 ```bash
 docker run --name paradedb-demo \
