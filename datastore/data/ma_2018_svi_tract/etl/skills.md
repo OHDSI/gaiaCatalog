@@ -7,7 +7,7 @@ Reusable agent skills for CDC SVI2018 Massachusetts tract data ETL:
 3. Clean geom, add local EPSG:26986 column/index.
 4. Export SQL dump + tar w/ metadata.
 
-**Run via Bash tool:** `workdir=&quot;/home/fils/src/Projects/CODATA/INSPIRE/gaiaCatalog/datastore/data/ma_2018_svi_tract/etl&quot; command=&quot;./script.sh&quot;`
+**Run via Bash tool:** `workdir=&quot;$PWD&quot; command=&quot;./script.sh&quot;`
 Requires: osgeo/postgis Docker containers, $POSTGRES_PASSWORD_FILE, gaia-db host.
 
 ## Prerequisites
