@@ -44,10 +44,30 @@ user = 'postgres'
 password = 'mysecretpassword'
 dbname = 'my_vector_db'
 
-# Connect to the database
+# Connect to the default 'postgres' database to check/create our target database
+setup_conn = psycopg2.connect(host=host, user=user, password=password, dbname='postgres')
+setup_conn.autocommit = True  # CREATE DATABASE cannot run inside a transaction
+setup_cur = setup_conn.cursor()
+
+setup_cur.execute("SELECT 1 FROM pg_database WHERE datname = %s;", (dbname,))
+if not setup_cur.fetchone():
+    print(f"Database '{dbname}' not found. Creating...")
+    setup_cur.execute(f'CREATE DATABASE {dbname};')
+    print(f"Database '{dbname}' created successfully.")
+else:
+    print(f"Database '{dbname}' already exists.")
+
+setup_cur.close()
+setup_conn.close()
+
+# Connect to the target database
 conn = psycopg2.connect(host=host, user=user, password=password, dbname=dbname)
 register_vector(conn)
 cur = conn.cursor()
+
+# Ensure the pgvector extension is available
+cur.execute("CREATE EXTENSION IF NOT EXISTS vector;")
+conn.commit()
 
 # Get the embedding dimension from the first test
 print("Getting embedding dimension...")
