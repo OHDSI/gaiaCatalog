@@ -153,7 +153,7 @@ do not take any actions, but play out what actions you would take if asked to pe
 
 ## User
 
-can you detect if all the programs needed to run on are avilable to you, do not run them.   List what is and is not available and ready
+can you detect if all the programs needed to run on are available to you, do not run them.   List what is and is not available and ready
 
 ---
 
