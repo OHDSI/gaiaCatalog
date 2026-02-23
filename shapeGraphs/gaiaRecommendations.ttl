@@ -9,7 +9,7 @@
 @prefix sh:     <http://www.w3.org/ns/shacl#> .
 @prefix xsd:    <http://www.w3.org/2001/XMLSchema#> .
 @prefix qudt:   <http://qudt.org/schema/qudt/> .
-@prefix gaia:   <https://gaia.ohdisi.org/validation/shacl#> .
+@prefix gaia:   <https://gaia.earthcube.org/validation/shacl#> .
 
 
 # ============================================================
@@ -18,9 +18,8 @@
 
 gaia:DatasetShape
     a sh:NodeShape ;
-    sh:targetSubjectsOf schema:variableMeasured ;
-#    sh:targetNode <https://gdsc.idsc.miami.edu/detail/ma_2022_svi_tract> ;
-#    sh:nodeKind sh:IRI ;
+    sh:targetClass schema:Dataset ;
+    sh:nodeKind sh:IRI ;
     sh:message "GAIA Dataset validation" ;
     sh:description "Validates a schema:Dataset graph against GAIA catalog requirements." ;
     sh:property
@@ -209,8 +208,8 @@ gaia:variableMeasuredProperty
     a sh:PropertyShape ;
     sh:path schema:variableMeasured ;
     sh:severity sh:Violation ;
-    sh:message "variableMeasured ONE is required (list of PropertyValue nodes)."@en ;
-#    sh:minCount 1 ;
+    sh:message "variableMeasured is required (list of PropertyValue nodes)."@en ;
+    sh:minCount 1 ;
     sh:node gaia:VariableMeasuredNodeShape ;
 .
 
@@ -309,5 +308,62 @@ gaia:VariableMeasuredNodeShape
         sh:severity sh:Warning ;
         sh:message "variableMeasured entry should have a description."@en ;
     ] ;
-
+    sh:property [
+        sh:path schema:unitCode ;
+        sh:minCount 1 ;
+        sh:nodeKind sh:IRIOrLiteral ;
+        sh:severity sh:Warning ;
+        sh:message "variableMeasured entry should have a unitCode."@en ;
+    ] ;
+    sh:property [
+        sh:path schema:unitText ;
+        sh:minCount 1 ;
+        sh:nodeKind sh:Literal ;
+        sh:severity sh:Warning ;
+        sh:message "variableMeasured entry should have a unitText."@en ;
+    ] ;
+    sh:property [
+        sh:path schema:minValue ;
+        sh:minCount 1 ;
+        sh:severity sh:Warning ;
+        sh:message "variableMeasured entry should have a minValue."@en ;
+        sh:or (
+            [ sh:datatype xsd:decimal ]
+            [ sh:datatype xsd:float ]
+            [ sh:datatype xsd:double ]
+            [ sh:datatype xsd:integer ]
+        ) ;
+    ] ;
+    sh:property [
+        sh:path schema:maxValue ;
+        sh:minCount 1 ;
+        sh:severity sh:Warning ;
+        sh:message "variableMeasured entry should have a maxValue."@en ;
+        sh:or (
+            [ sh:datatype xsd:decimal ]
+            [ sh:datatype xsd:float ]
+            [ sh:datatype xsd:double ]
+            [ sh:datatype xsd:integer ]
+        ) ;
+    ] ;
+    sh:property [
+        sh:path schema:startDate ;
+        sh:minCount 1 ;
+        sh:severity sh:Warning ;
+        sh:message "variableMeasured entry should have a startDate (YYYY-MM-DD)."@en ;
+        sh:or (
+            [ sh:datatype xsd:date ]
+            [ sh:datatype xsd:string ]
+        ) ;
+    ] ;
+    sh:property [
+        sh:path schema:endDate ;
+        sh:minCount 1 ;
+        sh:severity sh:Warning ;
+        sh:message "variableMeasured entry should have an endDate (YYYY-MM-DD)."@en ;
+        sh:or (
+            [ sh:datatype xsd:date ]
+            [ sh:datatype xsd:string ]
+        ) ;
+    ] ;
 .

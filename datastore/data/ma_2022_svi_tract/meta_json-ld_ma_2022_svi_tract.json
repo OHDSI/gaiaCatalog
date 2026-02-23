@@ -130,7 +130,7 @@
         "@type": "Action",
         "name": "Pseudo Code",
         "description": "TODO",
-        "result": {
+        "resulDataset": {
           "@type": "Dataset",
           "encodingFormat": "sql",
           "url": "https://gdsc.idsc.miami.edu/download/data/ma_2022_svi_tract/?file=ma_2022_svi_tract&format=sql"
