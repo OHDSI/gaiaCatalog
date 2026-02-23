@@ -1,0 +1,47 @@
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@id": "https://example.com/kb#knowledgeBase",
+      "@type": "Dataset",
+      "name": "Gaia Skills & Agents Knowledge Base",
+      "description": "Curated markdown files describing competencies and agent definitions for Gaia system.",
+      "author": {
+        "@type": "Person",
+        "name": "Your Name"
+      },
+      "dateCreated": "2026-02-23",
+      "dateModified": "2026-02-23",
+      "license": "https://creativecommons.org/licenses/by/4.0/",
+      "hasPart": [
+        {
+          "@id": "https://github.com/OHDSI/gaiaCatalog/blob/main/datastore/data/ma_2018_svi_tract/etl/skills.md",
+          "@type": "DigitalDocument",
+          "name": "skills.md",
+          "description": "Markdown file listing and describing skills, competencies, and proficiencies.",
+          "url": "https://github.com/OHDSI/gaiaCatalog/blob/main/datastore/data/ma_2018_svi_tract/etl/skills.md",
+          "encodingFormat": "text/markdown",
+          "keywords": ["skills", "competencies", "ontology"],
+          "about": [
+            { "@type": "DefinedTerm", "name": "Skill" },
+            { "@type": "DefinedTerm", "name": "Competency Framework" }
+          ],
+          "dateModified": "2026-02-23",
+          "version": "0.1"
+        },
+        {
+          "@id": "https://github.com/OHDSI/gaiaCatalog/blob/main/AGENTS.md",
+          "@type": "DigitalDocument",
+          "name": "agents.md",
+          "description": "Markdown file defining AI agents, roles, capabilities, and interaction patterns.",
+          "url": "https://github.com/OHDSI/gaiaCatalog/blob/main/AGENTS.md",
+          "encodingFormat": "text/markdown",
+          "keywords": ["agents", "AI", "multi-agent system"],
+          "about": { "@type": "DefinedTerm", "name": "Autonomous Agent" },
+          "dateModified": "2026-02-23",
+          "version": "0.1"
+        }
+      ]
+    }
+  ]
+}

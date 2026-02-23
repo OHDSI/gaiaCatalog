@@ -18,8 +18,11 @@
 
 gaia:DatasetShape
     a sh:NodeShape ;
-    sh:targetClass schema:Dataset ;
-    sh:nodeKind sh:IRI ;
+    sh:targetSubjectsOf schema:variableMeasured ;
+#    sh:targetNode <https://gdsc.idsc.miami.edu/detail/ma_2022_svi_tract> ;
+#    sh:nodeKind sh:IRI ;
+  #  sh:targetClass schema:Dataset ;
+  #  sh:nodeKind sh:IRI ;
     sh:message "GAIA Dataset validation" ;
     sh:description "Validates a schema:Dataset graph against GAIA catalog requirements." ;
     sh:property
