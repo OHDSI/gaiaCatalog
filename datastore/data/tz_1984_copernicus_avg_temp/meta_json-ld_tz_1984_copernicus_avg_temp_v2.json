@@ -56,7 +56,8 @@
     }
   ],
   "temporalCoverage": "1984-01-01/1984-12-31",
-  "encodingFormat": "image/tiff; application=geotiff" // raster,
+  "encodingFormat": "image/tiff; application=geotiff",
+  "_comment": "This is a workaround for specifying a raster dataset for now",
   "geocr:CRS": "EPSG:4326",
   "datePublished": "2025-06-01",
   "dateModified": "2025-06-01",
