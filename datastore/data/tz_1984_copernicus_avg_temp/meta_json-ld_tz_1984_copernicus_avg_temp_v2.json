@@ -128,7 +128,6 @@
       "description": "Average yearly 2m temperature in Kelvin from Copernicus reanalysis era5 single levels",
       "ddi:unitType": "GeographicArea",
       "ddi:population": "31km grid cells for Tanzania between 2010 and 2020",
-      "stato:statistic": "average value",
       "identifier":
       {
         "@id": " http://purl.obolibrary.org/obo/PATO_0000146",
@@ -140,6 +139,7 @@
       "qudt:dataType": "float",
       "unitCode": "UO:1000012",
       "unitText": "Kelvin (by year)",
+      "stato:statistic": "average value",
       "minValue": "287.315857",
       "maxValue": "301.010986",
       "geocr:temporalRange:": "2010-01-01/2020-12-31"
