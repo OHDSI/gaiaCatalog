@@ -30,7 +30,7 @@
     }
   ],
   "name": "1984 Tanzania 2m Temperature Yearly Average (Copernicus)",
-  "description": "A raster dataset with yearly averages of the 2m temperature from the ERA 5 renanalysis data from Copernicus satellite sensors for Tanzania. ERA5 is the fifth generation ECMWF reanalysis for the global climate and weather for the past 8 decades. Data is available from 1940 onwards. ERA5 replaces the ERA-Interim reanalysis.",
+  "description": "A raster dataset with yearly averages of the 2m temperature from the ERA 5 renanalysis data from Copernicus satellite sensors for Tanzania. ERA5 is the fifth generation ECMWF reanalysis for the global climate and weather for the past 8 decades. Data is available from 1940 onwards. ERA5 replaces the ERA-Interim reanalysis",
   "distribution": {
     "@type": "DataDownload",
     "contentUrl": "https://gdsc.idsc.miami.edu/download/data/tz_1984_copernicus_avg_temp/?file=tz_1984_copernicus_avg_temp&format=tiff",
