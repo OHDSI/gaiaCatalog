@@ -30,6 +30,34 @@
     }
   ],
   "name": "2022 Massachusetts CDC Social Vulnerability Index (tracts)",
+  "distribution": {
+    "@type": "DataDownload",
+    "contentUrl": "https://gdsc.idsc.miami.edu/download/data/ma_2022_svi_tract/?file=ma_2022_svi_tract&format=sql",
+    "encodingFormat": "text/csv",
+    "keywords": {
+      "@type": "DefinedTerm",
+      "description": "GIS Data Structure for Representation",
+      "inDefinedTermSet": {
+        "@type": "DefinedTermSet",
+        "name": "dataRepresentation",
+        "hasDefinedTerm": [
+          {
+            "@type": "DefinedTerm",
+            "termCode": "raster"
+          },
+          {
+            "@type": "DefinedTerm",
+            "termCode": "vector"
+          },
+          {
+            "@type": "DefinedTerm",
+            "termCode": "table"
+          }
+        ]
+      },
+      "termCode": "table"
+    }
+  },
   "creator": [
     {
       "@type": "Organization",
@@ -40,8 +68,6 @@
     }
   ],
   "license": "https://creativecommons.org/licenses/by/4.0/",
-  "encodingFormat": "text/csv", 
-  "comment:encodingFormat": "This is a workaround for specifying a tabular dataset for now",
   "geocr:CRS": "EPSG:4269",
   "hasPart": [
     {
@@ -83,16 +109,20 @@
       "name": "Massachusetts",
       "geo": {
         "@type": "GeoShape",
-        "polygon": "-73.508142 41.237964 -69.928393 41.237964 -69.928393 42.886589 -73.508142 42.886589 -73.508142 41.237964"
+        "polygon": "-73.508142 41.237964 -69.928393 41.237964 -69.928393 42.886589 -73.508142 42.886589 -73.508142 41.237964",
+      },
+      "additionalProperty": [
+      {
+        "@type": "PropertyValue",
+        "name": "Coordinate Reference System",
+        "value": "EPSG:4269",
+        "url": "https://epsg.io/4269"
       }
-    }
+    )
   ],
   "dateCreated": "2026-02-23",
   "dateModified": "2026-02-23",
   "datePublished": "2020-10-22",
-  "distribution": [
-    "https://gdsc.idsc.miami.edu/download/data/ma_2022_svi_tract/?file=ma_2022_svi_tract&format=sql"
-  ],
   "version": "2026-02-10",
   "description": "Social vulnerability refers to the potential negative effects on communities caused by external stresses on human health. Such stresses include natural or human-caused disasters, or disease outbreaks. Reducing social vulnerability can decrease both human suffering and economic loss.\n\nThe CDC/ATSDR Social Vulnerability Index (CDC/ATSDR SVI) uses 16 U.S. census variables to help local officials identify communities that may need support before, during, or after disasters.",
   "keywords": [
