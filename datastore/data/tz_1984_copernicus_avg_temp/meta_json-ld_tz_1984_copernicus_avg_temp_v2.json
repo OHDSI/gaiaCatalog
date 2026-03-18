@@ -30,6 +30,34 @@
     }
   ],
   "name": "1984 Tanzania 2m Temperature Yearly Average (Copernicus)",
+  "distribution": {
+    "@type": "DataDownload",
+    "contentUrl": "https://gdsc.idsc.miami.edu/download/data/ma_2022_svi_tract/?file=ma_2022_svi_tract&format=sql",
+    "encodingFormat": "image/tiff; application=geotiff",
+    "keywords": {
+      "@type": "DefinedTerm",
+      "description": "GIS Data Structure for Representation",
+      "inDefinedTermSet": {
+        "@type": "DefinedTermSet",
+        "name": "dataRepresentation",
+        "hasDefinedTerm": [
+          {
+            "@type": "DefinedTerm",
+            "termCode": "raster"
+          },
+          {
+            "@type": "DefinedTerm",
+            "termCode": "vector"
+          },
+          {
+            "@type": "DefinedTerm",
+            "termCode": "table"
+          }
+        ]
+      },
+      "termCode": "raster"
+    }
+  },
   "creator": [
     {
       "@type": "Organization",
@@ -52,13 +80,18 @@
       "geo": {
         "@type": "GeoShape",
         "polygon": "28.8750000 -0.8750000 41.1250000 -0.8750000 41.1250000 -12.1250000 28.8750000 -12.1250000 28.8750000 -0.8750000"
-      }
+      },
+      "additionalProperty": [
+        {
+          "@type": "PropertyValue",
+          "name": "Coordinate Reference System",
+          "value": "EPSG:4326",
+          "url": "https://epsg.io/4326"
+        }
+      ]
     }
   ],
   "temporalCoverage": "1984-01-01/1984-12-31",
-  "encodingFormat": "image/tiff; application=geotiff",
-  "comment:encodingFormat": "This is a workaround for specifying a raster dataset for now",
-  "geocr:CRS": "EPSG:4326",
   "datePublished": "2025-06-01",
   "dateModified": "2025-06-01",
   "version": "2026-02-12",
