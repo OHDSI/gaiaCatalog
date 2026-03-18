@@ -112,13 +112,14 @@
         "polygon": "-73.508142 41.237964 -69.928393 41.237964 -69.928393 42.886589 -73.508142 42.886589 -73.508142 41.237964",
       },
       "additionalProperty": [
-      {
-        "@type": "PropertyValue",
-        "name": "Coordinate Reference System",
-        "value": "EPSG:4269",
-        "url": "https://epsg.io/4269"
-      }
-    )
+        {
+          "@type": "PropertyValue",
+          "name": "Coordinate Reference System",
+          "value": "EPSG:4269",
+          "url": "https://epsg.io/4269"
+        }
+      ]
+    }
   ],
   "dateCreated": "2026-02-23",
   "dateModified": "2026-02-23",
