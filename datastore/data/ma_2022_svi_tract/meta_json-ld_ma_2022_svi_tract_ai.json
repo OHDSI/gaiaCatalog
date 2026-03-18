@@ -68,7 +68,6 @@
     }
   ],
   "license": "https://creativecommons.org/licenses/by/4.0/",
-  "geocr:CRS": "EPSG:4269",
   "hasPart": [
     {
       "@id": "https://github.com/OHDSI/gaiaCatalog/blob/main/datastore/data/ma_2018_svi_tract/etl/skills.md",
