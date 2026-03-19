@@ -1,0 +1,21 @@
+#########
+# GDSC ETL is performed in two steps: shell script to ETL data into postgres
+# and then additional transformations with SQL in postGIS (if needed).
+####
+
+#########
+# Step 1 - bash script (pseudo code)
+####
+
+# create directory structure and move into it
+mkdir -p /data/kenya_ppd_survey_2014/{download,etl} && cd /data/kenya_ppd_survey_2014
+
+# set update flag based on last update and update frequency
+do_update=0 if date() < last_update + update_frequency else do_update = 1
+
+# remove spaces for all column headers in csv
+  sed -i '1 s/ /_/g' download/kenya_ppd_survey_2014.csv
+
+# load into postGIS with:
+  ogr2ogr -lco GEOMETRY_NAME=geom -f PostgreSQL PG:"<postgres connection>" download/kenya_ppd_survey_2014.csv -nln kenya_ppd_survey_2014
+

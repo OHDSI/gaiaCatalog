@@ -1,0 +1,397 @@
+{
+  "@context": {
+    "@vocab": "https://schema.org/",
+    "dct": "http://purl.org/dc/terms/",
+    "qudt": "http://qudt.org/schema/qudt/",
+    "quantitykind": "http://qudt.org/vocab/quantitykind/",
+    "unit": "http://qudt.org/vocab/unit/",
+    "xsd": "http://www.w3.org/2001/XMLSchema",
+    "extendedConstraintProperty": "http://codata.org/vocab/extendedConstraintProperty",
+    "sdmx": "https://sdmx.org"
+  },
+  "@type": "Dataset",
+  "@id": "https://gdsc.idsc.miami.edu/detail/kenya_ppd_survey_2014",
+  "includedInDataCatalog": [
+    {
+      "@type": "DataCatalog",
+      "@id": "https://gdsc.idsc.miami.edu",
+      "name": "Geospatial Digital Special Collections",
+      "url": "https://gdsc.idsc.miami.edu"
+    },
+    {
+      "@type": "DataCatalog",
+      "name": "aphrc",
+      "@id": "https://gdsc.idsc.miami.edu/?collection=aphrc",
+      "url": "https://gdsc.idsc.miami.edu/?collection=aphrc"
+    }
+  ],
+  "name": "Demographic, psychosocial and clinical factors associated with postpartum depression in Kenyan women",
+  "creator": [
+    {
+      "name": "APHRC"
+    }
+  ],
+  "url": "https://doi.org/10.1186/s12888-018-1904-7",
+  "provider": [
+    {
+      "@type": "Organization",
+      "name": "APHRC"
+    }
+  ],
+  "license": "Controlled access author permission required",
+  "spatialCoverage": [
+    {
+      "@id": "https://www.geonames.org/192950",
+      "@type": "Place",
+      "name": "Kenya"
+    }
+  ],
+  "temporalCoverage": "15-03-2014/15-12-2014 ",
+  "type": "statistical dataset",
+  "description": "Demographic, psychosocial and clinical factors associated with postpartum depression in Kenyan women",
+  "keywords": [
+    "Postpartum Depression",
+    "Maternal Health",
+    "Kenya",
+    "Risk Factors",
+    "Edinburgh Postnatal Depression Scale (EPDS)",
+    "Perinatal Depression",
+    "Urban Health"
+  ],
+  "@language": "en",
+  "measurementTechnique": [
+    {
+      "@type": "DefinedTerm",
+      "description": "GIS Data Structure for Representation",
+      "inDefinedTermSet": {
+        "@type": "DefinedTermSet",
+        "name": "dataRepresentation",
+        "hasDefinedTerm": [
+          {
+            "@type": "DefinedTerm",
+            "termCode": "raster"
+          },
+          {
+            "@type": "DefinedTerm",
+            "termCode": "vector"
+          },
+          {
+            "@type": "DefinedTerm",
+            "termCode": "table"
+          }
+        ]
+      },
+      "termCode": "table"
+    }
+  ],
+  "about": [
+    {
+      "@type": "Event",
+      "description": "nan",
+      "name": "ETL process for Demographic, psychosocial and clinical factors associated with postpartum depression in Kenyan women",
+      "potentialAction": {
+        "@type": "Action",
+        "name": "Pseudo Code",
+        "description": "TODO"
+      }
+    },
+    {
+      "@type": "Event",
+      "description": "nan",
+      "name": "ETL process for Demographic, psychosocial and clinical factors associated with postpartum depression in Kenyan women",
+      "potentialAction": {
+        "@type": "Action",
+        "name": "local",
+        "description": "ETL process for Demographic, psychosocial and clinical factors associated with postpartum depression in Kenyan women",
+        "object": {
+          "@type": "Dataset",
+          "producer": "APHRC",
+          "url": "https://doi.org/10.1186/s12888-018-1904-7"
+        },
+        "instrument": {
+          "@type": "SoftwareApplication",
+          "@id": "https://github.com/Geospatial-Digital-Special-Collections/tools",
+          "featureList": "local",
+          "downloadUrl": "https://github.com/Geospatial-Digital-Special-Collections/tools.git"
+        },
+        "result": {
+          "@type": "Dataset",
+          "name": "Demographic, psychosocial and clinical factors associated with postpartum depression in Kenyan women",
+          "description": "Demographic, psychosocial and clinical factors associated with postpartum depression in Kenyan women",
+          "encodingFormat": "csv"
+        }
+      }
+    }
+  ],
+  "variableMeasured": [
+    {
+      "@type": "PropertyValue",
+      "name": "fact_id",
+      "description": "Primary key for each observation row in the fact table",
+      "startDate": "15-2-2008",
+      "endDate": "15-12-2008"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "individual_id",
+      "description": "Unique identifier for an individual participant",
+      "startDate": "15-2-2008",
+      "endDate": "15-12-2008"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "interview_id",
+      "description": "Unique identifier for an interview",
+      "startDate": "15-2-2008",
+      "endDate": "15-12-2008"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "resident_episode_id",
+      "description": "Unique identifier for a residency episode (person/household at a location within a wave)",
+      "startDate": "15-2-2008",
+      "endDate": "15-12-2008"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "population_study_id",
+      "description": "Unique identifier for each population study",
+      "startDate": "15-2-2008",
+      "endDate": "15-12-2008"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "instrument_id",
+      "description": "Unique identifier for each instrument (questionnaire/scale/form)",
+      "startDate": "15-2-2008",
+      "endDate": "15-12-2008"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "instrument_item_id",
+      "description": "Unique identifier for each item (question) in an instrument",
+      "startDate": "15-2-2008",
+      "endDate": "15-12-2008"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "concept_id",
+      "description": "The concept id of the answer to a question",
+      "startDate": "15-2-2008",
+      "endDate": "15-12-2008"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "value_type_concept_id",
+      "description": "The concept id of the question",
+      "startDate": "15-2-2008",
+      "endDate": "15-12-2008"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "value_as_char",
+      "description": "The actual answer of a question",
+      "startDate": "15-2-2008",
+      "endDate": "15-12-2008"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "value_as_num",
+      "description": "The actual answer of a question",
+      "startDate": "15-2-2008",
+      "endDate": "15-12-2008"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "value_as_concept",
+      "description": "The inspire concept id of the answer to a question",
+      "startDate": "15-2-2008",
+      "endDate": "15-12-2008"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "individual_demographics_id",
+      "description": "Unique ID of the an individual demographic",
+      "startDate": "15-2-2008",
+      "endDate": "15-12-2008"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "individual_concept_id",
+      "description": "\"individual demographics concepts (marital status, level of education,etc.)\"",
+      "startDate": "15-2-2008",
+      "endDate": "15-12-2008"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "individual_concept_id_text",
+      "description": "Text label for individual demographics",
+      "startDate": "15-2-2008",
+      "endDate": "15-12-2008"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "household_id",
+      "description": "Unique ID of the household",
+      "startDate": "15-2-2008",
+      "endDate": "15-12-2008"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "household_characteristics_concept_id",
+      "description": "\"Household characteristic concepts (WIQ, family size,etc.)\"",
+      "startDate": "15-2-2008",
+      "endDate": "15-12-2008"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "household_characteristics_concept_text",
+      "description": "Text label for household characteristic",
+      "startDate": "15-2-2008",
+      "endDate": "15-12-2008"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "interview_id",
+      "description": "Unique identifier for an interview",
+      "startDate": "15-5-2010",
+      "endDate": "15-9-2011"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "resident_episode_id",
+      "description": "Unique identifier for a residency episode",
+      "startDate": "15-5-2010",
+      "endDate": "15-9-2011"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "value_as_char",
+      "description": "The actual answer of a question",
+      "startDate": "15-5-2010",
+      "endDate": "15-9-2011"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "value_as_num",
+      "description": "The actual answer of a question",
+      "startDate": "15-5-2010",
+      "endDate": "15-9-2011"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "value_as_concept",
+      "description": "The inspire concept id of the answer to a question (Wave 2)",
+      "startDate": "15-5-2010",
+      "endDate": "15-9-2011"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "household_characteristics_concept_text",
+      "description": "Text label for household characteristic",
+      "startDate": "15-5-2010",
+      "endDate": "15-9-2011"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "household_characteristics_concept_id",
+      "description": "Household characteristic concepts",
+      "startDate": "15-5-2010",
+      "endDate": "15-9-2011"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "individual_concept_id_text",
+      "description": "Text label for individual demographics",
+      "startDate": "15-5-2010",
+      "endDate": "15-9-2011"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "individual_concept_id",
+      "description": "Individual demographics concepts",
+      "startDate": "15-5-2010",
+      "endDate": "15-9-2011"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "concept_id",
+      "description": "The concept id of the answer to a question",
+      "startDate": "15-5-2010",
+      "endDate": "15-9-2011"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "interview_id",
+      "description": "Unique identifier for an interview",
+      "startDate": "15-5-2012",
+      "endDate": "15-12-2012"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "resident_episode_id",
+      "description": "Unique identifier for a residency episode",
+      "startDate": "15-5-2012",
+      "endDate": "15-12-2012"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "value_as_char",
+      "description": "The actual answer of a question",
+      "startDate": "15-5-2012",
+      "endDate": "15-12-2012"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "value_as_num",
+      "description": "The actual answer of a question",
+      "startDate": "15-5-2012",
+      "endDate": "15-12-2012"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "value_as_concept",
+      "description": "The inspire concept id of the answer to a question",
+      "startDate": "15-5-2012",
+      "endDate": "15-12-2012"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "household_characteristics_concept_text",
+      "description": "Text label for household characteristic ",
+      "startDate": "15-5-2012",
+      "endDate": "15-12-2012"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "household_characteristics_concept_id",
+      "description": "Household characteristic concepts",
+      "startDate": "15-5-2012",
+      "endDate": "15-12-2012"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "individual_concept_id_text",
+      "description": "Text label for individual demographics",
+      "startDate": "15-5-2012",
+      "endDate": "15-12-2012"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "individual_concept_id",
+      "description": "Individual demographics concepts",
+      "startDate": "15-5-2012",
+      "endDate": "15-12-2012"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "concept_id",
+      "description": "The concept id of the answer to a question",
+      "startDate": "15-5-2012",
+      "endDate": "15-12-2012"
+    }
+  ],
+  "distribution": "/data/kenya_ppd_survey_2014/",
+  "dateModified": "2018-01-01",
+  "version": "2026-03-19"
+}
