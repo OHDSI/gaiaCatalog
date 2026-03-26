@@ -8,6 +8,8 @@
     "unit": "http://qudt.org/vocab/unit/",
     "xsd": "http://www.w3.org/2001/XMLSchema#",
     "ddi": "https://ddialliance.org/",
+    "geocr": "http://mlcommons.org/croissant/geocr/",
+    "cr": "http://mlcommons.org/croissant/",
     "stato": "http://purl.obolibrary.org/obo/stato.owl#"
  
   },
@@ -133,8 +135,25 @@
       "stato:statistic": "average value",
       "minValue": 287.315857,
       "maxValue": 301.010986,
-      "ddi:unitType": "GridCell",
-      "ddi:population": "31km grid cells for Tanzania between 2010 and 2020"
+      "valueReference": {
+        "@type": "DefinedRegion",
+        "name": "myGeo",
+        "description": "Specifies the coverages of a measured geospatial variable using explicit and implicit GeoCroissant properties",
+        "disambiguatingDescription": "BoundingBox goes with a raster geospatial data model. Geometry goes with a vector one. In one or the other the value is left empty",
+        "additionalProperty": [
+          { "name": "geoSpatialDataModel", "value": "raster" },
+          { "name": "geocr:BoundingBox", "value": [0, 0, 0, 0] },
+          { "name": "geocr:Geometry", 
+            "value": {
+              "@type": "GeoShape",
+              "polygon": ""
+            }
+          },
+          { "name": "geocr:spatialResolution", "value": 10, "unitText": "meters" },
+          { "name": "geocr:CRS", "value": "EPSG:4326" },
+          { "name": "geocr:temporalRange", "value": "1984-01-01T00:00:00Z/1984-12-31T23:59:59Z"}
+        ]
+      }
     }
   ],
 
