@@ -139,7 +139,7 @@
         "@type": "DefinedRegion",
         "name": "myGeo",
         "description": "Specifies the coverages of a measured geospatial variable using explicit and implicit GeoCroissant properties",
-        "disambiguatingDescription": "BoundingBox goes with a raster geospatial data model. Geometry goes with a vector one. In one or the other the value is left empty",
+        "disambiguatingDescription": "BoundingBox in this context refers to the spatial extent of a collection of grid cells and goes with a raster geospatial data model together with spatial resolution that refers to th size of a single cell. Both are properties of raster data. Geometry goes with a vector geospatial model. In one or the other the value is left empty",
         "additionalProperty": [
           { "name": "geoSpatialDataModel", "value": "raster" },
           { "name": "geocr:BoundingBox", "value": [0, 0, 0, 0] },
@@ -149,7 +149,7 @@
               "polygon": ""
             }
           },
-          { "name": "geocr:spatialResolution", "value": 10, "unitText": "meters" },
+          { "name": "geocr:spatialResolution", "value": 10, "unitCode": "m", "unitText": "meters" },
           { "name": "geocr:CRS", "value": "EPSG:4326" },
           { "name": "geocr:temporalRange", "value": "1984-01-01T00:00:00Z/1984-12-31T23:59:59Z"}
         ]
