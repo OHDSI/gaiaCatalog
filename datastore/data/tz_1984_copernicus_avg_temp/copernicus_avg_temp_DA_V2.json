@@ -1,0 +1,176 @@
+{
+  "@context": {
+    "@vocab": "https://schema.org/",
+    "@language": "en",
+    "dct": "http://purl.org/dc/terms/",
+    "qudt": "http://qudt.org/schema/qudt/",
+    "quantitykind": "http://qudt.org/vocab/quantitykind/",
+    "unit": "http://qudt.org/vocab/unit/",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "pato": "http://purl.obolibrary.org/obo/PATO_",
+    "stato": "http://purl.obolibrary.org/obo/stato.owl#"
+ 
+  },
+  "@type": "Dataset",
+  "@id": "https://gdsc.idsc.miami.edu/detail/tz_1984_copernicus_avg_temp",
+
+  "identifier": {
+    "@type": "PropertyValue",
+    "propertyID": "https://registry.identifiers.org/registry/doi",
+    "value": "doi:10.XXXX/YYYY", //Placeholder for a real DOI
+    "url": "https://doi.org/10.XXXX/YYYY" // include the URL to the DOI landing page if available
+  },
+
+  "name": "1984 Tanzania 2m Temperature Yearly Average (Copernicus)",
+  "description": "A raster dataset containing the yearly average air temperature at 2 meters above the surface for Tanzania in 1984, derived from the Copernicus ERA5-Land reanalysis dataset.",
+  "url": "https://gdsc.idsc.miami.edu/detail/tz_1984_copernicus_avg_temp",
+  "sameAs": "https://cds.climate.copernicus.eu/datasets/reanalysis-era5-land",
+
+  "datePublished": "2025-06-01",
+  "dateModified": "2025-06-01",
+  "version": "2026-02-12",
+
+  "license": {
+    "@type": "CreativeWork",
+    "name": "Open Data Commons Attribution License (ODC-By) Version 1.0",
+    "url": "http://opendatacommons.org/licenses/by/1.0/"
+  },
+  "isAccessibleForFree": true,
+
+  "creator": [
+    {
+      "@type": "Role",
+      "roleName": "creator",
+      "creator": {
+        "@type": "Organization",
+        "@id": "https://ror.org/00yafkq43",
+        "sameAs": "https://ror.org/00yafkq43",
+        "name": "Copernicus Climate Change Service"
+      }
+    }
+  ],
+
+  "provider": [
+    {
+      "@type": "Organization",
+      "@id": "https://ror.org/02y3ad647",
+      "sameAs": "https://ror.org/02y3ad647",
+      "name": "Geospatial Digital Special Collections (GDSC), University of Miami",
+      "url": "https://gdsc.idsc.miami.edu"
+    }
+  ],
+
+  "includedInDataCatalog": [
+    {
+      "@type": "DataCatalog",
+      "@id": "https://gdsc.idsc.miami.edu",
+      "name": "Geospatial Digital Special Collections",
+      "url": "https://gdsc.idsc.miami.edu"
+    },
+    {
+      "@type": "DataCatalog",
+      "@id": "https://gdsc.idsc.miami.edu/?collection=tz-climate-change",
+      "name": "tz-climate-change",
+      "url": "https://gdsc.idsc.miami.edu/?collection=tz-climate-change"
+    }
+  ],
+
+ "keywords": ["Tanzania", "temperature", "Copernicus", "ERA5-Land", "climate", "raster"],
+
+ "additionalProperty":[
+  {
+      "@type": "PropertyValue",
+      "name": "aggregationPeriod",
+      "value": "P1Y",
+      "description": "The temporal aggregation period (Yearly)."
+    }
+
+ ],
+
+ "spatialCoverage": {
+    "@type": "Place",
+    "@id": "https://www.geonames.org/149590",
+    "name": "Tanzania",
+    "geo": {
+      "@type": "GeoShape",
+      "box": "-12.125 28.875 -0.875 41.125"
+    },
+   "additionalProperty": [
+      {
+        "@type": "PropertyValue",
+        "name": "Spatial Reference System",
+        "propertyID": "http://dbpedia.org/resource/Spatial_reference_system",
+        "value": "http://www.opengis.net/def/crs/OGC/1.3/CRS84"
+      },
+      {
+        "@type": "PropertyValue",
+        "name": "spatialResolution",
+        "value": 0.25,
+        "unitText": "decimal degrees"
+      }
+    ]
+    
+  },
+
+  "temporalCoverage": "1984-01-01/1984-12-31",
+
+ "distribution": [
+    {
+      "@type": "DataDownload",
+      "@id": "https://gdsc.idsc.miami.edu/download/data/tz_1984_copernicus_avg_temp/?file=tz_1984_copernicus_avg_temp&format=tiff",
+      "contentUrl": "https://gdsc.idsc.miami.edu/download/data/tz_1984_copernicus_avg_temp/?file=tz_1984_copernicus_avg_temp&format=tiff",
+      "encodingFormat": "image/tiff",
+      "additionalType": "http://edamontology.org/format_3591",
+      "description": "GeoTIFF download of the 1984 yearly average 2m temperature for Tanzania.",
+      "additionalProperty": [
+        {
+          "@type": "PropertyValue",
+          "name": "canonicalRepresentation",
+          "value": "long",
+          "description": "Describes the data layout/shape of the file."
+        }
+      ]
+    }
+  ],
+
+"variableMeasured": [
+  {
+    "@type": "PropertyValue",
+    "name": "2m_temperature",
+    "description": "Average yearly 2 meter air temperature from Copernicus ERA5-Land reanalysis.",
+    "propertyID": "http://purl.obolibrary.org/obo/PATO_0000146",
+    "minValue": 287.315857,
+    "maxValue": 301.010986,
+    "unitText": "Kelvin",
+    "unitCode": "http://qudt.org/vocab/unit/K",
+    "measurementTechnique": "Model Output",
+    "additionalProperty": [
+      {
+        "@type": "PropertyValue",
+        "name": "statistic",
+        "value": "average",
+        "propertyID": "http://purl.obolibrary.org/obo/STATO_0000574"
+      },
+      {
+        "@type": "PropertyValue",
+        "name": "dataRepresentation",
+        "value": "raster" 
+      }
+    ]
+  }
+],
+
+  "isBasedOn": {
+    "@type": "Dataset",
+    "name": "Copernicus ERA5-Land",
+    "url": "https://cds.climate.copernicus.eu/datasets/reanalysis-era5-land"
+  },
+
+  "subjectOf": {
+    "@type": "DataDownload",
+    "name": "Raster processing workflow",
+    "description": "Workflow documentation describing processing from ERA5-Land source data to the Tanzania subset.",
+    "encodingFormat": "text/markdown",
+    "contentUrl": "https://github.com/.../workflow.md"
+  }
+}
