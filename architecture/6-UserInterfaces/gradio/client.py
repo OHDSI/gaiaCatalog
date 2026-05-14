@@ -89,6 +89,7 @@ def hybrid_Search(n, db):
 
     table.embedding_functions = {"embeddings": SimpleNamespace(function=embeddings)}
 
+    ## TODO:  look at Colbert reranker (ref: https://lancedb.com/blog/a-practical-guide-to-training-custom-rerankers/)
     reranker = LinearCombinationReranker(
         weight=0.7
     )  # Weight = 0 Means pure Text Search (BM-25) and 1 means pure Sementic (Vector) Search
@@ -172,7 +173,7 @@ def chat_search(n):
     # print(output_json)
 
     # Pass the original string format to the baml client
-    output_string = f"Semanitc similarity results for '{n}':"
+    output_string = f"Semantic similarity results for '{n}':"
     for result in results:
         print(result["id"])
         output_string += f"""

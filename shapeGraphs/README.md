@@ -1,5 +1,12 @@
 # Shapes
 
+## TODO
+
+- [ ] Try https://shacl-play.sparna.fr/play/doc which uses https://respec.org/docs/#getting-started  
+
+
+
+
 
 ## Shapegraph
 
@@ -68,6 +75,10 @@ Errors can have three levels: WARNING, VIOLATION and RECOMMENDED.  So we can des
 ```
        
 
+## Appendix
 
+### Current testing
 
-
+```bash
+ pyshacl -s ./gaiaRequirements.ttl -sf turtle -df json-ld -f table ../datastore/data/ma_2022_svi_tract/meta_json-ld_ma_2022_svi_tract.json
+ ```

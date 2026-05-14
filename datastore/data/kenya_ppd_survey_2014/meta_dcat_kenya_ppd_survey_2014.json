@@ -21,9 +21,9 @@
   "gdsc:tablename": "kenya_ppd_survey_2014",
   "gdsc:up": "false",
   "gdsc:podID": "gaia-db",
-  "dct:modified": "0001-01-01T00:00:00Z",
+  "dct:modified": "2026-03-19T10:58:52Z",
   "dct:accrualPeriodicity": "As Needed",
-  "gdsc:version": "2026-05-14T14:35:52Z",
+  "gdsc:version": "2026-03-19T12:25:29Z",
   "dcat:accessURL": "/data/kenya_ppd_survey_2014/",
-  "dct:extent": ["0", "0"]
+  "dct:extent": ["775", "775"]
 }

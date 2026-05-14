@@ -3,6 +3,15 @@ import dspy
 import dspy.streaming  # For streaming support
 import os
 from mcp2py import load
+import asyncio
+import sys
+
+# Ensure event loop compatibility for Python 3.13
+if sys.platform == 'linux':
+    try:
+        asyncio.set_event_loop_policy(asyncio.DefaultEventLoopPolicy())
+    except Exception:
+        pass
 
 # from dspy.retrieve import
 
@@ -22,7 +31,7 @@ lm = dspy.LM(
 dspy.settings.configure(lm=lm)
 
 # MCP loading
-api = load("http://0.0.0.0:3001/mcp")
+api = load("http://0.0.0.0:8898/mcp")
 
 
 # Define a conversational DSPy signature

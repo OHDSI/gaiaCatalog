@@ -11,7 +11,7 @@ client<llm> CustomGPT4o {
 client<llm> XAI4 {
   provider openai-generic
   options {
-    model grok-4-0709
+    model grok-4-fast
     base_url "https://api.x.ai/v1"
     api_key env.XAI_API_KEY
   }

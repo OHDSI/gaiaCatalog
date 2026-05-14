@@ -1,0 +1,26 @@
+{
+  "datasets": [
+    {
+      "title": "Global Surface Temperature Anomalies 2020-2023",
+      "description": "Annual global surface temperature anomalies relative to the 1951-1980 baseline, compiled from land and ocean station records.",
+      "identifier": "doi:10.5067/EXAMPLE/GSTA2023",
+      "url": "https://example.org/datasets/global-surface-temp-2023",
+      "license": "https://creativecommons.org/licenses/by/4.0/",
+      "keywords": ["climate", "temperature", "anomaly", "global warming"],
+      "created_date": "2023-03-01",
+      "modified_date": "2024-01-15",
+      "publisher": "Earth Science Data Center"
+    },
+    {
+      "title": "Arctic Sea Ice Extent 2022",
+      "description": "Monthly measurements of Arctic sea ice extent for 2022, derived from satellite passive microwave observations.",
+      "identifier": "doi:10.5067/EXAMPLE/ASIE2022",
+      "url": "https://example.org/datasets/arctic-sea-ice-2022",
+      "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "keywords": ["arctic", "sea ice", "cryosphere", "satellite"],
+      "created_date": "2022-12-10",
+      "modified_date": "2023-04-20",
+      "publisher": "Polar Data Repository"
+    }
+  ]
+}

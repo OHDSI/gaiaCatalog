@@ -1,6 +1,12 @@
 import polars as pl
 import lancedb
 
+# this code and other places where I do these types
+# of actions with lance could be done with
+# duckdb.
+# See: https://lance.org/integrations/duckdb/#vector-search
+
+
 def list_tables_and_columns(db_path: str, table_name: str = None):
     """
     Connects to a LanceDB database and lists tables and their columns.

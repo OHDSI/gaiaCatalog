@@ -1,0 +1,31 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "lance-mcp"
+version = "0.1.0"
+description = "A DSPy project"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "dspy-ai>=3.0.3",
+    "dspy-cli",
+    "lancedb>=0.26.0",
+    "pandas>=2.3.3",
+    "sentence-transformers>=5.2.0",
+    "typing>=3.10.0.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0",
+    "pytest-asyncio>=0.21",
+]
+
+# Uncomment to use a local editable install of dspy-cli for development:
+# [tool.uv.sources]
+# dspy-cli = { path = "../dspy-cli", editable = true }
+
+[tool.setuptools.packages.find]
+where = ["src"]

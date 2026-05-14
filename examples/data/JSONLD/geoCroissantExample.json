@@ -1,0 +1,82 @@
+{
+  "@context": {
+    "@language": "en",
+    "@vocab": "https://schema.org/",
+    "geocr": "http://mlcommons.org/croissant/geocr/",
+    "cr": "http://mlcommons.org/croissant/",
+    "dct": "http://purl.org/dc/terms/",
+    "geosparql": "http://www.opengis.net/ont/geosparql#"
+  },
+  "@type": "cr:Dataset",
+  "name": "Extended GeoCroissant Dataset",
+  "description": "An extended GeoCroissant-compliant dataset including spatial, temporal, geometric, and resolution metadata.",
+  "geocr:asWKT": {
+    "@value": "<http://www.opengis.net/def/crs/OGC/1.3/CRS84> POINT Z (30.5 75.2 125.8)",
+    "@type": "geosparql:wktLiteral"
+  },
+  "distribution": [
+    {
+      "@type": "cr:FileObject",
+      "name": "Satellite Image",
+      "contentUrl": "https://example.com/image.tif",
+      "encodingFormat": "image/tiff"
+    }
+  ],
+  "recordSet": [
+    {
+      "@type": "cr:RecordSet",
+      "@id": "record-001",
+      "name": "Example Record",
+      "description": "A sample geospatial record with bounding box, geometry, temporal coverage, resolution, and projection.",
+      "field": [
+        {
+          "@type": "cr:Field",
+          "name": "geocr:BoundingBox",
+          "data": [-120.0, 30.0, -110.0, 40.0]
+        },
+        {
+          "@type": "cr:Field",
+          "name": "geocr:Geometry",
+          "data": {
+            "type": "Polygon",
+            "coordinates": [
+              [
+                [-120.0, 30.0],
+                [-110.0, 30.0],
+                [-110.0, 40.0],
+                [-120.0, 40.0],
+                [-120.0, 30.0]
+              ]
+            ]
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "name": "geocr:spatialResolution",
+          "data": {
+            "value": 10,
+            "unit": "m"
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "name": "geocr:temporalResolution",
+          "data": {
+            "value": 10,
+            "unit": "days"
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "name": "geocr:CRS",
+          "data": "EPSG:4326"
+        },
+        {
+          "@type": "cr:Field",
+          "name": "geocr:temporalRange",
+          "data": "2020-01-01T00:00:00Z/2020-12-31T23:59:59Z"
+        }
+      ]
+    }
+  ]
+}
