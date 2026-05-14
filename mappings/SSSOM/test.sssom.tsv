@@ -1,0 +1,32 @@
+# curie_map:
+#   owl: http://www.w3.org/2002/07/owl#
+#   schema: https://schema.org/
+#   myjson: https://example.org/myjson/
+#   skos: http://www.w3.org/2004/02/skos/core#
+#   semapv: https://w3id.org/semapv/vocab/
+#   ext: https://example.org/sssom-extensions/
+#   orcid: https://orcid.org/
+# extension_definitions:
+#   - slot_name: source_jsonpath
+#     property: ext:source_jsonpath
+#     type_hint: http://www.w3.org/2001/XMLSchema#string
+#   - slot_name: target_jsonpath
+#     property: ext:target_jsonpath
+#     type_hint: http://www.w3.org/2001/XMLSchema#string
+# mapping_set_id: https://example.org/mappings/myjson-dataset-to-schemaorg
+# mapping_set_title: MyJSON Dataset to Schema.org Mappings
+# mapping_set_description: Mappings from a flat JSON dataset structure to schema.org Dataset JSON-LD, with JSONPath transformation expressions
+# license: https://creativecommons.org/publicdomain/zero/1.0/
+# creator_id:
+#   - orcid:0000-0000-0000-0000
+subject_id	predicate_id	object_id	mapping_justification	confidence	subject_label	object_label	subject_category	object_category	source_jsonpath	target_jsonpath	comment
+myjson:Dataset	skos:exactMatch	schema:Dataset	semapv:ManualMappingCuration	1.0	Dataset record	Dataset	owl:Class	owl:Class	$.datasets[*]	$.[?(@.@type=='Dataset')]
+myjson:dataset.title	skos:exactMatch	schema:name	semapv:ManualMappingCuration	1.0	title	name	owl:ObjectProperty	owl:ObjectProperty	$.datasets[*].title	$.name	Source uses 'title'; schema.org Dataset uses 'name' for the dataset title
+myjson:dataset.description	skos:exactMatch	schema:description	semapv:ManualMappingCuration	1.0	description	description	owl:ObjectProperty	owl:ObjectProperty	$.datasets[*].description	$.description
+myjson:dataset.identifier	skos:exactMatch	schema:identifier	semapv:ManualMappingCuration	1.0	identifier	identifier	owl:ObjectProperty	owl:ObjectProperty	$.datasets[*].identifier	$.identifier
+myjson:dataset.url	skos:exactMatch	schema:url	semapv:ManualMappingCuration	1.0	url	url	owl:ObjectProperty	owl:ObjectProperty	$.datasets[*].url	$.url
+myjson:dataset.license	skos:exactMatch	schema:license	semapv:ManualMappingCuration	1.0	license	license	owl:ObjectProperty	owl:ObjectProperty	$.datasets[*].license	$.license
+myjson:dataset.keywords	skos:closeMatch	schema:keywords	semapv:ManualMappingCuration	0.9	keywords	keywords	owl:ObjectProperty	owl:ObjectProperty	$.datasets[*].keywords[*]	$.keywords	Source is array of strings; schema.org accepts comma-separated string or array — may need transform
+myjson:dataset.created_date	skos:exactMatch	schema:dateCreated	semapv:ManualMappingCuration	1.0	created_date	dateCreated	owl:ObjectProperty	owl:ObjectProperty	$.datasets[*].created_date	$.dateCreated
+myjson:dataset.modified_date	skos:exactMatch	schema:dateModified	semapv:ManualMappingCuration	1.0	modified_date	dateModified	owl:ObjectProperty	owl:ObjectProperty	$.datasets[*].modified_date	$.dateModified
+myjson:dataset.publisher	skos:closeMatch	schema:publisher	semapv:ManualMappingCuration	0.85	publisher	publisher	owl:ObjectProperty	owl:ObjectProperty	$.datasets[*].publisher	$.publisher	Source is plain string; schema.org expects an Organization or Person object — structural transform required
