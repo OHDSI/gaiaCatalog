@@ -37,7 +37,10 @@
   ],
   "url": "https://cds.climate.copernicus.eu/datasets/reanalysis-era5-land",
   "provider": [
-    "OHDSI"
+    {
+      "@type": "Organization",
+      "name": "OHDSI"
+    }
   ],
   "license": "Open Data Commons Attribution License (ODC-By): http://opendatacommons.org/licenses/by/1.0/",
   "spatialCoverage": [
@@ -51,7 +54,7 @@
       "name": "bbox",
       "geo": {
         "@type": "GeoShape",
-        "polygon": "28.8750000 -0.8750000 41.1250000 -0.8750000 41.1250000 -12.1250000 28.8750000 -12.1250000 28.8750000 -0.8750000"
+        "polygon": "28.875000 -12.125000 41.125000 -12.125000 41.125000 -0.875000 28.875000 -0.875000 28.875000 -12.125000"
       }
     }
   ],
@@ -153,9 +156,7 @@
       "@type": "PropertyValue",
       "name": "2m_temperature",
       "description": "Average yearly 2m temperature in Kelvin from Copernicus reanalysis era5 single levels",
-      "propertyID": [
-        "35814756"
-      ],
+      "propertyID": "35814756",
       "qudt:dataType": "float",
       "unitCode": "9523",
       "unitText": "Kelvin",
@@ -178,5 +179,5 @@
     }
   ],
   "dateModified": "2025-06-01",
-  "version": "2026-02-12"
+  "version": "2026-05-14"
 }

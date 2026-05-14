@@ -6,7 +6,7 @@
 # Data source: https://overpass-api.de/api/interpreter?data=way%5B%22route%22~%22ferry%22%5D(area:3600555717);(._;>;);out;
 # Destination postGIS table: tt_ferry_routes
 #
-# Created by etl() on 2026-02-12 11:05:28
+# Created by etl() on 2026-05-14 13:35:54
 # Do not edit directly
 
 export PGPASSWORD=$(cat $POSTGRES_PASSWORD_FILE)

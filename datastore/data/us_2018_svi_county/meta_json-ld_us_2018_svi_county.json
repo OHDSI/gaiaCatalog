@@ -37,7 +37,10 @@
   ],
   "url": "https://www.atsdr.cdc.gov/place-health/php/svi/svi-data-documentation-download.html",
   "provider": [
-    "CDC"
+    {
+      "@type": "Organization",
+      "name": "CDC"
+    }
   ],
   "spatialCoverage": [
     {
@@ -172,9 +175,7 @@
       "@type": "PropertyValue",
       "name": "area_sqmi",
       "description": "Tract area in square miles",
-      "propertyID": [
-        "2052497175"
-      ],
+      "propertyID": "2052497175",
       "qudt:dataType": "float8",
       "unitText": "square miles"
     },
@@ -182,18 +183,14 @@
       "@type": "PropertyValue",
       "name": "\ncounty",
       "description": "County name",
-      "propertyID": [
-        "2052499639"
-      ],
+      "propertyID": "2052499639",
       "qudt:dataType": "varchar"
     },
     {
       "@type": "PropertyValue",
       "name": "\ne_age17",
       "description": "\"Persons aged 17 and younger estimate, 2014-2018 ACS\"",
-      "propertyID": [
-        "2052498115"
-      ],
+      "propertyID": "2052498115",
       "qudt:dataType": "int4",
       "unitText": "persons",
       "startDate": "1/1/18",
@@ -203,9 +200,7 @@
       "@type": "PropertyValue",
       "name": "\ne_age65",
       "description": "\"Persons aged 65 and older estimate, 2014-2018 ACS\"",
-      "propertyID": [
-        "2052498113"
-      ],
+      "propertyID": "2052498113",
       "qudt:dataType": "int4",
       "unitText": "persons",
       "startDate": "1/1/18",
@@ -215,9 +210,7 @@
       "@type": "PropertyValue",
       "name": "\ne_crowd",
       "description": "\"At household level (occupied housing units), more people than rooms estimate, 2014-2018 ACS\"",
-      "propertyID": [
-        "2052499828"
-      ],
+      "propertyID": "2052499828",
       "qudt:dataType": "int4",
       "unitText": "households",
       "startDate": "1/1/18",
@@ -227,9 +220,7 @@
       "@type": "PropertyValue",
       "name": "\ne_daypop",
       "description": "\"Adjunct variable - Estimated daytime population, LandScan 2018\"",
-      "propertyID": [
-        "2052499427"
-      ],
+      "propertyID": "2052499427",
       "qudt:dataType": "int4",
       "unitText": "persons",
       "startDate": "1/1/18",
@@ -239,9 +230,7 @@
       "@type": "PropertyValue",
       "name": "\ne_disabl",
       "description": "\"Civilian non-institutionalized population with a disability estimate, 2014-2018 ACS\"",
-      "propertyID": [
-        "2052499669"
-      ],
+      "propertyID": "2052499669",
       "qudt:dataType": "int4",
       "unitText": "persons",
       "startDate": "1/1/18",
@@ -251,9 +240,7 @@
       "@type": "PropertyValue",
       "name": "\ne_groupq",
       "description": "\"Persons in group quarters estimate, 2014-2018 ACS\"",
-      "propertyID": [
-        "2052498109"
-      ],
+      "propertyID": "2052498109",
       "qudt:dataType": "int4",
       "unitText": "persons",
       "startDate": "1/1/18",
@@ -263,9 +250,7 @@
       "@type": "PropertyValue",
       "name": "\ne_hh",
       "description": "\"Households estimate, 2014-2018 ACS\"",
-      "propertyID": [
-        "2052499093"
-      ],
+      "propertyID": "2052499093",
       "qudt:dataType": "int4",
       "unitText": "households",
       "startDate": "1/1/18",
@@ -275,9 +260,7 @@
       "@type": "PropertyValue",
       "name": "\ne_hu",
       "description": "\"Housing units estimate, 2014-2018 ACS\"",
-      "propertyID": [
-        "2052499075"
-      ],
+      "propertyID": "2052499075",
       "qudt:dataType": "int4",
       "unitText": "housing units",
       "startDate": "1/1/18",
@@ -287,9 +270,7 @@
       "@type": "PropertyValue",
       "name": "\ne_limeng",
       "description": "\"Persons (age 5+) who speak English \"\"less than well\"\" estimate, 2014-2018 ACS\"",
-      "propertyID": [
-        "2052498117"
-      ],
+      "propertyID": "2052498117",
       "qudt:dataType": "int4",
       "unitText": "persons",
       "startDate": "1/1/18",
@@ -299,9 +280,7 @@
       "@type": "PropertyValue",
       "name": "\ne_minrty",
       "description": "\"Minority (all persons except white, non-Hispanic) estimate, 2014-2018 ACS\"",
-      "propertyID": [
-        "2052498841"
-      ],
+      "propertyID": "2052498841",
       "qudt:dataType": "int4",
       "unitText": "persons",
       "startDate": "1/1/18",
@@ -311,9 +290,7 @@
       "@type": "PropertyValue",
       "name": "\ne_mobile",
       "description": "\"Mobile homes estimate, 2014-2018 ACS\"",
-      "propertyID": [
-        "2052498834"
-      ],
+      "propertyID": "2052498834",
       "qudt:dataType": "int4",
       "unitText": "mobile homes",
       "startDate": "1/1/18",
@@ -323,9 +300,7 @@
       "@type": "PropertyValue",
       "name": "\ne_munit",
       "description": "\"Housing in structures with 10 or more units estimate, 2014-2018 ACS\"",
-      "propertyID": [
-        "2052499082"
-      ],
+      "propertyID": "2052499082",
       "qudt:dataType": "int4",
       "unitText": "structures",
       "startDate": "1/1/18",
@@ -335,9 +310,7 @@
       "@type": "PropertyValue",
       "name": "\ne_nohsdp",
       "description": "\"Persons (age 25+) with no high school diploma estimate, 2014-2018 ACS\"",
-      "propertyID": [
-        "2052498119"
-      ],
+      "propertyID": "2052498119",
       "qudt:dataType": "int4",
       "unitText": "persons",
       "startDate": "1/1/18",
@@ -347,9 +320,7 @@
       "@type": "PropertyValue",
       "name": "\ne_noveh",
       "description": "\"Households with no vehicle available estimate, 2014-2018 ACS\"",
-      "propertyID": [
-        "2052499091"
-      ],
+      "propertyID": "2052499091",
       "qudt:dataType": "int4",
       "unitText": "households",
       "startDate": "1/1/18",
@@ -359,9 +330,7 @@
       "@type": "PropertyValue",
       "name": "\ne_pci",
       "description": "\"Per capita income estimate, 2014-2018 ACS\"",
-      "propertyID": [
-        "2052498645"
-      ],
+      "propertyID": "2052498645",
       "qudt:dataType": "int4",
       "unitText": "US dollars",
       "startDate": "1/1/18",
@@ -371,9 +340,7 @@
       "@type": "PropertyValue",
       "name": "\ne_pov",
       "description": "\"Persons below poverty estimate, 2014-2018 ACS\"",
-      "propertyID": [
-        "2052498111"
-      ],
+      "propertyID": "2052498111",
       "qudt:dataType": "int4",
       "unitText": "persons",
       "startDate": "1/1/18",
@@ -383,9 +350,7 @@
       "@type": "PropertyValue",
       "name": "\ne_sngpnt",
       "description": "\"Single parent household with children under 18 estimate, 2014-2018 ACS\"",
-      "propertyID": [
-        "2052497778"
-      ],
+      "propertyID": "2052497778",
       "qudt:dataType": "int4",
       "unitText": "households",
       "startDate": "1/1/18",
@@ -395,9 +360,7 @@
       "@type": "PropertyValue",
       "name": "\ne_totpop",
       "description": "\"Population estimate, 2014-2018 ACS\"",
-      "propertyID": [
-        "2052498091"
-      ],
+      "propertyID": "2052498091",
       "qudt:dataType": "int4",
       "unitText": "persons",
       "startDate": "1/1/18",
@@ -407,9 +370,7 @@
       "@type": "PropertyValue",
       "name": "\ne_unemp",
       "description": "\"Civilian (age 16+) unemployed estimate, 2014-2018 ACS\"",
-      "propertyID": [
-        "2052499671"
-      ],
+      "propertyID": "2052499671",
       "qudt:dataType": "int4",
       "unitText": "persons",
       "startDate": "1/1/18",
@@ -419,9 +380,7 @@
       "@type": "PropertyValue",
       "name": "\ne_uninsur",
       "description": "\"Adjunct variable - Uninsured in the total civilian non-institutionalized population estimate, 2014-2018 ACS\"",
-      "propertyID": [
-        "2052497149"
-      ],
+      "propertyID": "2052497149",
       "qudt:dataType": "int4",
       "unitText": "persons",
       "startDate": "1/1/18",
@@ -431,9 +390,7 @@
       "@type": "PropertyValue",
       "name": "\nep_age17",
       "description": "\"Percentage of persons aged 17 and younger estimate, 2014-2018 ACS\"",
-      "propertyID": [
-        "2052498382"
-      ],
+      "propertyID": "2052498382",
       "qudt:dataType": "float8",
       "unitText": "percentage",
       "startDate": "1/1/18",
@@ -443,9 +400,7 @@
       "@type": "PropertyValue",
       "name": "\nep_age65",
       "description": "\"Percentage of persons aged 65 and older estimate, 2014-2018 ACS\"",
-      "propertyID": [
-        "2052498380"
-      ],
+      "propertyID": "2052498380",
       "qudt:dataType": "float8",
       "unitText": "percentage",
       "startDate": "1/1/18",
@@ -455,9 +410,7 @@
       "@type": "PropertyValue",
       "name": "\nep_crowd",
       "description": "Percentage of occupied housing units with more people than rooms estimate",
-      "propertyID": [
-        "2052498400"
-      ],
+      "propertyID": "2052498400",
       "qudt:dataType": "float8",
       "unitText": "percentage",
       "startDate": "1/1/18",
@@ -467,9 +420,7 @@
       "@type": "PropertyValue",
       "name": "\nep_disabl",
       "description": "\"Percentage of civilian non-institutionalized population with a disability estimate, 2014-2018 ACS\"",
-      "propertyID": [
-        "2052498558"
-      ],
+      "propertyID": "2052498558",
       "qudt:dataType": "float8",
       "unitText": "percentage",
       "startDate": "1/1/18",
@@ -479,9 +430,7 @@
       "@type": "PropertyValue",
       "name": "\nep_groupq",
       "description": "\"Percentage of persons in group quarters estimate, 2014-2018 ACS\"",
-      "propertyID": [
-        "2052498376"
-      ],
+      "propertyID": "2052498376",
       "qudt:dataType": "float8",
       "unitText": "percentage",
       "startDate": "1/1/18",
@@ -491,9 +440,7 @@
       "@type": "PropertyValue",
       "name": "\nep_limeng",
       "description": "\"Percentage of persons (age 5+) who speak English \"\"less than well\"\" estimate, 2014-2018 ACS\"",
-      "propertyID": [
-        "2052498385"
-      ],
+      "propertyID": "2052498385",
       "qudt:dataType": "float8",
       "unitText": "percentage",
       "startDate": "1/1/18",
@@ -503,9 +450,7 @@
       "@type": "PropertyValue",
       "name": "\nep_minrty",
       "description": "\"Percentage minority (all persons except white, non-Hispanic) estimate, 2014-2018 ACS\"",
-      "propertyID": [
-        "2052498423"
-      ],
+      "propertyID": "2052498423",
       "qudt:dataType": "float8",
       "unitText": "percentage",
       "startDate": "1/1/18",
@@ -515,9 +460,7 @@
       "@type": "PropertyValue",
       "name": "\nep_mobile",
       "description": "Percentage of mobile homes estimate",
-      "propertyID": [
-        "2052498422"
-      ],
+      "propertyID": "2052498422",
       "qudt:dataType": "float8",
       "unitText": "percentage",
       "startDate": "1/1/18",
@@ -527,9 +470,7 @@
       "@type": "PropertyValue",
       "name": "\nep_munit",
       "description": "Percentage of housing in structures with 10 or more units estimate",
-      "propertyID": [
-        "2052498461"
-      ],
+      "propertyID": "2052498461",
       "qudt:dataType": "float8",
       "unitText": "percentage",
       "startDate": "1/1/18",
@@ -539,9 +480,7 @@
       "@type": "PropertyValue",
       "name": "\nep_nohsdp",
       "description": "Percentage of persons with no high school diploma (age 25+) estimate",
-      "propertyID": [
-        "2052498369"
-      ],
+      "propertyID": "2052498369",
       "qudt:dataType": "float8",
       "unitText": "percentage",
       "startDate": "1/1/18",
@@ -551,9 +490,7 @@
       "@type": "PropertyValue",
       "name": "\nep_noveh",
       "description": "Percentage of households with no vehicle available estimate",
-      "propertyID": [
-        "2052498477"
-      ],
+      "propertyID": "2052498477",
       "qudt:dataType": "float8",
       "unitText": "percentage",
       "startDate": "1/1/18",
@@ -563,9 +500,6 @@
       "@type": "PropertyValue",
       "name": "\nep_pci",
       "description": "\"Per capita income estimate, 2014-2018 ACS\"",
-      "propertyID": [
-        ""
-      ],
       "qudt:dataType": "int4",
       "unitText": "US dollars",
       "startDate": "1/1/18",
@@ -575,9 +509,7 @@
       "@type": "PropertyValue",
       "name": "ep_pov",
       "description": "Percentage of persons below poverty estimate",
-      "propertyID": [
-        "2052498378"
-      ],
+      "propertyID": "2052498378",
       "qudt:dataType": "float8",
       "unitText": "percentage",
       "startDate": "1/1/18",
@@ -587,9 +519,7 @@
       "@type": "PropertyValue",
       "name": "\nep_sngpnt",
       "description": "\"Percentage of single parent households with children under 18 estimate, 2014-2018 ACS\"",
-      "propertyID": [
-        "2052498249"
-      ],
+      "propertyID": "2052498249",
       "qudt:dataType": "float8",
       "unitText": "percentage",
       "startDate": "1/1/18",
@@ -599,9 +529,7 @@
       "@type": "PropertyValue",
       "name": "\nep_unemp",
       "description": "Unemployment Rate estimate",
-      "propertyID": [
-        "2052497153"
-      ],
+      "propertyID": "2052497153",
       "qudt:dataType": "float8",
       "unitText": "percentage",
       "startDate": "1/1/18",
@@ -611,9 +539,7 @@
       "@type": "PropertyValue",
       "name": "\nep_uninsur",
       "description": "\"Adjunct variable - Percentage uninsured in the total civilian non-institutionalized population estimate, 2014-2018 ACS\"",
-      "propertyID": [
-        "2052498200"
-      ],
+      "propertyID": "2052498200",
       "qudt:dataType": "float8",
       "unitText": "percentage",
       "startDate": "1/1/18",
@@ -623,9 +549,7 @@
       "@type": "PropertyValue",
       "name": "\nepl_age17",
       "description": "Percentile percentage of persons aged 17 and younger estimate",
-      "propertyID": [
-        "2052498183"
-      ],
+      "propertyID": "2052498183",
       "qudt:dataType": "float8",
       "unitText": "percentile",
       "startDate": "1/1/18",
@@ -635,9 +559,7 @@
       "@type": "PropertyValue",
       "name": "\nepl_age65",
       "description": "Percentile percentage of persons aged 65 and older estimate",
-      "propertyID": [
-        "2052498182"
-      ],
+      "propertyID": "2052498182",
       "qudt:dataType": "float8",
       "unitText": "percentile",
       "startDate": "1/1/18",
@@ -647,9 +569,7 @@
       "@type": "PropertyValue",
       "name": "\nepl_crowd",
       "description": "Percentile percentage households with more people than rooms estimate",
-      "propertyID": [
-        "2052498195"
-      ],
+      "propertyID": "2052498195",
       "qudt:dataType": "float8",
       "unitText": "percentile",
       "startDate": "1/1/18",
@@ -659,9 +579,7 @@
       "@type": "PropertyValue",
       "name": "\nepl_disabl",
       "description": "Percentile percentage of civilian non-institutionalized population with a disability estimate",
-      "propertyID": [
-        "2052498186"
-      ],
+      "propertyID": "2052498186",
       "qudt:dataType": "float8",
       "unitText": "percentile",
       "startDate": "1/1/18",
@@ -671,9 +589,7 @@
       "@type": "PropertyValue",
       "name": "\nepl_groupq",
       "description": "Percentile percentage of persons in group quarters estimate",
-      "propertyID": [
-        "2052498180"
-      ],
+      "propertyID": "2052498180",
       "qudt:dataType": "float8",
       "unitText": "percentile",
       "startDate": "1/1/18",
@@ -683,9 +599,7 @@
       "@type": "PropertyValue",
       "name": "\nepl_limeng",
       "description": "\"Percentile percentage of persons (age 5+) who speak English \"\"less than well\"\" estimate\"",
-      "propertyID": [
-        "2052498184"
-      ],
+      "propertyID": "2052498184",
       "qudt:dataType": "float8",
       "unitText": "percentile",
       "startDate": "1/1/18",
@@ -695,9 +609,7 @@
       "@type": "PropertyValue",
       "name": "\nepl_minrty",
       "description": "\"Percentile percentage minority (all persons except white, non-Hispanic) estimate\"",
-      "propertyID": [
-        "2052498189"
-      ],
+      "propertyID": "2052498189",
       "qudt:dataType": "float8",
       "unitText": "percentile",
       "startDate": "1/1/18",
@@ -707,9 +619,7 @@
       "@type": "PropertyValue",
       "name": "\nepl_mobile",
       "description": "Percentile percentage mobile homes estimate",
-      "propertyID": [
-        "2052498188"
-      ],
+      "propertyID": "2052498188",
       "qudt:dataType": "float8",
       "unitText": "percentile",
       "startDate": "1/1/18",
@@ -719,9 +629,7 @@
       "@type": "PropertyValue",
       "name": "\nepl_munit",
       "description": "Percentile percentage housing in structures with 10 or more units estimate",
-      "propertyID": [
-        "2052498193"
-      ],
+      "propertyID": "2052498193",
       "qudt:dataType": "float8",
       "unitText": "percentile",
       "startDate": "1/1/18",
@@ -731,9 +639,7 @@
       "@type": "PropertyValue",
       "name": "\nepl_nohsdp",
       "description": "Percentile Percentage of persons with no high school diploma (age 25+) estimate",
-      "propertyID": [
-        "2052498179"
-      ],
+      "propertyID": "2052498179",
       "qudt:dataType": "float8",
       "unitText": "percentile",
       "startDate": "1/1/18",
@@ -743,9 +649,7 @@
       "@type": "PropertyValue",
       "name": "\nepl_noveh",
       "description": "Percentile percentage households with no vehicle available estimate",
-      "propertyID": [
-        "2052498194"
-      ],
+      "propertyID": "2052498194",
       "qudt:dataType": "float8",
       "unitText": "percentile",
       "startDate": "1/1/18",
@@ -755,9 +659,6 @@
       "@type": "PropertyValue",
       "name": "\nepl_pci",
       "description": "Percentile per capita income estimate",
-      "propertyID": [
-        ""
-      ],
       "qudt:dataType": "float8",
       "unitText": "percentile",
       "startDate": "1/1/18",
@@ -767,9 +668,7 @@
       "@type": "PropertyValue",
       "name": "\nepl_pov",
       "description": "Percentile Percentage of persons below poverty estimate",
-      "propertyID": [
-        "2052498181"
-      ],
+      "propertyID": "2052498181",
       "qudt:dataType": "float8",
       "unitText": "percentile",
       "startDate": "1/1/18",
@@ -779,9 +678,7 @@
       "@type": "PropertyValue",
       "name": "\nepl_sngpnt",
       "description": "Percentile percentage of single parent households with children under 18 estimate",
-      "propertyID": [
-        "2052498178"
-      ],
+      "propertyID": "2052498178",
       "qudt:dataType": "float8",
       "unitText": "percentile",
       "startDate": "1/1/18",
@@ -791,9 +688,7 @@
       "@type": "PropertyValue",
       "name": "\nepl_unemp",
       "description": "Percentile Percentage of civilian (age 16+) unemployed estimate",
-      "propertyID": [
-        "2052498187"
-      ],
+      "propertyID": "2052498187",
       "qudt:dataType": "float8",
       "unitText": "percentile",
       "startDate": "1/1/18",
@@ -803,9 +698,7 @@
       "@type": "PropertyValue",
       "name": "\nf_age17",
       "description": "\"Flag - the percentage of persons aged 17 and younger is in the 90th percentile (1 = yes, 0 = no)\"",
-      "propertyID": [
-        "2052499366"
-      ],
+      "propertyID": "2052499366",
       "qudt:dataType": "boolean",
       "startDate": "1/1/18",
       "endDate": "12/31/18"
@@ -814,9 +707,7 @@
       "@type": "PropertyValue",
       "name": "\nf_age65",
       "description": "\"Flag - the percentage of persons aged 65 and older is in the 90th percentile (1 = yes, 0 = no)\"",
-      "propertyID": [
-        "2052499365"
-      ],
+      "propertyID": "2052499365",
       "qudt:dataType": "boolean",
       "startDate": "1/1/18",
       "endDate": "12/31/18"
@@ -825,9 +716,7 @@
       "@type": "PropertyValue",
       "name": "\nf_crowd",
       "description": "\"Flag - the percentage of crowded households is in the 90th percentile (1 = yes, 0 = no)\"",
-      "propertyID": [
-        "2052499372"
-      ],
+      "propertyID": "2052499372",
       "qudt:dataType": "boolean",
       "startDate": "1/1/18",
       "endDate": "12/31/18"
@@ -836,9 +725,7 @@
       "@type": "PropertyValue",
       "name": "\nf_disabl",
       "description": "\"Flag - the percentage of persons with a disability is in the 90th percentile (1 = yes, 0 = no)\"",
-      "propertyID": [
-        "2052499362"
-      ],
+      "propertyID": "2052499362",
       "qudt:dataType": "boolean",
       "startDate": "1/1/18",
       "endDate": "12/31/18"
@@ -847,9 +734,7 @@
       "@type": "PropertyValue",
       "name": "\nf_groupq",
       "description": "\"Flag - the percentage of persons in institutionalize d group quarters is in the 90th percentile (1 = yes, 0 = no)\"",
-      "propertyID": [
-        "2052499363"
-      ],
+      "propertyID": "2052499363",
       "qudt:dataType": "boolean",
       "startDate": "1/1/18",
       "endDate": "12/31/18"
@@ -858,9 +743,7 @@
       "@type": "PropertyValue",
       "name": "\nf_limeng",
       "description": "\"Flag - the percentage those with limited English is in the 90th percentile (1 = yes, 0 = no)\"",
-      "propertyID": [
-        "2052499358"
-      ],
+      "propertyID": "2052499358",
       "qudt:dataType": "boolean",
       "startDate": "1/1/18",
       "endDate": "12/31/18"
@@ -869,9 +752,7 @@
       "@type": "PropertyValue",
       "name": "\nf_minrty",
       "description": "\"Flag - the percentage of minority is in the 90th percentile (1 = yes, 0 = no)\"",
-      "propertyID": [
-        "2052499368"
-      ],
+      "propertyID": "2052499368",
       "qudt:dataType": "boolean",
       "startDate": "1/1/18",
       "endDate": "12/31/18"
@@ -880,9 +761,7 @@
       "@type": "PropertyValue",
       "name": "\nf_mobile",
       "description": "\"Flag - the percentage of mobile homes is in the 90th percentile (1 = yes, 0 = no)\"",
-      "propertyID": [
-        "2052499367"
-      ],
+      "propertyID": "2052499367",
       "qudt:dataType": "boolean",
       "startDate": "1/1/18",
       "endDate": "12/31/18"
@@ -891,9 +770,7 @@
       "@type": "PropertyValue",
       "name": "\nf_munit",
       "description": "\"Flag - the percentage of households in multi-unit housing is in the 90th percentile (1 = yes, 0 = no)\"",
-      "propertyID": [
-        "2052499371"
-      ],
+      "propertyID": "2052499371",
       "qudt:dataType": "boolean",
       "startDate": "1/1/18",
       "endDate": "12/31/18"
@@ -902,9 +779,7 @@
       "@type": "PropertyValue",
       "name": "\nf_nohsdp",
       "description": "\"Flag - the percentage of persons with no high school diploma is in the 90th percentile (1 = yes, 0 = no)\"",
-      "propertyID": [
-        "2052499361"
-      ],
+      "propertyID": "2052499361",
       "qudt:dataType": "boolean",
       "startDate": "1/1/18",
       "endDate": "12/31/18"
@@ -913,9 +788,7 @@
       "@type": "PropertyValue",
       "name": "\nf_noveh",
       "description": "\"Flag - the percentage of households with no vehicles is in the 90th percentile (1 = yes, 0 = no)\"",
-      "propertyID": [
-        "2052499370"
-      ],
+      "propertyID": "2052499370",
       "qudt:dataType": "boolean",
       "startDate": "1/1/18",
       "endDate": "12/31/18"
@@ -924,9 +797,6 @@
       "@type": "PropertyValue",
       "name": "\nf_pci",
       "description": "\"Flag - per capita income is in the 90th percentile (1 = yes, 0 = no)\"",
-      "propertyID": [
-        ""
-      ],
       "qudt:dataType": "boolean",
       "startDate": "1/1/18",
       "endDate": "12/31/18"
@@ -935,9 +805,7 @@
       "@type": "PropertyValue",
       "name": "\nf_pov",
       "description": "\"Flag - the percentage of persons in poverty is in the 90th percentile (1 = yes, 0 = no)\"",
-      "propertyID": [
-        "2052499364"
-      ],
+      "propertyID": "2052499364",
       "qudt:dataType": "boolean",
       "startDate": "1/1/18",
       "endDate": "12/31/18"
@@ -946,9 +814,7 @@
       "@type": "PropertyValue",
       "name": "\nf_sngpnt",
       "description": "\"Flag - the percentage of single parent households is in the 90th percentile (1 = yes, 0 = no)\"",
-      "propertyID": [
-        "2052499360"
-      ],
+      "propertyID": "2052499360",
       "qudt:dataType": "boolean",
       "startDate": "1/1/18",
       "endDate": "12/31/18"
@@ -957,9 +823,7 @@
       "@type": "PropertyValue",
       "name": "\nf_theme1",
       "description": "Sum of flags for Socioeconomic Status theme",
-      "propertyID": [
-        "2052497702"
-      ],
+      "propertyID": "2052497702",
       "qudt:dataType": "int4",
       "startDate": "1/1/18",
       "endDate": "12/31/18"
@@ -968,9 +832,7 @@
       "@type": "PropertyValue",
       "name": "\nf_theme2",
       "description": "Sum of flags for Household Composition theme",
-      "propertyID": [
-        "2052497705"
-      ],
+      "propertyID": "2052497705",
       "qudt:dataType": "int4",
       "startDate": "1/1/18",
       "endDate": "12/31/18"
@@ -979,9 +841,7 @@
       "@type": "PropertyValue",
       "name": "\nf_theme3",
       "description": "Sum of flags for Minority Status/Languag e theme",
-      "propertyID": [
-        "2052497703"
-      ],
+      "propertyID": "2052497703",
       "qudt:dataType": "int4",
       "startDate": "1/1/18",
       "endDate": "12/31/18"
@@ -990,9 +850,7 @@
       "@type": "PropertyValue",
       "name": "\nf_theme4",
       "description": "Sum of flags for Housing Type/ Transportation theme",
-      "propertyID": [
-        "2052497704"
-      ],
+      "propertyID": "2052497704",
       "qudt:dataType": "int4",
       "startDate": "1/1/18",
       "endDate": "12/31/18"
@@ -1001,9 +859,7 @@
       "@type": "PropertyValue",
       "name": "\nf_total",
       "description": "Sum of flags for the four themes",
-      "propertyID": [
-        "2052497701"
-      ],
+      "propertyID": "2052497701",
       "qudt:dataType": "int4",
       "startDate": "1/1/18",
       "endDate": "12/31/18"
@@ -1012,9 +868,7 @@
       "@type": "PropertyValue",
       "name": "\nf_unemp",
       "description": "\"Flag - the percentage of civilian unemployed is in the 90th percentile (1 = yes, 0 = no)\"",
-      "propertyID": [
-        "2052499373"
-      ],
+      "propertyID": "2052499373",
       "qudt:dataType": "boolean",
       "startDate": "1/1/18",
       "endDate": "12/31/18"
@@ -1023,9 +877,7 @@
       "@type": "PropertyValue",
       "name": "\nfips",
       "description": "FIPS code as STATE(2)COUNTY(3)CENSUSTRACT(6)",
-      "propertyID": [
-        "2052497174"
-      ],
+      "propertyID": "2052497174",
       "qudt:dataType": "varchar",
       "startDate": "1/1/18",
       "endDate": "12/31/18"
@@ -1034,9 +886,6 @@
       "@type": "PropertyValue",
       "name": "location",
       "description": "Census tract name",
-      "propertyID": [
-        ""
-      ],
       "qudt:dataType": "varchar",
       "startDate": "1/1/18",
       "endDate": "12/31/18"
@@ -1045,9 +894,7 @@
       "@type": "PropertyValue",
       "name": "\nm_age17",
       "description": "\"Persons aged 17 and younger estimate MOE, 2014-2018 ACS\"",
-      "propertyID": [
-        "2052498114"
-      ],
+      "propertyID": "2052498114",
       "qudt:dataType": "int4",
       "unitText": "persons",
       "startDate": "1/1/18",
@@ -1057,9 +904,7 @@
       "@type": "PropertyValue",
       "name": "\nm_age65",
       "description": "\"Persons aged 65 and older estimate MOE, 2014-2018 ACS\"",
-      "propertyID": [
-        "2052498112"
-      ],
+      "propertyID": "2052498112",
       "qudt:dataType": "int4",
       "unitText": "persons",
       "startDate": "1/1/18",
@@ -1069,9 +914,7 @@
       "@type": "PropertyValue",
       "name": "\nm_crowd",
       "description": "\"At household level (occupied housing units), more people than rooms estimate MOE, 2014-2018 ACS\"",
-      "propertyID": [
-        "2052499827"
-      ],
+      "propertyID": "2052499827",
       "qudt:dataType": "int4",
       "unitText": "housing units",
       "startDate": "1/1/18",
@@ -1081,9 +924,7 @@
       "@type": "PropertyValue",
       "name": "\nm_disabl",
       "description": "\"Civilian non-institutionalized population with a disability estimate MOE, 2014-2018 ACS\"",
-      "propertyID": [
-        "2052499668"
-      ],
+      "propertyID": "2052499668",
       "qudt:dataType": "int4",
       "unitText": "persons",
       "startDate": "1/1/18",
@@ -1093,9 +934,7 @@
       "@type": "PropertyValue",
       "name": "\nm_groupq",
       "description": "\"Persons in group quarters estimate MOE, 2014-2018 ACS\"",
-      "propertyID": [
-        "2052498108"
-      ],
+      "propertyID": "2052498108",
       "qudt:dataType": "int4",
       "unitText": "persons",
       "startDate": "1/1/18",
@@ -1105,9 +944,7 @@
       "@type": "PropertyValue",
       "name": "\nm_hh",
       "description": "\"Households estimate MOE, 2014-2018 ACS\"",
-      "propertyID": [
-        "2052499092"
-      ],
+      "propertyID": "2052499092",
       "qudt:dataType": "int4",
       "unitText": "households",
       "startDate": "1/1/18",
@@ -1117,9 +954,7 @@
       "@type": "PropertyValue",
       "name": "\nm_hu",
       "description": "\"Housing units estimate MOE, 2014-2018 ACS\"",
-      "propertyID": [
-        "2052499074"
-      ],
+      "propertyID": "2052499074",
       "qudt:dataType": "int4",
       "unitText": "housing units",
       "startDate": "1/1/18",
@@ -1129,9 +964,7 @@
       "@type": "PropertyValue",
       "name": "\nm_limeng",
       "description": "\"Persons (age 5+) who speak English \"\"less than well\"\" estimate MOE, 2014-2018 ACS\"",
-      "propertyID": [
-        "2052498116"
-      ],
+      "propertyID": "2052498116",
       "qudt:dataType": "int4",
       "unitText": "persons",
       "startDate": "1/1/18",
@@ -1141,9 +974,6 @@
       "@type": "PropertyValue",
       "name": "\nm_minrty",
       "description": "\"Minority (all persons except white, non-Hispanic) estimate MOE, 2014-2018 ACS\"",
-      "propertyID": [
-        ""
-      ],
       "qudt:dataType": "int4",
       "unitText": "persons",
       "startDate": "1/1/18",
@@ -1153,9 +983,7 @@
       "@type": "PropertyValue",
       "name": "\nm_mobile",
       "description": "\"Mobile homes estimate MOE, 2014-2018 ACS\"",
-      "propertyID": [
-        "2052498833"
-      ],
+      "propertyID": "2052498833",
       "qudt:dataType": "int4",
       "unitText": "mobile homes",
       "startDate": "1/1/18",
@@ -1165,9 +993,7 @@
       "@type": "PropertyValue",
       "name": "\nm_munit",
       "description": "\"Housing in structures with 10 or more units estimate MOE, 2014- 2018 ACS\"",
-      "propertyID": [
-        "2052499081"
-      ],
+      "propertyID": "2052499081",
       "qudt:dataType": "int4",
       "unitText": "housing units",
       "startDate": "1/1/18",
@@ -1177,9 +1003,7 @@
       "@type": "PropertyValue",
       "name": "\nm_nohsdp",
       "description": "\"Persons (age 25+) with no high school diploma estimate MOE, 2014-2018 ACS\"",
-      "propertyID": [
-        "2052498118"
-      ],
+      "propertyID": "2052498118",
       "qudt:dataType": "int4",
       "unitText": "persons",
       "startDate": "1/1/18",
@@ -1189,9 +1013,7 @@
       "@type": "PropertyValue",
       "name": "\nm_noveh",
       "description": "\"Households with no vehicle available estimate MOE, 2014-2018 ACS\"",
-      "propertyID": [
-        "2052499090"
-      ],
+      "propertyID": "2052499090",
       "qudt:dataType": "int4",
       "unitText": "households",
       "startDate": "1/1/18",
@@ -1201,9 +1023,6 @@
       "@type": "PropertyValue",
       "name": "\nm_pci",
       "description": "\"Per capita income estimate MOE, 2014-2018 ACS\"",
-      "propertyID": [
-        ""
-      ],
       "qudt:dataType": "int4",
       "unitText": "US dollars",
       "startDate": "1/1/18",
@@ -1213,9 +1032,7 @@
       "@type": "PropertyValue",
       "name": "\nm_pov",
       "description": "\"Persons below poverty estimate MOE, 2014-2018 ACS\"",
-      "propertyID": [
-        "2052498110"
-      ],
+      "propertyID": "2052498110",
       "qudt:dataType": "int4",
       "unitText": "persons",
       "startDate": "1/1/18",
@@ -1225,9 +1042,7 @@
       "@type": "PropertyValue",
       "name": "\nm_sngpnt",
       "description": "\"Single parent household with children under 18 estimate MOE, 2014-2018 ACS\"",
-      "propertyID": [
-        "2052497777"
-      ],
+      "propertyID": "2052497777",
       "qudt:dataType": "int4",
       "unitText": "households",
       "startDate": "1/1/18",
@@ -1237,9 +1052,7 @@
       "@type": "PropertyValue",
       "name": "\nm_totpop",
       "description": "\"Population estimate MOE, 2014-2018 ACS\"",
-      "propertyID": [
-        "2052498090"
-      ],
+      "propertyID": "2052498090",
       "qudt:dataType": "int4",
       "unitText": "persons",
       "startDate": "1/1/18",
@@ -1249,9 +1062,7 @@
       "@type": "PropertyValue",
       "name": "\nm_unemp",
       "description": "\"Civilian (age 16+) unemployed estimate MOE, 2014-2018 ACS\"",
-      "propertyID": [
-        "2052499670"
-      ],
+      "propertyID": "2052499670",
       "qudt:dataType": "int4",
       "unitText": "persons",
       "startDate": "1/1/18",
@@ -1261,9 +1072,7 @@
       "@type": "PropertyValue",
       "name": "\nm_uninsur",
       "description": "\"Adjunct variable - Uninsured in the total civilian non-institutionalized population estimate MOE, 2014-2018 ACS\"",
-      "propertyID": [
-        "2052497148"
-      ],
+      "propertyID": "2052497148",
       "qudt:dataType": "int4",
       "unitText": "persons",
       "startDate": "1/1/18",
@@ -1273,9 +1082,7 @@
       "@type": "PropertyValue",
       "name": "\nmp_age17",
       "description": "\"Percentage of persons aged 17 and younger estimate MOE, 2014-2018 ACS\"",
-      "propertyID": [
-        "2052498381"
-      ],
+      "propertyID": "2052498381",
       "qudt:dataType": "float8",
       "unitText": "percentage",
       "startDate": "1/1/18",
@@ -1285,9 +1092,7 @@
       "@type": "PropertyValue",
       "name": "\nmp_age65",
       "description": "\"Percentage of persons aged 65 and older estimate MOE, 2014-2018 ACS\"",
-      "propertyID": [
-        "2052498379"
-      ],
+      "propertyID": "2052498379",
       "qudt:dataType": "float8",
       "unitText": "percentage",
       "startDate": "1/1/18",
@@ -1297,9 +1102,7 @@
       "@type": "PropertyValue",
       "name": "\nmp_crowd",
       "description": "Percentage of occupied housing units with more people than rooms estimate MOE",
-      "propertyID": [
-        "2052498399"
-      ],
+      "propertyID": "2052498399",
       "qudt:dataType": "float8",
       "unitText": "percentage",
       "startDate": "1/1/18",
@@ -1309,9 +1112,7 @@
       "@type": "PropertyValue",
       "name": "\nmp_disabl",
       "description": "\"Percentage of civilian non-institutionalized population with a disability estimate MOE, 2014-2018 ACS\"",
-      "propertyID": [
-        "2052498557"
-      ],
+      "propertyID": "2052498557",
       "qudt:dataType": "float8",
       "unitText": "percentage",
       "startDate": "1/1/18",
@@ -1321,9 +1122,7 @@
       "@type": "PropertyValue",
       "name": "\nmp_groupq",
       "description": "\"Percentage of persons in group quarters estimate MOE, 2014-2018 ACS\"",
-      "propertyID": [
-        "2052498375"
-      ],
+      "propertyID": "2052498375",
       "qudt:dataType": "float8",
       "unitText": "percentage",
       "startDate": "1/1/18",
@@ -1333,9 +1132,7 @@
       "@type": "PropertyValue",
       "name": "\nmp_limeng",
       "description": "\"Percentage of persons (age 5+) who speak English \"\"less than well\"\" estimate MOE, 2014-2018 ACS\"",
-      "propertyID": [
-        "2052498383"
-      ],
+      "propertyID": "2052498383",
       "qudt:dataType": "float8",
       "unitText": "percentage",
       "startDate": "1/1/18",
@@ -1345,9 +1142,7 @@
       "@type": "PropertyValue",
       "name": "\nmp_minrty",
       "description": "\"Percentage minority (all persons except white, non-Hispanic) estimate MOE, 2014-2018 ACS\"",
-      "propertyID": [
-        "2052498609"
-      ],
+      "propertyID": "2052498609",
       "qudt:dataType": "float8",
       "unitText": "percentage",
       "startDate": "1/1/18",
@@ -1357,9 +1152,7 @@
       "@type": "PropertyValue",
       "name": "\nmp_mobile",
       "description": "Percentage of mobile homes estimate MOE",
-      "propertyID": [
-        "2052498421"
-      ],
+      "propertyID": "2052498421",
       "qudt:dataType": "float8",
       "unitText": "percentage",
       "startDate": "1/1/18",
@@ -1369,9 +1162,7 @@
       "@type": "PropertyValue",
       "name": "\nmp_munit",
       "description": "Percentage of housing in structures with 10 or more units estimate MOE",
-      "propertyID": [
-        "2052498460"
-      ],
+      "propertyID": "2052498460",
       "qudt:dataType": "float8",
       "unitText": "percentage",
       "startDate": "1/1/18",
@@ -1381,9 +1172,7 @@
       "@type": "PropertyValue",
       "name": "\nmp_nohsdp",
       "description": "Percentage of persons with no high school diploma (25+) estimate MOE",
-      "propertyID": [
-        "2052498370"
-      ],
+      "propertyID": "2052498370",
       "qudt:dataType": "float8",
       "unitText": "percentage",
       "startDate": "1/1/18",
@@ -1393,9 +1182,7 @@
       "@type": "PropertyValue",
       "name": "\nmp_noveh",
       "description": "Percentage of households with no vehicle available estimate MOE",
-      "propertyID": [
-        "2052498476"
-      ],
+      "propertyID": "2052498476",
       "qudt:dataType": "float8",
       "unitText": "percentage",
       "startDate": "1/1/18",
@@ -1405,9 +1192,6 @@
       "@type": "PropertyValue",
       "name": "\nmp_pci",
       "description": "\"Per capita income estimate MOE, 2014-2018 ACS\"",
-      "propertyID": [
-        ""
-      ],
       "qudt:dataType": "int4",
       "unitText": "US dollars",
       "startDate": "1/1/18",
@@ -1417,9 +1201,7 @@
       "@type": "PropertyValue",
       "name": "\nmp_pov",
       "description": "Percentage of persons below poverty estimate MOE",
-      "propertyID": [
-        "2052498377"
-      ],
+      "propertyID": "2052498377",
       "qudt:dataType": "float8",
       "unitText": "percentage",
       "startDate": "1/1/18",
@@ -1429,9 +1211,7 @@
       "@type": "PropertyValue",
       "name": "\nmp_sngpnt",
       "description": "\"Percentage of single parent households with children under 18 estimate MOE, 2014-2018 ACS\"",
-      "propertyID": [
-        "2052498248"
-      ],
+      "propertyID": "2052498248",
       "qudt:dataType": "float8",
       "unitText": "percentage",
       "startDate": "1/1/18",
@@ -1441,9 +1221,7 @@
       "@type": "PropertyValue",
       "name": "\nmp_unemp",
       "description": "Unemployment Rate estimate MOE",
-      "propertyID": [
-        "2052497152"
-      ],
+      "propertyID": "2052497152",
       "qudt:dataType": "float8",
       "unitText": "percentage",
       "startDate": "1/1/18",
@@ -1453,9 +1231,7 @@
       "@type": "PropertyValue",
       "name": "\nmp_uninsur",
       "description": "\"Adjunct variable - Percentage uninsured in the total civilian non-institutionalized population estimate MOE, 2014-2018 ACS\"",
-      "propertyID": [
-        "2052498199"
-      ],
+      "propertyID": "2052498199",
       "qudt:dataType": "float8",
       "unitText": "percentage",
       "startDate": "1/1/18",
@@ -1465,9 +1241,7 @@
       "@type": "PropertyValue",
       "name": "\nrpl_theme1",
       "description": "Percentile ranking for Socioeconomic theme summary",
-      "propertyID": [
-        "2052498129"
-      ],
+      "propertyID": "2052498129",
       "qudt:dataType": "float8",
       "unitText": "percentile",
       "startDate": "1/1/18",
@@ -1477,9 +1251,7 @@
       "@type": "PropertyValue",
       "name": "\nrpl_theme2",
       "description": "Percentile ranking for Household Composition theme summary",
-      "propertyID": [
-        "2052498134"
-      ],
+      "propertyID": "2052498134",
       "qudt:dataType": "float8",
       "unitText": "percentile",
       "startDate": "1/1/18",
@@ -1489,9 +1261,7 @@
       "@type": "PropertyValue",
       "name": "\nrpl_theme3",
       "description": "Percentile ranking for Minority Status/Language theme",
-      "propertyID": [
-        "2052498130"
-      ],
+      "propertyID": "2052498130",
       "qudt:dataType": "float8",
       "unitText": "percentile",
       "startDate": "1/1/18",
@@ -1501,9 +1271,7 @@
       "@type": "PropertyValue",
       "name": "\nrpl_theme4",
       "description": "Percentile ranking for Housing Type/Transportation theme",
-      "propertyID": [
-        "2052498133"
-      ],
+      "propertyID": "2052498133",
       "qudt:dataType": "float8",
       "unitText": "percentile",
       "startDate": "1/1/18",
@@ -1513,9 +1281,7 @@
       "@type": "PropertyValue",
       "name": "\nrpl_themes",
       "description": "Overall percentile ranking",
-      "propertyID": [
-        "2052498131"
-      ],
+      "propertyID": "2052498131",
       "qudt:dataType": "float8",
       "unitText": "percentile",
       "startDate": "1/1/18",
@@ -1525,9 +1291,7 @@
       "@type": "PropertyValue",
       "name": "\nspl_theme1",
       "description": "Sum of series for Socioeconomic theme",
-      "propertyID": [
-        "2052497697"
-      ],
+      "propertyID": "2052497697",
       "qudt:dataType": "float8",
       "unitText": "svi index",
       "startDate": "1/1/18",
@@ -1537,9 +1301,7 @@
       "@type": "PropertyValue",
       "name": "\nspl_theme2",
       "description": "Sum of series for Household Composition theme",
-      "propertyID": [
-        "2052497700"
-      ],
+      "propertyID": "2052497700",
       "qudt:dataType": "float8",
       "unitText": "svi index",
       "startDate": "1/1/18",
@@ -1549,9 +1311,7 @@
       "@type": "PropertyValue",
       "name": "\nspl_theme3",
       "description": "Sum of series for Minority Status/Languag e theme",
-      "propertyID": [
-        "2052497698"
-      ],
+      "propertyID": "2052497698",
       "qudt:dataType": "float8",
       "unitText": "svi index",
       "startDate": "1/1/18",
@@ -1561,9 +1321,7 @@
       "@type": "PropertyValue",
       "name": "\nspl_theme4",
       "description": "Sum of series for Housing Type/ Transportation theme",
-      "propertyID": [
-        "2052497699"
-      ],
+      "propertyID": "2052497699",
       "qudt:dataType": "float8",
       "unitText": "svi index",
       "startDate": "1/1/18",
@@ -1573,9 +1331,6 @@
       "@type": "PropertyValue",
       "name": "\nspl_themes",
       "description": "Sum of series themes",
-      "propertyID": [
-        ""
-      ],
       "qudt:dataType": "float8",
       "unitText": "svi index",
       "startDate": "1/1/18",
@@ -1585,36 +1340,28 @@
       "@type": "PropertyValue",
       "name": "\nst",
       "description": "State FIPS code",
-      "propertyID": [
-        "2052497725"
-      ],
+      "propertyID": "2052497725",
       "qudt:dataType": "varchar"
     },
     {
       "@type": "PropertyValue",
       "name": "\nst_abbr",
       "description": "State abbreviation",
-      "propertyID": [
-        "2052497733"
-      ],
+      "propertyID": "2052497733",
       "qudt:dataType": "varchar"
     },
     {
       "@type": "PropertyValue",
       "name": "state",
       "description": "State name",
-      "propertyID": [
-        "2052497730"
-      ],
+      "propertyID": "2052497730",
       "qudt:dataType": "varchar"
     },
     {
       "@type": "PropertyValue",
       "name": "\nstcnty",
       "description": "State and county FIPS code as STATE(2)COUNTY(3)",
-      "propertyID": [
-        "2052499638"
-      ],
+      "propertyID": "2052499638",
       "qudt:dataType": "varchar"
     }
   ],
@@ -1622,5 +1369,5 @@
     "https://gdsc.idsc.miami.edu/download/data/us_2018_svi_county/?file=us_2018_svi_county&format=sql"
   ],
   "dateModified": "2022-02-08",
-  "version": "2026-02-12"
+  "version": "2026-05-14"
 }

@@ -106,7 +106,7 @@ def get_layer_meta(layer_id):
     """
     get SOLR data for one layer
     """
-
+get
     query_parameters = {"q": "gdsc_tablename:" + layer_id}
     query_string  = urlencode(query_parameters)
     connection = urlopen("{}{}".format(BASE_PATH, query_string))
@@ -285,10 +285,13 @@ def detail(name_id):
     # check for loaded variables
     loaded_variables = call_etl_api("postgis","gdsc_get_loaded_variables_for_table",{"table_id": document['gdsc_tablename'][0]})
     if GAIA_CATALOG_FLAVOR == "gdsc-api": loaded_variables = loaded_variables.split()[2:-2]
-    
+ 
     # get json_ld 
-    with open(f"/data/{name_id}/meta_json-ld_{name_id}.json", 'r', encoding='utf-8') as f:
-        json_ld = json.load(f)
+    try:
+        with open(f"/data/{name_id}/meta_json-ld_{name_id}.json", 'r', encoding='utf-8') as f:
+            json_ld = json.load(f)
+    except:
+        json_ld = ""
 
     # render page
     return render_template(
@@ -376,18 +379,18 @@ def load(layer_id,variable_id):
             "table_description": document['dct_description'][0],
             "geom_type": document['locn_geometry'][0],
             "geom_label": document['gdsc_label'][0],
-            "variable_nodata": 'Null' if 'gdsc_nodata' not in document else document['gdsc_nodata'][1],
+            "variable_nodata": "" if 'gdsc_nodata' not in document else document['gdsc_nodata'][1],
             "variable_id": variable[0],
-            "description": variable[1],
+            "description": variable[1].strip('"'),
             "source": variable[2],
             "type": variable[3],
             "unit": variable[4],
-            "unit_concept_id": None if variable[5] == "Null" else int(variable[5]),
-            "min_val": None if variable[6] == "Null" else float(variable[6]),
-            "max_val": None if variable[7] == "Null" else float(variable[7]),
+            "unit_concept_id": "" if variable[5] == "Null" else int(variable[5]),
+            "min_val": "" if variable[6] == "Null" else float(variable[6]),
+            "max_val": "" if variable[7] == "Null" else float(variable[7]),
             "start_date": make_iso_date(variable[8]),
             "end_date": make_iso_date(variable[9]),
-            "concept_id": None if variable[10] == "Null" else int(variable[10])
+            "concept_id": "" if variable[10] == "Null" else int(variable[10])
         }
     }
     response = call_etl_api("postgis","gdsc_load_variable",parameters)

@@ -18,7 +18,7 @@
   "prov:wasGeneratedBy": "GDSC automation (see Process Step)",
   "dcat:contactPoint": ["Timothy Norris", "Librarian Associate Professor", "University of Miami Libraries, Frost Institute for Data Science and Computing", "txn60@miami.edu"],
   "gdsc:label": "name",
-  "gdsc:attributes": ["osm_id;OpenStreetMap (OSM) ID;;varchar;;;;", "name;Road name;;varchar;;;;", "highway;Type of road (primary, secondary, etc);;varchar;;;;", "waterway;;;varchar;;;;", "aerialway;;;varchar;;;;", "barrier;;;varchar;;;;", "man_made;;;varchar;;;;", "railway;;;varchar;;;;", "z_order;Drawing order;;int4;;;-14;27", "other_tags;Any other OSM tags with values, can include values for oneway, est_width, foot, lanes, maxspeed, surface;;varchar;;;;"],
+  "gdsc:attributes": ["osm_id;OpenStreetMap (OSM) ID;;varchar;", "name;Road name;;varchar;", "highway;Type of road (primary, secondary, etc);;varchar;", "waterway;;;boolean;", "aerialway;;;boolean;", "barrier;;;boolean;", "man_made;;;boolean;", "railway;;;boolean;", "z_order;Drawing order;;int4;", "other_tags;Any other OSM tags with values, can include values for oneway, est_width, foot, lanes, maxspeed, surface;;varchar;"],
   "gdsc:collections": ["tt-disease-risk"],
   "gdsc:functions": ["gdsc_get_attributes"],
   "gdsc:analyticConformsTo": "EPSG:8035",
@@ -26,12 +26,11 @@
   "gdsc:sponsor": ["IDSC;https://idsc.miami.edu", "Library;https://www.library.miami.edu"],
   "dcat:downloadURL": "https://overpass-api.de/api/interpreter?data=way%5B%22highway%22~%22secondary|primary%22%5D(area:3600555717);(._;>;);out;",
   "gdsc:tablename": "tt_roads",
-  "gdsc:up": "true",
+  "gdsc:up": "false",
   "gdsc:podID": "gaia-db",
   "dct:modified": "2026-02-12T11:05:22Z",
   "dct:accrualPeriodicity": "As Needed",
-  "gdsc:version": "2026-02-12T11:05:24Z",
+  "gdsc:version": "2026-05-14T14:35:55Z",
   "spdx:checksum": "TBD",
-  "dct:extent": ["4250213", "4.1M"],
-  "dcat:bbox": "POLYGON((-61.861942 10.074078,-61.861942 11.3246857,-60.5329641 11.3246857,-60.5329641 10.074078,-61.861942 10.074078))"
+  "dct:extent": ["4250213", "4.1M"]
 }

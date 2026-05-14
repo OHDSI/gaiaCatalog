@@ -33,7 +33,10 @@
   ],
   "url": "https://www.openstreetmap.org/",
   "provider": [
-    "OpenStreetMap"
+    {
+      "@type": "Organization",
+      "name": "OpenStreetMap"
+    }
   ],
   "license": "OpenStreetMap\u00ae is open data, licensed under the [Open Data Commons Open Database License](https://opendatacommons.org/licenses/odbl/) (ODbL) by the [OpenStreetMap Foundation](https://osmfoundation.org/) (OSMF).",
   "spatialCoverage": [
@@ -41,14 +44,6 @@
       "@id": "https://www.geonames.org/3573591",
       "@type": "Place",
       "name": "Trinidad and Tobago"
-    },
-    {
-      "@type": "Place",
-      "name": "bbox",
-      "geo": {
-        "@type": "GeoShape",
-        "polygon": "-61.7927875 10.2821958 -61.7927875 11.1817512 -60.7238938 11.1817512 -60.7238938 10.2821958 -61.7927875 10.2821958"
-      }
     }
   ],
   "type": "Vector Dataset",
@@ -190,5 +185,5 @@
     }
   ],
   "dateModified": "2023-11-30",
-  "version": "2026-02-12"
+  "version": "2026-05-14"
 }

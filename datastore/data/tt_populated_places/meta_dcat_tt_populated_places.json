@@ -18,7 +18,7 @@
   "prov:wasGeneratedBy": "GDSC automation (see Process Step)",
   "dcat:contactPoint": ["Timothy Norris", "Librarian Associate Professor", "University of Miami Libraries, Frost Institute for Data Science and Computing", "txn60@miami.edu"],
   "gdsc:label": "name",
-  "gdsc:attributes": ["osm_id;OpenStreetMap (OSM) ID;;varchar;;;;", "name;Place Name;;varchar;;;;", "place;kind of place (i.e. village, town, city);;varchar;;;;", "other_tags;Any other OSM tags with values, can include values for population and some wikipedia data;;varchar;;;;"],
+  "gdsc:attributes": ["osm_id;OpenStreetMap (OSM) ID;;varchar;", "name;Place Name;;varchar;", "place;kind of place (i.e. village, town, city);;varchar;", "other_tags;Any other OSM tags with values, can include values for population and some wikipedia data;;varchar;"],
   "gdsc:collections": ["tt-disease-risk"],
   "gdsc:functions": ["gdsc_get_attributes"],
   "gdsc:analyticConformsTo": "EPSG:8035",
@@ -26,12 +26,11 @@
   "gdsc:sponsor": ["IDSC;https://idsc.miami.edu", "Library;https://www.library.miami.edu"],
   "dcat:downloadURL": "https://overpass-api.de/api/interpreter?data=node%5B%22place%22~%22city|town|village%22%5D(area:3600555717);(._;>;);out;",
   "gdsc:tablename": "tt_populated_places",
-  "gdsc:up": "true",
+  "gdsc:up": "false",
   "gdsc:podID": "gaia-db",
   "dct:modified": "2026-02-12T11:05:32Z",
   "dct:accrualPeriodicity": "As Needed",
-  "gdsc:version": "2026-02-12T11:05:33Z",
+  "gdsc:version": "2026-05-14T14:35:54Z",
   "spdx:checksum": "TBD",
-  "dct:extent": ["45838", "45K"],
-  "dcat:bbox": "POLYGON((-61.9115551 10.0466232,-61.9115551 11.3223399,-60.533741 11.3223399,-60.533741 10.0466232,-61.9115551 10.0466232))"
+  "dct:extent": ["45838", "45K"]
 }

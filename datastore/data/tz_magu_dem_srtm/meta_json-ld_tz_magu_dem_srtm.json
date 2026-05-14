@@ -33,7 +33,10 @@
   ],
   "url": "https://lpdaac.usgs.gov/products/srtmgl1v003/",
   "provider": [
-    "NASA EOSDIS Land Processes Distributed Active Archive Center (LPDAAC)"
+    {
+      "@type": "Organization",
+      "name": "NASA EOSDIS Land Processes Distributed Active Archive Center (LPDAAC)"
+    }
   ],
   "license": "This data is open to the public and browse images are freely available without\nrestriction.",
   "spatialCoverage": [
@@ -52,7 +55,7 @@
       "name": "bbox",
       "geo": {
         "@type": "GeoShape",
-        "polygon": "32.7501389 -2.1301389 34.0398611 -2.1301389 34.0398611 -3.0898611 32.7501389 -3.0898611 32.7501389 -2.1301389"
+        "polygon": "32.750139 -3.089861 34.039861 -3.089861 34.039861 -2.130139 32.750139 -2.130139 32.750139 -3.089861"
       }
     }
   ],
@@ -162,5 +165,5 @@
     "https://gdsc.idsc.miami.edu/download/data/tz_magu_dem_srtm/?file=tz_magu_dem_srtm&format=tiff"
   ],
   "dateModified": "2025-02-24",
-  "version": "2026-02-12"
+  "version": "2026-05-14"
 }
