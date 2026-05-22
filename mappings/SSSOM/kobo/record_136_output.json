@@ -1,0 +1,112 @@
+{
+  "@context": {
+    "@vocab": "https://schema.org/",
+    "schema": "https://schema.org/",
+    "dct": "http://purl.org/dc/terms/",
+    "dcat": "http://www.w3.org/ns/dcat#",
+    "gdsc": "https://gdsc.idsc.miami.edu/terms/"
+  },
+  "@graph": [
+    {
+      "@type": "schema:Dataset",
+      "name": "Annual PM2.5 Concentrations for Countries and Urban Areas, v1 (1998 – 2016)",
+      "description": "The Annual PM2.5 Concentrations for Countries and Urban Areas, 1998-2016, consists of mean concentrations of particulate matter (PM2.5) for countries and urban areas. The PM2.5 data are from the Global Annual PM2.5 Grids from MODIS, MISR and SeaWiFS Aerosol Optical Depth (AOD) with GWR, 1998-2016. The urban areas are from the Global Rural-Urban Mapping Project, Version 1 (GRUMPv1): Urban Extent Polygons, Revision 02, and its time series runs from 1998 to 2016. The country averages are population-weighted such that concentrations in populated areas count more toward the country average than concentrations in less populated areas, and its time series runs from 2008 to 2015",
+      "identifier": "10.7910/DVN/RHIFKL",
+      "url": "https://dataverse.harvard.edu/dataset.xhtml",
+      "license": "cc_by",
+      "inLanguage": "en",
+      "datePublished": "2021-04-06",
+      "dateModified": "2021-04-06",
+      "creator": "CIESIN - Center for International Earth Science Information Network",
+      "publisher": "University of Miami GDSC",
+      "spatialCoverage": "Earth",
+      "keywords": [
+        "Global",
+        "PM 2.5",
+        "Air Quality"
+      ],
+      "includedInDataCatalog": "mdc-health-outcomes ohdsi-gaia",
+      "variableMeasured": [
+        {
+          "cartography_group/attributes_group/attribute_name": "urbid",
+          "cartography_group/attributes_group/attribute_description": "Code of the urban extent polygons (not unique)",
+          "cartography_group/attributes_group/attribute_source": "SEDAC",
+          "cartography_group/attributes_group/attribute_type": "integer"
+        },
+        {
+          "cartography_group/attributes_group/attribute_name": "stndrdnam",
+          "cartography_group/attributes_group/attribute_description": "Name of the Urban Extent, caps and concatenated. If the urban extent polygons include more than one settlement, the name is the settlement with the highest population",
+          "cartography_group/attributes_group/attribute_source": "SEDAC",
+          "cartography_group/attributes_group/attribute_type": "string"
+        },
+        {
+          "cartography_group/attributes_group/attribute_name": "name",
+          "cartography_group/attributes_group/attribute_description": "Name of the Urban Extent. If the urban extents polygons include more than one settlement, the name is the settlement with the highest population",
+          "cartography_group/attributes_group/attribute_source": "SEDAC",
+          "cartography_group/attributes_group/attribute_type": "string"
+        },
+        {
+          "cartography_group/attributes_group/attribute_name": "isourbid",
+          "cartography_group/attributes_group/attribute_description": "Unique code of the urban extent polygons, created by concatenating country ISO code and URBID",
+          "cartography_group/attributes_group/attribute_source": "SEDAC",
+          "cartography_group/attributes_group/attribute_type": "string"
+        },
+        {
+          "cartography_group/attributes_group/attribute_name": "sqkm",
+          "cartography_group/attributes_group/attribute_description": "Area of the urban extent polygon",
+          "cartography_group/attributes_group/attribute_source": "SEDAC",
+          "cartography_group/attributes_group/attribute_type": "integer",
+          "cartography_group/attributes_group/attribute_unit": "square kilometer"
+        },
+        {
+          "cartography_group/attributes_group/attribute_name": "iso3",
+          "cartography_group/attributes_group/attribute_description": "3 letter country code",
+          "cartography_group/attributes_group/attribute_source": "SEDAC",
+          "cartography_group/attributes_group/attribute_type": "string"
+        },
+        {
+          "cartography_group/attributes_group/attribute_name": "unsdcode",
+          "cartography_group/attributes_group/attribute_description": "UNSD country numerical code",
+          "cartography_group/attributes_group/attribute_source": "SEDAC",
+          "cartography_group/attributes_group/attribute_type": "integer"
+        },
+        {
+          "cartography_group/attributes_group/attribute_name": "countryeng",
+          "cartography_group/attributes_group/attribute_description": "Country name",
+          "cartography_group/attributes_group/attribute_source": "SEDAC",
+          "cartography_group/attributes_group/attribute_type": "string"
+        },
+        {
+          "cartography_group/attributes_group/attribute_name": "continent",
+          "cartography_group/attributes_group/attribute_description": "Continent Name",
+          "cartography_group/attributes_group/attribute_source": "SEDAC",
+          "cartography_group/attributes_group/attribute_type": "string"
+        },
+        {
+          "cartography_group/attributes_group/attribute_name": "avpmu_1998",
+          "cartography_group/attributes_group/attribute_description": "PM2.5 Exposure for named urban areas from GRUMPv1: Urban Extent Polygons, Revision 02, from 1998. Measured in micrograms per cubic meter; blanks -9999 represent missing data",
+          "cartography_group/attributes_group/attribute_source": "SEDAC",
+          "cartography_group/attributes_group/attribute_type": "numeric",
+          "cartography_group/attributes_group/attribute_unit": "micrograms/cubic meter",
+          "cartography_group/attributes_group/attribute_unit_concept_id": "32964",
+          "cartography_group/attributes_group/attribute_start_date": "1998-01-01",
+          "cartography_group/attributes_group/attribute_end_date": "1998-12-31",
+          "cartography_group/attributes_group/attribute_concept_id": "2052499839",
+          "cartography_group/attributes_group/attribute_external_id": "gaia-407"
+        },
+        {
+          "cartography_group/attributes_group/attribute_name": "avpmu_1999",
+          "cartography_group/attributes_group/attribute_description": "PM2.5 Exposure for named urban areas from GRUMPv1: Urban Extent Polygons, Revision 02, from 1999. Measured in micrograms per cubic meter; blanks -9999 represent missing data.",
+          "cartography_group/attributes_group/attribute_source": "SEDAC",
+          "cartography_group/attributes_group/attribute_type": "numeric",
+          "cartography_group/attributes_group/attribute_unit": "micrograms/cubic meter",
+          "cartography_group/attributes_group/attribute_unit_concept_id": "32964",
+          "cartography_group/attributes_group/attribute_start_date": "1999-01-01",
+          "cartography_group/attributes_group/attribute_end_date": "1999-12-31",
+          "cartography_group/attributes_group/attribute_concept_id": "2052499839",
+          "cartography_group/attributes_group/attribute_external_id": "gaia-408"
+        }
+      ]
+    }
+  ]
+}

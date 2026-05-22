@@ -1,0 +1,619 @@
+{
+  "@context": {
+    "@language": "en",
+    "@vocab": "https://schema.org/",
+    "dct": "http://purl.org/dc/terms/",
+    "qudt": "http://qudt.org/schema/qudt/",
+    "quantitykind": "http://qudt.org/vocab/quantitykind/",
+    "unit": "http://qudt.org/vocab/unit/",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "geocr": "http://mlcommons.org/croissant/geocr/",
+    "cr": "http://mlcommons.org/croissant/",
+    "pato": "http://purl.obolibrary.org/obo/PATO_",
+    "stato": "http://purl.obolibrary.org/obo/stato.owl#"
+  },
+  "@type": "Dataset",
+  "@id": "https://gdsc.idsc.miami.edu/detail/global_pm25_concentration_1998_2016",
+  "identifier": {
+    "@type": "PropertyValue",
+    "propertyID": "https://registry.identifiers.org/registry/doi",
+    "value": "doi:10.7927/H4ZK5D9P",
+    "url": "https://doi.org/10.7927/H4ZK5D9P"
+  },
+  "name": "Annual PM2.5 Concentrations for Countries and Urban Areas, v1 (1998-2016)",
+  "description": "A vector dataset containing annual mean PM2.5 concentration estimates for countries and urban areas from 1998 to 2016.",
+  "keywords": [
+    "PM2.5",
+    "Atmospheric Particulate Matter",
+    "Urban Air Quality",
+    "Global Annual Estimates",
+    "Environmental Health",
+    {
+      "@type": "DefinedTerm",
+      "name": "Vector Data",
+      "termCode": "vector",
+      "inDefinedTermSet": {
+        "@type": "DefinedTermSet",
+        "name": "Data Representation Models"
+      }
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "EARTH SCIENCE > ATMOSPHERE > AIR QUALITY > PARTICULATE MATTER",
+      "inDefinedTermSet": {
+        "@type": "DefinedTermSet",
+        "name": "NASA/GCMD Earth Science Keywords",
+        "url": "https://gcmd.nasa.gov/learn/keyword_list.html"
+      }
+    }
+  ],
+  "url": "https://gdsc.idsc.miami.edu/detail/global_pm25_concentration_1998_2016",
+  "version": "2026-03-19",
+  "datePublished": "2021-04-06",
+  "dateModified": "2026-03-19",
+  "license": "https://creativecommons.org/licenses/by/4.0/",
+  "isAccessibleForFree": true,
+  "hasPart": [
+    {
+      "@type": "DigitalDocument",
+      "name": "workflow.md",
+      "encodingFormat": "text/markdown",
+      "url": "https://github.com/Geospatial-Digital-Special-Collections/data/blob/main/pm25/workflow.md"
+    },
+    {
+      "@type": "DigitalDocument",
+      "name": "agents.md",
+      "encodingFormat": "text/markdown",
+      "url": "https://github.com/OHDSI/gaiaCatalog/blob/main/AGENTS.md"
+    }
+  ],
+  "about": [
+    {
+      "@type": "Event",
+      "name": "Vector processing workflow for global PM2.5 concentration",
+      "description": "Processing workflow for assembling urban and country-level annual PM2.5 concentration features.",
+      "potentialAction": {
+        "@type": "Action",
+        "name": "extract transform and load",
+        "description": "Transforms annual PM2.5 estimates into vector features for geospatial analytics.",
+        "object": {
+          "@type": "Dataset",
+          "name": "Global Annual PM2.5 Grids from MODIS, MISR and SeaWiFS",
+          "producer": "Center for International Earth Science Information Network (CIESIN)",
+          "url": "https://ciesin.climate.columbia.edu/content/data"
+        },
+        "instrument": {
+          "@type": "SoftwareApplication",
+          "@id": "https://github.com/Geospatial-Digital-Special-Collections/tools",
+          "name": "GDSC GIS ETL Tools",
+          "downloadUrl": "https://github.com/Geospatial-Digital-Special-Collections/tools.git"
+        },
+        "result": {
+          "@type": "Dataset",
+          "name": "Global PM2.5 Concentration Vector Dataset",
+          "url": "https://gdsc.idsc.miami.edu/download/data/global_pm25_concentration_1998_2016/?file=global_pm25_concentration_1998_2016&format=gpkg"
+        }
+      }
+    }
+  ],
+  "creator": [
+    {
+      "@type": "Role",
+      "roleName": "creator",
+      "creator": {
+        "@type": "Organization",
+        "name": "Center for International Earth Science Information Network (CIESIN), Columbia University",
+        "url": "https://ciesin.columbia.edu"
+      }
+    }
+  ],
+  "provider": [
+    {
+      "@type": "Organization",
+      "@id": "https://ror.org/02y3ad647",
+      "name": "Geospatial Digital Special Collections (GDSC), University of Miami",
+      "url": "https://gdsc.idsc.miami.edu"
+    }
+  ],
+  "includedInDataCatalog": [
+    {
+      "@type": "DataCatalog",
+      "@id": "https://gdsc.idsc.miami.edu",
+      "name": "Geospatial Digital Special Collections",
+      "url": "https://gdsc.idsc.miami.edu"
+    },
+    {
+      "@type": "DataCatalog",
+      "name": "mdc-health-outcomes",
+      "@id": "https://gdsc.idsc.miami.edu/?collection=mdc-health-outcomes",
+      "url": "https://gdsc.idsc.miami.edu/?collection=mdc-health-outcomes"
+    }
+  ],
+  "measurementTechnique": [
+    {
+      "@type": "DefinedTerm",
+      "name": "GIS Data Structure",
+      "description": "Vector data structure for geospatial representation.",
+      "termCode": "vector",
+      "inDefinedTermSet": {
+        "@type": "DefinedTermSet",
+        "name": "dataRepresentation",
+        "url": "https://gdsc.idsc.miami.edu/vocab/dataRepresentation" 
+      }
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "GIS Vector Geometry",
+      "description": "Multi-part area geometry (multipolygon).",
+      "termCode": "multipolygon",
+      "inDefinedTermSet": {
+        "@type": "DefinedTermSet",
+        "name": "vectorGeometry",
+        "url": "https://gdsc.idsc.miami.edu/vocab/vectorGeometry"
+      }
+    }
+  ],
+  "spatialCoverage": {
+    "@type": "Place",
+    "name": "Global urban and country administrative coverage",
+    "geo": {
+      "@type": "GeoShape",
+      "box": "-54.858002 -176.733337 78.274611 179.458313"
+    },
+    "additionalProperty": [
+      {
+        "@type": "PropertyValue",
+        "name": "Spatial Reference System",
+        "value": "http://www.opengis.net/def/crs/EPSG/0/4326"
+      }
+    ]
+  },
+  "temporalCoverage": "1998-01-01/2016-12-31",
+  "distribution": [
+    {
+      "@type": "DataDownload",
+      "name": "GeoPackage distribution",
+      "contentUrl": "https://gdsc.idsc.miami.edu/download/data/global_pm25_concentration_1998_2016/?file=global_pm25_concentration_1998_2016&format=gpkg",
+      "encodingFormat": "application/geopackage+sqlite3",
+      "additionalProperty": [
+        {
+          "@type": "PropertyValue",
+          "name": "canonicalRepresentation",
+          "value": "wide",
+          "description": "Describes the data layout/shape of the file."
+        }
+      ]
+    },
+    {
+      "@type": "DataDownload",
+      "name": "SQL distribution",
+      "contentUrl": "https://gdsc.idsc.miami.edu/download/data/global_pm25_concentration_1998_2016/?file=global_pm25_concentration_1998_2016&format=sql",
+      "encodingFormat": "application/sql"
+    },
+    {
+      "@type": "DataDownload",
+      "name": "Shapefile distribution",
+      "contentUrl": "https://gdsc.idsc.miami.edu/download/data/global_pm25_concentration_1998_2016/?file=global_pm25_concentration_1998_2016&format=shp",
+      "encodingFormat": "application/x-shapefile"
+    }
+  ],
+
+  "variableMeasured": [
+  {
+    "@type": "PropertyValue",
+    "name": "VectorLocation",
+    "propertyID": "http://www.opengis.net/def/property/OGC/0/SamplingLocation",
+    "alternateName": "Vector feature geometry and administrative attributes",
+    "description": "Structured anchor for the urban area, linking geometry to administrative identifiers.",
+    "disambiguatingDescription": [
+      "VectorLocation is the first column in a many column wide table where each row is a time series of PM2.5 concentrations at a unique VectorLocation around the earth",
+      "Note that the location component here might be a ddi-cdi specialized structura component for wide datasets"
+    ], 
+    "qudt:dataType": "http://qudt.org/schema/qudt/StructuredDataType",
+    "valueReference": [
+      {
+        "@type": "PropertyValue",
+        "name": "spatial_metadata",
+        "valueReference": [
+          { "@type": "PropertyValue", "name": "geoType", "value": "vector" },
+          { "@type": "PropertyValue", "name": "projection", "value": "https://epsg.io/4326" },
+          { "@type": "PropertyValue", "name": "resolution", "value": "0.01 degrees", "description": "Original grid resolution of the source PM2.5 data."},
+          { "@type": "PropertyValue", "name": "geometry", "value": "WKT or GeoJSON multipolygon", "qudt:dataType": "xsd:string" }
+        ]
+      },
+      {
+        "@type": "PropertyValue",
+        "name": "shape_value",
+        "description": "Administrative attributes for the urban extent (gaiaDB attr_index).",
+        "valueReference": [
+          { "@type": "PropertyValue", "name": "isourbid", "description": "Unique code (ISO + URBID)", "qudt:dataType": "xsd:string" },
+          { "@type": "PropertyValue", "name": "urbid", "description": "Urban extent polygon code", "qudt:dataType": "xsd:integer" },
+          { "@type": "PropertyValue", "name": "stndrdname", "description": "Standardized name of the urban extent", "qudt:dataType": "xsd:string" },
+          { "@type": "PropertyValue", "name": "name", "description": "Settlement name", "qudt:dataType": "xsd:string" },
+          { "@type": "PropertyValue", "name": "iso3", "description": "3-letter country code", "qudt:dataType": "xsd:string" },
+          { "@type": "PropertyValue", "name": "unsdcode", "description": "UNSD numerical code", "qudt:dataType": "xsd:integer" },
+          { "@type": "PropertyValue", "name": "countryeng", "description": "English country name", "qudt:dataType": "xsd:string" },
+          { "@type": "PropertyValue", "name": "continent", "description": "Continent Name", "qudt:dataType": "xsd:string" },
+          { "@type": "PropertyValue", "name": "sqkm", "unitText": "square kilometers", "description": "Area of the urban extent", "qudt:dataType": "xsd:float" }
+        ]
+      }
+    ]
+  },
+  {
+    "@type": "PropertyValue",
+    "name": "avpmu_1998",
+    "propertyID": "pato:0002052",
+    "alternateName": "2052499839",
+    "description": "PM2.5 Exposure for named urban areas from GRUMPv1: Urban Extent Polygons, Revision 02, from 1998. Average annual concentration in micrograms per cubic meter.",
+    "qudt:dataType": "xsd:float",
+    "unitCode": "unit:MicroGM-PER-M3",
+    "unitText": "micrograms/cubic meter",
+    "minValue": "0.00",
+    "maxValue": "82.91",
+    "additionalProperty": [
+      {
+        "@type": "PropertyValue",
+        "name": "temporal_interval",
+        "value": "1998-01-01/1998-12-31"
+      }
+    ]
+  },
+  {
+    "@type": "PropertyValue",
+    "name": "avpmu_1999",
+    "propertyID": "pato:0002052",
+    "alternateName": "2052499839",
+    "description": "PM2.5 Exposure for named urban areas from GRUMPv1: Urban Extent Polygons, Revision 02, from 1999. Average annual concentration in micrograms per cubic meter.",
+    "qudt:dataType": "xsd:float",
+    "unitCode": "unit:MicroGM-PER-M3",
+    "unitText": "micrograms/cubic meter",
+    "minValue": "0.00",
+    "maxValue": "77.47",
+    "additionalProperty": [
+      {
+        "@type": "PropertyValue",
+        "name": "temporal_interval",
+        "value": "1999-01-01/1999-12-31"
+      }
+    ]
+  },
+  {
+    "@type": "PropertyValue",
+    "name": "avpmu_2000",
+    "propertyID": "pato:0002052",
+    "alternateName": "2052499839",
+    "description": "PM2.5 Exposure for named urban areas from GRUMPv1: Urban Extent Polygons, Revision 02, from 2000. Average annual concentration in micrograms per cubic meter.",
+    "qudt:dataType": "xsd:float",
+    "unitCode": "unit:MicroGM-PER-M3",
+    "unitText": "micrograms/cubic meter",
+    "minValue": "0.00",
+    "maxValue": "81.73",
+    "additionalProperty": [
+      {
+        "@type": "PropertyValue",
+        "name": "temporal_interval",
+        "value": "2000-01-01/2000-12-31"
+      }
+    ]
+  },
+  {
+    "@type": "PropertyValue",
+    "name": "avpmu_2001",
+    "propertyID": "pato:0002052",
+    "alternateName": "2052499839",
+    "description": "PM2.5 Exposure for named urban areas from GRUMPv1: Urban Extent Polygons, Revision 02, from 2001. Average annual concentration in micrograms per cubic meter.",
+    "qudt:dataType": "xsd:float",
+    "unitCode": "unit:MicroGM-PER-M3",
+    "unitText": "micrograms/cubic meter",
+    "minValue": "0.00",
+    "maxValue": "95.98",
+    "additionalProperty": [
+      {
+        "@type": "PropertyValue",
+        "name": "temporal_interval",
+        "value": "2001-01-01/2001-12-31"
+      }
+    ]
+  },
+  {
+    "@type": "PropertyValue",
+    "name": "avpmu_2002",
+    "propertyID": "pato:0002052",
+    "alternateName": "2052499839",
+    "description": "PM2.5 Exposure for named urban areas from GRUMPv1: Urban Extent Polygons, Revision 02, from 2002. Average annual concentration in micrograms per cubic meter.",
+    "qudt:dataType": "xsd:float",
+    "unitCode": "unit:MicroGM-PER-M3",
+    "unitText": "micrograms/cubic meter",
+    "minValue": "0.00",
+    "maxValue": "88.72",
+    "additionalProperty": [
+      {
+        "@type": "PropertyValue",
+        "name": "temporal_interval",
+        "value": "2002-01-01/2002-12-31"
+      }
+    ]
+  },
+  {
+    "@type": "PropertyValue",
+    "name": "avpmu_2003",
+    "propertyID": "pato:0002052",
+    "alternateName": "2052499839",
+    "description": "PM2.5 Exposure for named urban areas from GRUMPv1: Urban Extent Polygons, Revision 02, from 2003. Average annual concentration in micrograms per cubic meter.",
+    "qudt:dataType": "xsd:float",
+    "unitCode": "unit:MicroGM-PER-M3",
+    "unitText": "micrograms/cubic meter",
+    "minValue": "0.00",
+    "maxValue": "103.41",
+    "additionalProperty": [
+      {
+        "@type": "PropertyValue",
+        "name": "temporal_interval",
+        "value": "2003-01-01/2003-12-31"
+      }
+    ]
+  },
+  {
+    "@type": "PropertyValue",
+    "name": "avpmu_2004",
+    "propertyID": "pato:0002052",
+    "alternateName": "2052499839",
+    "description": "PM2.5 Exposure for named urban areas from GRUMPv1: Urban Extent Polygons, Revision 02, from 2004. Average annual concentration in micrograms per cubic meter.",
+    "qudt:dataType": "xsd:float",
+    "unitCode": "unit:MicroGM-PER-M3",
+    "unitText": "micrograms/cubic meter",
+    "minValue": "0.00",
+    "maxValue": "99.80",
+    "additionalProperty": [
+      {
+        "@type": "PropertyValue",
+        "name": "temporal_interval",
+        "value": "2004-01-01/2004-12-31"
+      }
+    ]
+  },
+  {
+    "@type": "PropertyValue",
+    "name": "avpmu_2005",
+    "propertyID": "pato:0002052",
+    "alternateName": "2052499839",
+    "description": "PM2.5 Exposure for named urban areas from GRUMPv1: Urban Extent Polygons, Revision 02, from 2005. Average annual concentration in micrograms per cubic meter.",
+    "qudt:dataType": "xsd:float",
+    "unitCode": "unit:MicroGM-PER-M3",
+    "unitText": "micrograms/cubic meter",
+    "minValue": "0.00",
+    "maxValue": "101.18",
+    "additionalProperty": [
+      {
+        "@type": "PropertyValue",
+        "name": "temporal_interval",
+        "value": "2005-01-01/2005-12-31"
+      }
+    ]
+  },
+  {
+    "@type": "PropertyValue",
+    "name": "avpmu_2006",
+    "propertyID": "pato:0002052",
+    "alternateName": "2052499839",
+    "description": "PM2.5 Exposure for named urban areas from GRUMPv1: Urban Extent Polygons, Revision 02, from 2006. Average annual concentration in micrograms per cubic meter.",
+    "qudt:dataType": "xsd:float",
+    "unitCode": "unit:MicroGM-PER-M3",
+    "unitText": "micrograms/cubic meter",
+    "minValue": "0.00",
+    "maxValue": "103.09",
+    "additionalProperty": [
+      {
+        "@type": "PropertyValue",
+        "name": "temporal_interval",
+        "value": "2006-01-01/2006-12-31"
+      }
+    ]
+  },
+  {
+    "@type": "PropertyValue",
+    "name": "avpmu_2007",
+    "propertyID": "pato:0002052",
+    "alternateName": "2052499839",
+    "description": "PM2.5 Exposure for named urban areas from GRUMPv1: Urban Extent Polygons, Revision 02, from 2007. Average annual concentration in micrograms per cubic meter.",
+    "qudt:dataType": "xsd:float",
+    "unitCode": "unit:MicroGM-PER-M3",
+    "unitText": "micrograms/cubic meter",
+    "minValue": "0.00",
+    "maxValue": "104.29",
+    "additionalProperty": [
+      {
+        "@type": "PropertyValue",
+        "name": "temporal_interval",
+        "value": "2007-01-01/2007-12-31"
+      }
+    ]
+  },
+  {
+    "@type": "PropertyValue",
+    "name": "avpmu_2008",
+    "propertyID": "pato:0002052",
+    "alternateName": "2052499839",
+    "description": "PM2.5 Exposure for named urban areas from GRUMPv1: Urban Extent Polygons, Revision 02, from 2008. Average annual concentration in micrograms per cubic meter.",
+    "qudt:dataType": "xsd:float",
+    "unitCode": "unit:MicroGM-PER-M3",
+    "unitText": "micrograms/cubic meter",
+    "minValue": "0.10",
+    "maxValue": "124.95",
+    "additionalProperty": [
+      {
+        "@type": "PropertyValue",
+        "name": "temporal_interval",
+        "value": "2008-01-01/2008-12-31"
+      }
+    ]
+  },
+  {
+    "@type": "PropertyValue",
+    "name": "avpmu_2009",
+    "propertyID": "pato:0002052",
+    "alternateName": "2052499839",
+    "description": "PM2.5 Exposure for named urban areas from GRUMPv1: Urban Extent Polygons, Revision 02, from 2009. Average annual concentration in micrograms per cubic meter.",
+    "qudt:dataType": "xsd:float",
+    "unitCode": "unit:MicroGM-PER-M3",
+    "unitText": "micrograms/cubic meter",
+    "minValue": "0.10",
+    "maxValue": "110.21",
+    "additionalProperty": [
+      {
+        "@type": "PropertyValue",
+        "name": "temporal_interval",
+        "value": "2009-01-01/2009-12-31"
+      }
+    ]
+  },
+  {
+    "@type": "PropertyValue",
+    "name": "avpmu_2010",
+    "propertyID": "pato:0002052",
+    "alternateName": "2052499839",
+    "description": "PM2.5 Exposure for named urban areas from GRUMPv1: Urban Extent Polygons, Revision 02, from 2010. Average annual concentration in micrograms per cubic meter.",
+    "qudt:dataType": "xsd:float",
+    "unitCode": "unit:MicroGM-PER-M3",
+    "unitText": "micrograms/cubic meter",
+    "minValue": "0.10",
+    "maxValue": "104.90",
+    "additionalProperty": [
+      {
+        "@type": "PropertyValue",
+        "name": "temporal_interval",
+        "value": "2010-01-01/2010-12-31"
+      }
+    ]
+  },
+  {
+    "@type": "PropertyValue",
+    "name": "avpmu_2011",
+    "propertyID": "pato:0002052",
+    "alternateName": "2052499839",
+    "description": "PM2.5 Exposure for named urban areas from GRUMPv1: Urban Extent Polygons, Revision 02, from 2011. Average annual concentration in micrograms per cubic meter.",
+    "qudt:dataType": "xsd:float",
+    "unitCode": "unit:MicroGM-PER-M3",
+    "unitText": "micrograms/cubic meter",
+    "minValue": "0.00",
+    "maxValue": "101.69",
+    "additionalProperty": [
+      {
+        "@type": "PropertyValue",
+        "name": "temporal_interval",
+        "value": "2011-01-01/2011-12-31"
+      }
+    ]
+  },
+  {
+    "@type": "PropertyValue",
+    "name": "avpmu_2012",
+    "propertyID": "pato:0002052",
+    "alternateName": "2052499839",
+    "description": "PM2.5 Exposure for named urban areas from GRUMPv1: Urban Extent Polygons, Revision 02, from 2012. Average annual concentration in micrograms per cubic meter.",
+    "qudt:dataType": "xsd:float",
+    "unitCode": "unit:MicroGM-PER-M3",
+    "unitText": "micrograms/cubic meter",
+    "minValue": "0.10",
+    "maxValue": "84.48",
+    "additionalProperty": [
+      {
+        "@type": "PropertyValue",
+        "name": "temporal_interval",
+        "value": "2012-01-01/2012-12-31"
+      }
+    ]
+  },
+  {
+    "@type": "PropertyValue",
+    "name": "avpmu_2013",
+    "propertyID": "pato:0002052",
+    "alternateName": "2052499839",
+    "description": "PM2.5 Exposure for named urban areas from GRUMPv1: Urban Extent Polygons, Revision 02, from 2013. Average annual concentration in micrograms per cubic meter.",
+    "qudt:dataType": "xsd:float",
+    "unitCode": "unit:MicroGM-PER-M3",
+    "unitText": "micrograms/cubic meter",
+    "minValue": "0.10",
+    "maxValue": "99.83",
+    "additionalProperty": [
+      {
+        "@type": "PropertyValue",
+        "name": "temporal_interval",
+        "value": "2013-01-01/2013-12-31"
+      }
+    ]
+  },
+  {
+    "@type": "PropertyValue",
+    "name": "avpmu_2014",
+    "propertyID": "pato:0002052",
+    "alternateName": "2052499839",
+    "description": "PM2.5 Exposure for named urban areas from GRUMPv1: Urban Extent Polygons, Revision 02, from 2014. Average annual concentration in micrograms per cubic meter.",
+    "qudt:dataType": "xsd:float",
+    "unitCode": "unit:MicroGM-PER-M3",
+    "unitText": "micrograms/cubic meter",
+    "minValue": "0.10",
+    "maxValue": "97.52",
+    "additionalProperty": [
+      {
+        "@type": "PropertyValue",
+        "name": "temporal_interval",
+        "value": "2014-01-01/2014-12-31"
+      }
+    ]
+  },
+  {
+    "@type": "PropertyValue",
+    "name": "avpmu_2015",
+    "propertyID": "pato:0002052",
+    "alternateName": "2052499839",
+    "description": "PM2.5 Exposure for named urban areas from GRUMPv1: Urban Extent Polygons, Revision 02, from 2015. Average annual concentration in micrograms per cubic meter.",
+    "qudt:dataType": "xsd:float",
+    "unitCode": "unit:MicroGM-PER-M3",
+    "unitText": "micrograms/cubic meter",
+    "minValue": "0.20",
+    "maxValue": "104.41",
+    "additionalProperty": [
+      {
+        "@type": "PropertyValue",
+        "name": "temporal_interval",
+        "value": "2015-01-01/2015-12-31"
+      }
+    ]
+  },
+  {
+    "@type": "PropertyValue",
+    "name": "avpmu_2016",
+    "propertyID": "pato:0002052",
+    "alternateName": "2052499839",
+    "description": "PM2.5 Exposure for named urban areas from GRUMPv1: Urban Extent Polygons, Revision 02, from 2016. Average annual concentration in micrograms per cubic meter.",
+    "qudt:dataType": "xsd:float",
+    "unitCode": "unit:MicroGM-PER-M3",
+    "unitText": "micrograms/cubic meter",
+    "minValue": "-0.50",
+    "maxValue": "126.79",
+    "additionalProperty": [
+      {
+        "@type": "PropertyValue",
+        "name": "temporal_interval",
+        "value": "2016-01-01/2016-12-31"
+      }
+    ]
+  }
+],
+
+"isBasedOn": {
+    "@type": "Dataset",
+    "name": "Global Annual PM2.5 Grids from MODIS, MISR and SeaWiFS",
+    "url": "https://ciesin.climate.columbia.edu/content/data"
+  },
+
+  "subjectOf": {
+    "@type": "DataDownload",
+    "name": "Vector processing workflow",
+    "description": "Workflow documentation describing processing from source PM2.5 grids to vector features.",
+    "encodingFormat": "text/markdown",
+    "contentUrl": "https://github.com/Geospatial-Digital-Special-Collections/data/blob/main/pm25/workflow.md"
+  }
+}   
+
