@@ -1,0 +1,219 @@
+{
+  "@context": {
+    "@vocab": "https://schema.org/",
+    "schema": "https://schema.org/",
+    "@language": "en",
+    "dct": "http://purl.org/dc/terms/",
+    "dcat": "http://www.w3.org/ns/dcat#",
+    "qudt": "http://qudt.org/schema/qudt/",
+    "unit": "http://qudt.org/vocab/unit/",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "pato": "http://purl.obolibrary.org/obo/PATO_"
+  },
+  "@graph": [
+    {
+      "@type": "schema:Dataset",
+      "@id": "https://gdsc.idsc.miami.edu/detail/global_pm25_concentration_1998_2016",
+      "name": "Annual PM2.5 Concentrations for Countries and Urban Areas, v1 (1998 – 2016)",
+      "description": "The Annual PM2.5 Concentrations for Countries and Urban Areas, 1998-2016, consists of mean concentrations of particulate matter (PM2.5) for countries and urban areas. The PM2.5 data are from the Global Annual PM2.5 Grids from MODIS, MISR and SeaWiFS Aerosol Optical Depth (AOD) with GWR, 1998-2016. The urban areas are from the Global Rural-Urban Mapping Project, Version 1 (GRUMPv1): Urban Extent Polygons, Revision 02, and its time series runs from 1998 to 2016. The country averages are population-weighted such that concentrations in populated areas count more toward the country average than concentrations in less populated areas, and its time series runs from 2008 to 2015",
+      "identifier": {
+        "@type": "PropertyValue",
+        "propertyID": "https://registry.identifiers.org/registry/doi",
+        "value": "doi:10.7910/DVN/RHIFKL",
+        "url": "https://doi.org/10.7910/DVN/RHIFKL"
+      },
+      "url": "https://dataverse.harvard.edu/dataset.xhtml",
+      "license": "https://creativecommons.org/licenses/by/4.0/",
+      "inLanguage": "en",
+      "datePublished": "2021-04-06",
+      "dateModified": "2021-04-06",
+      "creator": [
+        {
+          "@type": "Role",
+          "roleName": "creator",
+          "creator": {
+            "@type": "Organization",
+            "name": "CIESIN - Center for International Earth Science Information Network",
+            "description": "Columbia University"
+          }
+        }
+      ],
+      "provider": {
+        "@type": "Organization",
+        "name": "University of Miami GDSC",
+        "@id": "https://ror.org/02y3ad647"
+      },
+      "spatialCoverage": {
+        "@type": "Place",
+        "name": "Earth",
+        "additionalProperty": [
+          {
+            "@type": "PropertyValue",
+            "name": "geonames",
+            "value": "6295630",
+            "url": "https://www.geonames.org/6295630"
+          },
+          {
+            "@type": "PropertyValue",
+            "name": "Spatial Reference System",
+            "value": "http://www.opengis.net/def/crs/EPSG/0/4326"
+          }
+        ]
+      },
+      "keywords": [
+        "Global",
+        "PM 2.5",
+        "Air Quality"
+      ],
+      "includedInDataCatalog": [
+        {
+          "@type": "DataCatalog",
+          "@id": "https://gdsc.idsc.miami.edu",
+          "name": "Geospatial Digital Special Collections",
+          "url": "https://gdsc.idsc.miami.edu"
+        },
+        {
+          "@type": "DataCatalog",
+          "name": "mdc-health-outcomes",
+          "@id": "https://gdsc.idsc.miami.edu/?collection=mdc-health-outcomes",
+          "url": "https://gdsc.idsc.miami.edu/?collection=mdc-health-outcomes"
+        },
+        {
+          "@type": "DataCatalog",
+          "name": "ohdsi-gaia",
+          "@id": "https://gdsc.idsc.miami.edu/?collection=ohdsi-gaia",
+          "url": "https://gdsc.idsc.miami.edu/?collection=ohdsi-gaia"
+        }
+      ],
+      "measurementTechnique": [
+        {
+          "@type": "DefinedTerm",
+          "name": "GIS Data Structure",
+          "termCode": "vector",
+          "inDefinedTermSet": {
+            "@type": "DefinedTermSet",
+            "name": "dataRepresentation",
+            "url": "https://gdsc.idsc.miami.edu/vocab/dataRepresentation"
+          }
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "GIS Vector Geometry",
+          "termCode": "polygon",
+          "inDefinedTermSet": {
+            "@type": "DefinedTermSet",
+            "name": "vectorGeometry",
+            "url": "https://gdsc.idsc.miami.edu/vocab/vectorGeometry"
+          }
+        }
+      ],
+      "distribution": [
+        {
+          "@type": "DataDownload",
+          "name": "Source distribution",
+          "contentUrl": "https://sedac.ciesin.columbia.edu/downloads/data/sdei/sdei-annual-pm2-5-concentrations-countries-urban-areas-v1-1998-2016/sdei-annual-pm2-5-concentrations-countries-urban-areas-v1-1998-2016-urban-areas-shp.zip",
+          "encodingFormat": "application/x-shapefile"
+        }
+      ],
+      "additionalProperty": [
+        {
+          "@type": "PropertyValue",
+          "name": "postgis_table",
+          "value": "global_pm25_concentration_1998_2016"
+        }
+      ],
+      "dct:accrualPeriodicity": "as_needed",
+      "variableMeasured": [
+        {
+          "@type": "PropertyValue",
+          "name": "urbid",
+          "description": "Code of the urban extent polygons (not unique)",
+          "qudt:dataType": "xsd:integer"
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "stndrdnam",
+          "description": "Name of the Urban Extent, caps and concatenated. If the urban extent polygons include more than one settlement, the name is the settlement with the highest population",
+          "qudt:dataType": "xsd:string"
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "name",
+          "description": "Name of the Urban Extent. If the urban extents polygons include more than one settlement, the name is the settlement with the highest population",
+          "qudt:dataType": "xsd:string"
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "isourbid",
+          "description": "Unique code of the urban extent polygons, created by concatenating country ISO code and URBID",
+          "qudt:dataType": "xsd:string"
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "sqkm",
+          "description": "Area of the urban extent polygon",
+          "qudt:dataType": "xsd:integer",
+          "unitText": "square kilometer"
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "iso3",
+          "description": "3 letter country code",
+          "qudt:dataType": "xsd:string"
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "unsdcode",
+          "description": "UNSD country numerical code",
+          "qudt:dataType": "xsd:integer"
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "countryeng",
+          "description": "Country name",
+          "qudt:dataType": "xsd:string"
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "continent",
+          "description": "Continent Name",
+          "qudt:dataType": "xsd:string"
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "avpmu_1998",
+          "description": "PM2.5 Exposure for named urban areas from GRUMPv1: Urban Extent Polygons, Revision 02, from 1998. Measured in micrograms per cubic meter; blanks -9999 represent missing data",
+          "qudt:dataType": "xsd:float",
+          "unitText": "micrograms/cubic meter",
+          "unitCode": "32964",
+          "alternateName": "2052499839",
+          "additionalProperty": [
+            {
+              "@type": "PropertyValue",
+              "name": "temporal_interval",
+              "value": "1998-01-01/1998-12-31"
+            }
+          ]
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "avpmu_1999",
+          "description": "PM2.5 Exposure for named urban areas from GRUMPv1: Urban Extent Polygons, Revision 02, from 1999. Measured in micrograms per cubic meter; blanks -9999 represent missing data.",
+          "qudt:dataType": "xsd:float",
+          "unitText": "micrograms/cubic meter",
+          "unitCode": "32964",
+          "alternateName": "2052499839",
+          "additionalProperty": [
+            {
+              "@type": "PropertyValue",
+              "name": "temporal_interval",
+              "value": "1999-01-01/1999-12-31"
+            }
+          ]
+        }
+      ],
+      "temporalCoverage": "1998-01-01/1999-12-31",
+      "isAccessibleForFree": true
+    }
+  ]
+}

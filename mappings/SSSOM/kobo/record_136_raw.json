@@ -1,0 +1,211 @@
+{
+  "_id": 749576760,
+  "formhub/uuid": "e58f3baa8dbb4c7b9947756c1d1528bb",
+  "control_group/id": "136",
+  "control_group/external_id_group": [
+    {
+      "control_group/external_id_group/external_id_type": "ohdsi;5150"
+    }
+  ],
+  "dublin_core_group/title": "Annual PM2.5 Concentrations for Countries and Urban Areas, v1 (1998 – 2016)",
+  "dublin_core_group/creator_group": [
+    {
+      "dublin_core_group/creator_group/creator_name": "CIESIN - Center for International Earth Science Information Network",
+      "dublin_core_group/creator_group/creator_type": "organization",
+      "dublin_core_group/creator_group/creator_affiliation": "Columbia University"
+    }
+  ],
+  "dublin_core_group/url": "https://dataverse.harvard.edu/dataset.xhtml",
+  "dublin_core_group/doi": "10.7910/DVN/RHIFKL",
+  "dublin_core_group/publisher_group": [
+    {
+      "dublin_core_group/publisher_group/publisher_name": "University of Miami GDSC"
+    }
+  ],
+  "dublin_core_group/rights": "https://creativecommons.org",
+  "dublin_core_group/license": "cc_by",
+  "dublin_core_group/license_text": "Creative Commons Attribution 4.0 International License (CC BY 4.0)",
+  "dublin_core_group/restrictions": "Requires clear attribution of the source. Users are free to use, copy, distribute, transmit, and adapt the work for commercial and non-commercial purposes",
+  "dublin_core_group/coverage_group": [
+    {
+      "dublin_core_group/coverage_group/coverage_name": "Earth",
+      "dublin_core_group/coverage_group/coverage_identifier": "6295630",
+      "dublin_core_group/coverage_group/coverage_identifier_schema": "geonames",
+      "dublin_core_group/coverage_group/coverage_identifier_schema_uri": "https://www.geonames.org/"
+    }
+  ],
+  "dublin_core_group/relation_group": [
+    {
+      "dublin_core_group/relation_group/relation_title": "--"
+    }
+  ],
+  "dublin_core_group/resource_type": "vector_dataset",
+  "dublin_core_group/publication_date": "2021-04-06",
+  "dublin_core_group/description": "The Annual PM2.5 Concentrations for Countries and Urban Areas, 1998-2016, consists of mean concentrations of particulate matter (PM2.5) for countries and urban areas. The PM2.5 data are from the Global Annual PM2.5 Grids from MODIS, MISR and SeaWiFS Aerosol Optical Depth (AOD) with GWR, 1998-2016. The urban areas are from the Global Rural-Urban Mapping Project, Version 1 (GRUMPv1): Urban Extent Polygons, Revision 02, and its time series runs from 1998 to 2016. The country averages are population-weighted such that concentrations in populated areas count more toward the country average than concentrations in less populated areas, and its time series runs from 2008 to 2015",
+  "dublin_core_group/provenance": "Direct from source",
+  "dublin_core_group/subject_group": [
+    {
+      "dublin_core_group/subject_group/subject_term": "Global"
+    },
+    {
+      "dublin_core_group/subject_group/subject_term": "PM 2.5"
+    },
+    {
+      "dublin_core_group/subject_group/subject_term": "Air Quality"
+    }
+  ],
+  "dublin_core_group/language": "en",
+  "iso_group/structure": "vector",
+  "iso_group/geometry": "polygon",
+  "iso_group/epsg": "4326",
+  "iso_group/lineage": "TBD",
+  "iso_group/process_step": "TBD",
+  "iso_group/processor": "TBD",
+  "iso_group/data_level": "derived",
+  "cartography_group/label": "name",
+  "cartography_group/values_group": [
+    {
+      "cartography_group/values_group/value_field": "--"
+    }
+  ],
+  "cartography_group/attributes_group": [
+    {
+      "cartography_group/attributes_group/attribute_name": "urbid",
+      "cartography_group/attributes_group/attribute_description": "Code of the urban extent polygons (not unique)",
+      "cartography_group/attributes_group/attribute_source": "SEDAC",
+      "cartography_group/attributes_group/attribute_type": "integer"
+    },
+    {
+      "cartography_group/attributes_group/attribute_name": "stndrdnam",
+      "cartography_group/attributes_group/attribute_description": "Name of the Urban Extent, caps and concatenated. If the urban extent polygons include more than one settlement, the name is the settlement with the highest population",
+      "cartography_group/attributes_group/attribute_source": "SEDAC",
+      "cartography_group/attributes_group/attribute_type": "string"
+    },
+    {
+      "cartography_group/attributes_group/attribute_name": "name",
+      "cartography_group/attributes_group/attribute_description": "Name of the Urban Extent. If the urban extents polygons include more than one settlement, the name is the settlement with the highest population",
+      "cartography_group/attributes_group/attribute_source": "SEDAC",
+      "cartography_group/attributes_group/attribute_type": "string"
+    },
+    {
+      "cartography_group/attributes_group/attribute_name": "isourbid",
+      "cartography_group/attributes_group/attribute_description": "Unique code of the urban extent polygons, created by concatenating country ISO code and URBID",
+      "cartography_group/attributes_group/attribute_source": "SEDAC",
+      "cartography_group/attributes_group/attribute_type": "string"
+    },
+    {
+      "cartography_group/attributes_group/attribute_name": "sqkm",
+      "cartography_group/attributes_group/attribute_description": "Area of the urban extent polygon",
+      "cartography_group/attributes_group/attribute_source": "SEDAC",
+      "cartography_group/attributes_group/attribute_type": "integer",
+      "cartography_group/attributes_group/attribute_unit": "square kilometer"
+    },
+    {
+      "cartography_group/attributes_group/attribute_name": "iso3",
+      "cartography_group/attributes_group/attribute_description": "3 letter country code",
+      "cartography_group/attributes_group/attribute_source": "SEDAC",
+      "cartography_group/attributes_group/attribute_type": "string"
+    },
+    {
+      "cartography_group/attributes_group/attribute_name": "unsdcode",
+      "cartography_group/attributes_group/attribute_description": "UNSD country numerical code",
+      "cartography_group/attributes_group/attribute_source": "SEDAC",
+      "cartography_group/attributes_group/attribute_type": "integer"
+    },
+    {
+      "cartography_group/attributes_group/attribute_name": "countryeng",
+      "cartography_group/attributes_group/attribute_description": "Country name",
+      "cartography_group/attributes_group/attribute_source": "SEDAC",
+      "cartography_group/attributes_group/attribute_type": "string"
+    },
+    {
+      "cartography_group/attributes_group/attribute_name": "continent",
+      "cartography_group/attributes_group/attribute_description": "Continent Name",
+      "cartography_group/attributes_group/attribute_source": "SEDAC",
+      "cartography_group/attributes_group/attribute_type": "string"
+    },
+    {
+      "cartography_group/attributes_group/attribute_name": "avpmu_1998",
+      "cartography_group/attributes_group/attribute_description": "PM2.5 Exposure for named urban areas from GRUMPv1: Urban Extent Polygons, Revision 02, from 1998. Measured in micrograms per cubic meter; blanks -9999 represent missing data",
+      "cartography_group/attributes_group/attribute_source": "SEDAC",
+      "cartography_group/attributes_group/attribute_type": "numeric",
+      "cartography_group/attributes_group/attribute_unit": "micrograms/cubic meter",
+      "cartography_group/attributes_group/attribute_unit_concept_id": "32964",
+      "cartography_group/attributes_group/attribute_start_date": "1998-01-01",
+      "cartography_group/attributes_group/attribute_end_date": "1998-12-31",
+      "cartography_group/attributes_group/attribute_concept_id": "2052499839",
+      "cartography_group/attributes_group/attribute_external_id": "gaia-407"
+    },
+    {
+      "cartography_group/attributes_group/attribute_name": "avpmu_1999",
+      "cartography_group/attributes_group/attribute_description": "PM2.5 Exposure for named urban areas from GRUMPv1: Urban Extent Polygons, Revision 02, from 1999. Measured in micrograms per cubic meter; blanks -9999 represent missing data.",
+      "cartography_group/attributes_group/attribute_source": "SEDAC",
+      "cartography_group/attributes_group/attribute_type": "numeric",
+      "cartography_group/attributes_group/attribute_unit": "micrograms/cubic meter",
+      "cartography_group/attributes_group/attribute_unit_concept_id": "32964",
+      "cartography_group/attributes_group/attribute_start_date": "1999-01-01",
+      "cartography_group/attributes_group/attribute_end_date": "1999-12-31",
+      "cartography_group/attributes_group/attribute_concept_id": "2052499839",
+      "cartography_group/attributes_group/attribute_external_id": "gaia-408"
+    }
+  ],
+  "cartography_group/no_data_group": [
+    {
+      "cartography_group/no_data_group/no_data_type": "int",
+      "cartography_group/no_data_group/no_data_value": "-9999"
+    }
+  ],
+  "collection_group/collections": "mdc-health-outcomes ohdsi-gaia",
+  "collection_group/analytic_function": "gdsc_get_attributes",
+  "collection_group/analytic_epsg": "3857",
+  "collection_group/derivatives": "sql shp",
+  "collection_group/sponsor_group": [
+    {
+      "collection_group/sponsor_group/sponsor_name": "TuftsCTSI",
+      "collection_group/sponsor_group/sponsor_url": "https://www.tuftsctsi.org"
+    },
+    {
+      "collection_group/sponsor_group/sponsor_name": "IDSC",
+      "collection_group/sponsor_group/sponsor_url": "https://idsc.miami.edu"
+    },
+    {
+      "collection_group/sponsor_group/sponsor_name": "Library",
+      "collection_group/sponsor_group/sponsor_url": "https://www.library.miami.edu"
+    }
+  ],
+  "collection_group/status": "draft",
+  "collection_group/disclaimer": "no disclaimers",
+  "etl_group/service": "not_applicable",
+  "etl_group/source": "https://sedac.ciesin.columbia.edu/downloads/data/sdei/sdei-annual-pm2-5-concentrations-countries-urban-areas-v1-1998-2016/sdei-annual-pm2-5-concentrations-countries-urban-areas-v1-1998-2016-urban-areas-shp.zip",
+  "etl_group/parameters": "--",
+  "etl_group/file_name_group": [
+    {
+      "etl_group/file_name_group/file_name_value": "global_pm25_concentration_1998_2016",
+      "etl_group/file_name_group/file_inside_archive": "sdei-annual-pm2-5-concentrations-countries-urban-areas-v1-1998-2016-urban-areas"
+    }
+  ],
+  "etl_group/extension": "zip",
+  "etl_group/download": "wget",
+  "etl_group/table_name": "global_pm25_concentration_1998_2016",
+  "etl_group/format": "shp",
+  "etl_group/bash_etl": "TBD",
+  "etl_group/sql_transform": "TBD",
+  "etl_group/last_updated": "2021-04-06",
+  "etl_group/update_frequency": "as_needed",
+  "__version__": "v3FuRaaRVeGZ4Dk9fZGLWj",
+  "meta/instanceID": "uuid:312f609e-6dfb-4c62-9785-511bd6147342",
+  "_xform_id_string": "abZ7KCcdqizmhU3twbMcGF",
+  "_uuid": "312f609e-6dfb-4c62-9785-511bd6147342",
+  "meta/rootUuid": "uuid:312f609e-6dfb-4c62-9785-511bd6147342",
+  "_attachments": [],
+  "_status": "submitted_via_web",
+  "_geolocation": [
+    null,
+    null
+  ],
+  "_submission_time": "2026-05-12T07:37:55",
+  "_tags": [],
+  "_notes": [],
+  "_validation_status": {},
+  "_submitted_by": "davidamadi"
+}
