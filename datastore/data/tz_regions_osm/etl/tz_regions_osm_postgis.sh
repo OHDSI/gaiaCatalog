@@ -6,11 +6,9 @@
 # Data source: https://overpass-api.de/api/interpreter?data=rel%5B%22ISO3166-2%22~%22^TZ%22%5D%5Badmin_level=4%5D%5Btype=boundary%5D%5Bboundary=administrative%5D;(._;>;);out;
 # Destination postGIS table: tz_regions_osm
 #
-# Created by etl() on 2026-05-14 13:35:57
+# Created by etl() on 2026-05-23 15:07:19
 # Do not edit directly
 
-export PGPASSWORD=$(cat $POSTGRES_PASSWORD_FILE)
-export POSTGRES_PASSWORD=$(cat $POSTGRES_PASSWORD_FILE)
 # Select proper geometry into the named table
 psql -d $POSTGRES_DB -U $POSTGRES_USER -p $POSTGRES_PORT -h gaia-db -c "
 SELECT * INTO tz_regions_osm FROM multipolygons;

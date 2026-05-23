@@ -8,7 +8,7 @@
 ####
 
 # create directory structure and move into it
-mkdir -p /data/tz_1984_copernicus_avg_temp/{download,etl} && cd /data/tz_1984_copernicus_avg_temp
+mkdir -p /data/tz_1984_copernicus_avg_temp/download /data/tz_1984_copernicus_avg_temp/etl && cd /data/tz_1984_copernicus_avg_temp
 
 # set update flag based on last update and update frequency
 do_update=0 if date() < last_update + update_frequency else do_update = 1
@@ -32,9 +32,7 @@ rm load_raster.sql
 cd /data/tz_1984_copernicus_avg_temp/
 mkdir -p derived
 
-export PGPASSWORD=$(cat $POSTGRES_PASSWORD_FILE)
 # Move into correct directory
 cd /data/tz_1984_copernicus_avg_temp/
 
-export PGPASSWORD=$(cat $POSTGRES_PASSWORD_FILE)
 

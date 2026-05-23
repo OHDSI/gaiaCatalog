@@ -6,13 +6,11 @@
 # Data source: local file
 # Destination postGIS table: kenya_ppd_survey_2014
 #
-# Created by etl() on 2026-05-14 13:35:52
+# Created by etl() on 2026-05-23 15:07:14
 # Do not edit directly
 
-export PGPASSWORD=$(cat $POSTGRES_PASSWORD_FILE)
-export POSTGRES_PASSWORD=$(cat $POSTGRES_PASSWORD_FILE)
 # create directory structure and move into it
-mkdir -p /data/kenya_ppd_survey_2014/{download,etl} && cd /data/kenya_ppd_survey_2014
+mkdir -p /data/kenya_ppd_survey_2014/download /data/kenya_ppd_survey_2014/etl && cd /data/kenya_ppd_survey_2014
 
 # check for existence
 export TZ=EST5EDT

@@ -8,7 +8,7 @@
 ####
 
 # create directory structure and move into it
-mkdir -p /data/tt_regions/{download,etl} && cd /data/tt_regions
+mkdir -p /data/tt_regions/download /data/tt_regions/etl && cd /data/tt_regions
 
 # set update flag based on last update and update frequency
 do_update=0 if date() < last_update + update_frequency else do_update = 1

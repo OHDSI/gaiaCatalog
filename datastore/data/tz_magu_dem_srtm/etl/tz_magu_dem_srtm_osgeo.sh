@@ -6,15 +6,13 @@
 # Data source: https://e4ftl01.cr.usgs.gov/MEASURES/SRTMGL1.003/2000.02.11/
 # Destination postGIS table: tz_magu_dem_srtm
 #
-# Created by etl() on 2026-05-14 13:35:56
+# Created by etl() on 2026-05-23 15:07:18
 # Do not edit directly
 
-export PGPASSWORD=$(cat $POSTGRES_PASSWORD_FILE)
-export POSTGRES_PASSWORD=$(cat $POSTGRES_PASSWORD_FILE)
 export USGS_USER=$(cat $USGS_USER_FILE)
 export USGS_PASSWORD=$(cat $USGS_PASSWORD_FILE)
 # create directory structure and move into it
-mkdir -p /data/tz_magu_dem_srtm/{download,etl} && cd /data/tz_magu_dem_srtm
+mkdir -p /data/tz_magu_dem_srtm/download /data/tz_magu_dem_srtm/etl && cd /data/tz_magu_dem_srtm
 
 # check for existence
 export TZ=EST5EDT

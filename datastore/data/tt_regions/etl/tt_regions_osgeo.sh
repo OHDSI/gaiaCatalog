@@ -6,13 +6,11 @@
 # Data source: https://overpass-api.de/api/interpreter?data=rel%5B%22ISO3166-2%22~%22^TT%22%5D%5Badmin_level=4%5D%5Btype=boundary%5D%5Bboundary=administrative%5D;(._;>;);out;
 # Destination postGIS table: tt_regions
 #
-# Created by etl() on 2026-05-14 13:35:55
+# Created by etl() on 2026-05-23 15:07:16
 # Do not edit directly
 
-export PGPASSWORD=$(cat $POSTGRES_PASSWORD_FILE)
-export POSTGRES_PASSWORD=$(cat $POSTGRES_PASSWORD_FILE)
 # create directory structure and move into it
-mkdir -p /data/tt_regions/{download,etl} && cd /data/tt_regions
+mkdir -p /data/tt_regions/download /data/tt_regions/etl && cd /data/tt_regions
 
 # check for existence
 export TZ=EST5EDT

@@ -6,13 +6,12 @@
 # Data source: https://svi.cdc.gov/Documents/Data/2018/db/states_counties/SVI_2018_US_county.zip
 # Destination postGIS table: us_2018_svi_county
 #
-# Created by etl() on 2026-05-14 13:35:58
+# Created by etl() on 2026-05-23 15:07:19
 # Do not edit directly
 
 # Move into correct directory
 cd /data/us_2018_svi_county/
 
-export PGPASSWORD=$(cat $POSTGRES_PASSWORD_FILE)
 # Create pg_dump of table SQL in derivate directory on postgis.
 pg_dump -d $POSTGRES_DB -U $POSTGRES_USER -p $POSTGRES_PORT -h gaia-db -t us_2018_svi_county > derived/us_2018_svi_county.sql
 

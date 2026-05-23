@@ -6,13 +6,11 @@
 # Data source: https://svi.cdc.gov/Documents/Data/2020/db/states/Massachusetts.zip
 # Destination postGIS table: ma_2020_svi_tract
 #
-# Created by etl() on 2026-05-14 13:41:08
+# Created by etl() on 2026-05-23 15:07:15
 # Do not edit directly
 
-export PGPASSWORD=$(cat $POSTGRES_PASSWORD_FILE)
-export POSTGRES_PASSWORD=$(cat $POSTGRES_PASSWORD_FILE)
 # create directory structure and move into it
-mkdir -p /data/ma_2020_svi_tract/{download,etl} && cd /data/ma_2020_svi_tract
+mkdir -p /data/ma_2020_svi_tract/download /data/ma_2020_svi_tract/etl && cd /data/ma_2020_svi_tract
 
 # check for existence
 export TZ=EST5EDT

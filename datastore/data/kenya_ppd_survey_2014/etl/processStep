@@ -8,7 +8,7 @@
 ####
 
 # create directory structure and move into it
-mkdir -p /data/kenya_ppd_survey_2014/{download,etl} && cd /data/kenya_ppd_survey_2014
+mkdir -p /data/kenya_ppd_survey_2014/download /data/kenya_ppd_survey_2014/etl && cd /data/kenya_ppd_survey_2014
 
 # set update flag based on last update and update frequency
 do_update=0 if date() < last_update + update_frequency else do_update = 1

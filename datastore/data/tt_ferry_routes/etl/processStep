@@ -8,7 +8,7 @@
 ####
 
 # create directory structure and move into it
-mkdir -p /data/tt_ferry_routes/{download,etl} && cd /data/tt_ferry_routes
+mkdir -p /data/tt_ferry_routes/download /data/tt_ferry_routes/etl && cd /data/tt_ferry_routes
 
 # set update flag based on last update and update frequency
 do_update=0 if date() < last_update + update_frequency else do_update = 1

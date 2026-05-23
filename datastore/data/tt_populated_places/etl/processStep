@@ -8,7 +8,7 @@
 ####
 
 # create directory structure and move into it
-mkdir -p /data/tt_populated_places/{download,etl} && cd /data/tt_populated_places
+mkdir -p /data/tt_populated_places/download /data/tt_populated_places/etl && cd /data/tt_populated_places
 
 # set update flag based on last update and update frequency
 do_update=0 if date() < last_update + update_frequency else do_update = 1

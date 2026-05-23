@@ -8,7 +8,7 @@
 ####
 
 # create directory structure and move into it
-mkdir -p /data/tz_2022_nbs/{download,tz_2022_nbs_districts/etl} && cd /data/tz_2022_nbs
+mkdir -p /data/tz_2022_nbs/download /data/tz_2022_nbs/tz_2022_nbs_districts/etl && cd /data/tz_2022_nbs
 
 # set update flag based on last update and update frequency
 do_update=0 if date() < last_update + update_frequency else do_update = 1
@@ -50,7 +50,6 @@ NOTIFY pgrst, 'reload schema';
 cd /data/tz_2022_nbs/tz_2022_nbs_districts/
 mkdir -p derived
 
-export PGPASSWORD=$(cat $POSTGRES_PASSWORD_FILE)
 # Create shapefile of table in derivate directory on osgeo 
 ogr2ogr -f "ESRI Shapefile" -overwrite derived/tz_2022_nbs_districts.shp PG:"<postgres connection>" tz_2022_nbs_districts
 
@@ -61,5 +60,4 @@ tar -czf derived/tz_2022_nbs_districts.shp.tar.gz meta_dcat_tz_2022_nbs_district
 # Move into correct directory
 cd /data/tz_2022_nbs/tz_2022_nbs_districts/
 
-export PGPASSWORD=$(cat $POSTGRES_PASSWORD_FILE)
 
