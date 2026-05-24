@@ -24,7 +24,7 @@ This repository has two principal components:
 - a catalog comprised of metadata descriptions for GIS datasets
 - two docker build specifications to provide a SOLR index of the catalog entries and a user interface to the index.
 
-**NOTE**: This is not a standalone tool. Please see the [gaiaDB repository](https://github.com/OHDSI/gaiaDB) for integration into the gaiaDB project and the  [gaiaDocker repository](https://github.com/OHDSI/gaiaDocker) for the integration into a browser-based exploration and ingestion tool.d
+**NOTE**: This is not a standalone tool. Please see the [gaiaDB repository](https://github.com/OHDSI/gaiaDB) for integration into the gaiaDB project and the  [gaiaDocker repository](https://github.com/OHDSI/gaiaDocker) for the integration into a browser-based exploration and ingestion tool.
 
 This repository contains:  
 
