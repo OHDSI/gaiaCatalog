@@ -8,7 +8,9 @@
 ####
 
 # create directory structure and move into it
-mkdir -p /data/tz_regions_osm/download /data/tz_regions_osm/etl && cd /data/tz_regions_osm
+mkdir -p /data/tz_regions_osm/download -p /data/tz_regions_osm/etl
+chmod 777 /data/tz_regions_osm/download
+cd /data/tz_regions_osm
 
 # set update flag based on last update and update frequency
 do_update=0 if date() < last_update + update_frequency else do_update = 1

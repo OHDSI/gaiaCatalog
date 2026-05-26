@@ -6,11 +6,13 @@
 # Data source: local file
 # Destination postGIS table: kenya_ppd_survey_2014
 #
-# Created by etl() on 2026-05-23 15:07:14
+# Created by etl() on 2026-05-26 12:19:18
 # Do not edit directly
 
 # create directory structure and move into it
-mkdir -p /data/kenya_ppd_survey_2014/download /data/kenya_ppd_survey_2014/etl && cd /data/kenya_ppd_survey_2014
+mkdir -p /data/kenya_ppd_survey_2014/download -p /data/kenya_ppd_survey_2014/etl
+chmod 777 /data/kenya_ppd_survey_2014/download
+cd /data/kenya_ppd_survey_2014
 
 # check for existence
 export TZ=EST5EDT

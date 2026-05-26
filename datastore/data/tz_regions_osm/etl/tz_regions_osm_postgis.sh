@@ -6,7 +6,7 @@
 # Data source: https://overpass-api.de/api/interpreter?data=rel%5B%22ISO3166-2%22~%22^TZ%22%5D%5Badmin_level=4%5D%5Btype=boundary%5D%5Bboundary=administrative%5D;(._;>;);out;
 # Destination postGIS table: tz_regions_osm
 #
-# Created by etl() on 2026-05-23 15:07:19
+# Created by etl() on 2026-05-26 12:19:32
 # Do not edit directly
 
 # Select proper geometry into the named table

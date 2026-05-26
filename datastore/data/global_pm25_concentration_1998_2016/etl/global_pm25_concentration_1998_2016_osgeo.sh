@@ -6,11 +6,13 @@
 # Data source: https://sedac.ciesin.columbia.edu/downloads/data/sdei/sdei-annual-pm2-5-concentrations-countries-urban-areas-v1-1998-2016/sdei-annual-pm2-5-concentrations-countries-urban-areas-v1-1998-2016-urban-areas-shp.zip
 # Destination postGIS table: global_pm25_concentration_1998_2016
 #
-# Created by etl() on 2026-05-23 15:07:14
+# Created by etl() on 2026-05-26 12:19:17
 # Do not edit directly
 
 # create directory structure and move into it
-mkdir -p /data/global_pm25_concentration_1998_2016/download /data/global_pm25_concentration_1998_2016/etl && cd /data/global_pm25_concentration_1998_2016
+mkdir -p /data/global_pm25_concentration_1998_2016/download -p /data/global_pm25_concentration_1998_2016/etl
+chmod 777 /data/global_pm25_concentration_1998_2016/download
+cd /data/global_pm25_concentration_1998_2016
 
 # check for existence
 export TZ=EST5EDT

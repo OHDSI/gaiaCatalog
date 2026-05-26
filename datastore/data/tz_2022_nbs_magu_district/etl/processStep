@@ -8,7 +8,9 @@
 ####
 
 # create directory structure and move into it
-mkdir -p /data/tz_2022_nbs_magu_district/download /data/tz_2022_nbs_magu_district/etl && cd /data/tz_2022_nbs_magu_district
+mkdir -p /data/tz_2022_nbs_magu_district/download -p /data/tz_2022_nbs_magu_district/etl
+chmod 777 /data/tz_2022_nbs_magu_district/download
+cd /data/tz_2022_nbs_magu_district
 
 # set update flag based on last update and update frequency
 do_update=0 if date() < last_update + update_frequency else do_update = 1
@@ -16,7 +18,7 @@ do_update=0 if date() < last_update + update_frequency else do_update = 1
 # load tz_2022_nbs_districts as dependency (see tz_2022_nbs_districts for details).
 
 # Create copy of geom dependency
-pg_dump -d $POSTGRES_DB -U $POSTGRES_USER -p $POSTGRES_PORT -h None -t tz_2022_nbs_districts | sed 's/tz_2022_nbs_districts/tz_2022_nbs_magu_district/g' | psql -d $POSTGRES_DB -U $POSTGRES_USER -p $POSTGRES_PORT -h gaia-db 
+pg_dump -d $POSTGRES_DB -U $POSTGRES_USER -p $POSTGRES_PORT -h gaia-db -t tz_2022_nbs_districts | sed 's/tz_2022_nbs_districts/tz_2022_nbs_magu_district/g' | psql -d $POSTGRES_DB -U $POSTGRES_USER -p $POSTGRES_PORT -h gaia-db 
 
 # drop geom_local and subset as per custom parameters
 psql -d $POSTGRES_DB -U $POSTGRES_USER -p $POSTGRES_PORT -h gaia-db -c "

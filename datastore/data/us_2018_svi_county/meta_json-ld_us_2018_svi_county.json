@@ -47,14 +47,6 @@
       "@id": "https://www.geonames.org/6252001",
       "@type": "Place",
       "name": "United States"
-    },
-    {
-      "@type": "Place",
-      "name": "bbox",
-      "geo": {
-        "@type": "GeoShape",
-        "polygon": "-179.148909 18.910361 179.778470 18.910361 179.778470 71.365162 -179.148909 71.365162 -179.148909 18.910361"
-      }
     }
   ],
   "type": "Vector Dataset",
@@ -1369,5 +1361,5 @@
     "https://gdsc.idsc.miami.edu/download/data/us_2018_svi_county/?file=us_2018_svi_county&format=sql"
   ],
   "dateModified": "2022-02-08",
-  "version": "2026-05-23"
+  "version": "2026-05-26"
 }

@@ -6,11 +6,13 @@
 # Data source: https://overpass-api.de/api/interpreter?data=area%28id:3600195270%29-%3E.searchArea;node%5B%22place%22~%22city|town|village|hamlet%22%5D%28area.searchArea%29;%28._;%3E;%29;out;
 # Destination postGIS table: tz_populated_places_osm
 #
-# Created by etl() on 2026-05-23 15:07:19
+# Created by etl() on 2026-05-26 12:19:31
 # Do not edit directly
 
 # create directory structure and move into it
-mkdir -p /data/tz_populated_places_osm/download /data/tz_populated_places_osm/etl && cd /data/tz_populated_places_osm
+mkdir -p /data/tz_populated_places_osm/download -p /data/tz_populated_places_osm/etl
+chmod 777 /data/tz_populated_places_osm/download
+cd /data/tz_populated_places_osm
 
 # check for existence
 export TZ=EST5EDT

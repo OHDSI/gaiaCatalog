@@ -6,11 +6,13 @@
 # Data source: https://github.com/tibbben/copernicus_aggregate.git
 # Destination postGIS table: tz_1984_copernicus_avg_temp
 #
-# Created by etl() on 2026-05-23 15:07:17
+# Created by etl() on 2026-05-26 12:19:25
 # Do not edit directly
 
 # create directory structure and move into it
-mkdir -p /data/tz_1984_copernicus_avg_temp/download /data/tz_1984_copernicus_avg_temp/etl && cd /data/tz_1984_copernicus_avg_temp
+mkdir -p /data/tz_1984_copernicus_avg_temp/download -p /data/tz_1984_copernicus_avg_temp/etl
+chmod 777 /data/tz_1984_copernicus_avg_temp/download
+cd /data/tz_1984_copernicus_avg_temp
 
 # check for existence
 export TZ=EST5EDT

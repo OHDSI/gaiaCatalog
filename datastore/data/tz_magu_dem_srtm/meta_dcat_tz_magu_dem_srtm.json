@@ -15,7 +15,7 @@
   "dcat:spatialResolutionInMeters": 30.0,
   "dct:conformsTo": "EPSG:4326",
   "dcat:bbox": "POLYGON((32.750139 -3.089861, 34.039861 -3.089861, 34.039861 -2.130139, 32.750139 -2.130139, 32.750139 -3.089861))",
-  "prov:action": "#########\n# GDSC ETL is performed in two steps: shell script to ETL data into postgres\n# and then additional transformations with SQL in postGIS (if needed).\n####\n\n#########\n# Step 1 - bash script (pseudo code)\n####\n\n# create directory structure and move into it\nmkdir -p /data/tz_magu_dem_srtm/download /data/tz_magu_dem_srtm/etl && cd /data/tz_magu_dem_srtm\n\n# set update flag based on last update and update frequency\ndo_update=0 if date() < last_update + update_frequency else do_update = 1\n\n# load raster into postGIS with:\n    raster2pgsql -s 4326 -d -C -I -t auto tz_magu_dem_srtm.tif -F tz_magu_dem_srtm > load_raster.sql\npsql <connection options> < load_raster.sql\nrm load_raster.sql\n\n# render raster tiles \ncd /data/tz_magu_dem_srtm/\ngdal2tiles.py -ex --xyz -z 14-18 /data/tz_magu_dem_srtm/download/tz_magu_dem_srtm.tif /tiles/raster/tz_magu_dem_srtm\n# Move into corrrect directory and create derivative directory in data package on osgeo\ncd /data/tz_magu_dem_srtm/\nmkdir -p derived\n\n# Move into correct directory\ncd /data/tz_magu_dem_srtm/\n\n",
+  "prov:action": "#########\n# GDSC ETL is performed in two steps: shell script to ETL data into postgres\n# and then additional transformations with SQL in postGIS (if needed).\n####\n\n#########\n# Step 1 - bash script (pseudo code)\n####\n\n# create directory structure and move into it\nmkdir -p /data/tz_magu_dem_srtm/download -p /data/tz_magu_dem_srtm/etl\nchmod 777 /data/tz_magu_dem_srtm/download\ncd /data/tz_magu_dem_srtm\n\n# set update flag based on last update and update frequency\ndo_update=0 if date() < last_update + update_frequency else do_update = 1\n\n# load raster into postGIS with:\n    raster2pgsql -s 4326 -d -C -I -t auto tz_magu_dem_srtm.tif -F tz_magu_dem_srtm > load_raster.sql\npsql <connection options> < load_raster.sql\nrm load_raster.sql\n\n# render raster tiles \ncd /data/tz_magu_dem_srtm/\ngdal2tiles.py -ex --xyz -z 14-18 /data/tz_magu_dem_srtm/download/tz_magu_dem_srtm.tif /tiles/raster/tz_magu_dem_srtm\n# Move into corrrect directory and create derivative directory in data package on osgeo\ncd /data/tz_magu_dem_srtm/\nmkdir -p derived\n\n# Move into correct directory\ncd /data/tz_magu_dem_srtm/\n\n",
   "prov:wasGeneratedBy": "GDSC automation (see Process Step)",
   "dcat:contactPoint": ["Timothy Norris", "Librarian Associate Professor", "University of Miami Libraries, Frost Institute for Data Science and Computing", "txn60@miami.edu"],
   "gdsc:attributes": ["elevation;Mean elevation above sea level;NASA JPL;float;meters\n"],
@@ -31,7 +31,7 @@
   "gdsc:podID": "gaia-db",
   "dct:modified": "0001-01-01T00:00:00Z",
   "dct:accrualPeriodicity": "As Needed",
-  "gdsc:version": "2026-05-23T16:07:18Z",
+  "gdsc:version": "2026-05-26T13:19:30Z",
   "spdx:checksum": "TBD",
-  "dct:extent": ["498902627", "476M"]
+  "dct:extent": ["498902218", "476M"]
 }

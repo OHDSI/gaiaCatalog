@@ -6,11 +6,13 @@
 # Data source: https://microdata.nbs.go.tz/index.php/catalog/49/download/317
 # Destination postGIS table: tz_2022_nbs_districts
 #
-# Created by etl() on 2026-05-23 15:07:17
+# Created by etl() on 2026-05-26 12:19:27
 # Do not edit directly
 
 # create directory structure and move into it
-mkdir -p /data/tz_2022_nbs/download /data/tz_2022_nbs/tz_2022_nbs_districts/etl && cd /data/tz_2022_nbs
+mkdir -p /data/tz_2022_nbs/download -p /data/tz_2022_nbs/tz_2022_nbs_districts/etl
+chmod 777 /data/tz_2022_nbs/download
+cd /data/tz_2022_nbs
 
 # check for existence
 export TZ=EST5EDT

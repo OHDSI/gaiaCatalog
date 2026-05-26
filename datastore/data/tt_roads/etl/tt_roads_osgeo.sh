@@ -6,11 +6,13 @@
 # Data source: https://overpass-api.de/api/interpreter?data=way%5B%22highway%22~%22secondary|primary%22%5D(area:3600555717);(._;>;);out;
 # Destination postGIS table: tt_roads
 #
-# Created by etl() on 2026-05-23 15:07:17
+# Created by etl() on 2026-05-26 12:19:24
 # Do not edit directly
 
 # create directory structure and move into it
-mkdir -p /data/tt_roads/download /data/tt_roads/etl && cd /data/tt_roads
+mkdir -p /data/tt_roads/download -p /data/tt_roads/etl
+chmod 777 /data/tt_roads/download
+cd /data/tt_roads
 
 # check for existence
 export TZ=EST5EDT

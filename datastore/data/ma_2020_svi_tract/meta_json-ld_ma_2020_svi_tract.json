@@ -47,14 +47,6 @@
       "@id": "https://www.geonames.org/6254926",
       "@type": "Place",
       "name": "Massachusetts"
-    },
-    {
-      "@type": "Place",
-      "name": "bbox",
-      "geo": {
-        "@type": "GeoShape",
-        "polygon": "-73.508142 41.237964 -69.928393 41.237964 -69.928393 42.886589 -73.508142 42.886589 -73.508142 41.237964"
-      }
     }
   ],
   "type": "Vector Dataset",
@@ -1714,5 +1706,5 @@
     "https://gdsc.idsc.miami.edu/download/data/ma_2020_svi_tract/?file=ma_2020_svi_tract&format=sql"
   ],
   "dateModified": "2022-02-08",
-  "version": "2026-05-23"
+  "version": "2026-05-26"
 }

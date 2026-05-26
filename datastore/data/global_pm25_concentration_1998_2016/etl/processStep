@@ -8,7 +8,9 @@
 ####
 
 # create directory structure and move into it
-mkdir -p /data/global_pm25_concentration_1998_2016/download /data/global_pm25_concentration_1998_2016/etl && cd /data/global_pm25_concentration_1998_2016
+mkdir -p /data/global_pm25_concentration_1998_2016/download -p /data/global_pm25_concentration_1998_2016/etl
+chmod 777 /data/global_pm25_concentration_1998_2016/download
+cd /data/global_pm25_concentration_1998_2016
 
 # set update flag based on last update and update frequency
 do_update=0 if date() < last_update + update_frequency else do_update = 1

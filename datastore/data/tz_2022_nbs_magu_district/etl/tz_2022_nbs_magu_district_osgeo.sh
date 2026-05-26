@@ -6,11 +6,13 @@
 # Data source: tz_2022_nbs_districts
 # Destination postGIS table: tz_2022_nbs_magu_district
 #
-# Created by etl() on 2026-05-23 15:07:18
+# Created by etl() on 2026-05-26 12:19:29
 # Do not edit directly
 
 # create directory structure and move into it
-mkdir -p /data/tz_2022_nbs_magu_district/download /data/tz_2022_nbs_magu_district/etl && cd /data/tz_2022_nbs_magu_district
+mkdir -p /data/tz_2022_nbs_magu_district/download -p /data/tz_2022_nbs_magu_district/etl
+chmod 777 /data/tz_2022_nbs_magu_district/download
+cd /data/tz_2022_nbs_magu_district
 
 # check for existence
 export TZ=EST5EDT

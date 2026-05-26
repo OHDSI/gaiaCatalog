@@ -6,7 +6,7 @@
 # Data source: https://microdata.nbs.go.tz/index.php/catalog/49/download/317
 # Destination postGIS table: tz_2022_nbs_districts
 #
-# Created by etl() on 2026-05-23 15:07:17
+# Created by etl() on 2026-05-26 12:19:27
 # Do not edit directly
 
 # Move into corrrect directory and create derivative directory in data package on osgeo

@@ -6,11 +6,11 @@
 # Data source: tz_2022_nbs_districts
 # Destination postGIS table: tz_2022_nbs_magu_district
 #
-# Created by etl() on 2026-05-23 15:07:18
+# Created by etl() on 2026-05-26 12:19:29
 # Do not edit directly
 
 # Create copy of geom dependency
-pg_dump -d $POSTGRES_DB -U $POSTGRES_USER -p $POSTGRES_PORT -h None -t tz_2022_nbs_districts | sed 's/tz_2022_nbs_districts/tz_2022_nbs_magu_district/g' | psql -d $POSTGRES_DB -U $POSTGRES_USER -p $POSTGRES_PORT -h gaia-db 
+pg_dump -d $POSTGRES_DB -U $POSTGRES_USER -p $POSTGRES_PORT -h gaia-db -t tz_2022_nbs_districts | sed 's/tz_2022_nbs_districts/tz_2022_nbs_magu_district/g' | psql -d $POSTGRES_DB -U $POSTGRES_USER -p $POSTGRES_PORT -h gaia-db 
 
 # drop geom_local and subset as per custom parameters
 psql -d $POSTGRES_DB -U $POSTGRES_USER -p $POSTGRES_PORT -h gaia-db -c "

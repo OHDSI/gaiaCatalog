@@ -6,11 +6,13 @@
 # Data source: https://svi.cdc.gov/Documents/Data/2022/db/states/Massachusetts.zip
 # Destination postGIS table: ma_2022_svi_tract
 #
-# Created by etl() on 2026-05-23 15:07:15
+# Created by etl() on 2026-05-26 12:19:20
 # Do not edit directly
 
 # create directory structure and move into it
-mkdir -p /data/ma_2022_svi_tract/download /data/ma_2022_svi_tract/etl && cd /data/ma_2022_svi_tract
+mkdir -p /data/ma_2022_svi_tract/download -p /data/ma_2022_svi_tract/etl
+chmod 777 /data/ma_2022_svi_tract/download
+cd /data/ma_2022_svi_tract
 
 # check for existence
 export TZ=EST5EDT

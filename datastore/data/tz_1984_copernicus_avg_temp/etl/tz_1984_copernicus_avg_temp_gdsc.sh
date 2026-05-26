@@ -6,7 +6,7 @@
 # Data source: https://github.com/tibbben/copernicus_aggregate.git
 # Destination postGIS table: tz_1984_copernicus_avg_temp
 #
-# Created by etl() on 2026-05-23 15:07:17
+# Created by etl() on 2026-05-26 12:19:25
 # Do not edit directly
 
 cd /data/tz_1984_copernicus_avg_temp/scripts
