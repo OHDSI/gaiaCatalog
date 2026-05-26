@@ -45,7 +45,7 @@
             <input type="hidden" id="collection" name="collection" value="{{ referrer.collection }}">
             <input type="hidden" id="searchTerm" name="searchTerm" value="{{ referrer.query if (referrer.query != "" and referrer.query != None) else "" }}">
           </form>
-          <a href="/">gdsc</a>
+          <a href="/">gaia catalog</a>
           {% if referrer.query != "" and referrer.query != None and referrer.query != "None" %}
           &nbsp;>&nbsp;<a href="#" onclick="javascript:document.getElementById('filterForm').submit();">search [{{ referrer.query }}]
           {% endif %}</a>
@@ -55,7 +55,7 @@
           <div class="row">
             <div class="col-md-7 align-top">
               <h4 class="float-left">{% if document['dct_title'] %}{{ document['dct_title'][0] }}{% endif %}
-                <div class="float-left circle {{ 'green-fill' if document['gdsc_up'][0] or document['gdsc_tileUrl'] else 'red-fill' }}"></div>
+                <div id="layer-{{ document['gdsc_tablename'][0] }}" class="float-left circle {{ 'green-fill' if document['gdsc_tablename'][0] in loaded_tables or document['gdsc_tileUrl'] else 'red-fill' }}"></div>
               </h4>
             </div>
             <div class="col-md-5 align-top">

@@ -15,4 +15,4 @@ COPY --chown=solr --chmod=0500 ./docker/solr/init.sh /init.sh
 
 USER solr
 
-ENTRYPOINT /init.sh
+ENTRYPOINT ["/init.sh"]

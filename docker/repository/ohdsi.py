@@ -1,6 +1,7 @@
-from flask import Flask, render_template, request, send_from_directory
+from flask import Flask, Response, render_template, request, send_from_directory, url_for, make_response
 from urllib.request import urlopen
 from urllib.request import Request
+from urllib import error
 from urllib.parse import urlencode
 from os import getenv
 from json import loads, dumps
@@ -16,6 +17,50 @@ import json
 app = Flask(__name__)
 log = logging.getLogger('werkzeug')
 log.disabled = True
+
+##
+ # Globals
+ ##
+
+# set CONSTANTS
+BASE_PATH='http://gaia-solr:8983/solr/dcat/select?wt=json&'
+SNIP_LENGTH = 180
+QUERY_FIELDS = ['gdsc_collections','dct_title','dcat_keyword','dct_description','gdsc_attributes']
+DEFAULT_ROWS = 10
+DEBUG = False
+
+FILTER_SPECS = {
+    "collections": {
+        "field": "gdsc_collections_str",
+        "facet_name": "possible_collections",
+        "frontend_name": "Collections"
+    },
+    "keyword": {
+        "field": "dcat_keyword_str",
+        "facet_name": "possible_keywords",
+        "frontend_name": "Keywords"
+    },
+    "geometry": {
+        "field": "locn_geometry_str",
+        "facet_name": "possible_geometries",
+        "frontend_name": "Geometry"
+    },
+    "representation": {
+        "field": "adms_representationTechnique_str",
+        "facet_name": "possible_representations",
+        "frontend_name": "Representation"
+    }#,
+#    "right": {
+#        "field": "dct_rights_str",
+#        "facet_name": "possible_rights",
+#        "frontend_name": "Rights"
+#    },
+#    "active": {
+#        "field": "gdsc_up",
+#        "facet_name": "possible_activity",
+#        "frontend_name": "Running"
+#    }
+}
 
 # get ENV variables
 X_API_KEY_FILE = getenv('GAIA_X_API_KEY_FILE')
@@ -46,6 +91,7 @@ apis = {
         "shell": "bash"   
     }
 }
+api_call_order = ["git","gdsc","osgeo","postgis"]
 
 # define headers for different API flavors
 headers = {
@@ -60,20 +106,23 @@ headers = {
     "gaia-pg": {}
 }
 
-# set CONSTANTS
-BASE_PATH='http://gaia-solr:8983/solr/dcat/select?wt=json&'
-SNIP_LENGTH = 180
-QUERY_FIELDS = ['gdsc_collections','dct_title','dcat_keyword','dct_description','gdsc_attributes']
-
 
 ##
  # helper functions for communication and formatting
  ##
 
 
-def call_etl_api(api,func,params):
+def call_etl_api(api: str, func: str, params: dict) -> list:
     """
-    call api on ETL containers
+    py:function:: call_etl_api(api, func, params)
+
+    call api on ETL containers to run func with provided parameters
+
+    :param str api: the api to call
+    :param str func: the function to request on the specified api
+    :param dict params: the parameters to pass to the function
+    :return: a list of the results
+    :rtype: list
     """
 
     # build payload according to api type
@@ -102,11 +151,17 @@ def call_etl_api(api,func,params):
     return output['res'] if GAIA_CATALOG_FLAVOR == "gdsc-api" else output
 
 
-def get_layer_meta(layer_id):
+def get_layer_meta(layer_id: str) -> dict:
     """
-    get SOLR data for one layer
+    py:function:: get_layer_meta(layer_id)
+
+    get SOLR dcat data for one layer
+
+    :param str layer_id: the identifier for the layer
+    :return: the dcat metadata for the layer
+    :rtype: dict
     """
-get
+
     query_parameters = {"q": "gdsc_tablename:" + layer_id}
     query_string  = urlencode(query_parameters)
     connection = urlopen("{}{}".format(BASE_PATH, query_string))
@@ -116,29 +171,55 @@ get
     return document
     
 
-def query_solr(path,parameters):
+def query_solr(path: str, parameters: dict, facet_field: str = None) -> tuple:
     """
-    query solr api
+    py:function:: query_solr(path, parameters)
+
+    Query the SOLR API with an index for the catalog or collections.
+
+    :param str path: the base url for the SOLR API
+    :param dict parameters: the query parameters
+    :param facet_field: optional field for which to get all possible options for froma all documents, if unspecified, query normally
+    :return: the query results, the number of results
+    :rtype: tuple
     """
-    numresults = 1
-    results = []
-    # send query to SOLR and gather paged results
-    # parameters['q'] = parameters['q'].replace(' ','+')
-    query_string  = urlencode(parameters).replace('-','+')
-    while numresults > len(results):
-        connection = urlopen("{}{}".format(path, query_string))
-        response = simplejson.load(connection)
-        numresults = response['response']['numFound']
-        results = response['response']['docs']
-        parameters["rows"] = numresults
-        query_string  = urlencode(parameters).replace('-','+')
-    if results == None: results = []
+
+    # Build the query string and url
+    query_string = urlencode(parameters)
+    url = f"{path}{query_string}"
+
+    # Send the request
+    try:
+        with urlopen(url) as connection:
+            response = simplejson.load(connection)
+    except Exception as e:
+        print(f"Error querying SOLR: {e}")
+        return [], 0
+
+    # Extract results
+    if facet_field != None:
+        if DEBUG: print('getting facets:')
+        results = response.get('facet_counts', {}).get('facet_fields', {}).get(facet_field, [])
+        numresults = len(results)
+    else:
+        if DEBUG: print('getting datasets:')
+        numresults = response.get('response', {}).get('numFound', 0)
+        results = response.get('response', {}).get('docs', [])
+
+    if DEBUG: print(url)
     return results, numresults
 
 
-def highlight_query(document,query):
+def highlight_query(document: dict, query: str) -> dict:
     """
-    highlight found instances of query in document metadata
+    py:function:: highlight_query(document, query)
+
+    Highlight the query text in the given document.
+
+    :param dict document: the document metadata
+    :param str query: string to highlight in the document
+    :return: the document metadata with css class elements added to html content in dict entries found in QUERY_FIELDS
+    :rtype: dict
     """
 
     def add_tags(string_value,query):
@@ -172,99 +253,282 @@ def highlight_query(document,query):
     return document
 
 
+def build_citation(document: dict, type: str) -> str:
+    """
+    py:function:: build_citation(document, type)
+
+    Create a formatted citation string for the document in the given format type.
+
+    :param dict document: the document metadata
+    :param str type: the format type ["bibtex", "ris"]
+    :return: the formatted citation
+    :rtype: str
+    """
+
+    cite_formats = {
+        "formatters": {
+            "bibtex": {
+                "begin": "@misc{",
+                "indent": "  ",
+                "seperator": " = ",
+                "quote_start": "{",
+                "quote_end": "}",
+                "line_seperator": ",",
+                "end": "}"
+            },
+            "ris": {
+                "begin": "TY  - DATA\n",
+                "indent": "",
+                "seperator": "  - ",
+                "quote_start": "",
+                "quote_end": "",
+                "line_seperator": "",
+                "end": "ER  - \n\n"
+            }
+        },
+        "extension": {
+            "bibtex": "bib",
+            "ris": "ris"
+        },
+        "fields" : {
+            "dct_creator": {
+                "type": "list",
+                "bibtex": "author",
+                "ris": "AU"
+            },
+            "dct_issued": {
+                "type": "date",
+                "bibtex": "year",
+                "ris": "PY"
+            },
+            "dct_title": {
+                "type": "single",
+                "bibtex": "title",
+                "ris": "TI"
+            },
+            "dct_publisher": {
+                "type": "single",
+                "bibtex": "publisher",
+                "ris": "PB"
+            },
+            "dct_identifier": {
+                "type": "single",
+                "bibtex": "url",
+                "ris": "UR"
+            },
+            "dcat_keyword": {
+                "type": "list",
+                "bibtex": "keywords",
+                "ris": "KW"
+            },
+            "dct_modified": {
+                "type": "date",
+                "bibtex": "timestamp",
+                "ris": "Y2"
+            },
+            "dct_language": {
+                "type": "single",
+                "bibtex": "language",
+                "ris": "LA"
+            },
+            "gdsc_version": {
+                "type": "single",
+                "ris": "WV"
+            },
+            "gdsc_collections": {
+                "type": "single",
+                "ris": "T3"
+            }
+        }
+    }
+
+    def build_element(field,value):
+        return (
+            f"{formatters['indent']}{field}{formatters['seperator']}"
+            f"{formatters['quote_start']}{value}{formatters['quote_end']}"
+            f"{formatters['line_seperator']}\n"
+        )
+
+    formatters = cite_formats['formatters'][type]
+    entry = formatters['begin']
+    if type == "bibtex":
+        entry += f"{document['gdsc_tablename'][0]}\n" or "citation\n"
+
+    formatters = cite_formats['formatters'][type]
+    # looped citation body construction
+    for dc_term in cite_formats['fields']:
+        field = cite_formats['fields'][dc_term]
+        if type in field:
+            if dc_term in document:
+                val = document[dc_term]       
+                if field['type'] in ["single", "date"]:
+                    if dc_term in ["dct_issued"]: val[0] = val[0][:4]
+                    if dc_term in ["dct_modified"]: val[0] = val[0].split('T')[0]    
+                    entry += build_element(field[type],val[0])
+                elif field['type'] == "list":
+                    for item in val:
+                        entry += build_element(field[type],item.split(";")[0])
+
+    entry += formatters['end']
+    return entry
+
+
+def fetch_facets(field: str, query: str, fq: str) -> tuple:
+    """
+    py:function:: fetch_facets(field: str, query: str, fq: str) -> tuple
+
+    Fetch the facets from SOLR for a given field and return a tuple with the 
+    results and the number of results.
+
+    :return: the query results, the number of results
+    :rtype: tuple
+    """
+
+    params = {
+        "q": query,
+        "q.op": "AND",
+        "fq": fq,
+        "defType": "edismax",
+        "qf": ' '.join(QUERY_FIELDS),
+        "facet.field": field,
+        "indent": "true",
+        "rows": "0",
+        "facet": "true",
+        "facet.mincount": "1",
+        "facet.limit": "-1",
+        "facet.sort": "count"
+    }
+
+    return query_solr(
+        f'{BASE_PATH}/dcat/select?wt=json&',
+        params,
+        field
+    )
+
+
+
 ##
- # route functions for app 
+ # Routes and views
  ##
 
 
-@app.route('/', methods=["GET","POST"])
-def index():
+@app.route('/', methods=["GET"])
+def index() -> str:
     """
-    run SOLR query and render results for main page
+    py:function:: index()
+
+    Render HTML for the top level route of the application.
+
+    :return: HTML for the index page
+    :rtype: str
     """
 
-    collection = 'all'
-    query, active = None, None
-    query_parameters = {"q": "gdsc_collections:*"}
-    q, qf = "", "gdsc_collections "
-    numresults = 1
-    results = []
+    collection = request.args.get("collection", "all")
+    query = request.args.get("query", "")
+    query = re.sub(r'[\+\-\&\|\!\(\)\{\}\[\]\^\"\~\*\?\:\\]','',query)
+    page = int(request.args.get("page", 1))
 
-    # get form parameters and build SOLR query parameters
-    if request.method == "POST":
+    # --- Collect filters dynamically ---
+    selected_filters = {
+        key: request.args.getlist(key)
+        for key in FILTER_SPECS
+    }
 
-        # get the form parameters
-        if 'ImmutableMultiDict' in str(type(request.form)): args = request.form.to_dict()
-        else: args = request.form
-        if 'searchTerm' in args:
-            query = re.sub(r'[\+\-\&\|\!\(\)\{\}\[\]\^\"\~\*\?\:\\]','',args["searchTerm"])
-        if query == "None" or query == "": query = None
-        collection = args["collection"]
-        if 'active' in args:
-            active = args["active"]
-            if active == 'None': active = None
+    # --- Base query ---
+    q = query or "*"
 
-        # build the query parameters for SOLR
-        q = collection
-        if collection == 'all' or collection == '*':
-            collection = '*'
-            q = ""
-        query_parameters = {"q": "gdsc_collections:" + collection}
-        if query is not None:
-            qf += ' '.join(QUERY_FIELDS)
-            if len(q) > 0: q += " "
-            q += query
-        if active is not None:
-            if qf != "gdsc_collections ": qf += " "
-            qf += "gdsc_up"
-            if len(q) > 0: q += " "
-            q += "true"
-        if qf != "gdsc_collections ":
-            query_parameters = {
-              "q.op": "AND",
-              "defType": "dismax",
-              "qf": qf,
-              "q": q
-            }
+    fq_parts = []
 
-    # send query to SOLR and gather paged results
-    results, numresults = query_solr(BASE_PATH,query_parameters)
+    if collection == "all":
+        fq_parts.append("gdsc_collections:*")
+    else:
+        fq_parts.append(f'gdsc_collections:"{collection}"')
 
-    # check results for correct display
+    # --- Apply programmatic filters ---
+    for key, values in selected_filters.items():
+        if len(values) > 0:
+            field = FILTER_SPECS[key]["field"]
+            clauses = [f'{field}:"{v}"' for v in values]
+            clause = f"({' AND '.join(clauses)})"
+            fq_parts.append(clause)
+
+    fq = " ".join(fq_parts)
+
+    # --- Solr query ---
+    query_parameters = {
+        "q.op": "AND",
+        "defType": "edismax",
+        "fq": fq,
+        "q": q,
+        "qf": ' '.join(QUERY_FIELDS),
+        "start": (page - 1) * DEFAULT_ROWS,
+        "rows": DEFAULT_ROWS
+    }
+
+    results, numresults = query_solr(
+        f'{BASE_PATH}/dcat/select?wt=json&',
+        query_parameters
+    )
+
+    # --- Post-processing ---
     for entry in results:
 
-        # highlight search term in results
-        if query != None and query != 'None' and query != '':
-            entry = highlight_query(entry,query)
+        if query:
+            entry = highlight_query(entry, query)
 
-        # snip abstracts
-        if entry['dct_description']:
-            entry['display_description'] = entry['dct_description'][0]
-            if len(entry['display_description']) > SNIP_LENGTH:
-                entry['display_description'] = entry['dct_description'][0][0:SNIP_LENGTH] + '...'
+        if entry.get('dct_description'):
+            desc = entry['dct_description'][0]
+            entry['display_description'] = (
+                desc[:SNIP_LENGTH] + '...'
+                if len(desc) > SNIP_LENGTH else desc
+            )
+
+    if collection == "*":
+        collection = "all"
+
+    # --- Fetch facet values dynamically ---
+    facet_data = {}
+    for key, spec in FILTER_SPECS.items():
+        values, count = fetch_facets(spec["field"], q, fq)
+        if key == "collections":
+            facet_data[spec["facet_name"]] = [
+                y for i in range(0,int(len(values)/2)) if values[i*2] in COLLECTIONS \
+                for y in (values[i*2], values[i*2+1])
+            ]
+        else:
+            facet_data[spec["facet_name"]] = values
 
     # check for loaded tables
     loaded_tables = call_etl_api("postgis","gdsc_get_schema_tables",{"schema_name": "public"})
     if GAIA_CATALOG_FLAVOR == "gdsc-api": loaded_tables = loaded_tables.split()[2:-2]
 
-    # render the page
-    if collection == "*": collection = 'all'
+    # --- Render ---
     return render_template(
-        'index.html',
+        "index.html",
         collection=collection,
         query=query,
-        active=active,
-        numresults=numresults,
+        page=page,
         results=results,
+        numresults=numresults,
+        collections=COLLECTIONS,
+        filter_specs=FILTER_SPECS,
+        root="./",
+        facet_data=facet_data,
         loaded_tables=loaded_tables,
-        collections=COLLECTIONS
+        selected_filters=selected_filters
     )
 
 
 @app.route('/detail/<name_id>', methods=["GET","POST"])
-def detail(name_id):
+def detail(name_id: str) -> str:
     """
-    query SOLR for one document and render all metadata in detail
+    py:function:: detail(name_id)
+
+    Query SOLR for one document and render the metadata detail page for one dataset.
+
+    :param str name_id: the unique identifier for the dataset (tablename)
+    :return: HTML for the detail page
+    :rtype: str
     """
 
     args = request.args.to_dict()
@@ -272,15 +536,23 @@ def detail(name_id):
     # query solr
     document = get_layer_meta(name_id)
 
+    # highlight query if exists
+    if "query" in args:
+        if args['query'] != None and args['query'] != 'None' and args['query'] != '':
+            document = highlight_query(document,args['query'])
+    else: args['query'] = None
+
     # structure results for display
     if 'gdsc_attributes' in document:
         document['gdsc_columns'] = [attr.split(';')[0] for attr in document['gdsc_attributes']]
-    if args['query'] != None and args['query'] != 'None' and args['query'] != '':
-        document = highlight_query(document,args['query'])
     if 'gdsc_attributes' in document:
         document['gdsc_attributes'] = [attr.split(';') for attr in document['gdsc_attributes']]
     if 'gdsc_derivatives' in document:
         document['gdsc_derived'] = [attr.split(';') for attr in document['gdsc_derived']]
+
+    # check for loaded tables
+    loaded_tables = call_etl_api("postgis","gdsc_get_schema_tables",{"schema_name": "public"})
+    if GAIA_CATALOG_FLAVOR == "gdsc-api": loaded_tables = loaded_tables.split()[2:-2]
 
     # check for loaded variables
     loaded_variables = call_etl_api("postgis","gdsc_get_loaded_variables_for_table",{"table_id": document['gdsc_tablename'][0]})
@@ -298,7 +570,8 @@ def detail(name_id):
         'detail.html',
         name_id=name_id, 
         document=document, 
-        loaded_variables=loaded_variables, 
+        loaded_variables=loaded_variables,
+        loaded_tables=loaded_tables,
         referrer=request.args,
         json_ld=json_ld
     )
@@ -327,9 +600,16 @@ def loadlayer(layer_id):
     scripts = [x.split('_')[-1][:-3] for x in scripts if x not in ['processStep','.DS_Store'] and 'derivative' not in x]
 
     # run the ETL scripts
-    for api in apis:
+    for api in api_call_order:
         if api in scripts:
-            response[api] = call_etl_api(api,"gdsc_exec",{"shell": apis[api]['shell'], "script": f"{data_path}/etl/{layer_id}_{api}"})
+            try:
+                response[api] = call_etl_api(api,"gdsc_exec",{"shell": apis[api]['shell'], "script": f"{data_path}/etl/{layer_id}_{api}"})
+            except error.HTTPError as e:
+                e = loads(e.read().decode('utf-8'))
+                if e['code'] == "XX000": response[api] = e['message']
+                else: raise
+            except Exception as err:
+                print(f"Other error occurred: {err}")
 
     return response
 
@@ -367,12 +647,6 @@ def load(layer_id,variable_id):
     variable = [var if var !='' else 'Null' for var in variable]
 
     # construct and make request
-    #parameters = "' '".join(variable[:-1])
-    #payload = (
-    #    f"\n{apis['postgis']['shell']} load_variable.sh "
-    #    f"{layer_id} '{document['dct_description'][0]}' '{document['locn_geometry'][0]}' '{document['gdsc_label'][0]}' "
-    #    f"'{'Null' if 'gdsc_nodata' not in document else document['gdsc_nodata'][1]}' '{parameters}'\n\n"
-    #).encode('utf-8')
     parameters = {
         "params": {
             "table_id": layer_id,
@@ -396,6 +670,53 @@ def load(layer_id,variable_id):
     response = call_etl_api("postgis","gdsc_load_variable",parameters)
 
     return response
+
+@app.route('/bibliography/<collection>/<fmt>', methods=["GET"])
+@app.route('/cite/<table_id>/<fmt>', methods=["GET"])
+def cite(collection: str = None, table_id: str = None, fmt: str = None) -> Response:
+    """
+    py:function:: cite(collection, table_id, fmt)
+
+    Create a set of correctly formatted citations and return as a (Flask) Response.
+
+    :param str collection: the unique identifier for the collection
+    :param str table_id: the unique identifier for the dataset (tablename)
+    :param str fmt: the citation format identifier 
+    :return Response: correctly formatted citations as a (Flask) Response
+    :rtype: Response
+    """
+
+    # Normalize parameters
+    name_id = table_id  # reuse variable name for clarity
+
+    # Build query parameters
+    if name_id:
+        query_parameters = {"q": f"gdsc_tablename:{name_id}"}
+    elif collection:
+        if collection == "all":
+            query_parameters = {"q": "*:*"}
+        else:
+            query_parameters = {"q": f"gdsc_collections:{collection}"}
+    else:
+        return {"error": "Please provide either 'collection' or 'table_id'."}, 400
+
+    documents, numresults = query_solr(f"{BASE_PATH}/dcat/select?wt=json&", query_parameters)
+    if not documents:
+        return {"error": "No documents found."}, 400
+
+    # Generate output
+    if fmt in ["bibtex", "ris"]:
+        citations = [build_citation(doc, fmt) for doc in documents]
+        output = ''.join(citations)
+        filename = (name_id or collection or "citations") + f".{fmt}"
+    else:
+        return {"error": f"Unsupported format '{fmt}'."}, 400
+
+    # Build response
+    resp = make_response(output)
+    resp.headers["Content-Disposition"] = f"attachment; filename={filename}"
+    resp.headers["Content-Type"] = "text/plain"
+    return resp
 
 
 ##

@@ -109,10 +109,13 @@
     {% endblock %}
   </head>
   <body>
-    <div class="bg-image mb-5 p-5" style="background-image: url('/static/OHDSI-banner.png'); height: 150px;">
-      <div style="max-width: 700px; float: right; text-align: right;">
-        <a href="/" style="text-decoration: none;"><h1>GIS Workgroup</h1></a>
-        <a href="https://github.com/OHDSI/GIS" style="text-decoration: none;"><h3>https://github.com/OHDSI/GIS</h3></a>
+    <div class="container-xxl mx-auto my-0" style="height: 150px;">
+      <div class="row align-items-end">
+        <div class="col-lg-5 bg-white py-2"><a href="/"><img src="/static/OHDSI-banner.png"></a></div>
+        <div class="col-lg-7 text-end d-flex flex-column py-2">
+          <a href="https://github.com/OHDSI/GIS" style="text-decoration: none;"><h1>OHDSI GIS Workgroup</h1></a>
+          <a href="https://github.com/OHDSI/gaiaCatalog" style="text-decoration: none;"><h3>https://github.com/OHDSI/gaiaCatalog</h3></a>
+        </div>
       </div>
     </div>
     <hr class="my-0">
@@ -123,9 +126,9 @@
     <div id="footer" class="container text-center mb-4 mt-2">
     {% block footer %}
       <hr>
-      <a href="https://idsc.miami.edu/"><img src="/static/IDSC-wide.jpg" class="img-fluid w-50" style="max-width: 350px"></a>
-      <a href="https://www.library.miami.edu/"><img src="/static/Library-wide.jpg" class="img-fluid w-50" style="max-width: 350px"></a><br>
       <span style="margin-left: -100px;">Powered by: <a href="https://gdsc.idsc.miami.edu" target="_blank">GDSC</a> - <a href="mailto:tnorris@miami.edu">contact</a><br>
+      <!-- <a href="https://idsc.miami.edu/"><img src="/static/IDSC-wide.jpg" class="img-fluid w-50" style="max-width: 350px"></a>
+      <a href="https://www.library.miami.edu/"><img src="/static/Library-wide.jpg" class="img-fluid w-50" style="max-width: 350px"></a><br> -->
     {% endblock %}
     </div>
   </body>
