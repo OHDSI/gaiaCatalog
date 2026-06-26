@@ -1,0 +1,193 @@
+{
+  "@context": {
+    "@vocab": "https://schema.org/",
+    "schema": "https://schema.org/",
+    "@language": "en",
+    "dct": "http://purl.org/dc/terms/",
+    "dcat": "http://www.w3.org/ns/dcat#",
+    "qudt": "http://qudt.org/schema/qudt/",
+    "unit": "http://qudt.org/vocab/unit/",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "pato": "http://purl.obolibrary.org/obo/PATO_"
+  },
+  "@graph": [
+    {
+      "@type": "schema:Dataset",
+      "@id": "https://gdsc.idsc.miami.edu/detail/mdc_fire_stations",
+      "name": "Miami-Dade Fire Stations",
+      "description": "A point feature class of Miami-Dade County Operated Fire and Rescue Stations that provide emergency or administrative services to the public.",
+      "url": "https://gis-mdc.opendata.arcgis.com/datasets/MDC::fire-station/about",
+      "license": "odc_by",
+      "inLanguage": "en",
+      "datePublished": "2018-06-05",
+      "dateModified": "2023-04-05",
+      "creator": [
+        {
+          "@type": "Role",
+          "roleName": "creator",
+          "creator": {
+            "@type": "Organization",
+            "name": "Miami-Dade County Fire Department"
+          }
+        }
+      ],
+      "provider": {
+        "@type": "Organization",
+        "name": "Miami-Dade County"
+      },
+      "spatialCoverage": {
+        "@type": "Place",
+        "name": "Miami-Dade County",
+        "additionalProperty": [
+          {
+            "@type": "PropertyValue",
+            "name": "geonames",
+            "value": "4164238",
+            "url": "https://www.geonames.org/4164238"
+          },
+          {
+            "@type": "PropertyValue",
+            "name": "Spatial Reference System",
+            "value": "http://www.opengis.net/def/crs/EPSG/0/4326"
+          }
+        ]
+      },
+      "keywords": [
+        "Florida",
+        "Miami-Dade County",
+        "MDC",
+        "Emergency|",
+        "Fire Station",
+        "Fire",
+        "Public-Safety"
+      ],
+      "includedInDataCatalog": [
+        {
+          "@type": "DataCatalog",
+          "@id": "https://gdsc.idsc.miami.edu",
+          "name": "Geospatial Digital Special Collections",
+          "url": "https://gdsc.idsc.miami.edu"
+        },
+        {
+          "@type": "DataCatalog",
+          "name": "displacement-vulnerability-mitigation-tool",
+          "@id": "https://gdsc.idsc.miami.edu/?collection=displacement-vulnerability-mitigation-tool",
+          "url": "https://gdsc.idsc.miami.edu/?collection=displacement-vulnerability-mitigation-tool"
+        }
+      ],
+      "measurementTechnique": [
+        {
+          "@type": "DefinedTerm",
+          "name": "GIS Data Structure",
+          "termCode": "vector",
+          "inDefinedTermSet": {
+            "@type": "DefinedTermSet",
+            "name": "dataRepresentation",
+            "url": "https://gdsc.idsc.miami.edu/vocab/dataRepresentation"
+          }
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "GIS Vector Geometry",
+          "termCode": "point",
+          "inDefinedTermSet": {
+            "@type": "DefinedTermSet",
+            "name": "vectorGeometry",
+            "url": "https://gdsc.idsc.miami.edu/vocab/vectorGeometry"
+          }
+        }
+      ],
+      "distribution": [
+        {
+          "@type": "DataDownload",
+          "name": "Source distribution",
+          "contentUrl": "https://services.arcgis.com/8Pc9XBTAsYuxx9Ny/arcgis/rest/services/FireStation_gdb/FeatureServer/0/query?where=1%3D1&outFields=*&outSR=4326&f=json",
+          "encodingFormat": "application/json"
+        }
+      ],
+      "additionalProperty": [
+        {
+          "@type": "PropertyValue",
+          "name": "postgis_table",
+          "value": "mdc_fire_stations"
+        }
+      ],
+      "dct:accrualPeriodicity": "one_year",
+      "variableMeasured": [
+        {
+          "@type": "PropertyValue",
+          "name": "objectid",
+          "description": "internal feature number",
+          "qudt:dataType": "xsd:other"
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "folio",
+          "description": "Folio identifier",
+          "qudt:dataType": "xsd:string"
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "name",
+          "description": "Name of fire station",
+          "qudt:dataType": "xsd:string"
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "address",
+          "description": "Address of fire station",
+          "qudt:dataType": "xsd:string"
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "zipcode",
+          "description": "Zipcode of fire station",
+          "qudt:dataType": "xsd:integer"
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "municid",
+          "description": "Municipal code",
+          "qudt:dataType": "xsd:string"
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "type",
+          "description": "tation type: (Fire Stations: A = Air Rescue, B = Both Rescue, R = Rescue, S = Suppression & Other Facilities: H = Headquarters, L = Logistical Support, T = Training Center)",
+          "qudt:dataType": "xsd:string"
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "lat",
+          "description": "Latitude",
+          "qudt:dataType": "xsd:float"
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "lon",
+          "description": "Longitude",
+          "qudt:dataType": "xsd:float"
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "point_x",
+          "description": "X-coordinate",
+          "qudt:dataType": "xsd:float"
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "point_y",
+          "description": "Y-coordinate",
+          "qudt:dataType": "xsd:float"
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "globalid",
+          "description": "Unique identifier",
+          "qudt:dataType": "xsd:string"
+        }
+      ],
+      "isAccessibleForFree": false
+    }
+  ]
+}

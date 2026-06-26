@@ -1,0 +1,240 @@
+{
+  "_id": 768006023,
+  "formhub/uuid": "e58f3baa8dbb4c7b9947756c1d1528bb",
+  "control_group/id": "26",
+  "dublin_core_group/title": "Miami-Dade Fire Stations",
+  "dublin_core_group/creator_group": [
+    {
+      "dublin_core_group/creator_group/creator_name": "Miami-Dade County Fire Department",
+      "dublin_core_group/creator_group/creator_type": "organization"
+    }
+  ],
+  "dublin_core_group/url": "https://gis-mdc.opendata.arcgis.com/datasets/MDC::fire-station/about",
+  "dublin_core_group/publisher_group": [
+    {
+      "dublin_core_group/publisher_group/publisher_name": "Miami-Dade County"
+    }
+  ],
+  "dublin_core_group/rights": "Public Domain",
+  "dublin_core_group/license": "odc_by",
+  "dublin_core_group/license_text": "Miami-Dade County provides this data for use \"as is\". The areas depicted by this map/data are approximate, and are not accurate to surveying or engineering standards. The maps/data shown here are for illustration purposes only and are not suitable for site-specific decision making. Information found here should not be used for making financial or any other commitments. Miami-Dade County provides this information with the understanding that it is not guaranteed to be accurate, correct or complete and conclusions drawn from such information are the sole responsibility of the user. While every effort has been made to ensure the accuracy, correctness and timeliness of materials presented, Miami-Dade County assumes no responsibility for errors or omissions, even if Miami-Dade County is advised of the possibility of such damage.",
+  "dublin_core_group/restrictions": "not provided",
+  "dublin_core_group/coverage_group": [
+    {
+      "dublin_core_group/coverage_group/coverage_name": "Miami-Dade County",
+      "dublin_core_group/coverage_group/coverage_identifier": "4164238",
+      "dublin_core_group/coverage_group/coverage_identifier_schema": "geonames",
+      "dublin_core_group/coverage_group/coverage_identifier_schema_uri": "https://www.geonames.org/"
+    }
+  ],
+  "dublin_core_group/relation_group": [
+    {
+      "dublin_core_group/relation_group/relation_title": "--"
+    }
+  ],
+  "dublin_core_group/resource_type": "vector_dataset",
+  "dublin_core_group/publication_date": "2018-06-05",
+  "dublin_core_group/description": "A point feature class of Miami-Dade County Operated Fire and Rescue Stations that provide emergency or administrative services to the public.",
+  "dublin_core_group/provenance": "direct from source",
+  "dublin_core_group/subject_group": [
+    {
+      "dublin_core_group/subject_group/subject_term": "Florida"
+    },
+    {
+      "dublin_core_group/subject_group/subject_term": "Miami-Dade County"
+    },
+    {
+      "dublin_core_group/subject_group/subject_term": "MDC"
+    },
+    {
+      "dublin_core_group/subject_group/subject_term": "Emergency|"
+    },
+    {
+      "dublin_core_group/subject_group/subject_term": "Fire Station"
+    },
+    {
+      "dublin_core_group/subject_group/subject_term": "Fire"
+    },
+    {
+      "dublin_core_group/subject_group/subject_term": "Public-Safety"
+    }
+  ],
+  "dublin_core_group/language": "en",
+  "iso_group/structure": "vector",
+  "iso_group/geometry": "point",
+  "iso_group/epsg": "4326",
+  "iso_group/extent": "-8959341.3726|2930803.5471|-8919271.5634|2994741.4368",
+  "iso_group/data_level": "observed",
+  "cartography_group/label": "name",
+  "cartography_group/attributes_group": [
+    {
+      "cartography_group/attributes_group/attribute_name": "objectid",
+      "cartography_group/attributes_group/attribute_description": "internal feature number",
+      "cartography_group/attributes_group/attribute_type": "other"
+    },
+    {
+      "cartography_group/attributes_group/attribute_name": "folio",
+      "cartography_group/attributes_group/attribute_description": "Folio identifier",
+      "cartography_group/attributes_group/attribute_source": "MDC",
+      "cartography_group/attributes_group/attribute_type": "string"
+    },
+    {
+      "cartography_group/attributes_group/attribute_name": "name",
+      "cartography_group/attributes_group/attribute_description": "Name of fire station",
+      "cartography_group/attributes_group/attribute_source": "MDC",
+      "cartography_group/attributes_group/attribute_type": "string"
+    },
+    {
+      "cartography_group/attributes_group/attribute_name": "address",
+      "cartography_group/attributes_group/attribute_description": "Address of fire station",
+      "cartography_group/attributes_group/attribute_source": "MDC",
+      "cartography_group/attributes_group/attribute_type": "string"
+    },
+    {
+      "cartography_group/attributes_group/attribute_name": "zipcode",
+      "cartography_group/attributes_group/attribute_description": "Zipcode of fire station",
+      "cartography_group/attributes_group/attribute_source": "MDC",
+      "cartography_group/attributes_group/attribute_type": "integer"
+    },
+    {
+      "cartography_group/attributes_group/attribute_name": "municid",
+      "cartography_group/attributes_group/attribute_description": "Municipal code",
+      "cartography_group/attributes_group/attribute_source": "MDC (Implied)",
+      "cartography_group/attributes_group/attribute_type": "string"
+    },
+    {
+      "cartography_group/attributes_group/attribute_name": "type",
+      "cartography_group/attributes_group/attribute_description": "tation type: (Fire Stations: A = Air Rescue, B = Both Rescue, R = Rescue, S = Suppression & Other Facilities: H = Headquarters, L = Logistical Support, T = Training Center)",
+      "cartography_group/attributes_group/attribute_source": "MDC",
+      "cartography_group/attributes_group/attribute_type": "string"
+    },
+    {
+      "cartography_group/attributes_group/attribute_name": "lat",
+      "cartography_group/attributes_group/attribute_description": "Latitude",
+      "cartography_group/attributes_group/attribute_source": "MDC",
+      "cartography_group/attributes_group/attribute_type": "numeric"
+    },
+    {
+      "cartography_group/attributes_group/attribute_name": "lon",
+      "cartography_group/attributes_group/attribute_description": "Longitude",
+      "cartography_group/attributes_group/attribute_source": "MDC",
+      "cartography_group/attributes_group/attribute_type": "numeric"
+    },
+    {
+      "cartography_group/attributes_group/attribute_name": "point_x",
+      "cartography_group/attributes_group/attribute_description": "X-coordinate",
+      "cartography_group/attributes_group/attribute_source": "MDC",
+      "cartography_group/attributes_group/attribute_type": "numeric"
+    },
+    {
+      "cartography_group/attributes_group/attribute_name": "point_y",
+      "cartography_group/attributes_group/attribute_description": "Y-coordinate",
+      "cartography_group/attributes_group/attribute_source": "MDC",
+      "cartography_group/attributes_group/attribute_type": "numeric"
+    },
+    {
+      "cartography_group/attributes_group/attribute_name": "globalid",
+      "cartography_group/attributes_group/attribute_description": "Unique identifier",
+      "cartography_group/attributes_group/attribute_source": "Esri",
+      "cartography_group/attributes_group/attribute_type": "string"
+    }
+  ],
+  "collection_group/collections": "displacement-vulnerability-mitigation-tool",
+  "collection_group/analytic_function": "gdsc_nearest_neighbor",
+  "collection_group/analytic_epsg": "2236",
+  "collection_group/thumbnail": "published",
+  "collection_group/service_definition": "mdc_fire_stations.sd",
+  "collection_group/derivatives": "sql",
+  "collection_group/sponsor_group": [
+    {
+      "collection_group/sponsor_group/sponsor_name": "IDSC",
+      "collection_group/sponsor_group/sponsor_url": "https://idsc.miami.edu"
+    },
+    {
+      "collection_group/sponsor_group/sponsor_name": "Library",
+      "collection_group/sponsor_group/sponsor_url": "https://www.library.miami.edu"
+    }
+  ],
+  "collection_group/disclaimer": "Miami-Dade County provides this data for use \"as is\". The areas depicted by this map/data are approximate, and are not accurate to surveying or engineering standards. The maps/data shown here are for illustration purposes only and are not suitable for site-specific decision making. Information found here should not be used for making financial or any other commitments. Miami-Dade County provides this information with the understanding that it is not guaranteed to be accurate, correct or complete and conclusions drawn from such information are the sole responsibility of the user. While every effort has been made to ensure the accuracy, correctness and timeliness of materials presented, Miami-Dade County assumes no responsibility for errors or omissions, even if Miami-Dade County is advised of the possibility of such damage.",
+  "etl_group/service": "api arcgis query",
+  "etl_group/source": "https://services.arcgis.com/8Pc9XBTAsYuxx9Ny/arcgis/rest/services/FireStation_gdb/FeatureServer/0/query?where=1%3D1&outFields=*&outSR=4326&f=json",
+  "etl_group/parameters": "where=1%3D1&outFields=*&outSR=4326&f=json",
+  "etl_group/file_name_group": [
+    {
+      "etl_group/file_name_group/file_name_value": "mdc_fire_stations",
+      "etl_group/file_name_group/file_inside_archive": "json"
+    }
+  ],
+  "etl_group/extension": "json",
+  "etl_group/download": "wget",
+  "etl_group/table_name": "mdc_fire_stations",
+  "etl_group/format": "json",
+  "etl_group/last_updated": "2023-04-05",
+  "etl_group/update_frequency": "one_year",
+  "etl_group/columns_group": [
+    {
+      "etl_group/columns_group/column_name": "OBJECTID"
+    },
+    {
+      "etl_group/columns_group/column_name": "FOLIO"
+    },
+    {
+      "etl_group/columns_group/column_name": "ID"
+    },
+    {
+      "etl_group/columns_group/column_name": "NAME"
+    },
+    {
+      "etl_group/columns_group/column_name": "ADDRESS"
+    },
+    {
+      "etl_group/columns_group/column_name": "ADDRESS"
+    },
+    {
+      "etl_group/columns_group/column_name": "CITY"
+    },
+    {
+      "etl_group/columns_group/column_name": "ZIPCODE"
+    },
+    {
+      "etl_group/columns_group/column_name": "MUNICID"
+    },
+    {
+      "etl_group/columns_group/column_name": "TYPE"
+    },
+    {
+      "etl_group/columns_group/column_name": "LAT"
+    },
+    {
+      "etl_group/columns_group/column_name": "LON"
+    },
+    {
+      "etl_group/columns_group/column_name": "POINT"
+    },
+    {
+      "etl_group/columns_group/column_name": "POINT_X"
+    },
+    {
+      "etl_group/columns_group/column_name": "POINT_Y"
+    },
+    {
+      "etl_group/columns_group/column_name": "GLOBALID"
+    }
+  ],
+  "__version__": "v3FuRaaRVeGZ4Dk9fZGLWj",
+  "meta/instanceID": "uuid:465334db-808d-446b-b2fd-2efc8aecabc0",
+  "_xform_id_string": "abZ7KCcdqizmhU3twbMcGF",
+  "_uuid": "465334db-808d-446b-b2fd-2efc8aecabc0",
+  "meta/rootUuid": "uuid:465334db-808d-446b-b2fd-2efc8aecabc0",
+  "_attachments": [],
+  "_status": "submitted_via_web",
+  "_geolocation": [
+    null,
+    null
+  ],
+  "_submission_time": "2026-06-01T19:29:48",
+  "_tags": [],
+  "_notes": [],
+  "_validation_status": {},
+  "_submitted_by": "davidamadi"
+}

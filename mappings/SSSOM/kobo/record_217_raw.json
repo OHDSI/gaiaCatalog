@@ -1,0 +1,139 @@
+{
+  "_id": 767382866,
+  "formhub/uuid": "e58f3baa8dbb4c7b9947756c1d1528bb",
+  "control_group/id": "217",
+  "dublin_core_group/title": "1984 Tanzania 2m Temperature Yearly Average (Copernicus)",
+  "dublin_core_group/creator_group": [
+    {
+      "dublin_core_group/creator_group/creator_name": "Copernicus",
+      "dublin_core_group/creator_group/creator_type": "organization",
+      "dublin_core_group/creator_group/creator_identifier": "https://ror.org",
+      "dublin_core_group/creator_group/creator_identifier_schema": "ror",
+      "dublin_core_group/creator_group/creator_identifier_schema_uri": "https://ror.org/00yafkq43",
+      "dublin_core_group/creator_group/creator_affiliation_identifier": "https://ror.org",
+      "dublin_core_group/creator_group/creator_affiliation_schema": "ror"
+    }
+  ],
+  "dublin_core_group/url": "https://cds.climate.copernicus.eu/datasets/reanalysis-era5-land",
+  "dublin_core_group/publisher_group": [
+    {
+      "dublin_core_group/publisher_group/publisher_name": "OHDSI"
+    }
+  ],
+  "dublin_core_group/rights": "Public domain",
+  "dublin_core_group/license": "odc_by",
+  "dublin_core_group/restrictions": "N/A",
+  "dublin_core_group/coverage_group": [
+    {
+      "dublin_core_group/coverage_group/coverage_name": "Tanzania",
+      "dublin_core_group/coverage_group/coverage_identifier": "149590",
+      "dublin_core_group/coverage_group/coverage_identifier_schema": "geonames",
+      "dublin_core_group/coverage_group/coverage_identifier_schema_uri": "https://www.geonames.org/"
+    }
+  ],
+  "dublin_core_group/time_period_start": "1984-01-01",
+  "dublin_core_group/time_period_end": "1984-12-31",
+  "dublin_core_group/relation_group": [
+    {
+      "dublin_core_group/relation_group/relation_title": "No related resources"
+    }
+  ],
+  "dublin_core_group/resource_type": "raster_dataset",
+  "dublin_core_group/publication_date": "2025-06-01",
+  "dublin_core_group/description": "A raster dataset with yearly averages of the 2m temperature from the ERA 5 renanalysis data from Copernicus satellite sensors for Tanzania. ERA5 is the fifth generation ECMWF reanalysis for the global climate and weather for the past 8 decades. Data is available from 1940 onwards. ERA5 replaces the ERA-Interim reanalysis.",
+  "dublin_core_group/provenance": "Copernicus",
+  "dublin_core_group/subject_group": [
+    {
+      "dublin_core_group/subject_group/subject_term": "Tanzania"
+    },
+    {
+      "dublin_core_group/subject_group/subject_term": "temperature"
+    }
+  ],
+  "dublin_core_group/language": "en",
+  "iso_group/structure": "raster",
+  "iso_group/band_group": [
+    {
+      "iso_group/band_group/band_name": "t2m"
+    }
+  ],
+  "iso_group/pixel_dimension": "0.25",
+  "iso_group/dimension_units": "degrees",
+  "iso_group/epsg": "4326",
+  "iso_group/extent": "29|-12|41|-0.8",
+  "cartography_group/label": "not provided",
+  "cartography_group/attributes_group": [
+    {
+      "cartography_group/attributes_group/attribute_name": "2m_temperature",
+      "cartography_group/attributes_group/attribute_description": "Average yearly 2m temperature in Kelvin from Copernicus reanalysis era5 single levels",
+      "cartography_group/attributes_group/attribute_source": "Copernicus",
+      "cartography_group/attributes_group/attribute_type": "numeric",
+      "cartography_group/attributes_group/attribute_unit": "Kelvin",
+      "cartography_group/attributes_group/attribute_unit_concept_id": "9523",
+      "cartography_group/attributes_group/attribute_min_value": "287.315857",
+      "cartography_group/attributes_group/attribute_start_date": "1984-01-01",
+      "cartography_group/attributes_group/attribute_end_date": "1984-12-31",
+      "cartography_group/attributes_group/attribute_concept_id": "35814756",
+      "cartography_group/attributes_group/attribute_external_id": "2m_temperature@tz_1984"
+    }
+  ],
+  "collection_group/collections": "tz-climate-change tz-health-outcomes",
+  "collection_group/analytic_function": "gdsc_zonal_statistics",
+  "collection_group/analytic_epsg": "4326",
+  "collection_group/derivatives": "tif",
+  "collection_group/sponsor_group": [
+    {
+      "collection_group/sponsor_group/sponsor_name": "TuftsCTSI",
+      "collection_group/sponsor_group/sponsor_url": "https://www.tuftsctsi.org"
+    },
+    {
+      "collection_group/sponsor_group/sponsor_name": "IDSC",
+      "collection_group/sponsor_group/sponsor_url": "https://idsc.miami.edu"
+    },
+    {
+      "collection_group/sponsor_group/sponsor_name": "Library",
+      "collection_group/sponsor_group/sponsor_url": "https://www.library.miami.edu"
+    }
+  ],
+  "collection_group/status": "published",
+  "collection_group/disclaimer": "Not specified",
+  "etl_group/service": "api python cdsapi",
+  "etl_group/source": "https://github.com/tibbben/copernicus_aggregate.git",
+  "etl_group/parameters": "--",
+  "etl_group/file_name_group": [
+    {
+      "etl_group/file_name_group/file_name_value": "tz_1984_copernicus_avg_temp"
+    }
+  ],
+  "etl_group/extension": "zip",
+  "etl_group/download": "python",
+  "etl_group/table_name": "tz_1984_copernicus_avg_temp",
+  "etl_group/format": "nc",
+  "etl_group/custom_parameters": "python | copernicus_aggregate.py | json;table;extension;extent;attributes;bands;format | 1984",
+  "etl_group/up": "unknown",
+  "etl_group/podid": "TBD",
+  "etl_group/index_fields_group": [
+    {
+      "etl_group/index_fields_group/index_field": "TBD"
+    }
+  ],
+  "etl_group/last_updated": "2025-06-01",
+  "etl_group/update_frequency": "as_needed",
+  "etl_group/checksum": "TBD",
+  "__version__": "v3FuRaaRVeGZ4Dk9fZGLWj",
+  "meta/instanceID": "uuid:b512cfee-f949-465e-b1fc-806355abeb06",
+  "_xform_id_string": "abZ7KCcdqizmhU3twbMcGF",
+  "_uuid": "b512cfee-f949-465e-b1fc-806355abeb06",
+  "meta/rootUuid": "uuid:b512cfee-f949-465e-b1fc-806355abeb06",
+  "_attachments": [],
+  "_status": "submitted_via_web",
+  "_geolocation": [
+    null,
+    null
+  ],
+  "_submission_time": "2026-06-01T07:57:50",
+  "_tags": [],
+  "_notes": [],
+  "_validation_status": {},
+  "_submitted_by": "davidamadi"
+}
