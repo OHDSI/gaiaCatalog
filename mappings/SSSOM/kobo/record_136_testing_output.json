@@ -120,6 +120,81 @@
           "@type": "PropertyValue",
           "name": "postgis_table",
           "value": "global_pm25_concentration_1998_2016"
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "kobo_record_id",
+          "value": "136"
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "external_id",
+          "value": "ohdsi;5150"
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "creator_type",
+          "value": "organization"
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "Data Processing Level",
+          "termCode": "derived",
+          "inDefinedTermSet": {
+            "@type": "DefinedTermSet",
+            "name": "dataProcessingLevel",
+            "url": "https://gdsc.idsc.miami.edu/vocab/dataProcessingLevel"
+          }
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "cartography_label_field",
+          "value": "name"
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "no_data",
+          "value": "{'cartography_group/no_data_group/no_data_type': 'int', 'cartography_group/no_data_group/no_data_value': '-9999'}"
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "analytic_function",
+          "value": "gdsc_get_attributes"
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "Spatial Reference System",
+          "value": "http://www.opengis.net/def/crs/EPSG/0/3857"
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "derivatives",
+          "value": "sql shp"
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "Publication Status",
+          "termCode": "draft",
+          "inDefinedTermSet": {
+            "@type": "DefinedTermSet",
+            "name": "publicationStatus",
+            "url": "https://gdsc.idsc.miami.edu/vocab/publicationStatus"
+          }
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "etl_service",
+          "value": "not_applicable"
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "download_method",
+          "value": "wget"
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "source_file",
+          "value": "{'etl_group/file_name_group/file_name_value': 'global_pm25_concentration_1998_2016', 'etl_group/file_name_group/file_inside_archive': 'sdei-annual-pm2-5-concentrations-countries-urban-areas-v1-1998-2016-urban-areas'}"
         }
       ],
       "dct:accrualPeriodicity": "as_needed",
@@ -267,7 +342,40 @@
         }
       ],
       "temporalCoverage": "1998-01-01/1999-12-31",
-      "isAccessibleForFree": true
+      "isAccessibleForFree": true,
+      "usageInfo": [
+        "Creative Commons Attribution 4.0 International License (CC BY 4.0)",
+        "Requires clear attribution of the source. Users are free to use, copy, distribute, transmit, and adapt the work for commercial and non-commercial purposes"
+      ],
+      "dct:provenance": "Direct from source",
+      "additionalType": {
+        "@type": "DefinedTerm",
+        "name": "GDSC Resource Type",
+        "termCode": "vector_dataset",
+        "inDefinedTermSet": {
+          "@type": "DefinedTermSet",
+          "name": "gdscResourceType",
+          "url": "https://gdsc.idsc.miami.edu/vocab/resourceType"
+        }
+      },
+      "funder": [
+        {
+          "@type": "Organization",
+          "name": "TuftsCTSI",
+          "url": "https://www.tuftsctsi.org"
+        },
+        {
+          "@type": "Organization",
+          "name": "IDSC",
+          "url": "https://idsc.miami.edu"
+        },
+        {
+          "@type": "Organization",
+          "name": "Library",
+          "url": "https://www.library.miami.edu"
+        }
+      ],
+      "disambiguatingDescription": "no disclaimers"
     }
   ]
 }

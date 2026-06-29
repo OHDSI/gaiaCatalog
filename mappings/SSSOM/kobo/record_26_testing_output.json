@@ -1,0 +1,325 @@
+{
+  "@context": {
+    "@vocab": "https://schema.org/",
+    "schema": "https://schema.org/",
+    "@language": "en",
+    "dct": "http://purl.org/dc/terms/",
+    "dcat": "http://www.w3.org/ns/dcat#",
+    "qudt": "http://qudt.org/schema/qudt/",
+    "unit": "http://qudt.org/vocab/unit/",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "pato": "http://purl.obolibrary.org/obo/PATO_"
+  },
+  "@graph": [
+    {
+      "@type": "schema:Dataset",
+      "@id": "https://gdsc.idsc.miami.edu/detail/mdc_fire_stations",
+      "name": "Miami-Dade Fire Stations",
+      "description": "A point feature class of Miami-Dade County Operated Fire and Rescue Stations that provide emergency or administrative services to the public.",
+      "url": "https://gis-mdc.opendata.arcgis.com/datasets/MDC::fire-station/about",
+      "license": "odc_by",
+      "inLanguage": "en",
+      "datePublished": "2018-06-05",
+      "dateModified": "2023-04-05",
+      "creator": [
+        {
+          "@type": "Role",
+          "roleName": "creator",
+          "creator": {
+            "@type": "Organization",
+            "name": "Miami-Dade County Fire Department"
+          }
+        }
+      ],
+      "provider": {
+        "@type": "Organization",
+        "name": "Miami-Dade County"
+      },
+      "spatialCoverage": {
+        "@type": "Place",
+        "name": "Miami-Dade County",
+        "additionalProperty": [
+          {
+            "@type": "PropertyValue",
+            "name": "geonames",
+            "value": "4164238",
+            "url": "https://www.geonames.org/4164238"
+          },
+          {
+            "@type": "PropertyValue",
+            "name": "Spatial Reference System",
+            "value": "http://www.opengis.net/def/crs/EPSG/0/4326"
+          }
+        ]
+      },
+      "keywords": [
+        "Florida",
+        "Miami-Dade County",
+        "MDC",
+        "Emergency|",
+        "Fire Station",
+        "Fire",
+        "Public-Safety"
+      ],
+      "includedInDataCatalog": [
+        {
+          "@type": "DataCatalog",
+          "@id": "https://gdsc.idsc.miami.edu",
+          "name": "Geospatial Digital Special Collections",
+          "url": "https://gdsc.idsc.miami.edu"
+        },
+        {
+          "@type": "DataCatalog",
+          "name": "displacement-vulnerability-mitigation-tool",
+          "@id": "https://gdsc.idsc.miami.edu/?collection=displacement-vulnerability-mitigation-tool",
+          "url": "https://gdsc.idsc.miami.edu/?collection=displacement-vulnerability-mitigation-tool"
+        }
+      ],
+      "measurementTechnique": [
+        {
+          "@type": "DefinedTerm",
+          "name": "GIS Data Structure",
+          "termCode": "vector",
+          "inDefinedTermSet": {
+            "@type": "DefinedTermSet",
+            "name": "dataRepresentation",
+            "url": "https://gdsc.idsc.miami.edu/vocab/dataRepresentation"
+          }
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "GIS Vector Geometry",
+          "termCode": "point",
+          "inDefinedTermSet": {
+            "@type": "DefinedTermSet",
+            "name": "vectorGeometry",
+            "url": "https://gdsc.idsc.miami.edu/vocab/vectorGeometry"
+          }
+        }
+      ],
+      "distribution": [
+        {
+          "@type": "DataDownload",
+          "name": "Source distribution",
+          "contentUrl": "https://services.arcgis.com/8Pc9XBTAsYuxx9Ny/arcgis/rest/services/FireStation_gdb/FeatureServer/0/query?where=1%3D1&outFields=*&outSR=4326&f=json",
+          "encodingFormat": "application/json"
+        }
+      ],
+      "additionalProperty": [
+        {
+          "@type": "PropertyValue",
+          "name": "postgis_table",
+          "value": "mdc_fire_stations"
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "kobo_record_id",
+          "value": "26"
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "creator_type",
+          "value": "organization"
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "Data Processing Level",
+          "termCode": "observed",
+          "inDefinedTermSet": {
+            "@type": "DefinedTermSet",
+            "name": "dataProcessingLevel",
+            "url": "https://gdsc.idsc.miami.edu/vocab/dataProcessingLevel"
+          }
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "cartography_label_field",
+          "value": "name"
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "analytic_function",
+          "value": "gdsc_nearest_neighbor"
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "Spatial Reference System",
+          "value": "http://www.opengis.net/def/crs/EPSG/0/2236"
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "derivatives",
+          "value": "sql"
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "etl_service",
+          "value": "api arcgis query"
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "etl_parameters",
+          "value": "where=1%3D1&outFields=*&outSR=4326&f=json"
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "download_method",
+          "value": "wget"
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "source_file",
+          "value": "{'etl_group/file_name_group/file_name_value': 'mdc_fire_stations', 'etl_group/file_name_group/file_inside_archive': 'json'}"
+        }
+      ],
+      "dct:accrualPeriodicity": "one_year",
+      "variableMeasured": [
+        {
+          "@type": "PropertyValue",
+          "name": "objectid",
+          "description": "internal feature number",
+          "qudt:dataType": "xsd:other"
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "folio",
+          "description": "Folio identifier",
+          "qudt:dataType": "xsd:string",
+          "sourceOrganization": {
+            "@type": "Organization",
+            "name": "MDC"
+          }
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "name",
+          "description": "Name of fire station",
+          "qudt:dataType": "xsd:string",
+          "sourceOrganization": {
+            "@type": "Organization",
+            "name": "MDC"
+          }
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "address",
+          "description": "Address of fire station",
+          "qudt:dataType": "xsd:string",
+          "sourceOrganization": {
+            "@type": "Organization",
+            "name": "MDC"
+          }
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "zipcode",
+          "description": "Zipcode of fire station",
+          "qudt:dataType": "xsd:integer",
+          "sourceOrganization": {
+            "@type": "Organization",
+            "name": "MDC"
+          }
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "municid",
+          "description": "Municipal code",
+          "qudt:dataType": "xsd:string",
+          "sourceOrganization": {
+            "@type": "Organization",
+            "name": "MDC (Implied)"
+          }
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "type",
+          "description": "tation type: (Fire Stations: A = Air Rescue, B = Both Rescue, R = Rescue, S = Suppression & Other Facilities: H = Headquarters, L = Logistical Support, T = Training Center)",
+          "qudt:dataType": "xsd:string",
+          "sourceOrganization": {
+            "@type": "Organization",
+            "name": "MDC"
+          }
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "lat",
+          "description": "Latitude",
+          "qudt:dataType": "xsd:float",
+          "sourceOrganization": {
+            "@type": "Organization",
+            "name": "MDC"
+          }
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "lon",
+          "description": "Longitude",
+          "qudt:dataType": "xsd:float",
+          "sourceOrganization": {
+            "@type": "Organization",
+            "name": "MDC"
+          }
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "point_x",
+          "description": "X-coordinate",
+          "qudt:dataType": "xsd:float",
+          "sourceOrganization": {
+            "@type": "Organization",
+            "name": "MDC"
+          }
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "point_y",
+          "description": "Y-coordinate",
+          "qudt:dataType": "xsd:float",
+          "sourceOrganization": {
+            "@type": "Organization",
+            "name": "MDC"
+          }
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "globalid",
+          "description": "Unique identifier",
+          "qudt:dataType": "xsd:string",
+          "sourceOrganization": {
+            "@type": "Organization",
+            "name": "Esri"
+          }
+        }
+      ],
+      "isAccessibleForFree": false,
+      "usageInfo": [
+        "Miami-Dade County provides this data for use \"as is\". The areas depicted by this map/data are approximate, and are not accurate to surveying or engineering standards. The maps/data shown here are for illustration purposes only and are not suitable for site-specific decision making. Information found here should not be used for making financial or any other commitments. Miami-Dade County provides this information with the understanding that it is not guaranteed to be accurate, correct or complete and conclusions drawn from such information are the sole responsibility of the user. While every effort has been made to ensure the accuracy, correctness and timeliness of materials presented, Miami-Dade County assumes no responsibility for errors or omissions, even if Miami-Dade County is advised of the possibility of such damage.",
+        "not provided"
+      ],
+      "dct:provenance": "direct from source",
+      "additionalType": {
+        "@type": "DefinedTerm",
+        "name": "GDSC Resource Type",
+        "termCode": "vector_dataset",
+        "inDefinedTermSet": {
+          "@type": "DefinedTermSet",
+          "name": "gdscResourceType",
+          "url": "https://gdsc.idsc.miami.edu/vocab/resourceType"
+        }
+      },
+      "funder": [
+        {
+          "@type": "Organization",
+          "name": "IDSC",
+          "url": "https://idsc.miami.edu"
+        },
+        {
+          "@type": "Organization",
+          "name": "Library",
+          "url": "https://www.library.miami.edu"
+        }
+      ],
+      "disambiguatingDescription": "Miami-Dade County provides this data for use \"as is\". The areas depicted by this map/data are approximate, and are not accurate to surveying or engineering standards. The maps/data shown here are for illustration purposes only and are not suitable for site-specific decision making. Information found here should not be used for making financial or any other commitments. Miami-Dade County provides this information with the understanding that it is not guaranteed to be accurate, correct or complete and conclusions drawn from such information are the sole responsibility of the user. While every effort has been made to ensure the accuracy, correctness and timeliness of materials presented, Miami-Dade County assumes no responsibility for errors or omissions, even if Miami-Dade County is advised of the possibility of such damage."
+    }
+  ]
+}

@@ -239,9 +239,41 @@ def apply_transform(rule: str, values: list[Any]) -> Any:
     Returns the transformed value, or None if the rule produces no output.
     All rules receive the full list of matched values so array-aware rules
     (propertyvalue_schema_objects, date_range_from_attributes) can scan them.
+
+    Rules may be chained with ';' (e.g. skip_if:values=--,TBD;string).
     """
     if not values:
         return None
+
+    if ';' in rule:
+        current: Any = values
+        for part in rule.split(';'):
+            part = part.strip()
+            if not part:
+                continue
+            chunk = current if isinstance(current, list) else [current]
+            current = apply_transform(part, chunk)
+            if current is None:
+                return None
+        return current
+
+    # ── skip_if:values=--,TBD,not_applicable ───────────────────────────────
+    if rule.startswith('skip_if:'):
+        suffix = rule.split(':', 1)[1]
+        placeholders_raw = (
+            suffix.split('=', 1)[1]
+            if suffix.startswith('values=')
+            else ''
+        )
+        placeholders = {
+            p.strip()
+            for p in placeholders_raw.split(',')
+            if p.strip()
+        }
+        raw = str(values[0]).strip()
+        if raw in placeholders:
+            return None
+        return values[0] if len(values) == 1 else values
 
     # ── pass-through ────────────────────────────────────────────────────────
     if not rule or rule in ("string", "date", "array", "controlled_value"):
@@ -284,6 +316,27 @@ def apply_transform(rule: str, values: list[Any]) -> Any:
             org: dict[str, Any] = {"@type": "Organization", "name": name}
             if name in _ROR_LOOKUP:
                 org["@id"] = _ROR_LOOKUP[name]
+            out.append(org)
+        return out[0] if len(out) == 1 else out
+
+    # ── sponsor_organization_array[:name=…,url=…] ───────────────────────────
+    if rule == "sponsor_organization_array" or rule.startswith(
+        "sponsor_organization_array:"
+    ):
+        params = (
+            _parse_kv(rule.split(":", 1)[1])
+            if rule.startswith("sponsor_organization_array:")
+            else {}
+        )
+        name_field = params.get("name", "sponsor_name")
+        url_field = params.get("url", "sponsor_url")
+        out = []
+        for v in values:
+            flat = _flatten(v) if isinstance(v, dict) else {}
+            name = flat.get(name_field, str(v) if not isinstance(v, dict) else "")
+            org: dict[str, Any] = {"@type": "Organization", "name": name}
+            if flat.get(url_field):
+                org["url"] = flat[url_field]
             out.append(org)
         return out[0] if len(out) == 1 else out
 
@@ -390,6 +443,17 @@ def apply_transform(rule: str, values: list[Any]) -> Any:
                 pv["unitCode"] = flat["attribute_unit_concept_id"]
             if flat.get("attribute_concept_id"):
                 pv["alternateName"] = flat["attribute_concept_id"]
+            if flat.get("attribute_source"):
+                pv["sourceOrganization"] = {
+                    "@type": "Organization",
+                    "name": flat["attribute_source"],
+                }
+            if flat.get("attribute_external_id"):
+                pv["identifier"] = {
+                    "@type": "PropertyValue",
+                    "propertyID": "https://gdsc.idsc.miami.edu/terms/gaia-attribute-id",
+                    "value": flat["attribute_external_id"],
+                }
             start = flat.get("attribute_start_date")
             end = flat.get("attribute_end_date")
             if start and end:

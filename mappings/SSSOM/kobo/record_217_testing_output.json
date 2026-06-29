@@ -1,0 +1,222 @@
+{
+  "@context": {
+    "@vocab": "https://schema.org/",
+    "schema": "https://schema.org/",
+    "@language": "en",
+    "dct": "http://purl.org/dc/terms/",
+    "dcat": "http://www.w3.org/ns/dcat#",
+    "qudt": "http://qudt.org/schema/qudt/",
+    "unit": "http://qudt.org/vocab/unit/",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "pato": "http://purl.obolibrary.org/obo/PATO_"
+  },
+  "@graph": [
+    {
+      "@type": "schema:Dataset",
+      "@id": "https://gdsc.idsc.miami.edu/detail/tz_1984_copernicus_avg_temp",
+      "name": "1984 Tanzania 2m Temperature Yearly Average (Copernicus)",
+      "description": "A raster dataset with yearly averages of the 2m temperature from the ERA 5 renanalysis data from Copernicus satellite sensors for Tanzania. ERA5 is the fifth generation ECMWF reanalysis for the global climate and weather for the past 8 decades. Data is available from 1940 onwards. ERA5 replaces the ERA-Interim reanalysis.",
+      "url": "https://cds.climate.copernicus.eu/datasets/reanalysis-era5-land",
+      "license": "odc_by",
+      "inLanguage": "en",
+      "datePublished": "2025-06-01",
+      "dateModified": "2025-06-01",
+      "creator": [
+        {
+          "@type": "Role",
+          "roleName": "creator",
+          "creator": {
+            "@type": "Organization",
+            "name": "Copernicus"
+          }
+        }
+      ],
+      "provider": {
+        "@type": "Organization",
+        "name": "OHDSI"
+      },
+      "spatialCoverage": {
+        "@type": "Place",
+        "name": "Tanzania",
+        "additionalProperty": [
+          {
+            "@type": "PropertyValue",
+            "name": "geonames",
+            "value": "149590",
+            "url": "https://www.geonames.org/149590"
+          },
+          {
+            "@type": "PropertyValue",
+            "name": "Spatial Reference System",
+            "value": "http://www.opengis.net/def/crs/EPSG/0/4326"
+          }
+        ]
+      },
+      "keywords": [
+        "Tanzania",
+        "temperature"
+      ],
+      "includedInDataCatalog": [
+        {
+          "@type": "DataCatalog",
+          "@id": "https://gdsc.idsc.miami.edu",
+          "name": "Geospatial Digital Special Collections",
+          "url": "https://gdsc.idsc.miami.edu"
+        },
+        {
+          "@type": "DataCatalog",
+          "name": "tz-climate-change",
+          "@id": "https://gdsc.idsc.miami.edu/?collection=tz-climate-change",
+          "url": "https://gdsc.idsc.miami.edu/?collection=tz-climate-change"
+        },
+        {
+          "@type": "DataCatalog",
+          "name": "tz-health-outcomes",
+          "@id": "https://gdsc.idsc.miami.edu/?collection=tz-health-outcomes",
+          "url": "https://gdsc.idsc.miami.edu/?collection=tz-health-outcomes"
+        }
+      ],
+      "measurementTechnique": {
+        "@type": "DefinedTerm",
+        "name": "GIS Data Structure",
+        "termCode": "raster",
+        "inDefinedTermSet": {
+          "@type": "DefinedTermSet",
+          "name": "dataRepresentation",
+          "url": "https://gdsc.idsc.miami.edu/vocab/dataRepresentation"
+        }
+      },
+      "distribution": [
+        {
+          "@type": "DataDownload",
+          "name": "Source distribution",
+          "contentUrl": "https://github.com/tibbben/copernicus_aggregate.git",
+          "encodingFormat": "nc"
+        }
+      ],
+      "additionalProperty": [
+        {
+          "@type": "PropertyValue",
+          "name": "postgis_table",
+          "value": "tz_1984_copernicus_avg_temp"
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "kobo_record_id",
+          "value": "217"
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "creator_type",
+          "value": "organization"
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "cartography_label_field",
+          "value": "not provided"
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "analytic_function",
+          "value": "gdsc_zonal_statistics"
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "Spatial Reference System",
+          "value": "http://www.opengis.net/def/crs/EPSG/0/4326"
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "derivatives",
+          "value": "tif"
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "Publication Status",
+          "termCode": "published",
+          "inDefinedTermSet": {
+            "@type": "DefinedTermSet",
+            "name": "publicationStatus",
+            "url": "https://gdsc.idsc.miami.edu/vocab/publicationStatus"
+          }
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "etl_service",
+          "value": "api python cdsapi"
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "download_method",
+          "value": "python"
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "source_file",
+          "value": "{'etl_group/file_name_group/file_name_value': 'tz_1984_copernicus_avg_temp'}"
+        }
+      ],
+      "dct:accrualPeriodicity": "as_needed",
+      "variableMeasured": [
+        {
+          "@type": "PropertyValue",
+          "name": "2m_temperature",
+          "description": "Average yearly 2m temperature in Kelvin from Copernicus reanalysis era5 single levels",
+          "qudt:dataType": "xsd:float",
+          "unitText": "Kelvin",
+          "unitCode": "9523",
+          "alternateName": "35814756",
+          "sourceOrganization": {
+            "@type": "Organization",
+            "name": "Copernicus"
+          },
+          "identifier": {
+            "@type": "PropertyValue",
+            "propertyID": "https://gdsc.idsc.miami.edu/terms/gaia-attribute-id",
+            "value": "2m_temperature@tz_1984"
+          },
+          "additionalProperty": [
+            {
+              "@type": "PropertyValue",
+              "name": "temporal_interval",
+              "value": "1984-01-01/1984-12-31"
+            }
+          ]
+        }
+      ],
+      "temporalCoverage": "1984-01-01/1984-12-31",
+      "isAccessibleForFree": false,
+      "usageInfo": "N/A",
+      "dct:provenance": "Copernicus",
+      "additionalType": {
+        "@type": "DefinedTerm",
+        "name": "GDSC Resource Type",
+        "termCode": "raster_dataset",
+        "inDefinedTermSet": {
+          "@type": "DefinedTermSet",
+          "name": "gdscResourceType",
+          "url": "https://gdsc.idsc.miami.edu/vocab/resourceType"
+        }
+      },
+      "isRelatedTo": "No related resources",
+      "funder": [
+        {
+          "@type": "Organization",
+          "name": "TuftsCTSI",
+          "url": "https://www.tuftsctsi.org"
+        },
+        {
+          "@type": "Organization",
+          "name": "IDSC",
+          "url": "https://idsc.miami.edu"
+        },
+        {
+          "@type": "Organization",
+          "name": "Library",
+          "url": "https://www.library.miami.edu"
+        }
+      ],
+      "disambiguatingDescription": "Not specified"
+    }
+  ]
+}
