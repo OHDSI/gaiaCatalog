@@ -10,7 +10,7 @@ alignments (subject_id / predicate_id / object_id).
 Usage:
     python vanilla_sssom.py --sssom kobo/gaia_metadata_authoring_form_v2_to_schemaorg.sssom.tsv
     python vanilla_sssom.py --sssom test.sssom.tsv --format json --output core.json
-    python vanilla_sssom.py --sssom kobo/testing.SSSOM --format tsv --output core.sssom.tsv
+    python vanilla_sssom.py --sssom kobo/kobo_testing.sssom.tsv --format tsv --output core.sssom.tsv
     python vanilla_sssom.py --sssom test.sssom.tsv --format turtle --output alignments.ttl
     python vanilla_sssom.py --sssom test.sssom.tsv --validate
 

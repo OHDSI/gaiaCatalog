@@ -1,6 +1,6 @@
 # SSSOM Extras — Unmapped Field Exploration
 
-This document covers the `testing.SSSOM` experiment: mapping Kobo fields present in
+This document covers the `kobo_testing.sssom.tsv` experiment: mapping Kobo fields present in
 `record_136_raw.json` (and sibling records) that are **not** in the production mapping
 `gaia_metadata_authoring_form_v2_to_schemaorg.sssom.tsv`. It also records the
 implementation and verification of three follow-on transform improvements in
@@ -13,13 +13,13 @@ implementation and verification of three follow-on transform improvements in
 | File | Description |
 |------|-------------|
 | `gaia_metadata_authoring_form_v2_to_schemaorg.sssom.tsv` | Production mapping (25 rows) |
-| `testing.SSSOM` | Experimental mapping (54 rows) — production rows + unmapped-field exploration |
+| `kobo_testing.sssom.tsv` | Experimental mapping (54 rows) — production rows + unmapped-field exploration |
 | `record_136_raw.json` | Primary test input (PM2.5 vector dataset) |
 | `record_26_raw.json`, `record_217_raw.json` | Additional Kobo records for cross-record checks |
 | `record_136_keys.txt` | Flat list of 65 top-level Kobo paths in record 136 |
 | `pm25_vector_urban.json` | Target reference JSON-LD shape |
 | `record_136_output_v2.json` | Output from production mapping |
-| `record_136_testing_output.json` | Output from `testing.SSSOM` (after next-step fixes) |
+| `record_136_testing_output.json` | Output from `kobo_testing.sssom.tsv` (after next-step fixes) |
 | `../sssom_to_jsonld.py` | Transform engine (one level up) |
 
 The production mapping covers core Dublin Core, ISO, ETL, and cartography fields.
@@ -28,7 +28,7 @@ production file.
 
 ---
 
-## Approach categories in `testing.SSSOM`
+## Approach categories in `kobo_testing.sssom.tsv`
 
 Each experimental row tags its strategy in the `comment` column:
 
@@ -56,7 +56,7 @@ SSSOM handles “extra source fields” in layers:
 
 ## Unmapped fields by category (record 136)
 
-| Category | Fields added in `testing.SSSOM` |
+| Category | Fields added in `kobo_testing.sssom.tsv` |
 |----------|--------------------------------|
 | Control | `control_group/id`, `external_id_group` |
 | Dublin Core extras | `license_text`, `restrictions`, `provenance`, `resource_type`, `relation_group`, `creator_type` |
@@ -98,7 +98,7 @@ python sssom_to_jsonld.py \
 
 ```bash
 python sssom_to_jsonld.py \
-  --sssom  kobo/testing.SSSOM \
+  --sssom  kobo/kobo_testing.sssom.tsv \
   --input  kobo/record_136_raw.json \
   --output kobo/record_136_testing_output.json \
   --wrap-key datasets
@@ -109,7 +109,7 @@ python sssom_to_jsonld.py \
 ```bash
 for rec in 136 26 217; do
   python sssom_to_jsonld.py \
-    --sssom  kobo/testing.SSSOM \
+    --sssom  kobo/kobo_testing.sssom.tsv \
     --input  kobo/record_${rec}_raw.json \
     --output kobo/record_${rec}_testing_output.json \
     --wrap-key datasets
@@ -217,7 +217,7 @@ print('All rule unit checks passed.')
 
 ## Next-step implementations
 
-Three improvements were added to `../sssom_to_jsonld.py` and wired in `testing.SSSOM`.
+Three improvements were added to `../sssom_to_jsonld.py` and wired in `kobo_testing.sssom.tsv`.
 
 ### 1. `skip_if` — suppress placeholder values
 
@@ -235,7 +235,7 @@ Rules chain with `;`. The first segment filters; later segments transform.
 directly rather than using the generic `_parse_kv` comma splitter (which would break
 `TBD,not_applicable` into separate tokens).
 
-**Rows using skip_if in `testing.SSSOM`:**
+**Rows using skip_if in `kobo_testing.sssom.tsv`:**
 
 | Subject | Source field | Placeholder in record 136 |
 |---------|--------------|---------------------------|
@@ -286,7 +286,7 @@ Maps each `sponsor_group` repeat to a `schema:Organization` on `schema:funder`.
 ### 3. `propertyvalue_schema_objects` enrichment — per-attribute provenance
 
 Extended the existing rule; no separate SSSOM rows needed. Removed the interim
-`kobo:attribute_source` and `kobo:attribute_external_id` rows from `testing.SSSOM`.
+`kobo:attribute_source` and `kobo:attribute_external_id` rows from `kobo_testing.sssom.tsv`.
 
 | Kobo sub-field | Schema.org target |
 |----------------|-------------------|
@@ -352,7 +352,7 @@ These were noted in the initial exploration and are **not** yet implemented:
 | `etl_service: not_applicable` | Passes through | Extend `skip_if` placeholders |
 
 Document these as `skos:closeMatch` rows with `PROPOSED_RULE` comments until the
-transform engine catches up — the same pattern used in the initial `testing.SSSOM`
+transform engine catches up — the same pattern used in the initial `kobo_testing.sssom.tsv`
 draft.
 
 ---
