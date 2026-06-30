@@ -443,11 +443,6 @@ def apply_transform(rule: str, values: list[Any]) -> Any:
                 pv["unitCode"] = flat["attribute_unit_concept_id"]
             if flat.get("attribute_concept_id"):
                 pv["alternateName"] = flat["attribute_concept_id"]
-            if flat.get("attribute_source"):
-                pv["sourceOrganization"] = {
-                    "@type": "Organization",
-                    "name": flat["attribute_source"],
-                }
             if flat.get("attribute_external_id"):
                 pv["identifier"] = {
                     "@type": "PropertyValue",

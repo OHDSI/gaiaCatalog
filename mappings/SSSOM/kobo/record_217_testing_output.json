@@ -76,16 +76,28 @@
           "url": "https://gdsc.idsc.miami.edu/?collection=tz-health-outcomes"
         }
       ],
-      "measurementTechnique": {
-        "@type": "DefinedTerm",
-        "name": "GIS Data Structure",
-        "termCode": "raster",
-        "inDefinedTermSet": {
-          "@type": "DefinedTermSet",
-          "name": "dataRepresentation",
-          "url": "https://gdsc.idsc.miami.edu/vocab/dataRepresentation"
+      "measurementTechnique": [
+        {
+          "@type": "DefinedTerm",
+          "name": "GIS Data Structure",
+          "termCode": "raster",
+          "inDefinedTermSet": {
+            "@type": "DefinedTermSet",
+            "name": "dataRepresentation",
+            "url": "https://gdsc.idsc.miami.edu/vocab/dataRepresentation"
+          }
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "Publication Status",
+          "termCode": "published",
+          "inDefinedTermSet": {
+            "@type": "DefinedTermSet",
+            "name": "publicationStatus",
+            "url": "https://gdsc.idsc.miami.edu/vocab/publicationStatus"
+          }
         }
-      },
+      ],
       "distribution": [
         {
           "@type": "DataDownload",
@@ -131,16 +143,6 @@
           "value": "tif"
         },
         {
-          "@type": "DefinedTerm",
-          "name": "Publication Status",
-          "termCode": "published",
-          "inDefinedTermSet": {
-            "@type": "DefinedTermSet",
-            "name": "publicationStatus",
-            "url": "https://gdsc.idsc.miami.edu/vocab/publicationStatus"
-          }
-        },
-        {
           "@type": "PropertyValue",
           "name": "etl_service",
           "value": "api python cdsapi"
@@ -166,10 +168,6 @@
           "unitText": "Kelvin",
           "unitCode": "9523",
           "alternateName": "35814756",
-          "sourceOrganization": {
-            "@type": "Organization",
-            "name": "Copernicus"
-          },
           "identifier": {
             "@type": "PropertyValue",
             "propertyID": "https://gdsc.idsc.miami.edu/terms/gaia-attribute-id",
@@ -188,16 +186,7 @@
       "isAccessibleForFree": false,
       "usageInfo": "N/A",
       "dct:provenance": "Copernicus",
-      "additionalType": {
-        "@type": "DefinedTerm",
-        "name": "GDSC Resource Type",
-        "termCode": "raster_dataset",
-        "inDefinedTermSet": {
-          "@type": "DefinedTermSet",
-          "name": "gdscResourceType",
-          "url": "https://gdsc.idsc.miami.edu/vocab/resourceType"
-        }
-      },
+      "additionalType": "raster_dataset",
       "isRelatedTo": "No related resources",
       "funder": [
         {

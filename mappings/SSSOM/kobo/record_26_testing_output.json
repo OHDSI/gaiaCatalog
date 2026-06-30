@@ -95,6 +95,16 @@
             "name": "vectorGeometry",
             "url": "https://gdsc.idsc.miami.edu/vocab/vectorGeometry"
           }
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "Data Processing Level",
+          "termCode": "observed",
+          "inDefinedTermSet": {
+            "@type": "DefinedTermSet",
+            "name": "dataProcessingLevel",
+            "url": "https://gdsc.idsc.miami.edu/vocab/dataProcessingLevel"
+          }
         }
       ],
       "distribution": [
@@ -120,16 +130,6 @@
           "@type": "PropertyValue",
           "name": "creator_type",
           "value": "organization"
-        },
-        {
-          "@type": "DefinedTerm",
-          "name": "Data Processing Level",
-          "termCode": "observed",
-          "inDefinedTermSet": {
-            "@type": "DefinedTermSet",
-            "name": "dataProcessingLevel",
-            "url": "https://gdsc.idsc.miami.edu/vocab/dataProcessingLevel"
-          }
         },
         {
           "@type": "PropertyValue",
@@ -184,111 +184,67 @@
           "@type": "PropertyValue",
           "name": "folio",
           "description": "Folio identifier",
-          "qudt:dataType": "xsd:string",
-          "sourceOrganization": {
-            "@type": "Organization",
-            "name": "MDC"
-          }
+          "qudt:dataType": "xsd:string"
         },
         {
           "@type": "PropertyValue",
           "name": "name",
           "description": "Name of fire station",
-          "qudt:dataType": "xsd:string",
-          "sourceOrganization": {
-            "@type": "Organization",
-            "name": "MDC"
-          }
+          "qudt:dataType": "xsd:string"
         },
         {
           "@type": "PropertyValue",
           "name": "address",
           "description": "Address of fire station",
-          "qudt:dataType": "xsd:string",
-          "sourceOrganization": {
-            "@type": "Organization",
-            "name": "MDC"
-          }
+          "qudt:dataType": "xsd:string"
         },
         {
           "@type": "PropertyValue",
           "name": "zipcode",
           "description": "Zipcode of fire station",
-          "qudt:dataType": "xsd:integer",
-          "sourceOrganization": {
-            "@type": "Organization",
-            "name": "MDC"
-          }
+          "qudt:dataType": "xsd:integer"
         },
         {
           "@type": "PropertyValue",
           "name": "municid",
           "description": "Municipal code",
-          "qudt:dataType": "xsd:string",
-          "sourceOrganization": {
-            "@type": "Organization",
-            "name": "MDC (Implied)"
-          }
+          "qudt:dataType": "xsd:string"
         },
         {
           "@type": "PropertyValue",
           "name": "type",
           "description": "tation type: (Fire Stations: A = Air Rescue, B = Both Rescue, R = Rescue, S = Suppression & Other Facilities: H = Headquarters, L = Logistical Support, T = Training Center)",
-          "qudt:dataType": "xsd:string",
-          "sourceOrganization": {
-            "@type": "Organization",
-            "name": "MDC"
-          }
+          "qudt:dataType": "xsd:string"
         },
         {
           "@type": "PropertyValue",
           "name": "lat",
           "description": "Latitude",
-          "qudt:dataType": "xsd:float",
-          "sourceOrganization": {
-            "@type": "Organization",
-            "name": "MDC"
-          }
+          "qudt:dataType": "xsd:float"
         },
         {
           "@type": "PropertyValue",
           "name": "lon",
           "description": "Longitude",
-          "qudt:dataType": "xsd:float",
-          "sourceOrganization": {
-            "@type": "Organization",
-            "name": "MDC"
-          }
+          "qudt:dataType": "xsd:float"
         },
         {
           "@type": "PropertyValue",
           "name": "point_x",
           "description": "X-coordinate",
-          "qudt:dataType": "xsd:float",
-          "sourceOrganization": {
-            "@type": "Organization",
-            "name": "MDC"
-          }
+          "qudt:dataType": "xsd:float"
         },
         {
           "@type": "PropertyValue",
           "name": "point_y",
           "description": "Y-coordinate",
-          "qudt:dataType": "xsd:float",
-          "sourceOrganization": {
-            "@type": "Organization",
-            "name": "MDC"
-          }
+          "qudt:dataType": "xsd:float"
         },
         {
           "@type": "PropertyValue",
           "name": "globalid",
           "description": "Unique identifier",
-          "qudt:dataType": "xsd:string",
-          "sourceOrganization": {
-            "@type": "Organization",
-            "name": "Esri"
-          }
+          "qudt:dataType": "xsd:string"
         }
       ],
       "isAccessibleForFree": false,
@@ -297,16 +253,7 @@
         "not provided"
       ],
       "dct:provenance": "direct from source",
-      "additionalType": {
-        "@type": "DefinedTerm",
-        "name": "GDSC Resource Type",
-        "termCode": "vector_dataset",
-        "inDefinedTermSet": {
-          "@type": "DefinedTermSet",
-          "name": "gdscResourceType",
-          "url": "https://gdsc.idsc.miami.edu/vocab/resourceType"
-        }
-      },
+      "additionalType": "vector_dataset",
       "funder": [
         {
           "@type": "Organization",

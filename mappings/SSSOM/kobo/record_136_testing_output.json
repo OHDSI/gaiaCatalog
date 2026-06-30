@@ -105,6 +105,26 @@
             "name": "vectorGeometry",
             "url": "https://gdsc.idsc.miami.edu/vocab/vectorGeometry"
           }
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "Data Processing Level",
+          "termCode": "derived",
+          "inDefinedTermSet": {
+            "@type": "DefinedTermSet",
+            "name": "dataProcessingLevel",
+            "url": "https://gdsc.idsc.miami.edu/vocab/dataProcessingLevel"
+          }
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "Publication Status",
+          "termCode": "draft",
+          "inDefinedTermSet": {
+            "@type": "DefinedTermSet",
+            "name": "publicationStatus",
+            "url": "https://gdsc.idsc.miami.edu/vocab/publicationStatus"
+          }
         }
       ],
       "distribution": [
@@ -137,16 +157,6 @@
           "value": "organization"
         },
         {
-          "@type": "DefinedTerm",
-          "name": "Data Processing Level",
-          "termCode": "derived",
-          "inDefinedTermSet": {
-            "@type": "DefinedTermSet",
-            "name": "dataProcessingLevel",
-            "url": "https://gdsc.idsc.miami.edu/vocab/dataProcessingLevel"
-          }
-        },
-        {
           "@type": "PropertyValue",
           "name": "cartography_label_field",
           "value": "name"
@@ -172,16 +182,6 @@
           "value": "sql shp"
         },
         {
-          "@type": "DefinedTerm",
-          "name": "Publication Status",
-          "termCode": "draft",
-          "inDefinedTermSet": {
-            "@type": "DefinedTermSet",
-            "name": "publicationStatus",
-            "url": "https://gdsc.idsc.miami.edu/vocab/publicationStatus"
-          }
-        },
-        {
           "@type": "PropertyValue",
           "name": "etl_service",
           "value": "not_applicable"
@@ -203,92 +203,56 @@
           "@type": "PropertyValue",
           "name": "urbid",
           "description": "Code of the urban extent polygons (not unique)",
-          "qudt:dataType": "xsd:integer",
-          "sourceOrganization": {
-            "@type": "Organization",
-            "name": "SEDAC"
-          }
+          "qudt:dataType": "xsd:integer"
         },
         {
           "@type": "PropertyValue",
           "name": "stndrdnam",
           "description": "Name of the Urban Extent, caps and concatenated. If the urban extent polygons include more than one settlement, the name is the settlement with the highest population",
-          "qudt:dataType": "xsd:string",
-          "sourceOrganization": {
-            "@type": "Organization",
-            "name": "SEDAC"
-          }
+          "qudt:dataType": "xsd:string"
         },
         {
           "@type": "PropertyValue",
           "name": "name",
           "description": "Name of the Urban Extent. If the urban extents polygons include more than one settlement, the name is the settlement with the highest population",
-          "qudt:dataType": "xsd:string",
-          "sourceOrganization": {
-            "@type": "Organization",
-            "name": "SEDAC"
-          }
+          "qudt:dataType": "xsd:string"
         },
         {
           "@type": "PropertyValue",
           "name": "isourbid",
           "description": "Unique code of the urban extent polygons, created by concatenating country ISO code and URBID",
-          "qudt:dataType": "xsd:string",
-          "sourceOrganization": {
-            "@type": "Organization",
-            "name": "SEDAC"
-          }
+          "qudt:dataType": "xsd:string"
         },
         {
           "@type": "PropertyValue",
           "name": "sqkm",
           "description": "Area of the urban extent polygon",
           "qudt:dataType": "xsd:integer",
-          "unitText": "square kilometer",
-          "sourceOrganization": {
-            "@type": "Organization",
-            "name": "SEDAC"
-          }
+          "unitText": "square kilometer"
         },
         {
           "@type": "PropertyValue",
           "name": "iso3",
           "description": "3 letter country code",
-          "qudt:dataType": "xsd:string",
-          "sourceOrganization": {
-            "@type": "Organization",
-            "name": "SEDAC"
-          }
+          "qudt:dataType": "xsd:string"
         },
         {
           "@type": "PropertyValue",
           "name": "unsdcode",
           "description": "UNSD country numerical code",
-          "qudt:dataType": "xsd:integer",
-          "sourceOrganization": {
-            "@type": "Organization",
-            "name": "SEDAC"
-          }
+          "qudt:dataType": "xsd:integer"
         },
         {
           "@type": "PropertyValue",
           "name": "countryeng",
           "description": "Country name",
-          "qudt:dataType": "xsd:string",
-          "sourceOrganization": {
-            "@type": "Organization",
-            "name": "SEDAC"
-          }
+          "qudt:dataType": "xsd:string"
         },
         {
           "@type": "PropertyValue",
           "name": "continent",
           "description": "Continent Name",
-          "qudt:dataType": "xsd:string",
-          "sourceOrganization": {
-            "@type": "Organization",
-            "name": "SEDAC"
-          }
+          "qudt:dataType": "xsd:string"
         },
         {
           "@type": "PropertyValue",
@@ -298,10 +262,6 @@
           "unitText": "micrograms/cubic meter",
           "unitCode": "32964",
           "alternateName": "2052499839",
-          "sourceOrganization": {
-            "@type": "Organization",
-            "name": "SEDAC"
-          },
           "identifier": {
             "@type": "PropertyValue",
             "propertyID": "https://gdsc.idsc.miami.edu/terms/gaia-attribute-id",
@@ -323,10 +283,6 @@
           "unitText": "micrograms/cubic meter",
           "unitCode": "32964",
           "alternateName": "2052499839",
-          "sourceOrganization": {
-            "@type": "Organization",
-            "name": "SEDAC"
-          },
           "identifier": {
             "@type": "PropertyValue",
             "propertyID": "https://gdsc.idsc.miami.edu/terms/gaia-attribute-id",
@@ -348,16 +304,7 @@
         "Requires clear attribution of the source. Users are free to use, copy, distribute, transmit, and adapt the work for commercial and non-commercial purposes"
       ],
       "dct:provenance": "Direct from source",
-      "additionalType": {
-        "@type": "DefinedTerm",
-        "name": "GDSC Resource Type",
-        "termCode": "vector_dataset",
-        "inDefinedTermSet": {
-          "@type": "DefinedTermSet",
-          "name": "gdscResourceType",
-          "url": "https://gdsc.idsc.miami.edu/vocab/resourceType"
-        }
-      },
+      "additionalType": "vector_dataset",
       "funder": [
         {
           "@type": "Organization",
