@@ -1,10 +1,12 @@
 {
   "dct:title": "Trinidad and Tobago Regions",
   "dct:creator": ["OpenStreetMap contributors"],
-  "dct:identifier": "https://www.openstreetmap.org/",
+  "dcat:landingPage": "https://www.openstreetmap.org/",
   "dct:publisher": ["OpenStreetMap"],
-  "dct:rights": "You are free to copy, distribute, transmit and adapt our data, as long as you credit OpenStreetMap and its contributors. If you alter or build upon our data, you may distribute the result only under the same licence.",
-  "dct:license": "OpenStreetMap\u00ae is open data, licensed under the [Open Data Commons Open Database License](https://opendatacommons.org/licenses/odbl/) (ODbL) by the [OpenStreetMap Foundation](https://osmfoundation.org/) (OSMF).",
+  "dct:rights": "Open Data",
+  "dct:license": "odbl",
+  "dct:licenseText": "OpenStreetMap\u00ae is open data, licensed under the [Open Data Commons Open Database License](https://opendatacommons.org/licenses/odbl/) (ODbL) by the [OpenStreetMap Foundation](https://osmfoundation.org/) (OSMF).",
+  "dct:accessRights": "You are free to copy, distribute, transmit and adapt our data, as long as you credit OpenStreetMap and its contributors. If you alter or build upon our data, you may distribute the result only under the same licence.",
   "dct:coverage": ["Trinidad and Tobago;3573591;geonames;https://www.geonames.org/"],
   "dct:type": "Vector Dataset",
   "dct:issued": "2023-11-30T00:00:00Z",
@@ -16,7 +18,7 @@
   "dct:conformsTo": "EPSG:4326",
   "prov:action": "#########\n# GDSC ETL is performed in two steps: shell script to ETL data into postgres\n# and then additional transformations with SQL in postGIS (if needed).\n####\n\n#########\n# Step 1 - bash script (pseudo code)\n####\n\n# create directory structure and move into it\nmkdir -p /data/tt_regions/download -p /data/tt_regions/etl\nchmod 777 /data/tt_regions/download\ncd /data/tt_regions\n\n# set update flag based on last update and update frequency\ndo_update=0 if date() < last_update + update_frequency else do_update = 1\n\n# download if update flag is set:\nif do_update == 1 then\ncurl -o download/tt_regions.osm 'https://overpass-api.de/api/interpreter?data=rel%5B%22ISO3166-2%22~%22^TT%22%5D%5Badmin_level=4%5D%5Btype=boundary%5D%5Bboundary=administrative%5D;(._;>;);out;'\n\n# load into postGIS with:\n  ogr2ogr -lco GEOMETRY_NAME=geom -f PostgreSQL PG:\"<postgres connection>\" download/tt_regions.osm\n\n#########\n# Step 2 - SQL script (pseudo code):\n####\n\n# Select proper geometry into the named table\npsql -d $POSTGRES_DB -U $POSTGRES_USER -p $POSTGRES_PORT -h gaia-db -c \"\nSELECT * INTO tt_regions FROM multipolygons;\nDROP TABLE IF EXISTS lines;\nDROP TABLE IF EXISTS multilinestrings;\nDROP TABLE IF EXISTS multipolygons;\nDROP TABLE IF EXISTS other_relations;\nDROP TABLE IF EXISTS points;\"\n\n# remove duplicate points and make geometries valid:\nUPDATE tt_regions\n  SET geom=ST_MakeValid(ST_RemoveRepeatedPoints(geom));\n\n# add local geometry column and reproject existing geometries into local EPSG:\nSELECT AddGeometryColumn (\n  'tt_regions',\n  'geom_local', 8035, 'multipolygon', 2\n);\nUPDATE tt_regions\n  SET geom_local=ST_MakeValid(ST_RemoveRepeatedPoints(ST_Transform(ST_Multi(geom),8035)));\nCREATE INDEX tt_regions_geom_local_idx\n  ON tt_regions\n  USING GIST (geom_local);\nNOTIFY pgrst, 'reload schema';\n",
   "prov:wasGeneratedBy": "GDSC automation (see Process Step)",
-  "dcat:contactPoint": ["Timothy Norris", "Librarian Associate Professor", "University of Miami Libraries, Frost Institute for Data Science and Computing", "txn60@miami.edu"],
+  "dcat:contactPoint": [{"contact_name": "Timothy B. Norris", "contact_last_name": "Norris", "contact_first_name": "Timothy", "contact_email": "tnorris@miami.edu", "contact_identifier": "https://orcid.org/0000-0002-0898-3027", "contact_identifier_schema": "orcid", "contact_identifier_schema_uri": "https://orcid.org/", "contact_affiliation": "University of Miami Libraries, Frost Institute for Data Science and Computing", "contact_affiliation_identifier": "https://ror.org/02dgjyy92", "contact_affiliation_schema": "ror", "contact_affiliation_schema_uri": "https://ror.org/"}],
   "gdsc:label": "name",
   "gdsc:attributes": ["osm_id;OpenStreetMap (OSM) ID;;varchar;", "name;Region name;;varchar;", "type;Type of boundary;;varchar;", "admin_level;OSM Administrative level;;varchar;", "boundary;OSM boundary type;;varchar;", "other_tags;Any other OSM tags with values, first one is the ISO3166-2 code for the administrative region;;varchar;"],
   "gdsc:collections": ["tt-disease-risk"],
@@ -28,9 +30,9 @@
   "gdsc:tablename": "tt_regions",
   "gdsc:up": "false",
   "gdsc:podID": "gaia-db",
-  "dct:modified": "2026-02-13T12:43:07Z",
+  "dct:modified": "0001-01-01T00:00:00Z",
   "dct:accrualPeriodicity": "As Needed",
-  "gdsc:version": "2026-05-26T13:19:22Z",
+  "gdsc:version": "2026-08-23T15:57:16Z",
   "spdx:checksum": "TBD",
-  "dct:extent": ["2702526", "2.6M"]
+  "dct:extent": {"size_bytes": "0", "size_human_readable": "0"}
 }

@@ -1,0 +1,153 @@
+{
+  "control_group": {
+    "id": 158
+  },
+  "dublin_core_group": {
+    "title": "OSM Tanzania Regions",
+    "creator_group": [
+      {
+        "creator_name": "OpenStreetMap contributors"
+      }
+    ],
+    "url": "https://www.openstreetmap.org/",
+    "publisher_group": [
+      {
+        "publisher_name": "OpenStreetMap"
+      }
+    ],
+    "rights": "open_data",
+    "license": "odbl",
+    "license_text": "OpenStreetMap\u00ae is open data, licensed under the [Open Data Commons Open Database License](https://opendatacommons.org/licenses/odbl/) (ODbL) by the [OpenStreetMap Foundation](https://osmfoundation.org/) (OSMF).",
+    "restrictions": "You are free to copy, distribute, transmit and adapt our data, as long as you credit OpenStreetMap and its contributors. If you alter or build upon our data, you may distribute the result only under the same licence.",
+    "coverage_group": [
+      {
+        "coverage_name": "Tanzania",
+        "coverage_identifier": "149590",
+        "coverage_identifier_schema": "geonames",
+        "coverage_identifier_schema_uri": "https://www.geonames.org/"
+      }
+    ],
+    "resource_type": "vector_dataset",
+    "publication_date": "2025-02-24",
+    "description": "A polygon feature set for the regions of Tanzania sourced from OpenStreetMap.",
+    "provenance": "Direct from source.",
+    "subject_group": [
+      {
+        "subject_term": "Tanzania"
+      },
+      {
+        "subject_term": "Regions"
+      },
+      {
+        "subject_term": "Administrative Boundaries"
+      }
+    ],
+    "size_group": [
+      {
+        "size_bytes": "31690805",
+        "size_human_readable": "31M"
+      }
+    ]
+  },
+  "iso_group": {
+    "structure": "vector",
+    "geometry": "polygon",
+    "epsg": 4326,
+    "lineage": "TBD",
+    "process_step": "#########\n# GDSC ETL is performed in two steps: shell script to ETL data into postgres\n# and then additional transformations with SQL in postGIS (if needed).\n####\n\n#########\n# Step 1 - bash script (pseudo code)\n####\n\n# create directory structure and move into it\nmkdir -p /data/tz_regions_osm/download -p /data/tz_regions_osm/etl\nchmod 777 /data/tz_regions_osm/download\ncd /data/tz_regions_osm\n\n# set update flag based on last update and update frequency\ndo_update=0 if date() < last_update + update_frequency else do_update = 1\n\n# download if update flag is set:\nif do_update == 1 then\ncurl -o download/tz_regions_osm.osm 'https://overpass-api.de/api/interpreter?data=rel%5B%22ISO3166-2%22~%22^TZ%22%5D%5Badmin_level=4%5D%5Btype=boundary%5D%5Bboundary=administrative%5D;(._;>;);out;'\n\n# load into postGIS with:\n  ogr2ogr -lco GEOMETRY_NAME=geom -f PostgreSQL PG:\"<postgres connection>\" download/tz_regions_osm.osm\n\n#########\n# Step 2 - SQL script (pseudo code):\n####\n\n# Select proper geometry into the named table\npsql -d gaiacore -U postgres -p 5432 -h gaia-db -c \"\nSELECT * INTO tz_regions_osm FROM multipolygons;\nDROP TABLE IF EXISTS lines;\nDROP TABLE IF EXISTS multilinestrings;\nDROP TABLE IF EXISTS multipolygons;\nDROP TABLE IF EXISTS other_relations;\nDROP TABLE IF EXISTS points;\"\n\n# remove duplicate points and make geometries valid:\nUPDATE tz_regions_osm\n  SET geom=ST_MakeValid(ST_RemoveRepeatedPoints(geom));\n\n# add local geometry column and reproject existing geometries into local EPSG:\nSELECT AddGeometryColumn (\n  'tz_regions_osm',\n  'geom_local', 4326, 'multipolygon', 2\n);\nUPDATE tz_regions_osm\n  SET geom_local=ST_MakeValid(ST_RemoveRepeatedPoints(ST_Transform(ST_Multi(geom),4326)));\nCREATE INDEX tz_regions_osm_geom_local_idx\n  ON tz_regions_osm\n  USING GIST (geom_local);\nNOTIFY pgrst, 'reload schema';\n# Move into corrrect directory and create derivative directory in data package on osgeo\ncd /data/tz_regions_osm/\nmkdir -p derived\n\n# Create shapefile of table in derivate directory on osgeo \nogr2ogr -f \"ESRI Shapefile\" -overwrite derived/tz_regions_osm.shp PG:\"<postgres connection>\" tz_regions_osm\n\n# Create downloadable tarfile of shp in derivative directory on osgeo\nrm -f derived/tz_regions_osm.shp.tar.gz\ntar -czf derived/tz_regions_osm.shp.tar.gz meta_dcat_tz_regions_osm.json -C derived tz_regions_osm.shp tz_regions_osm.prj tz_regions_osm.shx tz_regions_osm.dbf\n\n# Move into correct directory\ncd /data/tz_regions_osm/\n\n",
+    "processor": "GDSC automation (see Process Step)",
+    "point_of_contact_group": [
+      {
+        "contact_name": "Timothy B. Norris",
+        "contact_last_name": "Norris",
+        "contact_first_name": "Timothy",
+        "contact_email": "tnorris@miami.edu",
+        "contact_identifier": "https://orcid.org/0000-0002-0898-3027",
+        "contact_identifier_schema": "orcid",
+        "contact_identifier_schema_uri": "https://orcid.org/",
+        "contact_affiliation": "University of Miami Libraries, Frost Institute for Data Science and Computing",
+        "contact_affiliation_identifier": "https://ror.org/02dgjyy92",
+        "contact_affiliation_schema": "ror",
+        "contact_affiliation_schema_uri": "https://ror.org/"
+      }
+    ],
+    "data_level": "observed"
+  },
+  "cartography_group": {
+    "label": "name",
+    "attributes_group": [
+      {
+        "attribute_name": "osm_id",
+        "attribute_description": "OpenStreetMap (OSM) ID",
+        "attribute_source": "varchar"
+      },
+      {
+        "attribute_name": "\nname",
+        "attribute_description": "Region name",
+        "attribute_source": "varchar"
+      },
+      {
+        "attribute_name": "\ntype",
+        "attribute_description": "Type of boundary",
+        "attribute_source": "varchar"
+      },
+      {
+        "attribute_name": "\nadmin_level",
+        "attribute_description": "OSM Administrative level",
+        "attribute_source": "varchar"
+      },
+      {
+        "attribute_name": "\nboundary",
+        "attribute_description": "OSM boundary type",
+        "attribute_source": "varchar"
+      },
+      {
+        "attribute_name": "\nother_tags",
+        "attribute_description": "Any other OSM tags with values, first one is the ISO3166-2 code for the administrative region",
+        "attribute_source": "varchar"
+      }
+    ]
+  },
+  "collection_group": {
+    "collections": "tz-climate-change tz-health-outcomes",
+    "analytic_function": "gdsc_get_attributes",
+    "analytic_epsg": 4326,
+    "derivatives": "shp",
+    "derivative_url": "/data/tz_regions_osm/",
+    "sponsor_group": [
+      {
+        "sponsor_name": "IDSC",
+        "sponsor_url": "https://idsc.miami.edu"
+      },
+      {
+        "sponsor_name": "Library",
+        "sponsor_url": "https://www.library.miami.edu"
+      }
+    ],
+    "status": "published",
+    "disclaimer": "The Database is licensed by the Licensor \u201cas is\u201d and without any warranty of any kind, either express, implied, or arising by statute, custom, course of dealing, or trade usage. Licensor specifically disclaims any and all implied warranties or conditions of title, non-infringement, accuracy or completeness, the presence or absence of errors, fitness for a particular purpose, merchantability, or otherwise. Some jurisdictions do not allow the exclusion of implied warranties, so this exclusion may not apply to You.\n\nSubject to any liability that may not be excluded or limited by law, the Licensor is not liable for, and expressly excludes, all liability for loss or damage however and whenever caused to anyone by any use under this License, whether by You or by anyone else, and whether caused by any fault on the part of the Licensor or not. This exclusion of liability includes, but is not limited to, any special, incidental, consequential, punitive, or exemplary damages such as loss of revenue, data, anticipated profits, and lost business. This exclusion applies even if the Licensor has been advised of the possibility of such damages. \n\nIf liability may not be excluded by law, it is limited to actual and direct financial loss to the extent it is caused by proved negligence on the part of the Licensor.",
+    "service_definition": "api"
+  },
+  "etl_group": {
+    "source": "https://overpass-api.de/api/interpreter?data=rel%5B%22ISO3166-2%22~%22^TZ%22%5D%5Badmin_level=4%5D%5Btype=boundary%5D%5Bboundary=administrative%5D;(._;>;);out;",
+    "file_name_group": [
+      {
+        "file_name_value": "tz_regions_osm"
+      }
+    ],
+    "extension": "osm",
+    "download": "curl",
+    "table_name": "tz_regions_osm",
+    "format": "osm",
+    "etl_parameters": "multipolygons",
+    "up": "false",
+    "podid": "gaia-db",
+    "last_updated": "2025-09-07 11:19:11",
+    "update_frequency": "as_needed",
+    "checksum": "TBD"
+  },
+  "_submission_time": "2026-08-23 15:57:23",
+  "meta": {
+    "instanceID": "7252c780-3577-47c2-99cc-77044768973"
+  }
+}

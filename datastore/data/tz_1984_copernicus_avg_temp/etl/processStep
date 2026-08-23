@@ -34,6 +34,10 @@ rm load_raster.sql
 cd /data/tz_1984_copernicus_avg_temp/
 mkdir -p derived
 
+# Create downloadable zip of download/geotiff in derivate directory 
+rm -f derived/tz_1984_copernicus_avg_temp.tif.tar.gz
+tar -czf derived/tz_1984_copernicus_avg_temp.tif.tar.gz meta_dcat_tz_1984_copernicus_avg_temp.json -C download tz_1984_copernicus_avg_temp.tif
+
 # Move into correct directory
 cd /data/tz_1984_copernicus_avg_temp/
 

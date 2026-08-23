@@ -38,7 +38,7 @@
       "name": "OpenStreetMap"
     }
   ],
-  "license": "OpenStreetMap\u00ae is open data, licensed under the [Open Data Commons Open Database License](https://opendatacommons.org/licenses/odbl/) (ODbL) by the [OpenStreetMap Foundation](https://osmfoundation.org/) (OSMF).",
+  "license": "odbl",
   "spatialCoverage": [
     {
       "@id": "https://www.geonames.org/3573591",
@@ -208,7 +208,7 @@
       "qudt:dataType": "varchar"
     }
   ],
-  "distribution": "TBD",
+  "distribution": "/data/tt_roads/",
   "isBasedOn": [
     {
       "@id": "https://gdsc.idsc.miami.edu/details/api",
@@ -217,6 +217,6 @@
       "url": "https://gdsc.idsc.miami.edu/details/api"
     }
   ],
-  "dateModified": "2023-11-30",
-  "version": "2026-05-26"
+  "dateModified": "2026-02-12 11:05:22",
+  "version": "2026-08-23"
 }

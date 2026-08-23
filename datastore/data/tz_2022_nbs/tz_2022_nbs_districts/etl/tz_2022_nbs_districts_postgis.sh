@@ -6,7 +6,7 @@
 # Data source: https://microdata.nbs.go.tz/index.php/catalog/49/download/317
 # Destination postGIS table: tz_2022_nbs_districts
 #
-# Created by etl() on 2026-05-26 12:19:27
+# Created by etl() on 2026-08-23 14:57:20
 # Do not edit directly
 
 # remove duplicate points and make geometries valid:

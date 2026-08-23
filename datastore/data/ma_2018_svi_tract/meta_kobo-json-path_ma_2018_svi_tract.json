@@ -1,0 +1,1932 @@
+{
+  "control_group": {
+    "id": 138,
+    "external_id_group": [
+      {
+        "external_id_type": "ohdsi",
+        "external_id_value": "311"
+      }
+    ]
+  },
+  "dublin_core_group": {
+    "title": "2018 Massachusetts CDC Social Vulnerability Index (tracts)",
+    "creator_group": [
+      {
+        "creator_name": "Center for Disease Control",
+        "creator_type": "organization",
+        "creator_identifier": "https://ror.org/04hsdam77",
+        "creator_identifier_schema": "ror",
+        "creator_identifier_schema_uri": "https://ror.org/"
+      }
+    ],
+    "url": "https://www.atsdr.cdc.gov/place-health/php/svi/svi-data-documentation-download.html",
+    "publisher_group": [
+      {
+        "publisher_name": "CDC"
+      }
+    ],
+    "rights": "public_domain",
+    "coverage_group": [
+      {
+        "coverage_name": "Massachusetts",
+        "coverage_identifier": "6254926",
+        "coverage_identifier_schema": "geonames",
+        "coverage_identifier_schema_uri": "https://www.geonames.org/"
+      }
+    ],
+    "relation_group": [
+      {
+        "relation_title": "tl_2018_25_tract"
+      }
+    ],
+    "resource_type": "vector_dataset",
+    "publication_date": "2020-10-22",
+    "description": "Social vulnerability refers to the potential negative effects on communities caused by external stresses on human health. Such stresses include natural or human-caused disasters, or disease outbreaks. Reducing social vulnerability can decrease both human suffering and economic loss.\n\nThe CDC/ATSDR Social Vulnerability Index (CDC/ATSDR SVI) uses 16 U.S. census variables to help local officials identify communities that may need support before, during, or after disasters.",
+    "provenance": " direct from source",
+    "subject_group": [
+      {
+        "subject_term": "Massachusetts"
+      },
+      {
+        "subject_term": "CDC"
+      },
+      {
+        "subject_term": "Vulnerability"
+      },
+      {
+        "subject_term": "Social Vulnerability Index"
+      },
+      {
+        "subject_term": "Census Tracts"
+      },
+      {
+        "subject_term": "Public-Safety"
+      }
+    ],
+    "language": "en",
+    "size_group": [
+      {
+        "size_bytes": "1870898",
+        "size_human_readable": "1.8M"
+      }
+    ]
+  },
+  "iso_group": {
+    "structure": "vector",
+    "geometry": "polygon",
+    "epsg": 4269,
+    "lineage": "TBD",
+    "process_step": "#########\n# GDSC ETL is performed in two steps: shell script to ETL data into postgres\n# and then additional transformations with SQL in postGIS (if needed).\n####\n\n#########\n# Step 1 - bash script (pseudo code)\n####\n\n# create directory structure and move into it\nmkdir -p /data/ma_2018_svi_tract/download -p /data/ma_2018_svi_tract/etl\nchmod 777 /data/ma_2018_svi_tract/download\ncd /data/ma_2018_svi_tract\n\n# set update flag based on last update and update frequency\ndo_update=0 if date() < last_update + update_frequency else do_update = 1\n\n# download if update flag is set:\nif do_update == 1 then\nwget -O download/ma_2018_svi_tract.zip 'https://svi.cdc.gov/Documents/Data/2018/db/states/Massachusetts.zip'\n\n# unzip to download directory if update flag is set\nif do_update == 1 then\nunzip -d download download/ma_2018_svi_tract.zip && rm download/ma_2018_svi_tract.zip\n\n# load into postGIS with:\n  ogr2ogr -lco GEOMETRY_NAME=geom -f PostgreSQL PG:\"<postgres connection>\" download/SVI2018_MASSACHUSETTS_tract.gdb -nlt multipolygon -nln ma_2018_svi_tract\n\n#########\n# Step 2 - SQL script (pseudo code):\n####\n\n# remove duplicate points and make geometries valid:\nUPDATE ma_2018_svi_tract\n  SET geom=ST_MakeValid(ST_RemoveRepeatedPoints(geom));\n\n# add local geometry column and reproject existing geometries into local EPSG:\nSELECT AddGeometryColumn (\n  'ma_2018_svi_tract',\n  'geom_local', 26986, 'multipolygon', 2\n);\nUPDATE ma_2018_svi_tract\n  SET geom_local=ST_MakeValid(ST_RemoveRepeatedPoints(ST_Transform(ST_Multi(geom),26986)));\nCREATE INDEX ma_2018_svi_tract_geom_local_idx\n  ON ma_2018_svi_tract\n  USING GIST (geom_local);\nNOTIFY pgrst, 'reload schema';\n# Move into corrrect directory and create derivative directory in data package on osgeo\ncd /data/ma_2018_svi_tract/\nmkdir -p derived\n\n# Move into correct directory\ncd /data/ma_2018_svi_tract/\n\n# Create pg_dump of table SQL in derivate directory on postgis.\npg_dump <postgres opts> -h gaia-db -t ma_2018_svi_tract > derived/ma_2018_svi_tract.sql\n\n# Create downloadable tarfile of SQL in derivative directory on postgis\nrm -f derived/ma_2018_svi_tract.sql.tar.gz\ntar -czf derived/ma_2018_svi_tract.sql.tar.gz meta_dcat_ma_2018_svi_tract.json -C derived ma_2018_svi_tract.sql\n\n",
+    "processor": "GDSC automation (see Process Step)",
+    "point_of_contact_group": [
+      {
+        "contact_name": "Timothy B. Norris",
+        "contact_last_name": "Norris",
+        "contact_first_name": "Timothy",
+        "contact_email": "tnorris@miami.edu",
+        "contact_identifier": "https://orcid.org/0000-0002-0898-3027",
+        "contact_identifier_schema": "orcid",
+        "contact_identifier_schema_uri": "https://orcid.org/",
+        "contact_affiliation": "University of Miami Libraries, Frost Institute for Data Science and Computing",
+        "contact_affiliation_identifier": "https://ror.org/02dgjyy92",
+        "contact_affiliation_schema": "ror",
+        "contact_affiliation_schema_uri": "https://ror.org/"
+      }
+    ],
+    "data_level": "derived",
+    "extent": "POLYGON((-73.508142 41.237964, -69.928393 41.237964, -69.928393 42.886589, -73.508142 42.886589, -73.508142 41.237964))"
+  },
+  "cartography_group": {
+    "label": "location",
+    "values_group": [
+      {
+        "value_field": "area_sqmi"
+      },
+      {
+        "value_field": "county"
+      },
+      {
+        "value_field": "e_age17"
+      },
+      {
+        "value_field": "e_age65"
+      },
+      {
+        "value_field": "e_crowd"
+      },
+      {
+        "value_field": "e_daypop"
+      },
+      {
+        "value_field": "e_disabl"
+      },
+      {
+        "value_field": "e_groupq"
+      },
+      {
+        "value_field": "e_hh"
+      },
+      {
+        "value_field": "e_hu"
+      },
+      {
+        "value_field": "e_limeng"
+      },
+      {
+        "value_field": "e_minrty"
+      },
+      {
+        "value_field": "e_mobile"
+      },
+      {
+        "value_field": "e_munit"
+      },
+      null,
+      {
+        "value_field": "e_nohsdp"
+      },
+      {
+        "value_field": "e_noveh"
+      },
+      {
+        "value_field": "e_pci"
+      },
+      {
+        "value_field": "e_pov"
+      },
+      {
+        "value_field": "e_sngpnt"
+      },
+      {
+        "value_field": "e_totpop"
+      },
+      {
+        "value_field": "e_unemp"
+      },
+      {
+        "value_field": "e_uninsur"
+      },
+      {
+        "value_field": "ep_age17"
+      },
+      {
+        "value_field": "ep_age65"
+      },
+      {
+        "value_field": "ep_crowd"
+      },
+      {
+        "value_field": "ep_disabl"
+      },
+      {
+        "value_field": "ep_groupq"
+      },
+      {
+        "value_field": "ep_limeng"
+      },
+      {
+        "value_field": "ep_minrty"
+      },
+      {
+        "value_field": "ep_mobile"
+      },
+      {
+        "value_field": "ep_munit"
+      },
+      {
+        "value_field": "ep_nohsdp"
+      },
+      {
+        "value_field": "ep_noveh"
+      },
+      {
+        "value_field": "ep_pci"
+      },
+      {
+        "value_field": "ep_pov"
+      },
+      {
+        "value_field": "ep_sngpnt"
+      },
+      {
+        "value_field": "ep_unemp"
+      },
+      {
+        "value_field": "ep_uninsur"
+      },
+      {
+        "value_field": "epl_age17"
+      },
+      {
+        "value_field": "epl_age65"
+      },
+      {
+        "value_field": "epl_crowd"
+      },
+      {
+        "value_field": "epl_disabl"
+      },
+      {
+        "value_field": "epl_groupq"
+      },
+      {
+        "value_field": "epl_limeng"
+      },
+      {
+        "value_field": "epl_minrty"
+      },
+      {
+        "value_field": "epl_mobile"
+      },
+      {
+        "value_field": "epl_munit"
+      },
+      {
+        "value_field": "epl_nohsdp"
+      },
+      {
+        "value_field": "epl_noveh"
+      },
+      {
+        "value_field": "epl_pci"
+      },
+      {
+        "value_field": "epl_pov"
+      },
+      {
+        "value_field": "epl_sngpnt"
+      },
+      {
+        "value_field": "epl_unemp"
+      },
+      {
+        "value_field": "f_age17"
+      },
+      {
+        "value_field": "f_age65"
+      },
+      {
+        "value_field": "f_crowd"
+      },
+      {
+        "value_field": "f_disabl"
+      },
+      {
+        "value_field": "f_groupq"
+      },
+      {
+        "value_field": "f_limeng"
+      },
+      {
+        "value_field": "f_minrty"
+      },
+      {
+        "value_field": "f_mobile"
+      },
+      {
+        "value_field": "f_munit"
+      },
+      {
+        "value_field": "f_nohsdp"
+      },
+      {
+        "value_field": "f_noveh"
+      },
+      {
+        "value_field": "f_pci"
+      },
+      {
+        "value_field": "f_pov"
+      },
+      {
+        "value_field": "f_sngpnt"
+      },
+      {
+        "value_field": "f_theme1"
+      },
+      {
+        "value_field": "f_theme2"
+      },
+      {
+        "value_field": "f_theme3"
+      },
+      {
+        "value_field": "f_theme4"
+      },
+      {
+        "value_field": "f_total"
+      },
+      {
+        "value_field": "f_unemp"
+      },
+      {
+        "value_field": "fips"
+      },
+      {
+        "value_field": "location"
+      },
+      {
+        "value_field": "m_age17"
+      },
+      {
+        "value_field": "m_age65"
+      },
+      {
+        "value_field": "m_crowd"
+      },
+      {
+        "value_field": "m_disabl"
+      },
+      {
+        "value_field": "m_groupq"
+      },
+      {
+        "value_field": "m_hh"
+      },
+      {
+        "value_field": "m_hu"
+      },
+      {
+        "value_field": "m_limeng"
+      },
+      {
+        "value_field": "m_minrty"
+      },
+      {
+        "value_field": "m_mobile"
+      },
+      {
+        "value_field": "m_munit"
+      },
+      {
+        "value_field": "m_nohsdp"
+      },
+      {
+        "value_field": "m_noveh"
+      },
+      {
+        "value_field": "m_pci"
+      },
+      {
+        "value_field": "m_pov"
+      },
+      {
+        "value_field": "m_sngpnt"
+      },
+      {
+        "value_field": "m_totpop"
+      },
+      {
+        "value_field": "m_unemp"
+      },
+      {
+        "value_field": "m_uninsur"
+      },
+      {
+        "value_field": "mp_age17"
+      },
+      {
+        "value_field": "mp_age65"
+      },
+      {
+        "value_field": "mp_crowd"
+      },
+      {
+        "value_field": "mp_disabl"
+      },
+      {
+        "value_field": "mp_groupq"
+      },
+      {
+        "value_field": "mp_limeng"
+      },
+      {
+        "value_field": "mp_minrty"
+      },
+      {
+        "value_field": "mp_mobile"
+      },
+      {
+        "value_field": "mp_munit"
+      },
+      {
+        "value_field": "mp_nohsdp"
+      },
+      {
+        "value_field": "mp_noveh"
+      },
+      {
+        "value_field": "mp_pci"
+      },
+      {
+        "value_field": "mp_pov"
+      },
+      {
+        "value_field": "mp_sngpnt"
+      },
+      {
+        "value_field": "mp_unemp"
+      },
+      {
+        "value_field": "mp_uninsur"
+      },
+      {
+        "value_field": "rpl_theme1"
+      },
+      {
+        "value_field": "rpl_theme2"
+      },
+      {
+        "value_field": "rpl_theme3"
+      },
+      {
+        "value_field": "rpl_theme4"
+      },
+      {
+        "value_field": "rpl_themes"
+      },
+      {
+        "value_field": "spl_theme1"
+      },
+      {
+        "value_field": "spl_theme2"
+      },
+      {
+        "value_field": "spl_theme3"
+      },
+      {
+        "value_field": "spl_theme4"
+      },
+      {
+        "value_field": "spl_themes"
+      },
+      {
+        "value_field": "st"
+      },
+      {
+        "value_field": "st_abbr"
+      },
+      {
+        "value_field": "state"
+      },
+      {
+        "value_field": "stcnty"
+      }
+    ],
+    "attributes_group": [
+      {
+        "attribute_name": "area_sqmi",
+        "attribute_description": "Tract area in square miles",
+        "attribute_source": "Census ACS",
+        "attribute_type": "float8",
+        "attribute_unit": "square miles",
+        "attribute_min_value": "0",
+        "attribute_max_value": "194",
+        "attribute_concept_id": "2052497175",
+        "attribute_external_id": "gaia-132"
+      },
+      {
+        "attribute_name": "county",
+        "attribute_description": "County name",
+        "attribute_source": "Census ACS",
+        "attribute_type": "varchar",
+        "attribute_concept_id": "2052499639"
+      },
+      {
+        "attribute_name": "e_age17",
+        "attribute_description": "Persons aged 17 and younger estimate, 2014-2018 ACS",
+        "attribute_source": "Census ACS",
+        "attribute_type": "int4",
+        "attribute_unit": "persons",
+        "attribute_min_value": "0",
+        "attribute_max_value": "2943",
+        "attribute_start_date": "1/1/18",
+        "attribute_end_date": "12/31/18",
+        "attribute_concept_id": "2052498115",
+        "attribute_external_id": "gaia-149"
+      },
+      {
+        "attribute_name": "e_age65",
+        "attribute_description": "Persons aged 65 and older estimate, 2014-2018 ACS",
+        "attribute_source": "Census ACS",
+        "attribute_type": "int4",
+        "attribute_unit": "persons",
+        "attribute_min_value": "0",
+        "attribute_max_value": "3337",
+        "attribute_start_date": "1/1/18",
+        "attribute_end_date": "12/31/18",
+        "attribute_concept_id": "2052498113",
+        "attribute_external_id": "gaia-147"
+      },
+      {
+        "attribute_name": "e_crowd",
+        "attribute_description": "At household level (occupied housing units), more people than rooms estimate, 2014-2018 ACS",
+        "attribute_source": "Census ACS",
+        "attribute_type": "int4",
+        "attribute_unit": "households",
+        "attribute_min_value": "0",
+        "attribute_max_value": "346",
+        "attribute_start_date": "1/1/18",
+        "attribute_end_date": "12/31/18",
+        "attribute_concept_id": "2052499828",
+        "attribute_external_id": "gaia-163"
+      },
+      {
+        "attribute_name": "e_daypop",
+        "attribute_description": "Adjunct variable - Estimated daytime population, LandScan 2018",
+        "attribute_source": "Census ACS",
+        "attribute_type": "int4",
+        "attribute_unit": "persons",
+        "attribute_min_value": "0",
+        "attribute_max_value": "37119",
+        "attribute_start_date": "1/1/18",
+        "attribute_end_date": "12/31/18",
+        "attribute_concept_id": "2052499427"
+      },
+      {
+        "attribute_name": "e_disabl",
+        "attribute_description": "Civilian non-institutionalized population with a disability estimate, 2014-2018 ACS",
+        "attribute_source": "Census ACS",
+        "attribute_type": "int4",
+        "attribute_unit": "persons",
+        "attribute_min_value": "0",
+        "attribute_max_value": "2179",
+        "attribute_start_date": "1/1/18",
+        "attribute_end_date": "12/31/18",
+        "attribute_concept_id": "2052499669",
+        "attribute_external_id": "gaia-151"
+      },
+      {
+        "attribute_name": "e_groupq",
+        "attribute_description": "Persons in group quarters estimate, 2014-2018 ACS",
+        "attribute_source": "Census ACS",
+        "attribute_type": "int4",
+        "attribute_unit": "persons",
+        "attribute_min_value": "0",
+        "attribute_max_value": "12754",
+        "attribute_start_date": "1/1/18",
+        "attribute_end_date": "12/31/18",
+        "attribute_concept_id": "2052498109",
+        "attribute_external_id": "gaia-167"
+      },
+      {
+        "attribute_name": "e_hh",
+        "attribute_description": "Households estimate, 2014-2018 ACS",
+        "attribute_source": "Census ACS",
+        "attribute_type": "int4",
+        "attribute_unit": "households",
+        "attribute_min_value": "0",
+        "attribute_max_value": "4435",
+        "attribute_start_date": "1/1/18",
+        "attribute_end_date": "12/31/18",
+        "attribute_concept_id": "2052499093"
+      },
+      {
+        "attribute_name": "e_hu",
+        "attribute_description": "Housing units estimate, 2014-2018 ACS",
+        "attribute_source": "Census ACS",
+        "attribute_type": "int4",
+        "attribute_unit": "housing units",
+        "attribute_min_value": "0",
+        "attribute_max_value": "5165",
+        "attribute_start_date": "1/1/18",
+        "attribute_end_date": "12/31/18",
+        "attribute_concept_id": "2052499075"
+      },
+      {
+        "attribute_name": "e_limeng",
+        "attribute_description": "Persons (age 5+) who speak English \"\"less than well\"\" estimate, 2014-2018 ACS",
+        "attribute_source": "Census ACS",
+        "attribute_type": "int4",
+        "attribute_unit": "persons",
+        "attribute_min_value": "0",
+        "attribute_max_value": "2708",
+        "attribute_start_date": "1/1/18",
+        "attribute_end_date": "12/31/18",
+        "attribute_concept_id": "2052498117"
+      },
+      {
+        "attribute_name": "e_minrty",
+        "attribute_description": "Minority (all persons except white, non-Hispanic) estimate, 2014-2018 ACS",
+        "attribute_source": "Census ACS",
+        "attribute_type": "int4",
+        "attribute_unit": "persons",
+        "attribute_min_value": "0",
+        "attribute_max_value": "8241",
+        "attribute_start_date": "1/1/18",
+        "attribute_end_date": "12/31/18",
+        "attribute_concept_id": "2052498841"
+      },
+      {
+        "attribute_name": "e_mobile",
+        "attribute_description": "Mobile homes estimate, 2014-2018 ACS",
+        "attribute_source": "Census ACS",
+        "attribute_type": "int4",
+        "attribute_unit": "mobile homes",
+        "attribute_min_value": "0",
+        "attribute_max_value": "992",
+        "attribute_start_date": "1/1/18",
+        "attribute_end_date": "12/31/18",
+        "attribute_concept_id": "2052498834"
+      },
+      {
+        "attribute_name": "e_munit",
+        "attribute_description": "Housing in structures with 10 or more units estimate, 2014-2018 ACS",
+        "attribute_source": "Census ACS",
+        "attribute_type": "int4",
+        "attribute_unit": "structures",
+        "attribute_min_value": "0",
+        "attribute_max_value": "4257",
+        "attribute_start_date": "1/1/18",
+        "attribute_end_date": "12/31/18",
+        "attribute_concept_id": "2052499082"
+      },
+      {
+        "attribute_name": "e_nohsdp",
+        "attribute_description": "Persons (age 25+) with no high school diploma estimate, 2014-2018 ACS",
+        "attribute_source": "Census ACS",
+        "attribute_type": "int4",
+        "attribute_unit": "persons",
+        "attribute_min_value": "0",
+        "attribute_max_value": "1765",
+        "attribute_start_date": "1/1/18",
+        "attribute_end_date": "12/31/18",
+        "attribute_concept_id": "2052498119"
+      },
+      {
+        "attribute_name": "e_noveh",
+        "attribute_description": "Households with no vehicle available estimate, 2014-2018 ACS",
+        "attribute_source": "Census ACS",
+        "attribute_type": "int4",
+        "attribute_unit": "households",
+        "attribute_min_value": "0",
+        "attribute_max_value": "2040",
+        "attribute_start_date": "1/1/18",
+        "attribute_end_date": "12/31/18",
+        "attribute_concept_id": "2052499091"
+      },
+      {
+        "attribute_name": "e_pci",
+        "attribute_description": "Per capita income estimate, 2014-2018 ACS",
+        "attribute_source": "Census ACS",
+        "attribute_type": "int4",
+        "attribute_unit": "US dollars",
+        "attribute_min_value": "3272",
+        "attribute_max_value": "153108",
+        "attribute_start_date": "1/1/18",
+        "attribute_end_date": "12/31/18",
+        "attribute_concept_id": "2052498645"
+      },
+      {
+        "attribute_name": "e_pov",
+        "attribute_description": "Persons below poverty estimate, 2014-2018 ACS",
+        "attribute_source": "Census ACS",
+        "attribute_type": "int4",
+        "attribute_unit": "persons",
+        "attribute_min_value": "0",
+        "attribute_max_value": "2894",
+        "attribute_start_date": "1/1/18",
+        "attribute_end_date": "12/31/18",
+        "attribute_concept_id": "2052498111"
+      },
+      {
+        "attribute_name": "e_sngpnt",
+        "attribute_description": "Single parent household with children under 18 estimate, 2014-2018 ACS",
+        "attribute_source": "Census ACS",
+        "attribute_type": "int4",
+        "attribute_unit": "households",
+        "attribute_min_value": "0",
+        "attribute_max_value": "697",
+        "attribute_start_date": "1/1/18",
+        "attribute_end_date": "12/31/18",
+        "attribute_concept_id": "2052497778"
+      },
+      {
+        "attribute_name": "e_totpop",
+        "attribute_description": "Population estimate, 2014-2018 ACS",
+        "attribute_source": "Census ACS",
+        "attribute_type": "int4",
+        "attribute_unit": "persons",
+        "attribute_min_value": "0",
+        "attribute_max_value": "13056",
+        "attribute_start_date": "1/1/18",
+        "attribute_end_date": "12/31/18",
+        "attribute_concept_id": "2052498091"
+      },
+      {
+        "attribute_name": "e_unemp",
+        "attribute_description": "Civilian (age 16+) unemployed estimate, 2014-2018 ACS",
+        "attribute_source": "Census ACS",
+        "attribute_type": "int4",
+        "attribute_unit": "persons",
+        "attribute_min_value": "0",
+        "attribute_max_value": "1064",
+        "attribute_start_date": "1/1/18",
+        "attribute_end_date": "12/31/18",
+        "attribute_concept_id": "2052499671"
+      },
+      {
+        "attribute_name": "e_uninsur",
+        "attribute_description": "Adjunct variable - Uninsured in the total civilian non-institutionalized population estimate, 2014-2018 ACS",
+        "attribute_source": "Census ACS",
+        "attribute_type": "int4",
+        "attribute_unit": "persons",
+        "attribute_min_value": "0",
+        "attribute_max_value": "906",
+        "attribute_start_date": "1/1/18",
+        "attribute_end_date": "12/31/18",
+        "attribute_concept_id": "2052497149"
+      },
+      {
+        "attribute_name": "ep_age17",
+        "attribute_description": "Percentage of persons aged 17 and younger estimate, 2014-2018 ACS",
+        "attribute_source": "Census ACS",
+        "attribute_type": "float8",
+        "attribute_unit": "percentage",
+        "attribute_min_value": "0",
+        "attribute_max_value": "47",
+        "attribute_start_date": "1/1/18",
+        "attribute_end_date": "12/31/18",
+        "attribute_concept_id": "2052498382"
+      },
+      {
+        "attribute_name": "ep_age65",
+        "attribute_description": "Percentage of persons aged 65 and older estimate, 2014-2018 ACS",
+        "attribute_source": "Census ACS",
+        "attribute_type": "float8",
+        "attribute_unit": "percentage",
+        "attribute_min_value": "0",
+        "attribute_max_value": "65",
+        "attribute_start_date": "1/1/18",
+        "attribute_end_date": "12/31/18",
+        "attribute_concept_id": "2052498380"
+      },
+      {
+        "attribute_name": "ep_crowd",
+        "attribute_description": "Percentage of occupied housing units with more people than rooms estimate",
+        "attribute_source": "Census ACS",
+        "attribute_type": "float8",
+        "attribute_unit": "percentage",
+        "attribute_min_value": "0",
+        "attribute_max_value": "21",
+        "attribute_start_date": "1/1/18",
+        "attribute_end_date": "12/31/18",
+        "attribute_concept_id": "2052498400"
+      },
+      {
+        "attribute_name": "ep_disabl",
+        "attribute_description": "Percentage of civilian non-institutionalized population with a disability estimate, 2014-2018 ACS",
+        "attribute_source": "Census ACS",
+        "attribute_type": "float8",
+        "attribute_unit": "percentage",
+        "attribute_min_value": "0",
+        "attribute_max_value": "74",
+        "attribute_start_date": "1/1/18",
+        "attribute_end_date": "12/31/18",
+        "attribute_concept_id": "2052498558"
+      },
+      {
+        "attribute_name": "ep_groupq",
+        "attribute_description": "Percentage of persons in group quarters estimate, 2014-2018 ACS",
+        "attribute_source": "Census ACS",
+        "attribute_type": "float8",
+        "attribute_unit": "percentage",
+        "attribute_min_value": "0",
+        "attribute_max_value": "100",
+        "attribute_start_date": "1/1/18",
+        "attribute_end_date": "12/31/18",
+        "attribute_concept_id": "2052498376"
+      },
+      {
+        "attribute_name": "ep_limeng",
+        "attribute_description": "Percentage of persons (age 5+) who speak English \"\"less than well\"\" estimate, 2014-2018 ACS",
+        "attribute_source": "Census ACS",
+        "attribute_type": "float8",
+        "attribute_unit": "percentage",
+        "attribute_min_value": "0",
+        "attribute_max_value": "43",
+        "attribute_start_date": "1/1/18",
+        "attribute_end_date": "12/31/18",
+        "attribute_concept_id": "2052498385"
+      },
+      {
+        "attribute_name": "ep_minrty",
+        "attribute_description": "Percentage minority (all persons except white, non-Hispanic) estimate, 2014-2018 ACS",
+        "attribute_source": "Census ACS",
+        "attribute_type": "float8",
+        "attribute_unit": "percentage",
+        "attribute_min_value": "0",
+        "attribute_max_value": "100",
+        "attribute_start_date": "1/1/18",
+        "attribute_end_date": "12/31/18",
+        "attribute_concept_id": "2052498423"
+      },
+      {
+        "attribute_name": "ep_mobile",
+        "attribute_description": "Percentage of mobile homes estimate",
+        "attribute_source": "Census ACS",
+        "attribute_type": "float8",
+        "attribute_unit": "percentage",
+        "attribute_min_value": "0",
+        "attribute_max_value": "37",
+        "attribute_start_date": "1/1/18",
+        "attribute_end_date": "12/31/18",
+        "attribute_concept_id": "2052498422"
+      },
+      {
+        "attribute_name": "ep_munit",
+        "attribute_description": "Percentage of housing in structures with 10 or more units estimate",
+        "attribute_source": "Census ACS",
+        "attribute_type": "float8",
+        "attribute_unit": "percentage",
+        "attribute_min_value": "0",
+        "attribute_max_value": "99",
+        "attribute_start_date": "1/1/18",
+        "attribute_end_date": "12/31/18",
+        "attribute_concept_id": "2052498461"
+      },
+      {
+        "attribute_name": "ep_nohsdp",
+        "attribute_description": "Percentage of persons with no high school diploma (age 25+) estimate",
+        "attribute_source": "Census ACS",
+        "attribute_type": "float8",
+        "attribute_unit": "percentage",
+        "attribute_min_value": "0",
+        "attribute_max_value": "68",
+        "attribute_start_date": "1/1/18",
+        "attribute_end_date": "12/31/18",
+        "attribute_concept_id": "2052498369"
+      },
+      {
+        "attribute_name": "ep_noveh",
+        "attribute_description": "Percentage of households with no vehicle available estimate",
+        "attribute_source": "Census ACS",
+        "attribute_type": "float8",
+        "attribute_unit": "percentage",
+        "attribute_min_value": "0",
+        "attribute_max_value": "79",
+        "attribute_start_date": "1/1/18",
+        "attribute_end_date": "12/31/18",
+        "attribute_concept_id": "2052498477"
+      },
+      {
+        "attribute_name": "ep_pci",
+        "attribute_description": "Per capita income estimate, 2014-2018 ACS",
+        "attribute_source": "Census ACS",
+        "attribute_type": "int4",
+        "attribute_unit": "US dollars",
+        "attribute_min_value": "3272",
+        "attribute_max_value": "153108",
+        "attribute_start_date": "1/1/18",
+        "attribute_end_date": "12/31/18"
+      },
+      {
+        "attribute_name": "ep_pov",
+        "attribute_description": "Percentage of persons below poverty estimate",
+        "attribute_source": "Census ACS",
+        "attribute_type": "float8",
+        "attribute_unit": "percentage",
+        "attribute_min_value": "0",
+        "attribute_max_value": "81",
+        "attribute_start_date": "1/1/18",
+        "attribute_end_date": "12/31/18",
+        "attribute_concept_id": "2052498378"
+      },
+      {
+        "attribute_name": "ep_sngpnt",
+        "attribute_description": "Percentage of single parent households with children under 18 estimate, 2014-2018 ACS",
+        "attribute_source": "Census ACS",
+        "attribute_type": "float8",
+        "attribute_unit": "percentage",
+        "attribute_min_value": "0",
+        "attribute_max_value": "57",
+        "attribute_start_date": "1/1/18",
+        "attribute_end_date": "12/31/18",
+        "attribute_concept_id": "2052498249"
+      },
+      {
+        "attribute_name": "ep_unemp",
+        "attribute_description": "Unemployment Rate estimate",
+        "attribute_source": "Census ACS",
+        "attribute_type": "float8",
+        "attribute_unit": "percentage",
+        "attribute_min_value": "0",
+        "attribute_max_value": "61",
+        "attribute_start_date": "1/1/18",
+        "attribute_end_date": "12/31/18",
+        "attribute_concept_id": "2052497153"
+      },
+      {
+        "attribute_name": "ep_uninsur",
+        "attribute_description": "Adjunct variable - Percentage uninsured in the total civilian non-institutionalized population estimate, 2014-2018 ACS",
+        "attribute_source": "Census ACS",
+        "attribute_type": "float8",
+        "attribute_unit": "percentage",
+        "attribute_min_value": "0",
+        "attribute_max_value": "24",
+        "attribute_start_date": "1/1/18",
+        "attribute_end_date": "12/31/18",
+        "attribute_concept_id": "2052498200"
+      },
+      {
+        "attribute_name": "epl_age17",
+        "attribute_description": "Percentile percentage of persons aged 17 and younger estimate",
+        "attribute_source": "Census ACS",
+        "attribute_type": "float8",
+        "attribute_unit": "percentile",
+        "attribute_min_value": "0",
+        "attribute_max_value": "1",
+        "attribute_start_date": "1/1/18",
+        "attribute_end_date": "12/31/18",
+        "attribute_concept_id": "2052498183"
+      },
+      {
+        "attribute_name": "epl_age65",
+        "attribute_description": "Percentile percentage of persons aged 65 and older estimate",
+        "attribute_source": "Census ACS",
+        "attribute_type": "float8",
+        "attribute_unit": "percentile",
+        "attribute_min_value": "0",
+        "attribute_max_value": "1",
+        "attribute_start_date": "1/1/18",
+        "attribute_end_date": "12/31/18",
+        "attribute_concept_id": "2052498182"
+      },
+      {
+        "attribute_name": "epl_crowd",
+        "attribute_description": "Percentile percentage households with more people than rooms estimate",
+        "attribute_source": "Census ACS",
+        "attribute_type": "float8",
+        "attribute_unit": "percentile",
+        "attribute_min_value": "0",
+        "attribute_max_value": "1",
+        "attribute_start_date": "1/1/18",
+        "attribute_end_date": "12/31/18",
+        "attribute_concept_id": "2052498195"
+      },
+      {
+        "attribute_name": "epl_disabl",
+        "attribute_description": "Percentile percentage of civilian non-institutionalized population with a disability estimate",
+        "attribute_source": "Census ACS",
+        "attribute_type": "float8",
+        "attribute_unit": "percentile",
+        "attribute_min_value": "0",
+        "attribute_max_value": "1",
+        "attribute_start_date": "1/1/18",
+        "attribute_end_date": "12/31/18",
+        "attribute_concept_id": "2052498186"
+      },
+      {
+        "attribute_name": "epl_groupq",
+        "attribute_description": "Percentile percentage of persons in group quarters estimate",
+        "attribute_source": "Census ACS",
+        "attribute_type": "float8",
+        "attribute_unit": "percentile",
+        "attribute_min_value": "0",
+        "attribute_max_value": "1",
+        "attribute_start_date": "1/1/18",
+        "attribute_end_date": "12/31/18",
+        "attribute_concept_id": "2052498180"
+      },
+      {
+        "attribute_name": "epl_limeng",
+        "attribute_description": "Percentile percentage of persons (age 5+) who speak English \"\"less than well\"\" estimate",
+        "attribute_source": "Census ACS",
+        "attribute_type": "float8",
+        "attribute_unit": "percentile",
+        "attribute_min_value": "0",
+        "attribute_max_value": "1",
+        "attribute_start_date": "1/1/18",
+        "attribute_end_date": "12/31/18",
+        "attribute_concept_id": "2052498184"
+      },
+      {
+        "attribute_name": "epl_minrty",
+        "attribute_description": "Percentile percentage minority (all persons except white, non-Hispanic) estimate",
+        "attribute_source": "Census ACS",
+        "attribute_type": "float8",
+        "attribute_unit": "percentile",
+        "attribute_min_value": "0",
+        "attribute_max_value": "1",
+        "attribute_start_date": "1/1/18",
+        "attribute_end_date": "12/31/18",
+        "attribute_concept_id": "2052498189"
+      },
+      {
+        "attribute_name": "epl_mobile",
+        "attribute_description": "Percentile percentage mobile homes estimate",
+        "attribute_source": "Census ACS",
+        "attribute_type": "float8",
+        "attribute_unit": "percentile",
+        "attribute_min_value": "0",
+        "attribute_max_value": "1",
+        "attribute_start_date": "1/1/18",
+        "attribute_end_date": "12/31/18",
+        "attribute_concept_id": "2052498188"
+      },
+      {
+        "attribute_name": "epl_munit",
+        "attribute_description": "Percentile percentage housing in structures with 10 or more units estimate",
+        "attribute_source": "Census ACS",
+        "attribute_type": "float8",
+        "attribute_unit": "percentile",
+        "attribute_min_value": "0",
+        "attribute_max_value": "1",
+        "attribute_start_date": "1/1/18",
+        "attribute_end_date": "12/31/18",
+        "attribute_concept_id": "2052498193"
+      },
+      {
+        "attribute_name": "epl_nohsdp",
+        "attribute_description": "Percentile Percentage of persons with no high school diploma (age 25+) estimate",
+        "attribute_source": "Census ACS",
+        "attribute_type": "float8",
+        "attribute_unit": "percentile",
+        "attribute_min_value": "0",
+        "attribute_max_value": "1",
+        "attribute_start_date": "1/1/18",
+        "attribute_end_date": "12/31/18",
+        "attribute_concept_id": "2052498179"
+      },
+      {
+        "attribute_name": "epl_noveh",
+        "attribute_description": "Percentile percentage households with no vehicle available estimate",
+        "attribute_source": "Census ACS",
+        "attribute_type": "float8",
+        "attribute_unit": "percentile",
+        "attribute_min_value": "0",
+        "attribute_max_value": "1",
+        "attribute_start_date": "1/1/18",
+        "attribute_end_date": "12/31/18",
+        "attribute_concept_id": "2052498194"
+      },
+      {
+        "attribute_name": "epl_pci",
+        "attribute_description": "Percentile per capita income estimate",
+        "attribute_source": "Census ACS",
+        "attribute_type": "float8",
+        "attribute_unit": "percentile",
+        "attribute_min_value": "0",
+        "attribute_max_value": "1",
+        "attribute_start_date": "1/1/18",
+        "attribute_end_date": "12/31/18"
+      },
+      {
+        "attribute_name": "epl_pov",
+        "attribute_description": "Percentile Percentage of persons below poverty estimate",
+        "attribute_source": "Census ACS",
+        "attribute_type": "float8",
+        "attribute_unit": "percentile",
+        "attribute_min_value": "0",
+        "attribute_max_value": "1",
+        "attribute_start_date": "1/1/18",
+        "attribute_end_date": "12/31/18",
+        "attribute_concept_id": "2052498181",
+        "attribute_external_id": "gaia-1"
+      },
+      {
+        "attribute_name": "epl_sngpnt",
+        "attribute_description": "Percentile percentage of single parent households with children under 18 estimate",
+        "attribute_source": "Census ACS",
+        "attribute_type": "float8",
+        "attribute_unit": "percentile",
+        "attribute_min_value": "0",
+        "attribute_max_value": "1",
+        "attribute_start_date": "1/1/18",
+        "attribute_end_date": "12/31/18",
+        "attribute_concept_id": "2052498178"
+      },
+      {
+        "attribute_name": "epl_unemp",
+        "attribute_description": "Percentile Percentage of civilian (age 16+) unemployed estimate",
+        "attribute_source": "Census ACS",
+        "attribute_type": "float8",
+        "attribute_unit": "percentile",
+        "attribute_min_value": "0",
+        "attribute_max_value": "1",
+        "attribute_start_date": "1/1/18",
+        "attribute_end_date": "12/31/18",
+        "attribute_concept_id": "2052498187"
+      },
+      {
+        "attribute_name": "f_age17",
+        "attribute_description": "Flag - the percentage of persons aged 17 and younger is in the 90th percentile (1 = yes, 0 = no)",
+        "attribute_source": "Census ACS",
+        "attribute_type": "boolean",
+        "attribute_start_date": "1/1/18",
+        "attribute_end_date": "12/31/18",
+        "attribute_concept_id": "2052499366"
+      },
+      {
+        "attribute_name": "f_age65",
+        "attribute_description": "Flag - the percentage of persons aged 65 and older is in the 90th percentile (1 = yes, 0 = no)",
+        "attribute_source": "Census ACS",
+        "attribute_type": "boolean",
+        "attribute_start_date": "1/1/18",
+        "attribute_end_date": "12/31/18",
+        "attribute_concept_id": "2052499365"
+      },
+      {
+        "attribute_name": "f_crowd",
+        "attribute_description": "Flag - the percentage of crowded households is in the 90th percentile (1 = yes, 0 = no)",
+        "attribute_source": "Census ACS",
+        "attribute_type": "boolean",
+        "attribute_start_date": "1/1/18",
+        "attribute_end_date": "12/31/18",
+        "attribute_concept_id": "2052499372"
+      },
+      {
+        "attribute_name": "f_disabl",
+        "attribute_description": "Flag - the percentage of persons with a disability is in the 90th percentile (1 = yes, 0 = no)",
+        "attribute_source": "Census ACS",
+        "attribute_type": "boolean",
+        "attribute_start_date": "1/1/18",
+        "attribute_end_date": "12/31/18",
+        "attribute_concept_id": "2052499362"
+      },
+      {
+        "attribute_name": "f_groupq",
+        "attribute_description": "Flag - the percentage of persons in institutionalized group quarters is in the 90th percentile (1 = yes, 0 = no)",
+        "attribute_source": "Census ACS",
+        "attribute_type": "boolean",
+        "attribute_start_date": "1/1/18",
+        "attribute_end_date": "12/31/18",
+        "attribute_concept_id": "2052499363"
+      },
+      {
+        "attribute_name": "f_limeng",
+        "attribute_description": "Flag - the percentage those with limited English is in the 90th percentile (1 = yes, 0 = no)",
+        "attribute_source": "Census ACS",
+        "attribute_type": "boolean",
+        "attribute_start_date": "1/1/18",
+        "attribute_end_date": "12/31/18",
+        "attribute_concept_id": "2052499358"
+      },
+      {
+        "attribute_name": "f_minrty",
+        "attribute_description": "Flag - the percentage of minority is in the 90th percentile (1 = yes, 0 = no)",
+        "attribute_source": "Census ACS",
+        "attribute_type": "boolean",
+        "attribute_start_date": "1/1/18",
+        "attribute_end_date": "12/31/18",
+        "attribute_concept_id": "2052499368"
+      },
+      {
+        "attribute_name": "f_mobile",
+        "attribute_description": "Flag - the percentage of mobile homes is in the 90th percentile (1 = yes, 0 = no)",
+        "attribute_source": "Census ACS",
+        "attribute_type": "boolean",
+        "attribute_start_date": "1/1/18",
+        "attribute_end_date": "12/31/18",
+        "attribute_concept_id": "2052499367"
+      },
+      {
+        "attribute_name": "f_munit",
+        "attribute_description": "Flag - the percentage of households in multi-unit housing is in the 90th percentile (1 = yes, 0 = no)",
+        "attribute_source": "Census ACS",
+        "attribute_type": "boolean",
+        "attribute_start_date": "1/1/18",
+        "attribute_end_date": "12/31/18",
+        "attribute_concept_id": "2052499371"
+      },
+      {
+        "attribute_name": "f_nohsdp",
+        "attribute_description": "Flag - the percentage of persons with no high school diploma is in the 90th percentile (1 = yes, 0 = no)",
+        "attribute_source": "Census ACS",
+        "attribute_type": "boolean",
+        "attribute_start_date": "1/1/18",
+        "attribute_end_date": "12/31/18",
+        "attribute_concept_id": "2052499361"
+      },
+      {
+        "attribute_name": "f_noveh",
+        "attribute_description": "Flag - the percentage of households with no vehicles is in the 90th percentile (1 = yes, 0 = no)",
+        "attribute_source": "Census ACS",
+        "attribute_type": "boolean",
+        "attribute_start_date": "1/1/18",
+        "attribute_end_date": "12/31/18",
+        "attribute_concept_id": "2052499370"
+      },
+      {
+        "attribute_name": "f_pci",
+        "attribute_description": "Flag - per capita income is in the 90th percentile (1 = yes, 0 = no)",
+        "attribute_source": "Census ACS",
+        "attribute_type": "boolean",
+        "attribute_start_date": "1/1/18",
+        "attribute_end_date": "12/31/18"
+      },
+      {
+        "attribute_name": "f_pov",
+        "attribute_description": "Flag - the percentage of persons in poverty is in the 90th percentile (1 = yes, 0 = no)",
+        "attribute_source": "Census ACS",
+        "attribute_type": "boolean",
+        "attribute_start_date": "1/1/18",
+        "attribute_end_date": "12/31/18",
+        "attribute_concept_id": "2052499364"
+      },
+      {
+        "attribute_name": "f_sngpnt",
+        "attribute_description": "Flag - the percentage of single parent households is in the 90th percentile (1 = yes, 0 = no)",
+        "attribute_source": "Census ACS",
+        "attribute_type": "boolean",
+        "attribute_start_date": "1/1/18",
+        "attribute_end_date": "12/31/18",
+        "attribute_concept_id": "2052499360"
+      },
+      {
+        "attribute_name": "f_theme1",
+        "attribute_description": "Sum of flags for Socioeconomic Status theme",
+        "attribute_source": "Census ACS",
+        "attribute_type": "int4",
+        "attribute_min_value": "0",
+        "attribute_max_value": "4",
+        "attribute_start_date": "1/1/18",
+        "attribute_end_date": "12/31/18",
+        "attribute_concept_id": "2052497702"
+      },
+      {
+        "attribute_name": "f_theme2",
+        "attribute_description": "Sum of flags for Household Composition theme",
+        "attribute_source": "Census ACS",
+        "attribute_type": "int4",
+        "attribute_min_value": "0",
+        "attribute_max_value": "3",
+        "attribute_start_date": "1/1/18",
+        "attribute_end_date": "12/31/18",
+        "attribute_concept_id": "2052497705"
+      },
+      {
+        "attribute_name": "f_theme3",
+        "attribute_description": "Sum of flags for Minority Status/Language theme",
+        "attribute_source": "Census ACS",
+        "attribute_type": "int4",
+        "attribute_min_value": "0",
+        "attribute_max_value": "2",
+        "attribute_start_date": "1/1/18",
+        "attribute_end_date": "12/31/18",
+        "attribute_concept_id": "2052497703"
+      },
+      {
+        "attribute_name": "f_theme4",
+        "attribute_description": "Sum of flags for Housing Type/ Transportation theme",
+        "attribute_source": "Census ACS",
+        "attribute_type": "int4",
+        "attribute_min_value": "0",
+        "attribute_max_value": "4",
+        "attribute_start_date": "1/1/18",
+        "attribute_end_date": "12/31/18",
+        "attribute_concept_id": "2052497704"
+      },
+      {
+        "attribute_name": "f_total",
+        "attribute_description": "Sum of flags for the four themes",
+        "attribute_source": "Census ACS",
+        "attribute_type": "int4",
+        "attribute_min_value": "0",
+        "attribute_max_value": "12",
+        "attribute_start_date": "1/1/18",
+        "attribute_end_date": "12/31/18",
+        "attribute_concept_id": "2052497701"
+      },
+      {
+        "attribute_name": "f_unemp",
+        "attribute_description": "Flag - the percentage of civilian unemployed is in the 90th percentile (1 = yes, 0 = no)",
+        "attribute_source": "Census ACS",
+        "attribute_type": "boolean",
+        "attribute_start_date": "1/1/18",
+        "attribute_end_date": "12/31/18",
+        "attribute_concept_id": "2052499373"
+      },
+      {
+        "attribute_name": "fips",
+        "attribute_description": "FIPS code as STATE(2)COUNTY(3)CENSUSTRACT(6)",
+        "attribute_source": "Census ACS",
+        "attribute_type": "varchar",
+        "attribute_start_date": "1/1/18",
+        "attribute_end_date": "12/31/18",
+        "attribute_concept_id": "2052497174"
+      },
+      {
+        "attribute_name": "location",
+        "attribute_description": "Census tract name",
+        "attribute_source": "Census ACS",
+        "attribute_type": "varchar",
+        "attribute_start_date": "1/1/18",
+        "attribute_end_date": "12/31/18"
+      },
+      {
+        "attribute_name": "m_age17",
+        "attribute_description": "Persons aged 17 and younger estimate MOE, 2014-2018 ACS",
+        "attribute_source": "Census ACS",
+        "attribute_type": "int4",
+        "attribute_unit": "persons",
+        "attribute_min_value": "5",
+        "attribute_max_value": "620",
+        "attribute_start_date": "1/1/18",
+        "attribute_end_date": "12/31/18",
+        "attribute_concept_id": "2052498114"
+      },
+      {
+        "attribute_name": "m_age65",
+        "attribute_description": "Persons aged 65 and older estimate MOE, 2014-2018 ACS",
+        "attribute_source": "Census ACS",
+        "attribute_type": "int4",
+        "attribute_unit": "persons",
+        "attribute_min_value": "6",
+        "attribute_max_value": "643",
+        "attribute_start_date": "1/1/18",
+        "attribute_end_date": "12/31/18",
+        "attribute_concept_id": "2052498112"
+      },
+      {
+        "attribute_name": "m_crowd",
+        "attribute_description": "At household level (occupied housing units), more people than rooms estimate MOE, 2014-2018 ACS",
+        "attribute_source": "Census ACS",
+        "attribute_type": "int4",
+        "attribute_unit": "housing units",
+        "attribute_min_value": "5",
+        "attribute_max_value": "151",
+        "attribute_start_date": "1/1/18",
+        "attribute_end_date": "12/31/18",
+        "attribute_concept_id": "2052499827"
+      },
+      {
+        "attribute_name": "m_disabl",
+        "attribute_description": "Civilian non-institutionalized population with a disability estimate MOE, 2014-2018 ACS",
+        "attribute_source": "Census ACS",
+        "attribute_type": "int4",
+        "attribute_unit": "persons",
+        "attribute_min_value": "12",
+        "attribute_max_value": "530",
+        "attribute_start_date": "1/1/18",
+        "attribute_end_date": "12/31/18",
+        "attribute_concept_id": "2052499668"
+      },
+      {
+        "attribute_name": "m_groupq",
+        "attribute_description": "Persons in group quarters estimate MOE, 2014-2018 ACS",
+        "attribute_source": "Census ACS",
+        "attribute_type": "int4",
+        "attribute_unit": "persons",
+        "attribute_min_value": "2",
+        "attribute_max_value": "695",
+        "attribute_start_date": "1/1/18",
+        "attribute_end_date": "12/31/18",
+        "attribute_concept_id": "2052498108"
+      },
+      {
+        "attribute_name": "m_hh",
+        "attribute_description": "Households estimate MOE, 2014-2018 ACS",
+        "attribute_source": "Census ACS",
+        "attribute_type": "int4",
+        "attribute_unit": "households",
+        "attribute_min_value": "6",
+        "attribute_max_value": "280",
+        "attribute_start_date": "1/1/18",
+        "attribute_end_date": "12/31/18",
+        "attribute_concept_id": "2052499092"
+      },
+      {
+        "attribute_name": "m_hu",
+        "attribute_description": "Housing units estimate MOE, 2014-2018 ACS",
+        "attribute_source": "Census ACS",
+        "attribute_type": "int4",
+        "attribute_unit": "housing units",
+        "attribute_min_value": "6",
+        "attribute_max_value": "300",
+        "attribute_start_date": "1/1/18",
+        "attribute_end_date": "12/31/18",
+        "attribute_concept_id": "2052499074"
+      },
+      {
+        "attribute_name": "m_limeng",
+        "attribute_description": "Persons (age 5+) who speak English \"\"less than well\"\" estimate MOE, 2014-2018 ACS",
+        "attribute_source": "Census ACS",
+        "attribute_type": "int4",
+        "attribute_unit": "persons",
+        "attribute_min_value": "44",
+        "attribute_max_value": "710",
+        "attribute_start_date": "1/1/18",
+        "attribute_end_date": "12/31/18",
+        "attribute_concept_id": "2052498116"
+      },
+      {
+        "attribute_name": "m_minrty",
+        "attribute_description": "Minority (all persons except white, non-Hispanic) estimate MOE, 2014-2018 ACS",
+        "attribute_source": "Census ACS",
+        "attribute_type": "int4",
+        "attribute_unit": "persons",
+        "attribute_min_value": "17",
+        "attribute_max_value": "1108",
+        "attribute_start_date": "1/1/18",
+        "attribute_end_date": "12/31/18"
+      },
+      {
+        "attribute_name": "m_mobile",
+        "attribute_description": "Mobile homes estimate MOE, 2014-2018 ACS",
+        "attribute_source": "Census ACS",
+        "attribute_type": "int4",
+        "attribute_unit": "mobile homes",
+        "attribute_min_value": "4",
+        "attribute_max_value": "156",
+        "attribute_start_date": "1/1/18",
+        "attribute_end_date": "12/31/18",
+        "attribute_concept_id": "2052498833"
+      },
+      {
+        "attribute_name": "m_munit",
+        "attribute_description": "Housing in structures with 10 or more units estimate MOE, 2014- 2018 ACS",
+        "attribute_source": "Census ACS",
+        "attribute_type": "int4",
+        "attribute_unit": "housing units",
+        "attribute_min_value": "7",
+        "attribute_max_value": "331",
+        "attribute_start_date": "1/1/18",
+        "attribute_end_date": "12/31/18",
+        "attribute_concept_id": "2052499081"
+      },
+      {
+        "attribute_name": "m_nohsdp",
+        "attribute_description": "Persons (age 25+) with no high school diploma estimate MOE, 2014-2018 ACS",
+        "attribute_source": "Census ACS",
+        "attribute_type": "int4",
+        "attribute_unit": "persons",
+        "attribute_min_value": "4",
+        "attribute_max_value": "451",
+        "attribute_start_date": "1/1/18",
+        "attribute_end_date": "12/31/18",
+        "attribute_concept_id": "2052498118"
+      },
+      {
+        "attribute_name": "m_noveh",
+        "attribute_description": "Households with no vehicle available estimate MOE, 2014-2018 ACS",
+        "attribute_source": "Census ACS",
+        "attribute_type": "int4",
+        "attribute_unit": "households",
+        "attribute_min_value": "4",
+        "attribute_max_value": "299",
+        "attribute_start_date": "1/1/18",
+        "attribute_end_date": "12/31/18",
+        "attribute_concept_id": "2052499090"
+      },
+      {
+        "attribute_name": "m_pci",
+        "attribute_description": "Per capita income estimate MOE, 2014-2018 ACS",
+        "attribute_source": "Census ACS",
+        "attribute_type": "int4",
+        "attribute_unit": "US dollars",
+        "attribute_min_value": "391",
+        "attribute_max_value": "98137",
+        "attribute_start_date": "1/1/18",
+        "attribute_end_date": "12/31/18"
+      },
+      {
+        "attribute_name": "m_pov",
+        "attribute_description": "Persons below poverty estimate MOE, 2014-2018 ACS",
+        "attribute_source": "Census ACS",
+        "attribute_type": "int4",
+        "attribute_unit": "persons",
+        "attribute_min_value": "5",
+        "attribute_max_value": "873",
+        "attribute_start_date": "1/1/18",
+        "attribute_end_date": "12/31/18",
+        "attribute_concept_id": "2052498110"
+      },
+      {
+        "attribute_name": "m_sngpnt",
+        "attribute_description": "Single parent household with children under 18 estimate MOE, 2014-2018 ACS",
+        "attribute_source": "Census ACS",
+        "attribute_type": "int4",
+        "attribute_unit": "households",
+        "attribute_min_value": "11",
+        "attribute_max_value": "236",
+        "attribute_start_date": "1/1/18",
+        "attribute_end_date": "12/31/18",
+        "attribute_concept_id": "2052497777"
+      },
+      {
+        "attribute_name": "m_totpop",
+        "attribute_description": "Population estimate MOE, 2014-2018 ACS",
+        "attribute_source": "Census ACS",
+        "attribute_type": "int4",
+        "attribute_unit": "persons",
+        "attribute_min_value": "12",
+        "attribute_max_value": "949",
+        "attribute_start_date": "1/1/18",
+        "attribute_end_date": "12/31/18",
+        "attribute_concept_id": "2052498090"
+      },
+      {
+        "attribute_name": "m_unemp",
+        "attribute_description": "Civilian (age 16+) unemployed estimate MOE, 2014-2018 ACS",
+        "attribute_source": "Census ACS",
+        "attribute_type": "int4",
+        "attribute_unit": "persons",
+        "attribute_min_value": "6",
+        "attribute_max_value": "289",
+        "attribute_start_date": "1/1/18",
+        "attribute_end_date": "12/31/18",
+        "attribute_concept_id": "2052499670"
+      },
+      {
+        "attribute_name": "m_uninsur",
+        "attribute_description": "Adjunct variable - Uninsured in the total civilian non-institutionalized population estimate MOE, 2014-2018 ACS",
+        "attribute_source": "Census ACS",
+        "attribute_type": "int4",
+        "attribute_unit": "persons",
+        "attribute_min_value": "2",
+        "attribute_max_value": "474",
+        "attribute_start_date": "1/1/18",
+        "attribute_end_date": "12/31/18",
+        "attribute_concept_id": "2052497148"
+      },
+      {
+        "attribute_name": "mp_age17",
+        "attribute_description": "Percentage of persons aged 17 and younger estimate MOE, 2014-2018 ACS",
+        "attribute_source": "Census ACS",
+        "attribute_type": "float8",
+        "attribute_unit": "percentage",
+        "attribute_min_value": "0",
+        "attribute_max_value": "31",
+        "attribute_start_date": "1/1/18",
+        "attribute_end_date": "12/31/18",
+        "attribute_concept_id": "2052498381"
+      },
+      {
+        "attribute_name": "mp_age65",
+        "attribute_description": "Percentage of persons aged 65 and older estimate MOE, 2014-2018 ACS",
+        "attribute_source": "Census ACS",
+        "attribute_type": "float8",
+        "attribute_unit": "percentage",
+        "attribute_min_value": "0",
+        "attribute_max_value": "44",
+        "attribute_start_date": "1/1/18",
+        "attribute_end_date": "12/31/18",
+        "attribute_concept_id": "2052498379"
+      },
+      {
+        "attribute_name": "mp_crowd",
+        "attribute_description": "Percentage of occupied housing units with more people than rooms estimate MOE",
+        "attribute_source": "Census ACS",
+        "attribute_type": "float8",
+        "attribute_unit": "percentage",
+        "attribute_min_value": "1",
+        "attribute_max_value": "567",
+        "attribute_start_date": "1/1/18",
+        "attribute_end_date": "12/31/18",
+        "attribute_concept_id": "2052498399"
+      },
+      {
+        "attribute_name": "mp_disabl",
+        "attribute_description": "Percentage of civilian non-institutionalized population with a disability estimate MOE, 2014-2018 ACS",
+        "attribute_source": "Census ACS",
+        "attribute_type": "float8",
+        "attribute_unit": "percentage",
+        "attribute_min_value": "1",
+        "attribute_max_value": "100",
+        "attribute_start_date": "1/1/18",
+        "attribute_end_date": "12/31/18",
+        "attribute_concept_id": "2052498557"
+      },
+      {
+        "attribute_name": "mp_groupq",
+        "attribute_description": "Percentage of persons in group quarters estimate MOE, 2014-2018 ACS",
+        "attribute_source": "Census ACS",
+        "attribute_type": "float8",
+        "attribute_unit": "percentage",
+        "attribute_min_value": "0",
+        "attribute_max_value": "46",
+        "attribute_start_date": "1/1/18",
+        "attribute_end_date": "12/31/18",
+        "attribute_concept_id": "2052498375"
+      },
+      {
+        "attribute_name": "mp_limeng",
+        "attribute_description": "Percentage of persons (age 5+) who speak English \"\"less than well\"\" estimate MOE, 2014-2018 ACS",
+        "attribute_source": "Census ACS",
+        "attribute_type": "float8",
+        "attribute_unit": "percentage",
+        "attribute_min_value": "1",
+        "attribute_max_value": "229",
+        "attribute_start_date": "1/1/18",
+        "attribute_end_date": "12/31/18",
+        "attribute_concept_id": "2052498383"
+      },
+      {
+        "attribute_name": "mp_minrty",
+        "attribute_description": "Percentage minority (all persons except white, non-Hispanic) estimate MOE, 2014-2018 ACS",
+        "attribute_source": "Census ACS",
+        "attribute_type": "float8",
+        "attribute_unit": "percentage",
+        "attribute_min_value": "1",
+        "attribute_max_value": "104",
+        "attribute_start_date": "1/1/18",
+        "attribute_end_date": "12/31/18",
+        "attribute_concept_id": "2052498609"
+      },
+      {
+        "attribute_name": "mp_mobile",
+        "attribute_description": "Percentage of mobile homes estimate MOE",
+        "attribute_source": "Census ACS",
+        "attribute_type": "float8",
+        "attribute_unit": "percentage",
+        "attribute_min_value": "0",
+        "attribute_max_value": "100",
+        "attribute_start_date": "1/1/18",
+        "attribute_end_date": "12/31/18",
+        "attribute_concept_id": "2052498421"
+      },
+      {
+        "attribute_name": "mp_munit",
+        "attribute_description": "Percentage of housing in structures with 10 or more units estimate MOE",
+        "attribute_source": "Census ACS",
+        "attribute_type": "float8",
+        "attribute_unit": "percentage",
+        "attribute_min_value": "0",
+        "attribute_max_value": "567",
+        "attribute_start_date": "1/1/18",
+        "attribute_end_date": "12/31/18",
+        "attribute_concept_id": "2052498460"
+      },
+      {
+        "attribute_name": "mp_nohsdp",
+        "attribute_description": "Percentage of persons with no high school diploma (25+) estimate MOE",
+        "attribute_source": "Census ACS",
+        "attribute_type": "float8",
+        "attribute_unit": "percentage",
+        "attribute_min_value": "0",
+        "attribute_max_value": "100",
+        "attribute_start_date": "1/1/18",
+        "attribute_end_date": "12/31/18",
+        "attribute_concept_id": "2052498370"
+      },
+      {
+        "attribute_name": "mp_noveh",
+        "attribute_description": "Percentage of households with no vehicle available estimate MOE",
+        "attribute_source": "Census ACS",
+        "attribute_type": "float8",
+        "attribute_unit": "percentage",
+        "attribute_min_value": "0",
+        "attribute_max_value": "100",
+        "attribute_start_date": "1/1/18",
+        "attribute_end_date": "12/31/18",
+        "attribute_concept_id": "2052498476"
+      },
+      {
+        "attribute_name": "mp_pci",
+        "attribute_description": "Per capita income estimate MOE, 2014-2018 ACS",
+        "attribute_source": "Census ACS",
+        "attribute_type": "int4",
+        "attribute_unit": "US dollars",
+        "attribute_min_value": "391",
+        "attribute_max_value": "98137",
+        "attribute_start_date": "1/1/18",
+        "attribute_end_date": "12/31/18"
+      },
+      {
+        "attribute_name": "mp_pov",
+        "attribute_description": "Percentage of persons below poverty estimate MOE",
+        "attribute_source": "Census ACS",
+        "attribute_type": "float8",
+        "attribute_unit": "percentage",
+        "attribute_min_value": "0",
+        "attribute_max_value": "100",
+        "attribute_start_date": "1/1/18",
+        "attribute_end_date": "12/31/18",
+        "attribute_concept_id": "2052498377"
+      },
+      {
+        "attribute_name": "mp_sngpnt",
+        "attribute_description": "Percentage of single parent households with children under 18 estimate MOE, 2014-2018 ACS",
+        "attribute_source": "Census ACS",
+        "attribute_type": "float8",
+        "attribute_unit": "percentage",
+        "attribute_min_value": "1",
+        "attribute_max_value": "567",
+        "attribute_start_date": "1/1/18",
+        "attribute_end_date": "12/31/18",
+        "attribute_concept_id": "2052498248"
+      },
+      {
+        "attribute_name": "mp_unemp",
+        "attribute_description": "Unemployment Rate estimate MOE",
+        "attribute_source": "Census ACS",
+        "attribute_type": "float8",
+        "attribute_unit": "percentage",
+        "attribute_min_value": "0",
+        "attribute_max_value": "54",
+        "attribute_start_date": "1/1/18",
+        "attribute_end_date": "12/31/18",
+        "attribute_concept_id": "2052497152"
+      },
+      {
+        "attribute_name": "mp_uninsur",
+        "attribute_description": "Adjunct variable - Percentage uninsured in the total civilian non-institutionalized population estimate MOE, 2014-2018 ACS",
+        "attribute_source": "Census ACS",
+        "attribute_type": "float8",
+        "attribute_unit": "percentage",
+        "attribute_min_value": "0",
+        "attribute_max_value": "100",
+        "attribute_start_date": "1/1/18",
+        "attribute_end_date": "12/31/18",
+        "attribute_concept_id": "2052498199"
+      },
+      {
+        "attribute_name": "rpl_theme1",
+        "attribute_description": "Percentile ranking for Socioeconomic theme summary",
+        "attribute_source": "Census ACS",
+        "attribute_type": "float8",
+        "attribute_unit": "percentile",
+        "attribute_min_value": "0",
+        "attribute_max_value": "1",
+        "attribute_start_date": "1/1/18",
+        "attribute_end_date": "12/31/18",
+        "attribute_concept_id": "2052498129"
+      },
+      {
+        "attribute_name": "rpl_theme2",
+        "attribute_description": "Percentile ranking for Household Composition theme summary",
+        "attribute_source": "Census ACS",
+        "attribute_type": "float8",
+        "attribute_unit": "percentile",
+        "attribute_min_value": "0",
+        "attribute_max_value": "1",
+        "attribute_start_date": "1/1/18",
+        "attribute_end_date": "12/31/18",
+        "attribute_concept_id": "2052498134"
+      },
+      {
+        "attribute_name": "rpl_theme3",
+        "attribute_description": "Percentile ranking for Minority Status/Language theme",
+        "attribute_source": "Census ACS",
+        "attribute_type": "float8",
+        "attribute_unit": "percentile",
+        "attribute_min_value": "0",
+        "attribute_max_value": "1",
+        "attribute_start_date": "1/1/18",
+        "attribute_end_date": "12/31/18",
+        "attribute_concept_id": "2052498130"
+      },
+      {
+        "attribute_name": "rpl_theme4",
+        "attribute_description": "Percentile ranking for Housing Type/Transportation theme",
+        "attribute_source": "Census ACS",
+        "attribute_type": "float8",
+        "attribute_unit": "percentile",
+        "attribute_min_value": "0",
+        "attribute_max_value": "1",
+        "attribute_start_date": "1/1/18",
+        "attribute_end_date": "12/31/18",
+        "attribute_concept_id": "2052498133"
+      },
+      {
+        "attribute_name": "rpl_themes",
+        "attribute_description": "Overall percentile ranking",
+        "attribute_source": "Census ACS",
+        "attribute_type": "float8",
+        "attribute_unit": "percentile",
+        "attribute_min_value": "0",
+        "attribute_max_value": "1",
+        "attribute_start_date": "1/1/18",
+        "attribute_end_date": "12/31/18",
+        "attribute_concept_id": "2052498131"
+      },
+      {
+        "attribute_name": "spl_theme1",
+        "attribute_description": "Sum of series for Socioeconomic theme",
+        "attribute_source": "Census ACS",
+        "attribute_type": "float8",
+        "attribute_unit": "svi index",
+        "attribute_min_value": "0",
+        "attribute_max_value": "4",
+        "attribute_start_date": "1/1/18",
+        "attribute_end_date": "12/31/18",
+        "attribute_concept_id": "2052497697"
+      },
+      {
+        "attribute_name": "spl_theme2",
+        "attribute_description": "Sum of series for Household Composition theme",
+        "attribute_source": "Census ACS",
+        "attribute_type": "float8",
+        "attribute_unit": "svi index",
+        "attribute_min_value": "0",
+        "attribute_max_value": "4",
+        "attribute_start_date": "1/1/18",
+        "attribute_end_date": "12/31/18",
+        "attribute_concept_id": "2052497700"
+      },
+      {
+        "attribute_name": "spl_theme3",
+        "attribute_description": "Sum of series for Minority Status/Languag e theme",
+        "attribute_source": "Census ACS",
+        "attribute_type": "float8",
+        "attribute_unit": "svi index",
+        "attribute_min_value": "0",
+        "attribute_max_value": "2",
+        "attribute_start_date": "1/1/18",
+        "attribute_end_date": "12/31/18",
+        "attribute_concept_id": "2052497698"
+      },
+      {
+        "attribute_name": "spl_theme4",
+        "attribute_description": "Sum of series for Housing Type/ Transportation theme",
+        "attribute_source": "Census ACS",
+        "attribute_type": "float8",
+        "attribute_unit": "svi index",
+        "attribute_min_value": "0",
+        "attribute_max_value": "5",
+        "attribute_start_date": "1/1/18",
+        "attribute_end_date": "12/31/18",
+        "attribute_concept_id": "2052497699"
+      },
+      {
+        "attribute_name": "spl_themes",
+        "attribute_description": "Sum of series themes",
+        "attribute_source": "Census ACS",
+        "attribute_type": "float8",
+        "attribute_unit": "svi index",
+        "attribute_min_value": "2",
+        "attribute_max_value": "13",
+        "attribute_start_date": "1/1/18",
+        "attribute_end_date": "12/31/18"
+      },
+      {
+        "attribute_name": "st",
+        "attribute_description": "State FIPS code",
+        "attribute_source": "Census ACS",
+        "attribute_type": "varchar",
+        "attribute_concept_id": "2052497725"
+      },
+      {
+        "attribute_name": "st_abbr",
+        "attribute_description": "State abbreviation",
+        "attribute_source": "Census ACS",
+        "attribute_type": "varchar",
+        "attribute_concept_id": "2052497733"
+      },
+      {
+        "attribute_name": "state",
+        "attribute_description": "State name",
+        "attribute_source": "Census ACS",
+        "attribute_type": "varchar",
+        "attribute_concept_id": "2052497730"
+      },
+      {
+        "attribute_name": "stcnty",
+        "attribute_description": "State and county FIPS code as STATE(2)COUNTY(3)",
+        "attribute_source": "Census ACS",
+        "attribute_type": "varchar",
+        "attribute_concept_id": "2052499638"
+      }
+    ],
+    "no_data_group": [
+      {
+        "no_data_type": "int4",
+        "no_data_value": "-999"
+      }
+    ]
+  },
+  "collection_group": {
+    "collections": "ohdsi-gaia",
+    "analytic_function": "gdsc_get_attributes",
+    "analytic_epsg": 26986,
+    "derivatives": "sql",
+    "derivative_url": "/data/ma_2018_svi_tract/",
+    "sponsor_group": [
+      {
+        "sponsor_name": "TuftsCTSI",
+        "sponsor_url": "https://www.tuftsctsi.org/"
+      },
+      {
+        "sponsor_name": "IDSC",
+        "sponsor_url": "https://idsc.miami.edu"
+      },
+      {
+        "sponsor_name": "Library",
+        "sponsor_url": "https://www.library.miami.edu"
+      }
+    ]
+  },
+  "etl_group": {
+    "source": "https://svi.cdc.gov/Documents/Data/2018/db/states/Massachusetts.zip",
+    "file_name_group": [
+      {
+        "file_name_value": "ma_2018_svi_tract",
+        "file_inside_archive": "SVI2018_MASSACHUSETTS_tract"
+      }
+    ],
+    "extension": "zip",
+    "download": "wget",
+    "table_name": "ma_2018_svi_tract",
+    "format": "gdb",
+    "up": "false",
+    "podid": "gaia-db",
+    "last_updated": "2026-05-25 17:23:49",
+    "update_frequency": "never",
+    "checksum": "TBD"
+  },
+  "_submission_time": "2026-08-23 15:56:21",
+  "meta": {
+    "instanceID": "e534a765-1561-43f9-92ee-42635283473"
+  }
+}

@@ -38,7 +38,7 @@
       "name": "OpenStreetMap"
     }
   ],
-  "license": "OpenStreetMap\u00ae is open data, licensed under the [Open Data Commons Open Database License](https://opendatacommons.org/licenses/odbl/) (ODbL) by the [OpenStreetMap Foundation](https://osmfoundation.org/) (OSMF).",
+  "license": "odbl",
   "spatialCoverage": [
     {
       "@id": "https://www.geonames.org/149590",
@@ -198,6 +198,6 @@
       "url": "https://gdsc.idsc.miami.edu/details/api"
     }
   ],
-  "dateModified": "2025-02-24",
-  "version": "2026-05-26"
+  "dateModified": "2025-09-07 11:19:11",
+  "version": "2026-08-23"
 }

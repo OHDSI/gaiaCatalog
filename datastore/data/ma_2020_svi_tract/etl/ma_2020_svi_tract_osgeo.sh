@@ -6,7 +6,7 @@
 # Data source: https://svi.cdc.gov/Documents/Data/2020/db/states/Massachusetts.zip
 # Destination postGIS table: ma_2020_svi_tract
 #
-# Created by etl() on 2026-05-26 12:19:19
+# Created by etl() on 2026-08-23 14:56:55
 # Do not edit directly
 
 # create directory structure and move into it
@@ -29,7 +29,7 @@ if [[ $exists ]]; then
   if [[ ! $no_update ]]; then
     last_update=$(date -d "$(cat datestamp)" '+%s')
     check_date="$(date -d '-'"$update_frequency" '+%s')"
-    if [[ "$check_date -ge $last_update" ]]; then do_update=1; fi
+    if [[ "$check_date" -ge "$last_update" ]]; then do_update=1; fi
   fi
 
 # does not exist

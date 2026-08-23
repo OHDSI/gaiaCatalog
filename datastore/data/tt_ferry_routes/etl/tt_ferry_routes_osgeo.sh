@@ -6,7 +6,7 @@
 # Data source: https://overpass-api.de/api/interpreter?data=way%5B%22route%22~%22ferry%22%5D(area:3600555717);(._;>;);out;
 # Destination postGIS table: tt_ferry_routes
 #
-# Created by etl() on 2026-05-26 12:19:21
+# Created by etl() on 2026-08-23 14:57:15
 # Do not edit directly
 
 # create directory structure and move into it
@@ -29,7 +29,7 @@ if [[ $exists ]]; then
   if [[ ! $no_update ]]; then
     last_update=$(date -d "$(cat datestamp)" '+%s')
     check_date="$(date -d '-'"$update_frequency" '+%s')"
-    if [[ "$check_date -ge $last_update" ]]; then do_update=1; fi
+    if [[ "$check_date" -ge "$last_update" ]]; then do_update=1; fi
   fi
 
 # does not exist

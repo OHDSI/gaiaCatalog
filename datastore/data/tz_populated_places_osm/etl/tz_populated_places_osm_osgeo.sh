@@ -6,7 +6,7 @@
 # Data source: https://overpass-api.de/api/interpreter?data=area%28id:3600195270%29-%3E.searchArea;node%5B%22place%22~%22city|town|village|hamlet%22%5D%28area.searchArea%29;%28._;%3E;%29;out;
 # Destination postGIS table: tz_populated_places_osm
 #
-# Created by etl() on 2026-05-26 12:19:31
+# Created by etl() on 2026-08-23 14:57:23
 # Do not edit directly
 
 # create directory structure and move into it
@@ -29,7 +29,7 @@ if [[ $exists ]]; then
   if [[ ! $no_update ]]; then
     last_update=$(date -d "$(cat datestamp)" '+%s')
     check_date="$(date -d '-'"$update_frequency" '+%s')"
-    if [[ "$check_date -ge $last_update" ]]; then do_update=1; fi
+    if [[ "$check_date" -ge "$last_update" ]]; then do_update=1; fi
   fi
 
 # does not exist

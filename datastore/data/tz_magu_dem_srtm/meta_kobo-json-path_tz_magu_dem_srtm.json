@@ -1,0 +1,151 @@
+{
+  "control_group": {
+    "id": 237
+  },
+  "dublin_core_group": {
+    "title": "Magu District DEM (SRTM)",
+    "creator_group": [
+      {
+        "creator_name": "NASA JPL"
+      }
+    ],
+    "url": "https://lpdaac.usgs.gov/products/srtmgl1v003/",
+    "publisher_group": [
+      {
+        "publisher_name": "NASA EOSDIS Land Processes Distributed Active Archive Center (LPDAAC)"
+      }
+    ],
+    "rights": "public_domain",
+    "license_text": "This data is open to the public and browse images are freely available without\nrestriction.",
+    "restrictions": "This data is open to the public and browse images are freely available without\nrestriction.",
+    "coverage_group": [
+      {
+        "coverage_name": "Magu District",
+        "coverage_identifier": "155313",
+        "coverage_identifier_schema": "geonames",
+        "coverage_identifier_schema_uri": "https://www.geonames.org/"
+      },
+      {
+        "coverage_name": "Tanzania",
+        "coverage_identifier": "149590",
+        "coverage_identifier_schema": "geonames",
+        "coverage_identifier_schema_uri": "https://www.geonames.org/"
+      }
+    ],
+    "resource_type": "raster_dataset",
+    "publication_date": "2013-01-01",
+    "description": "An elevation raster dataset derived from the SRTM GL1 V3 dataset at 1 ARC second resolution (~30 meters). ",
+    "subject_group": [
+      {
+        "subject_term": "Tanzania"
+      },
+      {
+        "subject_term": "Magu District"
+      },
+      {
+        "subject_term": "Elevation"
+      },
+      {
+        "subject_term": "DEM"
+      }
+    ],
+    "language": "en",
+    "size_group": [
+      {
+        "size_bytes": "498902627",
+        "size_human_readable": "476M"
+      }
+    ]
+  },
+  "iso_group": {
+    "structure": "raster",
+    "band_group": [
+      {
+        "band_name": "Single Band Elevation"
+      }
+    ],
+    "pixel_dimension": 30.0,
+    "dimension_units": "meters",
+    "epsg": 4326,
+    "extent": "POLYGON((32.750139 -3.089861, 34.039861 -3.089861, 34.039861 -2.130139, 32.750139 -2.130139, 32.750139 -3.089861))",
+    "lineage": "TBD",
+    "process_step": "#########\n# GDSC ETL is performed in two steps: shell script to ETL data into postgres\n# and then additional transformations with SQL in postGIS (if needed).\n####\n\n#########\n# Step 1 - bash script (pseudo code)\n####\n\n# create directory structure and move into it\nmkdir -p /data/tz_magu_dem_srtm/download -p /data/tz_magu_dem_srtm/etl\nchmod 777 /data/tz_magu_dem_srtm/download\ncd /data/tz_magu_dem_srtm\n\n# set update flag based on last update and update frequency\ndo_update=0 if date() < last_update + update_frequency else do_update = 1\n\n# load raster into postGIS with:\n    raster2pgsql -s 4326 -d -C -I -t auto tz_magu_dem_srtm.tif -F tz_magu_dem_srtm > load_raster.sql\npsql <connection options> < load_raster.sql\nrm load_raster.sql\n\n# render raster tiles \ncd /data/tz_magu_dem_srtm/\ngdal2tiles.py -ex --xyz -z 14-18 /data/tz_magu_dem_srtm/download/tz_magu_dem_srtm.tif /tiles/raster/tz_magu_dem_srtm\n# Move into corrrect directory and create derivative directory in data package on osgeo\ncd /data/tz_magu_dem_srtm/\nmkdir -p derived\n\n# Create downloadable zip of download/geotiff in derivate directory \nrm -f derived/tz_magu_dem_srtm.tif.tar.gz\ntar -czf derived/tz_magu_dem_srtm.tif.tar.gz meta_dcat_tz_magu_dem_srtm.json -C download tz_magu_dem_srtm.tif\n\n# Move into correct directory\ncd /data/tz_magu_dem_srtm/\n\n",
+    "processor": "GDSC automation (see Process Step)",
+    "point_of_contact_group": [
+      {
+        "contact_name": "Timothy B. Norris",
+        "contact_last_name": "Norris",
+        "contact_first_name": "Timothy",
+        "contact_email": "tnorris@miami.edu",
+        "contact_identifier": "https://orcid.org/0000-0002-0898-3027",
+        "contact_identifier_schema": "orcid",
+        "contact_identifier_schema_uri": "https://orcid.org/",
+        "contact_affiliation": "University of Miami Libraries, Frost Institute for Data Science and Computing",
+        "contact_affiliation_identifier": "https://ror.org/02dgjyy92",
+        "contact_affiliation_schema": "ror",
+        "contact_affiliation_schema_uri": "https://ror.org/"
+      }
+    ],
+    "data_level": "derived"
+  },
+  "cartography_group": {
+    "attributes_group": [
+      {
+        "attribute_name": "elevation",
+        "attribute_description": "Mean elevation above sea level",
+        "attribute_source": "NASA JPL",
+        "attribute_type": "float",
+        "attribute_unit": "meters\n"
+      }
+    ],
+    "tile_zoom_group": [
+      {
+        "tile_min_zoom": "14"
+      },
+      {
+        "tile_min_zoom": "18"
+      }
+    ]
+  },
+  "collection_group": {
+    "collections": "tz-climate-change tz-health-outcomes",
+    "analytic_function": "gdsc_zonal_statistics",
+    "analytic_epsg": 4326,
+    "derivatives": "geotiff",
+    "derivative_url": "/data/tz_magu_dem_srtm/",
+    "sponsor_group": [
+      {
+        "sponsor_name": "IDSC",
+        "sponsor_url": "https://idsc.miami.edu"
+      },
+      {
+        "sponsor_name": "Library",
+        "sponsor_url": "https://www.library.miami.edu"
+      }
+    ],
+    "status": "published",
+    "rights_statement": "This data is open to the public and browse images are freely available without\nrestriction."
+  },
+  "etl_group": {
+    "source": "https://e4ftl01.cr.usgs.gov/MEASURES/SRTMGL1.003/2000.02.11/",
+    "file_name_group": [
+      {
+        "file_name_value": "tz_magu_dem_srtm"
+      }
+    ],
+    "extension": "zip",
+    "table_name": "tz_magu_dem_srtm",
+    "format": "tif",
+    "custom_etl": "srtm_merge_and_crop",
+    "custom_parameters": "S02E032.SRTMGL1|S02E033.SRTMGL1|S02E034.SRTMGL1|S03E032.SRTMGL1|S03E033.SRTMGL1|S03E034.SRTMGL1|S04E032.SRTMGL1|S04E033.SRTMGL1|S04E034.SRTMGL1|bbox;32.75;-3.09;34.04;-2.13",
+    "up": "false",
+    "podid": "gaia-db",
+    "last_updated": "not known",
+    "update_frequency": "as_needed",
+    "checksum": "TBD"
+  },
+  "_submission_time": "2026-08-23 15:57:21",
+  "meta": {
+    "instanceID": "916f6874-5eb1-4a58-86a4-52024441654"
+  }
+}

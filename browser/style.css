@@ -1,0 +1,247 @@
+/* style.css */
+
+/* -------------------------------------------------------------------------- */
+/*  Root variables                                                            */
+/* -------------------------------------------------------------------------- */
+:root {
+  --primary: #0066cc;
+  --primary-dark: #005bb5;
+  --bg: #f9f9f9;
+  --card-bg: #fff;
+  --card-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  --font-base: 16px;
+  --spacing: 0.5rem;
+}
+
+/* -------------------------------------------------------------------------- */
+/*  Global styles                                                             */
+/* -------------------------------------------------------------------------- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  font-family: system-ui, sans-serif;
+  font-size: var(--font-base);
+  line-height: 1.5;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: #333;
+}
+
+#app {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  padding: var(--spacing);
+}
+
+/* -------------------------------------------------------------------------- */
+/*  Header                                                                    */
+/* -------------------------------------------------------------------------- */
+header {
+  margin-bottom: var(--spacing);
+}
+
+h1 {
+  font-size: 2rem;
+  margin: 0;
+  color: var(--primary);
+}
+
+/* -------------------------------------------------------------------------- */
+/*  Search box                                                                */
+/* -------------------------------------------------------------------------- */
+input[type="text"] {
+  width: 100%;
+  max-width: 600px;
+  padding: 0.75rem 1rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 1rem;
+  transition: border-color 0.2s;
+}
+
+input[type="text"]:focus {
+  outline: none;
+  border-color: var(--primary);
+}
+
+/* -------------------------------------------------------------------------- */
+/*  Flex layout – left filter pane, right results pane                        */
+/* -------------------------------------------------------------------------- */
+#searchWrapper {
+  display: flex;
+  flex: 1;
+  gap: var(--spacing);
+  min-height: 0; /* allow children to shrink */
+}
+
+#filterPane {
+  flex: 0 0 300px; /* fixed width for the filter column */
+  overflow-y: auto;
+  /* background: #fff; */
+  border-radius: 6px;
+  padding: var(--spacing);
+  /* box-shadow: var(--card-shadow); */
+  max-height: 85vh;
+  /* keep the header sticky so it stays visible */
+  display: flex;
+  flex-direction: column;
+}
+
+#filterPane header {
+  margin-bottom: var(--spacing);
+}
+
+#filterPane .accordion {
+  flex: 1;
+  overflow-y: auto;
+}
+
+#filterPane .accordion-item {
+  margin: 3px 0px;
+}
+
+.filter-pills {
+  height: 2.25em;
+}
+
+/* -------------------------------------------------------------------------- */
+/*  Results pane – scrollable area                                            */
+/* -------------------------------------------------------------------------- */
+#resultsPane {
+  flex: 1;
+  overflow-y: auto;
+  padding: 0.25em 0.5em;
+  display: flex;
+  flex-direction: column;
+  max-height: 80vh;
+}
+
+#resultsContainer {
+  flex: 1;
+  overflow-y: auto;
+}
+
+/* -------------------------------------------------------------------------- */
+/*  Results grid                                                              */
+/* -------------------------------------------------------------------------- */
+#results {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: var(--spacing);
+}
+
+#results li {
+  list-style: none;
+}
+
+#results a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* -------------------------------------------------------------------------- */
+/*  Card                                                                      */
+/* -------------------------------------------------------------------------- */
+.card {
+  background: var(--card-bg);
+  border-radius: 6px;
+  box-shadow: var(--card-shadow);
+  padding: var(--spacing);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  transition: transform 0.2s;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+}
+
+.card h2 {
+  font-size: 1.2rem;
+  margin: 0 0 0.5rem;
+  color: var(--primary);
+}
+
+.card p {
+  flex-grow: 1;
+  margin: 0;
+  color: #555;
+}
+
+/* -------------------------------------------------------------------------- */
+/*  Detail pages                                                              */
+/* -------------------------------------------------------------------------- */
+.detail-title {
+  margin-bottom: 0em;
+}
+
+.detail-element {
+  margin-top: 0.3em;
+}
+
+.wrapScroll {
+  white-space: nowrap;
+  overflow-x: auto;
+  /* border: 1px solid grey; */
+  /* border-radius: 4px; */
+}
+
+.back-link {
+  display: inline-block;
+  margin-bottom: var(--spacing);
+  color: var(--primary);
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.back-link:hover {
+  text-decoration: underline;
+}
+
+/* -------------------------------------------------------------------------- */
+/*  Interface response for loading and searching                              */
+/* -------------------------------------------------------------------------- */
+.highlight-term {
+  background-color: #ffc;
+}
+.circle {
+  width: 10px;
+  height: 10px;
+  border-radius: 5px 5px 5px 5px;
+  margin-left: 5px;
+  margin-top: 5px;
+  position: relative;
+  border-radius: 100%;
+  display: inline-block
+}
+.green-fill {
+  background: green;
+}
+.red-fill {                                          
+  background: red;
+  cursor: pointer;
+}
+
+/* -------------------------------------------------------------------------- */
+/*  Responsive adjustments                                                    */
+/* -------------------------------------------------------------------------- */
+@media (max-width: 768px) {
+  #searchWrapper {
+    flex-direction: column;
+  }
+
+  #filterPane {
+    flex: 0 0 auto;
+    width: 100%;
+    max-height: 250px; /* keep the filter pane collapsed on small screens */
+  }
+}

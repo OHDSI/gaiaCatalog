@@ -1,0 +1,142 @@
+{
+  "control_group": {
+    "id": 80
+  },
+  "dublin_core_group": {
+    "title": "Trinidad and Tobago Populated Places",
+    "creator_group": [
+      {
+        "creator_name": "OpenStreetMap contributors"
+      }
+    ],
+    "url": "https://www.openstreetmap.org/",
+    "publisher_group": [
+      {
+        "publisher_name": "OpenStreetMap"
+      }
+    ],
+    "rights": "open_data",
+    "license": "odbl",
+    "license_text": "OpenStreetMap\u00ae is open data, licensed under the [Open Data Commons Open Database License](https://opendatacommons.org/licenses/odbl/) (ODbL) by the [OpenStreetMap Foundation](https://osmfoundation.org/) (OSMF).",
+    "restrictions": "You are free to copy, distribute, transmit and adapt our data, as long as you credit OpenStreetMap and its contributors. If you alter or build upon our data, you may distribute the result only under the same licence.",
+    "coverage_group": [
+      {
+        "coverage_name": "Trinidad and Tobago",
+        "coverage_identifier": "3573591",
+        "coverage_identifier_schema": "geonames",
+        "coverage_identifier_schema_uri": "https://www.geonames.org/"
+      }
+    ],
+    "resource_type": "vector_dataset",
+    "publication_date": "2023-11-30",
+    "description": "A point feature set for populated places in Trinidad and Tobago.",
+    "provenance": "Direct from source.",
+    "subject_group": [
+      {
+        "subject_term": "Trinidad and Tobago"
+      },
+      {
+        "subject_term": "populated places:towns"
+      },
+      {
+        "subject_term": "cities"
+      }
+    ],
+    "size_group": [
+      {
+        "size_bytes": "45838",
+        "size_human_readable": "45K"
+      }
+    ]
+  },
+  "iso_group": {
+    "structure": "vector",
+    "geometry": "point",
+    "epsg": 4326,
+    "lineage": "TBD",
+    "process_step": "#########\n# GDSC ETL is performed in two steps: shell script to ETL data into postgres\n# and then additional transformations with SQL in postGIS (if needed).\n####\n\n#########\n# Step 1 - bash script (pseudo code)\n####\n\n# create directory structure and move into it\nmkdir -p /data/tt_populated_places/download -p /data/tt_populated_places/etl\nchmod 777 /data/tt_populated_places/download\ncd /data/tt_populated_places\n\n# set update flag based on last update and update frequency\ndo_update=0 if date() < last_update + update_frequency else do_update = 1\n\n# download if update flag is set:\nif do_update == 1 then\ncurl -o download/tt_populated_places.osm 'https://overpass-api.de/api/interpreter?data=node%5B%22place%22~%22city|town|village%22%5D(area:3600555717);(._;>;);out;'\n\n# load into postGIS with:\n  ogr2ogr -lco GEOMETRY_NAME=geom -f PostgreSQL PG:\"<postgres connection>\" download/tt_populated_places.osm\n\n#########\n# Step 2 - SQL script (pseudo code):\n####\n\n# Select proper geometry into the named table\npsql -d gaiacore -U postgres -p 5432 -h gaia-db -c \"\nSELECT * INTO tt_populated_places FROM points;\nDROP TABLE IF EXISTS lines;\nDROP TABLE IF EXISTS multilinestrings;\nDROP TABLE IF EXISTS multipolygons;\nDROP TABLE IF EXISTS other_relations;\nDROP TABLE IF EXISTS points;\"\n\n# remove duplicate points and make geometries valid:\nUPDATE tt_populated_places\n  SET geom=ST_MakeValid(ST_RemoveRepeatedPoints(geom));\n\n# add local geometry column and reproject existing geometries into local EPSG:\nSELECT AddGeometryColumn (\n  'tt_populated_places',\n  'geom_local', 8035, 'point', 2\n);\nUPDATE tt_populated_places\n  SET geom_local=ST_MakeValid(ST_RemoveRepeatedPoints(ST_Transform(geom,8035)));\nCREATE INDEX tt_populated_places_geom_local_idx\n  ON tt_populated_places\n  USING GIST (geom_local);\nNOTIFY pgrst, 'reload schema';\n",
+    "processor": "GDSC automation (see Process Step)",
+    "point_of_contact_group": [
+      {
+        "contact_name": "Timothy B. Norris",
+        "contact_last_name": "Norris",
+        "contact_first_name": "Timothy",
+        "contact_email": "tnorris@miami.edu",
+        "contact_identifier": "https://orcid.org/0000-0002-0898-3027",
+        "contact_identifier_schema": "orcid",
+        "contact_identifier_schema_uri": "https://orcid.org/",
+        "contact_affiliation": "University of Miami Libraries, Frost Institute for Data Science and Computing",
+        "contact_affiliation_identifier": "https://ror.org/02dgjyy92",
+        "contact_affiliation_schema": "ror",
+        "contact_affiliation_schema_uri": "https://ror.org/"
+      }
+    ],
+    "data_level": "observed"
+  },
+  "cartography_group": {
+    "label": "name",
+    "attributes_group": [
+      {
+        "attribute_name": "osm_id",
+        "attribute_description": "OpenStreetMap (OSM) ID",
+        "attribute_type": "varchar"
+      },
+      {
+        "attribute_name": "name",
+        "attribute_description": "Place Name",
+        "attribute_type": "varchar"
+      },
+      {
+        "attribute_name": "place",
+        "attribute_description": "kind of place (i.e. village, town, city)",
+        "attribute_type": "varchar"
+      },
+      {
+        "attribute_name": "other_tags",
+        "attribute_description": "Any other OSM tags with values, can include values for population and some wikipedia data",
+        "attribute_type": "varchar"
+      }
+    ]
+  },
+  "collection_group": {
+    "collections": "tt-disease-risk",
+    "analytic_function": "gdsc_get_attributes",
+    "analytic_epsg": 8035,
+    "derivative_url": "/data/tt_populated_places/",
+    "sponsor_group": [
+      {
+        "sponsor_name": "IDSC",
+        "sponsor_url": "https://idsc.miami.edu"
+      },
+      {
+        "sponsor_name": "Library",
+        "sponsor_url": "https://www.library.miami.edu"
+      }
+    ],
+    "status": "published",
+    "disclaimer": "The Database is licensed by the Licensor \u201cas is\u201d and without any warranty of any kind, either express, implied, or arising by statute, custom, course of dealing, or trade usage. Licensor specifically disclaims any and all implied warranties or conditions of title, non-infringement, accuracy or completeness, the presence or absence of errors, fitness for a particular purpose, merchantability, or otherwise. Some jurisdictions do not allow the exclusion of implied warranties, so this exclusion may not apply to You.\n\nSubject to any liability that may not be excluded or limited by law, the Licensor is not liable for, and expressly excludes, all liability for loss or damage however and whenever caused to anyone by any use under this License, whether by You or by anyone else, and whether caused by any fault on the part of the Licensor or not. This exclusion of liability includes, but is not limited to, any special, incidental, consequential, punitive, or exemplary damages such as loss of revenue, data, anticipated profits, and lost business. This exclusion applies even if the Licensor has been advised of the possibility of such damages. \n\nIf liability may not be excluded by law, it is limited to actual and direct financial loss to the extent it is caused by proved negligence on the part of the Licensor.",
+    "service_definition": "api"
+  },
+  "etl_group": {
+    "source": "https://overpass-api.de/api/interpreter?data=node%5B%22place%22~%22city|town|village%22%5D(area:3600555717);(._;>;);out;",
+    "file_name_group": [
+      {
+        "file_name_value": "tt_populated_places"
+      }
+    ],
+    "extension": "osm",
+    "download": "curl",
+    "table_name": "tt_populated_places",
+    "format": "osm",
+    "etl_parameters": "points",
+    "up": "false",
+    "podid": "gaia-db",
+    "last_updated": "2026-02-12 11:05:32",
+    "update_frequency": "as_needed",
+    "checksum": "TBD"
+  },
+  "_submission_time": "2026-08-23 15:57:15",
+  "meta": {
+    "instanceID": "16de9de8-0b3a-4ca4-a6d1-11715855634"
+  }
+}

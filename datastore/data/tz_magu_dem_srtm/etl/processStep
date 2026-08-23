@@ -27,6 +27,10 @@ gdal2tiles.py -ex --xyz -z 14-18 /data/tz_magu_dem_srtm/download/tz_magu_dem_srt
 cd /data/tz_magu_dem_srtm/
 mkdir -p derived
 
+# Create downloadable zip of download/geotiff in derivate directory 
+rm -f derived/tz_magu_dem_srtm.tif.tar.gz
+tar -czf derived/tz_magu_dem_srtm.tif.tar.gz meta_dcat_tz_magu_dem_srtm.json -C download tz_magu_dem_srtm.tif
+
 # Move into correct directory
 cd /data/tz_magu_dem_srtm/
 
