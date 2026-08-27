@@ -2,13 +2,13 @@
 const fs = require('fs');
 const path = require('path');
 
-const dataDir = path.join(__dirname, 'data');
+const dataDir = path.join(__dirname, '../datastore/data');
 const files = fs.readdirSync(dataDir, { recursive: true }).filter(f => f.includes('dcat'));
 
 const catalog = files.map((file) => {
   const filePath = path.join(dataDir, file);
   const content = JSON.parse(fs.readFileSync(filePath, 'utf8'));
-  const id = path.basename(file, '.json-ld.json');
+  const id = content['gdsc:tablename'];
   return { id, ...content };
 });
 

@@ -18,3 +18,4 @@ architecture/stores
 __pycache__/
 /architecture/7-deployment/lance-mcp/.env
 /architecture/7-deployment/lance-mcp/.venv/
+.continue/

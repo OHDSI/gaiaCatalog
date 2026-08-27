@@ -1,21 +1,36 @@
-/* src/main.js */
+/* ************************************************************************** */
+/*  main.js                                                               */
+/*  A simple catalog browser for the OHDSI GIS extension                      */
+/*  Tim Norris <tnorris@miami.edu>                                            */
+/*  contributions by claude running gpt-oss:20b with ollama                   */
+/* ************************************************************************** */
 
 import { catalog } from './catalog.js';
 
 const app = document.getElementById('app');
+
+/* -------------------------------------------------------------------------- */
+/*  json-ld configuration  **not working**                                    */
+/* -------------------------------------------------------------------------- */
+
 // const filterFields = ['keywords', 'measurementTechnique', 'variableMeasured']; // json-ld
 // const description = 'description';
 //       title = 'title';
+
+/* -------------------------------------------------------------------------- */
+/*  dcat configuration                                                        */
+/* -------------------------------------------------------------------------- */
+
 const filterFields = ['gdsc:collections', 'dcat:keyword', 'locn:geometry', 'adms:representationTechnique', 'dct:rights']; // dcat
 const searchFields = ['dcat:keyword', 'locn:geometry', 'adms:representationTechnique', 'dct:rights', 'dct:title', 'dct:description', 'gdsc:attributes']; // dcat
 const descriptionField = 'dct:description',
       titleField = 'dct:title';
 
 /* -------------------------------------------------------------------------- */
-/*  State & helper data                                                   */
+/*  State & helper data                                                       */
 /* -------------------------------------------------------------------------- */
 
-let filters =  filterFields.reduce((accumulator, field) => {
+let filters = filterFields.reduce((accumulator, field) => {
   accumulator[field] = new Set();
   return accumulator;
 }, {});
@@ -39,9 +54,11 @@ const expanded = filterFields.reduce((accumulator, field) => {
 }, {});
 
 let searchString = '';
+let loadedTables = new Set();
+let loadedVariables = new Set();
 
 /* -------------------------------------------------------------------------- */
-/*  Utility helpers                                                     */
+/*  Utility helpers                                                           */
 /* -------------------------------------------------------------------------- */
 
 function escapeHtml(s) {
@@ -58,7 +75,7 @@ function normalizeField(value) {
 }
 
 /* -------------------------------------------------------------------------- */
-/*  Build lookup tables (values + counts)                                  */
+/*  Build lookup tables (values + counts)                                     */
 /* -------------------------------------------------------------------------- */
 
 function initFieldOptions() {
@@ -76,23 +93,147 @@ function initFieldOptions() {
   });
 }
 
-
 /* -------------------------------------------------------------------------- */
-/*  Integration with PostGIS                                              */
+/*  UI – Settings modal                                                       */
 /* -------------------------------------------------------------------------- */
 
-function loadlayer(table) {
-  console.log(`loading table ${table}.`);
-  const status_indicator = document.getElementById(`layer-${table}`);
-  status_indicator.setAttribute('class', 'green-fill circle');
-  status_indicator.parentElement.setAttribute('class', 'none'); 
+const DEFAULT_pgEndpoint = 'http://localhost:3000/rpc/'; // optional default
+
+// read pgEndpoint from localStorage, if any
+const storedpgEndpoint = localStorage.getItem('pgEndpoint');
+const pgEndpoint = storedpgEndpoint || DEFAULT_pgEndpoint;
+localStorage.setItem('postgrestConnected', false);
+
+function showSettings() {
+  const modal = document.getElementById('settingsModal');
+  modal.classList.remove('hidden');
+  document.getElementById('pgEndpointInput').value = pgEndpoint;
 }
 
-function loadvar(table,variable) {
+function hideSettings() {
+  document.getElementById('settingsModal').classList.add('hidden');
+}
+
+document.getElementById('settingsBtn').addEventListener('click', showSettings);
+document.getElementById('closeSettings').addEventListener('click', hideSettings);
+
+document.getElementById('pgEndpointForm').addEventListener('submit', async e => {
+  e.preventDefault();
+  const url = document.getElementById('pgEndpointInput').value.trim();
+  if (!url) return;
+  localStorage.setItem('pgEndpoint', url);
+  hideSettings();
+  // check if the endpoiint is repsponding with the public schema
+  try {
+    await callPostgrest('gdsc_get_schema_tables', {"schema_name": "public"});
+    localStorage.setItem('postgrestConnected', true);    
+    alert('Connection success!!');
+    render();
+  } catch (err) {
+    alert('Could not connect to database.');
+    console.error(err);
+  }
+});
+
+/* -------------------------------------------------------------------------- */
+/*  Integration with PostGIS                                                  */
+/* -------------------------------------------------------------------------- */
+
+let api_url = '';
+
+async function callPostgrest(func, params) {
+  const shell = 'bash';
+
+  try {
+    const response = await fetch(`${pgEndpoint}${func}`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json' // could put jwt auth here ...
+      },
+      body: JSON.stringify(params)
+    });
+
+    if (!response.ok) throw new Error(`HTTP error! Status: ${response.status}`);
+
+    const data = await response.json();
+    console.log('Success:', data);
+    return data;
+  } catch (error) {
+    console.error('Post failed:', error);
+  }
+
+}
+
+async function loadlayer(table) {
+  if (loadedTables.has(table)) {
+    console.log(`table ${table} already loaded`);
+    return;
+  }
+  console.log(`loading table ${table}.`);
+
+  /* load dependencies if any */
+  const response = await callPostgrest('gdsc_path_and_dependencies',{"table_id": table});
+  const dataPath = response.split('\n')[0];
+  const tablesToLoad = response.split('\n').slice(1);
+  for (const tableToLoad of tablesToLoad) { await loadLayer(tableToLoad); };
+
+  /* load the table */
+  for (const script of ['osgeo','postgis']) {
+    console.log(`${dataPath}/etl/${table}_${script}`);
+    const response = await callPostgrest(
+      'gdsc_exec',
+      {
+        "shell": "bash",
+        "script": `${dataPath}/etl/${table}_${script}`
+      }
+    );
+  };
+
+  /* update the status */
+  render();
+
+}
+
+async function loadvar(table,variable) {
+  if (loadedVariables.has(variable)) {
+    console.log(`variable ${variable} for table ${table} already loaded`);
+    return;
+  }
   console.log(`loading variable ${variable} from ${table}.`);
-  const status_indicator = document.getElementById(`variable-${variable}`);
-  status_indicator.setAttribute('class', 'green-fill circle');
-  status_indicator.parentElement.setAttribute('class', 'none'); 
+
+  /* make sure the layer is loaded */
+  if (!loadedTables.has(table)) await loadlayer(table);
+
+  /* construct the parameters */
+  const entry = catalog.find(e => e['gdsc:tablename'] === table);
+  const attribute = entry['gdsc:attributes'].find(e => e.includes(variable)).split(';');
+  const parameters = {
+    "params": {
+      "table_id": table,
+      "table_description": entry['dct:description'],
+      "geom_type": entry['locn:geometry'],
+      "geom_label": entry['gdsc:label'],
+      "variable_nodata": entry['gdsc:nodata'] ? entry['gdsc:nodata'][1] : "" ,
+      "variable_id": attribute[0], 
+      "description": attribute[1].replaceAll('"', ''),
+      "source": attribute[2],
+      "type": attribute[3],
+      "unit": attribute[4],
+      "unit_concept_id": attribute[5] == '' ? "" : parseInt(attribute[5]),
+      "min_val": attribute[6] == '' ? "" : parseFloat(attribute[6]),
+      "max_val": attribute[7] == '' ? "" : parseFloat(attribute[7]),
+      "start_date": new Date(attribute[8]).toISOString().slice(0,10),
+      "end_date": new Date(attribute[9]).toISOString().slice(0,10),
+      "concept_id": attribute[10] == '' ? "" : parseInt(attribute[10])      
+    }
+  }
+
+  // load the variable
+  const response = await callPostgrest(
+    'gdsc_load_variable',parameters
+  );
+
+  render();
 }
 
 /* -------------------------------------------------------------------------- */
@@ -235,7 +376,7 @@ function renderFilterPills(parent) {
 }
 
 /* -------------------------------------------------------------------------- */
-/*  Search / filter helpers                                               */
+/*  Search / filter helpers                                                   */
 /* -------------------------------------------------------------------------- */
 
 function buildSearchString(entry) {
@@ -262,7 +403,7 @@ function matchesQuery(entry, query) {
 }
 
 /* -------------------------------------------------------------------------- */
-/*  Rendering result cards                                               */
+/*  Rendering result cards                                                    */
 /* -------------------------------------------------------------------------- */
 
 function renderResults(entries) {
@@ -280,15 +421,24 @@ function renderResults(entries) {
     const card = document.createElement('div');
     card.className = 'card';
 
+    /* layer title */
     const title = document.createElement('h2');
     title.textContent = entry[titleField] || entry.id;
+    /* status circle and load button */
     const status = document.createElement('div');
-    status.id = `layer-${entry['table']}`;
-    status.className = 'float-left circle red-fill';
-    status.addEventListener('click', () => { loadlayer(entry['table']); });
+    status.id = `layer-${entry['gdsc:tablename']}`;
+    status.className = 'float-left circle';
+    status.className += loadedTables.has(entry['gdsc:tablename']) 
+      ? ' green-fill' 
+      : ' red-fill';
+    status.addEventListener('click', (e) => { 
+      e.preventDefault();
+      loadlayer(entry['gdsc:tablename']); 
+    });
     title.appendChild(status);
     card.appendChild(title);
 
+    /* shortened description */
     const desc = document.createElement('p');
     desc.textContent = entry[descriptionField]
       ? entry[descriptionField].slice(0, 120) + '…'
@@ -303,7 +453,7 @@ function renderResults(entries) {
 }
 
 /* -------------------------------------------------------------------------- */
-/*  Main view – search + filters + results                                */
+/*  Main view – search + filters + results                                    */
 /* -------------------------------------------------------------------------- */
 
 function renderSearch() {
@@ -317,6 +467,7 @@ function renderSearch() {
   header.innerHTML = '<h1>OHDSI GIS Catalog Browser</h1>';
   banner.appendChild(header);
 
+  /* search box */
   const searchBox = document.createElement('input');
   searchBox.type = 'text';
   searchBox.placeholder = 'Free‑text search…';
@@ -349,7 +500,8 @@ function renderSearch() {
 
   /* Right column – results */
   const right = document.createElement('div');
-  right.className = 'w-100';
+  right.id = 'resultsWrapper';
+  right.className = 'container-fluid';
   const rightResults = document.createElement('main');
   rightResults.id = 'resultsPane';
 
@@ -367,12 +519,13 @@ function renderSearch() {
 }
 
 /* -------------------------------------------------------------------------- */
-/*  Detailed view – entry landing page                                   */
+/*  Detailed view – entry landing page                                        */
 /* -------------------------------------------------------------------------- */
 
 function renderLanding(entry) {
   app.innerHTML = '';
 
+  /* render a metadata element with title and content */
   function renderElement(title, value) {
     const section = document.createElement('div');
     const heading = document.createElement('h5');
@@ -390,7 +543,7 @@ function renderLanding(entry) {
     wrapper.appendChild(section);
   }
 
- /* Header and title */
+ /* Header and title detail page */
   const banner = document.createElement('div');
   banner.id = 'bannerWrapper';
 
@@ -401,20 +554,25 @@ function renderLanding(entry) {
 
   const back = document.createElement('a');
   back.href = '#';
-  back.className = 'back-link';
+  back.className = 'back-link p-2';
   back.textContent = '← Back to results';
   app.appendChild(back);
 
+  /* content wrapper for layer */
   const wrapper = document.createElement('div');
-  wrapper.className = 'card';
+  wrapper.className = 'card m-1';
 
+  /* title for layer */
   const title = document.createElement('h1');
   title.className = 'detail-title';
   title.textContent = entry[titleField] || entry.id;
   const status = document.createElement('div');
-  status.id = `layer-${entry['table']}`;
-  status.className = 'float-left circle red-fill';
-  status.addEventListener('click', () => { loadlayer(entry['table']); });
+  status.id = `layer-${entry['gdsc:tablename']}`;
+  status.className = 'float-left circle';
+  status.className += loadedTables.has(entry['gdsc:tablename'])
+    ? ' green-fill'
+    : ' red-fill';
+  status.addEventListener('click', () => { loadlayer(entry['gdsc:tablename']); });
   title.appendChild(status);
   wrapper.appendChild(title);
 
@@ -430,7 +588,7 @@ function renderLanding(entry) {
 
   /* attributes */
   const attrWrapper = document.createElement('div');
-  attrWrapper.className='container mt-2 ms-0 ps-0 text-break';
+  attrWrapper.className='container-fluid mt-2 ms-0 ps-0 text-break';
   const attrFluid = document.createElement('div');
   attrFluid.className='container-fluid';
   const attrFluidRow = document.createElement('div');
@@ -464,20 +622,35 @@ function renderLanding(entry) {
   entry['gdsc:attributes'].forEach(attribute => {
     const attrRow = document.createElement('tr');
     const attrSpec = attribute.split(';');
-    attrHeaders .keys().forEach(header => {
+    attrHeaders.keys().forEach(header => {
       const attrElement = document.createElement('td');
       if (attrHeaders.get(header) < 0) {
-        // needs button to load variable
+        // button to load variable
         const buttonWrap = document.createElement('div');
         buttonWrap.className = 'none';
         const button = document.createElement('div');
         button.id = `variable-${attrSpec[0]}`;
-        button.className = 'float-left circle red-fill';
-        button.addEventListener('click', () => { loadvar(entry['table'],attrSpec[0]); });
+        button.className = 'float-left circle';
+        button.className += loadedVariables.has(attrSpec[0])
+          ? ' green-fill'
+          : ' red-fill';
+        button.addEventListener('click', () => { loadvar(entry['gdsc:tablename'],attrSpec[0]); });
         buttonWrap.appendChild(button);
         attrElement.appendChild(buttonWrap);
       } else {
-        attrElement.textContent = attrSpec[attrHeaders.get(header)];
+        if (attrSpec[attrHeaders.get(header)]) {
+          if (attrSpec[attrHeaders.get(header)] .length > 42) {
+            //attrElement.setAttribute('type', 'button');
+            attrElement.textContent = attrSpec[attrHeaders.get(header)].slice(0,42) + '...'
+            attrElement.setAttribute('data-bs-toggle', 'tooltip');
+            attrElement.setAttribute('data-bs-placement', 'top');
+            attrElement.setAttribute('data-bs-custom-class', 'custom-tooltip');
+            attrElement.setAttribute('data-bs-container', 'body');
+            attrElement.setAttribute('title', attrSpec[attrHeaders.get(header)]);
+          } else {
+            attrElement.textContent = attrSpec[attrHeaders.get(header)];
+          }
+        }
       }
       attrRow.appendChild(attrElement);
     });
@@ -496,18 +669,32 @@ function renderLanding(entry) {
 }
 
 /* -------------------------------------------------------------------------- */
-/*  Router – decides which view to show                                 */
+/*  Router – decides which view to show                                       */
 /* -------------------------------------------------------------------------- */
 
-function render() {
+async function render() {
+  if (localStorage.getItem('postgrestConnected') == 'true') {
+    loadedTables.clear();
+    const loaded = await callPostgrest('gdsc_get_schema_tables',{"schema_name": "public"});
+    loaded.forEach(layer => { loadedTables.add(layer); })
+  }
   const hash = window.location.hash;
   if (!hash || hash === '#') {
     renderSearch();
   } else if (hash.startsWith('#entry/')) {
     const id = hash.slice(7);
     const entry = catalog.find(e => e.id === id);
-    if (entry) renderLanding(entry);
-    else app.textContent = 'Entry not found.';
+    if (entry) {
+      if (localStorage.getItem('postgrestConnected') == 'true') {
+        loadedVariables.clear();
+        const loaded = await callPostgrest(
+          'gdsc_get_loaded_variables_for_table',
+          {"table_id": entry['gdsc:tablename']}
+        );
+        if (loaded) loaded.forEach(variable => { loadedVariables.add(variable); });
+      }
+      renderLanding(entry);
+    } else app.textContent = 'Entry not found.';
   } else {
     // Unknown hash – fall back to search view
     renderSearch();
@@ -515,7 +702,7 @@ function render() {
 }
 
 /* -------------------------------------------------------------------------- */
-/*  Init & routing                                                       */
+/*  Init & routing                                                            */
 /* -------------------------------------------------------------------------- */
 
 initFieldOptions();

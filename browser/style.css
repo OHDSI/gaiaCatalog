@@ -1,4 +1,9 @@
-/* style.css */
+/* ************************************************************************** */
+/*  style.css                                                                 */
+/*  For a simple catalog browser for the OHDSI GIS extension                  */
+/*  Tim Norris <tnorris@miami.edu>                                            */
+/*  contributions by claude running gpt-oss:20b with ollama                   */
+/* ************************************************************************** */
 
 /* -------------------------------------------------------------------------- */
 /*  Root variables                                                            */
@@ -38,7 +43,8 @@ body {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-  padding: var(--spacing);
+  padding: 1em; /* var(--spacing); */
+  /* margin: 1em; */
 }
 
 /* -------------------------------------------------------------------------- */
@@ -57,6 +63,10 @@ h1 {
 /* -------------------------------------------------------------------------- */
 /*  Search box                                                                */
 /* -------------------------------------------------------------------------- */
+#bannerWrapper {
+  padding: 0.5em;
+}
+
 input[type="text"] {
   width: 100%;
   max-width: 600px;
@@ -70,6 +80,65 @@ input[type="text"] {
 input[type="text"]:focus {
   outline: none;
   border-color: var(--primary);
+}
+
+/* -------------------------------------------------------------------------- */
+/*  Settings button                                                           */
+/* -------------------------------------------------------------------------- */
+
+/* Settings button (top‑right) ------------------------------------------ */
+.settings-btn {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  z-index: 1050; /* above other elements */
+  border-radius: 50%;
+  padding: 0.5rem;
+  width: 2.5rem;
+  height: 2.5rem;
+  background: #fff;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+}
+
+/* Settings modal ------------------------------------------------------- */
+.settings-modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.45);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1050;
+}
+.settings-modal.hidden { display: none; }
+
+.settings-modal-content {
+  background: #fff;
+  border-radius: 8px;
+  padding: 1.5rem;
+  width: 90%;
+  max-width: 400px;
+}
+.settings-modal-content h2 {
+  margin-top: 0;
+}
+.settings-modal-content form {
+  display: flex;
+  flex-direction: column;
+}
+.settings-modal-content label {
+  margin-bottom: 0.5rem;
+}
+.settings-modal-content input[type="url"] {
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-bottom: 1rem;
+}
+.modal-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.5rem;
 }
 
 /* -------------------------------------------------------------------------- */
@@ -205,6 +274,26 @@ input[type="text"]:focus {
 
 .back-link:hover {
   text-decoration: underline;
+}
+
+.custom-tooltip {
+  --bs-tooltip-bg: var(--bg);
+  --bs-tooltip-color: #000000;
+  --bs-tooltip-font-size: 1rem;
+  --bs-tooltip-border-radius: 4px;
+  --bs-tooltip-max-width: 350px; 
+  --bs-tooltip-opacity: 1;
+}
+
+.custom-tooltip .tooltip-inner {
+  min-width: 280px; 
+  padding: 0.8em;
+  background-color: var(--bg);
+  border: 1px solid #444444;
+}
+
+.custom-tooltip .tooltip-arrow {
+  display: none !important;
 }
 
 /* -------------------------------------------------------------------------- */
