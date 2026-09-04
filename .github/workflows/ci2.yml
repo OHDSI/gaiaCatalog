@@ -9,7 +9,7 @@ on:
     branches: [ main ]
 
 env:
-  DOCKER_IMAGE: ohdsi/gaia-catalog
+  DOCKER_IMAGE: ohdsi/gaia-solr
 
 jobs:
   build-and-push-images:
@@ -52,7 +52,7 @@ jobs:
         uses: docker/build-push-action@v2
         with:
           context: ./
-          file: ./docker/repository/Dockerfile
+          file: ./docker/solr/Dockerfile
           platforms: ${{ steps.build_params.outputs.platforms }}
           push: ${{ steps.build_params.outputs.push }}
           load: ${{ steps.build_params.outputs.load }}
