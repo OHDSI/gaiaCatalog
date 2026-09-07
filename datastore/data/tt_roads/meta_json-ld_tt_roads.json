@@ -208,7 +208,7 @@
       "qudt:dataType": "varchar"
     }
   ],
-  "distribution": "TBD",
+  "distribution": "/data/tt_roads/",
   "isBasedOn": [
     {
       "@id": "https://gdsc.idsc.miami.edu/details/api",

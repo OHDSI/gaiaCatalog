@@ -1,0 +1,149 @@
+{
+  "control_group": {
+    "id": 217
+  },
+  "dublin_core_group": {
+    "title": "1984 Tanzania 2m Temperature Yearly Average (Copernicus)",
+    "creator_group": [
+      {
+        "creator_name": "Copernicus",
+        "creator_type": "organization",
+        "creator_identifier": "https://ror.org/00yafkq43",
+        "creator_identifier_schema": "ror",
+        "creator_identifier_schema_uri": "https://ror.org/"
+      }
+    ],
+    "url": "https://cds.climate.copernicus.eu/datasets/reanalysis-era5-land",
+    "publisher_group": [
+      {
+        "publisher_name": "OHDSI"
+      }
+    ],
+    "rights": "public_domain",
+    "license": "odc_by",
+    "license_text": "Open Data Commons Attribution License (ODC-By): http://opendatacommons.org/licenses/by/1.0/",
+    "coverage_group": [
+      {
+        "coverage_name": "Tanzania",
+        "coverage_identifier": "149590",
+        "coverage_identifier_schema": "geonames",
+        "coverage_identifier_schema_uri": "https://www.geonames.org/"
+      }
+    ],
+    "time_period_start": "1984-01-01",
+    "time_period_end": "1984-12-31",
+    "resource_type": "raster_dataset",
+    "publication_date": "2025-06-01",
+    "description": "A raster dataset with yearly averages of the 2m temperature from the ERA 5 renanalysis data from Copernicus satellite sensors for Tanzania. ERA5 is the fifth generation ECMWF reanalysis for the global climate and weather for the past 8 decades. Data is available from 1940 onwards. ERA5 replaces the ERA-Interim reanalysis.",
+    "provenance": "Copernicus",
+    "subject_group": [
+      {
+        "subject_term": "Tanzania"
+      },
+      {
+        "subject_term": "temperature"
+      }
+    ],
+    "language": "en",
+    "size_group": [
+      {
+        "size_bytes": "89189368",
+        "size_human_readable": "86M"
+      }
+    ]
+  },
+  "iso_group": {
+    "structure": "raster",
+    "band_group": [
+      {
+        "band_name": "t2m"
+      }
+    ],
+    "pixel_dimension": 0.25,
+    "dimension_units": "decimal_degrees",
+    "epsg": 4326,
+    "extent": "POLYGON((28.875000 -12.125000, 41.125000 -12.125000, 41.125000 -0.875000, 28.875000 -0.875000, 28.875000 -12.125000))",
+    "lineage": "TBD",
+    "process_step": "#########\n# GDSC ETL is performed in two steps: shell script to ETL data into postgres\n# and then additional transformations with SQL in postGIS (if needed).\n####\n\n#########\n# Step 1 - bash script (pseudo code)\n####\n\n# create directory structure and move into it\nmkdir -p /data/tz_1984_copernicus_avg_temp/download -p /data/tz_1984_copernicus_avg_temp/etl\nchmod 777 /data/tz_1984_copernicus_avg_temp/download\ncd /data/tz_1984_copernicus_avg_temp\n\n# set update flag based on last update and update frequency\ndo_update=0 if date() < last_update + update_frequency else do_update = 1\n\n# clone a git repo and run the code# save netcdf as tif\ncd download\ngdal_translate NETCDF:tz_1984_copernicus_avg_temp.nc:2m_temperature tz_1984_copernicus_avg_temp.tif\ncd ..\n\n\n#########\n# Step 2 - SQL script (pseudo code):\n####\n\n# load raster into postGIS with:\n    raster2pgsql -s 4326 -d -C -I -t auto tz_1984_copernicus_avg_temp.tif -F tz_1984_copernicus_avg_temp > load_raster.sql\npsql <connection options> < load_raster.sql\nrm load_raster.sql\n\n# Move into corrrect directory and create derivative directory in data package on osgeo\ncd /data/tz_1984_copernicus_avg_temp/\nmkdir -p derived\n\n# Create downloadable zip of download/geotiff in derivate directory \nrm -f derived/tz_1984_copernicus_avg_temp.tif.tar.gz\ntar -czf derived/tz_1984_copernicus_avg_temp.tif.tar.gz meta_dcat_tz_1984_copernicus_avg_temp.json -C download tz_1984_copernicus_avg_temp.tif\n\n# Move into correct directory\ncd /data/tz_1984_copernicus_avg_temp/\n\n",
+    "processor": "GDSC automation (see Process Step)",
+    "point_of_contact_group": [
+      {
+        "contact_name": "Timothy B. Norris",
+        "contact_last_name": "Norris",
+        "contact_first_name": "Timothy",
+        "contact_email": "tnorris@miami.edu",
+        "contact_identifier": "https://orcid.org/0000-0002-0898-3027",
+        "contact_identifier_schema": "orcid",
+        "contact_identifier_schema_uri": "https://orcid.org/",
+        "contact_affiliation": "University of Miami Libraries, Frost Institute for Data Science and Computing",
+        "contact_affiliation_identifier": "https://ror.org/02dgjyy92",
+        "contact_affiliation_schema": "ror",
+        "contact_affiliation_schema_uri": "https://ror.org/"
+      }
+    ],
+    "data_level": "derived"
+  },
+  "cartography_group": {
+    "attributes_group": [
+      {
+        "attribute_name": "2m_temperature",
+        "attribute_description": "Average yearly 2m temperature in Kelvin from Copernicus reanalysis era5 single levels",
+        "attribute_source": "Copernicus",
+        "attribute_type": "float",
+        "attribute_unit": "Kelvin",
+        "attribute_unit_concept_id": "9523",
+        "attribute_min_value": "287.315857",
+        "attribute_max_value": "301.010986",
+        "attribute_start_date": "1984-01-01",
+        "attribute_end_date": "1984-12-31",
+        "attribute_concept_id": "35814756",
+        "attribute_external_id": "2m_temperature@tz_1984_copernicus_avg_temp"
+      }
+    ]
+  },
+  "collection_group": {
+    "collections": "tz-climate-change tz-health-outcomes",
+    "analytic_function": "gdsc_zonal_statistics",
+    "analytic_epsg": 4326,
+    "derivatives": "geotiff",
+    "derivative_url": "/data/tz_1984_copernicus_avg_temp/",
+    "sponsor_group": [
+      {
+        "sponsor_name": "TuftsCTSI",
+        "sponsor_url": "https://www.tuftsctsi.org/"
+      },
+      {
+        "sponsor_name": "IDSC",
+        "sponsor_url": "https://idsc.miami.edu"
+      },
+      {
+        "sponsor_name": "Library",
+        "sponsor_url": "https://www.library.miami.edu"
+      }
+    ],
+    "status": "published",
+    "service_definition": "API|cdsapi|python"
+  },
+  "etl_group": {
+    "source": "https://github.com/tibbben/copernicus_aggregate.git",
+    "file_name_group": [
+      {
+        "file_name_value": "tz_1984_copernicus_avg_temp"
+      }
+    ],
+    "extension": "zip",
+    "table_name": "tz_1984_copernicus_avg_temp",
+    "format": "nc",
+    "custom_etl": "github_code",
+    "custom_parameters": "python|copernicus_aggregate.py|json;table;extension;extent;attributes;bands;format|1984",
+    "up": "false",
+    "podid": "gaia-db",
+    "last_updated": "not known",
+    "update_frequency": "as_needed",
+    "checksum": "TBD"
+  },
+  "_submission_time": "2026-08-23 15:57:18",
+  "meta": {
+    "instanceID": "bb302daf-ade3-4e09-81f8-61033224065"
+  }
+}

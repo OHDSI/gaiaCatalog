@@ -31,7 +31,7 @@ if [[ $exists ]]; then
   if [[ ! $no_update ]]; then
     last_update=$(date -d "$(cat datestamp)" '+%s')
     check_date="$(date -d '-'"$update_frequency" '+%s')"
-    if [[ "$check_date -ge $last_update" ]]; then do_update=1; fi
+    if [[ "$check_date" -ge "$last_update" ]]; then do_update=1; fi
   fi
 
 # does not exist

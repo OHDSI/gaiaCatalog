@@ -175,7 +175,7 @@
       "qudt:dataType": "varchar"
     }
   ],
-  "distribution": "TBD",
+  "distribution": "/data/tt_populated_places/",
   "isBasedOn": [
     {
       "@id": "https://gdsc.idsc.miami.edu/details/api",

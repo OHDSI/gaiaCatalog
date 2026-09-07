@@ -1,0 +1,336 @@
+/* ************************************************************************** */
+/*  style.css                                                                 */
+/*  For a simple catalog browser for the OHDSI GIS extension                  */
+/*  Tim Norris <tnorris@miami.edu>                                            */
+/*  contributions by claude running gpt-oss:20b with ollama                   */
+/* ************************************************************************** */
+
+/* -------------------------------------------------------------------------- */
+/*  Root variables                                                            */
+/* -------------------------------------------------------------------------- */
+:root {
+  --primary: #0066cc;
+  --primary-dark: #005bb5;
+  --bg: #f9f9f9;
+  --card-bg: #fff;
+  --card-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  --font-base: 16px;
+  --spacing: 0.5rem;
+}
+
+/* -------------------------------------------------------------------------- */
+/*  Global styles                                                             */
+/* -------------------------------------------------------------------------- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  font-family: system-ui, sans-serif;
+  font-size: var(--font-base);
+  line-height: 1.5;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: #333;
+}
+
+#app {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  padding: 1em; /* var(--spacing); */
+  /* margin: 1em; */
+}
+
+/* -------------------------------------------------------------------------- */
+/*  Header                                                                    */
+/* -------------------------------------------------------------------------- */
+header {
+  margin-bottom: var(--spacing);
+}
+
+h1 {
+  font-size: 2rem;
+  margin: 0;
+  color: var(--primary);
+}
+
+/* -------------------------------------------------------------------------- */
+/*  Search box                                                                */
+/* -------------------------------------------------------------------------- */
+#bannerWrapper {
+  padding: 0.5em;
+}
+
+input[type="text"] {
+  width: 100%;
+  max-width: 600px;
+  padding: 0.75rem 1rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 1rem;
+  transition: border-color 0.2s;
+}
+
+input[type="text"]:focus {
+  outline: none;
+  border-color: var(--primary);
+}
+
+/* -------------------------------------------------------------------------- */
+/*  Settings button                                                           */
+/* -------------------------------------------------------------------------- */
+
+/* Settings button (top‑right) ------------------------------------------ */
+.settings-btn {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  z-index: 1050; /* above other elements */
+  border-radius: 50%;
+  padding: 0.5rem;
+  width: 2.5rem;
+  height: 2.5rem;
+  background: #fff;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+}
+
+/* Settings modal ------------------------------------------------------- */
+.settings-modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.45);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1050;
+}
+.settings-modal.hidden { display: none; }
+
+.settings-modal-content {
+  background: #fff;
+  border-radius: 8px;
+  padding: 1.5rem;
+  width: 90%;
+  max-width: 400px;
+}
+.settings-modal-content h2 {
+  margin-top: 0;
+}
+.settings-modal-content form {
+  display: flex;
+  flex-direction: column;
+}
+.settings-modal-content label {
+  margin-bottom: 0.5rem;
+}
+.settings-modal-content input[type="url"] {
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-bottom: 1rem;
+}
+.modal-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.5rem;
+}
+
+/* -------------------------------------------------------------------------- */
+/*  Flex layout – left filter pane, right results pane                        */
+/* -------------------------------------------------------------------------- */
+#searchWrapper {
+  display: flex;
+  flex: 1;
+  gap: var(--spacing);
+  min-height: 0; /* allow children to shrink */
+}
+
+#filterPane {
+  flex: 0 0 300px; /* fixed width for the filter column */
+  overflow-y: auto;
+  /* background: #fff; */
+  border-radius: 6px;
+  padding: var(--spacing);
+  /* box-shadow: var(--card-shadow); */
+  max-height: 85vh;
+  /* keep the header sticky so it stays visible */
+  display: flex;
+  flex-direction: column;
+}
+
+#filterPane header {
+  margin-bottom: var(--spacing);
+}
+
+#filterPane .accordion {
+  flex: 1;
+  overflow-y: auto;
+}
+
+#filterPane .accordion-item {
+  margin: 3px 0px;
+}
+
+.filter-pills {
+  height: 2.25em;
+}
+
+/* -------------------------------------------------------------------------- */
+/*  Results pane – scrollable area                                            */
+/* -------------------------------------------------------------------------- */
+#resultsPane {
+  flex: 1;
+  overflow-y: auto;
+  padding: 0.25em 0.5em;
+  display: flex;
+  flex-direction: column;
+  max-height: 80vh;
+}
+
+#resultsContainer {
+  flex: 1;
+  overflow-y: auto;
+}
+
+/* -------------------------------------------------------------------------- */
+/*  Results grid                                                              */
+/* -------------------------------------------------------------------------- */
+#results {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: var(--spacing);
+}
+
+#results li {
+  list-style: none;
+}
+
+#results a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* -------------------------------------------------------------------------- */
+/*  Card                                                                      */
+/* -------------------------------------------------------------------------- */
+.card {
+  background: var(--card-bg);
+  border-radius: 6px;
+  box-shadow: var(--card-shadow);
+  padding: var(--spacing);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  transition: transform 0.2s;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+}
+
+.card h2 {
+  font-size: 1.2rem;
+  margin: 0 0 0.5rem;
+  color: var(--primary);
+}
+
+.card p {
+  flex-grow: 1;
+  margin: 0;
+  color: #555;
+}
+
+/* -------------------------------------------------------------------------- */
+/*  Detail pages                                                              */
+/* -------------------------------------------------------------------------- */
+.detail-title {
+  margin-bottom: 0em;
+}
+
+.detail-element {
+  margin-top: 0.3em;
+}
+
+.wrapScroll {
+  white-space: nowrap;
+  overflow-x: auto;
+  /* border: 1px solid grey; */
+  /* border-radius: 4px; */
+}
+
+.back-link {
+  display: inline-block;
+  margin-bottom: var(--spacing);
+  color: var(--primary);
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.back-link:hover {
+  text-decoration: underline;
+}
+
+.custom-tooltip {
+  --bs-tooltip-bg: var(--bg);
+  --bs-tooltip-color: #000000;
+  --bs-tooltip-font-size: 1rem;
+  --bs-tooltip-border-radius: 4px;
+  --bs-tooltip-max-width: 350px; 
+  --bs-tooltip-opacity: 1;
+}
+
+.custom-tooltip .tooltip-inner {
+  min-width: 280px; 
+  padding: 0.8em;
+  background-color: var(--bg);
+  border: 1px solid #444444;
+}
+
+.custom-tooltip .tooltip-arrow {
+  display: none !important;
+}
+
+/* -------------------------------------------------------------------------- */
+/*  Interface response for loading and searching                              */
+/* -------------------------------------------------------------------------- */
+.highlight-term {
+  background-color: #ffc;
+}
+.circle {
+  width: 10px;
+  height: 10px;
+  border-radius: 5px 5px 5px 5px;
+  margin-left: 5px;
+  margin-top: 5px;
+  position: relative;
+  border-radius: 100%;
+  display: inline-block
+}
+.green-fill {
+  background: green;
+}
+.red-fill {                                          
+  background: red;
+  cursor: pointer;
+}
+
+/* -------------------------------------------------------------------------- */
+/*  Responsive adjustments                                                    */
+/* -------------------------------------------------------------------------- */
+@media (max-width: 768px) {
+  #searchWrapper {
+    flex-direction: column;
+  }
+
+  #filterPane {
+    flex: 0 0 auto;
+    width: 100%;
+    max-height: 250px; /* keep the filter pane collapsed on small screens */
+  }
+}

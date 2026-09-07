@@ -187,7 +187,7 @@
       "qudt:dataType": "varchar"
     }
   ],
-  "distribution": "TBD",
+  "distribution": "/data/tt_regions/",
   "isBasedOn": [
     {
       "@id": "https://gdsc.idsc.miami.edu/details/api",

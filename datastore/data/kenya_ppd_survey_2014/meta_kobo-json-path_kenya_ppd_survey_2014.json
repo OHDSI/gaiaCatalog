@@ -1,0 +1,453 @@
+{
+  "control_group": {
+    "id": 242
+  },
+  "dublin_core_group": {
+    "title": "Demographic, psychosocial and clinical factors associated with postpartum depression in Kenyan women",
+    "creator_group": [
+      {
+        "creator_name": "APHRC"
+      }
+    ],
+    "url": "https://doi.org/10.1186/s12888-018-1904-7",
+    "doi": "10.1186/s12888-018-1904-7",
+    "publisher_group": [
+      {
+        "publisher_name": "APHRC"
+      }
+    ],
+    "rights": "public_domain",
+    "license_text": "Controlled access author permission required",
+    "restrictions": "This data is available on request",
+    "coverage_group": [
+      {
+        "coverage_name": "Kenya",
+        "coverage_identifier": "192950",
+        "coverage_identifier_schema": "geonames",
+        "coverage_identifier_schema_uri": "https://www.geonames.org/"
+      }
+    ],
+    "time_period_start": "2014-03-15",
+    "time_period_end": "2014-12-15",
+    "resource_type": "statistical_dataset",
+    "description": "Demographic, psychosocial and clinical factors associated with postpartum depression in Kenyan women",
+    "provenance": " direct from source",
+    "subject_group": [
+      {
+        "subject_term": "Postpartum Depression"
+      },
+      {
+        "subject_term": "Maternal Health"
+      },
+      {
+        "subject_term": "Kenya"
+      },
+      {
+        "subject_term": "Risk Factors"
+      },
+      {
+        "subject_term": "Edinburgh Postnatal Depression Scale (EPDS)"
+      },
+      {
+        "subject_term": "Perinatal Depression"
+      },
+      {
+        "subject_term": "Urban Health"
+      }
+    ],
+    "language": "en",
+    "size_group": [
+      {
+        "size_bytes": "0",
+        "size_human_readable": "0"
+      }
+    ]
+  },
+  "iso_group": {
+    "structure": "table",
+    "lineage": "TBD",
+    "process_step": "#########\n# GDSC ETL is performed in two steps: shell script to ETL data into postgres\n# and then additional transformations with SQL in postGIS (if needed).\n####\n\n#########\n# Step 1 - bash script (pseudo code)\n####\n\n# create directory structure and move into it\nmkdir -p /data/kenya_ppd_survey_2014/download -p /data/kenya_ppd_survey_2014/etl\nchmod 777 /data/kenya_ppd_survey_2014/download\ncd /data/kenya_ppd_survey_2014\n\n# set update flag based on last update and update frequency\ndo_update=0 if date() < last_update + update_frequency else do_update = 1\n\n# remove spaces for all column headers in csv\n  sed -i '1 s/ /_/g' download/kenya_ppd_survey_2014.csv\n\n# load into postGIS with:\n  ogr2ogr -lco GEOMETRY_NAME=geom -f PostgreSQL PG:\"<postgres connection>\" download/kenya_ppd_survey_2014.csv -nln kenya_ppd_survey_2014\n",
+    "processor": "GDSC automation (see Process Step)",
+    "point_of_contact_group": [
+      {
+        "contact_name": "Timothy B. Norris",
+        "contact_last_name": "Norris",
+        "contact_first_name": "Timothy",
+        "contact_email": "tnorris@miami.edu",
+        "contact_identifier": "https://orcid.org/0000-0002-0898-3027",
+        "contact_identifier_schema": "orcid",
+        "contact_identifier_schema_uri": "https://orcid.org/",
+        "contact_affiliation": "University of Miami Libraries, Frost Institute for Data Science and Computing",
+        "contact_affiliation_identifier": "https://ror.org/02dgjyy92",
+        "contact_affiliation_schema": "ror",
+        "contact_affiliation_schema_uri": "https://ror.org/"
+      }
+    ],
+    "data_level": "observed"
+  },
+  "cartography_group": {
+    "attributes_group": [
+      {
+        "attribute_name": "fact_id",
+        "attribute_description": "Primary key for each observation row in the fact table",
+        "attribute_source": "longitudinal_population_study_fact",
+        "attribute_type": "integer",
+        "attribute_start_date": "2008-02-15",
+        "attribute_end_date": "2008-12-15",
+        "attribute_external_id": "wave 1"
+      },
+      {
+        "attribute_name": "individual_id",
+        "attribute_description": "Unique identifier for an individual participant",
+        "attribute_source": "individual",
+        "attribute_type": "integer",
+        "attribute_start_date": "2008-02-15",
+        "attribute_end_date": "2008-12-15",
+        "attribute_external_id": "wave 1"
+      },
+      {
+        "attribute_name": "interview_id",
+        "attribute_description": "Unique identifier for an interview",
+        "attribute_source": "interview",
+        "attribute_type": "integer",
+        "attribute_start_date": "2008-02-15",
+        "attribute_end_date": "2008-12-15",
+        "attribute_external_id": "wave 1"
+      },
+      {
+        "attribute_name": "resident_episode_id",
+        "attribute_description": "Unique identifier for a residency episode (person/household at a location within a wave)",
+        "attribute_source": "resident_episode",
+        "attribute_type": "integer",
+        "attribute_start_date": "2008-02-15",
+        "attribute_end_date": "2008-12-15"
+      },
+      {
+        "attribute_name": "population_study_id",
+        "attribute_description": "Unique identifier for each population study",
+        "attribute_source": "population study",
+        "attribute_type": "integer",
+        "attribute_start_date": "2008-02-15",
+        "attribute_end_date": "2008-12-15",
+        "attribute_external_id": "wave 1"
+      },
+      {
+        "attribute_name": "instrument_id",
+        "attribute_description": "Unique identifier for each instrument (questionnaire/scale/form)",
+        "attribute_source": "instrument",
+        "attribute_type": "integer",
+        "attribute_start_date": "2008-02-15",
+        "attribute_end_date": "2008-12-15",
+        "attribute_external_id": "wave 1"
+      },
+      {
+        "attribute_name": "instrument_item_id",
+        "attribute_description": "Unique identifier for each item (question) in an instrument",
+        "attribute_source": "instrument_item",
+        "attribute_type": "integer",
+        "attribute_start_date": "2008-02-15",
+        "attribute_end_date": "2008-12-15",
+        "attribute_external_id": "wave 1"
+      },
+      {
+        "attribute_name": "concept_id",
+        "attribute_description": "The concept id of the answer to a question",
+        "attribute_source": "concept",
+        "attribute_type": "integer",
+        "attribute_start_date": "2008-02-15",
+        "attribute_end_date": "2008-12-15"
+      },
+      {
+        "attribute_name": "value_type_concept_id",
+        "attribute_description": "The concept id of the question",
+        "attribute_source": "concept",
+        "attribute_type": "integer",
+        "attribute_start_date": "2008-02-15",
+        "attribute_end_date": "2008-12-15",
+        "attribute_external_id": "wave 1"
+      },
+      {
+        "attribute_name": "value_as_char",
+        "attribute_description": "The actual answer of a question",
+        "attribute_source": "concept",
+        "attribute_type": "string",
+        "attribute_start_date": "2008-02-15",
+        "attribute_end_date": "2008-12-15"
+      },
+      {
+        "attribute_name": "value_as_num",
+        "attribute_description": "The actual answer of a question",
+        "attribute_source": "concept",
+        "attribute_type": "integer",
+        "attribute_start_date": "2008-02-15",
+        "attribute_end_date": "2008-12-15",
+        "attribute_external_id": "wave 1"
+      },
+      {
+        "attribute_name": "value_as_concept",
+        "attribute_description": "The inspire concept id of the answer to a question",
+        "attribute_source": "concept",
+        "attribute_type": "integer",
+        "attribute_start_date": "2008-02-15",
+        "attribute_end_date": "2008-12-15",
+        "attribute_external_id": "wave 1"
+      },
+      {
+        "attribute_name": "individual_demographics_id",
+        "attribute_description": "Unique ID of the an individual demographic",
+        "attribute_source": "individual demographics",
+        "attribute_type": "integer",
+        "attribute_start_date": "2008-02-15",
+        "attribute_end_date": "2008-12-15",
+        "attribute_external_id": "wave 1"
+      },
+      {
+        "attribute_name": "individual_concept_id",
+        "attribute_description": "individual demographics concepts (marital status, level of education,etc.)",
+        "attribute_source": "individual demographics",
+        "attribute_type": "integer",
+        "attribute_start_date": "2008-02-15",
+        "attribute_end_date": "2008-12-15",
+        "attribute_external_id": "wave 1"
+      },
+      {
+        "attribute_name": "individual_concept_id_text",
+        "attribute_description": "Text label for individual demographics",
+        "attribute_source": "individual_demographics",
+        "attribute_type": "string",
+        "attribute_start_date": "2008-02-15",
+        "attribute_end_date": "2008-12-15"
+      },
+      {
+        "attribute_name": "household_id",
+        "attribute_description": "Unique ID of the household",
+        "attribute_source": "household",
+        "attribute_type": "integer",
+        "attribute_start_date": "2008-02-15",
+        "attribute_end_date": "2008-12-15",
+        "attribute_external_id": "wave 1"
+      },
+      {
+        "attribute_name": "household_characteristics_concept_id",
+        "attribute_description": "Household characteristic concepts (WIQ, family size,etc.)",
+        "attribute_source": "household_characteristics",
+        "attribute_type": "integer",
+        "attribute_start_date": "2008-02-15",
+        "attribute_end_date": "2008-12-15",
+        "attribute_external_id": "wave 1"
+      },
+      {
+        "attribute_name": "household_characteristics_concept_text",
+        "attribute_description": "Text label for household characteristic",
+        "attribute_source": "household_characteristics",
+        "attribute_type": "string",
+        "attribute_start_date": "2008-02-15",
+        "attribute_end_date": "2008-12-15",
+        "attribute_external_id": "wave 1"
+      },
+      {
+        "attribute_name": "interview_id",
+        "attribute_description": "Unique identifier for an interview",
+        "attribute_source": "interview",
+        "attribute_type": "integer",
+        "attribute_start_date": "2010-05-15",
+        "attribute_end_date": "2011-09-15",
+        "attribute_external_id": "wave 2"
+      },
+      {
+        "attribute_name": "resident_episode_id",
+        "attribute_description": "Unique identifier for a residency episode",
+        "attribute_source": "resident_episode",
+        "attribute_type": "integer",
+        "attribute_start_date": "2010-05-15",
+        "attribute_end_date": "2011-09-15",
+        "attribute_external_id": "wave 2"
+      },
+      {
+        "attribute_name": "value_as_char",
+        "attribute_description": "The actual answer of a question",
+        "attribute_source": "concept",
+        "attribute_type": "string",
+        "attribute_start_date": "2010-05-15",
+        "attribute_end_date": "2011-09-15",
+        "attribute_external_id": "wave 2"
+      },
+      {
+        "attribute_name": "value_as_num",
+        "attribute_description": "The actual answer of a question",
+        "attribute_source": "concept",
+        "attribute_type": "integer",
+        "attribute_start_date": "2010-05-15",
+        "attribute_end_date": "2011-09-15",
+        "attribute_external_id": "wave 2"
+      },
+      {
+        "attribute_name": "value_as_concept",
+        "attribute_description": "The inspire concept id of the answer to a question (Wave 2)",
+        "attribute_source": "concept",
+        "attribute_type": "integer",
+        "attribute_start_date": "2010-05-15",
+        "attribute_end_date": "2011-09-15"
+      },
+      {
+        "attribute_name": "household_characteristics_concept_text",
+        "attribute_description": "Text label for household characteristic",
+        "attribute_source": "household_characteristics",
+        "attribute_type": "string",
+        "attribute_start_date": "2010-05-15",
+        "attribute_end_date": "2011-09-15",
+        "attribute_external_id": "wave 2"
+      },
+      {
+        "attribute_name": "household_characteristics_concept_id",
+        "attribute_description": "Household characteristic concepts",
+        "attribute_source": "household_characteristics",
+        "attribute_type": "integer",
+        "attribute_start_date": "2010-05-15",
+        "attribute_end_date": "2011-09-15",
+        "attribute_external_id": "wave 2"
+      },
+      {
+        "attribute_name": "individual_concept_id_text",
+        "attribute_description": "Text label for individual demographics",
+        "attribute_source": "individual_demographics",
+        "attribute_type": "string",
+        "attribute_start_date": "2010-05-15",
+        "attribute_end_date": "2011-09-15",
+        "attribute_external_id": "wave 2"
+      },
+      {
+        "attribute_name": "individual_concept_id",
+        "attribute_description": "Individual demographics concepts",
+        "attribute_source": "individual_demographics",
+        "attribute_type": "integer",
+        "attribute_start_date": "2010-05-15",
+        "attribute_end_date": "2011-09-15",
+        "attribute_external_id": "wave 2"
+      },
+      {
+        "attribute_name": "concept_id",
+        "attribute_description": "The concept id of the answer to a question",
+        "attribute_source": "concept",
+        "attribute_type": "integer",
+        "attribute_start_date": "2010-05-15",
+        "attribute_end_date": "2011-09-15",
+        "attribute_external_id": "wave 2"
+      },
+      {
+        "attribute_name": "interview_id",
+        "attribute_description": "Unique identifier for an interview",
+        "attribute_source": "interview",
+        "attribute_type": "integer",
+        "attribute_start_date": "2012-05-15",
+        "attribute_end_date": "2012-12-15",
+        "attribute_external_id": "wave 3"
+      },
+      {
+        "attribute_name": "resident_episode_id",
+        "attribute_description": "Unique identifier for a residency episode",
+        "attribute_source": "resident_episode",
+        "attribute_type": "integer",
+        "attribute_start_date": "2012-05-15",
+        "attribute_end_date": "2012-12-15",
+        "attribute_external_id": "wave 3"
+      },
+      {
+        "attribute_name": "value_as_char",
+        "attribute_description": "The actual answer of a question",
+        "attribute_source": "concept",
+        "attribute_type": "string",
+        "attribute_start_date": "2012-05-15",
+        "attribute_end_date": "2012-12-15",
+        "attribute_external_id": "wave 3"
+      },
+      {
+        "attribute_name": "value_as_num",
+        "attribute_description": "The actual answer of a question",
+        "attribute_source": "concept",
+        "attribute_type": "integer",
+        "attribute_start_date": "2012-05-15",
+        "attribute_end_date": "2012-12-15",
+        "attribute_external_id": "wave 3"
+      },
+      {
+        "attribute_name": "value_as_concept",
+        "attribute_description": "The inspire concept id of the answer to a question",
+        "attribute_source": "concept",
+        "attribute_type": "integer",
+        "attribute_start_date": "2012-05-15",
+        "attribute_end_date": "2012-12-15",
+        "attribute_external_id": "wave 3"
+      },
+      {
+        "attribute_name": "household_characteristics_concept_text",
+        "attribute_description": "Text label for household characteristic ",
+        "attribute_source": "household_characteristics",
+        "attribute_type": "string",
+        "attribute_start_date": "2012-05-15",
+        "attribute_end_date": "2012-12-15",
+        "attribute_external_id": "wave 3"
+      },
+      {
+        "attribute_name": "household_characteristics_concept_id",
+        "attribute_description": "Household characteristic concepts",
+        "attribute_source": "household_characteristics",
+        "attribute_type": "integer",
+        "attribute_start_date": "2012-05-15",
+        "attribute_end_date": "2012-12-15",
+        "attribute_external_id": "wave 3"
+      },
+      {
+        "attribute_name": "individual_concept_id_text",
+        "attribute_description": "Text label for individual demographics",
+        "attribute_source": "individual_demographics",
+        "attribute_type": "string",
+        "attribute_start_date": "2012-05-15",
+        "attribute_end_date": "2012-12-15",
+        "attribute_external_id": "wave 3"
+      },
+      {
+        "attribute_name": "individual_concept_id",
+        "attribute_description": "Individual demographics concepts",
+        "attribute_source": "individual_demographics",
+        "attribute_type": "integer",
+        "attribute_start_date": "2012-05-15",
+        "attribute_end_date": "2012-12-15",
+        "attribute_external_id": "wave 3"
+      },
+      {
+        "attribute_name": "concept_id",
+        "attribute_description": "The concept id of the answer to a question",
+        "attribute_source": "concept",
+        "attribute_type": "integer",
+        "attribute_start_date": "2012-05-15",
+        "attribute_end_date": "2012-12-15",
+        "attribute_external_id": "wave 3"
+      }
+    ]
+  },
+  "collection_group": {
+    "collections": "aphrc",
+    "derivative_url": "/data/kenya_ppd_survey_2014/"
+  },
+  "etl_group": {
+    "source": "local file",
+    "file_name_group": [
+      {
+        "file_name_value": "kenya_ppd_survey_2014"
+      }
+    ],
+    "extension": "csv",
+    "download": "local",
+    "table_name": "kenya_ppd_survey_2014",
+    "format": "csv",
+    "up": "false",
+    "podid": "gaia-db",
+    "last_updated": "not known",
+    "update_frequency": "as_needed"
+  },
+  "_submission_time": "2026-08-23 15:56:20",
+  "meta": {
+    "instanceID": "5697600c-4edd-44a1-9140-15347856616"
+  }
+}

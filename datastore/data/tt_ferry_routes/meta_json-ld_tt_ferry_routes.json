@@ -175,7 +175,7 @@
       "qudt:dataType": "varchar"
     }
   ],
-  "distribution": "TBD",
+  "distribution": "/data/tt_ferry_routes/",
   "isBasedOn": [
     {
       "@id": "https://gdsc.idsc.miami.edu/details/api",

@@ -1,0 +1,157 @@
+{
+  "control_group": {
+    "id": 235
+  },
+  "dublin_core_group": {
+    "title": "Tanzania 2022 Districts (NBS)",
+    "creator_group": [
+      {
+        "creator_name": "Tanzania National Bureau of Statistics"
+      }
+    ],
+    "url": "https://microdata.nbs.go.tz/index.php/catalog/49/related-materials",
+    "publisher_group": [
+      {
+        "publisher_name": "Tanzania National Bureau of Statistics"
+      }
+    ],
+    "rights": "public_domain",
+    "coverage_group": [
+      {
+        "coverage_name": "Tanzania",
+        "coverage_identifier": "149590",
+        "coverage_identifier_schema": "geonames",
+        "coverage_identifier_schema_uri": "https://www.geonames.org/"
+      }
+    ],
+    "time_period_start": "2020-01-01",
+    "time_period_end": "2022-12-31",
+    "resource_type": "vector_dataset",
+    "publication_date": "2024-01-01",
+    "description": "Shapefile for Tanzania Districts from the 2022 Census",
+    "provenance": "Direct from source",
+    "subject_group": [
+      {
+        "subject_term": "Tanania"
+      },
+      {
+        "subject_term": "Districs"
+      },
+      {
+        "subject_term": "Census"
+      }
+    ],
+    "language": "en",
+    "size_group": [
+      {
+        "size_bytes": "0",
+        "size_human_readable": "0"
+      }
+    ]
+  },
+  "iso_group": {
+    "structure": "vector",
+    "geometry": "polygon",
+    "epsg": 4326,
+    "lineage": "TBD",
+    "process_step": "#########\n# GDSC ETL is performed in two steps: shell script to ETL data into postgres\n# and then additional transformations with SQL in postGIS (if needed).\n####\n\n#########\n# Step 1 - bash script (pseudo code)\n####\n\n# create directory structure and move into it\nmkdir -p /data/tz_2022_nbs/download -p /data/tz_2022_nbs/tz_2022_nbs_districts/etl\nchmod 777 /data/tz_2022_nbs/download\ncd /data/tz_2022_nbs\n\n# set update flag based on last update and update frequency\ndo_update=0 if date() < last_update + update_frequency else do_update = 1\n\n# download if update flag is set:\nif do_update == 1 then\nwget -O download/tz_2022_nbs.zip 'https://microdata.nbs.go.tz/index.php/catalog/49/download/317'\n\n# unzip to download directory if update flag is set\nif do_update == 1 then\nunzip -d download download/tz_2022_nbs.zip && rm download/tz_2022_nbs.zip\n\n# extract mpkx to download directory\n7z x download/TANZANIA_2022_POST_PHC_GEODATABASE.mpkx -o'download/TANZANIA_2022_POST_PHC_GEODATABASE'\n\n# load into postGIS with:\n  ogr2ogr -lco GEOMETRY_NAME=geom -f PostgreSQL PG:\"<postgres connection>\" download/TANZANIA_2022_POST_PHC_GEODATABASE/commondata/tanzania_2022phc_geodatabase.gdb Districts -nlt multipolygon -nln tz_2022_nbs_districts\n\n#########\n# Step 2 - SQL script (pseudo code):\n####\n\n# remove duplicate points and make geometries valid:\nUPDATE tz_2022_nbs_districts\n  SET geom=ST_MakeValid(ST_RemoveRepeatedPoints(geom));\n\n# add local geometry column and reproject existing geometries into local EPSG:\nSELECT AddGeometryColumn (\n  'tz_2022_nbs_districts',\n  'geom_local', 4326, 'multipolygon', 2\n);\nUPDATE tz_2022_nbs_districts\n  SET geom_local=ST_MakeValid(ST_RemoveRepeatedPoints(ST_Transform(ST_Multi(geom),4326)));\nCREATE INDEX tz_2022_nbs_districts_geom_local_idx\n  ON tz_2022_nbs_districts\n  USING GIST (geom_local);\nNOTIFY pgrst, 'reload schema';\n# Move into corrrect directory and create derivative directory in data package on osgeo\ncd /data/tz_2022_nbs/tz_2022_nbs_districts/\nmkdir -p derived\n\n# Create shapefile of table in derivate directory on osgeo \nogr2ogr -f \"ESRI Shapefile\" -overwrite derived/tz_2022_nbs_districts.shp PG:\"<postgres connection>\" tz_2022_nbs_districts\n\n# Create downloadable tarfile of shp in derivative directory on osgeo\nrm -f derived/tz_2022_nbs_districts.shp.tar.gz\ntar -czf derived/tz_2022_nbs_districts.shp.tar.gz meta_dcat_tz_2022_nbs_districts.json -C derived tz_2022_nbs_districts.shp tz_2022_nbs_districts.prj tz_2022_nbs_districts.shx tz_2022_nbs_districts.dbf\n\n# Move into correct directory\ncd /data/tz_2022_nbs/tz_2022_nbs_districts/\n\n",
+    "processor": "GDSC automation (see Process Step)",
+    "point_of_contact_group": [
+      {
+        "contact_name": "Timothy B. Norris",
+        "contact_last_name": "Norris",
+        "contact_first_name": "Timothy",
+        "contact_email": "tnorris@miami.edu",
+        "contact_identifier": "https://orcid.org/0000-0002-0898-3027",
+        "contact_identifier_schema": "orcid",
+        "contact_identifier_schema_uri": "https://orcid.org/",
+        "contact_affiliation": "University of Miami Libraries, Frost Institute for Data Science and Computing",
+        "contact_affiliation_identifier": "https://ror.org/02dgjyy92",
+        "contact_affiliation_schema": "ror",
+        "contact_affiliation_schema_uri": "https://ror.org/"
+      }
+    ],
+    "data_level": "derived"
+  },
+  "cartography_group": {
+    "label": "dist_name",
+    "values_group": [
+      {
+        "value_field": "dist_code"
+      },
+      {
+        "value_field": "reg_code"
+      },
+      {
+        "value_field": "reg_name"
+      }
+    ],
+    "attributes_group": [
+      {
+        "attribute_name": "dist_code",
+        "attribute_description": "Unique district code",
+        "attribute_source": "Tanzania National Bureau of Statistics",
+        "attribute_type": "numeric"
+      },
+      {
+        "attribute_name": "\ndist_name",
+        "attribute_description": " District names",
+        "attribute_source": "Tanzania National Bureau of Statistics",
+        "attribute_type": "string"
+      },
+      {
+        "attribute_name": "\nreg_code",
+        "attribute_description": " unique code",
+        "attribute_source": "Tanzania National Bureau of Statistics",
+        "attribute_type": "numeric"
+      },
+      {
+        "attribute_name": "\nreg_name",
+        "attribute_description": " name",
+        "attribute_source": "Tanzania National Bureau of Statistics",
+        "attribute_type": "varchar"
+      }
+    ]
+  },
+  "collection_group": {
+    "collections": "tz-climate-change tz-health-outcomes",
+    "analytic_function": "gdsc_get_attributes",
+    "analytic_epsg": 4326,
+    "derivatives": "shp",
+    "derivative_url": "/data/tz_2022_nbs/tz_2022_nbs_districts/",
+    "sponsor_group": [
+      {
+        "sponsor_name": "IDSC",
+        "sponsor_url": "https://idsc.miami.edu"
+      },
+      {
+        "sponsor_name": "Library",
+        "sponsor_url": "https://www.library.miami.edu"
+      }
+    ],
+    "status": "published"
+  },
+  "etl_group": {
+    "source": "https://microdata.nbs.go.tz/index.php/catalog/49/download/317",
+    "file_name_group": [
+      {
+        "file_name_value": "tz_2022_nbs",
+        "file_inside_archive": "TANZANIA_2022_POST_PHC_GEODATABASE/commondata/tanzania_2022phc_geodatabase"
+      }
+    ],
+    "extension": "zip/mpkx",
+    "download": "wget",
+    "table_name": "tz_2022_nbs_districts",
+    "format": "gdb",
+    "etl_parameters": "Districts",
+    "up": "false",
+    "podid": "gaia-db",
+    "last_updated": "not known",
+    "update_frequency": "as_needed",
+    "checksum": "TBD"
+  },
+  "_submission_time": "2026-08-23 15:57:19",
+  "meta": {
+    "instanceID": "017a3309-82c7-4db9-9140-f3468241129"
+  }
+}

@@ -1,0 +1,2430 @@
+{
+  "control_group": {
+    "id": 250
+  },
+  "dublin_core_group": {
+    "title": "2022 Massachusetts CDC Social Vulnerability Index (tracts)",
+    "creator_group": [
+      {
+        "creator_name": "Center for Disease Control",
+        "creator_type": "organization",
+        "creator_identifier": "https://ror.org/04hsdam77",
+        "creator_identifier_schema": "ror",
+        "creator_identifier_schema_uri": "https://ror.org/"
+      }
+    ],
+    "url": "https://www.atsdr.cdc.gov/place-health/php/svi/svi-data-documentation-download.html",
+    "publisher_group": [
+      {
+        "publisher_name": "CDC"
+      }
+    ],
+    "rights": "public_domain",
+    "coverage_group": [
+      {
+        "coverage_name": "Massachusetts",
+        "coverage_identifier": "6254926",
+        "coverage_identifier_schema": "geonames",
+        "coverage_identifier_schema_uri": "https://www.geonames.org/"
+      }
+    ],
+    "relation_group": [
+      {
+        "relation_title": "tl_2020_25_tract"
+      }
+    ],
+    "resource_type": "vector_dataset",
+    "publication_date": "2020-10-22",
+    "description": "Social vulnerability refers to the potential negative effects on communities caused by external stresses on human health. Such stresses include natural or human-caused disasters, or disease outbreaks. Reducing social vulnerability can decrease both human suffering and economic loss.\n\nThe CDC/ATSDR Social Vulnerability Index (CDC/ATSDR SVI) uses 16 U.S. census variables to help local officials identify communities that may need support before, during, or after disasters.",
+    "provenance": " direct from source",
+    "subject_group": [
+      {
+        "subject_term": "Massachusetts"
+      },
+      {
+        "subject_term": "CDC"
+      },
+      {
+        "subject_term": "Vulnerability"
+      },
+      {
+        "subject_term": "Social Vulnerability Index"
+      },
+      {
+        "subject_term": "Census Tracts"
+      },
+      {
+        "subject_term": "Public-Safety"
+      }
+    ],
+    "language": "en",
+    "size_group": [
+      {
+        "size_bytes": "2372725",
+        "size_human_readable": "2.3M"
+      }
+    ]
+  },
+  "iso_group": {
+    "structure": "vector",
+    "geometry": "polygon",
+    "epsg": 4269,
+    "lineage": "TBD",
+    "process_step": "#########\n# GDSC ETL is performed in two steps: shell script to ETL data into postgres\n# and then additional transformations with SQL in postGIS (if needed).\n####\n\n#########\n# Step 1 - bash script (pseudo code)\n####\n\n# create directory structure and move into it\nmkdir -p /data/ma_2022_svi_tract/download -p /data/ma_2022_svi_tract/etl\nchmod 777 /data/ma_2022_svi_tract/download\ncd /data/ma_2022_svi_tract\n\n# set update flag based on last update and update frequency\ndo_update=0 if date() < last_update + update_frequency else do_update = 1\n\n# download if update flag is set:\nif do_update == 1 then\nwget -O download/ma_2022_svi_tract.zip 'https://svi.cdc.gov/Documents/Data/2022/db/states/Massachusetts.zip'\n\n# unzip to download directory if update flag is set\nif do_update == 1 then\nunzip -d download download/ma_2022_svi_tract.zip && rm download/ma_2022_svi_tract.zip\n\n# load into postGIS with:\n  ogr2ogr -lco GEOMETRY_NAME=geom -f PostgreSQL PG:\"<postgres connection>\" download/SVI2022_MASSACHUSETTS_tract.gdb -nlt multipolygon -nln ma_2022_svi_tract\n\n#########\n# Step 2 - SQL script (pseudo code):\n####\n\n# remove duplicate points and make geometries valid:\nUPDATE ma_2022_svi_tract\n  SET geom=ST_MakeValid(ST_RemoveRepeatedPoints(geom));\n\n# add local geometry column and reproject existing geometries into local EPSG:\nSELECT AddGeometryColumn (\n  'ma_2022_svi_tract',\n  'geom_local', 26986, 'multipolygon', 2\n);\nUPDATE ma_2022_svi_tract\n  SET geom_local=ST_MakeValid(ST_RemoveRepeatedPoints(ST_Transform(ST_Multi(geom),26986)));\nCREATE INDEX ma_2022_svi_tract_geom_local_idx\n  ON ma_2022_svi_tract\n  USING GIST (geom_local);\nNOTIFY pgrst, 'reload schema';\n# Move into corrrect directory and create derivative directory in data package on osgeo\ncd /data/ma_2022_svi_tract/\nmkdir -p derived\n\n# Move into correct directory\ncd /data/ma_2022_svi_tract/\n\n# Create pg_dump of table SQL in derivate directory on postgis.\npg_dump <postgres opts> -h gaia-db -t ma_2022_svi_tract > derived/ma_2022_svi_tract.sql\n\n# Create downloadable tarfile of SQL in derivative directory on postgis\nrm -f derived/ma_2022_svi_tract.sql.tar.gz\ntar -czf derived/ma_2022_svi_tract.sql.tar.gz meta_dcat_ma_2022_svi_tract.json -C derived ma_2022_svi_tract.sql\n\n",
+    "processor": "GDSC automation (see Process Step)",
+    "point_of_contact_group": [
+      {
+        "contact_name": "Timothy B. Norris",
+        "contact_last_name": "Norris",
+        "contact_first_name": "Timothy",
+        "contact_email": "tnorris@miami.edu",
+        "contact_identifier": "https://orcid.org/0000-0002-0898-3027",
+        "contact_identifier_schema": "orcid",
+        "contact_identifier_schema_uri": "https://orcid.org/",
+        "contact_affiliation": "University of Miami Libraries, Frost Institute for Data Science and Computing",
+        "contact_affiliation_identifier": "https://ror.org/02dgjyy92",
+        "contact_affiliation_schema": "ror",
+        "contact_affiliation_schema_uri": "https://ror.org/"
+      }
+    ],
+    "data_level": "derived",
+    "extent": "POLYGON((-73.508142 41.237964, -69.928393 41.237964, -69.928393 42.886589, -73.508142 42.886589, -73.508142 41.237964))"
+  },
+  "cartography_group": {
+    "label": "location",
+    "values_group": [
+      {
+        "value_field": "area_sqmi"
+      },
+      {
+        "value_field": "county"
+      },
+      {
+        "value_field": "e_afam"
+      },
+      {
+        "value_field": "e_age17"
+      },
+      {
+        "value_field": "e_age65"
+      },
+      {
+        "value_field": "e_aian"
+      },
+      {
+        "value_field": "e_asian"
+      },
+      {
+        "value_field": "e_crowd"
+      },
+      {
+        "value_field": "e_daypop"
+      },
+      {
+        "value_field": "e_disabl"
+      },
+      {
+        "value_field": "e_groupq"
+      },
+      {
+        "value_field": "e_hburd"
+      },
+      {
+        "value_field": "e_hh"
+      },
+      {
+        "value_field": "e_hisp"
+      },
+      {
+        "value_field": "e_hu"
+      },
+      {
+        "value_field": "e_limeng"
+      },
+      {
+        "value_field": "e_minrty"
+      },
+      {
+        "value_field": "e_mobile"
+      },
+      {
+        "value_field": "e_munit"
+      },
+      {
+        "value_field": "e_nhpi"
+      },
+      {
+        "value_field": "e_nohsdp"
+      },
+      {
+        "value_field": "e_noint"
+      },
+      {
+        "value_field": "e_noveh"
+      },
+      {
+        "value_field": "e_otherrace"
+      },
+      {
+        "value_field": "e_pov150"
+      },
+      {
+        "value_field": "e_sngpnt"
+      },
+      {
+        "value_field": "e_totpop"
+      },
+      {
+        "value_field": "e_twomore"
+      },
+      {
+        "value_field": "e_unemp"
+      },
+      {
+        "value_field": "e_uninsur"
+      },
+      {
+        "value_field": "ep_afam"
+      },
+      {
+        "value_field": "ep_age17"
+      },
+      {
+        "value_field": "ep_age65"
+      },
+      {
+        "value_field": "ep_aian"
+      },
+      {
+        "value_field": "ep_asian"
+      },
+      {
+        "value_field": "ep_crowd"
+      },
+      {
+        "value_field": "ep_disabl"
+      },
+      {
+        "value_field": "ep_groupq"
+      },
+      {
+        "value_field": "ep_hburd"
+      },
+      {
+        "value_field": "ep_hisp"
+      },
+      {
+        "value_field": "ep_limeng"
+      },
+      {
+        "value_field": "ep_minrty"
+      },
+      {
+        "value_field": "ep_mobile"
+      },
+      {
+        "value_field": "ep_munit"
+      },
+      {
+        "value_field": "ep_nhpi"
+      },
+      {
+        "value_field": "ep_nohsdp"
+      },
+      {
+        "value_field": "ep_noint"
+      },
+      {
+        "value_field": "ep_noveh"
+      },
+      {
+        "value_field": "ep_otherrace"
+      },
+      {
+        "value_field": "ep_pov150"
+      },
+      {
+        "value_field": "ep_sngpnt"
+      },
+      {
+        "value_field": "ep_twomore"
+      },
+      {
+        "value_field": "ep_unemp"
+      },
+      {
+        "value_field": "ep_uninsur"
+      },
+      {
+        "value_field": "epl_age17"
+      },
+      {
+        "value_field": "epl_age65"
+      },
+      {
+        "value_field": "epl_crowd"
+      },
+      {
+        "value_field": "epl_disabl"
+      },
+      {
+        "value_field": "epl_groupq"
+      },
+      {
+        "value_field": "epl_hburd"
+      },
+      {
+        "value_field": "epl_limeng"
+      },
+      {
+        "value_field": "epl_minrty"
+      },
+      {
+        "value_field": "epl_mobile"
+      },
+      {
+        "value_field": "epl_munit"
+      },
+      {
+        "value_field": "epl_nohsdp"
+      },
+      {
+        "value_field": "epl_noveh"
+      },
+      {
+        "value_field": "epl_pov150"
+      },
+      {
+        "value_field": "epl_sngpnt"
+      },
+      {
+        "value_field": "epl_unemp"
+      },
+      {
+        "value_field": "epl_uninsur"
+      },
+      {
+        "value_field": "f_age17"
+      },
+      {
+        "value_field": "f_age65"
+      },
+      {
+        "value_field": "f_crowd"
+      },
+      {
+        "value_field": "f_disabl"
+      },
+      {
+        "value_field": "f_groupq"
+      },
+      {
+        "value_field": "f_hburd"
+      },
+      {
+        "value_field": "f_limeng"
+      },
+      {
+        "value_field": "f_minrty"
+      },
+      {
+        "value_field": "f_mobile"
+      },
+      {
+        "value_field": "f_munit"
+      },
+      {
+        "value_field": "f_nohsdp"
+      },
+      {
+        "value_field": "f_noveh"
+      },
+      {
+        "value_field": "f_pov150"
+      },
+      {
+        "value_field": "f_sngpnt"
+      },
+      {
+        "value_field": "f_theme1"
+      },
+      {
+        "value_field": "f_theme2"
+      },
+      {
+        "value_field": "f_theme3"
+      },
+      {
+        "value_field": "f_theme4"
+      },
+      {
+        "value_field": "f_total"
+      },
+      {
+        "value_field": "f_unemp"
+      },
+      {
+        "value_field": "f_uninsur"
+      },
+      {
+        "value_field": "fips"
+      },
+      {
+        "value_field": "location"
+      },
+      {
+        "value_field": "m_afam"
+      },
+      {
+        "value_field": "m_age17"
+      },
+      {
+        "value_field": "m_age65"
+      },
+      {
+        "value_field": "m_aian"
+      },
+      {
+        "value_field": "m_asian"
+      },
+      {
+        "value_field": "m_crowd"
+      },
+      {
+        "value_field": "m_disabl"
+      },
+      {
+        "value_field": "m_groupq"
+      },
+      {
+        "value_field": "m_hburd"
+      },
+      {
+        "value_field": "m_hh"
+      },
+      {
+        "value_field": "m_hisp"
+      },
+      {
+        "value_field": "m_hu"
+      },
+      {
+        "value_field": "m_limeng"
+      },
+      {
+        "value_field": "m_minrty"
+      },
+      {
+        "value_field": "m_mobile"
+      },
+      {
+        "value_field": "m_munit"
+      },
+      {
+        "value_field": "m_nhpi"
+      },
+      {
+        "value_field": "m_nohsdp"
+      },
+      {
+        "value_field": "m_noint"
+      },
+      {
+        "value_field": "m_noveh"
+      },
+      {
+        "value_field": "m_otherrace"
+      },
+      {
+        "value_field": "m_pov150"
+      },
+      {
+        "value_field": "m_sngpnt"
+      },
+      {
+        "value_field": "m_totpop"
+      },
+      {
+        "value_field": "m_twomore"
+      },
+      {
+        "value_field": "m_unemp"
+      },
+      {
+        "value_field": "m_uninsur"
+      },
+      {
+        "value_field": "mp_afam"
+      },
+      {
+        "value_field": "mp_age17"
+      },
+      {
+        "value_field": "mp_age65"
+      },
+      {
+        "value_field": "mp_aian"
+      },
+      {
+        "value_field": "mp_asian"
+      },
+      {
+        "value_field": "mp_crowd"
+      },
+      {
+        "value_field": "mp_disabl"
+      },
+      {
+        "value_field": "mp_groupq"
+      },
+      {
+        "value_field": "mp_hburd"
+      },
+      {
+        "value_field": "mp_hisp"
+      },
+      {
+        "value_field": "mp_limeng"
+      },
+      {
+        "value_field": "mp_minrty"
+      },
+      {
+        "value_field": "mp_mobile"
+      },
+      {
+        "value_field": "mp_munit"
+      },
+      {
+        "value_field": "mp_nhpi"
+      },
+      {
+        "value_field": "mp_nohsdp"
+      },
+      {
+        "value_field": "mp_noint"
+      },
+      {
+        "value_field": "mp_noveh"
+      },
+      {
+        "value_field": "mp_otherrace"
+      },
+      {
+        "value_field": "mp_pov150"
+      },
+      {
+        "value_field": "mp_sngpnt"
+      },
+      {
+        "value_field": "mp_twomore"
+      },
+      {
+        "value_field": "mp_unemp"
+      },
+      {
+        "value_field": "mp_uninsur"
+      },
+      {
+        "value_field": "rpl_theme1"
+      },
+      {
+        "value_field": "rpl_theme2"
+      },
+      {
+        "value_field": "rpl_theme3"
+      },
+      {
+        "value_field": "rpl_theme4"
+      },
+      {
+        "value_field": "rpl_themes"
+      },
+      {
+        "value_field": "spl_theme1"
+      },
+      {
+        "value_field": "spl_theme2"
+      },
+      {
+        "value_field": "spl_theme3"
+      },
+      {
+        "value_field": "spl_theme4"
+      },
+      {
+        "value_field": "spl_themes"
+      },
+      {
+        "value_field": "st"
+      },
+      {
+        "value_field": "st_abbr"
+      },
+      {
+        "value_field": "state"
+      },
+      {
+        "value_field": "stcnty"
+      }
+    ],
+    "attributes_group": [
+      {
+        "attribute_name": "area_sqmi",
+        "attribute_description": "Tract area in square miles",
+        "attribute_source": "ALAND * 3.86102e-7",
+        "attribute_type": "float8",
+        "attribute_unit": "square miles",
+        "attribute_min_value": "0",
+        "attribute_max_value": "159",
+        "attribute_concept_id": "2052497175"
+      },
+      {
+        "attribute_name": "county",
+        "attribute_description": "County name",
+        "attribute_source": "NAME",
+        "attribute_type": "varchar",
+        "attribute_concept_id": "2052499639"
+      },
+      {
+        "attribute_name": "e_afam",
+        "attribute_description": "Adjunct variable - Black/African American, not Hispanic or Latino persons estimate, 2016-2020 ACS",
+        "attribute_source": "DP05_0078E",
+        "attribute_type": "int4",
+        "attribute_unit": "persons",
+        "attribute_min_value": "0",
+        "attribute_max_value": "5835",
+        "attribute_start_date": "2020-01-01",
+        "attribute_end_date": "2020-12-31",
+        "attribute_concept_id": "2052499783"
+      },
+      {
+        "attribute_name": "e_age17",
+        "attribute_description": "Persons aged 17 and younger estimate, 2016-2020 ACS",
+        "attribute_source": "B09001_001E",
+        "attribute_type": "int4",
+        "attribute_unit": "persons",
+        "attribute_min_value": "0",
+        "attribute_max_value": "2415",
+        "attribute_start_date": "2020-01-01",
+        "attribute_end_date": "2020-12-31",
+        "attribute_concept_id": "2052498115"
+      },
+      {
+        "attribute_name": "e_age65",
+        "attribute_description": "Persons aged 65 and older estimate, 2016-2020 ACS",
+        "attribute_source": "S0101_C01_030E",
+        "attribute_type": "int4",
+        "attribute_unit": "persons",
+        "attribute_min_value": "0",
+        "attribute_max_value": "3082",
+        "attribute_start_date": "2020-01-01",
+        "attribute_end_date": "2020-12-31",
+        "attribute_concept_id": "2052498113"
+      },
+      {
+        "attribute_name": "e_aian",
+        "attribute_description": "Adjunct variable - American Indian or Alaska Native, not Hispanic or Latino persons estimate, 2016-2020 ACS",
+        "attribute_source": "DP05_0079E",
+        "attribute_type": "int4",
+        "attribute_unit": "persons",
+        "attribute_min_value": "0",
+        "attribute_max_value": "218",
+        "attribute_start_date": "2020-01-01",
+        "attribute_end_date": "2020-12-31",
+        "attribute_concept_id": "2052499861"
+      },
+      {
+        "attribute_name": "e_asian",
+        "attribute_description": "Adjunct variable - Asian, not Hispanic or Latino persons estimate, 2016-2020 ACS",
+        "attribute_source": "DP05_0080E",
+        "attribute_type": "int4",
+        "attribute_unit": "persons",
+        "attribute_min_value": "0",
+        "attribute_max_value": "2982",
+        "attribute_start_date": "2020-01-01",
+        "attribute_end_date": "2020-12-31",
+        "attribute_concept_id": "2052499833"
+      },
+      {
+        "attribute_name": "e_crowd",
+        "attribute_description": "At household level (occupied housing units), more people than rooms estimate, 2016-2020 ACS",
+        "attribute_source": "DP04_0078E + DP04_0079E",
+        "attribute_type": "int4",
+        "attribute_unit": "housing units",
+        "attribute_min_value": "0",
+        "attribute_max_value": "438",
+        "attribute_start_date": "2020-01-01",
+        "attribute_end_date": "2020-12-31",
+        "attribute_concept_id": "2052499828"
+      },
+      {
+        "attribute_name": "e_daypop",
+        "attribute_description": "Adjunct variable - Estimated daytime population, LandScan 2020",
+        "attribute_type": "int4",
+        "attribute_unit": "persons",
+        "attribute_min_value": "0",
+        "attribute_max_value": "91121",
+        "attribute_start_date": "2020-01-01",
+        "attribute_end_date": "2020-12-31",
+        "attribute_concept_id": "2052499427"
+      },
+      {
+        "attribute_name": "e_disabl",
+        "attribute_description": "Civilian noninstitutionalized population with a disability estimate, 2016-2020 ACS",
+        "attribute_source": "DP02_0072E",
+        "attribute_type": "int4",
+        "attribute_unit": "persons",
+        "attribute_min_value": "0",
+        "attribute_max_value": "1976",
+        "attribute_start_date": "2020-01-01",
+        "attribute_end_date": "2020-12-31",
+        "attribute_concept_id": "2052499669"
+      },
+      {
+        "attribute_name": "e_groupq",
+        "attribute_description": "Persons in group quarters estimate, 2016-2020 ACS",
+        "attribute_source": "B26001_001E",
+        "attribute_type": "int4",
+        "attribute_unit": "persons",
+        "attribute_min_value": "0",
+        "attribute_max_value": "11854",
+        "attribute_start_date": "2020-01-01",
+        "attribute_end_date": "2020-12-31",
+        "attribute_concept_id": "2052498109"
+      },
+      {
+        "attribute_name": "e_hburd",
+        "attribute_description": "Housing cost-burdened occupied housing units with annual income less than 5,000 (30%+ of income spent on housing costs) estimate, 2016-2020 ACS",
+        "attribute_source": "S2503_C01_028E + S2503_C01_032E + S2503_C01_036E + S2503_C01_040E",
+        "attribute_type": "int4",
+        "attribute_unit": "housing units",
+        "attribute_min_value": "0",
+        "attribute_max_value": "1875",
+        "attribute_start_date": "2020-01-01",
+        "attribute_end_date": "2020-12-31",
+        "attribute_concept_id": "2052499085"
+      },
+      {
+        "attribute_name": "e_hh",
+        "attribute_description": "Households estimate, 2016-2020 ACS",
+        "attribute_source": "DP02_0001E",
+        "attribute_type": "int4",
+        "attribute_unit": "households",
+        "attribute_min_value": "0",
+        "attribute_max_value": "4117",
+        "attribute_start_date": "2020-01-01",
+        "attribute_end_date": "2020-12-31",
+        "attribute_concept_id": "2052499093"
+      },
+      {
+        "attribute_name": "e_hisp",
+        "attribute_description": "Adjunct variable - Hispanic or Latino persons estimate, 2016-2020 ACS",
+        "attribute_source": "DP05_0071E",
+        "attribute_type": "int4",
+        "attribute_unit": "persons",
+        "attribute_min_value": "0",
+        "attribute_max_value": "6732",
+        "attribute_start_date": "2020-01-01",
+        "attribute_end_date": "2020-12-31",
+        "attribute_concept_id": "2052499104"
+      },
+      {
+        "attribute_name": "e_hu",
+        "attribute_description": "Housing units estimate, 2016-2020 ACS",
+        "attribute_source": "DP04_0001E",
+        "attribute_type": "int4",
+        "attribute_unit": "housing units",
+        "attribute_min_value": "0",
+        "attribute_max_value": "5176",
+        "attribute_start_date": "2020-01-01",
+        "attribute_end_date": "2020-12-31",
+        "attribute_concept_id": "2052499075"
+      },
+      {
+        "attribute_name": "e_limeng",
+        "attribute_description": "Persons (age 5+) who speak English \"less than well\" estimate, 2016-2020 ACS",
+        "attribute_source": "B16005_007E + B16005_008E + B16005_012E + B16005_013E + B16005_017E + B16005_018E + B16005_022E + B16005_023E + B16005_029E + B16005_030E + B16005_034E + B16005_035E + B16005_039E + B16005_040E + B16005_044E + B16005_045E",
+        "attribute_type": "int4",
+        "attribute_unit": "persons",
+        "attribute_min_value": "0",
+        "attribute_max_value": "2424",
+        "attribute_start_date": "2020-01-01",
+        "attribute_end_date": "2020-12-31",
+        "attribute_concept_id": "2052498117"
+      },
+      {
+        "attribute_name": "e_minrty",
+        "attribute_description": "Minority (Hispanic or Latino (of any race) -- Black and African American, Not Hispanic or Latino -- American Indian and Alaska Native, Not Hispanic or Latino -- Asian, Not Hispanic or Latino -- Native Hawaiian and Other Pacific Islander, Not Hispanic or Latino -- Two or More Races, Not Hispanic or Latino -- Other Races, Not Hispanic or Latino) estimate, 2016-2020 ACS",
+        "attribute_source": "DP05_0071E + DP05_0078E + DP05_0079E + DP05_0080E + DP05_0081E + DP05_0082E + DP05_0083E",
+        "attribute_type": "int4",
+        "attribute_unit": "persons",
+        "attribute_min_value": "0",
+        "attribute_max_value": "8430",
+        "attribute_start_date": "2020-01-01",
+        "attribute_end_date": "2020-12-31",
+        "attribute_concept_id": "2052498841"
+      },
+      {
+        "attribute_name": "e_mobile",
+        "attribute_description": "Mobile homes estimate, 2016-2020 ACS",
+        "attribute_source": "DP04_0014E",
+        "attribute_type": "int4",
+        "attribute_unit": "mobile homes",
+        "attribute_min_value": "0",
+        "attribute_max_value": "885",
+        "attribute_start_date": "2020-01-01",
+        "attribute_end_date": "2020-12-31",
+        "attribute_concept_id": "2052498834"
+      },
+      {
+        "attribute_name": "e_munit",
+        "attribute_description": "Housing in structures with 10 or more units estimate, 2016-2020 ACS",
+        "attribute_source": "DP04_0012E + DP04_0013E",
+        "attribute_type": "int4",
+        "attribute_unit": "structures",
+        "attribute_min_value": "0",
+        "attribute_max_value": "2709",
+        "attribute_start_date": "2020-01-01",
+        "attribute_end_date": "2020-12-31",
+        "attribute_concept_id": "2052499082"
+      },
+      {
+        "attribute_name": "e_nhpi",
+        "attribute_description": "Adjunct variable - Native Hawaiian or Other Pacific Islander, not Hispanic or Latino persons estimate, 2016-2020 ACS",
+        "attribute_source": "DP05_0081E",
+        "attribute_type": "int4",
+        "attribute_unit": "persons",
+        "attribute_min_value": "0",
+        "attribute_max_value": "126",
+        "attribute_start_date": "2020-01-01",
+        "attribute_end_date": "2020-12-31",
+        "attribute_concept_id": "2052498764"
+      },
+      {
+        "attribute_name": "e_nohsdp",
+        "attribute_description": "Persons (age 25+) with no high school diploma estimate, 2016-2020 ACS",
+        "attribute_source": "B06009_002E",
+        "attribute_type": "int4",
+        "attribute_unit": "persons",
+        "attribute_min_value": "0",
+        "attribute_max_value": "1702",
+        "attribute_start_date": "2020-01-01",
+        "attribute_end_date": "2020-12-31",
+        "attribute_concept_id": "2052498119"
+      },
+      {
+        "attribute_name": "e_noint",
+        "attribute_description": "Adjunct variable - Households without a computer with a broadband Internet subscription estimate, 2016-2020 ACS",
+        "attribute_source": "S2802_C01_001E - S2802_C02_001E",
+        "attribute_type": "int4",
+        "attribute_unit": "households",
+        "attribute_min_value": "0",
+        "attribute_max_value": "888",
+        "attribute_start_date": "2020-01-01",
+        "attribute_end_date": "2020-12-31",
+        "attribute_concept_id": "2052499089"
+      },
+      {
+        "attribute_name": "e_noveh",
+        "attribute_description": "Households with no vehicle available estimate, 2016-2020 ACS",
+        "attribute_source": "DP04_0058E",
+        "attribute_type": "int4",
+        "attribute_unit": "households",
+        "attribute_min_value": "0",
+        "attribute_max_value": "1586",
+        "attribute_start_date": "2020-01-01",
+        "attribute_end_date": "2020-12-31",
+        "attribute_concept_id": "2052499091"
+      },
+      {
+        "attribute_name": "e_otherrace",
+        "attribute_description": "Adjunct variable - Some other race, not Hispanic or Latino persons estimate, 2016-2020 ACS",
+        "attribute_source": "DP05_0082E",
+        "attribute_type": "int4",
+        "attribute_unit": "persons",
+        "attribute_min_value": "0",
+        "attribute_max_value": "856",
+        "attribute_start_date": "2020-01-01",
+        "attribute_end_date": "2020-12-31",
+        "attribute_concept_id": "2052497741"
+      },
+      {
+        "attribute_name": "e_pov150",
+        "attribute_description": "Persons below 150% poverty estimate, 2016-2020 ACS",
+        "attribute_source": "S1701_C01_040E",
+        "attribute_type": "int4",
+        "attribute_unit": "households",
+        "attribute_min_value": "0",
+        "attribute_max_value": "3302",
+        "attribute_start_date": "2020-01-01",
+        "attribute_end_date": "2020-12-31",
+        "attribute_concept_id": "2052498111"
+      },
+      {
+        "attribute_name": "e_sngpnt",
+        "attribute_description": "Single-parent household with children under 18 estimate, 2016-2020 ACS",
+        "attribute_source": "B11012_010E + B11012_015E",
+        "attribute_type": "int4",
+        "attribute_unit": "persons",
+        "attribute_min_value": "0",
+        "attribute_max_value": "717",
+        "attribute_start_date": "2020-01-01",
+        "attribute_end_date": "2020-12-31",
+        "attribute_concept_id": "2052497778"
+      },
+      {
+        "attribute_name": "e_totpop",
+        "attribute_description": "Population estimate, 2016-2020 ACS",
+        "attribute_source": "S0601_C01_001E",
+        "attribute_type": "int4",
+        "attribute_unit": "persons",
+        "attribute_min_value": "0",
+        "attribute_max_value": "11895",
+        "attribute_start_date": "2020-01-01",
+        "attribute_end_date": "2020-12-31",
+        "attribute_concept_id": "2052498091"
+      },
+      {
+        "attribute_name": "e_twomore",
+        "attribute_description": "Adjunct variable - Two or more races, not Hispanic or Latino persons estimate, 2016-2020 ACS",
+        "attribute_source": "DP05_0083E",
+        "attribute_type": "int4",
+        "attribute_unit": "persons",
+        "attribute_min_value": "0",
+        "attribute_max_value": "1271",
+        "attribute_start_date": "2020-01-01",
+        "attribute_end_date": "2020-12-31",
+        "attribute_concept_id": "2052497160"
+      },
+      {
+        "attribute_name": "e_unemp",
+        "attribute_description": "Civilian (age 16+) unemployed estimate, 2016-2020 ACS",
+        "attribute_source": "DP03_0005E",
+        "attribute_type": "int4",
+        "attribute_unit": "persons",
+        "attribute_min_value": "0",
+        "attribute_max_value": "746",
+        "attribute_start_date": "2020-01-01",
+        "attribute_end_date": "2020-12-31",
+        "attribute_concept_id": "2052499671"
+      },
+      {
+        "attribute_name": "e_uninsur",
+        "attribute_description": "Uninsured in the total civilian noninstitutionalized population estimate, 2016-2020 ACS",
+        "attribute_source": "S2701_C04_001E",
+        "attribute_type": "int4",
+        "attribute_unit": "persons",
+        "attribute_min_value": "0",
+        "attribute_max_value": "1276",
+        "attribute_start_date": "2020-01-01",
+        "attribute_end_date": "2020-12-31",
+        "attribute_concept_id": "2052497149"
+      },
+      {
+        "attribute_name": "ep_afam",
+        "attribute_description": "Adjunct variable - Percentage of Black/African American, not Hispanic or Latino persons estimate, 2016-2020 ACS",
+        "attribute_source": "DP05_0078PE",
+        "attribute_type": "float8",
+        "attribute_unit": "percent",
+        "attribute_min_value": "0",
+        "attribute_max_value": "77",
+        "attribute_start_date": "2020-01-01",
+        "attribute_end_date": "2020-12-31",
+        "attribute_concept_id": "2052498571"
+      },
+      {
+        "attribute_name": "ep_age17",
+        "attribute_description": "Percentage of persons aged 17 and younger estimate, 2016-2020 ACS",
+        "attribute_source": "(E_AGE17 / E_TOTPOP) * 100",
+        "attribute_type": "float8",
+        "attribute_unit": "percent",
+        "attribute_min_value": "0",
+        "attribute_max_value": "45",
+        "attribute_start_date": "2020-01-01",
+        "attribute_end_date": "2020-12-31",
+        "attribute_concept_id": "2052498382"
+      },
+      {
+        "attribute_name": "ep_age65",
+        "attribute_description": "Percentage of persons aged 65 and older estimate, 2016-2020 ACS",
+        "attribute_source": "S0101_C02_030E",
+        "attribute_type": "float8",
+        "attribute_unit": "percent",
+        "attribute_min_value": "0",
+        "attribute_max_value": "100",
+        "attribute_start_date": "2020-01-01",
+        "attribute_end_date": "2020-12-31",
+        "attribute_concept_id": "2052498380"
+      },
+      {
+        "attribute_name": "ep_aian",
+        "attribute_description": "Adjunct variable - Percentage of American Indian or Alaska Native, not Hispanic or Latino persons estimate, 2016-2020 ACS",
+        "attribute_source": "DP05_0079PE",
+        "attribute_type": "float8",
+        "attribute_unit": "percent",
+        "attribute_min_value": "0",
+        "attribute_max_value": "6",
+        "attribute_start_date": "2020-01-01",
+        "attribute_end_date": "2020-12-31",
+        "attribute_concept_id": "2052498581"
+      },
+      {
+        "attribute_name": "ep_asian",
+        "attribute_description": "Adjunct variable - Percentage of Asian, not Hispanic or Latino persons estimate, 2016-2020 ACS",
+        "attribute_source": "DP05_0080PE",
+        "attribute_type": "float8",
+        "attribute_unit": "percent",
+        "attribute_min_value": "0",
+        "attribute_max_value": "60",
+        "attribute_start_date": "2020-01-01",
+        "attribute_end_date": "2020-12-31",
+        "attribute_concept_id": "2052498576"
+      },
+      {
+        "attribute_name": "ep_crowd",
+        "attribute_description": "Percentage of occupied housing units with more people than rooms estimate",
+        "attribute_source": "(E_CROWD / DP04_0002E) * 100",
+        "attribute_type": "float8",
+        "attribute_unit": "percent",
+        "attribute_min_value": "0",
+        "attribute_max_value": "27",
+        "attribute_start_date": "2020-01-01",
+        "attribute_end_date": "2020-12-31",
+        "attribute_concept_id": "2052498400"
+      },
+      {
+        "attribute_name": "ep_disabl",
+        "attribute_description": "Percentage of civilian noninstitutionalized population with a disability estimate, 2016-2020 ACS",
+        "attribute_source": "DP02_0072PE",
+        "attribute_type": "float8",
+        "attribute_unit": "percent",
+        "attribute_min_value": "0",
+        "attribute_max_value": "100",
+        "attribute_start_date": "2020-01-01",
+        "attribute_end_date": "2020-12-31",
+        "attribute_concept_id": "2052498558"
+      },
+      {
+        "attribute_name": "ep_groupq",
+        "attribute_description": "Percentage of persons in group quarters estimate, 2016-2020 ACS",
+        "attribute_source": "(E_GROUPQ / E_TOTPOP) * 100",
+        "attribute_type": "float8",
+        "attribute_unit": "percent",
+        "attribute_min_value": "0",
+        "attribute_max_value": "100",
+        "attribute_start_date": "2020-01-01",
+        "attribute_end_date": "2020-12-31",
+        "attribute_concept_id": "2052498376"
+      },
+      {
+        "attribute_name": "ep_hburd",
+        "attribute_description": "Percentage of housing cost-burdened occupied housing units with annual income less than 5,000 (30%+ of income spent on housing costs) estimate, 2016-2020 ACS estimate, 2016-2020 ACS",
+        "attribute_source": "(E_HBURD / S2503_C01_001E) * 100",
+        "attribute_type": "float8",
+        "attribute_unit": "percent",
+        "attribute_min_value": "0",
+        "attribute_max_value": "88",
+        "attribute_start_date": "2020-01-01",
+        "attribute_end_date": "2020-12-31",
+        "attribute_concept_id": "2052498464"
+      },
+      {
+        "attribute_name": "ep_hisp",
+        "attribute_description": "Adjunct variable - Percentage of Hispanic or Latino persons estimate, 2016-2020 ACS",
+        "attribute_source": "DP05_0071PE",
+        "attribute_type": "float8",
+        "attribute_unit": "percent",
+        "attribute_min_value": "0",
+        "attribute_max_value": "97",
+        "attribute_start_date": "2020-01-01",
+        "attribute_end_date": "2020-12-31",
+        "attribute_concept_id": "2052498520"
+      },
+      {
+        "attribute_name": "ep_limeng",
+        "attribute_description": "Percentage of persons (age 5+) who speak English \"less than well\" estimate, 2016-2020 ACS",
+        "attribute_source": "(E_LIMENG / B16005_001E) * 100",
+        "attribute_type": "float8",
+        "attribute_unit": "percent",
+        "attribute_min_value": "0",
+        "attribute_max_value": "46",
+        "attribute_start_date": "2020-01-01",
+        "attribute_end_date": "2020-12-31",
+        "attribute_concept_id": "2052498385"
+      },
+      {
+        "attribute_name": "ep_minrty",
+        "attribute_description": "Percentage minority (Hispanic or Latino (of any race) -- Black and African American, Not Hispanic or Latino -- American Indian and Alaska Native, Not Hispanic or Latino -- Asian, Not Hispanic or Latino -- Native Hawaiian and Other Pacific Islander, Not Hispanic or Latino -- Two or More Races, Not Hispanic or Latino -- Other Races, Not Hispanic or Latino) estimate, 2016-2020 ACS",
+        "attribute_source": "(E_MINRTY / E_TOTPOP) * 100",
+        "attribute_type": "float8",
+        "attribute_unit": "percent",
+        "attribute_min_value": "0",
+        "attribute_max_value": "100",
+        "attribute_start_date": "2020-01-01",
+        "attribute_end_date": "2020-12-31",
+        "attribute_concept_id": "2052498423"
+      },
+      {
+        "attribute_name": "ep_mobile",
+        "attribute_description": "Percentage of mobile homes estimate",
+        "attribute_source": "DP04_0014PE",
+        "attribute_type": "float8",
+        "attribute_unit": "percent",
+        "attribute_min_value": "0",
+        "attribute_max_value": "32",
+        "attribute_start_date": "2020-01-01",
+        "attribute_end_date": "2020-12-31",
+        "attribute_concept_id": "2052498422"
+      },
+      {
+        "attribute_name": "ep_munit",
+        "attribute_description": "Percentage of housing in structures with 10 or more units estimate",
+        "attribute_source": "(E_MUNIT / E_HU) * 100",
+        "attribute_type": "float8",
+        "attribute_unit": "percent",
+        "attribute_min_value": "0",
+        "attribute_max_value": "100",
+        "attribute_start_date": "2020-01-01",
+        "attribute_end_date": "2020-12-31",
+        "attribute_concept_id": "2052498461"
+      },
+      {
+        "attribute_name": "ep_nhpi",
+        "attribute_description": "Adjunct variable - Percentage of Native Hawaiian or Other Pacific Islander, not Hispanic or Latino persons estimate, 2016-2020 ACS",
+        "attribute_source": "DP05_0081PE",
+        "attribute_type": "float8",
+        "attribute_unit": "percent",
+        "attribute_min_value": "0",
+        "attribute_max_value": "5",
+        "attribute_start_date": "2020-01-01",
+        "attribute_end_date": "2020-12-31",
+        "attribute_concept_id": "2052498418"
+      },
+      {
+        "attribute_name": "ep_nohsdp",
+        "attribute_description": "Percentage of persons with no high school diploma (age 25+) estimate",
+        "attribute_source": "S0601_C01_033E",
+        "attribute_type": "float8",
+        "attribute_unit": "percent",
+        "attribute_min_value": "0",
+        "attribute_max_value": "54",
+        "attribute_start_date": "2020-01-01",
+        "attribute_end_date": "2020-12-31",
+        "attribute_concept_id": "2052498369"
+      },
+      {
+        "attribute_name": "ep_noint",
+        "attribute_description": "Adjunct variable - Percentage of households without a computer with a broadband Internet subscription estimate, 2016-2020 ACS",
+        "attribute_source": "(E_NOINT / S2802_C01_001E) * 100 ",
+        "attribute_type": "float8",
+        "attribute_unit": "percent",
+        "attribute_min_value": "0",
+        "attribute_max_value": "51",
+        "attribute_start_date": "2020-01-01",
+        "attribute_end_date": "2020-12-31",
+        "attribute_concept_id": "2052498468"
+      },
+      {
+        "attribute_name": "ep_noveh",
+        "attribute_description": "Percentage of households with no vehicle available estimate",
+        "attribute_source": "DP04_0058PE",
+        "attribute_type": "float8",
+        "attribute_unit": "percent",
+        "attribute_min_value": "0",
+        "attribute_max_value": "100",
+        "attribute_start_date": "2020-01-01",
+        "attribute_end_date": "2020-12-31",
+        "attribute_concept_id": "2052498477"
+      },
+      {
+        "attribute_name": "ep_otherrace",
+        "attribute_description": "Adjunct variable - Percentage of some other race, not Hispanic or Latino persons estimate, 2016-2020 ACS",
+        "attribute_source": "DP05_0082PE",
+        "attribute_type": "float8",
+        "attribute_unit": "percent",
+        "attribute_min_value": "0",
+        "attribute_max_value": "24",
+        "attribute_start_date": "2020-01-01",
+        "attribute_end_date": "2020-12-31",
+        "attribute_concept_id": "2052498246"
+      },
+      {
+        "attribute_name": "ep_pov150",
+        "attribute_description": "Percentage of persons below 150% poverty estimate",
+        "attribute_source": "(E_POV150 / S1701_C01_001E) * 100",
+        "attribute_type": "float8",
+        "attribute_unit": "percent",
+        "attribute_min_value": "0",
+        "attribute_max_value": "100",
+        "attribute_start_date": "2020-01-01",
+        "attribute_end_date": "2020-12-31",
+        "attribute_concept_id": "2052498378"
+      },
+      {
+        "attribute_name": "ep_sngpnt",
+        "attribute_description": "Percentage of single-parent households with children under 18 estimate, 2016-2020 ACS",
+        "attribute_source": "(E_SNGPNT/E_HH) * 100",
+        "attribute_type": "float8",
+        "attribute_unit": "percent",
+        "attribute_min_value": "0",
+        "attribute_max_value": "46",
+        "attribute_start_date": "2020-01-01",
+        "attribute_end_date": "2020-12-31",
+        "attribute_concept_id": "2052498249"
+      },
+      {
+        "attribute_name": "ep_twomore",
+        "attribute_description": "Adjunct variable - Percentage of two or more races, not Hispanic or Latino persons estimate, 2016-2020 ACS",
+        "attribute_source": "DP05_0083PE",
+        "attribute_type": "float8",
+        "attribute_unit": "percent",
+        "attribute_min_value": "0",
+        "attribute_max_value": "39",
+        "attribute_start_date": "2020-01-01",
+        "attribute_end_date": "2020-12-31",
+        "attribute_concept_id": "2052498228"
+      },
+      {
+        "attribute_name": "ep_unemp",
+        "attribute_description": "Unemployment Rate estimate",
+        "attribute_source": "DP03_0009PE",
+        "attribute_type": "float8",
+        "attribute_unit": "percent",
+        "attribute_min_value": "0",
+        "attribute_max_value": "63",
+        "attribute_start_date": "2020-01-01",
+        "attribute_end_date": "2020-12-31",
+        "attribute_concept_id": "2052497153"
+      },
+      {
+        "attribute_name": "ep_uninsur",
+        "attribute_description": "Percentage uninsured in the total civilian noninstitutionalized population estimate, 2016-2020 ACS",
+        "attribute_source": "S2701_C05_001E",
+        "attribute_type": "float8",
+        "attribute_unit": "percent",
+        "attribute_min_value": "0",
+        "attribute_max_value": "22",
+        "attribute_start_date": "2020-01-01",
+        "attribute_end_date": "2020-12-31",
+        "attribute_concept_id": "2052498200"
+      },
+      {
+        "attribute_name": "epl_age17",
+        "attribute_description": "Percentile percentage of persons aged 17 and younger estimate",
+        "attribute_source": "In Excel: PERCENTRANK.INC on EP_AGE17 array with 4 significant digits",
+        "attribute_type": "float8",
+        "attribute_unit": "percentile",
+        "attribute_min_value": "0",
+        "attribute_max_value": "1",
+        "attribute_start_date": "2020-01-01",
+        "attribute_end_date": "2020-12-31",
+        "attribute_concept_id": "2052498183"
+      },
+      {
+        "attribute_name": "epl_age65",
+        "attribute_description": "Percentile percentage of persons aged 65 and older estimate",
+        "attribute_source": "In Excel: PERCENTRANK.INC on EP_AGE65 array with 4 significant digits",
+        "attribute_type": "float8",
+        "attribute_unit": "percentile",
+        "attribute_min_value": "0",
+        "attribute_max_value": "1",
+        "attribute_start_date": "2020-01-01",
+        "attribute_end_date": "2020-12-31",
+        "attribute_concept_id": "2052498182"
+      },
+      {
+        "attribute_name": "epl_crowd",
+        "attribute_description": "Percentile percentage households with more people than rooms estimate",
+        "attribute_source": "In Excel: PERCENTRANK.INC on EP_CROWD array with 4 significant digits",
+        "attribute_type": "float8",
+        "attribute_unit": "percentile",
+        "attribute_min_value": "0",
+        "attribute_max_value": "1",
+        "attribute_start_date": "2020-01-01",
+        "attribute_end_date": "2020-12-31",
+        "attribute_concept_id": "2052498195"
+      },
+      {
+        "attribute_name": "epl_disabl",
+        "attribute_description": "Percentile percentage of civilian noninstitutionalized population with a disability estimate",
+        "attribute_source": "In Excel: PERCENTRANK.INC on EP_DISABL array with 4 significant digits",
+        "attribute_type": "float8",
+        "attribute_unit": "percentile",
+        "attribute_min_value": "0",
+        "attribute_max_value": "1",
+        "attribute_start_date": "2020-01-01",
+        "attribute_end_date": "2020-12-31",
+        "attribute_concept_id": "2052498186"
+      },
+      {
+        "attribute_name": "epl_groupq",
+        "attribute_description": "Percentile percentage of persons in group quarters estimate",
+        "attribute_source": "In Excel: PERCENTRANK.INC on EP_GROUPQ array with 4 significant digits",
+        "attribute_type": "float8",
+        "attribute_unit": "percentile",
+        "attribute_min_value": "0",
+        "attribute_max_value": "1",
+        "attribute_start_date": "2020-01-01",
+        "attribute_end_date": "2020-12-31",
+        "attribute_concept_id": "2052498180"
+      },
+      {
+        "attribute_name": "epl_hburd",
+        "attribute_description": "Percentile percentage of housing cost-burdened occupied housing units estimate",
+        "attribute_source": "In Excel: PERCENTRANK.INC on EP_HBURD array with 4 significant digits",
+        "attribute_type": "float8",
+        "attribute_unit": "percentile",
+        "attribute_min_value": "0",
+        "attribute_max_value": "1",
+        "attribute_start_date": "2020-01-01",
+        "attribute_end_date": "2020-12-31",
+        "attribute_concept_id": "2052498185"
+      },
+      {
+        "attribute_name": "epl_limeng",
+        "attribute_description": "Percentile percentage of persons (age 5+) who speak English \"less than well\" estimate",
+        "attribute_source": "In Excel: PERCENTRANK.INC on EP_LIMENG array with 4 significant digits",
+        "attribute_type": "float8",
+        "attribute_unit": "percentile",
+        "attribute_min_value": "0",
+        "attribute_max_value": "1",
+        "attribute_start_date": "2020-01-01",
+        "attribute_end_date": "2020-12-31",
+        "attribute_concept_id": "2052498184"
+      },
+      {
+        "attribute_name": "epl_minrty",
+        "attribute_description": "Percentile percentage minority (Hispanic or Latino (of any race) -- Black and African American, Not Hispanic or Latino -- American Indian and Alaska Native, Not Hispanic or Latino -- Asian, Not Hispanic or Latino -- Native Hawaiian and Other Pacific Islander, Not Hispanic or Latino -- Two or More Races, Not Hispanic or Latino -- Other Races, Not Hispanic or Latino) estimate",
+        "attribute_source": "In Excel: PERCENTRANK.INC on EP_MINRTY array with 4 significant digits",
+        "attribute_type": "float8",
+        "attribute_unit": "percentile",
+        "attribute_min_value": "0",
+        "attribute_max_value": "1",
+        "attribute_start_date": "2020-01-01",
+        "attribute_end_date": "2020-12-31",
+        "attribute_concept_id": "2052498189"
+      },
+      {
+        "attribute_name": "epl_mobile",
+        "attribute_description": "Percentile percentage mobile homes estimate",
+        "attribute_source": "In Excel: PERCENTRANK.INC on EP_MOBILE array with 4 significant digits",
+        "attribute_type": "float8",
+        "attribute_unit": "percentile",
+        "attribute_min_value": "0",
+        "attribute_max_value": "1",
+        "attribute_start_date": "2020-01-01",
+        "attribute_end_date": "2020-12-31",
+        "attribute_concept_id": "2052498188"
+      },
+      {
+        "attribute_name": "epl_munit",
+        "attribute_description": "Percentile percentage housing in structures with 10 or more units estimate",
+        "attribute_source": "In Excel: PERCENTRANK.INC on EP_MUNIT array with 4 significant digits",
+        "attribute_type": "float8",
+        "attribute_unit": "percentile",
+        "attribute_min_value": "0",
+        "attribute_max_value": "1",
+        "attribute_start_date": "2020-01-01",
+        "attribute_end_date": "2020-12-31",
+        "attribute_concept_id": "2052498193"
+      },
+      {
+        "attribute_name": "epl_nohsdp",
+        "attribute_description": "Percentile percentage of persons with no high school diploma (age 25+) estimate",
+        "attribute_source": "In Excel: PERCENTRANK.INC on EP_NOHSDP array with 4 significant digits",
+        "attribute_type": "float8",
+        "attribute_unit": "percentile",
+        "attribute_min_value": "0",
+        "attribute_max_value": "1",
+        "attribute_start_date": "2020-01-01",
+        "attribute_end_date": "2020-12-31",
+        "attribute_concept_id": "2052498179"
+      },
+      {
+        "attribute_name": "epl_noveh",
+        "attribute_description": "Percentile percentage households with no vehicle available estimate",
+        "attribute_source": "In Excel: PERCENTRANK.INC on EP_NOVEH array with 4 significant digits",
+        "attribute_type": "float8",
+        "attribute_unit": "percentile",
+        "attribute_min_value": "0",
+        "attribute_max_value": "1",
+        "attribute_start_date": "2020-01-01",
+        "attribute_end_date": "2020-12-31",
+        "attribute_concept_id": "2052498194"
+      },
+      {
+        "attribute_name": "epl_pov150",
+        "attribute_description": "Percentile percentage of persons below 150% poverty estimate",
+        "attribute_source": "In Excel: PERCENTRANK.INC on EP_POV150 array with 4 significant digits",
+        "attribute_type": "float8",
+        "attribute_unit": "percentile",
+        "attribute_min_value": "0",
+        "attribute_max_value": "1",
+        "attribute_start_date": "2020-01-01",
+        "attribute_end_date": "2020-12-31",
+        "attribute_concept_id": "2052498181"
+      },
+      {
+        "attribute_name": "epl_sngpnt",
+        "attribute_description": "Percentile percentage of single-parent households with children under 18 estimate",
+        "attribute_source": "In Excel: PERCENTRANK.INC on EP_SNGPNT array with 4 significant digits",
+        "attribute_type": "float8",
+        "attribute_unit": "percentile",
+        "attribute_min_value": "0",
+        "attribute_max_value": "1",
+        "attribute_start_date": "2020-01-01",
+        "attribute_end_date": "2020-12-31",
+        "attribute_concept_id": "2052498178"
+      },
+      {
+        "attribute_name": "epl_unemp",
+        "attribute_description": "Percentile percentage of civilian (age 16+) unemployed estimate",
+        "attribute_source": "In Excel: PERCENTRANK.INC on EP_UNEMP array with 4 significant digits",
+        "attribute_type": "float8",
+        "attribute_unit": "percentile",
+        "attribute_min_value": "0",
+        "attribute_max_value": "1",
+        "attribute_start_date": "2020-01-01",
+        "attribute_end_date": "2020-12-31",
+        "attribute_concept_id": "2052498187"
+      },
+      {
+        "attribute_name": "epl_uninsur",
+        "attribute_description": "Percentile percentage of uninsured estimate",
+        "attribute_source": "In Excel: PERCENTRANK.INC on EP_UNINSUR array with 4 significant digits",
+        "attribute_type": "float8",
+        "attribute_unit": "percentile",
+        "attribute_min_value": "0",
+        "attribute_max_value": "1",
+        "attribute_start_date": "2020-01-01",
+        "attribute_end_date": "2020-12-31",
+        "attribute_concept_id": "2052498150"
+      },
+      {
+        "attribute_name": "f_age17",
+        "attribute_description": "Flag - the percentage of persons aged 17 and younger is in the 90th percentile (1 = yes, 0 = no) ",
+        "attribute_source": "EPL_AGE17 >= 0.90",
+        "attribute_type": "boolean",
+        "attribute_start_date": "2020-01-01",
+        "attribute_end_date": "2020-12-31",
+        "attribute_concept_id": "2052499366"
+      },
+      {
+        "attribute_name": "f_age65",
+        "attribute_description": "Flag - the percentage of persons aged 65 and older is in the 90th percentile (1 = yes, 0 = no) ",
+        "attribute_source": "EPL_AGE65 >= 0.90",
+        "attribute_type": "boolean",
+        "attribute_start_date": "2020-01-01",
+        "attribute_end_date": "2020-12-31",
+        "attribute_concept_id": "2052499365"
+      },
+      {
+        "attribute_name": "f_crowd",
+        "attribute_description": "Flag - the percentage of crowded households is in the 90th percentile (1 = yes, 0 = no)",
+        "attribute_source": "EPL_CROWD >= 0.90",
+        "attribute_type": "boolean",
+        "attribute_start_date": "2020-01-01",
+        "attribute_end_date": "2020-12-31",
+        "attribute_concept_id": "2052499372"
+      },
+      {
+        "attribute_name": "f_disabl",
+        "attribute_description": "Flag - the percentage of persons with a disability is in the 90th percentile (1 = yes, 0 = no) ",
+        "attribute_source": "EPL_DISABL >= 0.90",
+        "attribute_type": "boolean",
+        "attribute_start_date": "2020-01-01",
+        "attribute_end_date": "2020-12-31",
+        "attribute_concept_id": "2052499362"
+      },
+      {
+        "attribute_name": "f_groupq",
+        "attribute_description": "Flag - the percentage of persons in group quarters is in the 90th percentile (1 = yes, 0 = no) ",
+        "attribute_source": "EPL_GROUPQ >= 0.90",
+        "attribute_type": "boolean",
+        "attribute_start_date": "2020-01-01",
+        "attribute_end_date": "2020-12-31",
+        "attribute_concept_id": "2052499363"
+      },
+      {
+        "attribute_name": "f_hburd",
+        "attribute_description": "Flag - the percentage of housing cost-burdened occupied housing units is in the 90th percentile (1 = yes, 0 = no)",
+        "attribute_source": "EPL_HBURD >= 0.90",
+        "attribute_type": "boolean",
+        "attribute_start_date": "2020-01-01",
+        "attribute_end_date": "2020-12-31",
+        "attribute_concept_id": "2052499369"
+      },
+      {
+        "attribute_name": "f_limeng",
+        "attribute_description": "Flag - the percentage those with limited English is in the 90th percentile (1 = yes, 0 = no) ",
+        "attribute_source": "EPL_LIMENG >= 0.90",
+        "attribute_type": "boolean",
+        "attribute_start_date": "2020-01-01",
+        "attribute_end_date": "2020-12-31",
+        "attribute_concept_id": "2052499358"
+      },
+      {
+        "attribute_name": "f_minrty",
+        "attribute_description": "Flag - the percentage of minority is in the 90th percentile (1 = yes, 0 = no)",
+        "attribute_source": "EPL_MINRTY >= 0.90",
+        "attribute_type": "boolean",
+        "attribute_start_date": "2020-01-01",
+        "attribute_end_date": "2020-12-31",
+        "attribute_concept_id": "2052499368"
+      },
+      {
+        "attribute_name": "f_mobile",
+        "attribute_description": "Flag - the percentage of mobile homes is in the 90th percentile (1 = yes, 0 = no)",
+        "attribute_source": "EPL_MOBILE >= 0.90",
+        "attribute_type": "boolean",
+        "attribute_start_date": "2020-01-01",
+        "attribute_end_date": "2020-12-31",
+        "attribute_concept_id": "2052499367"
+      },
+      {
+        "attribute_name": "f_munit",
+        "attribute_description": "Flag - the percentage of households in multi-unit housing is in the 90th percentile (1 = yes, 0 = no)",
+        "attribute_source": "EPL_MUNIT >= 0.90",
+        "attribute_type": "boolean",
+        "attribute_start_date": "2020-01-01",
+        "attribute_end_date": "2020-12-31",
+        "attribute_concept_id": "2052499371"
+      },
+      {
+        "attribute_name": "f_nohsdp",
+        "attribute_description": "Flag - the percentage of persons with no high school diploma is in the 90th percentile (1 = yes, 0 = no) ",
+        "attribute_source": "EPL_NOHSDP >= 0.90",
+        "attribute_type": "boolean",
+        "attribute_start_date": "2020-01-01",
+        "attribute_end_date": "2020-12-31",
+        "attribute_concept_id": "2052499361"
+      },
+      {
+        "attribute_name": "f_noveh",
+        "attribute_description": "Flag - the percentage of households with no vehicles is in the 90th percentile (1 = yes, 0 = no) ",
+        "attribute_source": "EPL_NOVEH >= 0.90",
+        "attribute_type": "boolean",
+        "attribute_start_date": "2020-01-01",
+        "attribute_end_date": "2020-12-31",
+        "attribute_concept_id": "2052499370"
+      },
+      {
+        "attribute_name": "f_pov150",
+        "attribute_description": "Flag - the percentage of persons below 150% poverty is in the 90th percentile (1 = yes, 0 = no)",
+        "attribute_source": "EPL_POV150 >= 0.90",
+        "attribute_type": "boolean",
+        "attribute_start_date": "2020-01-01",
+        "attribute_end_date": "2020-12-31",
+        "attribute_concept_id": "2052499364"
+      },
+      {
+        "attribute_name": "f_sngpnt",
+        "attribute_description": "Flag - the percentage of single-parent households is in the 90th percentile (1 = yes, 0 = no)",
+        "attribute_source": "EPL_SNGPNT >= 0.90",
+        "attribute_type": "boolean",
+        "attribute_start_date": "2020-01-01",
+        "attribute_end_date": "2020-12-31",
+        "attribute_concept_id": "2052499360"
+      },
+      {
+        "attribute_name": "f_theme1",
+        "attribute_description": "Sum of flags for Socioeconomic Status theme",
+        "attribute_source": "F_POV150 + F_UNEMP + F_HBURD + F_NOHSDP + F_UNINSUR",
+        "attribute_type": "int4",
+        "attribute_min_value": "0",
+        "attribute_max_value": "5",
+        "attribute_start_date": "2020-01-01",
+        "attribute_end_date": "2020-12-31",
+        "attribute_concept_id": "2052497702"
+      },
+      {
+        "attribute_name": "f_theme2",
+        "attribute_description": "Sum of flags for Household Characteristics theme",
+        "attribute_source": "F_AGE65 + F_AGE17 + F_DISABL + F_SNGPNT + F_LIMENG",
+        "attribute_type": "int4",
+        "attribute_min_value": "0",
+        "attribute_max_value": "4",
+        "attribute_start_date": "2020-01-01",
+        "attribute_end_date": "2020-12-31",
+        "attribute_concept_id": "2052497705"
+      },
+      {
+        "attribute_name": "f_theme3",
+        "attribute_description": "Sum of flags for Racial and Ethnic Minority Status theme",
+        "attribute_source": "F_MINRTY",
+        "attribute_type": "int4",
+        "attribute_min_value": "0",
+        "attribute_max_value": "1",
+        "attribute_start_date": "2020-01-01",
+        "attribute_end_date": "2020-12-31",
+        "attribute_concept_id": "2052497703"
+      },
+      {
+        "attribute_name": "f_theme4",
+        "attribute_description": "Sum of flags for Housing Type/ Transportation theme",
+        "attribute_source": "F_MUNIT + F_MOBILE + F_CROWD + F_NOVEH + F_GROUPQ",
+        "attribute_type": "int4",
+        "attribute_min_value": "0",
+        "attribute_max_value": "4",
+        "attribute_start_date": "2020-01-01",
+        "attribute_end_date": "2020-12-31",
+        "attribute_concept_id": "2052497704"
+      },
+      {
+        "attribute_name": "f_total",
+        "attribute_description": "Sum of flags for the four themes",
+        "attribute_source": "F_THEME1 + F_THEME2 + F_THEME3 + F_THEME4",
+        "attribute_type": "int4",
+        "attribute_min_value": "0",
+        "attribute_max_value": "12",
+        "attribute_start_date": "2020-01-01",
+        "attribute_end_date": "2020-12-31",
+        "attribute_concept_id": "2052497701"
+      },
+      {
+        "attribute_name": "f_unemp",
+        "attribute_description": "Flag - the percentage of civilian unemployed is in the 90th percentile (1 = yes, 0 = no) ",
+        "attribute_source": "EPL_UNEMP >= 0.90",
+        "attribute_type": "boolean",
+        "attribute_start_date": "2020-01-01",
+        "attribute_end_date": "2020-12-31",
+        "attribute_concept_id": "2052499373"
+      },
+      {
+        "attribute_name": "f_uninsur",
+        "attribute_description": "Flag - the percentage of uninsured is in the 90th percentile (1 = yes, 0 = no) ",
+        "attribute_source": "EPL_UNINSUR >= 0.90",
+        "attribute_type": "boolean",
+        "attribute_start_date": "2020-01-01",
+        "attribute_end_date": "2020-12-31",
+        "attribute_concept_id": "2052499359"
+      },
+      {
+        "attribute_name": "fips",
+        "attribute_description": "Tract-level FIPS code",
+        "attribute_source": "GEO_ID",
+        "attribute_type": "varchar",
+        "attribute_start_date": "2020-01-01",
+        "attribute_end_date": "2020-12-31",
+        "attribute_concept_id": "2052497174"
+      },
+      {
+        "attribute_name": "location",
+        "attribute_description": "Text description of tract, county, state",
+        "attribute_source": "NAME",
+        "attribute_type": "varchar",
+        "attribute_start_date": "2020-01-01",
+        "attribute_end_date": "2020-12-31"
+      },
+      {
+        "attribute_name": "m_afam",
+        "attribute_description": "Adjunct variable - Black/African American, not Hispanic or Latino persons estimate MOE, 2016-2020 ACS",
+        "attribute_source": "DP05_0078M",
+        "attribute_type": "float8",
+        "attribute_unit": "moe",
+        "attribute_min_value": "2",
+        "attribute_max_value": "1217",
+        "attribute_start_date": "2020-01-01",
+        "attribute_end_date": "2020-12-31",
+        "attribute_concept_id": "2052499782"
+      },
+      {
+        "attribute_name": "m_age17",
+        "attribute_description": "Persons aged 17 and younger estimate MOE, 2016-2020 ACS",
+        "attribute_source": "B09001_001M",
+        "attribute_type": "float8",
+        "attribute_unit": "moe",
+        "attribute_min_value": "2",
+        "attribute_max_value": "781",
+        "attribute_start_date": "2020-01-01",
+        "attribute_end_date": "2020-12-31",
+        "attribute_concept_id": "2052498114"
+      },
+      {
+        "attribute_name": "m_age65",
+        "attribute_description": "Persons aged 65 and older estimate MOE, 2016-2020 ACS",
+        "attribute_source": "S0101_C01_030M",
+        "attribute_type": "float8",
+        "attribute_unit": "moe",
+        "attribute_min_value": "2",
+        "attribute_max_value": "730",
+        "attribute_start_date": "2020-01-01",
+        "attribute_end_date": "2020-12-31",
+        "attribute_concept_id": "2052498112"
+      },
+      {
+        "attribute_name": "m_aian",
+        "attribute_description": "Adjunct variable - American Indian or Alaska Native, not Hispanic or Latino persons estimate MOE, 2016-2020 ACS",
+        "attribute_source": "DP05_0079M",
+        "attribute_type": "float8",
+        "attribute_unit": "moe",
+        "attribute_min_value": "1",
+        "attribute_max_value": "174",
+        "attribute_start_date": "2020-01-01",
+        "attribute_end_date": "2020-12-31",
+        "attribute_concept_id": "2052499860"
+      },
+      {
+        "attribute_name": "m_asian",
+        "attribute_description": "Adjunct variable - Asian, not Hispanic or Latino persons estimate MOE, 2016-2020 ACS",
+        "attribute_source": "DP05_0080M",
+        "attribute_type": "float8",
+        "attribute_unit": "moe",
+        "attribute_min_value": "2",
+        "attribute_max_value": "1027",
+        "attribute_start_date": "2020-01-01",
+        "attribute_end_date": "2020-12-31",
+        "attribute_concept_id": "2052499832"
+      },
+      {
+        "attribute_name": "m_crowd",
+        "attribute_description": "At household level (occupied housing units), more people than rooms estimate MOE, 2016-2020 ACS",
+        "attribute_source": "SQRT (DP04_0078M ^2 + DP04_0079M ^2)",
+        "attribute_type": "float8",
+        "attribute_unit": "moe",
+        "attribute_min_value": "5",
+        "attribute_max_value": "328",
+        "attribute_start_date": "2020-01-01",
+        "attribute_end_date": "2020-12-31",
+        "attribute_concept_id": "2052499827"
+      },
+      {
+        "attribute_name": "m_disabl",
+        "attribute_description": "Civilian noninstitutionalized population with a disability estimate MOE, 2016-2020 ACS",
+        "attribute_source": "DP02_0072M",
+        "attribute_type": "float8",
+        "attribute_unit": "moe",
+        "attribute_min_value": "6",
+        "attribute_max_value": "800",
+        "attribute_start_date": "2020-01-01",
+        "attribute_end_date": "2020-12-31",
+        "attribute_concept_id": "2052499668"
+      },
+      {
+        "attribute_name": "m_groupq",
+        "attribute_description": "Persons in group quarters estimate MOE, 2016-2020 ACS",
+        "attribute_source": "B26001_001M",
+        "attribute_type": "float8",
+        "attribute_unit": "moe",
+        "attribute_min_value": "1",
+        "attribute_max_value": "411",
+        "attribute_start_date": "2020-01-01",
+        "attribute_end_date": "2020-12-31",
+        "attribute_concept_id": "2052498108"
+      },
+      {
+        "attribute_name": "m_hburd",
+        "attribute_description": "Housing cost-burdened occupied housing units with annual income less than 5,000 (30%+ of income spent on housing costs) estimate MOE, 2016-2020 ACS",
+        "attribute_source": "SQRT (S2503_C01_028M ^2 + S2503_C01_032M ^2 + S2503_C01_036M ^2 + S2503_C01_040M ^2) ",
+        "attribute_type": "float8",
+        "attribute_unit": "moe",
+        "attribute_min_value": "20",
+        "attribute_max_value": "506",
+        "attribute_start_date": "2020-01-01",
+        "attribute_end_date": "2020-12-31",
+        "attribute_concept_id": "2052499084"
+      },
+      {
+        "attribute_name": "m_hh",
+        "attribute_description": "Households estimate MOE, 2016-2020 ACS",
+        "attribute_source": "DP02_0001M",
+        "attribute_type": "float8",
+        "attribute_unit": "moe",
+        "attribute_min_value": "6",
+        "attribute_max_value": "518",
+        "attribute_start_date": "2020-01-01",
+        "attribute_end_date": "2020-12-31",
+        "attribute_concept_id": "2052499092"
+      },
+      {
+        "attribute_name": "m_hisp",
+        "attribute_description": "Adjunct variable - Hispanic or Latino persons estimate MOE, 2016-2020 ACS",
+        "attribute_source": "DP05_0071M",
+        "attribute_type": "float8",
+        "attribute_unit": "moe",
+        "attribute_min_value": "2",
+        "attribute_max_value": "1505",
+        "attribute_start_date": "2020-01-01",
+        "attribute_end_date": "2020-12-31",
+        "attribute_concept_id": "2052499103"
+      },
+      {
+        "attribute_name": "m_hu",
+        "attribute_description": "Housing units estimate MOE, 2016-2020 ACS",
+        "attribute_source": "DP04_0001M",
+        "attribute_type": "float8",
+        "attribute_unit": "moe",
+        "attribute_min_value": "6",
+        "attribute_max_value": "513",
+        "attribute_start_date": "2020-01-01",
+        "attribute_end_date": "2020-12-31",
+        "attribute_concept_id": "2052499074"
+      },
+      {
+        "attribute_name": "m_limeng",
+        "attribute_description": "Persons (age 5+) who speak English \"less than well\" estimate MOE, 2016-2020 ACS",
+        "attribute_source": "SQRT (B16005_007M ^2 + B16005_008M ^2 + B16005_012M ^2 + B16005_013M ^2 + B16005_017M ^2 + B16005_018M ^2 + B16005_022M ^2 + B16005_023M ^2 + B16005_029M ^2 + B16005_030M ^2 + B16005_034M ^2 + B16005_035M ^2 + B16005_039M ^2 + B16005_040M ^2 + B16005_044M ^2 + B16005_045M ^2)",
+        "attribute_type": "float8",
+        "attribute_unit": "moe",
+        "attribute_min_value": "50",
+        "attribute_max_value": "741",
+        "attribute_start_date": "2020-01-01",
+        "attribute_end_date": "2020-12-31",
+        "attribute_concept_id": "2052498116"
+      },
+      {
+        "attribute_name": "m_minrty",
+        "attribute_description": "Minority (Hispanic or Latino (of any race) -- Black and African American, Not Hispanic or Latino -- American Indian and Alaska Native, Not Hispanic or Latino -- Asian, Not Hispanic or Latino -- Native Hawaiian and Other Pacific Islander, Not Hispanic or Latino -- Two or More Races, Not Hispanic or Latino -- Other Races, Not Hispanic or Latino) estimate MOE, 2016-2020 ACS",
+        "attribute_source": "SQRT (DP05_0071M ^2 + DP05_0078M ^2 + DP05_0079M ^2 + DP05_0080M ^2 + DP05_0081M ^2 + DP05_0082M ^2 + DP05_0083M ^2) ",
+        "attribute_type": "float8",
+        "attribute_unit": "moe",
+        "attribute_min_value": "2",
+        "attribute_max_value": "2208",
+        "attribute_start_date": "2020-01-01",
+        "attribute_end_date": "2020-12-31",
+        "attribute_concept_id": "2052490073"
+      },
+      {
+        "attribute_name": "m_mobile",
+        "attribute_description": "Mobile homes estimate MOE, 2016-2020 ACS",
+        "attribute_source": "DP04_0014M",
+        "attribute_type": "float8",
+        "attribute_unit": "moe",
+        "attribute_min_value": "3",
+        "attribute_max_value": "259",
+        "attribute_start_date": "2020-01-01",
+        "attribute_end_date": "2020-12-31",
+        "attribute_concept_id": "2052498833"
+      },
+      {
+        "attribute_name": "m_munit",
+        "attribute_description": "Housing in structures with 10 or more units estimate MOE, 2016-2020 ACS",
+        "attribute_source": "SQRT (DP04_0012M ^2 + DP04_0013M ^2) ",
+        "attribute_type": "float8",
+        "attribute_unit": "moe",
+        "attribute_min_value": "8",
+        "attribute_max_value": "540",
+        "attribute_start_date": "2020-01-01",
+        "attribute_end_date": "2020-12-31",
+        "attribute_concept_id": "2052499081"
+      },
+      {
+        "attribute_name": "m_nhpi",
+        "attribute_description": "Adjunct variable - Native Hawaiian or Other Pacific Islander, not Hispanic or Latino persons estimate MOE, 2016-2020 ACS",
+        "attribute_source": "DP05_0081M",
+        "attribute_type": "float8",
+        "attribute_unit": "moe",
+        "attribute_min_value": "3",
+        "attribute_max_value": "156",
+        "attribute_start_date": "2020-01-01",
+        "attribute_end_date": "2020-12-31",
+        "attribute_concept_id": "2052498763"
+      },
+      {
+        "attribute_name": "m_nohsdp",
+        "attribute_description": "Persons (age 25+) with no high school diploma estimate MOE, 2016-2020 ACS",
+        "attribute_source": "B06009_002M",
+        "attribute_type": "float8",
+        "attribute_unit": "moe",
+        "attribute_min_value": "2",
+        "attribute_max_value": "531",
+        "attribute_start_date": "2020-01-01",
+        "attribute_end_date": "2020-12-31",
+        "attribute_concept_id": "2052498118"
+      },
+      {
+        "attribute_name": "m_noint",
+        "attribute_description": "Adjunct variable - Households without a computer with a broadband Internet subscription estimate MOE, 2016-2020 ACS",
+        "attribute_source": "SQRT (S2802_C01_001M ^2 - S2802_C02_001M ^2)",
+        "attribute_type": "float8",
+        "attribute_unit": "moe",
+        "attribute_min_value": "6",
+        "attribute_max_value": "408",
+        "attribute_start_date": "2020-01-01",
+        "attribute_end_date": "2020-12-31",
+        "attribute_concept_id": "2052499088"
+      },
+      {
+        "attribute_name": "m_noveh",
+        "attribute_description": "Households with no vehicle available estimate MOE, 2016-2020 ACS",
+        "attribute_source": "DP04_0058M",
+        "attribute_type": "float8",
+        "attribute_unit": "moe",
+        "attribute_min_value": "5",
+        "attribute_max_value": "493",
+        "attribute_start_date": "2020-01-01",
+        "attribute_end_date": "2020-12-31",
+        "attribute_concept_id": "2052499090"
+      },
+      {
+        "attribute_name": "m_otherrace",
+        "attribute_description": "Adjunct variable - Some other race, not Hispanic or Latino persons estimate MOE, 2016-2020 ACS",
+        "attribute_source": "DP05_0082M",
+        "attribute_type": "float8",
+        "attribute_unit": "moe",
+        "attribute_min_value": "2",
+        "attribute_max_value": "892",
+        "attribute_start_date": "2020-01-01",
+        "attribute_end_date": "2020-12-31",
+        "attribute_concept_id": "2052497740"
+      },
+      {
+        "attribute_name": "m_pov150",
+        "attribute_description": "Persons below 150% poverty estimate MOE, 2016-2020 ACS",
+        "attribute_source": "S1701_C01_040M",
+        "attribute_type": "float8",
+        "attribute_unit": "moe",
+        "attribute_min_value": "2",
+        "attribute_max_value": "1127",
+        "attribute_start_date": "2020-01-01",
+        "attribute_end_date": "2020-12-31",
+        "attribute_concept_id": "2052498110"
+      },
+      {
+        "attribute_name": "m_sngpnt",
+        "attribute_description": "Single-parent household with children under 18 estimate MOE, 2016-2020 ACS",
+        "attribute_source": "SQRT (B11012_010M ^2 + B11012_015M ^2) ",
+        "attribute_type": "float8",
+        "attribute_unit": "moe",
+        "attribute_min_value": "6",
+        "attribute_max_value": "400",
+        "attribute_start_date": "2020-01-01",
+        "attribute_end_date": "2020-12-31",
+        "attribute_concept_id": "2052497777"
+      },
+      {
+        "attribute_name": "m_totpop",
+        "attribute_description": "Population estimate MOE, 2016-2020 ACS",
+        "attribute_source": "S0601_C01_001M",
+        "attribute_type": "float8",
+        "attribute_unit": "moe",
+        "attribute_min_value": "2",
+        "attribute_max_value": "1745",
+        "attribute_start_date": "2020-01-01",
+        "attribute_end_date": "2020-12-31",
+        "attribute_concept_id": "2052498090"
+      },
+      {
+        "attribute_name": "m_twomore",
+        "attribute_description": "Adjunct variable - Two or more races, not Hispanic or Latino persons estimate MOE, 2016-2020 ACS",
+        "attribute_source": "DP05_0083M",
+        "attribute_type": "float8",
+        "attribute_unit": "moe",
+        "attribute_min_value": "2",
+        "attribute_max_value": "1128",
+        "attribute_start_date": "2020-01-01",
+        "attribute_end_date": "2020-12-31",
+        "attribute_concept_id": "2052497159"
+      },
+      {
+        "attribute_name": "m_unemp",
+        "attribute_description": "Civilian (age 16+) unemployed estimate MOE, 2016-2020 ACS",
+        "attribute_source": "DP03_0005M",
+        "attribute_type": "float8",
+        "attribute_unit": "moe",
+        "attribute_min_value": "7",
+        "attribute_max_value": "440",
+        "attribute_start_date": "2020-01-01",
+        "attribute_end_date": "2020-12-31",
+        "attribute_concept_id": "2052499670"
+      },
+      {
+        "attribute_name": "m_uninsur",
+        "attribute_description": "Uninsured in the total civilian noninstitutionalized population estimate MOE, 2016-2020 ACS",
+        "attribute_source": "S2701_C04_001M",
+        "attribute_type": "float8",
+        "attribute_unit": "moe",
+        "attribute_min_value": "4",
+        "attribute_max_value": "927",
+        "attribute_start_date": "2020-01-01",
+        "attribute_end_date": "2020-12-31",
+        "attribute_concept_id": "2052497148"
+      },
+      {
+        "attribute_name": "mp_afam",
+        "attribute_description": "Adjunct variable - Percentage of Black/African American, not Hispanic or Latino persons estimate MOE, 2016-2020 ACS",
+        "attribute_source": "DP05_0078PM",
+        "attribute_type": "float8",
+        "attribute_unit": "moe",
+        "attribute_min_value": "0",
+        "attribute_max_value": "100",
+        "attribute_start_date": "2020-01-01",
+        "attribute_end_date": "2020-12-31",
+        "attribute_concept_id": "2052498570"
+      },
+      {
+        "attribute_name": "mp_age17",
+        "attribute_description": "Percentage of persons aged 17 and younger estimate MOE, 2016-2020 ACS",
+        "attribute_source": "((SQRT (M_AGE17^2 - ((EP_AGE17 / 100)^2 * M_TOTPOP^2))) / E_TOTPOP) * 100",
+        "attribute_type": "float8",
+        "attribute_unit": "moe",
+        "attribute_min_value": "1",
+        "attribute_max_value": "100",
+        "attribute_start_date": "2020-01-01",
+        "attribute_end_date": "2020-12-31",
+        "attribute_concept_id": "2052498381"
+      },
+      {
+        "attribute_name": "mp_age65",
+        "attribute_description": "Percentage of persons aged 65 and older estimate MOE, 2016-2020 ACS",
+        "attribute_source": "S0101_C02_030M",
+        "attribute_type": "float8",
+        "attribute_unit": "moe",
+        "attribute_min_value": "0",
+        "attribute_max_value": "100",
+        "attribute_start_date": "2020-01-01",
+        "attribute_end_date": "2020-12-31",
+        "attribute_concept_id": "2052498379"
+      },
+      {
+        "attribute_name": "mp_aian",
+        "attribute_description": "Adjunct variable - Percentage of American Indian or Alaska Native, not Hispanic or Latino persons estimate MOE, 2016-2020 ACS",
+        "attribute_source": "DP05_0079PM",
+        "attribute_type": "float8",
+        "attribute_unit": "moe",
+        "attribute_min_value": "0",
+        "attribute_max_value": "100",
+        "attribute_start_date": "2020-01-01",
+        "attribute_end_date": "2020-12-31",
+        "attribute_concept_id": "2052498580"
+      },
+      {
+        "attribute_name": "mp_asian",
+        "attribute_description": "Adjunct variable - Percentage of Asian, not Hispanic or Latino persons estimate MOE, 2016-2020 ACS",
+        "attribute_source": "DP05_0080PM",
+        "attribute_type": "float8",
+        "attribute_unit": "moe",
+        "attribute_min_value": "0",
+        "attribute_max_value": "100",
+        "attribute_start_date": "2020-01-01",
+        "attribute_end_date": "2020-12-31",
+        "attribute_concept_id": "2052498575"
+      },
+      {
+        "attribute_name": "mp_crowd",
+        "attribute_description": "Percentage of occupied housing units with more people than rooms estimate MOE",
+        "attribute_source": "((SQRT (M_CROWD^2 - ((EP_CROWD / 100)^2 * DP04_0002M ^2))) / DP04_0002E) * 100",
+        "attribute_type": "float8",
+        "attribute_unit": "moe",
+        "attribute_min_value": "0",
+        "attribute_max_value": "100",
+        "attribute_start_date": "2020-01-01",
+        "attribute_end_date": "2020-12-31",
+        "attribute_concept_id": "2052498399"
+      },
+      {
+        "attribute_name": "mp_disabl",
+        "attribute_description": "Percentage of civilian noninstitutionalized population with a disability estimate MOE, 2016-2020 ACS",
+        "attribute_source": "DP02_0072PM",
+        "attribute_type": "float8",
+        "attribute_unit": "moe",
+        "attribute_min_value": "1",
+        "attribute_max_value": "100",
+        "attribute_start_date": "2020-01-01",
+        "attribute_end_date": "2020-12-31",
+        "attribute_concept_id": "2052498557"
+      },
+      {
+        "attribute_name": "mp_groupq",
+        "attribute_description": "Percentage of persons in group quarters estimate MOE, 2016-2020 ACS",
+        "attribute_source": "((SQRT (M_GROUPQ^2 - ((EP_GROUPQ / 100)^2 * M_TOTPOP^2))) / E_TOTPOP) * 100",
+        "attribute_type": "float8",
+        "attribute_unit": "moe",
+        "attribute_min_value": "0",
+        "attribute_max_value": "61",
+        "attribute_start_date": "2020-01-01",
+        "attribute_end_date": "2020-12-31",
+        "attribute_concept_id": "2052498375"
+      },
+      {
+        "attribute_name": "mp_hburd",
+        "attribute_description": "Percentage of housing cost-burdened occupied housing units with annual income less than 5,000 (30%+ of income spent on housing costs) estimate MOE, 2016-2020 ACS",
+        "attribute_source": "((SQRT (M_HBURD^2 - ((EP_HBURD / 100)^2 * S2503_C01_001M ^2))) / S2503_C01_001E) * 100",
+        "attribute_type": "float8",
+        "attribute_unit": "moe",
+        "attribute_min_value": "2",
+        "attribute_max_value": "100",
+        "attribute_start_date": "2020-01-01",
+        "attribute_end_date": "2020-12-31",
+        "attribute_concept_id": "2052498463"
+      },
+      {
+        "attribute_name": "mp_hisp",
+        "attribute_description": "Adjunct variable - Percentage of Hispanic or Latino persons estimate MOE, 2016-2020 ACS",
+        "attribute_source": "DP05_0071PM",
+        "attribute_type": "float8",
+        "attribute_unit": "moe",
+        "attribute_min_value": "0",
+        "attribute_max_value": "100",
+        "attribute_start_date": "2020-01-01",
+        "attribute_end_date": "2020-12-31",
+        "attribute_concept_id": "2052498519"
+      },
+      {
+        "attribute_name": "mp_limeng",
+        "attribute_description": "Percentage of persons (age 5+) who speak English \"less than well\" estimate MOE, 2016-2020 ACS",
+        "attribute_source": "((SQRT (M_LIMENG^2 - ((EP_LIMENG / 100)^2 * B16005_001M ^2))) / B16005_001E) * 100",
+        "attribute_type": "float8",
+        "attribute_unit": "moe",
+        "attribute_min_value": "1",
+        "attribute_max_value": "100",
+        "attribute_start_date": "2020-01-01",
+        "attribute_end_date": "2020-12-31",
+        "attribute_concept_id": "2052498383"
+      },
+      {
+        "attribute_name": "mp_minrty",
+        "attribute_description": "Percentage minority (Hispanic or Latino (of any race) -- Black and African American, Not Hispanic or Latino -- American Indian and Alaska Native, Not Hispanic or Latino -- Asian, Not Hispanic or Latino -- Native Hawaiian and Other Pacific Islander, Not Hispanic or Latino -- Two or More Races, Not Hispanic or Latino -- Other Races, Not Hispanic or Latino) estimate MOE, 2016-2020 ACS",
+        "attribute_source": "((SQRT (M_MINRTY^2 - ((EP_MINRTY / 100)^2 * M_TOTPOP^2))) / E_TOTPOP) * 100",
+        "attribute_type": "float8",
+        "attribute_unit": "moe",
+        "attribute_min_value": "1",
+        "attribute_max_value": "100",
+        "attribute_start_date": "2020-01-01",
+        "attribute_end_date": "2020-12-31",
+        "attribute_concept_id": "2052498609"
+      },
+      {
+        "attribute_name": "mp_mobile",
+        "attribute_description": "Percentage of mobile homes estimate MOE",
+        "attribute_source": "DP04_0014PM",
+        "attribute_type": "float8",
+        "attribute_unit": "moe",
+        "attribute_min_value": "0",
+        "attribute_max_value": "100",
+        "attribute_start_date": "2020-01-01",
+        "attribute_end_date": "2020-12-31",
+        "attribute_concept_id": "2052498421"
+      },
+      {
+        "attribute_name": "mp_munit",
+        "attribute_description": "Percentage of housing in structures with 10 or more units estimate MOE",
+        "attribute_source": "((SQRT (M_MUNIT^2 - ((EP_MUNIT / 100)^2 * M_HU^2))) / E_HU) * 100",
+        "attribute_type": "float8",
+        "attribute_unit": "moe",
+        "attribute_min_value": "0",
+        "attribute_max_value": "100",
+        "attribute_start_date": "2020-01-01",
+        "attribute_end_date": "2020-12-31",
+        "attribute_concept_id": "2052498460"
+      },
+      {
+        "attribute_name": "mp_nhpi",
+        "attribute_description": "Adjunct variable - Percentage of Native Hawaiian or Other Pacific Islander, not Hispanic or Latino persons estimate MOE, 2016-2020 ACS",
+        "attribute_source": "DP05_0081PM",
+        "attribute_type": "float8",
+        "attribute_unit": "moe",
+        "attribute_min_value": "0",
+        "attribute_max_value": "100",
+        "attribute_start_date": "2020-01-01",
+        "attribute_end_date": "2020-12-31",
+        "attribute_concept_id": "2052498417"
+      },
+      {
+        "attribute_name": "mp_nohsdp",
+        "attribute_description": "Percentage of persons with no high school diploma (25+) estimate MOE",
+        "attribute_source": "S0601_C01_033M",
+        "attribute_type": "float8",
+        "attribute_unit": "moe",
+        "attribute_min_value": "0",
+        "attribute_max_value": "100",
+        "attribute_start_date": "2020-01-01",
+        "attribute_end_date": "2020-12-31",
+        "attribute_concept_id": "2052498370"
+      },
+      {
+        "attribute_name": "mp_noint",
+        "attribute_description": "Adjunct variable - Percentage of households without a computer with a broadband Internet subscription estimate MOE, 2016-2020 ACS",
+        "attribute_source": "((SQRT (M_NOINT^2 - ((EP_NOINT / 100)^2 * S2802_C01_001M^2))) / S2802_C01_001M) * 100",
+        "attribute_type": "float8",
+        "attribute_unit": "moe",
+        "attribute_min_value": "1",
+        "attribute_max_value": "100",
+        "attribute_start_date": "2020-01-01",
+        "attribute_end_date": "2020-12-31",
+        "attribute_concept_id": "2052498467"
+      },
+      {
+        "attribute_name": "mp_noveh",
+        "attribute_description": "Percentage of households with no vehicle available estimate MOE",
+        "attribute_source": "DP04_0058PM",
+        "attribute_type": "float8",
+        "attribute_unit": "moe",
+        "attribute_min_value": "0",
+        "attribute_max_value": "100",
+        "attribute_start_date": "2020-01-01",
+        "attribute_end_date": "2020-12-31",
+        "attribute_concept_id": "2052498476"
+      },
+      {
+        "attribute_name": "mp_otherrace",
+        "attribute_description": "Adjunct variable - Percentage of some other race, not Hispanic or Latino persons estimate MOE, 2016-2020 ACS",
+        "attribute_source": "DP05_0082PM",
+        "attribute_type": "float8",
+        "attribute_unit": "moe",
+        "attribute_min_value": "0",
+        "attribute_max_value": "100",
+        "attribute_start_date": "2020-01-01",
+        "attribute_end_date": "2020-12-31",
+        "attribute_concept_id": "2052498245"
+      },
+      {
+        "attribute_name": "mp_pov150",
+        "attribute_description": "Percentage of persons below 150% poverty estimate MOE",
+        "attribute_source": "((SQRT(M_POV150^2-((EP_POV150 / 100)^2 * S1701_C01_001M ^2))) / S1701_C01_001E) * 100",
+        "attribute_type": "float8",
+        "attribute_unit": "moe",
+        "attribute_min_value": "0",
+        "attribute_max_value": "100",
+        "attribute_start_date": "2020-01-01",
+        "attribute_end_date": "2020-12-31",
+        "attribute_concept_id": "2052498377"
+      },
+      {
+        "attribute_name": "mp_sngpnt",
+        "attribute_description": "Percentage of single-parent households with children under 18 estimate MOE, 2016-2020 ACS",
+        "attribute_source": "((SQRT (M_SNGPNT^2 - ((EP_SNGPNT / 100)^2 * M_HH^2))) / E_HH) * 100",
+        "attribute_type": "float8",
+        "attribute_unit": "moe",
+        "attribute_min_value": "1",
+        "attribute_max_value": "100",
+        "attribute_start_date": "2020-01-01",
+        "attribute_end_date": "2020-12-31",
+        "attribute_concept_id": "2052498248"
+      },
+      {
+        "attribute_name": "mp_twomore",
+        "attribute_description": "Adjunct variable - Percentage of two or more races, not Hispanic or Latino persons estimate MOE, 2016-2020 ACS",
+        "attribute_source": "DP05_0083PM",
+        "attribute_type": "float8",
+        "attribute_unit": "moe",
+        "attribute_min_value": "0",
+        "attribute_max_value": "100",
+        "attribute_start_date": "2020-01-01",
+        "attribute_end_date": "2020-12-31",
+        "attribute_concept_id": "2052498227"
+      },
+      {
+        "attribute_name": "mp_unemp",
+        "attribute_description": "Unemployment Rate estimate MOE",
+        "attribute_source": "DP03_0009PM",
+        "attribute_type": "float8",
+        "attribute_unit": "moe",
+        "attribute_min_value": "0",
+        "attribute_max_value": "100",
+        "attribute_start_date": "2020-01-01",
+        "attribute_end_date": "2020-12-31",
+        "attribute_concept_id": "2052497152"
+      },
+      {
+        "attribute_name": "mp_uninsur",
+        "attribute_description": "Percentage uninsured in the total civilian noninstitutionalized population estimate MOE, 2016-2020 ACS",
+        "attribute_source": "S2701_C05_001M",
+        "attribute_type": "float8",
+        "attribute_unit": "moe",
+        "attribute_min_value": "0",
+        "attribute_max_value": "100",
+        "attribute_start_date": "2020-01-01",
+        "attribute_end_date": "2020-12-31",
+        "attribute_concept_id": "2052498199"
+      },
+      {
+        "attribute_name": "rpl_theme1",
+        "attribute_description": "Percentile ranking for Socioeconomic Status theme summary",
+        "attribute_source": "In Excel: PERCENTRANK.INC on SPL_THEME1 array with 4 significant digits",
+        "attribute_type": "float8",
+        "attribute_unit": "moe",
+        "attribute_min_value": "0",
+        "attribute_max_value": "1",
+        "attribute_start_date": "2020-01-01",
+        "attribute_end_date": "2020-12-31",
+        "attribute_concept_id": "2052498129"
+      },
+      {
+        "attribute_name": "rpl_theme2",
+        "attribute_description": "Percentile ranking for Household Characteristics theme summary",
+        "attribute_source": "In Excel: PERCENTRANK.INC on SPL_THEME2 array with 4 significant digits",
+        "attribute_type": "float8",
+        "attribute_unit": "percentile",
+        "attribute_min_value": "0",
+        "attribute_max_value": "1",
+        "attribute_start_date": "2020-01-01",
+        "attribute_end_date": "2020-12-31",
+        "attribute_concept_id": "2052498134"
+      },
+      {
+        "attribute_name": "rpl_theme3",
+        "attribute_description": "Percentile ranking for Racial and Ethnic Minority Status theme",
+        "attribute_source": "In Excel: PERCENTRANK.INC on SPL_THEME3 array with 4 significant digits",
+        "attribute_type": "float8",
+        "attribute_unit": "percentile",
+        "attribute_min_value": "0",
+        "attribute_max_value": "1",
+        "attribute_start_date": "2020-01-01",
+        "attribute_end_date": "2020-12-31",
+        "attribute_concept_id": "2052498130"
+      },
+      {
+        "attribute_name": "rpl_theme4",
+        "attribute_description": "Percentile ranking for Housing Type/ Transportation theme",
+        "attribute_source": "In Excel: PERCENTRANK.INC on SPL_THEME4 array with 4 significant digits",
+        "attribute_type": "float8",
+        "attribute_unit": "percentile",
+        "attribute_min_value": "0",
+        "attribute_max_value": "1",
+        "attribute_start_date": "2020-01-01",
+        "attribute_end_date": "2020-12-31",
+        "attribute_concept_id": "2052498133"
+      },
+      {
+        "attribute_name": "rpl_themes",
+        "attribute_description": "Overall percentile ranking",
+        "attribute_source": "In Excel: PERCENTRANK.INC on SPL_THEMES array with 4 significant digits",
+        "attribute_type": "float8",
+        "attribute_unit": "percentile",
+        "attribute_min_value": "0",
+        "attribute_max_value": "1",
+        "attribute_start_date": "2020-01-01",
+        "attribute_end_date": "2020-12-31",
+        "attribute_concept_id": "2052498131"
+      },
+      {
+        "attribute_name": "spl_theme1",
+        "attribute_description": "Sum of series for Socioeconomic Status theme",
+        "attribute_source": "EPL_POV150 + EPL_UNEMP + EPL_HBURD + EPL_NOHSDP + EPL_UNINSUR",
+        "attribute_type": "float8",
+        "attribute_unit": "svi index",
+        "attribute_min_value": "0",
+        "attribute_max_value": "5",
+        "attribute_start_date": "2020-01-01",
+        "attribute_end_date": "2020-12-31",
+        "attribute_concept_id": "2052497697"
+      },
+      {
+        "attribute_name": "spl_theme2",
+        "attribute_description": "Sum of series for Household Characteristics theme",
+        "attribute_source": "EPL_AGE65 + EPL_AGE17 + EPL_DISABL + EPL_SNGPNT + EPL_LIMENG",
+        "attribute_type": "float8",
+        "attribute_unit": "svi index",
+        "attribute_min_value": "0",
+        "attribute_max_value": "5",
+        "attribute_start_date": "2020-01-01",
+        "attribute_end_date": "2020-12-31",
+        "attribute_concept_id": "2052497700"
+      },
+      {
+        "attribute_name": "spl_theme3",
+        "attribute_description": "Sum of series for Racial and Ethnic Minority Status theme",
+        "attribute_source": "EPL_MINRTY",
+        "attribute_type": "float8",
+        "attribute_unit": "svi index",
+        "attribute_min_value": "0",
+        "attribute_max_value": "1",
+        "attribute_start_date": "2020-01-01",
+        "attribute_end_date": "2020-12-31",
+        "attribute_concept_id": "2052497698"
+      },
+      {
+        "attribute_name": "spl_theme4",
+        "attribute_description": "Sum of series for Housing Type/ Transportation theme",
+        "attribute_source": "EPL_MUNIT + EPL_MOBIL + EPL_CROWD + EPL_NOVEH + EPL_GROUPQ",
+        "attribute_type": "float8",
+        "attribute_unit": "svi index",
+        "attribute_min_value": "0",
+        "attribute_max_value": "5",
+        "attribute_start_date": "2020-01-01",
+        "attribute_end_date": "2020-12-31",
+        "attribute_concept_id": "2052497699"
+      },
+      {
+        "attribute_name": "spl_themes",
+        "attribute_description": "Sum of series themes",
+        "attribute_source": "SPL_THEME1 + SPL_THEME2 + SPL_THEME3 + SPL_THEME4",
+        "attribute_type": "float8",
+        "attribute_unit": "svi index",
+        "attribute_min_value": "0",
+        "attribute_max_value": "14",
+        "attribute_start_date": "2020-01-01",
+        "attribute_end_date": "2020-12-31"
+      },
+      {
+        "attribute_name": "st",
+        "attribute_description": "State-level FIPS code",
+        "attribute_source": "FIPS",
+        "attribute_type": "varchar",
+        "attribute_concept_id": "2052497725"
+      },
+      {
+        "attribute_name": "st_abbr",
+        "attribute_description": "State abbreviation",
+        "attribute_source": "N/A Joined from Esri state boundary shapefile",
+        "attribute_type": "varchar",
+        "attribute_concept_id": "2052497733"
+      },
+      {
+        "attribute_name": "state",
+        "attribute_description": "State name",
+        "attribute_source": "NAME",
+        "attribute_type": "varchar",
+        "attribute_concept_id": "2052497730"
+      },
+      {
+        "attribute_name": "stcnty",
+        "attribute_description": "County-level FIPS code",
+        "attribute_source": "FIPS",
+        "attribute_type": "varchar",
+        "attribute_concept_id": "2052499638"
+      }
+    ],
+    "no_data_group": [
+      {
+        "no_data_type": "int4",
+        "no_data_value": "-999"
+      }
+    ]
+  },
+  "collection_group": {
+    "collections": "ohdsi-gaia",
+    "analytic_function": "gdsc_get_attributes",
+    "analytic_epsg": 26986,
+    "derivatives": "sql",
+    "derivative_url": "/data/ma_2022_svi_tract/",
+    "sponsor_group": [
+      {
+        "sponsor_name": "TuftsCTSI",
+        "sponsor_url": "https://www.tuftsctsi.org/"
+      },
+      {
+        "sponsor_name": "IDSC",
+        "sponsor_url": "https://idsc.miami.edu"
+      },
+      {
+        "sponsor_name": "Library",
+        "sponsor_url": "https://www.library.miami.edu"
+      }
+    ]
+  },
+  "etl_group": {
+    "source": "https://svi.cdc.gov/Documents/Data/2022/db/states/Massachusetts.zip",
+    "file_name_group": [
+      {
+        "file_name_value": "ma_2022_svi_tract",
+        "file_inside_archive": "SVI2022_MASSACHUSETTS_tract"
+      }
+    ],
+    "extension": "zip",
+    "download": "wget",
+    "table_name": "ma_2022_svi_tract",
+    "format": "gdb",
+    "up": "false",
+    "podid": "gaia-db",
+    "last_updated": "2026-05-25 17:24:46",
+    "update_frequency": "never",
+    "checksum": "TBD"
+  },
+  "_submission_time": "2026-08-23 15:56:55",
+  "meta": {
+    "instanceID": "655a0d25-7482-431c-9887-f5859004547"
+  }
+}
