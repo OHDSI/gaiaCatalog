@@ -1,0 +1,263 @@
+{
+  "@context": {
+    "@vocab": "https://schema.org/",
+    "dct": "http://purl.org/dc/terms/",
+    "qudt": "http://qudt.org/schema/qudt/",
+    "quantitykind": "http://qudt.org/vocab/quantitykind/",
+    "unit": "http://qudt.org/vocab/unit/",
+    "xsd": "http://www.w3.org/2001/XMLSchema",
+    "extendedConstraintProperty": "http://codata.org/vocab/extendedConstraintProperty",
+    "sdmx": "https://sdmx.org"
+  },
+  "@type": "Dataset",
+  "@id": "https://gdsc.idsc.miami.edu/detail/us_2022_county_tl",
+  "includedInDataCatalog": [
+    {
+      "@type": "DataCatalog",
+      "@id": "https://gdsc.idsc.miami.edu",
+      "name": "Geospatial Digital Special Collections",
+      "url": "https://gdsc.idsc.miami.edu"
+    },
+    {
+      "@type": "DataCatalog",
+      "name": "us-census",
+      "@id": "https://gdsc.idsc.miami.edu/?collection=us-census",
+      "url": "https://gdsc.idsc.miami.edu/?collection=us-census"
+    }
+  ],
+  "name": "TIGER/Line Shapefile, 2022, US, Current County",
+  "creator": [
+    {
+      "@type": "Organization",
+      "sameAs": "https://ror.org/04chq2495",
+      "@id": "https://ror.org/04chq2495",
+      "identifier": "https://ror.org/04chq2495",
+      "name": "U.S. Department of Commerce"
+    },
+    {
+      "@type": "Organization",
+      "sameAs": "https://ror.org/01qn7cs15",
+      "@id": "https://ror.org/01qn7cs15",
+      "identifier": "https://ror.org/01qn7cs15",
+      "name": "U.S. Census Bureau"
+    },
+    {
+      "@type": "Organization",
+      "name": "Geography Division"
+    },
+    {
+      "@type": "Organization",
+      "name": "Spatial Data Collection and Products Branch"
+    }
+  ],
+  "url": "https://www.census.gov/geographies/mapping-files/time-series/geo/cartographic-boundary.html",
+  "provider": [
+    {
+      "@type": "Organization",
+      "name": "Department of Commerce"
+    },
+    {
+      "@type": "Organization",
+      "name": "U.S. Census Bureau"
+    },
+    {
+      "@type": "Organization",
+      "name": "Geography Division"
+    },
+    {
+      "@type": "Organization",
+      "name": "Spatial Data Collection and Products Branch"
+    }
+  ],
+  "spatialCoverage": [
+    {
+      "@id": "https://www.geonames.org/6252001",
+      "@type": "Place",
+      "name": "United States"
+    },
+    {
+      "@type": "Place",
+      "name": "bbox",
+      "geo": {
+        "@type": "GeoShape",
+        "polygon": "-179.231086 -14.601813 179.859681 -14.601813 179.859681 71.439786 -179.231086 71.439786 -179.231086 -14.601813"
+      }
+    }
+  ],
+  "type": "Vector Dataset",
+  "description": "TIGER/Line Shapefile, 2016,  state, Florida, Current County Subdivision State-based\n\nThe TIGER/Line shapefiles and related database files (.dbf) are an extract of selected geographic and cartographic information from the U.S. Census Bureau's Master Address File / Topologically Integrated Geographic Encoding and Referencing (MAF/TIGER) Database (MTBD).  The MTBD represents a seamless national file with no overlaps or gaps between parts, however, each TIGER/Line shapefile is designed to stand alone as an independent data set, or they can be combined to cover the entire nation.\n\nCounty subdivisions are the primary divisions of counties and their equivalent entities for the reporting of Census Bureau data. They include legally-recognized minor civil divisions (MCDs) and statistical census county divisions (CCDs), and unorganized territories.  For the 2010 Census, the MCDs are the primary governmental and/or administrative divisions of counties in 29 States and Puerto Rico; Tennessee changed from having CCDs for Census 2000 to having MCDs for the 2010 Census.  In MCD States where no MCD exists or is not defined, the Census Bureau creates statistical unorganized territories to complete coverage.  The entire area of the United States, Puerto Rico, and the Island Areas are covered by county subdivisions.  The boundaries of most legal MCDs are as of January 1, 2015, as reported through the Census Bureau's Boundary and Annexation Survey (BAS).  \n\nThe boundaries of all CCDs, delineated in 20 states, are those as reported as part of the Census Bureau's Participant Statistical Areas Program (PSAP) for the 2010 Census.",
+  "keywords": [
+    "USA",
+    "Counties",
+    "TIGER"
+  ],
+  "@language": "en",
+  "measurementTechnique": [
+    {
+      "@type": "DefinedTerm",
+      "description": "GIS Data Structure for Representation",
+      "inDefinedTermSet": {
+        "@type": "DefinedTermSet",
+        "name": "dataRepresentation",
+        "hasDefinedTerm": [
+          {
+            "@type": "DefinedTerm",
+            "termCode": "raster"
+          },
+          {
+            "@type": "DefinedTerm",
+            "termCode": "vector"
+          },
+          {
+            "@type": "DefinedTerm",
+            "termCode": "table"
+          }
+        ]
+      },
+      "termCode": "vector"
+    },
+    {
+      "@type": "DefinedTerm",
+      "description": "GIS Vector Geometery",
+      "inDefinedTermSet": {
+        "@type": "DefinedTermSet",
+        "name": "vectorGeometry",
+        "hasDefinedTerm": [
+          {
+            "@type": "DefinedTerm",
+            "termCode": "point"
+          },
+          {
+            "@type": "DefinedTerm",
+            "termCode": "line"
+          },
+          {
+            "@type": "DefinedTerm",
+            "termCode": "polygon"
+          }
+        ]
+      },
+      "termCode": "multipolygon"
+    }
+  ],
+  "additionalProperty": [
+    {
+      "@type": "PropertyValue",
+      "propertyID": "http://dbpedia.org/resource/Spatial_reference_system",
+      "value": "https://epsg.io/4269"
+    }
+  ],
+  "about": [
+    {
+      "@type": "Event",
+      "description": "direct from source",
+      "name": "ETL process for TIGER/Line Shapefile, 2022, US, Current County",
+      "potentialAction": {
+        "@type": "Action",
+        "name": "Pseudo Code",
+        "description": "TODO"
+      }
+    },
+    {
+      "@type": "Event",
+      "description": "direct from source",
+      "name": "ETL process for TIGER/Line Shapefile, 2022, US, Current County",
+      "potentialAction": {
+        "@type": "Action",
+        "name": "wget",
+        "description": "ETL process for TIGER/Line Shapefile, 2022, US, Current County",
+        "object": {
+          "@type": "Dataset",
+          "name": "direct from source",
+          "producer": "U.S. Department of Commerce",
+          "url": "https://www.census.gov/geographies/mapping-files/time-series/geo/cartographic-boundary.html"
+        },
+        "instrument": {
+          "@type": "SoftwareApplication",
+          "@id": "https://github.com/Geospatial-Digital-Special-Collections/tools",
+          "featureList": "wget",
+          "downloadUrl": "https://github.com/Geospatial-Digital-Special-Collections/tools.git"
+        },
+        "result": {
+          "@type": "Dataset",
+          "name": "TIGER/Line Shapefile, 2022, US, Current County",
+          "description": "TIGER/Line Shapefile, 2016,  state, Florida, Current County Subdivision State-based\n\nThe TIGER/Line shapefiles and related database files (.dbf) are an extract of selected geographic and cartographic information from the U.S. Census Bureau's Master Address File / Topologically Integrated Geographic Encoding and Referencing (MAF/TIGER) Database (MTBD).  The MTBD represents a seamless national file with no overlaps or gaps between parts, however, each TIGER/Line shapefile is designed to stand alone as an independent data set, or they can be combined to cover the entire nation.\n\nCounty subdivisions are the primary divisions of counties and their equivalent entities for the reporting of Census Bureau data. They include legally-recognized minor civil divisions (MCDs) and statistical census county divisions (CCDs), and unorganized territories.  For the 2010 Census, the MCDs are the primary governmental and/or administrative divisions of counties in 29 States and Puerto Rico; Tennessee changed from having CCDs for Census 2000 to having MCDs for the 2010 Census.  In MCD States where no MCD exists or is not defined, the Census Bureau creates statistical unorganized territories to complete coverage.  The entire area of the United States, Puerto Rico, and the Island Areas are covered by county subdivisions.  The boundaries of most legal MCDs are as of January 1, 2015, as reported through the Census Bureau's Boundary and Annexation Survey (BAS).  \n\nThe boundaries of all CCDs, delineated in 20 states, are those as reported as part of the Census Bureau's Participant Statistical Areas Program (PSAP) for the 2010 Census.",
+          "encodingFormat": "shp"
+        }
+      }
+    }
+  ],
+  "variableMeasured": [
+    {
+      "@type": "PropertyValue",
+      "name": "statefp"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "countyfp"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "countyns"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "geoid"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "name"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "namelsad"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "lsad"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "classfp"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "mtfcc"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "csafp"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "cbsafp"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "metdivfp"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "funcstat"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "aland"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "awater"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "intptlat"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "intptlon"
+    }
+  ],
+  "distribution": "TBD",
+  "dateModified": "2022-10-31",
+  "version": "2026-09-06"
+}

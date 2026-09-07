@@ -9,7 +9,7 @@
 
 # create directory structure and move into it
 mkdir -p /data/tt_roads/download -p /data/tt_roads/etl
-chmod 777 /data/tt_roads/download
+chmod -R 777 /data/tt_roads
 cd /data/tt_roads
 
 # set update flag based on last update and update frequency
@@ -20,7 +20,8 @@ if do_update == 1 then
 curl -o download/tt_roads.osm 'https://overpass-api.de/api/interpreter?data=way%5B%22highway%22~%22secondary|primary%22%5D(area:3600555717);(._;>;);out;'
 
 # load into postGIS with:
-  ogr2ogr -lco GEOMETRY_NAME=geom -f PostgreSQL PG:"<postgres connection>" download/tt_roads.osm
+ogr2ogr -lco GEOMETRY_NAME=geom -f PostgreSQL PG:"<postgres connection>" download/tt_roads.osm
+
 
 #########
 # Step 2 - SQL script (pseudo code):

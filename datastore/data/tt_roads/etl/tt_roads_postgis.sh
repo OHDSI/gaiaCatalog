@@ -6,7 +6,7 @@
 # Data source: https://overpass-api.de/api/interpreter?data=way%5B%22highway%22~%22secondary|primary%22%5D(area:3600555717);(._;>;);out;
 # Destination postGIS table: tt_roads
 #
-# Created by etl() on 2026-05-26 12:19:24
+# Created by etl() on 2026-09-06 12:36:38
 # Do not edit directly
 
 # Select proper geometry into the named table

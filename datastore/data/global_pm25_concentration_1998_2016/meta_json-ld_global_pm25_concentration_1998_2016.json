@@ -41,7 +41,6 @@
       "name": "University of Miami GDSC"
     }
   ],
-  "license": "This work is licensed under the Creative Commons Attribution 4.0 International License (https://creativecommons.org/licenses/by/4.0). Users are free to use, copy, distribute, transmit, and adapt the work for commercial and non-commercial purposes, without restriction, as long as clear attribution of the source is provided.",
   "spatialCoverage": [
     {
       "@id": "https://www.geonames.org/6295630",
@@ -438,5 +437,5 @@
     "https://gdsc.idsc.miami.edu/download/data/global_pm25_concentration_1998_2016/?file=global_pm25_concentration_1998_2016&format=shp"
   ],
   "dateModified": "2021-04-06",
-  "version": "2026-05-26"
+  "version": "2026-09-06"
 }

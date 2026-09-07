@@ -1,0 +1,49 @@
+#########
+# GDSC ETL is performed in two steps: shell script to ETL data into postgres
+# and then additional transformations with SQL in postGIS (if needed).
+####
+
+#########
+# Step 1 - bash script (pseudo code)
+####
+
+# create directory structure and move into it
+mkdir -p /data/us_2022_county_tl/download -p /data/us_2022_county_tl/etl
+chmod -R 777 /data/us_2022_county_tl
+cd /data/us_2022_county_tl
+
+# set update flag based on last update and update frequency
+do_update=0 if date() < last_update + update_frequency else do_update = 1
+
+# download if update flag is set:
+if do_update == 1 then
+wget -O download/us_2022_county_tl.zip 'ftp://ftp2.census.gov/geo/tiger/TIGER2022/COUNTY/tl_2022_us_county.zip'
+
+# unzip to download directory if update flag is set
+if do_update == 1 then
+unzip -d download download/us_2022_county_tl.zip && rm download/us_2022_county_tl.zip
+
+# load into postGIS with:
+ogr2ogr -lco GEOMETRY_NAME=geom -f PostgreSQL PG:"<postgres connection>" download/tl_2022_us_county.shp -nlt multipolygon -nln us_2022_county_tl
+
+
+#########
+# Step 2 - SQL script (pseudo code):
+####
+
+# remove duplicate points and make geometries valid:
+UPDATE us_2022_county_tl
+  SET geom=ST_MakeValid(ST_RemoveRepeatedPoints(geom));
+
+# add local geometry column and reproject existing geometries into local EPSG:
+SELECT AddGeometryColumn (
+  'us_2022_county_tl',
+  'geom_local', 4269, 'multipolygon', 2
+);
+UPDATE us_2022_county_tl
+  SET geom_local=ST_MakeValid(ST_RemoveRepeatedPoints(ST_Transform(ST_Multi(geom),4269)));
+CREATE INDEX us_2022_county_tl_geom_local_idx
+  ON us_2022_county_tl
+  USING GIST (geom_local);
+NOTIFY pgrst, 'reload schema';
+

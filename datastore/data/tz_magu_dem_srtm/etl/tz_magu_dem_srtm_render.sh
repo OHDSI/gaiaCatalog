@@ -6,7 +6,7 @@
 # Data source: https://e4ftl01.cr.usgs.gov/MEASURES/SRTMGL1.003/2000.02.11/
 # Destination postGIS table: tz_magu_dem_srtm
 #
-# Created by etl() on 2026-05-26 12:19:30
+# Created by etl() on 2026-09-06 12:36:47
 # Do not edit directly
 
 # render raster tiles 

@@ -6,7 +6,7 @@
 # Data source: https://svi.cdc.gov/Documents/Data/2022/db/states/Massachusetts.zip
 # Destination postGIS table: ma_2022_svi_tract
 #
-# Created by etl() on 2026-05-26 12:19:20
+# Created by etl() on 2026-09-06 12:49:02
 # Do not edit directly
 
 # Move into correct directory

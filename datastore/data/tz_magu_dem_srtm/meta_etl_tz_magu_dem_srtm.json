@@ -9,7 +9,7 @@
   "attributes": ["elevation;Mean elevation above sea level;NASA JPL;float;meters\n"],
   "tile_zoom": ["14", "18"],
   "local_epsg": "EPSG:4326",
-  "derive": ["tiff"],
+  "derive": ["geotiff"],
   "source": "https://e4ftl01.cr.usgs.gov/MEASURES/SRTMGL1.003/2000.02.11/",
   "file": ["tz_magu_dem_srtm"],
   "extension": "zip",

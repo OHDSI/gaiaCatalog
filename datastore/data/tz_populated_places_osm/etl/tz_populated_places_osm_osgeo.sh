@@ -6,12 +6,12 @@
 # Data source: https://overpass-api.de/api/interpreter?data=area%28id:3600195270%29-%3E.searchArea;node%5B%22place%22~%22city|town|village|hamlet%22%5D%28area.searchArea%29;%28._;%3E;%29;out;
 # Destination postGIS table: tz_populated_places_osm
 #
-# Created by etl() on 2026-05-26 12:19:31
+# Created by etl() on 2026-09-06 12:36:49
 # Do not edit directly
 
 # create directory structure and move into it
 mkdir -p /data/tz_populated_places_osm/download -p /data/tz_populated_places_osm/etl
-chmod 777 /data/tz_populated_places_osm/download
+chmod -R 777 /data/tz_populated_places_osm
 cd /data/tz_populated_places_osm
 
 # check for existence
@@ -37,17 +37,18 @@ else do_update=1; fi
 
 # download if needed
 if [[ $do_update = 1 ]]; then
-  (exit 1)
-  until [[ "$?" == 0 ]]; do
-      curl -o download/tz_populated_places_osm.osm 'https://overpass-api.de/api/interpreter?data=area%28id:3600195270%29-%3E.searchArea;node%5B%22place%22~%22city|town|village|hamlet%22%5D%28area.searchArea%29;%28._;%3E;%29;out;'
+  attempts=0
+  until (
+    curl -o download/tz_populated_places_osm.osm 'https://overpass-api.de/api/interpreter?data=area%28id:3600195270%29-%3E.searchArea;node%5B%22place%22~%22city|town|village|hamlet%22%5D%28area.searchArea%29;%28._;%3E;%29;out;'
+  ); do
+    ((attempts++))
+    if [[ attempts > 3 ]]; then echo $?; break; fi
   done
   # record download datestamp
   echo $(date '+%F %T') > datestamp
 fi
 
 # load into postGIS
-(exit 1)
-until [[ "$?" == 0 ]]; do
-  ogr2ogr -lco GEOMETRY_NAME=geom -f PostgreSQL PG:"dbname=$POSTGRES_DB port=$POSTGRES_PORT user=$POSTGRES_USER password=$POSTGRES_PASSWORD host='gaia-db'" download/tz_populated_places_osm.osm
-done
+ogr2ogr -lco GEOMETRY_NAME=geom -f PostgreSQL PG:"dbname=$POSTGRES_DB port=$POSTGRES_PORT user=$POSTGRES_USER password=$POSTGRES_PASSWORD host='gaia-db'" download/tz_populated_places_osm.osm
+
 

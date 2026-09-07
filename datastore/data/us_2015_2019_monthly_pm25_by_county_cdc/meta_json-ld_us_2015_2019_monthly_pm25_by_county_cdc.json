@@ -1,0 +1,300 @@
+{
+  "@context": {
+    "@vocab": "https://schema.org/",
+    "dct": "http://purl.org/dc/terms/",
+    "qudt": "http://qudt.org/schema/qudt/",
+    "quantitykind": "http://qudt.org/vocab/quantitykind/",
+    "unit": "http://qudt.org/vocab/unit/",
+    "xsd": "http://www.w3.org/2001/XMLSchema",
+    "extendedConstraintProperty": "http://codata.org/vocab/extendedConstraintProperty",
+    "sdmx": "https://sdmx.org"
+  },
+  "@type": "Dataset",
+  "@id": "https://gdsc.idsc.miami.edu/detail/us_2015_2019_monthly_pm25_by_county_cdc",
+  "includedInDataCatalog": [
+    {
+      "@type": "DataCatalog",
+      "@id": "https://gdsc.idsc.miami.edu",
+      "name": "Geospatial Digital Special Collections",
+      "url": "https://gdsc.idsc.miami.edu"
+    },
+    {
+      "@type": "DataCatalog",
+      "name": "ohdsi-gaia",
+      "@id": "https://gdsc.idsc.miami.edu/?collection=ohdsi-gaia",
+      "url": "https://gdsc.idsc.miami.edu/?collection=ohdsi-gaia"
+    }
+  ],
+  "name": "2014-2019 CDC PM 2.5 Monthly Predictions for US Counties",
+  "creator": [
+    {
+      "@type": "Organization",
+      "sameAs": "https://ror.org/04hsdam77",
+      "@id": "https://ror.org/04hsdam77",
+      "identifier": "https://ror.org/04hsdam77",
+      "name": "Center for Disease Control"
+    },
+    {
+      "@type": "Person",
+      "givenName": "Timothy B",
+      "familyName": "Norris",
+      "affiliation": {
+        "@type": "Organization",
+        "@id": "https://ror.org/02dgjyy92",
+        "identifier": "https://ror.org/02dgjyy92",
+        "name": "University of Miami Libraries, University of Miami"
+      },
+      "sameAs": "https://orcid.org/0000-0002-0898-3027",
+      "@id": "https://orcid.org/0000-0002-0898-3027",
+      "identifier": "https://orcid.org/0000-0002-0898-3027",
+      "name": "Timothy B Norris"
+    }
+  ],
+  "url": "https://data.cdc.gov/Environmental-Health-Toxicology/Daily-County-Level-PM2-5-Concentrations-2001-2022/53mz-4zqd/about_data",
+  "provider": [
+    {
+      "@type": "Organization",
+      "name": "University of Miami GDSC"
+    }
+  ],
+  "license": "odc_by",
+  "spatialCoverage": [
+    {
+      "@id": "https://www.geonames.org/6252001",
+      "@type": "Place",
+      "name": "United States"
+    },
+    {
+      "@type": "Place",
+      "name": "bbox",
+      "geo": {
+        "@type": "GeoShape",
+        "polygon": "-179.231086 -14.601813 179.859681 -14.601813 179.859681 71.439786 -179.231086 71.439786 -179.231086 -14.601813"
+      }
+    }
+  ],
+  "temporalCoverage": "2014-01-01/2019-12-31",
+  "type": "Vector Dataset",
+  "datePublished": "2026-08-31",
+  "description": "Aggregated monthly PM 2.5 modelled estimates that span 2014-01-01 to 2019-12-31 derived from the CDC Daily County-Level PM2.5 Concentrations 2001-2022 provided by the CDC National Environmental Public Health Tracking Network. From the CDC description: This dataset provides modeled predictions of PM2.5 levels from the EPA's Downscaler model. Data are at the county level for 2001-2022. These data are used by the CDC's National Environmental Public Health Tracking Network to generate air quality measures.\n\nBy using these data, you signify your agreement to comply with the following requirements:\n1. Use the data for statistical reporting and analysis only.\n2. Do not attempt to learn the identity of any person included in the data and do not combine these data with other data for the purpose of matching records to identify individuals.\n3. Do not disclose of or make use of the identity of any person or establishment discovered inadvertently and report the discovery to: trackingsupport@cdc.gov.\n4. Do not imply or state, either in written or oral form, that interpretations based on the data are those of the original data sources and CDC unless the data user and data source are formally collaborating.\n5. Acknowledge, in all reports or presentations based on these data, the original source of the data and CDC.\n6. Suggested citation: Centers for Disease Control and Prevention. National Environmental Public Health Tracking Network. Web. Accessed: insert date. www.cdc.gov/ephtracking.",
+  "keywords": [
+    "environmental health",
+    "air pollution",
+    "asthma",
+    "pm2.5",
+    "particulate matter",
+    "air quality",
+    "national ambient air quality standards",
+    "national environmental health tracking network",
+    "United States"
+  ],
+  "@language": "en",
+  "measurementTechnique": [
+    {
+      "@type": "DefinedTerm",
+      "description": "GIS Data Structure for Representation",
+      "inDefinedTermSet": {
+        "@type": "DefinedTermSet",
+        "name": "dataRepresentation",
+        "hasDefinedTerm": [
+          {
+            "@type": "DefinedTerm",
+            "termCode": "raster"
+          },
+          {
+            "@type": "DefinedTerm",
+            "termCode": "vector"
+          },
+          {
+            "@type": "DefinedTerm",
+            "termCode": "table"
+          }
+        ]
+      },
+      "termCode": "vector"
+    },
+    {
+      "@type": "DefinedTerm",
+      "description": "GIS Vector Geometery",
+      "inDefinedTermSet": {
+        "@type": "DefinedTermSet",
+        "name": "vectorGeometry",
+        "hasDefinedTerm": [
+          {
+            "@type": "DefinedTerm",
+            "termCode": "point"
+          },
+          {
+            "@type": "DefinedTerm",
+            "termCode": "line"
+          },
+          {
+            "@type": "DefinedTerm",
+            "termCode": "polygon"
+          }
+        ]
+      },
+      "termCode": "multipolygon"
+    }
+  ],
+  "additionalProperty": [
+    {
+      "@type": "PropertyValue",
+      "propertyID": "http://dbpedia.org/resource/Spatial_reference_system",
+      "value": "https://epsg.io/4269"
+    }
+  ],
+  "about": [
+    {
+      "@type": "Event",
+      "description": "Retrieved from the data.cdc.gov socrata endpoint as daily predictions a the county level and aggregated as monthly predictions for each county.",
+      "name": "ETL process for 2014-2019 CDC PM 2.5 Monthly Predictions for US Counties",
+      "potentialAction": {
+        "@type": "Action",
+        "name": "Pseudo Code",
+        "description": "TODO",
+        "result": {
+          "@type": "Dataset",
+          "encodingFormat": "sql",
+          "url": "https://gdsc.idsc.miami.edu/download/data/us_2015_2019_monthly_pm25_by_county_cdc/?file=us_2015_2019_monthly_pm25_by_county_cdc&format=sql"
+        }
+      }
+    },
+    {
+      "@type": "Event",
+      "description": "Retrieved from the data.cdc.gov socrata endpoint as daily predictions a the county level and aggregated as monthly predictions for each county.",
+      "name": "ETL process for 2014-2019 CDC PM 2.5 Monthly Predictions for US Counties",
+      "potentialAction": {
+        "@type": "Action",
+        "name": "wget",
+        "description": "ETL process for 2014-2019 CDC PM 2.5 Monthly Predictions for US Counties",
+        "object": {
+          "@type": "Dataset",
+          "name": "Retrieved from the data.cdc.gov socrata endpoint as daily predictions a the county level and aggregated as monthly predictions for each county.",
+          "producer": "Center for Disease Control",
+          "url": "https://data.cdc.gov/Environmental-Health-Toxicology/Daily-County-Level-PM2-5-Concentrations-2001-2022/53mz-4zqd/about_data"
+        },
+        "instrument": {
+          "@type": "SoftwareApplication",
+          "@id": "https://github.com/Geospatial-Digital-Special-Collections/tools",
+          "featureList": "wget",
+          "downloadUrl": "https://github.com/Geospatial-Digital-Special-Collections/tools.git"
+        },
+        "result": {
+          "@type": "Dataset",
+          "name": "2014-2019 CDC PM 2.5 Monthly Predictions for US Counties",
+          "description": "Aggregated monthly PM 2.5 modelled estimates that span 2014-01-01 to 2019-12-31 derived from the CDC Daily County-Level PM2.5 Concentrations 2001-2022 provided by the CDC National Environmental Public Health Tracking Network. From the CDC description: This dataset provides modeled predictions of PM2.5 levels from the EPA's Downscaler model. Data are at the county level for 2001-2022. These data are used by the CDC's National Environmental Public Health Tracking Network to generate air quality measures.\n\nBy using these data, you signify your agreement to comply with the following requirements:\n1. Use the data for statistical reporting and analysis only.\n2. Do not attempt to learn the identity of any person included in the data and do not combine these data with other data for the purpose of matching records to identify individuals.\n3. Do not disclose of or make use of the identity of any person or establishment discovered inadvertently and report the discovery to: trackingsupport@cdc.gov.\n4. Do not imply or state, either in written or oral form, that interpretations based on the data are those of the original data sources and CDC unless the data user and data source are formally collaborating.\n5. Acknowledge, in all reports or presentations based on these data, the original source of the data and CDC.\n6. Suggested citation: Centers for Disease Control and Prevention. National Environmental Public Health Tracking Network. Web. Accessed: insert date. www.cdc.gov/ephtracking.",
+          "encodingFormat": "sql",
+          "url": "https://gdsc.idsc.miami.edu/download/data/us_2015_2019_monthly_pm25_by_county_cdc/?file=us_2015_2019_monthly_pm25_by_county_cdc&format=sql"
+        }
+      }
+    },
+    {
+      "@type": "Event",
+      "description": "Retrieved from the data.cdc.gov socrata endpoint as daily predictions a the county level and aggregated as monthly predictions for each county.",
+      "name": "ETL process for 2014-2019 CDC PM 2.5 Monthly Predictions for US Counties",
+      "potentialAction": {
+        "@type": "Action",
+        "name": "join",
+        "description": "Custom ETL process for 2014-2019 CDC PM 2.5 Monthly Predictions for US Counties",
+        "object": {
+          "@type": "Dataset",
+          "name": "Retrieved from the data.cdc.gov socrata endpoint as daily predictions a the county level and aggregated as monthly predictions for each county.",
+          "producer": "Center for Disease Control",
+          "url": "https://data.cdc.gov/Environmental-Health-Toxicology/Daily-County-Level-PM2-5-Concentrations-2001-2022/53mz-4zqd/about_data"
+        },
+        "instrument": {
+          "@type": "SoftwareApplication",
+          "@id": "https://github.com/Geospatial-Digital-Special-Collections/tools",
+          "featureList": "column;temp;geoid;pm25_max_pred;jsonb;geoid;pm25_med_pred;jsonb;geoid;pm25_mean_pred;jsonb;geoid;pm25_pop_pred;jsonb",
+          "downloadUrl": "https://github.com/Geospatial-Digital-Special-Collections/tools.git"
+        },
+        "result": {
+          "@type": "Dataset",
+          "name": "2014-2019 CDC PM 2.5 Monthly Predictions for US Counties",
+          "description": "Aggregated monthly PM 2.5 modelled estimates that span 2014-01-01 to 2019-12-31 derived from the CDC Daily County-Level PM2.5 Concentrations 2001-2022 provided by the CDC National Environmental Public Health Tracking Network. From the CDC description: This dataset provides modeled predictions of PM2.5 levels from the EPA's Downscaler model. Data are at the county level for 2001-2022. These data are used by the CDC's National Environmental Public Health Tracking Network to generate air quality measures.\n\nBy using these data, you signify your agreement to comply with the following requirements:\n1. Use the data for statistical reporting and analysis only.\n2. Do not attempt to learn the identity of any person included in the data and do not combine these data with other data for the purpose of matching records to identify individuals.\n3. Do not disclose of or make use of the identity of any person or establishment discovered inadvertently and report the discovery to: trackingsupport@cdc.gov.\n4. Do not imply or state, either in written or oral form, that interpretations based on the data are those of the original data sources and CDC unless the data user and data source are formally collaborating.\n5. Acknowledge, in all reports or presentations based on these data, the original source of the data and CDC.\n6. Suggested citation: Centers for Disease Control and Prevention. National Environmental Public Health Tracking Network. Web. Accessed: insert date. www.cdc.gov/ephtracking.",
+          "encodingFormat": "sql",
+          "url": "https://gdsc.idsc.miami.edu/download/data/us_2015_2019_monthly_pm25_by_county_cdc/?file=us_2015_2019_monthly_pm25_by_county_cdc&format=sql"
+        }
+      }
+    }
+  ],
+  "variableMeasured": [
+    {
+      "@type": "PropertyValue",
+      "name": "statefips",
+      "description": "State FIPS Code as two numeric characters",
+      "qudt:dataType": "varchar"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "countyfips",
+      "description": "County FIPS Code as three numeric characters",
+      "qudt:dataType": "varchar"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "geoid",
+      "description": "Geographic identifier as a five numeric characters created as a concatenation of the statefips and countyfips",
+      "qudt:dataType": "varchar"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "pm25_max_pred",
+      "description": "The series of maximum predicted values for the given county and month stored as a jsonb object with date ranges as keys (startDate/endDate formatted as YYYY-MM-DD/YYYY-MM-DD) and maximum pm 2.5 values for each date key.",
+      "propertyID": "2052499839",
+      "qudt:dataType": "jsonb",
+      "unitCode": "32964",
+      "unitText": "micrograms/cubic meter",
+      "startDate": "2014-01-01",
+      "endDate": "2019-12-31"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "pm25_med_pred",
+      "description": "The series of median of medians predicted values for the given county and month stored as a jsonb object with date ranges as keys (startDate/endDate formatted as YYYY-MM-DD/YYYY-MM-DD) and median of medians pm 2.5 values for each date key.",
+      "propertyID": "2052499839",
+      "qudt:dataType": "jsonb",
+      "unitCode": "32964",
+      "unitText": "micrograms/cubic meter",
+      "startDate": "2014-01-01",
+      "endDate": "2019-12-31"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "pm25_mean_pred",
+      "description": "The series of mean predicted values for the given county and month stored as a jsonb object with date ranges as keys (startDate/endDate formatted as YYYY-MM-DD/YYYY-MM-DD) and mean pm 2.5 values for each date key.",
+      "propertyID": "2052499839",
+      "qudt:dataType": "jsonb",
+      "unitCode": "32964",
+      "unitText": "micrograms/cubic meter",
+      "startDate": "2014-01-01",
+      "endDate": "2019-12-31"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "pm25_pop_pred",
+      "description": "The series of population weighted mean predicted values for the given county and month stored as a jsonb object with date ranges as keys (startDate/endDate formatted as YYYY-MM-DD/YYYY-MM-DD) and population weighted mean pm 2.5 values for each date key.",
+      "propertyID": "2052499839",
+      "qudt:dataType": "jsonb",
+      "unitCode": "32964",
+      "unitText": "micrograms/cubic meter",
+      "startDate": "2014-01-01",
+      "endDate": "2019-12-31"
+    }
+  ],
+  "distribution": [
+    "https://gdsc.idsc.miami.edu/download/data/us_2015_2019_monthly_pm25_by_county_cdc/?file=us_2015_2019_monthly_pm25_by_county_cdc&format=sql",
+    "https://gdsc.idsc.miami.edu/download/data/us_2015_2019_monthly_pm25_by_county_cdc/?file=us_2015_2019_monthly_pm25_by_county_cdc&format=gpkg"
+  ],
+  "isBasedOn": [
+    {
+      "@id": "https://gdsc.idsc.miami.edu/details/us_2023_county_tl",
+      "@type": "Dataset",
+      "name": "us_2023_county_tl",
+      "url": "https://gdsc.idsc.miami.edu/details/us_2023_county_tl"
+    }
+  ],
+  "dateModified": "2026-08-31",
+  "version": "2026-09-06"
+}

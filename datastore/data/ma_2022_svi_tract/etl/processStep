@@ -9,7 +9,7 @@
 
 # create directory structure and move into it
 mkdir -p /data/ma_2022_svi_tract/download -p /data/ma_2022_svi_tract/etl
-chmod 777 /data/ma_2022_svi_tract/download
+chmod -R 777 /data/ma_2022_svi_tract
 cd /data/ma_2022_svi_tract
 
 # set update flag based on last update and update frequency
@@ -24,7 +24,8 @@ if do_update == 1 then
 unzip -d download download/ma_2022_svi_tract.zip && rm download/ma_2022_svi_tract.zip
 
 # load into postGIS with:
-  ogr2ogr -lco GEOMETRY_NAME=geom -f PostgreSQL PG:"<postgres connection>" download/SVI2022_MASSACHUSETTS_tract.gdb -nlt multipolygon -nln ma_2022_svi_tract
+ogr2ogr -lco GEOMETRY_NAME=geom -f PostgreSQL PG:"<postgres connection>" download/SVI2022_MASSACHUSETTS_tract.gdb -nlt multipolygon -nln ma_2022_svi_tract
+
 
 #########
 # Step 2 - SQL script (pseudo code):

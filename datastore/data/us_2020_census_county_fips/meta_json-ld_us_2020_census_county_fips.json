@@ -1,0 +1,145 @@
+{
+  "@context": {
+    "@vocab": "https://schema.org/",
+    "dct": "http://purl.org/dc/terms/",
+    "qudt": "http://qudt.org/schema/qudt/",
+    "quantitykind": "http://qudt.org/vocab/quantitykind/",
+    "unit": "http://qudt.org/vocab/unit/",
+    "xsd": "http://www.w3.org/2001/XMLSchema",
+    "extendedConstraintProperty": "http://codata.org/vocab/extendedConstraintProperty",
+    "sdmx": "https://sdmx.org"
+  },
+  "@type": "Dataset",
+  "@id": "https://gdsc.idsc.miami.edu/detail/us_2020_census_county_fips",
+  "includedInDataCatalog": [
+    {
+      "@type": "DataCatalog",
+      "@id": "https://gdsc.idsc.miami.edu",
+      "name": "Geospatial Digital Special Collections",
+      "url": "https://gdsc.idsc.miami.edu"
+    },
+    {
+      "@type": "DataCatalog",
+      "name": "us-census",
+      "@id": "https://gdsc.idsc.miami.edu/?collection=us-census",
+      "url": "https://gdsc.idsc.miami.edu/?collection=us-census"
+    }
+  ],
+  "name": "2020 Census County FIPS Codes",
+  "creator": [
+    {
+      "name": "United States Census Bureau"
+    }
+  ],
+  "url": "https://www.census.gov/library/reference/code-lists.html",
+  "provider": [
+    {
+      "@type": "Organization",
+      "name": "U.S. Census Bureau"
+    }
+  ],
+  "spatialCoverage": [
+    {
+      "@id": "https://www.geonames.org/6252001",
+      "@type": "Place",
+      "name": "United States"
+    }
+  ],
+  "type": "API",
+  "datePublished": "2022-12-08",
+  "description": "FIPS codes are numbers which uniquely identify geographic areas.  The number of \ndigits in FIPS codes vary depending on the level of geography.  State-level FIPS\ncodes have two digits, county-level FIPS codes have five digits of which the \nfirst two are the FIPS code of the state to which the county belongs.  When \nusing the list below to look up county FIPS codes, it is advisable to first look\nup the FIPS code for the state to which the county belongs.  This will help you\nidentify the right section of the list while scrolling down, which can be\nimportant since there are over 3000 counties and county-equivalents (e.g.\nindependent cities, parishes, boroughs) in the United States.",
+  "keywords": [
+    "Census",
+    "2020",
+    "County",
+    "FIPS"
+  ],
+  "@language": "en",
+  "measurementTechnique": [
+    {
+      "@type": "DefinedTerm",
+      "description": "GIS Data Structure for Representation",
+      "inDefinedTermSet": {
+        "@type": "DefinedTermSet",
+        "name": "dataRepresentation",
+        "hasDefinedTerm": [
+          {
+            "@type": "DefinedTerm",
+            "termCode": "raster"
+          },
+          {
+            "@type": "DefinedTerm",
+            "termCode": "vector"
+          },
+          {
+            "@type": "DefinedTerm",
+            "termCode": "table"
+          }
+        ]
+      },
+      "termCode": "table"
+    }
+  ],
+  "about": [
+    {
+      "@type": "Event",
+      "description": "direct from API",
+      "name": "ETL process for 2020 Census County FIPS Codes",
+      "potentialAction": {
+        "@type": "Action",
+        "name": "Pseudo Code",
+        "description": "TODO"
+      }
+    },
+    {
+      "@type": "Event",
+      "description": "direct from API",
+      "name": "ETL process for 2020 Census County FIPS Codes",
+      "potentialAction": {
+        "@type": "Action",
+        "name": "census_fips",
+        "description": "Custom ETL process for 2020 Census County FIPS Codes",
+        "object": {
+          "@type": "Dataset",
+          "name": "direct from API",
+          "producer": "United States Census Bureau",
+          "url": "https://www.census.gov/library/reference/code-lists.html"
+        },
+        "instrument": {
+          "@type": "SoftwareApplication",
+          "@id": "https://github.com/Geospatial-Digital-Special-Collections/tools",
+          "featureList": "--",
+          "downloadUrl": "https://github.com/Geospatial-Digital-Special-Collections/tools.git"
+        },
+        "result": {
+          "@type": "Dataset",
+          "name": "2020 Census County FIPS Codes",
+          "description": "FIPS codes are numbers which uniquely identify geographic areas.  The number of \ndigits in FIPS codes vary depending on the level of geography.  State-level FIPS\ncodes have two digits, county-level FIPS codes have five digits of which the \nfirst two are the FIPS code of the state to which the county belongs.  When \nusing the list below to look up county FIPS codes, it is advisable to first look\nup the FIPS code for the state to which the county belongs.  This will help you\nidentify the right section of the list while scrolling down, which can be\nimportant since there are over 3000 counties and county-equivalents (e.g.\nindependent cities, parishes, boroughs) in the United States."
+        }
+      }
+    }
+  ],
+  "variableMeasured": [
+    {
+      "@type": "PropertyValue",
+      "name": "name",
+      "description": "County name",
+      "qudt:dataType": "varchar"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "state",
+      "description": "State FIPS Code (2 digit)",
+      "qudt:dataType": "varchar"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "county",
+      "description": "County FIPS Code (3 digit)",
+      "qudt:dataType": "varchar"
+    }
+  ],
+  "distribution": "TBD",
+  "dateModified": "2026-09-01 19:06:50",
+  "version": "2026-09-06"
+}

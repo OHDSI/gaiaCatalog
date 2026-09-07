@@ -6,7 +6,7 @@
 # Data source: https://overpass-api.de/api/interpreter?data=way%5B%22route%22~%22ferry%22%5D(area:3600555717);(._;>;);out;
 # Destination postGIS table: tt_ferry_routes
 #
-# Created by etl() on 2026-05-26 12:19:21
+# Created by etl() on 2026-09-06 12:36:34
 # Do not edit directly
 
 # Select proper geometry into the named table

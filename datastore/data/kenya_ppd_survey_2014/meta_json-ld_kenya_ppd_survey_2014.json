@@ -38,7 +38,6 @@
       "name": "APHRC"
     }
   ],
-  "license": "Controlled access author permission required",
   "spatialCoverage": [
     {
       "@id": "https://www.geonames.org/192950",
@@ -47,7 +46,7 @@
     }
   ],
   "temporalCoverage": "2014-03-15/2014-12-15",
-  "type": "statistical dataset",
+  "type": "Statistical Dataset",
   "description": "Demographic, psychosocial and clinical factors associated with postpartum depression in Kenyan women",
   "keywords": [
     "Postpartum Depression",
@@ -87,7 +86,7 @@
   "about": [
     {
       "@type": "Event",
-      "description": "nan",
+      "description": " direct from source",
       "name": "ETL process for Demographic, psychosocial and clinical factors associated with postpartum depression in Kenyan women",
       "potentialAction": {
         "@type": "Action",
@@ -97,7 +96,7 @@
     },
     {
       "@type": "Event",
-      "description": "nan",
+      "description": " direct from source",
       "name": "ETL process for Demographic, psychosocial and clinical factors associated with postpartum depression in Kenyan women",
       "potentialAction": {
         "@type": "Action",
@@ -105,6 +104,7 @@
         "description": "ETL process for Demographic, psychosocial and clinical factors associated with postpartum depression in Kenyan women",
         "object": {
           "@type": "Dataset",
+          "name": " direct from source",
           "producer": "APHRC",
           "url": "https://doi.org/10.1186/s12888-018-1904-7"
         },
@@ -200,7 +200,7 @@
       "@type": "PropertyValue",
       "name": "value_as_char",
       "description": "The actual answer of a question",
-      "qudt:dataType": "text",
+      "qudt:dataType": "string",
       "startDate": "2008-02-15",
       "endDate": "2008-12-15"
     },
@@ -240,7 +240,7 @@
       "@type": "PropertyValue",
       "name": "individual_concept_id_text",
       "description": "Text label for individual demographics",
-      "qudt:dataType": "text",
+      "qudt:dataType": "string",
       "startDate": "2008-02-15",
       "endDate": "2008-12-15"
     },
@@ -264,7 +264,7 @@
       "@type": "PropertyValue",
       "name": "household_characteristics_concept_text",
       "description": "Text label for household characteristic",
-      "qudt:dataType": "text",
+      "qudt:dataType": "string",
       "startDate": "2008-02-15",
       "endDate": "2008-12-15"
     },
@@ -288,7 +288,7 @@
       "@type": "PropertyValue",
       "name": "value_as_char",
       "description": "The actual answer of a question",
-      "qudt:dataType": "text",
+      "qudt:dataType": "string",
       "startDate": "2010-05-15",
       "endDate": "2011-09-15"
     },
@@ -312,7 +312,7 @@
       "@type": "PropertyValue",
       "name": "household_characteristics_concept_text",
       "description": "Text label for household characteristic",
-      "qudt:dataType": "text",
+      "qudt:dataType": "string",
       "startDate": "2010-05-15",
       "endDate": "2011-09-15"
     },
@@ -328,7 +328,7 @@
       "@type": "PropertyValue",
       "name": "individual_concept_id_text",
       "description": "Text label for individual demographics",
-      "qudt:dataType": "text",
+      "qudt:dataType": "string",
       "startDate": "2010-05-15",
       "endDate": "2011-09-15"
     },
@@ -368,7 +368,7 @@
       "@type": "PropertyValue",
       "name": "value_as_char",
       "description": "The actual answer of a question",
-      "qudt:dataType": "text",
+      "qudt:dataType": "string",
       "startDate": "2012-05-15",
       "endDate": "2012-12-15"
     },
@@ -392,7 +392,7 @@
       "@type": "PropertyValue",
       "name": "household_characteristics_concept_text",
       "description": "Text label for household characteristic ",
-      "qudt:dataType": "text",
+      "qudt:dataType": "string",
       "startDate": "2012-05-15",
       "endDate": "2012-12-15"
     },
@@ -408,7 +408,7 @@
       "@type": "PropertyValue",
       "name": "individual_concept_id_text",
       "description": "Text label for individual demographics",
-      "qudt:dataType": "text",
+      "qudt:dataType": "string",
       "startDate": "2012-05-15",
       "endDate": "2012-12-15"
     },
@@ -431,5 +431,5 @@
   ],
   "distribution": "/data/kenya_ppd_survey_2014/",
   "dateModified": "2018-01-01",
-  "version": "2026-05-26"
+  "version": "2026-09-06"
 }

@@ -6,12 +6,12 @@
 # Data source: local file
 # Destination postGIS table: kenya_ppd_survey_2014
 #
-# Created by etl() on 2026-05-26 12:19:18
+# Created by etl() on 2026-09-06 12:36:28
 # Do not edit directly
 
 # create directory structure and move into it
 mkdir -p /data/kenya_ppd_survey_2014/download -p /data/kenya_ppd_survey_2014/etl
-chmod 777 /data/kenya_ppd_survey_2014/download
+chmod -R 777 /data/kenya_ppd_survey_2014
 cd /data/kenya_ppd_survey_2014
 
 # check for existence
@@ -44,8 +44,6 @@ if [[ $do_update = 1 ]]; then
 fi
 
 # load into postGIS
-(exit 1)
-until [[ "$?" == 0 ]]; do
-  ogr2ogr -lco GEOMETRY_NAME=geom -f PostgreSQL PG:"dbname=$POSTGRES_DB port=$POSTGRES_PORT user=$POSTGRES_USER password=$POSTGRES_PASSWORD host='gaia-db'" download/kenya_ppd_survey_2014.csv -nln kenya_ppd_survey_2014
-done
+ogr2ogr -lco GEOMETRY_NAME=geom -f PostgreSQL PG:"dbname=$POSTGRES_DB port=$POSTGRES_PORT user=$POSTGRES_USER password=$POSTGRES_PASSWORD host='gaia-db'" download/kenya_ppd_survey_2014.csv -nln kenya_ppd_survey_2014
+
 

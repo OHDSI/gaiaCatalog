@@ -6,12 +6,12 @@
 # Data source: https://overpass-api.de/api/interpreter?data=way%5B%22highway%22~%22secondary|primary%22%5D(area:3600555717);(._;>;);out;
 # Destination postGIS table: tt_roads
 #
-# Created by etl() on 2026-05-26 12:19:24
+# Created by etl() on 2026-09-06 12:36:38
 # Do not edit directly
 
 # create directory structure and move into it
 mkdir -p /data/tt_roads/download -p /data/tt_roads/etl
-chmod 777 /data/tt_roads/download
+chmod -R 777 /data/tt_roads
 cd /data/tt_roads
 
 # check for existence
@@ -37,17 +37,18 @@ else do_update=1; fi
 
 # download if needed
 if [[ $do_update = 1 ]]; then
-  (exit 1)
-  until [[ "$?" == 0 ]]; do
-      curl -o download/tt_roads.osm 'https://overpass-api.de/api/interpreter?data=way%5B%22highway%22~%22secondary|primary%22%5D(area:3600555717);(._;>;);out;'
+  attempts=0
+  until (
+    curl -o download/tt_roads.osm 'https://overpass-api.de/api/interpreter?data=way%5B%22highway%22~%22secondary|primary%22%5D(area:3600555717);(._;>;);out;'
+  ); do
+    ((attempts++))
+    if [[ attempts > 3 ]]; then echo $?; break; fi
   done
   # record download datestamp
   echo $(date '+%F %T') > datestamp
 fi
 
 # load into postGIS
-(exit 1)
-until [[ "$?" == 0 ]]; do
-  ogr2ogr -lco GEOMETRY_NAME=geom -f PostgreSQL PG:"dbname=$POSTGRES_DB port=$POSTGRES_PORT user=$POSTGRES_USER password=$POSTGRES_PASSWORD host='gaia-db'" download/tt_roads.osm
-done
+ogr2ogr -lco GEOMETRY_NAME=geom -f PostgreSQL PG:"dbname=$POSTGRES_DB port=$POSTGRES_PORT user=$POSTGRES_USER password=$POSTGRES_PASSWORD host='gaia-db'" download/tt_roads.osm
+
 

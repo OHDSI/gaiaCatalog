@@ -6,12 +6,12 @@
 # Data source: https://microdata.nbs.go.tz/index.php/catalog/49/download/317
 # Destination postGIS table: tz_2022_nbs_districts
 #
-# Created by etl() on 2026-05-26 12:19:27
+# Created by etl() on 2026-09-06 12:36:43
 # Do not edit directly
 
 # create directory structure and move into it
 mkdir -p /data/tz_2022_nbs/download -p /data/tz_2022_nbs/tz_2022_nbs_districts/etl
-chmod 777 /data/tz_2022_nbs/download
+chmod -R 777 /data/tz_2022_nbs
 cd /data/tz_2022_nbs
 
 # check for existence
@@ -37,9 +37,12 @@ else do_update=1; fi
 
 # download if needed
 if [[ $do_update = 1 ]]; then
-  (exit 1)
-  until [[ "$?" == 0 ]]; do
-      wget -O download/tz_2022_nbs.zip 'https://microdata.nbs.go.tz/index.php/catalog/49/download/317'
+  attempts=0
+  until (
+    wget -O download/tz_2022_nbs.zip 'https://microdata.nbs.go.tz/index.php/catalog/49/download/317'
+  ); do
+    ((attempts++))
+    if [[ attempts > 3 ]]; then echo $?; break; fi
   done
   unzip -d download download/tz_2022_nbs.zip && rm download/tz_2022_nbs.zip
   7z x download/TANZANIA_2022_POST_PHC_GEODATABASE.mpkx -o'download/TANZANIA_2022_POST_PHC_GEODATABASE'
@@ -48,8 +51,6 @@ if [[ $do_update = 1 ]]; then
 fi
 
 # load into postGIS
-(exit 1)
-until [[ "$?" == 0 ]]; do
-  ogr2ogr -lco GEOMETRY_NAME=geom -f PostgreSQL PG:"dbname=$POSTGRES_DB port=$POSTGRES_PORT user=$POSTGRES_USER password=$POSTGRES_PASSWORD host='gaia-db'" download/TANZANIA_2022_POST_PHC_GEODATABASE/commondata/tanzania_2022phc_geodatabase.gdb Districts -nlt multipolygon -nln tz_2022_nbs_districts
-done
+ogr2ogr -lco GEOMETRY_NAME=geom -f PostgreSQL PG:"dbname=$POSTGRES_DB port=$POSTGRES_PORT user=$POSTGRES_USER password=$POSTGRES_PASSWORD host='gaia-db'" download/TANZANIA_2022_POST_PHC_GEODATABASE/commondata/tanzania_2022phc_geodatabase.gdb Districts -nlt multipolygon -nln tz_2022_nbs_districts
+
 

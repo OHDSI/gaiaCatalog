@@ -6,12 +6,12 @@
 # Data source: https://svi.cdc.gov/Documents/Data/2020/db/states/Massachusetts.zip
 # Destination postGIS table: ma_2020_svi_tract
 #
-# Created by etl() on 2026-05-26 12:19:19
+# Created by etl() on 2026-09-06 12:36:31
 # Do not edit directly
 
 # create directory structure and move into it
 mkdir -p /data/ma_2020_svi_tract/download -p /data/ma_2020_svi_tract/etl
-chmod 777 /data/ma_2020_svi_tract/download
+chmod -R 777 /data/ma_2020_svi_tract
 cd /data/ma_2020_svi_tract
 
 # check for existence
@@ -37,9 +37,12 @@ else do_update=1; fi
 
 # download if needed
 if [[ $do_update = 1 ]]; then
-  (exit 1)
-  until [[ "$?" == 0 ]]; do
-      wget -O download/ma_2020_svi_tract.zip 'https://svi.cdc.gov/Documents/Data/2020/db/states/Massachusetts.zip'
+  attempts=0
+  until (
+    wget -O download/ma_2020_svi_tract.zip 'https://svi.cdc.gov/Documents/Data/2020/db/states/Massachusetts.zip'
+  ); do
+    ((attempts++))
+    if [[ attempts > 3 ]]; then echo $?; break; fi
   done
   unzip -d download download/ma_2020_svi_tract.zip && rm download/ma_2020_svi_tract.zip
   # record download datestamp
@@ -47,8 +50,6 @@ if [[ $do_update = 1 ]]; then
 fi
 
 # load into postGIS
-(exit 1)
-until [[ "$?" == 0 ]]; do
-  ogr2ogr -lco GEOMETRY_NAME=geom -f PostgreSQL PG:"dbname=$POSTGRES_DB port=$POSTGRES_PORT user=$POSTGRES_USER password=$POSTGRES_PASSWORD host='gaia-db'" download/SVI2020_MASSACHUSETTS_tract.gdb -nlt multipolygon -nln ma_2020_svi_tract
-done
+ogr2ogr -lco GEOMETRY_NAME=geom -f PostgreSQL PG:"dbname=$POSTGRES_DB port=$POSTGRES_PORT user=$POSTGRES_USER password=$POSTGRES_PASSWORD host='gaia-db'" download/SVI2020_MASSACHUSETTS_tract.gdb -nlt multipolygon -nln ma_2020_svi_tract
+
 

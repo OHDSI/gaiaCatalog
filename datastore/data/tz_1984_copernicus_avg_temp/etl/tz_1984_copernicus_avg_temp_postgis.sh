@@ -6,15 +6,18 @@
 # Data source: https://github.com/tibbben/copernicus_aggregate.git
 # Destination postGIS table: tz_1984_copernicus_avg_temp
 #
-# Created by etl() on 2026-05-26 12:19:25
+# Created by etl() on 2026-09-06 12:36:40
 # Do not edit directly
 
-(exit 1)
-until [[ "$?" == 0 ]]; do
+attempts=0
+until (
     cd /data/tz_1984_copernicus_avg_temp/download
     raster2pgsql -s 4326 -d -C -I -t auto tz_1984_copernicus_avg_temp.tif -F tz_1984_copernicus_avg_temp > load_raster.sql
     psql -d $POSTGRES_DB -U $POSTGRES_USER -p $POSTGRES_PORT -h gaia-db < load_raster.sql
     rm load_raster.sql
     cd /data/tz_1984_copernicus_avg_temp
+); do
+  ((attempts++))
+  if [[ attempts > 3 ]]; then echo $?; break; fi
 done
 

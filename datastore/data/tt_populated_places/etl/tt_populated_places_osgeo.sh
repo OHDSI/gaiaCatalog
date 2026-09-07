@@ -6,12 +6,12 @@
 # Data source: https://overpass-api.de/api/interpreter?data=node%5B%22place%22~%22city|town|village%22%5D(area:3600555717);(._;>;);out;
 # Destination postGIS table: tt_populated_places
 #
-# Created by etl() on 2026-05-26 12:19:22
+# Created by etl() on 2026-09-06 12:36:35
 # Do not edit directly
 
 # create directory structure and move into it
 mkdir -p /data/tt_populated_places/download -p /data/tt_populated_places/etl
-chmod 777 /data/tt_populated_places/download
+chmod -R 777 /data/tt_populated_places
 cd /data/tt_populated_places
 
 # check for existence
@@ -37,17 +37,18 @@ else do_update=1; fi
 
 # download if needed
 if [[ $do_update = 1 ]]; then
-  (exit 1)
-  until [[ "$?" == 0 ]]; do
-      curl -o download/tt_populated_places.osm 'https://overpass-api.de/api/interpreter?data=node%5B%22place%22~%22city|town|village%22%5D(area:3600555717);(._;>;);out;'
+  attempts=0
+  until (
+    curl -o download/tt_populated_places.osm 'https://overpass-api.de/api/interpreter?data=node%5B%22place%22~%22city|town|village%22%5D(area:3600555717);(._;>;);out;'
+  ); do
+    ((attempts++))
+    if [[ attempts > 3 ]]; then echo $?; break; fi
   done
   # record download datestamp
   echo $(date '+%F %T') > datestamp
 fi
 
 # load into postGIS
-(exit 1)
-until [[ "$?" == 0 ]]; do
-  ogr2ogr -lco GEOMETRY_NAME=geom -f PostgreSQL PG:"dbname=$POSTGRES_DB port=$POSTGRES_PORT user=$POSTGRES_USER password=$POSTGRES_PASSWORD host='gaia-db'" download/tt_populated_places.osm
-done
+ogr2ogr -lco GEOMETRY_NAME=geom -f PostgreSQL PG:"dbname=$POSTGRES_DB port=$POSTGRES_PORT user=$POSTGRES_USER password=$POSTGRES_PASSWORD host='gaia-db'" download/tt_populated_places.osm
+
 

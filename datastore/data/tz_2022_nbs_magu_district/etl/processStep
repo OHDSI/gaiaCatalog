@@ -9,7 +9,7 @@
 
 # create directory structure and move into it
 mkdir -p /data/tz_2022_nbs_magu_district/download -p /data/tz_2022_nbs_magu_district/etl
-chmod 777 /data/tz_2022_nbs_magu_district/download
+chmod -R 777 /data/tz_2022_nbs_magu_district
 cd /data/tz_2022_nbs_magu_district
 
 # set update flag based on last update and update frequency

@@ -9,7 +9,7 @@
 
 # create directory structure and move into it
 mkdir -p /data/tt_populated_places/download -p /data/tt_populated_places/etl
-chmod 777 /data/tt_populated_places/download
+chmod -R 777 /data/tt_populated_places
 cd /data/tt_populated_places
 
 # set update flag based on last update and update frequency
@@ -20,7 +20,8 @@ if do_update == 1 then
 curl -o download/tt_populated_places.osm 'https://overpass-api.de/api/interpreter?data=node%5B%22place%22~%22city|town|village%22%5D(area:3600555717);(._;>;);out;'
 
 # load into postGIS with:
-  ogr2ogr -lco GEOMETRY_NAME=geom -f PostgreSQL PG:"<postgres connection>" download/tt_populated_places.osm
+ogr2ogr -lco GEOMETRY_NAME=geom -f PostgreSQL PG:"<postgres connection>" download/tt_populated_places.osm
+
 
 #########
 # Step 2 - SQL script (pseudo code):
