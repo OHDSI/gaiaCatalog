@@ -18,9 +18,9 @@
   "dct:conformsTo": "EPSG:4326",
   "prov:action": "#########\n# GDSC ETL is performed in two steps: shell script to ETL data into postgres\n# and then additional transformations with SQL in postGIS (if needed).\n####\n\n#########\n# Step 1 - bash script (pseudo code)\n####\n\n# create directory structure and move into it\nmkdir -p /data/tz_regions_osm/download -p /data/tz_regions_osm/etl\nchmod -R 777 /data/tz_regions_osm\ncd /data/tz_regions_osm\n\n# set update flag based on last update and update frequency\ndo_update=0 if date() < last_update + update_frequency else do_update = 1\n\n# download if update flag is set:\nif do_update == 1 then\ncurl -o download/tz_regions_osm.osm 'https://overpass-api.de/api/interpreter?data=rel%5B%22ISO3166-2%22~%22^TZ%22%5D%5Badmin_level=4%5D%5Btype=boundary%5D%5Bboundary=administrative%5D;(._;>;);out;'\n\n# load into postGIS with:\nogr2ogr -lco GEOMETRY_NAME=geom -f PostgreSQL PG:\"<postgres connection>\" download/tz_regions_osm.osm\n\n\n#########\n# Step 2 - SQL script (pseudo code):\n####\n\n# Select proper geometry into the named table\npsql -d $POSTGRES_DB -U $POSTGRES_USER -p $POSTGRES_PORT -h gaia-db -c \"\nSELECT * INTO tz_regions_osm FROM multipolygons;\nDROP TABLE IF EXISTS lines;\nDROP TABLE IF EXISTS multilinestrings;\nDROP TABLE IF EXISTS multipolygons;\nDROP TABLE IF EXISTS other_relations;\nDROP TABLE IF EXISTS points;\"\n\n# remove duplicate points and make geometries valid:\nUPDATE tz_regions_osm\n  SET geom=ST_MakeValid(ST_RemoveRepeatedPoints(geom));\n\n# add local geometry column and reproject existing geometries into local EPSG:\nSELECT AddGeometryColumn (\n  'tz_regions_osm',\n  'geom_local', 4326, 'multipolygon', 2\n);\nUPDATE tz_regions_osm\n  SET geom_local=ST_MakeValid(ST_RemoveRepeatedPoints(ST_Transform(ST_Multi(geom),4326)));\nCREATE INDEX tz_regions_osm_geom_local_idx\n  ON tz_regions_osm\n  USING GIST (geom_local);\nNOTIFY pgrst, 'reload schema';\n# Move into corrrect directory and create derivative directory in data package on osgeo\ncd /data/tz_regions_osm/\nmkdir -p derived\n\n# Create shapefile of table in derivate directory on osgeo \nogr2ogr -f \"ESRI Shapefile\" -overwrite derived/tz_regions_osm.shp PG:\"<postgres connection>\" tz_regions_osm\n\n# Create downloadable tarfile of shp in derivative directory on osgeo\nrm -f derived/tz_regions_osm.shp.tar.gz\ntar -czf derived/tz_regions_osm.shp.tar.gz meta_dcat_tz_regions_osm.json -C derived tz_regions_osm.shp tz_regions_osm.prj tz_regions_osm.shx tz_regions_osm.dbf\n\n# Move into correct directory\ncd /data/tz_regions_osm/\n\n",
   "prov:wasGeneratedBy": "GDSC automation (see Process Step)",
-  "dcat:contactPoint": [{"contact_name": "Timothy B. Norris", "contact_last_name": "Norris", "contact_first_name": "Timothy", "contact_email": "tnorris@miami.edu", "contact_identifier": "https://orcid.org/0000-0002-0898-3027", "contact_identifier_schema": "orcid", "contact_identifier_schema_uri": "https://orcid.org/", "contact_affiliation": "University of Miami Libraries, Frost Institute for Data Science and Computing", "contact_affiliation_identifier": "https://ror.org/02dgjyy92", "contact_affiliation_schema": "ror", "contact_affiliation_schema_uri": "https://ror.org/"}],
+  "dcat:contactPoint": ["Timothy Norris", "Librarian Associate Professor", "University of Miami Libraries, Frost Institute for Data Science and Computing", "txn60@miami.edu"],
   "gdsc:label": "name",
-  "gdsc:attributes": ["osm_id;OpenStreetMap (OSM) ID;varchar", "\nname;Region name;varchar", "\ntype;Type of boundary;varchar", "\nadmin_level;OSM Administrative level;varchar", "\nboundary;OSM boundary type;varchar", "\nother_tags;Any other OSM tags with values, first one is the ISO3166-2 code for the administrative region;varchar"],
+  "gdsc:attributes": ["osm_id;OpenStreetMap (OSM) ID;varchar;varchar;;;;", "\nname;Region name;varchar", "\ntype;Type of boundary;varchar", "\nadmin_level;OSM Administrative level;varchar", "\nboundary;OSM boundary type;varchar", "\nother_tags;Any other OSM tags with values, first one is the ISO3166-2 code for the administrative region;varchar"],
   "gdsc:collections": ["tz-climate-change", "tz-health-outcomes"],
   "gdsc:functions": ["gdsc_get_attributes"],
   "gdsc:analyticConformsTo": "EPSG:4326",
@@ -29,11 +29,12 @@
   "gdsc:sponsor": ["IDSC;https://idsc.miami.edu", "Library;https://www.library.miami.edu"],
   "dcat:downloadURL": "https://overpass-api.de/api/interpreter?data=rel%5B%22ISO3166-2%22~%22^TZ%22%5D%5Badmin_level=4%5D%5Btype=boundary%5D%5Bboundary=administrative%5D;(._;>;);out;",
   "gdsc:tablename": "tz_regions_osm",
-  "gdsc:up": "false",
+  "gdsc:up": "true",
   "gdsc:podID": "gaia-db",
-  "dct:modified": "2025-09-07T11:19:11Z",
+  "dct:modified": "2025-09-12T09:34:27Z",
   "dct:accrualPeriodicity": "As Needed",
-  "gdsc:version": "2026-09-06T13:36:49Z",
+  "gdsc:version": "2026-09-08T23:16:56Z",
   "spdx:checksum": "TBD",
-  "dct:extent": ["bash: line 7: numfmt: command not found\n31694901", ""]
+  "dct:extent": ["bash: line 7: numfmt: command not found\n31694901", ""],
+  "dcat:bbox": "POLYGON((29.5946708 -11.761254,29.5946708 -0.9854812,40.4453945 -0.9854812,40.4453945 -11.761254,29.5946708 -11.761254))"
 }

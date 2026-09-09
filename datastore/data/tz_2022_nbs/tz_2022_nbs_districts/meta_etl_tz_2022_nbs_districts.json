@@ -5,7 +5,7 @@
   "geometry": "multipolygon",
   "epsg": "EPSG:4326",
   "fields": ["dist_code", "reg_code", "reg_name"],
-  "attributes": ["dist_code;Unique district code;Tanzania National Bureau of Statistics;numeric;;;;", "\ndist_name; District names;Tanzania National Bureau of Statistics;string", "\nreg_code; unique code;Tanzania National Bureau of Statistics;numeric;;;;", "\nreg_name; name;Tanzania National Bureau of Statistics;varchar"],
+  "attributes": ["dist_code;Unique district code;Tanzania National Bureau of Statistics;varchar;;;;", "\ndist_name; District names;Tanzania National Bureau of Statistics;string", "\nreg_code; unique code;Tanzania National Bureau of Statistics;numeric", "\nreg_name; name;Tanzania National Bureau of Statistics;varchar"],
   "local_epsg": "EPSG:4326",
   "derive": ["shp"],
   "source": "https://microdata.nbs.go.tz/index.php/catalog/49/download/317",
@@ -15,9 +15,10 @@
   "table": "tz_2022_nbs_districts",
   "format": "gdb",
   "etl_parameters": "Districts",
-  "up": "false",
+  "up": "true",
   "podID": "gaia-db",
-  "last_updated": "0001-01-01T00:00:00Z",
+  "last_updated": "2025-09-12T09:44:25Z",
   "update_frequency": "As Needed",
-  "checksum": "TBD"
+  "checksum": "TBD",
+  "extent": "POLYGON((29.594677 -11.760241, 40.446140 -11.760241, 40.446140 -0.984775, 29.594677 -0.984775, 29.594677 -11.760241))"
 }

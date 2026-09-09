@@ -6,8 +6,15 @@
 # Data source: https://aqs.epa.gov/aqsweb/airdata/annual_aqi_by_county_2023.zip
 # Destination postGIS table: us_2023_annual_aqi_by_county
 #
-# Created by etl() on 2026-09-06 12:36:58
+# Created by etl() on 2026-09-08 22:17:14
 # Do not edit directly
+
+# set credentials from postgres defaults and secret files
+export POSTGRES_PASSWORD=$(cat $PG_PASSWORD_FILE)
+export CDC_APP_TOKEN=$(cat $CDC_APP_TOKEN_FILE)
+export AIRNOW_API_KEY=$(cat $AIRNOW_API_KEY_FILE)
+export USGS_USER=$(cat $USGS_USER_FILE)
+export USGS_PASSWORD=$(cat $USGS_PASSWORD_FILE)
 
 # create directory structure and move into it
 mkdir -p /data/us_2023_annual_aqi_by_county/download -p /data/us_2023_annual_aqi_by_county/etl
@@ -37,22 +44,23 @@ else do_update=1; fi
 
 # download if needed
 if [[ $do_update = 1 ]]; then
+  # fail after 3 attempts to download
   attempts=0
   until (
     OPENSSL_CONF=/openssl/openssl.conf curl -o download/us_2023_annual_aqi_by_county.zip 'https://aqs.epa.gov/aqsweb/airdata/annual_aqi_by_county_2023.zip'
   ); do
     ((attempts++))
-    if [[ attempts > 3 ]]; then echo $?; break; fi
+    if (( attempts > 3 )); then echo $?; break; fi
   done
-  unzip -d download download/us_2023_annual_aqi_by_county.zip && rm download/us_2023_annual_aqi_by_county.zip
-  # remove spaces for all column headers in csv
-  sed -i '1 s/ /_/g' download/annual_aqi_by_county_2023.csv
+  unzip -o download/us_2023_annual_aqi_by_county.zip -d download && rm download/us_2023_annual_aqi_by_county.zip
+  # remove spaces and periods for all column headers and make sure no column starts with a number
+  sed -i '1 s/ /_/g; s/\.//g;  s/\"\([0-9]\)/\"n\1/g' download/annual_aqi_by_county_2023.csv
   # record download datestamp
   echo $(date '+%F %T') > datestamp
 fi
 
 # load into postGIS
-ogr2ogr -lco GEOMETRY_NAME=geom -f PostgreSQL PG:"dbname=$POSTGRES_DB port=$POSTGRES_PORT user=$POSTGRES_USER password=$POSTGRES_PASSWORD host='gaia-db'" download/annual_aqi_by_county_2023.csv -nln us_2023_annual_aqi_by_county
+ogr2ogr -lco GEOMETRY_NAME=geom -f PostgreSQL PG:"dbname=$POSTGRES_DB port=$POSTGRES_PORT user=$POSTGRES_USER password=$POSTGRES_PASSWORD host='gaia-db'" download/annual_aqi_by_county_2023.csv -nlt multipolygon -nln us_2023_annual_aqi_by_county
 
 if [[ $do_update = 1 ]]; then
   # record download datestamp

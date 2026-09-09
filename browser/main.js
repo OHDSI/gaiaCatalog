@@ -94,7 +94,7 @@ function initFieldOptions() {
 }
 
 /* -------------------------------------------------------------------------- */
-/*  UI – Settings modal                                                       */
+/*  UI – settings and progress modals                                         */
 /* -------------------------------------------------------------------------- */
 
 const DEFAULT_pgEndpoint = 'http://localhost:3000/rpc/'; // optional default
@@ -103,26 +103,31 @@ const DEFAULT_pgEndpoint = 'http://localhost:3000/rpc/'; // optional default
 const storedpgEndpoint = localStorage.getItem('pgEndpoint');
 const pgEndpoint = storedpgEndpoint || DEFAULT_pgEndpoint;
 localStorage.setItem('postgrestConnected', false);
+const progressContent = document.getElementById('progressContent');
 
-function showSettings() {
-  const modal = document.getElementById('settingsModal');
+function showModal(e, name) {
+  const modal = document.getElementById(`${name}Modal`);
   modal.classList.remove('hidden');
-  document.getElementById('pgEndpointInput').value = pgEndpoint;
+  if (name == 'settings') {
+    document.getElementById('pgEndpointInput').value = pgEndpoint;
+  }
 }
 
-function hideSettings() {
-  document.getElementById('settingsModal').classList.add('hidden');
+function hideModal(e, name) {
+  document.getElementById(`${name}Modal`).classList.add('hidden');
+  if (name == 'progress') progressContent.replaceChildren();
 }
 
-document.getElementById('settingsBtn').addEventListener('click', showSettings);
-document.getElementById('closeSettings').addEventListener('click', hideSettings);
+document.getElementById('settingsBtn').addEventListener('click', e => showModal(e, 'settings'));
+document.getElementById('closeSettings').addEventListener('click', e => hideModal(e, 'settings'));
+document.getElementById('closeProgress').addEventListener('click', e => hideModal(e, 'progress'));
 
 document.getElementById('pgEndpointForm').addEventListener('submit', async e => {
   e.preventDefault();
   const url = document.getElementById('pgEndpointInput').value.trim();
   if (!url) return;
   localStorage.setItem('pgEndpoint', url);
-  hideSettings();
+  hideModal(null, 'settings');
   // check if the endpoiint is repsponding with the public schema
   try {
     await callPostgrest('gdsc_get_schema_tables', {"schema_name": "public"});
@@ -135,11 +140,39 @@ document.getElementById('pgEndpointForm').addEventListener('submit', async e => 
   }
 });
 
+function addProgressMessage(message) {
+  const progressMessage = document.createElement('p');
+  progressMessage.textContent = message;
+  progressContent.appendChild(progressMessage);
+  const lastElement = progressContent.lastElementChild;
+  lastElement.scrollIntoView({ behavior: 'smooth' });
+}
+
 /* -------------------------------------------------------------------------- */
 /*  Integration with PostGIS                                                  */
 /* -------------------------------------------------------------------------- */
 
-let api_url = '';
+async function getLoadedTables() {
+  if (localStorage.getItem('postgrestConnected') == 'true') {
+    loadedTables.clear();
+    const loaded = await callPostgrest(
+      'gdsc_get_schema_tables',
+      {"schema_name": "public"}
+    );
+    if (loaded) loaded.forEach(layer => { loadedTables.add(layer); })
+  }
+}
+
+async function getLoadedVariables(entry) {
+  if (localStorage.getItem('postgrestConnected') == 'true') {
+    loadedVariables.clear();
+    const loaded = await callPostgrest(
+      'gdsc_get_loaded_variables_for_table',
+      {"table_id": entry['gdsc:tablename']}
+    );
+    if (loaded) loaded.forEach(variable => { loadedVariables.add(variable); });
+  }
+}
 
 async function callPostgrest(func, params) {
   const shell = 'bash';
@@ -156,29 +189,36 @@ async function callPostgrest(func, params) {
     if (!response.ok) throw new Error(`HTTP error! Status: ${response.status}`);
 
     const data = await response.json();
-    console.log('Success:', data);
+    addProgressMessage(`Success (${func}): ${JSON.stringify(data,null,2)}`);
+    console.log(`Success (${func}):`, data);
     return data;
   } catch (error) {
-    console.error('Post failed:', error);
+    addProgressMessage(`Post failed (${func}): ${JSON.stringify(error,null,2)}`);
+    console.error(`Post failed (${func}):`, error);
   }
 
 }
 
-async function loadlayer(table) {
+async function loadLayer(table) {
+  await getLoadedTables();
   if (loadedTables.has(table)) {
+    addProgressMessage(`table ${table} already loaded`);
     console.log(`table ${table} already loaded`);
     return;
   }
+  showModal(null,'progress');
+  addProgressMessage(`loading table ${table}.`);
   console.log(`loading table ${table}.`);
 
   /* load dependencies if any */
-  const response = await callPostgrest('gdsc_path_and_dependencies',{"table_id": table});
+  const response = await callPostgrest('gdsc_path_and_dependencies',{'table_id':table});
   const dataPath = response.split('\n')[0];
   const tablesToLoad = response.split('\n').slice(1);
   for (const tableToLoad of tablesToLoad) { await loadLayer(tableToLoad); };
 
   /* load the table */
   for (const script of ['osgeo','postgis']) {
+    addProgressMessage(`gdsc_exec('bash', ${dataPath}/etl/${table}_${script})`);
     console.log(`${dataPath}/etl/${table}_${script}`);
     const response = await callPostgrest(
       'gdsc_exec',
@@ -194,41 +234,47 @@ async function loadlayer(table) {
 
 }
 
-async function loadvar(table,variable) {
+async function loadVariable(table,variable) {
+  const entry = catalog.find(e => e['gdsc:tablename'] === table);
+  await getLoadedVariables(entry);
   if (loadedVariables.has(variable)) {
+    addProgressMessage(`variable ${variable} for table ${table} already loaded`);
     console.log(`variable ${variable} for table ${table} already loaded`);
     return;
   }
+  addProgressMessage(`loading variable ${variable} from ${table}.`);
   console.log(`loading variable ${variable} from ${table}.`);
 
   /* make sure the layer is loaded */
-  if (!loadedTables.has(table)) await loadlayer(table);
+  await getLoadedTables();
+  if (!loadedTables.has(table)) await loadLayer(table);
 
   /* construct the parameters */
-  const entry = catalog.find(e => e['gdsc:tablename'] === table);
   const attribute = entry['gdsc:attributes'].find(e => e.includes(variable)).split(';');
   const parameters = {
     "params": {
       "table_id": table,
       "table_description": entry['dct:description'],
-      "geom_type": entry['locn:geometry'],
-      "geom_label": entry['gdsc:label'],
-      "variable_nodata": entry['gdsc:nodata'] ? entry['gdsc:nodata'][1] : "" ,
+      "geom_type": entry['locn:geometry'] ? entry['locn:geometry'] : "",
+      "geom_label": entry['gdsc:label'] ? entry['gdsc:label'] : "",
+      "variable_nodata": entry['gdsc:nodata'] ? entry['gdsc:nodata'][1] : "",
       "variable_id": attribute[0], 
       "description": attribute[1].replaceAll('"', ''),
-      "source": attribute[2],
-      "type": attribute[3],
-      "unit": attribute[4],
-      "unit_concept_id": attribute[5] == '' ? "" : parseInt(attribute[5]),
-      "min_val": attribute[6] == '' ? "" : parseFloat(attribute[6]),
-      "max_val": attribute[7] == '' ? "" : parseFloat(attribute[7]),
-      "start_date": new Date(attribute[8]).toISOString().slice(0,10),
-      "end_date": new Date(attribute[9]).toISOString().slice(0,10),
-      "concept_id": attribute[10] == '' ? "" : parseInt(attribute[10])      
+      "source": attribute[2] ? attribute[2] : "",
+      "type": attribute[3] ? attribute[3] : "",
+      "unit": attribute[4] ? attribute[4] : "",
+      "unit_concept_id": attribute[5] ? parseInt(attribute[5]) : "",
+      "min_val": attribute[6] ? parseFloat(attribute[6]) : "",
+      "max_val": attribute[7] ? parseFloat(attribute[7]) : "",
+      "start_date": attribute[8] ? new Date(attribute[8]).toISOString().slice(0,10) : "",
+      "end_date": attribute[9] ? new Date(attribute[9]).toISOString().slice(0,10) : "",
+      "concept_id": attribute[10] && attribute[10] != '' ? parseInt(attribute[10]) : ""
     }
   }
 
   // load the variable
+  addProgressMessage(`loading variable with parameters: ${JSON.stringify(parameters,null,2)}`);
+  console.log(parameters);
   const response = await callPostgrest(
     'gdsc_load_variable',parameters
   );
@@ -406,7 +452,7 @@ function matchesQuery(entry, query) {
 /*  Rendering result cards                                                    */
 /* -------------------------------------------------------------------------- */
 
-function renderResults(entries) {
+async function renderResults(entries) {
   const container = document.createElement('div');
   container.id = 'resultsContainer';
 
@@ -431,9 +477,11 @@ function renderResults(entries) {
     status.className += loadedTables.has(entry['gdsc:tablename']) 
       ? ' green-fill' 
       : ' red-fill';
-    status.addEventListener('click', (e) => { 
+    status.addEventListener('click', async (e) => { 
       e.preventDefault();
-      loadlayer(entry['gdsc:tablename']); 
+      showModal(null,'progress');
+      await loadLayer(entry['gdsc:tablename']);
+      addProgressMessage(`Finished ETL for ${entry['gdsc:tablename']}`);
     });
     title.appendChild(status);
     card.appendChild(title);
@@ -456,7 +504,7 @@ function renderResults(entries) {
 /*  Main view – search + filters + results                                    */
 /* -------------------------------------------------------------------------- */
 
-function renderSearch() {
+async function renderSearch() {
   app.innerHTML = '';
 
   /* Header and title */
@@ -510,7 +558,7 @@ function renderSearch() {
     matchesQuery(entry, searchString.trim().toLowerCase())
   );
   renderFilterPills(right);
-  rightResults.appendChild(renderResults(results));
+  rightResults.appendChild(await renderResults(results));
   right.appendChild(rightResults);
   wrapper.appendChild(right);
 
@@ -522,7 +570,7 @@ function renderSearch() {
 /*  Detailed view – entry landing page                                        */
 /* -------------------------------------------------------------------------- */
 
-function renderLanding(entry) {
+async function renderLanding(entry) {
   app.innerHTML = '';
 
   /* render a metadata element with title and content */
@@ -572,7 +620,11 @@ function renderLanding(entry) {
   status.className += loadedTables.has(entry['gdsc:tablename'])
     ? ' green-fill'
     : ' red-fill';
-  status.addEventListener('click', () => { loadlayer(entry['gdsc:tablename']); });
+  status.addEventListener('click', async () => { 
+    showModal(null,'progress');
+    await loadlayer(entry['gdsc:tablename']);
+    addProgressMessage(`Finished ETL for ${entry['gdsc:tablename']}`);
+  });
   title.appendChild(status);
   wrapper.appendChild(title);
 
@@ -624,7 +676,7 @@ function renderLanding(entry) {
     const attrSpec = attribute.split(';');
     attrHeaders.keys().forEach(header => {
       const attrElement = document.createElement('td');
-      if (attrHeaders.get(header) < 0) {
+      if (attrHeaders.get(header) < 0 && (attrSpec[8] != '' && attrSpec[8]) && (attrSpec[9] != '' && attrSpec[9])) {
         // button to load variable
         const buttonWrap = document.createElement('div');
         buttonWrap.className = 'none';
@@ -634,22 +686,29 @@ function renderLanding(entry) {
         button.className += loadedVariables.has(attrSpec[0])
           ? ' green-fill'
           : ' red-fill';
-        button.addEventListener('click', () => { loadvar(entry['gdsc:tablename'],attrSpec[0]); });
+        button.addEventListener('click', async () => { 
+          showModal(null,'progress');
+          await loadVariable(entry['gdsc:tablename'],attrSpec[0]); });
+          addProgressMessage(`Finished ETL for ${entry['gdsc:tablename']} and variable ${attrSpec[0]}`);
         buttonWrap.appendChild(button);
         attrElement.appendChild(buttonWrap);
       } else {
+        // variable content
         if (attrSpec[attrHeaders.get(header)]) {
+          const attrSpan = document.createElement('span');
           if (attrSpec[attrHeaders.get(header)] .length > 42) {
+            // tooltip for long content
             //attrElement.setAttribute('type', 'button');
-            attrElement.textContent = attrSpec[attrHeaders.get(header)].slice(0,42) + '...'
-            attrElement.setAttribute('data-bs-toggle', 'tooltip');
-            attrElement.setAttribute('data-bs-placement', 'top');
-            attrElement.setAttribute('data-bs-custom-class', 'custom-tooltip');
-            attrElement.setAttribute('data-bs-container', 'body');
-            attrElement.setAttribute('title', attrSpec[attrHeaders.get(header)]);
+            attrSpan.textContent = attrSpec[attrHeaders.get(header)].slice(0,42) + '...'
+            attrSpan.setAttribute('data-bs-toggle', 'tooltip');
+            attrSpan.setAttribute('data-bs-placement', 'top');
+            attrSpan.setAttribute('data-bs-custom-class', 'custom-tooltip');
+            attrSpan.setAttribute('data-bs-container', 'body');
+            attrSpan.setAttribute('title', attrSpec[attrHeaders.get(header)]);
           } else {
-            attrElement.textContent = attrSpec[attrHeaders.get(header)];
+            attrSpan.textContent = attrSpec[attrHeaders.get(header)];
           }
+          attrElement.appendChild(attrSpan);
         }
       }
       attrRow.appendChild(attrElement);
@@ -673,11 +732,7 @@ function renderLanding(entry) {
 /* -------------------------------------------------------------------------- */
 
 async function render() {
-  if (localStorage.getItem('postgrestConnected') == 'true') {
-    loadedTables.clear();
-    const loaded = await callPostgrest('gdsc_get_schema_tables',{"schema_name": "public"});
-    loaded.forEach(layer => { loadedTables.add(layer); })
-  }
+  await getLoadedTables();
   const hash = window.location.hash;
   if (!hash || hash === '#') {
     renderSearch();
@@ -685,14 +740,7 @@ async function render() {
     const id = hash.slice(7);
     const entry = catalog.find(e => e.id === id);
     if (entry) {
-      if (localStorage.getItem('postgrestConnected') == 'true') {
-        loadedVariables.clear();
-        const loaded = await callPostgrest(
-          'gdsc_get_loaded_variables_for_table',
-          {"table_id": entry['gdsc:tablename']}
-        );
-        if (loaded) loaded.forEach(variable => { loadedVariables.add(variable); });
-      }
+      await getLoadedVariables(entry);
       renderLanding(entry);
     } else app.textContent = 'Entry not found.';
   } else {
@@ -708,4 +756,12 @@ async function render() {
 initFieldOptions();
 window.addEventListener('hashchange', render);
 let currentAccordian = 0;
+// check to see if there is a local database running as expected
+try {
+  await callPostgrest('gdsc_get_schema_tables', {"schema_name": "public"});
+  localStorage.setItem('postgrestConnected', true);    
+} catch (err) {
+  // fail silently
+  console.error(err);
+}
 render();

@@ -6,8 +6,15 @@
 # Data source: https://overpass-api.de/api/interpreter?data=node%5B%22place%22~%22city|town|village%22%5D(area:3600555717);(._;>;);out;
 # Destination postGIS table: tt_populated_places
 #
-# Created by etl() on 2026-09-06 12:36:35
+# Created by etl() on 2026-09-08 22:16:40
 # Do not edit directly
+
+# set credentials from postgres defaults and secret files
+export POSTGRES_PASSWORD=$(cat $PG_PASSWORD_FILE)
+export CDC_APP_TOKEN=$(cat $CDC_APP_TOKEN_FILE)
+export AIRNOW_API_KEY=$(cat $AIRNOW_API_KEY_FILE)
+export USGS_USER=$(cat $USGS_USER_FILE)
+export USGS_PASSWORD=$(cat $USGS_PASSWORD_FILE)
 
 # create directory structure and move into it
 mkdir -p /data/tt_populated_places/download -p /data/tt_populated_places/etl
@@ -29,7 +36,7 @@ if [[ $exists ]]; then
   if [[ ! $no_update ]]; then
     last_update=$(date -d "$(cat datestamp)" '+%s')
     check_date="$(date -d '-'"$update_frequency" '+%s')"
-    if [[ "$check_date" -ge "$last_update" ]]; then do_update=1; fi
+    if [[ "$check_date -ge $last_update" ]]; then do_update=1; fi
   fi
 
 # does not exist
@@ -37,12 +44,13 @@ else do_update=1; fi
 
 # download if needed
 if [[ $do_update = 1 ]]; then
+  # fail after 3 attempts to download
   attempts=0
   until (
     curl -o download/tt_populated_places.osm 'https://overpass-api.de/api/interpreter?data=node%5B%22place%22~%22city|town|village%22%5D(area:3600555717);(._;>;);out;'
   ); do
     ((attempts++))
-    if [[ attempts > 3 ]]; then echo $?; break; fi
+    if (( attempts > 3 )); then echo $?; break; fi
   done
   # record download datestamp
   echo $(date '+%F %T') > datestamp

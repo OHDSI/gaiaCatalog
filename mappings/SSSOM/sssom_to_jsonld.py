@@ -556,7 +556,7 @@ def main() -> None:
     base = Path(__file__).parent
 
     parser = argparse.ArgumentParser(description="Transform JSON to JSON-LD using an SSSOM mapping file.")
-    parser.add_argument("--sssom",    type=Path, default=base / "test.sssom.tsv",
+    parser.add_argument("--sssom",    type=Path, default=base / "kobo_form_sssom.tsv",
                         help="SSSOM TSV file")
     parser.add_argument("--input",    type=Path, default=base / "example_input.json",
                         help="Source JSON file")

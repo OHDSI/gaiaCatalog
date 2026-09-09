@@ -101,7 +101,7 @@ input[type="text"]:focus {
 }
 
 /* Settings modal ------------------------------------------------------- */
-.settings-modal {
+.ui-modal {
   position: fixed;
   inset: 0;
   background: rgba(0,0,0,0.45);
@@ -110,26 +110,38 @@ input[type="text"]:focus {
   justify-content: center;
   z-index: 1050;
 }
-.settings-modal.hidden { display: none; }
+.ui-modal.hidden { display: none; }
 
-.settings-modal-content {
+.ui-modal-content {
   background: #fff;
   border-radius: 8px;
   padding: 1.5rem;
   width: 90%;
+}
+.settings-content {
   max-width: 400px;
 }
-.settings-modal-content h2 {
+.progress-content {
+  max-width: 800px;
+  height: 80%;
+  max-height: 500px;
+}
+.progress-steps {
+  max-height: 80%;
+  overflow-y: auto; 
+  margin-bottom: 1em;
+}
+.ui-modal-content h2 {
   margin-top: 0;
 }
-.settings-modal-content form {
+.ui-modal-content form {
   display: flex;
   flex-direction: column;
 }
-.settings-modal-content label {
+.ui-modal-content label {
   margin-bottom: 0.5rem;
 }
-.settings-modal-content input[type="url"] {
+.ui-modal-content input[type="url"] {
   padding: 0.5rem;
   border: 1px solid #ccc;
   border-radius: 4px;
@@ -139,6 +151,9 @@ input[type="text"]:focus {
   display: flex;
   justify-content: flex-end;
   gap: 0.5rem;
+}
+.progress-content {
+  font-size: 1rem; 
 }
 
 /* -------------------------------------------------------------------------- */

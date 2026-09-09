@@ -32,53 +32,44 @@ export const catalog = [
     "adms:representationTechnique": "vector",
     "locn:geometry": "multipolygon",
     "dct:conformsTo": "EPSG:4326",
-    "prov:action": "#########\n# GDSC ETL is performed in two steps: shell script to ETL data into postgres\n# and then additional transformations with SQL in postGIS (if needed).\n####\n\n#########\n# Step 1 - bash script (pseudo code)\n####\n\n# create directory structure and move into it\nmkdir -p /data/global_pm25_concentration_1998_2016/download -p /data/global_pm25_concentration_1998_2016/etl\nchmod 777 /data/global_pm25_concentration_1998_2016/download\ncd /data/global_pm25_concentration_1998_2016\n\n# set update flag based on last update and update frequency\ndo_update=0 if date() < last_update + update_frequency else do_update = 1\n\n# download if update flag is set:\nif do_update == 1 then\nwget -O download/global_pm25_concentration_1998_2016.zip 'https://sedac.ciesin.columbia.edu/downloads/data/sdei/sdei-annual-pm2-5-concentrations-countries-urban-areas-v1-1998-2016/sdei-annual-pm2-5-concentrations-countries-urban-areas-v1-1998-2016-urban-areas-shp.zip'\n\n# unzip to download directory if update flag is set\nif do_update == 1 then\nunzip -d download download/global_pm25_concentration_1998_2016.zip && rm download/global_pm25_concentration_1998_2016.zip\n\n# load into postGIS with:\n  ogr2ogr -lco GEOMETRY_NAME=geom -f PostgreSQL PG:\"<postgres connection>\" download/sdei-annual-pm2-5-concentrations-countries-urban-areas-v1-1998-2016-urban-areas.shp -nlt multipolygon -nln global_pm25_concentration_1998_2016\n\n#########\n# Step 2 - SQL script (pseudo code):\n####\n\n# remove duplicate points and make geometries valid:\nUPDATE global_pm25_concentration_1998_2016\n  SET geom=ST_MakeValid(ST_RemoveRepeatedPoints(geom));\n\n# add local geometry column and reproject existing geometries into local EPSG:\nSELECT AddGeometryColumn (\n  'global_pm25_concentration_1998_2016',\n  'geom_local', 3857, 'multipolygon', 2\n);\nUPDATE global_pm25_concentration_1998_2016\n  SET geom_local=ST_MakeValid(ST_RemoveRepeatedPoints(ST_Transform(ST_Multi(geom),3857)));\nCREATE INDEX global_pm25_concentration_1998_2016_geom_local_idx\n  ON global_pm25_concentration_1998_2016\n  USING GIST (geom_local);\nNOTIFY pgrst, 'reload schema';\n# Move into corrrect directory and create derivative directory in data package on osgeo\ncd /data/global_pm25_concentration_1998_2016/\nmkdir -p derived\n\n# Create shapefile of table in derivate directory on osgeo \nogr2ogr -f \"ESRI Shapefile\" -overwrite derived/global_pm25_concentration_1998_2016.shp PG:\"<postgres connection>\" global_pm25_concentration_1998_2016\n\n# Create downloadable tarfile of shp in derivative directory on osgeo\nrm -f derived/global_pm25_concentration_1998_2016.shp.tar.gz\ntar -czf derived/global_pm25_concentration_1998_2016.shp.tar.gz meta_dcat_global_pm25_concentration_1998_2016.json -C derived global_pm25_concentration_1998_2016.shp global_pm25_concentration_1998_2016.prj global_pm25_concentration_1998_2016.shx global_pm25_concentration_1998_2016.dbf\n\n# Move into correct directory\ncd /data/global_pm25_concentration_1998_2016/\n\n# Create pg_dump of table SQL in derivate directory on postgis.\npg_dump <postgres opts> -h gaia-db -t global_pm25_concentration_1998_2016 > derived/global_pm25_concentration_1998_2016.sql\n\n# Create downloadable tarfile of SQL in derivative directory on postgis\nrm -f derived/global_pm25_concentration_1998_2016.sql.tar.gz\ntar -czf derived/global_pm25_concentration_1998_2016.sql.tar.gz meta_dcat_global_pm25_concentration_1998_2016.json -C derived global_pm25_concentration_1998_2016.sql\n\n",
+    "prov:action": "#########\n# GDSC ETL is performed in two steps: shell script to ETL data into postgres\n# and then additional transformations with SQL in postGIS (if needed).\n####\n\n#########\n# Step 1 - bash script (pseudo code)\n####\n\n# create directory structure and move into it\nmkdir -p /data/global_pm25_concentration_1998_2016/download -p /data/global_pm25_concentration_1998_2016/etl\nchmod -R 777 /data/global_pm25_concentration_1998_2016\ncd /data/global_pm25_concentration_1998_2016\n\n# set update flag based on last update and update frequency\ndo_update=0 if date() < last_update + update_frequency else do_update = 1\n\n# download if update flag is set:\nif do_update == 1 then\nwget -O download/global_pm25_concentration_1998_2016.zip 'https://sedac.ciesin.columbia.edu/downloads/data/sdei/sdei-annual-pm2-5-concentrations-countries-urban-areas-v1-1998-2016/sdei-annual-pm2-5-concentrations-countries-urban-areas-v1-1998-2016-urban-areas-shp.zip'\n\n# unzip to download directory if update flag is set\nif do_update == 1 then\nunzip -o download/global_pm25_concentration_1998_2016.zip -d download && rm download/global_pm25_concentration_1998_2016.zip\n\n# load into postGIS with:\nogr2ogr -lco GEOMETRY_NAME=geom -f PostgreSQL PG:\"<postgres connection>\" download/sdei-annual-pm2-5-concentrations-countries-urban-areas-v1-1998-2016-urban-areas.shp -nlt multipolygon -nln global_pm25_concentration_1998_2016\n\n\n#########\n# Step 2 - SQL script (pseudo code):\n####\n\n# remove duplicate points and make geometries valid:\nUPDATE global_pm25_concentration_1998_2016\n  SET geom=ST_MakeValid(ST_RemoveRepeatedPoints(geom));\n\n# add local geometry column and reproject existing geometries into local EPSG:\nSELECT AddGeometryColumn (\n  'global_pm25_concentration_1998_2016',\n  'geom_local', 3857, 'multipolygon', 2\n);\nUPDATE global_pm25_concentration_1998_2016\n  SET geom_local=ST_MakeValid(ST_RemoveRepeatedPoints(ST_Transform(ST_Multi(geom),3857)));\nCREATE INDEX global_pm25_concentration_1998_2016_geom_local_idx\n  ON global_pm25_concentration_1998_2016\n  USING GIST (geom_local);\nNOTIFY pgrst, 'reload schema';\n# Move into corrrect directory and create derivative directory in data package on osgeo\ncd /data/global_pm25_concentration_1998_2016/\nmkdir -p derived\n\n# Create shapefile of table in derivate directory on osgeo \nogr2ogr -f \"ESRI Shapefile\" -overwrite derived/global_pm25_concentration_1998_2016.shp PG:\"<postgres connection>\" global_pm25_concentration_1998_2016\n\n# Create downloadable tarfile of shp in derivative directory on osgeo\nrm -f derived/global_pm25_concentration_1998_2016.shp.tar.gz\ntar -czf derived/global_pm25_concentration_1998_2016.shp.tar.gz meta_dcat_global_pm25_concentration_1998_2016.json -C derived global_pm25_concentration_1998_2016.shp global_pm25_concentration_1998_2016.prj global_pm25_concentration_1998_2016.shx global_pm25_concentration_1998_2016.dbf\n\n# Move into correct directory\ncd /data/global_pm25_concentration_1998_2016/\n\n# Create pg_dump of table SQL in derivate directory on postgis.\npg_dump <postgres opts> -h gaia-db -t global_pm25_concentration_1998_2016 > derived/global_pm25_concentration_1998_2016.sql\n\n# Create downloadable tarfile of SQL in derivative directory on postgis\nrm -f derived/global_pm25_concentration_1998_2016.sql.tar.gz\ntar -czf derived/global_pm25_concentration_1998_2016.sql.tar.gz meta_dcat_global_pm25_concentration_1998_2016.json -C derived global_pm25_concentration_1998_2016.sql\n\n",
     "prov:wasGeneratedBy": "GDSC automation (see Process Step)",
     "dcat:contactPoint": [
-      {
-        "contact_name": "Timothy B. Norris",
-        "contact_last_name": "Norris",
-        "contact_first_name": "Timothy",
-        "contact_email": "tnorris@miami.edu",
-        "contact_identifier": "https://orcid.org/0000-0002-0898-3027",
-        "contact_identifier_schema": "orcid",
-        "contact_identifier_schema_uri": "https://orcid.org/",
-        "contact_affiliation": "University of Miami Libraries, Frost Institute for Data Science and Computing",
-        "contact_affiliation_identifier": "https://ror.org/02dgjyy92",
-        "contact_affiliation_schema": "ror",
-        "contact_affiliation_schema_uri": "https://ror.org/"
-      }
+      "Timothy Norris",
+      "Librarian Associate Professor",
+      "University of Miami Libraries, Frost Institute for Data Science and Computing",
+      "txn60@miami.edu"
     ],
     "gdsc:label": "name",
     "gdsc:attributes": [
-      "urbid;Code of the urban extent polygons (not unique);SEDAC;int4;;;8;94650",
-      "stndrdname;\"Name of the Urban Extent, caps and concatenated. If the urban extents polygons include more than one settlement, the name of the urban extent is the name of the settlement with the highest population\";SEDAC;string",
-      "name;\"Name of the Urban Extent. If the urban extents polygons include more than one settlement, the name of the urban extent is the name of the settlement with the highest population\";SEDAC;string",
-      "isourbid;Unique code of the urban extent polygons. It is created by concatenation of country ISO code and URBID;SEDAC;string",
-      "sqkm;Area of the urban extent polygon;SEDAC;int4;square kilometers;;0;43606",
-      "iso3;3 letter country code;SEDAC;string",
-      "unsdcode;UNSD country numerical code;SEDAC;int4;;;4;1015",
-      "countryeng;Country name;SEDAC;string",
-      "continent;Continent Name;SEDAC;string",
-      "avpmu_1998;\"PM2.5 Exposure for named urban areas from GRUMPv1: Urban Extent Polygons, Revision 02, from 1998. It is measured in micrograms per cubic meter, and is the average annual concentration of PM2.5 to which the typical citizen of each urban area is exposed. Blanks (-9999) represent missing data.\";SEDAC;double;micrograms/cubic meter;32964;0;83;1998-01-01;1998-12-31;2052499839;gaia-407",
-      "avpmu_1999;\"PM2.5 Exposure for named urban areas from GRUMPv1: Urban Extent Polygons, Revision 02, from 1999. It is measured in micrograms per cubic meter, and is the average annual concentration of PM2.5 to which the typical citizen of each urban area is exposed. Blanks (-9999) represent missing data.\";SEDAC;double;micrograms/cubic meter;32964;0;77;1999-01-01;1999-12-31;2052499839;gaia-408",
-      "avpmu_2000;\"PM2.5 Exposure for named urban areas from GRUMPv1: Urban Extent Polygons, Revision 02, from 2000. It is measured in micrograms per cubic meter, and is the average annual concentration of PM2.5 to which the typical citizen of each urban area is exposed. Blanks (-9999) represent missing data.\";SEDAC;double;micrograms/cubic meter;32964;0;82;2000-01-01;2000-12-31;2052499839;gaia-409",
-      "avpmu_2001;\"PM2.5 Exposure for named urban areas from GRUMPv1: Urban Extent Polygons, Revision 02, from 2001. It is measured in micrograms per cubic meter, and is the average annual concentration of PM2.5 to which the typical citizen of each urban area is exposed. Blanks (-9999) represent missing data.\";SEDAC;double;micrograms/cubic meter;32964;0;96;2001-01-01;2001-12-31;2052499839;gaia-410",
-      "avpmu_2002;\"PM2.5 Exposure for named urban areas from GRUMPv1: Urban Extent Polygons, Revision 02, from 2002. It is measured in micrograms per cubic meter, and is the average annual concentration of PM2.5 to which the typical citizen of each urban area is exposed. Blanks (-9999) represent missing data.\";SEDAC;double;micrograms/cubic meter;32964;0;89;2002-01-01;2002-12-31;2052499839;gaia-411",
-      "avpmu_2003;\"PM2.5 Exposure for named urban areas from GRUMPv1: Urban Extent Polygons, Revision 02, from 2003. It is measured in micrograms per cubic meter, and is the average annual concentration of PM2.5 to which the typical citizen of each urban area is exposed. Blanks (-9999) represent missing data.\";SEDAC;double;micrograms/cubic meter;32964;0;103;2003-01-01;2003-12-31;2052499839;gaia-412",
-      "avpmu_2004;\"PM2.5 Exposure for named urban areas from GRUMPv1: Urban Extent Polygons, Revision 02, from 2004. It is measured in micrograms per cubic meter, and is the average annual concentration of PM2.5 to which the typical citizen of each urban area is exposed. Blanks (-9999) represent missing data.\";SEDAC;double;micrograms/cubic meter;32964;0;100;2004-01-01;2004-12-31;2052499839;gaia-413",
-      "avpmu_2005;\"PM2.5 Exposure for named urban areas from GRUMPv1: Urban Extent Polygons, Revision 02, from 2005. It is measured in micrograms per cubic meter, and is the average annual concentration of PM2.5 to which the typical citizen of each urban area is exposed. Blanks (-9999) represent missing data.\";SEDAC;double;micrograms/cubic meter;32964;0;101;2005-01-01;2005-12-31;2052499839;gaia-414",
-      "avpmu_2006;\"PM2.5 Exposure for named urban areas from GRUMPv1: Urban Extent Polygons, Revision 02, from 2006. It is measured in micrograms per cubic meter, and is the average annual concentration of PM2.5 to which the typical citizen of each urban area is exposed. Blanks (-9999) represent missing data.\";SEDAC;double;micrograms/cubic meter;32964;0;103;2006-01-01;2006-12-31;2052499839;gaia-415",
-      "avpmu_2007;\"PM2.5 Exposure for named urban areas from GRUMPv1: Urban Extent Polygons, Revision 02, from 2007. It is measured in micrograms per cubic meter, and is the average annual concentration of PM2.5 to which the typical citizen of each urban area is exposed. Blanks (-9999) represent missing data.\";SEDAC;double;micrograms/cubic meter;32964;0;104;2007-01-01;2007-12-31;2052499839;gaia-416",
-      "avpmu_2008;\"PM2.5 Exposure for named urban areas from GRUMPv1: Urban Extent Polygons, Revision 02, from 2008. It is measured in micrograms per cubic meter, and is the average annual concentration of PM2.5 to which the typical citizen of each urban area is exposed. Blanks (-9999) represent missing data.\";SEDAC;double;micrograms/cubic meter;32964;0;125;2008-01-01;2008-12-31;2052499839;gaia-417",
-      "avpmu_2009;\"PM2.5 Exposure for named urban areas from GRUMPv1: Urban Extent Polygons, Revision 02, from 2009. It is measured in micrograms per cubic meter, and is the average annual concentration of PM2.5 to which the typical citizen of each urban area is exposed. Blanks (-9999) represent missing data.\";SEDAC;double;micrograms/cubic meter;32964;0;110;2009-01-01;2009-12-31;2052499839;gaia-418",
-      "avpmu_2010;\"PM2.5 Exposure for named urban areas from GRUMPv1: Urban Extent Polygons, Revision 02, from 2010. It is measured in micrograms per cubic meter, and is the average annual concentration of PM2.5 to which the typical citizen of each urban area is exposed. Blanks (-9999) represent missing data.\";SEDAC;double;micrograms/cubic meter;32964;0;105;2010-01-01;2010-12-31;2052499839;gaia-419",
-      "avpmu_2011;\"PM2.5 Exposure for named urban areas from GRUMPv1: Urban Extent Polygons, Revision 02, from 2011. It is measured in micrograms per cubic meter, and is the average annual concentration of PM2.5 to which the typical citizen of each urban area is exposed. Blanks (-9999) represent missing data.\";SEDAC;double;micrograms/cubic meter;32964;0;102;2011-01-01;2011-12-31;2052499839;gaia-420",
-      "avpmu_2012;\"PM2.5 Exposure for named urban areas from GRUMPv1: Urban Extent Polygons, Revision 02, from 2012. It is measured in micrograms per cubic meter, and is the average annual concentration of PM2.5 to which the typical citizen of each urban area is exposed. Blanks (-9999) represent missing data.\";SEDAC;double;micrograms/cubic meter;32964;0;84;2012-01-01;2012-12-31;2052499839;gaia-421",
-      "avpmu_2013;\"PM2.5 Exposure for named urban areas from GRUMPv1: Urban Extent Polygons, Revision 02, from 2013. It is measured in micrograms per cubic meter, and is the average annual concentration of PM2.5 to which the typical citizen of each urban area is exposed. Blanks (-9999) represent missing data.\";SEDAC;double;micrograms/cubic meter;32964;0;100;2013-01-01;2013-12-31;2052499839;gaia-422",
-      "avpmu_2014;\"PM2.5 Exposure for named urban areas from GRUMPv1: Urban Extent Polygons, Revision 02, from 2014. It is measured in micrograms per cubic meter, and is the average annual concentration of PM2.5 to which the typical citizen of each urban area is exposed. Blanks (-9999) represent missing data.\";SEDAC;double;micrograms/cubic meter;32964;0;98;2014-01-01;2014-12-31;2052499839;gaia-423",
-      "avpmu_2015;\"PM2.5 Exposure for named urban areas from GRUMPv1: Urban Extent Polygons, Revision 02, from 2015. It is measured in micrograms per cubic meter, and is the average annual concentration of PM2.5 to which the typical citizen of each urban area is exposed. Blanks (-9999) represent missing data.\";SEDAC;double;micrograms/cubic meter;32964;0;104;2015-01-01;2015-12-31;2052499839;gaia-424",
-      "avpmu_2016;\"PM2.5 Exposure for named urban areas from GRUMPv1: Urban Extent Polygons, Revision 02, from 2016. It is measured in micrograms per cubic meter, and is the average annual concentration of PM2.5 to which the typical citizen of each urban area is exposed. Blanks (-9999) represent missing data.\";SEDAC;double;micrograms/cubic meter;32964;-1;127;2016-01-01;2016-12-31;2052499839;gaia-425"
+      "urbid;Code of the urban extent polygons (not unique);SEDAC;numeric;;;8.00;94650.00",
+      "stndrdname;\"Name of the Urban Extent, caps and concatenated. If the urban extents polygons include more than one settlement, the name of the urban extent is the name of the settlement with the highest population\";SEDAC;varchar;;;;",
+      "name;\"Name of the Urban Extent. If the urban extents polygons include more than one settlement, the name of the urban extent is the name of the settlement with the highest population\";SEDAC;varchar;;;;",
+      "isourbid;Unique code of the urban extent polygons. It is created by concatenation of country ISO code and URBID;SEDAC;varchar;;;;",
+      "sqkm;Area of the urban extent polygon;SEDAC;numeric;square kilometers;;0.00;43605.80",
+      "iso3;3 letter country code;SEDAC;varchar;;;;",
+      "unsdcode;UNSD country numerical code;SEDAC;numeric;;;4.00;1015.00",
+      "countryeng;Country name;SEDAC;varchar;;;;",
+      "continent;Continent Name;SEDAC;varchar;;;;",
+      "avpmu_1998;\"PM2.5 Exposure for named urban areas from GRUMPv1: Urban Extent Polygons, Revision 02, from 1998. It is measured in micrograms per cubic meter, and is the average annual concentration of PM2.5 to which the typical citizen of each urban area is exposed. Blanks (-9999) represent missing data.\";SEDAC;numeric;micrograms/cubic meter;32964;0.00;82.91;1998-01-01;1998-12-31;2052499839;gaia-407",
+      "avpmu_1999;\"PM2.5 Exposure for named urban areas from GRUMPv1: Urban Extent Polygons, Revision 02, from 1999. It is measured in micrograms per cubic meter, and is the average annual concentration of PM2.5 to which the typical citizen of each urban area is exposed. Blanks (-9999) represent missing data.\";SEDAC;numeric;micrograms/cubic meter;32964;0.00;77.47;1999-01-01;1999-12-31;2052499839;gaia-408",
+      "avpmu_2000;\"PM2.5 Exposure for named urban areas from GRUMPv1: Urban Extent Polygons, Revision 02, from 2000. It is measured in micrograms per cubic meter, and is the average annual concentration of PM2.5 to which the typical citizen of each urban area is exposed. Blanks (-9999) represent missing data.\";SEDAC;numeric;micrograms/cubic meter;32964;0.00;81.73;2000-01-01;2000-12-31;2052499839;gaia-409",
+      "avpmu_2001;\"PM2.5 Exposure for named urban areas from GRUMPv1: Urban Extent Polygons, Revision 02, from 2001. It is measured in micrograms per cubic meter, and is the average annual concentration of PM2.5 to which the typical citizen of each urban area is exposed. Blanks (-9999) represent missing data.\";SEDAC;numeric;micrograms/cubic meter;32964;0.00;95.98;2001-01-01;2001-12-31;2052499839;gaia-410",
+      "avpmu_2002;\"PM2.5 Exposure for named urban areas from GRUMPv1: Urban Extent Polygons, Revision 02, from 2002. It is measured in micrograms per cubic meter, and is the average annual concentration of PM2.5 to which the typical citizen of each urban area is exposed. Blanks (-9999) represent missing data.\";SEDAC;numeric;micrograms/cubic meter;32964;0.00;88.72;2002-01-01;2002-12-31;2052499839;gaia-411",
+      "avpmu_2003;\"PM2.5 Exposure for named urban areas from GRUMPv1: Urban Extent Polygons, Revision 02, from 2003. It is measured in micrograms per cubic meter, and is the average annual concentration of PM2.5 to which the typical citizen of each urban area is exposed. Blanks (-9999) represent missing data.\";SEDAC;numeric;micrograms/cubic meter;32964;0.00;103.41;2003-01-01;2003-12-31;2052499839;gaia-412",
+      "avpmu_2004;\"PM2.5 Exposure for named urban areas from GRUMPv1: Urban Extent Polygons, Revision 02, from 2004. It is measured in micrograms per cubic meter, and is the average annual concentration of PM2.5 to which the typical citizen of each urban area is exposed. Blanks (-9999) represent missing data.\";SEDAC;numeric;micrograms/cubic meter;32964;0.00;99.80;2004-01-01;2004-12-31;2052499839;gaia-413",
+      "avpmu_2005;\"PM2.5 Exposure for named urban areas from GRUMPv1: Urban Extent Polygons, Revision 02, from 2005. It is measured in micrograms per cubic meter, and is the average annual concentration of PM2.5 to which the typical citizen of each urban area is exposed. Blanks (-9999) represent missing data.\";SEDAC;numeric;micrograms/cubic meter;32964;0.00;101.18;2005-01-01;2005-12-31;2052499839;gaia-414",
+      "avpmu_2006;\"PM2.5 Exposure for named urban areas from GRUMPv1: Urban Extent Polygons, Revision 02, from 2006. It is measured in micrograms per cubic meter, and is the average annual concentration of PM2.5 to which the typical citizen of each urban area is exposed. Blanks (-9999) represent missing data.\";SEDAC;numeric;micrograms/cubic meter;32964;0.00;103.09;2006-01-01;2006-12-31;2052499839;gaia-415",
+      "avpmu_2007;\"PM2.5 Exposure for named urban areas from GRUMPv1: Urban Extent Polygons, Revision 02, from 2007. It is measured in micrograms per cubic meter, and is the average annual concentration of PM2.5 to which the typical citizen of each urban area is exposed. Blanks (-9999) represent missing data.\";SEDAC;numeric;micrograms/cubic meter;32964;0.00;104.29;2007-01-01;2007-12-31;2052499839;gaia-416",
+      "avpmu_2008;\"PM2.5 Exposure for named urban areas from GRUMPv1: Urban Extent Polygons, Revision 02, from 2008. It is measured in micrograms per cubic meter, and is the average annual concentration of PM2.5 to which the typical citizen of each urban area is exposed. Blanks (-9999) represent missing data.\";SEDAC;numeric;micrograms/cubic meter;32964;0.10;124.95;2008-01-01;2008-12-31;2052499839;gaia-417",
+      "avpmu_2009;\"PM2.5 Exposure for named urban areas from GRUMPv1: Urban Extent Polygons, Revision 02, from 2009. It is measured in micrograms per cubic meter, and is the average annual concentration of PM2.5 to which the typical citizen of each urban area is exposed. Blanks (-9999) represent missing data.\";SEDAC;numeric;micrograms/cubic meter;32964;0.10;110.21;2009-01-01;2009-12-31;2052499839;gaia-418",
+      "avpmu_2010;\"PM2.5 Exposure for named urban areas from GRUMPv1: Urban Extent Polygons, Revision 02, from 2010. It is measured in micrograms per cubic meter, and is the average annual concentration of PM2.5 to which the typical citizen of each urban area is exposed. Blanks (-9999) represent missing data.\";SEDAC;numeric;micrograms/cubic meter;32964;0.10;104.90;2010-01-01;2010-12-31;2052499839;gaia-419",
+      "avpmu_2011;\"PM2.5 Exposure for named urban areas from GRUMPv1: Urban Extent Polygons, Revision 02, from 2011. It is measured in micrograms per cubic meter, and is the average annual concentration of PM2.5 to which the typical citizen of each urban area is exposed. Blanks (-9999) represent missing data.\";SEDAC;numeric;micrograms/cubic meter;32964;0.00;101.69;2011-01-01;2011-12-31;2052499839;gaia-420",
+      "avpmu_2012;\"PM2.5 Exposure for named urban areas from GRUMPv1: Urban Extent Polygons, Revision 02, from 2012. It is measured in micrograms per cubic meter, and is the average annual concentration of PM2.5 to which the typical citizen of each urban area is exposed. Blanks (-9999) represent missing data.\";SEDAC;numeric;micrograms/cubic meter;32964;0.10;84.48;2012-01-01;2012-12-31;2052499839;gaia-421",
+      "avpmu_2013;\"PM2.5 Exposure for named urban areas from GRUMPv1: Urban Extent Polygons, Revision 02, from 2013. It is measured in micrograms per cubic meter, and is the average annual concentration of PM2.5 to which the typical citizen of each urban area is exposed. Blanks (-9999) represent missing data.\";SEDAC;numeric;micrograms/cubic meter;32964;0.10;99.83;2013-01-01;2013-12-31;2052499839;gaia-422",
+      "avpmu_2014;\"PM2.5 Exposure for named urban areas from GRUMPv1: Urban Extent Polygons, Revision 02, from 2014. It is measured in micrograms per cubic meter, and is the average annual concentration of PM2.5 to which the typical citizen of each urban area is exposed. Blanks (-9999) represent missing data.\";SEDAC;numeric;micrograms/cubic meter;32964;0.10;97.52;2014-01-01;2014-12-31;2052499839;gaia-423",
+      "avpmu_2015;\"PM2.5 Exposure for named urban areas from GRUMPv1: Urban Extent Polygons, Revision 02, from 2015. It is measured in micrograms per cubic meter, and is the average annual concentration of PM2.5 to which the typical citizen of each urban area is exposed. Blanks (-9999) represent missing data.\";SEDAC;numeric;micrograms/cubic meter;32964;0.20;104.41;2015-01-01;2015-12-31;2052499839;gaia-424",
+      "avpmu_2016;\"PM2.5 Exposure for named urban areas from GRUMPv1: Urban Extent Polygons, Revision 02, from 2016. It is measured in micrograms per cubic meter, and is the average annual concentration of PM2.5 to which the typical citizen of each urban area is exposed. Blanks (-9999) represent missing data.\";SEDAC;numeric;micrograms/cubic meter;32964;-0.50;126.79;2016-01-01;2016-12-31;2052499839;gaia-425"
     ],
     "gdsc:nodata": [
       "int4",
@@ -104,16 +95,16 @@ export const catalog = [
     ],
     "dcat:downloadURL": "https://sedac.ciesin.columbia.edu/downloads/data/sdei/sdei-annual-pm2-5-concentrations-countries-urban-areas-v1-1998-2016/sdei-annual-pm2-5-concentrations-countries-urban-areas-v1-1998-2016-urban-areas-shp.zip",
     "gdsc:tablename": "global_pm25_concentration_1998_2016",
-    "gdsc:up": "false",
+    "gdsc:up": "true",
     "gdsc:podID": "gaia-db",
-    "dct:modified": "2025-05-23T08:47:15Z",
+    "dct:modified": "2025-08-27T11:35:04Z",
     "dct:accrualPeriodicity": "As Needed",
-    "gdsc:version": "2026-08-23T15:55:26Z",
+    "gdsc:version": "2026-09-08T23:16:24Z",
     "spdx:checksum": "TBD",
-    "dct:extent": {
-      "size_bytes": "112455209",
-      "size_human_readable": "108M"
-    },
+    "dct:extent": [
+      "bash: line 7: numfmt: command not found\n112459305",
+      ""
+    ],
     "dcat:bbox": "POLYGON((-176.733337 -54.858002, 179.458313 -54.858002, 179.458313 78.274611, -176.733337 78.274611, -176.733337 -54.858002))"
   },
   {
@@ -151,22 +142,13 @@ export const catalog = [
     ],
     "dct:language": "en",
     "adms:representationTechnique": "table",
-    "prov:action": "#########\n# GDSC ETL is performed in two steps: shell script to ETL data into postgres\n# and then additional transformations with SQL in postGIS (if needed).\n####\n\n#########\n# Step 1 - bash script (pseudo code)\n####\n\n# create directory structure and move into it\nmkdir -p /data/kenya_ppd_survey_2014/download -p /data/kenya_ppd_survey_2014/etl\nchmod 777 /data/kenya_ppd_survey_2014/download\ncd /data/kenya_ppd_survey_2014\n\n# set update flag based on last update and update frequency\ndo_update=0 if date() < last_update + update_frequency else do_update = 1\n\n# remove spaces for all column headers in csv\n  sed -i '1 s/ /_/g' download/kenya_ppd_survey_2014.csv\n\n# load into postGIS with:\n  ogr2ogr -lco GEOMETRY_NAME=geom -f PostgreSQL PG:\"<postgres connection>\" download/kenya_ppd_survey_2014.csv -nln kenya_ppd_survey_2014\n",
+    "prov:action": "#########\n# GDSC ETL is performed in two steps: shell script to ETL data into postgres\n# and then additional transformations with SQL in postGIS (if needed).\n####\n\n#########\n# Step 1 - bash script (pseudo code)\n####\n\n# create directory structure and move into it\nmkdir -p /data/kenya_ppd_survey_2014/download -p /data/kenya_ppd_survey_2014/etl\nchmod -R 777 /data/kenya_ppd_survey_2014\ncd /data/kenya_ppd_survey_2014\n\n# set update flag based on last update and update frequency\ndo_update=0 if date() < last_update + update_frequency else do_update = 1\n\n# remove spaces and periods for all column headers and make sure no column starts with a number\n  sed -i '1 s/ /_/g; s/\\.//g;  s/\\\"\\([0-9]\\)/\\\"n\\1/g' download/kenya_ppd_survey_2014.csv\n\n# load into postGIS with:\nogr2ogr -lco GEOMETRY_NAME=geom -f PostgreSQL PG:\"<postgres connection>\" download/kenya_ppd_survey_2014.csv -nln kenya_ppd_survey_2014\n\n",
     "prov:wasGeneratedBy": "GDSC automation (see Process Step)",
     "dcat:contactPoint": [
-      {
-        "contact_name": "Timothy B. Norris",
-        "contact_last_name": "Norris",
-        "contact_first_name": "Timothy",
-        "contact_email": "tnorris@miami.edu",
-        "contact_identifier": "https://orcid.org/0000-0002-0898-3027",
-        "contact_identifier_schema": "orcid",
-        "contact_identifier_schema_uri": "https://orcid.org/",
-        "contact_affiliation": "University of Miami Libraries, Frost Institute for Data Science and Computing",
-        "contact_affiliation_identifier": "https://ror.org/02dgjyy92",
-        "contact_affiliation_schema": "ror",
-        "contact_affiliation_schema_uri": "https://ror.org/"
-      }
+      "Timothy Norris",
+      "Librarian Associate Professor",
+      "University of Miami Libraries, Frost Institute for Data Science and Computing",
+      "txn60@miami.edu"
     ],
     "gdsc:attributes": [
       "fact_id;Primary key for each observation row in the fact table;longitudinal_population_study_fact;integer;;;;;2008-02-15;2008-12-15;;wave 1",
@@ -215,14 +197,14 @@ export const catalog = [
     "gdsc:tablename": "kenya_ppd_survey_2014",
     "gdsc:up": "false",
     "gdsc:podID": "gaia-db",
-    "dct:modified": "0001-01-01T00:00:00Z",
+    "dct:modified": "2026-03-19T10:58:52Z",
     "dct:accrualPeriodicity": "As Needed",
-    "gdsc:version": "2026-08-23T15:56:20Z",
+    "gdsc:version": "2026-09-08T23:16:29Z",
     "dcat:accessURL": "/data/kenya_ppd_survey_2014/",
-    "dct:extent": {
-      "size_bytes": "0",
-      "size_human_readable": "0"
-    }
+    "dct:extent": [
+      "bash: line 7: numfmt: command not found\n4871",
+      ""
+    ]
   },
   {
     "id": "ma_2018_svi_tract",
@@ -260,22 +242,13 @@ export const catalog = [
     "adms:representationTechnique": "vector",
     "locn:geometry": "multipolygon",
     "dct:conformsTo": "EPSG:4269",
-    "prov:action": "#########\n# GDSC ETL is performed in two steps: shell script to ETL data into postgres\n# and then additional transformations with SQL in postGIS (if needed).\n####\n\n#########\n# Step 1 - bash script (pseudo code)\n####\n\n# create directory structure and move into it\nmkdir -p /data/ma_2018_svi_tract/download -p /data/ma_2018_svi_tract/etl\nchmod 777 /data/ma_2018_svi_tract/download\ncd /data/ma_2018_svi_tract\n\n# set update flag based on last update and update frequency\ndo_update=0 if date() < last_update + update_frequency else do_update = 1\n\n# download if update flag is set:\nif do_update == 1 then\nwget -O download/ma_2018_svi_tract.zip 'https://svi.cdc.gov/Documents/Data/2018/db/states/Massachusetts.zip'\n\n# unzip to download directory if update flag is set\nif do_update == 1 then\nunzip -d download download/ma_2018_svi_tract.zip && rm download/ma_2018_svi_tract.zip\n\n# load into postGIS with:\n  ogr2ogr -lco GEOMETRY_NAME=geom -f PostgreSQL PG:\"<postgres connection>\" download/SVI2018_MASSACHUSETTS_tract.gdb -nlt multipolygon -nln ma_2018_svi_tract\n\n#########\n# Step 2 - SQL script (pseudo code):\n####\n\n# remove duplicate points and make geometries valid:\nUPDATE ma_2018_svi_tract\n  SET geom=ST_MakeValid(ST_RemoveRepeatedPoints(geom));\n\n# add local geometry column and reproject existing geometries into local EPSG:\nSELECT AddGeometryColumn (\n  'ma_2018_svi_tract',\n  'geom_local', 26986, 'multipolygon', 2\n);\nUPDATE ma_2018_svi_tract\n  SET geom_local=ST_MakeValid(ST_RemoveRepeatedPoints(ST_Transform(ST_Multi(geom),26986)));\nCREATE INDEX ma_2018_svi_tract_geom_local_idx\n  ON ma_2018_svi_tract\n  USING GIST (geom_local);\nNOTIFY pgrst, 'reload schema';\n# Move into corrrect directory and create derivative directory in data package on osgeo\ncd /data/ma_2018_svi_tract/\nmkdir -p derived\n\n# Move into correct directory\ncd /data/ma_2018_svi_tract/\n\n# Create pg_dump of table SQL in derivate directory on postgis.\npg_dump <postgres opts> -h gaia-db -t ma_2018_svi_tract > derived/ma_2018_svi_tract.sql\n\n# Create downloadable tarfile of SQL in derivative directory on postgis\nrm -f derived/ma_2018_svi_tract.sql.tar.gz\ntar -czf derived/ma_2018_svi_tract.sql.tar.gz meta_dcat_ma_2018_svi_tract.json -C derived ma_2018_svi_tract.sql\n\n",
+    "prov:action": "#########\n# GDSC ETL is performed in two steps: shell script to ETL data into postgres\n# and then additional transformations with SQL in postGIS (if needed).\n####\n\n#########\n# Step 1 - bash script (pseudo code)\n####\n\n# create directory structure and move into it\nmkdir -p /data/ma_2018_svi_tract/download -p /data/ma_2018_svi_tract/etl\nchmod -R 777 /data/ma_2018_svi_tract\ncd /data/ma_2018_svi_tract\n\n# set update flag based on last update and update frequency\ndo_update=0 if date() < last_update + update_frequency else do_update = 1\n\n# download if update flag is set:\nif do_update == 1 then\nwget -O download/ma_2018_svi_tract.zip 'https://svi.cdc.gov/Documents/Data/2018/db/states/Massachusetts.zip'\n\n# unzip to download directory if update flag is set\nif do_update == 1 then\nunzip -o download/ma_2018_svi_tract.zip -d download && rm download/ma_2018_svi_tract.zip\n\n# load into postGIS with:\nogr2ogr -lco GEOMETRY_NAME=geom -f PostgreSQL PG:\"<postgres connection>\" download/SVI2018_MASSACHUSETTS_tract.gdb -nlt multipolygon -nln ma_2018_svi_tract\n\n\n#########\n# Step 2 - SQL script (pseudo code):\n####\n\n# remove duplicate points and make geometries valid:\nUPDATE ma_2018_svi_tract\n  SET geom=ST_MakeValid(ST_RemoveRepeatedPoints(geom));\n\n# add local geometry column and reproject existing geometries into local EPSG:\nSELECT AddGeometryColumn (\n  'ma_2018_svi_tract',\n  'geom_local', 26986, 'multipolygon', 2\n);\nUPDATE ma_2018_svi_tract\n  SET geom_local=ST_MakeValid(ST_RemoveRepeatedPoints(ST_Transform(ST_Multi(geom),26986)));\nCREATE INDEX ma_2018_svi_tract_geom_local_idx\n  ON ma_2018_svi_tract\n  USING GIST (geom_local);\nNOTIFY pgrst, 'reload schema';\n# Move into corrrect directory and create derivative directory in data package on osgeo\ncd /data/ma_2018_svi_tract/\nmkdir -p derived\n\n# Move into correct directory\ncd /data/ma_2018_svi_tract/\n\n# Create pg_dump of table SQL in derivate directory on postgis.\npg_dump <postgres opts> -h gaia-db -t ma_2018_svi_tract > derived/ma_2018_svi_tract.sql\n\n# Create downloadable tarfile of SQL in derivative directory on postgis\nrm -f derived/ma_2018_svi_tract.sql.tar.gz\ntar -czf derived/ma_2018_svi_tract.sql.tar.gz meta_dcat_ma_2018_svi_tract.json -C derived ma_2018_svi_tract.sql\n\n",
     "prov:wasGeneratedBy": "GDSC automation (see Process Step)",
     "dcat:contactPoint": [
-      {
-        "contact_name": "Timothy B. Norris",
-        "contact_last_name": "Norris",
-        "contact_first_name": "Timothy",
-        "contact_email": "tnorris@miami.edu",
-        "contact_identifier": "https://orcid.org/0000-0002-0898-3027",
-        "contact_identifier_schema": "orcid",
-        "contact_identifier_schema_uri": "https://orcid.org/",
-        "contact_affiliation": "University of Miami Libraries, Frost Institute for Data Science and Computing",
-        "contact_affiliation_identifier": "https://ror.org/02dgjyy92",
-        "contact_affiliation_schema": "ror",
-        "contact_affiliation_schema_uri": "https://ror.org/"
-      }
+      "Timothy Norris",
+      "Librarian Associate Professor",
+      "University of Miami Libraries, Frost Institute for Data Science and Computing",
+      "txn60@miami.edu"
     ],
     "gdsc:label": "location",
     "gdsc:value": [
@@ -406,7 +379,7 @@ export const catalog = [
       "stcnty"
     ],
     "gdsc:attributes": [
-      "area_sqmi;Tract area in square miles;Census ACS;float8;square miles;;0;194;;;2052497175;gaia-132",
+      "area_sqmi;Tract area in square miles;Census ACS;float8;square miles;;0;194.451590410428;;;2052497175;gaia-132",
       "county;County name;Census ACS;varchar;;;;;;;2052499639",
       "e_age17;\"Persons aged 17 and younger estimate, 2014-2018 ACS\";Census ACS;int4;persons;;0;2943;1/1/18;12/31/18;2052498115;gaia-149",
       "e_age65;\"Persons aged 65 and older estimate, 2014-2018 ACS\";Census ACS;int4;persons;;0;3337;1/1/18;12/31/18;2052498113;gaia-147",
@@ -429,26 +402,26 @@ export const catalog = [
       "e_unemp;\"Civilian (age 16+) unemployed estimate, 2014-2018 ACS\";Census ACS;int4;persons;;0;1064;1/1/18;12/31/18;2052499671",
       "e_uninsur;\"Adjunct variable - Uninsured in the total civilian non-institutionalized population estimate, 2014-2018 ACS\";Census ACS;int4;persons;;0;906;1/1/18;12/31/18;2052497149",
       "ep_age17;\"Percentage of persons aged 17 and younger estimate, 2014-2018 ACS\";Census ACS;float8;percentage;;0;47;1/1/18;12/31/18;2052498382",
-      "ep_age65;\"Percentage of persons aged 65 and older estimate, 2014-2018 ACS\";Census ACS;float8;percentage;;0;65;1/1/18;12/31/18;2052498380",
-      "ep_crowd;Percentage of occupied housing units with more people than rooms estimate;Census ACS;float8;percentage;;0;21;1/1/18;12/31/18;2052498400",
-      "ep_disabl;\"Percentage of civilian non-institutionalized population with a disability estimate, 2014-2018 ACS\";Census ACS;float8;percentage;;0;74;1/1/18;12/31/18;2052498558",
+      "ep_age65;\"Percentage of persons aged 65 and older estimate, 2014-2018 ACS\";Census ACS;float8;percentage;;0;65.4;1/1/18;12/31/18;2052498380",
+      "ep_crowd;Percentage of occupied housing units with more people than rooms estimate;Census ACS;float8;percentage;;0;20.8;1/1/18;12/31/18;2052498400",
+      "ep_disabl;\"Percentage of civilian non-institutionalized population with a disability estimate, 2014-2018 ACS\";Census ACS;float8;percentage;;0;73.7;1/1/18;12/31/18;2052498558",
       "ep_groupq;\"Percentage of persons in group quarters estimate, 2014-2018 ACS\";Census ACS;float8;percentage;;0;100;1/1/18;12/31/18;2052498376",
-      "ep_limeng;\"Percentage of persons (age 5+) who speak English \"\"less than well\"\" estimate, 2014-2018 ACS\";Census ACS;float8;percentage;;0;43;1/1/18;12/31/18;2052498385",
+      "ep_limeng;\"Percentage of persons (age 5+) who speak English \"\"less than well\"\" estimate, 2014-2018 ACS\";Census ACS;float8;percentage;;0;43.2;1/1/18;12/31/18;2052498385",
       "ep_minrty;\"Percentage minority (all persons except white, non-Hispanic) estimate, 2014-2018 ACS\";Census ACS;float8;percentage;;0;100;1/1/18;12/31/18;2052498423",
-      "ep_mobile;Percentage of mobile homes estimate;Census ACS;float8;percentage;;0;37;1/1/18;12/31/18;2052498422",
+      "ep_mobile;Percentage of mobile homes estimate;Census ACS;float8;percentage;;0;37.1;1/1/18;12/31/18;2052498422",
       "ep_munit;Percentage of housing in structures with 10 or more units estimate;Census ACS;float8;percentage;;0;99;1/1/18;12/31/18;2052498461",
-      "ep_nohsdp;Percentage of persons with no high school diploma (age 25+) estimate;Census ACS;float8;percentage;;0;68;1/1/18;12/31/18;2052498369",
-      "ep_noveh;Percentage of households with no vehicle available estimate;Census ACS;float8;percentage;;0;79;1/1/18;12/31/18;2052498477",
-      "ep_pci;\"Per capita income estimate, 2014-2018 ACS\";Census ACS;int4;US dollars;;3272;153108;1/1/18;12/31/18",
-      "ep_pov;Percentage of persons below poverty estimate;Census ACS;float8;percentage;;0;81;1/1/18;12/31/18;2052498378",
-      "ep_sngpnt;\"Percentage of single parent households with children under 18 estimate, 2014-2018 ACS\";Census ACS;float8;percentage;;0;57;1/1/18;12/31/18;2052498249",
-      "ep_unemp;Unemployment Rate estimate;Census ACS;float8;percentage;;0;61;1/1/18;12/31/18;2052497153",
-      "ep_uninsur;\"Adjunct variable - Percentage uninsured in the total civilian non-institutionalized population estimate, 2014-2018 ACS\";Census ACS;float8;percentage;;0;24;1/1/18;12/31/18;2052498200",
+      "ep_nohsdp;Percentage of persons with no high school diploma (age 25+) estimate;Census ACS;float8;percentage;;0;67.5;1/1/18;12/31/18;2052498369",
+      "ep_noveh;Percentage of households with no vehicle available estimate;Census ACS;float8;percentage;;0;78.8;1/1/18;12/31/18;2052498477",
+      "ep_pci;\"Per capita income estimate, 2014-2018 ACS\";Census ACS;float8;US dollars;;3272;153108;1/1/18;12/31/18",
+      "ep_pov;Percentage of persons below poverty estimate;Census ACS;float8;percentage;;0;80.6;1/1/18;12/31/18;2052498378",
+      "ep_sngpnt;\"Percentage of single parent households with children under 18 estimate, 2014-2018 ACS\";Census ACS;float8;percentage;;0;56.5;1/1/18;12/31/18;2052498249",
+      "ep_unemp;Unemployment Rate estimate;Census ACS;float8;percentage;;0;60.6;1/1/18;12/31/18;2052497153",
+      "ep_uninsur;\"Adjunct variable - Percentage uninsured in the total civilian non-institutionalized population estimate, 2014-2018 ACS\";Census ACS;float8;percentage;;0;23.5;1/1/18;12/31/18;2052498200",
       "epl_age17;Percentile percentage of persons aged 17 and younger estimate;Census ACS;float8;percentile;;0;1;1/1/18;12/31/18;2052498183",
       "epl_age65;Percentile percentage of persons aged 65 and older estimate;Census ACS;float8;percentile;;0;1;1/1/18;12/31/18;2052498182",
       "epl_crowd;Percentile percentage households with more people than rooms estimate;Census ACS;float8;percentile;;0;1;1/1/18;12/31/18;2052498195",
       "epl_disabl;Percentile percentage of civilian non-institutionalized population with a disability estimate;Census ACS;float8;percentile;;0;1;1/1/18;12/31/18;2052498186",
-      "epl_groupq;Percentile percentage of persons in group quarters estimate;Census ACS;float8;percentile;;0;1;1/1/18;12/31/18;2052498180",
+      "epl_groupq;Percentile percentage of persons in group quarters estimate;Census ACS;float8;percentile;;0;0.9973;1/1/18;12/31/18;2052498180",
       "epl_limeng;\"Percentile percentage of persons (age 5+) who speak English \"\"less than well\"\" estimate\";Census ACS;float8;percentile;;0;1;1/1/18;12/31/18;2052498184",
       "epl_minrty;\"Percentile percentage minority (all persons except white, non-Hispanic) estimate\";Census ACS;float8;percentile;;0;1;1/1/18;12/31/18;2052498189",
       "epl_mobile;Percentile percentage mobile homes estimate;Census ACS;float8;percentile;;0;1;1/1/18;12/31/18;2052498188",
@@ -459,26 +432,26 @@ export const catalog = [
       "epl_pov;Percentile Percentage of persons below poverty estimate;Census ACS;float8;percentile;;0;1;1/1/18;12/31/18;2052498181;gaia-1",
       "epl_sngpnt;Percentile percentage of single parent households with children under 18 estimate;Census ACS;float8;percentile;;0;1;1/1/18;12/31/18;2052498178",
       "epl_unemp;Percentile Percentage of civilian (age 16+) unemployed estimate;Census ACS;float8;percentile;;0;1;1/1/18;12/31/18;2052498187",
-      "f_age17;\"Flag - the percentage of persons aged 17 and younger is in the 90th percentile (1 = yes, 0 = no)\";Census ACS;boolean;;;;;1/1/18;12/31/18;2052499366",
-      "f_age65;\"Flag - the percentage of persons aged 65 and older is in the 90th percentile (1 = yes, 0 = no)\";Census ACS;boolean;;;;;1/1/18;12/31/18;2052499365",
-      "f_crowd;\"Flag - the percentage of crowded households is in the 90th percentile (1 = yes, 0 = no)\";Census ACS;boolean;;;;;1/1/18;12/31/18;2052499372",
-      "f_disabl;\"Flag - the percentage of persons with a disability is in the 90th percentile (1 = yes, 0 = no)\";Census ACS;boolean;;;;;1/1/18;12/31/18;2052499362",
-      "f_groupq;\"Flag - the percentage of persons in institutionalized group quarters is in the 90th percentile (1 = yes, 0 = no)\";Census ACS;boolean;;;;;1/1/18;12/31/18;2052499363",
-      "f_limeng;\"Flag - the percentage those with limited English is in the 90th percentile (1 = yes, 0 = no)\";Census ACS;boolean;;;;;1/1/18;12/31/18;2052499358",
-      "f_minrty;\"Flag - the percentage of minority is in the 90th percentile (1 = yes, 0 = no)\";Census ACS;boolean;;;;;1/1/18;12/31/18;2052499368",
-      "f_mobile;\"Flag - the percentage of mobile homes is in the 90th percentile (1 = yes, 0 = no)\";Census ACS;boolean;;;;;1/1/18;12/31/18;2052499367",
-      "f_munit;\"Flag - the percentage of households in multi-unit housing is in the 90th percentile (1 = yes, 0 = no)\";Census ACS;boolean;;;;;1/1/18;12/31/18;2052499371",
-      "f_nohsdp;\"Flag - the percentage of persons with no high school diploma is in the 90th percentile (1 = yes, 0 = no)\";Census ACS;boolean;;;;;1/1/18;12/31/18;2052499361",
-      "f_noveh;\"Flag - the percentage of households with no vehicles is in the 90th percentile (1 = yes, 0 = no)\";Census ACS;boolean;;;;;1/1/18;12/31/18;2052499370",
-      "f_pci;\"Flag - per capita income is in the 90th percentile (1 = yes, 0 = no)\";Census ACS;boolean;;;;;1/1/18;12/31/18",
-      "f_pov;\"Flag - the percentage of persons in poverty is in the 90th percentile (1 = yes, 0 = no)\";Census ACS;boolean;;;;;1/1/18;12/31/18;2052499364",
-      "f_sngpnt;\"Flag - the percentage of single parent households is in the 90th percentile (1 = yes, 0 = no)\";Census ACS;boolean;;;;;1/1/18;12/31/18;2052499360",
-      "f_theme1;Sum of flags for Socioeconomic Status theme;Census ACS;int4;;;0;4;1/1/18;12/31/18;2052497702",
-      "f_theme2;Sum of flags for Household Composition theme;Census ACS;int4;;;0;3;1/1/18;12/31/18;2052497705",
-      "f_theme3;Sum of flags for Minority Status/Language theme;Census ACS;int4;;;0;2;1/1/18;12/31/18;2052497703",
-      "f_theme4;Sum of flags for Housing Type/ Transportation theme;Census ACS;int4;;;0;4;1/1/18;12/31/18;2052497704",
-      "f_total;Sum of flags for the four themes;Census ACS;int4;;;0;12;1/1/18;12/31/18;2052497701",
-      "f_unemp;\"Flag - the percentage of civilian unemployed is in the 90th percentile (1 = yes, 0 = no)\";Census ACS;boolean;;;;;1/1/18;12/31/18;2052499373",
+      "f_age17;\"Flag - the percentage of persons aged 17 and younger is in the 90th percentile (1 = yes, 0 = no)\";Census ACS;int2;;;0;1;1/1/18;12/31/18;2052499366",
+      "f_age65;\"Flag - the percentage of persons aged 65 and older is in the 90th percentile (1 = yes, 0 = no)\";Census ACS;int2;;;0;1;1/1/18;12/31/18;2052499365",
+      "f_crowd;\"Flag - the percentage of crowded households is in the 90th percentile (1 = yes, 0 = no)\";Census ACS;int2;;;0;1;1/1/18;12/31/18;2052499372",
+      "f_disabl;\"Flag - the percentage of persons with a disability is in the 90th percentile (1 = yes, 0 = no)\";Census ACS;int2;;;0;1;1/1/18;12/31/18;2052499362",
+      "f_groupq;\"Flag - the percentage of persons in institutionalized group quarters is in the 90th percentile (1 = yes, 0 = no)\";Census ACS;int2;;;0;1;1/1/18;12/31/18;2052499363",
+      "f_limeng;\"Flag - the percentage those with limited English is in the 90th percentile (1 = yes, 0 = no)\";Census ACS;int2;;;0;1;1/1/18;12/31/18;2052499358",
+      "f_minrty;\"Flag - the percentage of minority is in the 90th percentile (1 = yes, 0 = no)\";Census ACS;int2;;;0;1;1/1/18;12/31/18;2052499368",
+      "f_mobile;\"Flag - the percentage of mobile homes is in the 90th percentile (1 = yes, 0 = no)\";Census ACS;int2;;;0;1;1/1/18;12/31/18;2052499367",
+      "f_munit;\"Flag - the percentage of households in multi-unit housing is in the 90th percentile (1 = yes, 0 = no)\";Census ACS;int2;;;0;1;1/1/18;12/31/18;2052499371",
+      "f_nohsdp;\"Flag - the percentage of persons with no high school diploma is in the 90th percentile (1 = yes, 0 = no)\";Census ACS;int2;;;0;1;1/1/18;12/31/18;2052499361",
+      "f_noveh;\"Flag - the percentage of households with no vehicles is in the 90th percentile (1 = yes, 0 = no)\";Census ACS;int2;;;0;1;1/1/18;12/31/18;2052499370",
+      "f_pci;\"Flag - per capita income is in the 90th percentile (1 = yes, 0 = no)\";Census ACS;int2;;;0;1;1/1/18;12/31/18",
+      "f_pov;\"Flag - the percentage of persons in poverty is in the 90th percentile (1 = yes, 0 = no)\";Census ACS;int2;;;0;1;1/1/18;12/31/18;2052499364",
+      "f_sngpnt;\"Flag - the percentage of single parent households is in the 90th percentile (1 = yes, 0 = no)\";Census ACS;int2;;;0;1;1/1/18;12/31/18;2052499360",
+      "f_theme1;Sum of flags for Socioeconomic Status theme;Census ACS;int2;;;0;4;1/1/18;12/31/18;2052497702",
+      "f_theme2;Sum of flags for Household Composition theme;Census ACS;int2;;;0;3;1/1/18;12/31/18;2052497705",
+      "f_theme3;Sum of flags for Minority Status/Language theme;Census ACS;int2;;;0;2;1/1/18;12/31/18;2052497703",
+      "f_theme4;Sum of flags for Housing Type/ Transportation theme;Census ACS;int2;;;0;4;1/1/18;12/31/18;2052497704",
+      "f_total;Sum of flags for the four themes;Census ACS;int2;;;0;12;1/1/18;12/31/18;2052497701",
+      "f_unemp;\"Flag - the percentage of civilian unemployed is in the 90th percentile (1 = yes, 0 = no)\";Census ACS;int2;;;0;1;1/1/18;12/31/18;2052499373",
       "fips;FIPS code as STATE(2)COUNTY(3)CENSUSTRACT(6);Census ACS;varchar;;;;;1/1/18;12/31/18;2052497174",
       "location;Census tract name;Census ACS;varchar;;;;;1/1/18;12/31/18",
       "m_age17;\"Persons aged 17 and younger estimate MOE, 2014-2018 ACS\";Census ACS;int4;persons;;5;620;1/1/18;12/31/18;2052498114",
@@ -500,32 +473,32 @@ export const catalog = [
       "m_totpop;\"Population estimate MOE, 2014-2018 ACS\";Census ACS;int4;persons;;12;949;1/1/18;12/31/18;2052498090",
       "m_unemp;\"Civilian (age 16+) unemployed estimate MOE, 2014-2018 ACS\";Census ACS;int4;persons;;6;289;1/1/18;12/31/18;2052499670",
       "m_uninsur;\"Adjunct variable - Uninsured in the total civilian non-institutionalized population estimate MOE, 2014-2018 ACS\";Census ACS;int4;persons;;2;474;1/1/18;12/31/18;2052497148",
-      "mp_age17;\"Percentage of persons aged 17 and younger estimate MOE, 2014-2018 ACS\";Census ACS;float8;percentage;;0;31;1/1/18;12/31/18;2052498381",
-      "mp_age65;\"Percentage of persons aged 65 and older estimate MOE, 2014-2018 ACS\";Census ACS;float8;percentage;;0;44;1/1/18;12/31/18;2052498379",
-      "mp_crowd;Percentage of occupied housing units with more people than rooms estimate MOE;Census ACS;float8;percentage;;1;567;1/1/18;12/31/18;2052498399",
-      "mp_disabl;\"Percentage of civilian non-institutionalized population with a disability estimate MOE, 2014-2018 ACS\";Census ACS;float8;percentage;;1;100;1/1/18;12/31/18;2052498557",
-      "mp_groupq;\"Percentage of persons in group quarters estimate MOE, 2014-2018 ACS\";Census ACS;float8;percentage;;0;46;1/1/18;12/31/18;2052498375",
-      "mp_limeng;\"Percentage of persons (age 5+) who speak English \"\"less than well\"\" estimate MOE, 2014-2018 ACS\";Census ACS;float8;percentage;;1;229;1/1/18;12/31/18;2052498383",
-      "mp_minrty;\"Percentage minority (all persons except white, non-Hispanic) estimate MOE, 2014-2018 ACS\";Census ACS;float8;percentage;;1;104;1/1/18;12/31/18;2052498609",
-      "mp_mobile;Percentage of mobile homes estimate MOE;Census ACS;float8;percentage;;0;100;1/1/18;12/31/18;2052498421",
-      "mp_munit;Percentage of housing in structures with 10 or more units estimate MOE;Census ACS;float8;percentage;;0;567;1/1/18;12/31/18;2052498460",
-      "mp_nohsdp;Percentage of persons with no high school diploma (25+) estimate MOE;Census ACS;float8;percentage;;0;100;1/1/18;12/31/18;2052498370",
-      "mp_noveh;Percentage of households with no vehicle available estimate MOE;Census ACS;float8;percentage;;0;100;1/1/18;12/31/18;2052498476",
-      "mp_pci;\"Per capita income estimate MOE, 2014-2018 ACS\";Census ACS;int4;US dollars;;391;98137;1/1/18;12/31/18",
-      "mp_pov;Percentage of persons below poverty estimate MOE;Census ACS;float8;percentage;;0;100;1/1/18;12/31/18;2052498377",
-      "mp_sngpnt;\"Percentage of single parent households with children under 18 estimate MOE, 2014-2018 ACS\";Census ACS;float8;percentage;;1;567;1/1/18;12/31/18;2052498248",
-      "mp_unemp;Unemployment Rate estimate MOE;Census ACS;float8;percentage;;0;54;1/1/18;12/31/18;2052497152",
-      "mp_uninsur;\"Adjunct variable - Percentage uninsured in the total civilian non-institutionalized population estimate MOE, 2014-2018 ACS\";Census ACS;float8;percentage;;0;100;1/1/18;12/31/18;2052498199",
+      "mp_age17;\"Percentage of persons aged 17 and younger estimate MOE, 2014-2018 ACS\";Census ACS;float8;percentage;;0.1;31.3;1/1/18;12/31/18;2052498381",
+      "mp_age65;\"Percentage of persons aged 65 and older estimate MOE, 2014-2018 ACS\";Census ACS;float8;percentage;;0.1;44.4;1/1/18;12/31/18;2052498379",
+      "mp_crowd;Percentage of occupied housing units with more people than rooms estimate MOE;Census ACS;float8;percentage;;0.6;566.7;1/1/18;12/31/18;2052498399",
+      "mp_disabl;\"Percentage of civilian non-institutionalized population with a disability estimate MOE, 2014-2018 ACS\";Census ACS;float8;percentage;;0.7;100;1/1/18;12/31/18;2052498557",
+      "mp_groupq;\"Percentage of persons in group quarters estimate MOE, 2014-2018 ACS\";Census ACS;float8;percentage;;0;46.2;1/1/18;12/31/18;2052498375",
+      "mp_limeng;\"Percentage of persons (age 5+) who speak English \"\"less than well\"\" estimate MOE, 2014-2018 ACS\";Census ACS;float8;percentage;;0.6;228.6;1/1/18;12/31/18;2052498383",
+      "mp_minrty;\"Percentage minority (all persons except white, non-Hispanic) estimate MOE, 2014-2018 ACS\";Census ACS;float8;percentage;;1.2;103.5;1/1/18;12/31/18;2052498609",
+      "mp_mobile;Percentage of mobile homes estimate MOE;Census ACS;float8;percentage;;0.2;100;1/1/18;12/31/18;2052498421",
+      "mp_munit;Percentage of housing in structures with 10 or more units estimate MOE;Census ACS;float8;percentage;;0.4;566.7;1/1/18;12/31/18;2052498460",
+      "mp_nohsdp;Percentage of persons with no high school diploma (25+) estimate MOE;Census ACS;float8;percentage;;0.1;100;1/1/18;12/31/18;2052498370",
+      "mp_noveh;Percentage of households with no vehicle available estimate MOE;Census ACS;float8;percentage;;0.4;100;1/1/18;12/31/18;2052498476",
+      "mp_pci;\"Per capita income estimate MOE, 2014-2018 ACS\";Census ACS;float8;US dollars;;391;98137;1/1/18;12/31/18",
+      "mp_pov;Percentage of persons below poverty estimate MOE;Census ACS;float8;percentage;;0.1;100;1/1/18;12/31/18;2052498377",
+      "mp_sngpnt;\"Percentage of single parent households with children under 18 estimate MOE, 2014-2018 ACS\";Census ACS;float8;percentage;;0.6;566.7;1/1/18;12/31/18;2052498248",
+      "mp_unemp;Unemployment Rate estimate MOE;Census ACS;float8;percentage;;0.2;53.6;1/1/18;12/31/18;2052497152",
+      "mp_uninsur;\"Adjunct variable - Percentage uninsured in the total civilian non-institutionalized population estimate MOE, 2014-2018 ACS\";Census ACS;float8;percentage;;0.1;100;1/1/18;12/31/18;2052498199",
       "rpl_theme1;Percentile ranking for Socioeconomic theme summary;Census ACS;float8;percentile;;0;1;1/1/18;12/31/18;2052498129",
       "rpl_theme2;Percentile ranking for Household Composition theme summary;Census ACS;float8;percentile;;0;1;1/1/18;12/31/18;2052498134",
       "rpl_theme3;Percentile ranking for Minority Status/Language theme;Census ACS;float8;percentile;;0;1;1/1/18;12/31/18;2052498130",
       "rpl_theme4;Percentile ranking for Housing Type/Transportation theme;Census ACS;float8;percentile;;0;1;1/1/18;12/31/18;2052498133",
       "rpl_themes;Overall percentile ranking;Census ACS;float8;percentile;;0;1;1/1/18;12/31/18;2052498131",
-      "spl_theme1;Sum of series for Socioeconomic theme;Census ACS;float8;svi index;;0;4;1/1/18;12/31/18;2052497697",
-      "spl_theme2;Sum of series for Household Composition theme;Census ACS;float8;svi index;;0;4;1/1/18;12/31/18;2052497700",
-      "spl_theme3;Sum of series for Minority Status/Languag e theme;Census ACS;float8;svi index;;0;2;1/1/18;12/31/18;2052497698",
-      "spl_theme4;Sum of series for Housing Type/ Transportation theme;Census ACS;float8;svi index;;0;5;1/1/18;12/31/18;2052497699",
-      "spl_themes;Sum of series themes;Census ACS;float8;svi index;;2;13;1/1/18;12/31/18",
+      "spl_theme1;Sum of series for Socioeconomic theme;Census ACS;float8;svi index;;0.0815;3.9857;1/1/18;12/31/18;2052497697",
+      "spl_theme2;Sum of series for Household Composition theme;Census ACS;float8;svi index;;0;3.5619;1/1/18;12/31/18;2052497700",
+      "spl_theme3;Sum of series for Minority Status/Languag e theme;Census ACS;float8;svi index;;0.0014;1.9904;1/1/18;12/31/18;2052497698",
+      "spl_theme4;Sum of series for Housing Type/ Transportation theme;Census ACS;float8;svi index;;0;4.6218;1/1/18;12/31/18;2052497699",
+      "spl_themes;Sum of series themes;Census ACS;float8;svi index;;1.9351;12.5931;1/1/18;12/31/18",
       "st;State FIPS code;Census ACS;varchar;;;;;;;2052497725",
       "st_abbr;State abbreviation;Census ACS;varchar;;;;;;;2052497733",
       "state;State name;Census ACS;varchar;;;;;;;2052497730",
@@ -553,16 +526,16 @@ export const catalog = [
     ],
     "dcat:downloadURL": "https://svi.cdc.gov/Documents/Data/2018/db/states/Massachusetts.zip",
     "gdsc:tablename": "ma_2018_svi_tract",
-    "gdsc:up": "false",
+    "gdsc:up": "true",
     "gdsc:podID": "gaia-db",
-    "dct:modified": "2026-05-25T17:23:49Z",
+    "dct:modified": "2026-05-26T17:45:07Z",
     "dct:accrualPeriodicity": "Never",
-    "gdsc:version": "2026-08-23T15:56:21Z",
+    "gdsc:version": "2026-09-08T23:16:30Z",
     "spdx:checksum": "TBD",
-    "dct:extent": {
-      "size_bytes": "1870898",
-      "size_human_readable": "1.8M"
-    },
+    "dct:extent": [
+      "bash: line 7: numfmt: command not found\n1879090",
+      ""
+    ],
     "dcat:bbox": "POLYGON((-73.508142 41.237964, -69.928393 41.237964, -69.928393 42.886589, -73.508142 42.886589, -73.508142 41.237964))"
   },
   {
@@ -598,22 +571,13 @@ export const catalog = [
     "adms:representationTechnique": "vector",
     "locn:geometry": "multipolygon",
     "dct:conformsTo": "EPSG:4269",
-    "prov:action": "#########\n# GDSC ETL is performed in two steps: shell script to ETL data into postgres\n# and then additional transformations with SQL in postGIS (if needed).\n####\n\n#########\n# Step 1 - bash script (pseudo code)\n####\n\n# create directory structure and move into it\nmkdir -p /data/ma_2020_svi_tract/download -p /data/ma_2020_svi_tract/etl\nchmod 777 /data/ma_2020_svi_tract/download\ncd /data/ma_2020_svi_tract\n\n# set update flag based on last update and update frequency\ndo_update=0 if date() < last_update + update_frequency else do_update = 1\n\n# download if update flag is set:\nif do_update == 1 then\nwget -O download/ma_2020_svi_tract.zip 'https://svi.cdc.gov/Documents/Data/2020/db/states/Massachusetts.zip'\n\n# unzip to download directory if update flag is set\nif do_update == 1 then\nunzip -d download download/ma_2020_svi_tract.zip && rm download/ma_2020_svi_tract.zip\n\n# load into postGIS with:\n  ogr2ogr -lco GEOMETRY_NAME=geom -f PostgreSQL PG:\"<postgres connection>\" download/SVI2020_MASSACHUSETTS_tract.gdb -nlt multipolygon -nln ma_2020_svi_tract\n\n#########\n# Step 2 - SQL script (pseudo code):\n####\n\n# remove duplicate points and make geometries valid:\nUPDATE ma_2020_svi_tract\n  SET geom=ST_MakeValid(ST_RemoveRepeatedPoints(geom));\n\n# add local geometry column and reproject existing geometries into local EPSG:\nSELECT AddGeometryColumn (\n  'ma_2020_svi_tract',\n  'geom_local', 26986, 'multipolygon', 2\n);\nUPDATE ma_2020_svi_tract\n  SET geom_local=ST_MakeValid(ST_RemoveRepeatedPoints(ST_Transform(ST_Multi(geom),26986)));\nCREATE INDEX ma_2020_svi_tract_geom_local_idx\n  ON ma_2020_svi_tract\n  USING GIST (geom_local);\nNOTIFY pgrst, 'reload schema';\n# Move into corrrect directory and create derivative directory in data package on osgeo\ncd /data/ma_2020_svi_tract/\nmkdir -p derived\n\n# Move into correct directory\ncd /data/ma_2020_svi_tract/\n\n# Create pg_dump of table SQL in derivate directory on postgis.\npg_dump <postgres opts> -h gaia-db -t ma_2020_svi_tract > derived/ma_2020_svi_tract.sql\n\n# Create downloadable tarfile of SQL in derivative directory on postgis\nrm -f derived/ma_2020_svi_tract.sql.tar.gz\ntar -czf derived/ma_2020_svi_tract.sql.tar.gz meta_dcat_ma_2020_svi_tract.json -C derived ma_2020_svi_tract.sql\n\n",
+    "prov:action": "#########\n# GDSC ETL is performed in two steps: shell script to ETL data into postgres\n# and then additional transformations with SQL in postGIS (if needed).\n####\n\n#########\n# Step 1 - bash script (pseudo code)\n####\n\n# create directory structure and move into it\nmkdir -p /data/ma_2020_svi_tract/download -p /data/ma_2020_svi_tract/etl\nchmod -R 777 /data/ma_2020_svi_tract\ncd /data/ma_2020_svi_tract\n\n# set update flag based on last update and update frequency\ndo_update=0 if date() < last_update + update_frequency else do_update = 1\n\n# download if update flag is set:\nif do_update == 1 then\nwget -O download/ma_2020_svi_tract.zip 'https://svi.cdc.gov/Documents/Data/2020/db/states/Massachusetts.zip'\n\n# unzip to download directory if update flag is set\nif do_update == 1 then\nunzip -o download/ma_2020_svi_tract.zip -d download && rm download/ma_2020_svi_tract.zip\n\n# load into postGIS with:\nogr2ogr -lco GEOMETRY_NAME=geom -f PostgreSQL PG:\"<postgres connection>\" download/SVI2020_MASSACHUSETTS_tract.gdb -nlt multipolygon -nln ma_2020_svi_tract\n\n\n#########\n# Step 2 - SQL script (pseudo code):\n####\n\n# remove duplicate points and make geometries valid:\nUPDATE ma_2020_svi_tract\n  SET geom=ST_MakeValid(ST_RemoveRepeatedPoints(geom));\n\n# add local geometry column and reproject existing geometries into local EPSG:\nSELECT AddGeometryColumn (\n  'ma_2020_svi_tract',\n  'geom_local', 26986, 'multipolygon', 2\n);\nUPDATE ma_2020_svi_tract\n  SET geom_local=ST_MakeValid(ST_RemoveRepeatedPoints(ST_Transform(ST_Multi(geom),26986)));\nCREATE INDEX ma_2020_svi_tract_geom_local_idx\n  ON ma_2020_svi_tract\n  USING GIST (geom_local);\nNOTIFY pgrst, 'reload schema';\n# Move into corrrect directory and create derivative directory in data package on osgeo\ncd /data/ma_2020_svi_tract/\nmkdir -p derived\n\n# Move into correct directory\ncd /data/ma_2020_svi_tract/\n\n# Create pg_dump of table SQL in derivate directory on postgis.\npg_dump <postgres opts> -h gaia-db -t ma_2020_svi_tract > derived/ma_2020_svi_tract.sql\n\n# Create downloadable tarfile of SQL in derivative directory on postgis\nrm -f derived/ma_2020_svi_tract.sql.tar.gz\ntar -czf derived/ma_2020_svi_tract.sql.tar.gz meta_dcat_ma_2020_svi_tract.json -C derived ma_2020_svi_tract.sql\n\n",
     "prov:wasGeneratedBy": "GDSC automation (see Process Step)",
     "dcat:contactPoint": [
-      {
-        "contact_name": "Timothy B. Norris",
-        "contact_last_name": "Norris",
-        "contact_first_name": "Timothy",
-        "contact_email": "tnorris@miami.edu",
-        "contact_identifier": "https://orcid.org/0000-0002-0898-3027",
-        "contact_identifier_schema": "orcid",
-        "contact_identifier_schema_uri": "https://orcid.org/",
-        "contact_affiliation": "University of Miami Libraries, Frost Institute for Data Science and Computing",
-        "contact_affiliation_identifier": "https://ror.org/02dgjyy92",
-        "contact_affiliation_schema": "ror",
-        "contact_affiliation_schema_uri": "https://ror.org/"
-      }
+      "Timothy Norris",
+      "Librarian Associate Professor",
+      "University of Miami Libraries, Frost Institute for Data Science and Computing",
+      "txn60@miami.edu"
     ],
     "gdsc:label": "location",
     "gdsc:value": [
@@ -777,7 +741,7 @@ export const catalog = [
       "stcnty"
     ],
     "gdsc:attributes": [
-      "area_sqmi;Tract area in square miles;ALAND * 3.86102e-7;float8;square miles;;0;159;;;2052497175",
+      "area_sqmi;Tract area in square miles;ALAND * 3.86102e-7;float8;square miles;;0;158.849535030752;;;2052497175",
       "county;County name;NAME;varchar;;;;;;;2052499639",
       "e_afam;Adjunct variable - Black/African American, not Hispanic or Latino persons estimate, 2016-2020 ACS;DP05_0078E;int4;persons;;0;5439;2020-01-01;2020-12-31;2052499783",
       "e_age17;Persons aged 17 and younger estimate, 2016-2020 ACS;B09001_001E;int4;persons;;0;2542;2020-01-01;2020-12-31;2052498115",
@@ -807,130 +771,130 @@ export const catalog = [
       "e_twomore;Adjunct variable - Two or more races, not Hispanic or Latino persons estimate, 2016-2020 ACS;DP05_0083E;int4;persons;;0;1285;2020-01-01;2020-12-31;2052497160",
       "e_unemp;Civilian (age 16+) unemployed estimate, 2016-2020 ACS;DP03_0005E;int4;persons;;0;1070;2020-01-01;2020-12-31;2052499671",
       "e_uninsur;Uninsured in the total civilian noninstitutionalized population estimate, 2016-2020 ACS;S2701_C04_001E;int4;persons;;0;931;2020-01-01;2020-12-31;2052497149",
-      "ep_afam;Adjunct variable - Percentage of Black/African American, not Hispanic or Latino persons estimate, 2016-2020 ACS;DP05_0078PE;float8;percent;;0;83;2020-01-01;2020-12-31;2052498571",
-      "ep_age17;Percentage of persons aged 17 and younger estimate, 2016-2020 ACS;(E_AGE17 / E_TOTPOP) * 100;float8;percent;;0;43;2020-01-01;2020-12-31;2052498382",
+      "ep_afam;Adjunct variable - Percentage of Black/African American, not Hispanic or Latino persons estimate, 2016-2020 ACS;DP05_0078PE;float8;percent;;0;83.1;2020-01-01;2020-12-31;2052498571",
+      "ep_age17;Percentage of persons aged 17 and younger estimate, 2016-2020 ACS;(E_AGE17 / E_TOTPOP) * 100;float8;percent;;0;42.7;2020-01-01;2020-12-31;2052498382",
       "ep_age65;Percentage of persons aged 65 and older estimate, 2016-2020 ACS;S0101_C02_030E;float8;percent;;0;62;2020-01-01;2020-12-31;2052498380",
-      "ep_aian;Adjunct variable - Percentage of American Indian or Alaska Native, not Hispanic or Latino persons estimate, 2016-2020 ACS;DP05_0079PE;float8;percent;;0;8;2020-01-01;2020-12-31;2052498581",
-      "ep_asian;Adjunct variable - Percentage of Asian, not Hispanic or Latino persons estimate, 2016-2020 ACS;DP05_0080PE;float8;percent;;0;70;2020-01-01;2020-12-31;2052498576",
-      "ep_crowd;Percentage of occupied housing units with more people than rooms estimate;(E_CROWD / DP04_0002E) * 100;float8;percent;;0;29;2020-01-01;2020-12-31;2052498400",
+      "ep_aian;Adjunct variable - Percentage of American Indian or Alaska Native, not Hispanic or Latino persons estimate, 2016-2020 ACS;DP05_0079PE;float8;percent;;0;7.9;2020-01-01;2020-12-31;2052498581",
+      "ep_asian;Adjunct variable - Percentage of Asian, not Hispanic or Latino persons estimate, 2016-2020 ACS;DP05_0080PE;float8;percent;;0;70.1;2020-01-01;2020-12-31;2052498576",
+      "ep_crowd;Percentage of occupied housing units with more people than rooms estimate;(E_CROWD / DP04_0002E) * 100;float8;percent;;0;28.6;2020-01-01;2020-12-31;2052498400",
       "ep_disabl;Percentage of civilian noninstitutionalized population with a disability estimate, 2016-2020 ACS;DP02_0072PE;float8;percent;;0;100;2020-01-01;2020-12-31;2052498558",
       "ep_groupq;Percentage of persons in group quarters estimate, 2016-2020 ACS;(E_GROUPQ / E_TOTPOP) * 100;float8;percent;;0;100;2020-01-01;2020-12-31;2052498376",
       "ep_hburd;Percentage of housing cost-burdened occupied housing units with annual income less than 5,000 (30%+ of income spent on housing costs) estimate, 2016-2020 ACS estimate, 2016-2020 ACS;(E_HBURD / S2503_C01_001E) * 100;float8;percent;;0;100;2020-01-01;2020-12-31;2052498464",
-      "ep_hisp;Adjunct variable - Percentage of Hispanic or Latino persons estimate, 2016-2020 ACS;DP05_0071PE;float8;percent;;0;97;2020-01-01;2020-12-31;2052498520",
-      "ep_limeng;Percentage of persons (age 5+) who speak English \"less than well\" estimate, 2016-2020 ACS;(E_LIMENG / B16005_001E) * 100;float8;percent;;0;55;2020-01-01;2020-12-31;2052498385",
-      "ep_minrty;Percentage minority (Hispanic or Latino (of any race) -- Black and African American, Not Hispanic or Latino -- American Indian and Alaska Native, Not Hispanic or Latino -- Asian, Not Hispanic or Latino -- Native Hawaiian and Other Pacific Islander, Not Hispanic or Latino -- Two or More Races, Not Hispanic or Latino -- Other Races, Not Hispanic or Latino) estimate, 2016-2020 ACS;(E_MINRTY / E_TOTPOP) * 100;float8;percent;;0;99;2020-01-01;2020-12-31;2052498423",
-      "ep_mobile;Percentage of mobile homes estimate;DP04_0014PE;float8;percent;;0;32;2020-01-01;2020-12-31;2052498422",
+      "ep_hisp;Adjunct variable - Percentage of Hispanic or Latino persons estimate, 2016-2020 ACS;DP05_0071PE;float8;percent;;0;97.2;2020-01-01;2020-12-31;2052498520",
+      "ep_limeng;Percentage of persons (age 5+) who speak English \"less than well\" estimate, 2016-2020 ACS;(E_LIMENG / B16005_001E) * 100;float8;percent;;0;54.7;2020-01-01;2020-12-31;2052498385",
+      "ep_minrty;Percentage minority (Hispanic or Latino (of any race) -- Black and African American, Not Hispanic or Latino -- American Indian and Alaska Native, Not Hispanic or Latino -- Asian, Not Hispanic or Latino -- Native Hawaiian and Other Pacific Islander, Not Hispanic or Latino -- Two or More Races, Not Hispanic or Latino -- Other Races, Not Hispanic or Latino) estimate, 2016-2020 ACS;(E_MINRTY / E_TOTPOP) * 100;float8;percent;;0;99.3;2020-01-01;2020-12-31;2052498423",
+      "ep_mobile;Percentage of mobile homes estimate;DP04_0014PE;float8;percent;;0;32.3;2020-01-01;2020-12-31;2052498422",
       "ep_munit;Percentage of housing in structures with 10 or more units estimate;(E_MUNIT / E_HU) * 100;float8;percent;;0;100;2020-01-01;2020-12-31;2052498461",
-      "ep_nhpi;Adjunct variable - Percentage of Native Hawaiian or Other Pacific Islander, not Hispanic or Latino persons estimate, 2016-2020 ACS;DP05_0081PE;float8;percent;;0;3;2020-01-01;2020-12-31;2052498418",
-      "ep_nohsdp;Percentage of persons with no high school diploma (age 25+) estimate;S0601_C01_033E;float8;percent;;0;60;2020-01-01;2020-12-31;2052498369",
-      "ep_noint;Adjunct variable - Percentage of households without a computer with a broadband Internet subscription estimate, 2016-2020 ACS;(E_NOINT / S2802_C01_001E) * 100 ;float8;percent;;0;56;2020-01-01;2020-12-31;2052498468",
+      "ep_nhpi;Adjunct variable - Percentage of Native Hawaiian or Other Pacific Islander, not Hispanic or Latino persons estimate, 2016-2020 ACS;DP05_0081PE;float8;percent;;0;2.6;2020-01-01;2020-12-31;2052498418",
+      "ep_nohsdp;Percentage of persons with no high school diploma (age 25+) estimate;S0601_C01_033E;float8;percent;;0;59.8;2020-01-01;2020-12-31;2052498369",
+      "ep_noint;Adjunct variable - Percentage of households without a computer with a broadband Internet subscription estimate, 2016-2020 ACS;(E_NOINT / S2802_C01_001E) * 100 ;float8;percent;;0;55.9;2020-01-01;2020-12-31;2052498468",
       "ep_noveh;Percentage of households with no vehicle available estimate;DP04_0058PE;float8;percent;;0;100;2020-01-01;2020-12-31;2052498477",
-      "ep_otherrace;Adjunct variable - Percentage of some other race, not Hispanic or Latino persons estimate, 2016-2020 ACS;DP05_0082PE;float8;percent;;0;26;2020-01-01;2020-12-31;2052498246",
-      "ep_pov150;Percentage of persons below 150% poverty estimate;(E_POV150 / S1701_C01_001E) * 100;float8;percent;;0;85;2020-01-01;2020-12-31;2052498378",
-      "ep_sngpnt;Percentage of single-parent households with children under 18 estimate, 2016-2020 ACS;(E_SNGPNT/E_HH) * 100;float8;percent;;0;73;2020-01-01;2020-12-31;2052498249",
-      "ep_twomore;Adjunct variable - Percentage of two or more races, not Hispanic or Latino persons estimate, 2016-2020 ACS;DP05_0083PE;float8;percent;;0;22;2020-01-01;2020-12-31;2052498228",
-      "ep_unemp;Unemployment Rate estimate;DP03_0009PE;float8;percent;;0;56;2020-01-01;2020-12-31;2052497153",
-      "ep_uninsur;Percentage uninsured in the total civilian noninstitutionalized population estimate, 2016-2020 ACS;S2701_C05_001E;float8;percent;;0;23;2020-01-01;2020-12-31;2052498200",
+      "ep_otherrace;Adjunct variable - Percentage of some other race, not Hispanic or Latino persons estimate, 2016-2020 ACS;DP05_0082PE;float8;percent;;0;26.1;2020-01-01;2020-12-31;2052498246",
+      "ep_pov150;Percentage of persons below 150% poverty estimate;(E_POV150 / S1701_C01_001E) * 100;float8;percent;;0;84.7;2020-01-01;2020-12-31;2052498378",
+      "ep_sngpnt;Percentage of single-parent households with children under 18 estimate, 2016-2020 ACS;(E_SNGPNT/E_HH) * 100;float8;percent;;0;73.3;2020-01-01;2020-12-31;2052498249",
+      "ep_twomore;Adjunct variable - Percentage of two or more races, not Hispanic or Latino persons estimate, 2016-2020 ACS;DP05_0083PE;float8;percent;;0;22.2;2020-01-01;2020-12-31;2052498228",
+      "ep_unemp;Unemployment Rate estimate;DP03_0009PE;float8;percent;;0;55.7;2020-01-01;2020-12-31;2052497153",
+      "ep_uninsur;Percentage uninsured in the total civilian noninstitutionalized population estimate, 2016-2020 ACS;S2701_C05_001E;float8;percent;;0;23.1;2020-01-01;2020-12-31;2052498200",
       "epl_age17;Percentile percentage of persons aged 17 and younger estimate;In Excel: PERCENTRANK.INC on EP_AGE17 array with 4 significant digits;float8;percentile;;0;1;2020-01-01;2020-12-31;2052498183",
       "epl_age65;Percentile percentage of persons aged 65 and older estimate;In Excel: PERCENTRANK.INC on EP_AGE65 array with 4 significant digits;float8;percentile;;0;1;2020-01-01;2020-12-31;2052498182",
       "epl_crowd;Percentile percentage households with more people than rooms estimate;In Excel: PERCENTRANK.INC on EP_CROWD array with 4 significant digits;float8;percentile;;0;1;2020-01-01;2020-12-31;2052498195",
       "epl_disabl;Percentile percentage of civilian noninstitutionalized population with a disability estimate;In Excel: PERCENTRANK.INC on EP_DISABL array with 4 significant digits;float8;percentile;;0;1;2020-01-01;2020-12-31;2052498186",
-      "epl_groupq;Percentile percentage of persons in group quarters estimate;In Excel: PERCENTRANK.INC on EP_GROUPQ array with 4 significant digits;float8;percentile;;0;1;2020-01-01;2020-12-31;2052498180",
+      "epl_groupq;Percentile percentage of persons in group quarters estimate;In Excel: PERCENTRANK.INC on EP_GROUPQ array with 4 significant digits;float8;percentile;;0;0.9962;2020-01-01;2020-12-31;2052498180",
       "epl_hburd;Percentile percentage of housing cost-burdened occupied housing units estimate;In Excel: PERCENTRANK.INC on EP_HBURD array with 4 significant digits;float8;percentile;;0;1;2020-01-01;2020-12-31;2052498185",
       "epl_limeng;Percentile percentage of persons (age 5+) who speak English \"less than well\" estimate;In Excel: PERCENTRANK.INC on EP_LIMENG array with 4 significant digits;float8;percentile;;0;1;2020-01-01;2020-12-31;2052498184",
       "epl_minrty;Percentile percentage minority (Hispanic or Latino (of any race) -- Black and African American, Not Hispanic or Latino -- American Indian and Alaska Native, Not Hispanic or Latino -- Asian, Not Hispanic or Latino -- Native Hawaiian and Other Pacific Islander, Not Hispanic or Latino -- Two or More Races, Not Hispanic or Latino -- Other Races, Not Hispanic or Latino) estimate;In Excel: PERCENTRANK.INC on EP_MINRTY array with 4 significant digits;float8;percentile;;0;1;2020-01-01;2020-12-31;2052498189",
       "epl_mobile;Percentile percentage mobile homes estimate;In Excel: PERCENTRANK.INC on EP_MOBILE array with 4 significant digits;float8;percentile;;0;1;2020-01-01;2020-12-31;2052498188",
-      "epl_munit;Percentile percentage housing in structures with 10 or more units estimate;In Excel: PERCENTRANK.INC on EP_MUNIT array with 4 significant digits;float8;percentile;;0;1;2020-01-01;2020-12-31;2052498193",
+      "epl_munit;Percentile percentage housing in structures with 10 or more units estimate;In Excel: PERCENTRANK.INC on EP_MUNIT array with 4 significant digits;float8;percentile;;0;0.9975;2020-01-01;2020-12-31;2052498193",
       "epl_nohsdp;Percentile percentage of persons with no high school diploma (age 25+) estimate;In Excel: PERCENTRANK.INC on EP_NOHSDP array with 4 significant digits;float8;percentile;;0;1;2020-01-01;2020-12-31;2052498179",
       "epl_noveh;Percentile percentage households with no vehicle available estimate;In Excel: PERCENTRANK.INC on EP_NOVEH array with 4 significant digits;float8;percentile;;0;1;2020-01-01;2020-12-31;2052498194",
       "epl_pov150;Percentile percentage of persons below 150% poverty estimate;In Excel: PERCENTRANK.INC on EP_POV150 array with 4 significant digits;float8;percentile;;0;1;2020-01-01;2020-12-31;2052498181",
       "epl_sngpnt;Percentile percentage of single-parent households with children under 18 estimate;In Excel: PERCENTRANK.INC on EP_SNGPNT array with 4 significant digits;float8;percentile;;0;1;2020-01-01;2020-12-31;2052498178",
       "epl_unemp;Percentile percentage of civilian (age 16+) unemployed estimate;In Excel: PERCENTRANK.INC on EP_UNEMP array with 4 significant digits;float8;percentile;;0;1;2020-01-01;2020-12-31;2052498187",
       "epl_uninsur;Percentile percentage of uninsured estimate;In Excel: PERCENTRANK.INC on EP_UNINSUR array with 4 significant digits;float8;percentile;;0;1;2020-01-01;2020-12-31;2052498150",
-      "f_age17;Flag - the percentage of persons aged 17 and younger is in the 90th percentile (1 = yes, 0 = no) ;EPL_AGE17 >= 0.90;boolean;;;;;2020-01-01;2020-12-31;2052499366",
-      "f_age65;Flag - the percentage of persons aged 65 and older is in the 90th percentile (1 = yes, 0 = no) ;EPL_AGE65 >= 0.90;boolean;;;;;2020-01-01;2020-12-31;2052499365",
-      "f_crowd;Flag - the percentage of crowded households is in the 90th percentile (1 = yes, 0 = no);EPL_CROWD >= 0.90;boolean;;;;;2020-01-01;2020-12-31;2052499372",
-      "f_disabl;Flag - the percentage of persons with a disability is in the 90th percentile (1 = yes, 0 = no) ;EPL_DISABL >= 0.90;boolean;;;;;2020-01-01;2020-12-31;2052499362",
-      "f_groupq;Flag - the percentage of persons in group quarters is in the 90th percentile (1 = yes, 0 = no) ;EPL_GROUPQ >= 0.90;boolean;;;;;2020-01-01;2020-12-31;2052499363",
-      "f_hburd;Flag - the percentage of housing cost-burdened occupied housing units is in the 90th percentile (1 = yes, 0 = no);EPL_HBURD >= 0.90;boolean;;;;;2020-01-01;2020-12-31;2052499369",
-      "f_limeng;Flag - the percentage those with limited English is in the 90th percentile (1 = yes, 0 = no) ;EPL_LIMENG >= 0.90;boolean;;;;;2020-01-01;2020-12-31;2052499358",
-      "f_minrty;Flag - the percentage of minority is in the 90th percentile (1 = yes, 0 = no);EPL_MINRTY >= 0.90;boolean;;;;;2020-01-01;2020-12-31;2052499368",
-      "f_mobile;Flag - the percentage of mobile homes is in the 90th percentile (1 = yes, 0 = no);EPL_MOBILE >= 0.90;boolean;;;;;2020-01-01;2020-12-31;2052499367",
-      "f_munit;Flag - the percentage of households in multi-unit housing is in the 90th percentile (1 = yes, 0 = no);EPL_MUNIT >= 0.90;boolean;;;;;2020-01-01;2020-12-31;2052499371",
-      "f_nohsdp;Flag - the percentage of persons with no high school diploma is in the 90th percentile (1 = yes, 0 = no) ;EPL_NOHSDP >= 0.90;boolean;;;;;2020-01-01;2020-12-31;2052499361",
-      "f_noveh;Flag - the percentage of households with no vehicles is in the 90th percentile (1 = yes, 0 = no) ;EPL_NOVEH >= 0.90;boolean;;;;;2020-01-01;2020-12-31;2052499370",
-      "f_pov150;Flag - the percentage of persons below 150% poverty is in the 90th percentile (1 = yes, 0 = no);EPL_POV150 >= 0.90;boolean;;;;;2020-01-01;2020-12-31;2052499364",
-      "f_sngpnt;Flag - the percentage of single-parent households is in the 90th percentile (1 = yes, 0 = no);EPL_SNGPNT >= 0.90;boolean;;;;;2020-01-01;2020-12-31;2052499360",
-      "f_theme1;Sum of flags for Socioeconomic Status theme;F_POV150 + F_UNEMP + F_HBURD + F_NOHSDP + F_UNINSUR;int4;;;0;5;2020-01-01;2020-12-31;2052497702",
-      "f_theme2;Sum of flags for Household Characteristics theme;F_AGE65 + F_AGE17 + F_DISABL + F_SNGPNT + F_LIMENG;int4;;;0;4;2020-01-01;2020-12-31;2052497705",
-      "f_theme3;Sum of flags for Racial and Ethnic Minority Status theme;F_MINRTY;int4;;;0;1;2020-01-01;2020-12-31;2052497703",
-      "f_theme4;Sum of flags for Housing Type/ Transportation theme;F_MUNIT + F_MOBILE + F_CROWD + F_NOVEH + F_GROUPQ;int4;;;0;4;2020-01-01;2020-12-31;2052497704",
-      "f_total;Sum of flags for the four themes;F_THEME1 + F_THEME2 + F_THEME3 + F_THEME4;int4;;;0;12;2020-01-01;2020-12-31;2052497701",
-      "f_unemp;Flag - the percentage of civilian unemployed is in the 90th percentile (1 = yes, 0 = no) ;EPL_UNEMP >= 0.90;boolean;;;;;2020-01-01;2020-12-31;2052499373",
-      "f_uninsur;Flag - the percentage of uninsured is in the 90th percentile (1 = yes, 0 = no) ;EPL_UNINSUR >= 0.90;boolean;;;;;2020-01-01;2020-12-31;2052499359",
+      "f_age17;Flag - the percentage of persons aged 17 and younger is in the 90th percentile (1 = yes, 0 = no) ;EPL_AGE17 >= 0.90;int2;;;0;1;2020-01-01;2020-12-31;2052499366",
+      "f_age65;Flag - the percentage of persons aged 65 and older is in the 90th percentile (1 = yes, 0 = no) ;EPL_AGE65 >= 0.90;int2;;;0;1;2020-01-01;2020-12-31;2052499365",
+      "f_crowd;Flag - the percentage of crowded households is in the 90th percentile (1 = yes, 0 = no);EPL_CROWD >= 0.90;int2;;;0;1;2020-01-01;2020-12-31;2052499372",
+      "f_disabl;Flag - the percentage of persons with a disability is in the 90th percentile (1 = yes, 0 = no) ;EPL_DISABL >= 0.90;int2;;;0;1;2020-01-01;2020-12-31;2052499362",
+      "f_groupq;Flag - the percentage of persons in group quarters is in the 90th percentile (1 = yes, 0 = no) ;EPL_GROUPQ >= 0.90;int2;;;0;1;2020-01-01;2020-12-31;2052499363",
+      "f_hburd;Flag - the percentage of housing cost-burdened occupied housing units is in the 90th percentile (1 = yes, 0 = no);EPL_HBURD >= 0.90;int2;;;0;1;2020-01-01;2020-12-31;2052499369",
+      "f_limeng;Flag - the percentage those with limited English is in the 90th percentile (1 = yes, 0 = no) ;EPL_LIMENG >= 0.90;int2;;;0;1;2020-01-01;2020-12-31;2052499358",
+      "f_minrty;Flag - the percentage of minority is in the 90th percentile (1 = yes, 0 = no);EPL_MINRTY >= 0.90;int2;;;0;1;2020-01-01;2020-12-31;2052499368",
+      "f_mobile;Flag - the percentage of mobile homes is in the 90th percentile (1 = yes, 0 = no);EPL_MOBILE >= 0.90;int2;;;0;1;2020-01-01;2020-12-31;2052499367",
+      "f_munit;Flag - the percentage of households in multi-unit housing is in the 90th percentile (1 = yes, 0 = no);EPL_MUNIT >= 0.90;int2;;;0;1;2020-01-01;2020-12-31;2052499371",
+      "f_nohsdp;Flag - the percentage of persons with no high school diploma is in the 90th percentile (1 = yes, 0 = no) ;EPL_NOHSDP >= 0.90;int2;;;0;1;2020-01-01;2020-12-31;2052499361",
+      "f_noveh;Flag - the percentage of households with no vehicles is in the 90th percentile (1 = yes, 0 = no) ;EPL_NOVEH >= 0.90;int2;;;0;1;2020-01-01;2020-12-31;2052499370",
+      "f_pov150;Flag - the percentage of persons below 150% poverty is in the 90th percentile (1 = yes, 0 = no);EPL_POV150 >= 0.90;int2;;;0;1;2020-01-01;2020-12-31;2052499364",
+      "f_sngpnt;Flag - the percentage of single-parent households is in the 90th percentile (1 = yes, 0 = no);EPL_SNGPNT >= 0.90;int2;;;0;1;2020-01-01;2020-12-31;2052499360",
+      "f_theme1;Sum of flags for Socioeconomic Status theme;F_POV150 + F_UNEMP + F_HBURD + F_NOHSDP + F_UNINSUR;int2;;;0;5;2020-01-01;2020-12-31;2052497702",
+      "f_theme2;Sum of flags for Household Characteristics theme;F_AGE65 + F_AGE17 + F_DISABL + F_SNGPNT + F_LIMENG;int2;;;0;4;2020-01-01;2020-12-31;2052497705",
+      "f_theme3;Sum of flags for Racial and Ethnic Minority Status theme;F_MINRTY;int2;;;0;1;2020-01-01;2020-12-31;2052497703",
+      "f_theme4;Sum of flags for Housing Type/ Transportation theme;F_MUNIT + F_MOBILE + F_CROWD + F_NOVEH + F_GROUPQ;int2;;;0;4;2020-01-01;2020-12-31;2052497704",
+      "f_total;Sum of flags for the four themes;F_THEME1 + F_THEME2 + F_THEME3 + F_THEME4;int2;;;0;12;2020-01-01;2020-12-31;2052497701",
+      "f_unemp;Flag - the percentage of civilian unemployed is in the 90th percentile (1 = yes, 0 = no) ;EPL_UNEMP >= 0.90;int2;;;0;1;2020-01-01;2020-12-31;2052499373",
+      "f_uninsur;Flag - the percentage of uninsured is in the 90th percentile (1 = yes, 0 = no) ;EPL_UNINSUR >= 0.90;int2;;;0;1;2020-01-01;2020-12-31;2052499359",
       "fips;Tract-level FIPS code;GEO_ID;varchar;;;;;2020-01-01;2020-12-31;2052497174",
       "location;Text description of tract, county, state;NAME;varchar;;;;;2020-01-01;2020-12-31;",
-      "m_afam;Adjunct variable - Black/African American, not Hispanic or Latino persons estimate MOE, 2016-2020 ACS;DP05_0078M;float8;moe;;2;1047;2020-01-01;2020-12-31;2052499782",
-      "m_age17;Persons aged 17 and younger estimate MOE, 2016-2020 ACS;B09001_001M;float8;moe;;4;802;2020-01-01;2020-12-31;2052498114",
-      "m_age65;Persons aged 65 and older estimate MOE, 2016-2020 ACS;S0101_C01_030M;float8;moe;;6;993;2020-01-01;2020-12-31;2052498112",
-      "m_aian;Adjunct variable - American Indian or Alaska Native, not Hispanic or Latino persons estimate MOE, 2016-2020 ACS;DP05_0079M;float8;moe;;2;375;2020-01-01;2020-12-31;2052499860",
-      "m_asian;Adjunct variable - Asian, not Hispanic or Latino persons estimate MOE, 2016-2020 ACS;DP05_0080M;float8;moe;;2;1012;2020-01-01;2020-12-31;2052499832",
-      "m_crowd;At household level (occupied housing units), more people than rooms estimate MOE, 2016-2020 ACS;SQRT (DP04_0078M ^2 + DP04_0079M ^2);float8;moe;;4;358;2020-01-01;2020-12-31;2052499827",
-      "m_disabl;Civilian noninstitutionalized population with a disability estimate MOE, 2016-2020 ACS;DP02_0072M;float8;moe;;7;713;2020-01-01;2020-12-31;2052499668",
-      "m_groupq;Persons in group quarters estimate MOE, 2016-2020 ACS;B26001_001M;float8;moe;;2;1365;2020-01-01;2020-12-31;2052498108",
-      "m_hburd;Housing cost-burdened occupied housing units with annual income less than 5,000 (30%+ of income spent on housing costs) estimate MOE, 2016-2020 ACS;SQRT (S2503_C01_028M ^2 + S2503_C01_032M ^2 + S2503_C01_036M ^2 + S2503_C01_040M ^2) ;float8;moe;;26;548;2020-01-01;2020-12-31;2052499084",
-      "m_hh;Households estimate MOE, 2016-2020 ACS;DP02_0001M;float8;moe;;7;610;2020-01-01;2020-12-31;2052499092",
-      "m_hisp;Adjunct variable - Hispanic or Latino persons estimate MOE, 2016-2020 ACS;DP05_0071M;float8;moe;;2;1189;2020-01-01;2020-12-31;2052499103",
-      "m_hu;Housing units estimate MOE, 2016-2020 ACS;DP04_0001M;float8;moe;;7;605;2020-01-01;2020-12-31;2052499074",
-      "m_limeng;Persons (age 5+) who speak English \"less than well\" estimate MOE, 2016-2020 ACS;SQRT (B16005_007M ^2 + B16005_008M ^2 + B16005_012M ^2 + B16005_013M ^2 + B16005_017M ^2 + B16005_018M ^2 + B16005_022M ^2 + B16005_023M ^2 + B16005_029M ^2 + B16005_030M ^2 + B16005_034M ^2 + B16005_035M ^2 + B16005_039M ^2 + B16005_040M ^2 + B16005_044M ^2 + B16005_045M ^2);float8;moe;;47;637;2020-01-01;2020-12-31;2052498116",
-      "m_minrty;Minority (Hispanic or Latino (of any race) -- Black and African American, Not Hispanic or Latino -- American Indian and Alaska Native, Not Hispanic or Latino -- Asian, Not Hispanic or Latino -- Native Hawaiian and Other Pacific Islander, Not Hispanic or Latino -- Two or More Races, Not Hispanic or Latino -- Other Races, Not Hispanic or Latino) estimate MOE, 2016-2020 ACS;SQRT (DP05_0071M ^2 + DP05_0078M ^2 + DP05_0079M ^2 + DP05_0080M ^2 + DP05_0081M ^2 + DP05_0082M ^2 + DP05_0083M ^2) ;float8;moe;;30;1456;2020-01-01;2020-12-31;2052490073",
-      "m_mobile;Mobile homes estimate MOE, 2016-2020 ACS;DP04_0014M;float8;moe;;2;288;2020-01-01;2020-12-31;2052498833",
-      "m_munit;Housing in structures with 10 or more units estimate MOE, 2016-2020 ACS;SQRT (DP04_0012M ^2 + DP04_0013M ^2) ;float8;moe;;5;541;2020-01-01;2020-12-31;2052499081",
-      "m_nhpi;Adjunct variable - Native Hawaiian or Other Pacific Islander, not Hispanic or Latino persons estimate MOE, 2016-2020 ACS;DP05_0081M;float8;moe;;2;193;2020-01-01;2020-12-31;2052498763",
-      "m_nohsdp;Persons (age 25+) with no high school diploma estimate MOE, 2016-2020 ACS;B06009_002M;float8;moe;;3;586;2020-01-01;2020-12-31;2052498118",
-      "m_noint;Adjunct variable - Households without a computer with a broadband Internet subscription estimate MOE, 2016-2020 ACS;SQRT (S2802_C01_001M ^2 - S2802_C02_001M ^2);float8;moe;;9;2009;2020-01-01;2020-12-31;2052499088",
-      "m_noveh;Households with no vehicle available estimate MOE, 2016-2020 ACS;DP04_0058M;float8;moe;;3;496;2020-01-01;2020-12-31;2052499090",
-      "m_otherrace;Adjunct variable - Some other race, not Hispanic or Latino persons estimate MOE, 2016-2020 ACS;DP05_0082M;float8;moe;;2;1119;2020-01-01;2020-12-31;2052497740",
-      "m_pov150;Persons below 150% poverty estimate MOE, 2016-2020 ACS;S1701_C01_040M;float8;moe;;13;1123;2020-01-01;2020-12-31;2052498110",
-      "m_sngpnt;Single-parent household with children under 18 estimate MOE, 2016-2020 ACS;SQRT (B11012_010M ^2 + B11012_015M ^2) ;float8;moe;;5;399;2020-01-01;2020-12-31;2052497777",
-      "m_totpop;Population estimate MOE, 2016-2020 ACS;S0601_C01_001M;float8;moe;;7;1542;2020-01-01;2020-12-31;2052498090",
-      "m_twomore;Adjunct variable - Two or more races, not Hispanic or Latino persons estimate MOE, 2016-2020 ACS;DP05_0083M;float8;moe;;2;1197;2020-01-01;2020-12-31;2052497159",
-      "m_unemp;Civilian (age 16+) unemployed estimate MOE, 2016-2020 ACS;DP03_0005M;float8;moe;;6;437;2020-01-01;2020-12-31;2052499670",
-      "m_uninsur;Uninsured in the total civilian noninstitutionalized population estimate MOE, 2016-2020 ACS;S2701_C04_001M;float8;moe;;2;787;2020-01-01;2020-12-31;2052497148",
-      "mp_afam;Adjunct variable - Percentage of Black/African American, not Hispanic or Latino persons estimate MOE, 2016-2020 ACS;DP05_0078PM;float8;moe;;0;100;2020-01-01;2020-12-31;2052498570",
-      "mp_age17;Percentage of persons aged 17 and younger estimate MOE, 2016-2020 ACS;((SQRT (M_AGE17^2 - ((EP_AGE17 / 100)^2 * M_TOTPOP^2))) / E_TOTPOP) * 100;float8;moe;;0;260;2020-01-01;2020-12-31;2052498381",
-      "mp_age65;Percentage of persons aged 65 and older estimate MOE, 2016-2020 ACS;S0101_C02_030M;float8;moe;;0;100;2020-01-01;2020-12-31;2052498379",
-      "mp_aian;Adjunct variable - Percentage of American Indian or Alaska Native, not Hispanic or Latino persons estimate MOE, 2016-2020 ACS;DP05_0079PM;float8;moe;;0;100;2020-01-01;2020-12-31;2052498580",
-      "mp_asian;Adjunct variable - Percentage of Asian, not Hispanic or Latino persons estimate MOE, 2016-2020 ACS;DP05_0080PM;float8;moe;;0;100;2020-01-01;2020-12-31;2052498575",
-      "mp_crowd;Percentage of occupied housing units with more people than rooms estimate MOE;((SQRT (M_CROWD^2 - ((EP_CROWD / 100)^2 * DP04_0002M ^2))) / DP04_0002E) * 100;float8;moe;;1;360;2020-01-01;2020-12-31;2052498399",
-      "mp_disabl;Percentage of civilian noninstitutionalized population with a disability estimate MOE, 2016-2020 ACS;DP02_0072PM;float8;moe;;1;100;2020-01-01;2020-12-31;2052498557",
+      "m_afam;Adjunct variable - Black/African American, not Hispanic or Latino persons estimate MOE, 2016-2020 ACS;DP05_0078M;int4;moe;;2;1047;2020-01-01;2020-12-31;2052499782",
+      "m_age17;Persons aged 17 and younger estimate MOE, 2016-2020 ACS;B09001_001M;int4;moe;;4;802;2020-01-01;2020-12-31;2052498114",
+      "m_age65;Persons aged 65 and older estimate MOE, 2016-2020 ACS;S0101_C01_030M;int4;moe;;6;993;2020-01-01;2020-12-31;2052498112",
+      "m_aian;Adjunct variable - American Indian or Alaska Native, not Hispanic or Latino persons estimate MOE, 2016-2020 ACS;DP05_0079M;int4;moe;;2;375;2020-01-01;2020-12-31;2052499860",
+      "m_asian;Adjunct variable - Asian, not Hispanic or Latino persons estimate MOE, 2016-2020 ACS;DP05_0080M;int4;moe;;2;1012;2020-01-01;2020-12-31;2052499832",
+      "m_crowd;At household level (occupied housing units), more people than rooms estimate MOE, 2016-2020 ACS;SQRT (DP04_0078M ^2 + DP04_0079M ^2);int4;moe;;4;358;2020-01-01;2020-12-31;2052499827",
+      "m_disabl;Civilian noninstitutionalized population with a disability estimate MOE, 2016-2020 ACS;DP02_0072M;int4;moe;;7;713;2020-01-01;2020-12-31;2052499668",
+      "m_groupq;Persons in group quarters estimate MOE, 2016-2020 ACS;B26001_001M;int4;moe;;2;1365;2020-01-01;2020-12-31;2052498108",
+      "m_hburd;Housing cost-burdened occupied housing units with annual income less than 5,000 (30%+ of income spent on housing costs) estimate MOE, 2016-2020 ACS;SQRT (S2503_C01_028M ^2 + S2503_C01_032M ^2 + S2503_C01_036M ^2 + S2503_C01_040M ^2) ;int4;moe;;26;548;2020-01-01;2020-12-31;2052499084",
+      "m_hh;Households estimate MOE, 2016-2020 ACS;DP02_0001M;int4;moe;;7;610;2020-01-01;2020-12-31;2052499092",
+      "m_hisp;Adjunct variable - Hispanic or Latino persons estimate MOE, 2016-2020 ACS;DP05_0071M;int4;moe;;2;1189;2020-01-01;2020-12-31;2052499103",
+      "m_hu;Housing units estimate MOE, 2016-2020 ACS;DP04_0001M;int4;moe;;7;605;2020-01-01;2020-12-31;2052499074",
+      "m_limeng;Persons (age 5+) who speak English \"less than well\" estimate MOE, 2016-2020 ACS;SQRT (B16005_007M ^2 + B16005_008M ^2 + B16005_012M ^2 + B16005_013M ^2 + B16005_017M ^2 + B16005_018M ^2 + B16005_022M ^2 + B16005_023M ^2 + B16005_029M ^2 + B16005_030M ^2 + B16005_034M ^2 + B16005_035M ^2 + B16005_039M ^2 + B16005_040M ^2 + B16005_044M ^2 + B16005_045M ^2);int4;moe;;47;637;2020-01-01;2020-12-31;2052498116",
+      "m_minrty;Minority (Hispanic or Latino (of any race) -- Black and African American, Not Hispanic or Latino -- American Indian and Alaska Native, Not Hispanic or Latino -- Asian, Not Hispanic or Latino -- Native Hawaiian and Other Pacific Islander, Not Hispanic or Latino -- Two or More Races, Not Hispanic or Latino -- Other Races, Not Hispanic or Latino) estimate MOE, 2016-2020 ACS;SQRT (DP05_0071M ^2 + DP05_0078M ^2 + DP05_0079M ^2 + DP05_0080M ^2 + DP05_0081M ^2 + DP05_0082M ^2 + DP05_0083M ^2) ;int4;moe;;30;1456;2020-01-01;2020-12-31;2052490073",
+      "m_mobile;Mobile homes estimate MOE, 2016-2020 ACS;DP04_0014M;int4;moe;;2;288;2020-01-01;2020-12-31;2052498833",
+      "m_munit;Housing in structures with 10 or more units estimate MOE, 2016-2020 ACS;SQRT (DP04_0012M ^2 + DP04_0013M ^2) ;int4;moe;;5;541;2020-01-01;2020-12-31;2052499081",
+      "m_nhpi;Adjunct variable - Native Hawaiian or Other Pacific Islander, not Hispanic or Latino persons estimate MOE, 2016-2020 ACS;DP05_0081M;int4;moe;;2;193;2020-01-01;2020-12-31;2052498763",
+      "m_nohsdp;Persons (age 25+) with no high school diploma estimate MOE, 2016-2020 ACS;B06009_002M;int4;moe;;3;586;2020-01-01;2020-12-31;2052498118",
+      "m_noint;Adjunct variable - Households without a computer with a broadband Internet subscription estimate MOE, 2016-2020 ACS;SQRT (S2802_C01_001M ^2 - S2802_C02_001M ^2);int4;moe;;9;2009;2020-01-01;2020-12-31;2052499088",
+      "m_noveh;Households with no vehicle available estimate MOE, 2016-2020 ACS;DP04_0058M;int4;moe;;3;496;2020-01-01;2020-12-31;2052499090",
+      "m_otherrace;Adjunct variable - Some other race, not Hispanic or Latino persons estimate MOE, 2016-2020 ACS;DP05_0082M;int4;moe;;2;1119;2020-01-01;2020-12-31;2052497740",
+      "m_pov150;Persons below 150% poverty estimate MOE, 2016-2020 ACS;S1701_C01_040M;int4;moe;;13;1123;2020-01-01;2020-12-31;2052498110",
+      "m_sngpnt;Single-parent household with children under 18 estimate MOE, 2016-2020 ACS;SQRT (B11012_010M ^2 + B11012_015M ^2) ;int4;moe;;5;399;2020-01-01;2020-12-31;2052497777",
+      "m_totpop;Population estimate MOE, 2016-2020 ACS;S0601_C01_001M;int4;moe;;7;1542;2020-01-01;2020-12-31;2052498090",
+      "m_twomore;Adjunct variable - Two or more races, not Hispanic or Latino persons estimate MOE, 2016-2020 ACS;DP05_0083M;int4;moe;;2;1197;2020-01-01;2020-12-31;2052497159",
+      "m_unemp;Civilian (age 16+) unemployed estimate MOE, 2016-2020 ACS;DP03_0005M;int4;moe;;6;437;2020-01-01;2020-12-31;2052499670",
+      "m_uninsur;Uninsured in the total civilian noninstitutionalized population estimate MOE, 2016-2020 ACS;S2701_C04_001M;int4;moe;;2;787;2020-01-01;2020-12-31;2052497148",
+      "mp_afam;Adjunct variable - Percentage of Black/African American, not Hispanic or Latino persons estimate MOE, 2016-2020 ACS;DP05_0078PM;float8;moe;;0.1;100;2020-01-01;2020-12-31;2052498570",
+      "mp_age17;Percentage of persons aged 17 and younger estimate MOE, 2016-2020 ACS;((SQRT (M_AGE17^2 - ((EP_AGE17 / 100)^2 * M_TOTPOP^2))) / E_TOTPOP) * 100;float8;moe;;0.2;260;2020-01-01;2020-12-31;2052498381",
+      "mp_age65;Percentage of persons aged 65 and older estimate MOE, 2016-2020 ACS;S0101_C02_030M;float8;moe;;0.1;100;2020-01-01;2020-12-31;2052498379",
+      "mp_aian;Adjunct variable - Percentage of American Indian or Alaska Native, not Hispanic or Latino persons estimate MOE, 2016-2020 ACS;DP05_0079PM;float8;moe;;0.1;100;2020-01-01;2020-12-31;2052498580",
+      "mp_asian;Adjunct variable - Percentage of Asian, not Hispanic or Latino persons estimate MOE, 2016-2020 ACS;DP05_0080PM;float8;moe;;0.1;100;2020-01-01;2020-12-31;2052498575",
+      "mp_crowd;Percentage of occupied housing units with more people than rooms estimate MOE;((SQRT (M_CROWD^2 - ((EP_CROWD / 100)^2 * DP04_0002M ^2))) / DP04_0002E) * 100;float8;moe;;0.6;360;2020-01-01;2020-12-31;2052498399",
+      "mp_disabl;Percentage of civilian noninstitutionalized population with a disability estimate MOE, 2016-2020 ACS;DP02_0072PM;float8;moe;;0.6;100;2020-01-01;2020-12-31;2052498557",
       "mp_groupq;Percentage of persons in group quarters estimate MOE, 2016-2020 ACS;((SQRT (M_GROUPQ^2 - ((EP_GROUPQ / 100)^2 * M_TOTPOP^2))) / E_TOTPOP) * 100;float8;moe;;0;260;2020-01-01;2020-12-31;2052498375",
-      "mp_hburd;Percentage of housing cost-burdened occupied housing units with annual income less than 5,000 (30%+ of income spent on housing costs) estimate MOE, 2016-2020 ACS;((SQRT (M_HBURD^2 - ((EP_HBURD / 100)^2 * S2503_C01_001M ^2))) / S2503_C01_001E) * 100;float8;moe;;3;520;2020-01-01;2020-12-31;2052498463",
-      "mp_hisp;Adjunct variable - Percentage of Hispanic or Latino persons estimate MOE, 2016-2020 ACS;DP05_0071PM;float8;moe;;0;100;2020-01-01;2020-12-31;2052498519",
-      "mp_limeng;Percentage of persons (age 5+) who speak English \"less than well\" estimate MOE, 2016-2020 ACS;((SQRT (M_LIMENG^2 - ((EP_LIMENG / 100)^2 * B16005_001M ^2))) / B16005_001E) * 100;float8;moe;;1;1040;2020-01-01;2020-12-31;2052498383",
-      "mp_minrty;Percentage minority (Hispanic or Latino (of any race) -- Black and African American, Not Hispanic or Latino -- American Indian and Alaska Native, Not Hispanic or Latino -- Asian, Not Hispanic or Latino -- Native Hawaiian and Other Pacific Islander, Not Hispanic or Latino -- Two or More Races, Not Hispanic or Latino -- Other Races, Not Hispanic or Latino) estimate MOE, 2016-2020 ACS;((SQRT (M_MINRTY^2 - ((EP_MINRTY / 100)^2 * M_TOTPOP^2))) / E_TOTPOP) * 100;float8;moe;;1;680;2020-01-01;2020-12-31;2052498609",
-      "mp_mobile;Percentage of mobile homes estimate MOE;DP04_0014PM;float8;moe;;0;100;2020-01-01;2020-12-31;2052498421",
-      "mp_munit;Percentage of housing in structures with 10 or more units estimate MOE;((SQRT (M_MUNIT^2 - ((EP_MUNIT / 100)^2 * M_HU^2))) / E_HU) * 100;float8;moe;;0;243;2020-01-01;2020-12-31;2052498460",
-      "mp_nhpi;Adjunct variable - Percentage of Native Hawaiian or Other Pacific Islander, not Hispanic or Latino persons estimate MOE, 2016-2020 ACS;DP05_0081PM;float8;moe;;0;100;2020-01-01;2020-12-31;2052498417",
-      "mp_nohsdp;Percentage of persons with no high school diploma (25+) estimate MOE;S0601_C01_033M;float8;moe;;0;100;2020-01-01;2020-12-31;2052498370",
+      "mp_hburd;Percentage of housing cost-burdened occupied housing units with annual income less than 5,000 (30%+ of income spent on housing costs) estimate MOE, 2016-2020 ACS;((SQRT (M_HBURD^2 - ((EP_HBURD / 100)^2 * S2503_C01_001M ^2))) / S2503_C01_001E) * 100;float8;moe;;2.7;520;2020-01-01;2020-12-31;2052498463",
+      "mp_hisp;Adjunct variable - Percentage of Hispanic or Latino persons estimate MOE, 2016-2020 ACS;DP05_0071PM;float8;moe;;0.1;100;2020-01-01;2020-12-31;2052498519",
+      "mp_limeng;Percentage of persons (age 5+) who speak English \"less than well\" estimate MOE, 2016-2020 ACS;((SQRT (M_LIMENG^2 - ((EP_LIMENG / 100)^2 * B16005_001M ^2))) / B16005_001E) * 100;float8;moe;;0.7;1040;2020-01-01;2020-12-31;2052498383",
+      "mp_minrty;Percentage minority (Hispanic or Latino (of any race) -- Black and African American, Not Hispanic or Latino -- American Indian and Alaska Native, Not Hispanic or Latino -- Asian, Not Hispanic or Latino -- Native Hawaiian and Other Pacific Islander, Not Hispanic or Latino -- Two or More Races, Not Hispanic or Latino -- Other Races, Not Hispanic or Latino) estimate MOE, 2016-2020 ACS;((SQRT (M_MINRTY^2 - ((EP_MINRTY / 100)^2 * M_TOTPOP^2))) / E_TOTPOP) * 100;float8;moe;;0.8;680;2020-01-01;2020-12-31;2052498609",
+      "mp_mobile;Percentage of mobile homes estimate MOE;DP04_0014PM;float8;moe;;0.1;100;2020-01-01;2020-12-31;2052498421",
+      "mp_munit;Percentage of housing in structures with 10 or more units estimate MOE;((SQRT (M_MUNIT^2 - ((EP_MUNIT / 100)^2 * M_HU^2))) / E_HU) * 100;float8;moe;;0;242.5;2020-01-01;2020-12-31;2052498460",
+      "mp_nhpi;Adjunct variable - Percentage of Native Hawaiian or Other Pacific Islander, not Hispanic or Latino persons estimate MOE, 2016-2020 ACS;DP05_0081PM;float8;moe;;0.1;100;2020-01-01;2020-12-31;2052498417",
+      "mp_nohsdp;Percentage of persons with no high school diploma (25+) estimate MOE;S0601_C01_033M;float8;moe;;0.1;100;2020-01-01;2020-12-31;2052498370",
       "mp_noint;Adjunct variable - Percentage of households without a computer with a broadband Internet subscription estimate MOE, 2016-2020 ACS;((SQRT (M_NOINT^2 - ((EP_NOINT / 100)^2 * S2802_C01_001M^2))) / S2802_C01_001M) * 100;float8;moe;;0;180;2020-01-01;2020-12-31;2052498467",
-      "mp_noveh;Percentage of households with no vehicle available estimate MOE;DP04_0058PM;float8;moe;;0;100;2020-01-01;2020-12-31;2052498476",
-      "mp_otherrace;Adjunct variable - Percentage of some other race, not Hispanic or Latino persons estimate MOE, 2016-2020 ACS;DP05_0082PM;float8;moe;;0;100;2020-01-01;2020-12-31;2052498245",
-      "mp_pov150;Percentage of persons below 150% poverty estimate MOE;((SQRT(M_POV150^2-((EP_POV150 / 100)^2 * S1701_C01_001M ^2))) / S1701_C01_001E) * 100;float8;moe;;1;260;2020-01-01;2020-12-31;2052498377",
-      "mp_sngpnt;Percentage of single-parent households with children under 18 estimate MOE, 2016-2020 ACS;((SQRT (M_SNGPNT^2 - ((EP_SNGPNT / 100)^2 * M_HH^2))) / E_HH) * 100;float8;moe;;1;360;2020-01-01;2020-12-31;2052498248",
-      "mp_twomore;Adjunct variable - Percentage of two or more races, not Hispanic or Latino persons estimate MOE, 2016-2020 ACS;DP05_0083PM;float8;moe;;0;100;2020-01-01;2020-12-31;2052498227",
-      "mp_unemp;Unemployment Rate estimate MOE;DP03_0009PM;float8;moe;;0;100;2020-01-01;2020-12-31;2052497152",
-      "mp_uninsur;Percentage uninsured in the total civilian noninstitutionalized population estimate MOE, 2016-2020 ACS;S2701_C05_001M;float8;moe;;0;100;2020-01-01;2020-12-31;2052498199",
+      "mp_noveh;Percentage of households with no vehicle available estimate MOE;DP04_0058PM;float8;moe;;0.3;100;2020-01-01;2020-12-31;2052498476",
+      "mp_otherrace;Adjunct variable - Percentage of some other race, not Hispanic or Latino persons estimate MOE, 2016-2020 ACS;DP05_0082PM;float8;moe;;0.1;100;2020-01-01;2020-12-31;2052498245",
+      "mp_pov150;Percentage of persons below 150% poverty estimate MOE;((SQRT(M_POV150^2-((EP_POV150 / 100)^2 * S1701_C01_001M ^2))) / S1701_C01_001E) * 100;float8;moe;;0.6;260;2020-01-01;2020-12-31;2052498377",
+      "mp_sngpnt;Percentage of single-parent households with children under 18 estimate MOE, 2016-2020 ACS;((SQRT (M_SNGPNT^2 - ((EP_SNGPNT / 100)^2 * M_HH^2))) / E_HH) * 100;float8;moe;;0.5;360;2020-01-01;2020-12-31;2052498248",
+      "mp_twomore;Adjunct variable - Percentage of two or more races, not Hispanic or Latino persons estimate MOE, 2016-2020 ACS;DP05_0083PM;float8;moe;;0.1;100;2020-01-01;2020-12-31;2052498227",
+      "mp_unemp;Unemployment Rate estimate MOE;DP03_0009PM;float8;moe;;0.2;100;2020-01-01;2020-12-31;2052497152",
+      "mp_uninsur;Percentage uninsured in the total civilian noninstitutionalized population estimate MOE, 2016-2020 ACS;S2701_C05_001M;float8;moe;;0.1;100;2020-01-01;2020-12-31;2052498199",
       "rpl_theme1;Percentile ranking for Socioeconomic Status theme summary;In Excel: PERCENTRANK.INC on SPL_THEME1 array with 4 significant digits;float8;moe;;0;1;2020-01-01;2020-12-31;2052498129",
       "rpl_theme2;Percentile ranking for Household Characteristics theme summary;In Excel: PERCENTRANK.INC on SPL_THEME2 array with 4 significant digits;float8;percentile;;0;1;2020-01-01;2020-12-31;2052498134",
       "rpl_theme3;Percentile ranking for Racial and Ethnic Minority Status theme;In Excel: PERCENTRANK.INC on SPL_THEME3 array with 4 significant digits;float8;percentile;;0;1;2020-01-01;2020-12-31;2052498130",
       "rpl_theme4;Percentile ranking for Housing Type/ Transportation theme;In Excel: PERCENTRANK.INC on SPL_THEME4 array with 4 significant digits;float8;percentile;;0;1;2020-01-01;2020-12-31;2052498133",
       "rpl_themes;Overall percentile ranking;In Excel: PERCENTRANK.INC on SPL_THEMES array with 4 significant digits;float8;percentile;;0;1;2020-01-01;2020-12-31;2052498131",
-      "spl_theme1;Sum of series for Socioeconomic Status theme;EPL_POV150 + EPL_UNEMP + EPL_HBURD + EPL_NOHSDP + EPL_UNINSUR;float8;svi index;;0;5;2020-01-01;2020-12-31;2052497697",
-      "spl_theme2;Sum of series for Household Characteristics theme;EPL_AGE65 + EPL_AGE17 + EPL_DISABL + EPL_SNGPNT + EPL_LIMENG;float8;svi index;;0;4;2020-01-01;2020-12-31;2052497700",
+      "spl_theme1;Sum of series for Socioeconomic Status theme;EPL_POV150 + EPL_UNEMP + EPL_HBURD + EPL_NOHSDP + EPL_UNINSUR;float8;svi index;;0;4.9662;2020-01-01;2020-12-31;2052497697",
+      "spl_theme2;Sum of series for Household Characteristics theme;EPL_AGE65 + EPL_AGE17 + EPL_DISABL + EPL_SNGPNT + EPL_LIMENG;float8;svi index;;0;4.4487;2020-01-01;2020-12-31;2052497700",
       "spl_theme3;Sum of series for Racial and Ethnic Minority Status theme;EPL_MINRTY;float8;svi index;;0;1;2020-01-01;2020-12-31;2052497698",
-      "spl_theme4;Sum of series for Housing Type/ Transportation theme;EPL_MUNIT + EPL_MOBIL + EPL_CROWD + EPL_NOVEH + EPL_GROUPQ;float8;svi index;;0;5;2020-01-01;2020-12-31;2052497699",
-      "spl_themes;Sum of series themes;SPL_THEME1 + SPL_THEME2 + SPL_THEME3 + SPL_THEME4;float8;svi index;;1;14;2020-01-01;2020-12-31;",
+      "spl_theme4;Sum of series for Housing Type/ Transportation theme;EPL_MUNIT + EPL_MOBIL + EPL_CROWD + EPL_NOVEH + EPL_GROUPQ;float8;svi index;;0;4.5817;2020-01-01;2020-12-31;2052497699",
+      "spl_themes;Sum of series themes;SPL_THEME1 + SPL_THEME2 + SPL_THEME3 + SPL_THEME4;float8;svi index;;0.9975;13.8017;2020-01-01;2020-12-31;",
       "st;State-level FIPS code;FIPS;varchar;;;;;;;2052497725",
       "st_abbr;State abbreviation;N/A Joined from Esri state boundary shapefile;varchar;;;;;;;2052497733",
       "state;State name;NAME;varchar;;;;;;;2052497730",
@@ -958,16 +922,16 @@ export const catalog = [
     ],
     "dcat:downloadURL": "https://svi.cdc.gov/Documents/Data/2020/db/states/Massachusetts.zip",
     "gdsc:tablename": "ma_2020_svi_tract",
-    "gdsc:up": "false",
+    "gdsc:up": "true",
     "gdsc:podID": "gaia-db",
-    "dct:modified": "2026-07-17T10:55:47Z",
+    "dct:modified": "2026-05-26T17:46:15Z",
     "dct:accrualPeriodicity": "Never",
-    "gdsc:version": "2026-08-23T15:56:35Z",
+    "gdsc:version": "2026-09-08T23:16:32Z",
     "spdx:checksum": "TBD",
-    "dct:extent": {
-      "size_bytes": "2392324",
-      "size_human_readable": "2.3M"
-    },
+    "dct:extent": [
+      "bash: line 7: numfmt: command not found\n2400516",
+      ""
+    ],
     "dcat:bbox": "POLYGON((-73.508142 41.237964, -69.928393 41.237964, -69.928393 42.886589, -73.508142 42.886589, -73.508142 41.237964))"
   },
   {
@@ -1003,22 +967,13 @@ export const catalog = [
     "adms:representationTechnique": "vector",
     "locn:geometry": "multipolygon",
     "dct:conformsTo": "EPSG:4269",
-    "prov:action": "#########\n# GDSC ETL is performed in two steps: shell script to ETL data into postgres\n# and then additional transformations with SQL in postGIS (if needed).\n####\n\n#########\n# Step 1 - bash script (pseudo code)\n####\n\n# create directory structure and move into it\nmkdir -p /data/ma_2022_svi_tract/download -p /data/ma_2022_svi_tract/etl\nchmod 777 /data/ma_2022_svi_tract/download\ncd /data/ma_2022_svi_tract\n\n# set update flag based on last update and update frequency\ndo_update=0 if date() < last_update + update_frequency else do_update = 1\n\n# download if update flag is set:\nif do_update == 1 then\nwget -O download/ma_2022_svi_tract.zip 'https://svi.cdc.gov/Documents/Data/2022/db/states/Massachusetts.zip'\n\n# unzip to download directory if update flag is set\nif do_update == 1 then\nunzip -d download download/ma_2022_svi_tract.zip && rm download/ma_2022_svi_tract.zip\n\n# load into postGIS with:\n  ogr2ogr -lco GEOMETRY_NAME=geom -f PostgreSQL PG:\"<postgres connection>\" download/SVI2022_MASSACHUSETTS_tract.gdb -nlt multipolygon -nln ma_2022_svi_tract\n\n#########\n# Step 2 - SQL script (pseudo code):\n####\n\n# remove duplicate points and make geometries valid:\nUPDATE ma_2022_svi_tract\n  SET geom=ST_MakeValid(ST_RemoveRepeatedPoints(geom));\n\n# add local geometry column and reproject existing geometries into local EPSG:\nSELECT AddGeometryColumn (\n  'ma_2022_svi_tract',\n  'geom_local', 26986, 'multipolygon', 2\n);\nUPDATE ma_2022_svi_tract\n  SET geom_local=ST_MakeValid(ST_RemoveRepeatedPoints(ST_Transform(ST_Multi(geom),26986)));\nCREATE INDEX ma_2022_svi_tract_geom_local_idx\n  ON ma_2022_svi_tract\n  USING GIST (geom_local);\nNOTIFY pgrst, 'reload schema';\n# Move into corrrect directory and create derivative directory in data package on osgeo\ncd /data/ma_2022_svi_tract/\nmkdir -p derived\n\n# Move into correct directory\ncd /data/ma_2022_svi_tract/\n\n# Create pg_dump of table SQL in derivate directory on postgis.\npg_dump <postgres opts> -h gaia-db -t ma_2022_svi_tract > derived/ma_2022_svi_tract.sql\n\n# Create downloadable tarfile of SQL in derivative directory on postgis\nrm -f derived/ma_2022_svi_tract.sql.tar.gz\ntar -czf derived/ma_2022_svi_tract.sql.tar.gz meta_dcat_ma_2022_svi_tract.json -C derived ma_2022_svi_tract.sql\n\n",
+    "prov:action": "#########\n# GDSC ETL is performed in two steps: shell script to ETL data into postgres\n# and then additional transformations with SQL in postGIS (if needed).\n####\n\n#########\n# Step 1 - bash script (pseudo code)\n####\n\n# create directory structure and move into it\nmkdir -p /data/ma_2022_svi_tract/download -p /data/ma_2022_svi_tract/etl\nchmod -R 777 /data/ma_2022_svi_tract\ncd /data/ma_2022_svi_tract\n\n# set update flag based on last update and update frequency\ndo_update=0 if date() < last_update + update_frequency else do_update = 1\n\n# download if update flag is set:\nif do_update == 1 then\nwget -O download/ma_2022_svi_tract.zip 'https://svi.cdc.gov/Documents/Data/2022/db/states/Massachusetts.zip'\n\n# unzip to download directory if update flag is set\nif do_update == 1 then\nunzip -o download/ma_2022_svi_tract.zip -d download && rm download/ma_2022_svi_tract.zip\n\n# load into postGIS with:\nogr2ogr -lco GEOMETRY_NAME=geom -f PostgreSQL PG:\"<postgres connection>\" download/SVI2022_MASSACHUSETTS_tract.gdb -nlt multipolygon -nln ma_2022_svi_tract\n\n\n#########\n# Step 2 - SQL script (pseudo code):\n####\n\n# remove duplicate points and make geometries valid:\nUPDATE ma_2022_svi_tract\n  SET geom=ST_MakeValid(ST_RemoveRepeatedPoints(geom));\n\n# add local geometry column and reproject existing geometries into local EPSG:\nSELECT AddGeometryColumn (\n  'ma_2022_svi_tract',\n  'geom_local', 26986, 'multipolygon', 2\n);\nUPDATE ma_2022_svi_tract\n  SET geom_local=ST_MakeValid(ST_RemoveRepeatedPoints(ST_Transform(ST_Multi(geom),26986)));\nCREATE INDEX ma_2022_svi_tract_geom_local_idx\n  ON ma_2022_svi_tract\n  USING GIST (geom_local);\nNOTIFY pgrst, 'reload schema';\n# Move into corrrect directory and create derivative directory in data package on osgeo\ncd /data/ma_2022_svi_tract/\nmkdir -p derived\n\n# Move into correct directory\ncd /data/ma_2022_svi_tract/\n\n# Create pg_dump of table SQL in derivate directory on postgis.\npg_dump <postgres opts> -h gaia-db -t ma_2022_svi_tract > derived/ma_2022_svi_tract.sql\n\n# Create downloadable tarfile of SQL in derivative directory on postgis\nrm -f derived/ma_2022_svi_tract.sql.tar.gz\ntar -czf derived/ma_2022_svi_tract.sql.tar.gz meta_dcat_ma_2022_svi_tract.json -C derived ma_2022_svi_tract.sql\n\n",
     "prov:wasGeneratedBy": "GDSC automation (see Process Step)",
     "dcat:contactPoint": [
-      {
-        "contact_name": "Timothy B. Norris",
-        "contact_last_name": "Norris",
-        "contact_first_name": "Timothy",
-        "contact_email": "tnorris@miami.edu",
-        "contact_identifier": "https://orcid.org/0000-0002-0898-3027",
-        "contact_identifier_schema": "orcid",
-        "contact_identifier_schema_uri": "https://orcid.org/",
-        "contact_affiliation": "University of Miami Libraries, Frost Institute for Data Science and Computing",
-        "contact_affiliation_identifier": "https://ror.org/02dgjyy92",
-        "contact_affiliation_schema": "ror",
-        "contact_affiliation_schema_uri": "https://ror.org/"
-      }
+      "Timothy Norris",
+      "Librarian Associate Professor",
+      "University of Miami Libraries, Frost Institute for Data Science and Computing",
+      "txn60@miami.edu"
     ],
     "gdsc:label": "location",
     "gdsc:value": [
@@ -1182,7 +1137,7 @@ export const catalog = [
       "stcnty"
     ],
     "gdsc:attributes": [
-      "area_sqmi;Tract area in square miles;ALAND * 3.86102e-7;float8;square miles;;0;159;;;2052497175",
+      "area_sqmi;Tract area in square miles;ALAND * 3.86102e-7;float8;square miles;;0.016749490862;158.848971707934;;;2052497175",
       "county;County name;NAME;varchar;;;;;;;2052499639",
       "e_afam;Adjunct variable - Black/African American, not Hispanic or Latino persons estimate, 2016-2020 ACS;DP05_0078E;int4;persons;;0;5835;2020-01-01;2020-12-31;2052499783",
       "e_age17;Persons aged 17 and younger estimate, 2016-2020 ACS;B09001_001E;int4;persons;;0;2415;2020-01-01;2020-12-31;2052498115",
@@ -1212,130 +1167,130 @@ export const catalog = [
       "e_twomore;Adjunct variable - Two or more races, not Hispanic or Latino persons estimate, 2016-2020 ACS;DP05_0083E;int4;persons;;0;1271;2020-01-01;2020-12-31;2052497160",
       "e_unemp;Civilian (age 16+) unemployed estimate, 2016-2020 ACS;DP03_0005E;int4;persons;;0;746;2020-01-01;2020-12-31;2052499671",
       "e_uninsur;Uninsured in the total civilian noninstitutionalized population estimate, 2016-2020 ACS;S2701_C04_001E;int4;persons;;0;1276;2020-01-01;2020-12-31;2052497149",
-      "ep_afam;Adjunct variable - Percentage of Black/African American, not Hispanic or Latino persons estimate, 2016-2020 ACS;DP05_0078PE;float8;percent;;0;77;2020-01-01;2020-12-31;2052498571",
+      "ep_afam;Adjunct variable - Percentage of Black/African American, not Hispanic or Latino persons estimate, 2016-2020 ACS;DP05_0078PE;float8;percent;;0;76.7;2020-01-01;2020-12-31;2052498571",
       "ep_age17;Percentage of persons aged 17 and younger estimate, 2016-2020 ACS;(E_AGE17 / E_TOTPOP) * 100;float8;percent;;0;45;2020-01-01;2020-12-31;2052498382",
       "ep_age65;Percentage of persons aged 65 and older estimate, 2016-2020 ACS;S0101_C02_030E;float8;percent;;0;100;2020-01-01;2020-12-31;2052498380",
-      "ep_aian;Adjunct variable - Percentage of American Indian or Alaska Native, not Hispanic or Latino persons estimate, 2016-2020 ACS;DP05_0079PE;float8;percent;;0;6;2020-01-01;2020-12-31;2052498581",
-      "ep_asian;Adjunct variable - Percentage of Asian, not Hispanic or Latino persons estimate, 2016-2020 ACS;DP05_0080PE;float8;percent;;0;60;2020-01-01;2020-12-31;2052498576",
-      "ep_crowd;Percentage of occupied housing units with more people than rooms estimate;(E_CROWD / DP04_0002E) * 100;float8;percent;;0;27;2020-01-01;2020-12-31;2052498400",
+      "ep_aian;Adjunct variable - Percentage of American Indian or Alaska Native, not Hispanic or Latino persons estimate, 2016-2020 ACS;DP05_0079PE;float8;percent;;0;5.9;2020-01-01;2020-12-31;2052498581",
+      "ep_asian;Adjunct variable - Percentage of Asian, not Hispanic or Latino persons estimate, 2016-2020 ACS;DP05_0080PE;float8;percent;;0;60.3;2020-01-01;2020-12-31;2052498576",
+      "ep_crowd;Percentage of occupied housing units with more people than rooms estimate;(E_CROWD / DP04_0002E) * 100;float8;percent;;0;27.3;2020-01-01;2020-12-31;2052498400",
       "ep_disabl;Percentage of civilian noninstitutionalized population with a disability estimate, 2016-2020 ACS;DP02_0072PE;float8;percent;;0;100;2020-01-01;2020-12-31;2052498558",
       "ep_groupq;Percentage of persons in group quarters estimate, 2016-2020 ACS;(E_GROUPQ / E_TOTPOP) * 100;float8;percent;;0;100;2020-01-01;2020-12-31;2052498376",
-      "ep_hburd;Percentage of housing cost-burdened occupied housing units with annual income less than 5,000 (30%+ of income spent on housing costs) estimate, 2016-2020 ACS estimate, 2016-2020 ACS;(E_HBURD / S2503_C01_001E) * 100;float8;percent;;0;88;2020-01-01;2020-12-31;2052498464",
-      "ep_hisp;Adjunct variable - Percentage of Hispanic or Latino persons estimate, 2016-2020 ACS;DP05_0071PE;float8;percent;;0;97;2020-01-01;2020-12-31;2052498520",
+      "ep_hburd;Percentage of housing cost-burdened occupied housing units with annual income less than 5,000 (30%+ of income spent on housing costs) estimate, 2016-2020 ACS estimate, 2016-2020 ACS;(E_HBURD / S2503_C01_001E) * 100;float8;percent;;0;87.5;2020-01-01;2020-12-31;2052498464",
+      "ep_hisp;Adjunct variable - Percentage of Hispanic or Latino persons estimate, 2016-2020 ACS;DP05_0071PE;float8;percent;;0;97.4;2020-01-01;2020-12-31;2052498520",
       "ep_limeng;Percentage of persons (age 5+) who speak English \"less than well\" estimate, 2016-2020 ACS;(E_LIMENG / B16005_001E) * 100;float8;percent;;0;46;2020-01-01;2020-12-31;2052498385",
-      "ep_minrty;Percentage minority (Hispanic or Latino (of any race) -- Black and African American, Not Hispanic or Latino -- American Indian and Alaska Native, Not Hispanic or Latino -- Asian, Not Hispanic or Latino -- Native Hawaiian and Other Pacific Islander, Not Hispanic or Latino -- Two or More Races, Not Hispanic or Latino -- Other Races, Not Hispanic or Latino) estimate, 2016-2020 ACS;(E_MINRTY / E_TOTPOP) * 100;float8;percent;;0;100;2020-01-01;2020-12-31;2052498423",
-      "ep_mobile;Percentage of mobile homes estimate;DP04_0014PE;float8;percent;;0;32;2020-01-01;2020-12-31;2052498422",
+      "ep_minrty;Percentage minority (Hispanic or Latino (of any race) -- Black and African American, Not Hispanic or Latino -- American Indian and Alaska Native, Not Hispanic or Latino -- Asian, Not Hispanic or Latino -- Native Hawaiian and Other Pacific Islander, Not Hispanic or Latino -- Two or More Races, Not Hispanic or Latino -- Other Races, Not Hispanic or Latino) estimate, 2016-2020 ACS;(E_MINRTY / E_TOTPOP) * 100;float8;percent;;0;99.9;2020-01-01;2020-12-31;2052498423",
+      "ep_mobile;Percentage of mobile homes estimate;DP04_0014PE;float8;percent;;0;31.7;2020-01-01;2020-12-31;2052498422",
       "ep_munit;Percentage of housing in structures with 10 or more units estimate;(E_MUNIT / E_HU) * 100;float8;percent;;0;100;2020-01-01;2020-12-31;2052498461",
-      "ep_nhpi;Adjunct variable - Percentage of Native Hawaiian or Other Pacific Islander, not Hispanic or Latino persons estimate, 2016-2020 ACS;DP05_0081PE;float8;percent;;0;5;2020-01-01;2020-12-31;2052498418",
+      "ep_nhpi;Adjunct variable - Percentage of Native Hawaiian or Other Pacific Islander, not Hispanic or Latino persons estimate, 2016-2020 ACS;DP05_0081PE;float8;percent;;0;4.8;2020-01-01;2020-12-31;2052498418",
       "ep_nohsdp;Percentage of persons with no high school diploma (age 25+) estimate;S0601_C01_033E;float8;percent;;0;54;2020-01-01;2020-12-31;2052498369",
-      "ep_noint;Adjunct variable - Percentage of households without a computer with a broadband Internet subscription estimate, 2016-2020 ACS;(E_NOINT / S2802_C01_001E) * 100 ;float8;percent;;0;51;2020-01-01;2020-12-31;2052498468",
+      "ep_noint;Adjunct variable - Percentage of households without a computer with a broadband Internet subscription estimate, 2016-2020 ACS;(E_NOINT / S2802_C01_001E) * 100 ;float8;percent;;0;51.1;2020-01-01;2020-12-31;2052498468",
       "ep_noveh;Percentage of households with no vehicle available estimate;DP04_0058PE;float8;percent;;0;100;2020-01-01;2020-12-31;2052498477",
-      "ep_otherrace;Adjunct variable - Percentage of some other race, not Hispanic or Latino persons estimate, 2016-2020 ACS;DP05_0082PE;float8;percent;;0;24;2020-01-01;2020-12-31;2052498246",
+      "ep_otherrace;Adjunct variable - Percentage of some other race, not Hispanic or Latino persons estimate, 2016-2020 ACS;DP05_0082PE;float8;percent;;0;23.6;2020-01-01;2020-12-31;2052498246",
       "ep_pov150;Percentage of persons below 150% poverty estimate;(E_POV150 / S1701_C01_001E) * 100;float8;percent;;0;100;2020-01-01;2020-12-31;2052498378",
-      "ep_sngpnt;Percentage of single-parent households with children under 18 estimate, 2016-2020 ACS;(E_SNGPNT/E_HH) * 100;float8;percent;;0;46;2020-01-01;2020-12-31;2052498249",
-      "ep_twomore;Adjunct variable - Percentage of two or more races, not Hispanic or Latino persons estimate, 2016-2020 ACS;DP05_0083PE;float8;percent;;0;39;2020-01-01;2020-12-31;2052498228",
-      "ep_unemp;Unemployment Rate estimate;DP03_0009PE;float8;percent;;0;63;2020-01-01;2020-12-31;2052497153",
-      "ep_uninsur;Percentage uninsured in the total civilian noninstitutionalized population estimate, 2016-2020 ACS;S2701_C05_001E;float8;percent;;0;22;2020-01-01;2020-12-31;2052498200",
+      "ep_sngpnt;Percentage of single-parent households with children under 18 estimate, 2016-2020 ACS;(E_SNGPNT/E_HH) * 100;float8;percent;;0;46.4;2020-01-01;2020-12-31;2052498249",
+      "ep_twomore;Adjunct variable - Percentage of two or more races, not Hispanic or Latino persons estimate, 2016-2020 ACS;DP05_0083PE;float8;percent;;0;39.1;2020-01-01;2020-12-31;2052498228",
+      "ep_unemp;Unemployment Rate estimate;DP03_0009PE;float8;percent;;0;62.6;2020-01-01;2020-12-31;2052497153",
+      "ep_uninsur;Percentage uninsured in the total civilian noninstitutionalized population estimate, 2016-2020 ACS;S2701_C05_001E;float8;percent;;0;22.3;2020-01-01;2020-12-31;2052498200",
       "epl_age17;Percentile percentage of persons aged 17 and younger estimate;In Excel: PERCENTRANK.INC on EP_AGE17 array with 4 significant digits;float8;percentile;;0;1;2020-01-01;2020-12-31;2052498183",
       "epl_age65;Percentile percentage of persons aged 65 and older estimate;In Excel: PERCENTRANK.INC on EP_AGE65 array with 4 significant digits;float8;percentile;;0;1;2020-01-01;2020-12-31;2052498182",
       "epl_crowd;Percentile percentage households with more people than rooms estimate;In Excel: PERCENTRANK.INC on EP_CROWD array with 4 significant digits;float8;percentile;;0;1;2020-01-01;2020-12-31;2052498195",
       "epl_disabl;Percentile percentage of civilian noninstitutionalized population with a disability estimate;In Excel: PERCENTRANK.INC on EP_DISABL array with 4 significant digits;float8;percentile;;0;1;2020-01-01;2020-12-31;2052498186",
-      "epl_groupq;Percentile percentage of persons in group quarters estimate;In Excel: PERCENTRANK.INC on EP_GROUPQ array with 4 significant digits;float8;percentile;;0;1;2020-01-01;2020-12-31;2052498180",
+      "epl_groupq;Percentile percentage of persons in group quarters estimate;In Excel: PERCENTRANK.INC on EP_GROUPQ array with 4 significant digits;float8;percentile;;0;0.9956;2020-01-01;2020-12-31;2052498180",
       "epl_hburd;Percentile percentage of housing cost-burdened occupied housing units estimate;In Excel: PERCENTRANK.INC on EP_HBURD array with 4 significant digits;float8;percentile;;0;1;2020-01-01;2020-12-31;2052498185",
       "epl_limeng;Percentile percentage of persons (age 5+) who speak English \"less than well\" estimate;In Excel: PERCENTRANK.INC on EP_LIMENG array with 4 significant digits;float8;percentile;;0;1;2020-01-01;2020-12-31;2052498184",
       "epl_minrty;Percentile percentage minority (Hispanic or Latino (of any race) -- Black and African American, Not Hispanic or Latino -- American Indian and Alaska Native, Not Hispanic or Latino -- Asian, Not Hispanic or Latino -- Native Hawaiian and Other Pacific Islander, Not Hispanic or Latino -- Two or More Races, Not Hispanic or Latino -- Other Races, Not Hispanic or Latino) estimate;In Excel: PERCENTRANK.INC on EP_MINRTY array with 4 significant digits;float8;percentile;;0;1;2020-01-01;2020-12-31;2052498189",
       "epl_mobile;Percentile percentage mobile homes estimate;In Excel: PERCENTRANK.INC on EP_MOBILE array with 4 significant digits;float8;percentile;;0;1;2020-01-01;2020-12-31;2052498188",
-      "epl_munit;Percentile percentage housing in structures with 10 or more units estimate;In Excel: PERCENTRANK.INC on EP_MUNIT array with 4 significant digits;float8;percentile;;0;1;2020-01-01;2020-12-31;2052498193",
+      "epl_munit;Percentile percentage housing in structures with 10 or more units estimate;In Excel: PERCENTRANK.INC on EP_MUNIT array with 4 significant digits;float8;percentile;;0;0.9994;2020-01-01;2020-12-31;2052498193",
       "epl_nohsdp;Percentile percentage of persons with no high school diploma (age 25+) estimate;In Excel: PERCENTRANK.INC on EP_NOHSDP array with 4 significant digits;float8;percentile;;0;1;2020-01-01;2020-12-31;2052498179",
       "epl_noveh;Percentile percentage households with no vehicle available estimate;In Excel: PERCENTRANK.INC on EP_NOVEH array with 4 significant digits;float8;percentile;;0;1;2020-01-01;2020-12-31;2052498194",
       "epl_pov150;Percentile percentage of persons below 150% poverty estimate;In Excel: PERCENTRANK.INC on EP_POV150 array with 4 significant digits;float8;percentile;;0;1;2020-01-01;2020-12-31;2052498181",
       "epl_sngpnt;Percentile percentage of single-parent households with children under 18 estimate;In Excel: PERCENTRANK.INC on EP_SNGPNT array with 4 significant digits;float8;percentile;;0;1;2020-01-01;2020-12-31;2052498178",
       "epl_unemp;Percentile percentage of civilian (age 16+) unemployed estimate;In Excel: PERCENTRANK.INC on EP_UNEMP array with 4 significant digits;float8;percentile;;0;1;2020-01-01;2020-12-31;2052498187",
       "epl_uninsur;Percentile percentage of uninsured estimate;In Excel: PERCENTRANK.INC on EP_UNINSUR array with 4 significant digits;float8;percentile;;0;1;2020-01-01;2020-12-31;2052498150",
-      "f_age17;Flag - the percentage of persons aged 17 and younger is in the 90th percentile (1 = yes, 0 = no) ;EPL_AGE17 >= 0.90;boolean;;;;;2020-01-01;2020-12-31;2052499366",
-      "f_age65;Flag - the percentage of persons aged 65 and older is in the 90th percentile (1 = yes, 0 = no) ;EPL_AGE65 >= 0.90;boolean;;;;;2020-01-01;2020-12-31;2052499365",
-      "f_crowd;Flag - the percentage of crowded households is in the 90th percentile (1 = yes, 0 = no);EPL_CROWD >= 0.90;boolean;;;;;2020-01-01;2020-12-31;2052499372",
-      "f_disabl;Flag - the percentage of persons with a disability is in the 90th percentile (1 = yes, 0 = no) ;EPL_DISABL >= 0.90;boolean;;;;;2020-01-01;2020-12-31;2052499362",
-      "f_groupq;Flag - the percentage of persons in group quarters is in the 90th percentile (1 = yes, 0 = no) ;EPL_GROUPQ >= 0.90;boolean;;;;;2020-01-01;2020-12-31;2052499363",
-      "f_hburd;Flag - the percentage of housing cost-burdened occupied housing units is in the 90th percentile (1 = yes, 0 = no);EPL_HBURD >= 0.90;boolean;;;;;2020-01-01;2020-12-31;2052499369",
-      "f_limeng;Flag - the percentage those with limited English is in the 90th percentile (1 = yes, 0 = no) ;EPL_LIMENG >= 0.90;boolean;;;;;2020-01-01;2020-12-31;2052499358",
-      "f_minrty;Flag - the percentage of minority is in the 90th percentile (1 = yes, 0 = no);EPL_MINRTY >= 0.90;boolean;;;;;2020-01-01;2020-12-31;2052499368",
-      "f_mobile;Flag - the percentage of mobile homes is in the 90th percentile (1 = yes, 0 = no);EPL_MOBILE >= 0.90;boolean;;;;;2020-01-01;2020-12-31;2052499367",
-      "f_munit;Flag - the percentage of households in multi-unit housing is in the 90th percentile (1 = yes, 0 = no);EPL_MUNIT >= 0.90;boolean;;;;;2020-01-01;2020-12-31;2052499371",
-      "f_nohsdp;Flag - the percentage of persons with no high school diploma is in the 90th percentile (1 = yes, 0 = no) ;EPL_NOHSDP >= 0.90;boolean;;;;;2020-01-01;2020-12-31;2052499361",
-      "f_noveh;Flag - the percentage of households with no vehicles is in the 90th percentile (1 = yes, 0 = no) ;EPL_NOVEH >= 0.90;boolean;;;;;2020-01-01;2020-12-31;2052499370",
-      "f_pov150;Flag - the percentage of persons below 150% poverty is in the 90th percentile (1 = yes, 0 = no);EPL_POV150 >= 0.90;boolean;;;;;2020-01-01;2020-12-31;2052499364",
-      "f_sngpnt;Flag - the percentage of single-parent households is in the 90th percentile (1 = yes, 0 = no);EPL_SNGPNT >= 0.90;boolean;;;;;2020-01-01;2020-12-31;2052499360",
-      "f_theme1;Sum of flags for Socioeconomic Status theme;F_POV150 + F_UNEMP + F_HBURD + F_NOHSDP + F_UNINSUR;int4;;;0;5;2020-01-01;2020-12-31;2052497702",
-      "f_theme2;Sum of flags for Household Characteristics theme;F_AGE65 + F_AGE17 + F_DISABL + F_SNGPNT + F_LIMENG;int4;;;0;4;2020-01-01;2020-12-31;2052497705",
-      "f_theme3;Sum of flags for Racial and Ethnic Minority Status theme;F_MINRTY;int4;;;0;1;2020-01-01;2020-12-31;2052497703",
-      "f_theme4;Sum of flags for Housing Type/ Transportation theme;F_MUNIT + F_MOBILE + F_CROWD + F_NOVEH + F_GROUPQ;int4;;;0;4;2020-01-01;2020-12-31;2052497704",
-      "f_total;Sum of flags for the four themes;F_THEME1 + F_THEME2 + F_THEME3 + F_THEME4;int4;;;0;12;2020-01-01;2020-12-31;2052497701",
-      "f_unemp;Flag - the percentage of civilian unemployed is in the 90th percentile (1 = yes, 0 = no) ;EPL_UNEMP >= 0.90;boolean;;;;;2020-01-01;2020-12-31;2052499373",
-      "f_uninsur;Flag - the percentage of uninsured is in the 90th percentile (1 = yes, 0 = no) ;EPL_UNINSUR >= 0.90;boolean;;;;;2020-01-01;2020-12-31;2052499359",
+      "f_age17;Flag - the percentage of persons aged 17 and younger is in the 90th percentile (1 = yes, 0 = no) ;EPL_AGE17 >= 0.90;int2;;;0;1;2020-01-01;2020-12-31;2052499366",
+      "f_age65;Flag - the percentage of persons aged 65 and older is in the 90th percentile (1 = yes, 0 = no) ;EPL_AGE65 >= 0.90;int2;;;0;1;2020-01-01;2020-12-31;2052499365",
+      "f_crowd;Flag - the percentage of crowded households is in the 90th percentile (1 = yes, 0 = no);EPL_CROWD >= 0.90;int2;;;0;1;2020-01-01;2020-12-31;2052499372",
+      "f_disabl;Flag - the percentage of persons with a disability is in the 90th percentile (1 = yes, 0 = no) ;EPL_DISABL >= 0.90;int2;;;0;1;2020-01-01;2020-12-31;2052499362",
+      "f_groupq;Flag - the percentage of persons in group quarters is in the 90th percentile (1 = yes, 0 = no) ;EPL_GROUPQ >= 0.90;int2;;;0;1;2020-01-01;2020-12-31;2052499363",
+      "f_hburd;Flag - the percentage of housing cost-burdened occupied housing units is in the 90th percentile (1 = yes, 0 = no);EPL_HBURD >= 0.90;int2;;;0;1;2020-01-01;2020-12-31;2052499369",
+      "f_limeng;Flag - the percentage those with limited English is in the 90th percentile (1 = yes, 0 = no) ;EPL_LIMENG >= 0.90;int2;;;0;1;2020-01-01;2020-12-31;2052499358",
+      "f_minrty;Flag - the percentage of minority is in the 90th percentile (1 = yes, 0 = no);EPL_MINRTY >= 0.90;int2;;;0;1;2020-01-01;2020-12-31;2052499368",
+      "f_mobile;Flag - the percentage of mobile homes is in the 90th percentile (1 = yes, 0 = no);EPL_MOBILE >= 0.90;int2;;;0;1;2020-01-01;2020-12-31;2052499367",
+      "f_munit;Flag - the percentage of households in multi-unit housing is in the 90th percentile (1 = yes, 0 = no);EPL_MUNIT >= 0.90;int2;;;0;1;2020-01-01;2020-12-31;2052499371",
+      "f_nohsdp;Flag - the percentage of persons with no high school diploma is in the 90th percentile (1 = yes, 0 = no) ;EPL_NOHSDP >= 0.90;int2;;;0;1;2020-01-01;2020-12-31;2052499361",
+      "f_noveh;Flag - the percentage of households with no vehicles is in the 90th percentile (1 = yes, 0 = no) ;EPL_NOVEH >= 0.90;int2;;;0;1;2020-01-01;2020-12-31;2052499370",
+      "f_pov150;Flag - the percentage of persons below 150% poverty is in the 90th percentile (1 = yes, 0 = no);EPL_POV150 >= 0.90;int2;;;0;1;2020-01-01;2020-12-31;2052499364",
+      "f_sngpnt;Flag - the percentage of single-parent households is in the 90th percentile (1 = yes, 0 = no);EPL_SNGPNT >= 0.90;int2;;;0;1;2020-01-01;2020-12-31;2052499360",
+      "f_theme1;Sum of flags for Socioeconomic Status theme;F_POV150 + F_UNEMP + F_HBURD + F_NOHSDP + F_UNINSUR;int2;;;0;5;2020-01-01;2020-12-31;2052497702",
+      "f_theme2;Sum of flags for Household Characteristics theme;F_AGE65 + F_AGE17 + F_DISABL + F_SNGPNT + F_LIMENG;int2;;;0;4;2020-01-01;2020-12-31;2052497705",
+      "f_theme3;Sum of flags for Racial and Ethnic Minority Status theme;F_MINRTY;int2;;;0;1;2020-01-01;2020-12-31;2052497703",
+      "f_theme4;Sum of flags for Housing Type/ Transportation theme;F_MUNIT + F_MOBILE + F_CROWD + F_NOVEH + F_GROUPQ;int2;;;0;4;2020-01-01;2020-12-31;2052497704",
+      "f_total;Sum of flags for the four themes;F_THEME1 + F_THEME2 + F_THEME3 + F_THEME4;int2;;;0;12;2020-01-01;2020-12-31;2052497701",
+      "f_unemp;Flag - the percentage of civilian unemployed is in the 90th percentile (1 = yes, 0 = no) ;EPL_UNEMP >= 0.90;int2;;;0;1;2020-01-01;2020-12-31;2052499373",
+      "f_uninsur;Flag - the percentage of uninsured is in the 90th percentile (1 = yes, 0 = no) ;EPL_UNINSUR >= 0.90;int2;;;0;1;2020-01-01;2020-12-31;2052499359",
       "fips;Tract-level FIPS code;GEO_ID;varchar;;;;;2020-01-01;2020-12-31;2052497174",
       "location;Text description of tract, county, state;NAME;varchar;;;;;2020-01-01;2020-12-31;",
-      "m_afam;Adjunct variable - Black/African American, not Hispanic or Latino persons estimate MOE, 2016-2020 ACS;DP05_0078M;float8;moe;;2;1217;2020-01-01;2020-12-31;2052499782",
-      "m_age17;Persons aged 17 and younger estimate MOE, 2016-2020 ACS;B09001_001M;float8;moe;;2;781;2020-01-01;2020-12-31;2052498114",
-      "m_age65;Persons aged 65 and older estimate MOE, 2016-2020 ACS;S0101_C01_030M;float8;moe;;2;730;2020-01-01;2020-12-31;2052498112",
-      "m_aian;Adjunct variable - American Indian or Alaska Native, not Hispanic or Latino persons estimate MOE, 2016-2020 ACS;DP05_0079M;float8;moe;;1;174;2020-01-01;2020-12-31;2052499860",
-      "m_asian;Adjunct variable - Asian, not Hispanic or Latino persons estimate MOE, 2016-2020 ACS;DP05_0080M;float8;moe;;2;1027;2020-01-01;2020-12-31;2052499832",
-      "m_crowd;At household level (occupied housing units), more people than rooms estimate MOE, 2016-2020 ACS;SQRT (DP04_0078M ^2 + DP04_0079M ^2);float8;moe;;5;328;2020-01-01;2020-12-31;2052499827",
-      "m_disabl;Civilian noninstitutionalized population with a disability estimate MOE, 2016-2020 ACS;DP02_0072M;float8;moe;;6;800;2020-01-01;2020-12-31;2052499668",
-      "m_groupq;Persons in group quarters estimate MOE, 2016-2020 ACS;B26001_001M;float8;moe;;1;411;2020-01-01;2020-12-31;2052498108",
-      "m_hburd;Housing cost-burdened occupied housing units with annual income less than 5,000 (30%+ of income spent on housing costs) estimate MOE, 2016-2020 ACS;SQRT (S2503_C01_028M ^2 + S2503_C01_032M ^2 + S2503_C01_036M ^2 + S2503_C01_040M ^2) ;float8;moe;;20;506;2020-01-01;2020-12-31;2052499084",
-      "m_hh;Households estimate MOE, 2016-2020 ACS;DP02_0001M;float8;moe;;6;518;2020-01-01;2020-12-31;2052499092",
-      "m_hisp;Adjunct variable - Hispanic or Latino persons estimate MOE, 2016-2020 ACS;DP05_0071M;float8;moe;;2;1505;2020-01-01;2020-12-31;2052499103",
-      "m_hu;Housing units estimate MOE, 2016-2020 ACS;DP04_0001M;float8;moe;;6;513;2020-01-01;2020-12-31;2052499074",
-      "m_limeng;Persons (age 5+) who speak English \"less than well\" estimate MOE, 2016-2020 ACS;SQRT (B16005_007M ^2 + B16005_008M ^2 + B16005_012M ^2 + B16005_013M ^2 + B16005_017M ^2 + B16005_018M ^2 + B16005_022M ^2 + B16005_023M ^2 + B16005_029M ^2 + B16005_030M ^2 + B16005_034M ^2 + B16005_035M ^2 + B16005_039M ^2 + B16005_040M ^2 + B16005_044M ^2 + B16005_045M ^2);float8;moe;;50;741;2020-01-01;2020-12-31;2052498116",
-      "m_minrty;Minority (Hispanic or Latino (of any race) -- Black and African American, Not Hispanic or Latino -- American Indian and Alaska Native, Not Hispanic or Latino -- Asian, Not Hispanic or Latino -- Native Hawaiian and Other Pacific Islander, Not Hispanic or Latino -- Two or More Races, Not Hispanic or Latino -- Other Races, Not Hispanic or Latino) estimate MOE, 2016-2020 ACS;SQRT (DP05_0071M ^2 + DP05_0078M ^2 + DP05_0079M ^2 + DP05_0080M ^2 + DP05_0081M ^2 + DP05_0082M ^2 + DP05_0083M ^2) ;float8;moe;;2;2208;2020-01-01;2020-12-31;2052490073",
-      "m_mobile;Mobile homes estimate MOE, 2016-2020 ACS;DP04_0014M;float8;moe;;3;259;2020-01-01;2020-12-31;2052498833",
-      "m_munit;Housing in structures with 10 or more units estimate MOE, 2016-2020 ACS;SQRT (DP04_0012M ^2 + DP04_0013M ^2) ;float8;moe;;8;540;2020-01-01;2020-12-31;2052499081",
-      "m_nhpi;Adjunct variable - Native Hawaiian or Other Pacific Islander, not Hispanic or Latino persons estimate MOE, 2016-2020 ACS;DP05_0081M;float8;moe;;3;156;2020-01-01;2020-12-31;2052498763",
-      "m_nohsdp;Persons (age 25+) with no high school diploma estimate MOE, 2016-2020 ACS;B06009_002M;float8;moe;;2;531;2020-01-01;2020-12-31;2052498118",
-      "m_noint;Adjunct variable - Households without a computer with a broadband Internet subscription estimate MOE, 2016-2020 ACS;SQRT (S2802_C01_001M ^2 - S2802_C02_001M ^2);float8;moe;;6;408;2020-01-01;2020-12-31;2052499088",
-      "m_noveh;Households with no vehicle available estimate MOE, 2016-2020 ACS;DP04_0058M;float8;moe;;5;493;2020-01-01;2020-12-31;2052499090",
-      "m_otherrace;Adjunct variable - Some other race, not Hispanic or Latino persons estimate MOE, 2016-2020 ACS;DP05_0082M;float8;moe;;2;892;2020-01-01;2020-12-31;2052497740",
-      "m_pov150;Persons below 150% poverty estimate MOE, 2016-2020 ACS;S1701_C01_040M;float8;moe;;2;1127;2020-01-01;2020-12-31;2052498110",
-      "m_sngpnt;Single-parent household with children under 18 estimate MOE, 2016-2020 ACS;SQRT (B11012_010M ^2 + B11012_015M ^2) ;float8;moe;;6;400;2020-01-01;2020-12-31;2052497777",
-      "m_totpop;Population estimate MOE, 2016-2020 ACS;S0601_C01_001M;float8;moe;;2;1745;2020-01-01;2020-12-31;2052498090",
-      "m_twomore;Adjunct variable - Two or more races, not Hispanic or Latino persons estimate MOE, 2016-2020 ACS;DP05_0083M;float8;moe;;2;1128;2020-01-01;2020-12-31;2052497159",
-      "m_unemp;Civilian (age 16+) unemployed estimate MOE, 2016-2020 ACS;DP03_0005M;float8;moe;;7;440;2020-01-01;2020-12-31;2052499670",
-      "m_uninsur;Uninsured in the total civilian noninstitutionalized population estimate MOE, 2016-2020 ACS;S2701_C04_001M;float8;moe;;4;927;2020-01-01;2020-12-31;2052497148",
-      "mp_afam;Adjunct variable - Percentage of Black/African American, not Hispanic or Latino persons estimate MOE, 2016-2020 ACS;DP05_0078PM;float8;moe;;0;100;2020-01-01;2020-12-31;2052498570",
-      "mp_age17;Percentage of persons aged 17 and younger estimate MOE, 2016-2020 ACS;((SQRT (M_AGE17^2 - ((EP_AGE17 / 100)^2 * M_TOTPOP^2))) / E_TOTPOP) * 100;float8;moe;;1;100;2020-01-01;2020-12-31;2052498381",
-      "mp_age65;Percentage of persons aged 65 and older estimate MOE, 2016-2020 ACS;S0101_C02_030M;float8;moe;;0;100;2020-01-01;2020-12-31;2052498379",
-      "mp_aian;Adjunct variable - Percentage of American Indian or Alaska Native, not Hispanic or Latino persons estimate MOE, 2016-2020 ACS;DP05_0079PM;float8;moe;;0;100;2020-01-01;2020-12-31;2052498580",
-      "mp_asian;Adjunct variable - Percentage of Asian, not Hispanic or Latino persons estimate MOE, 2016-2020 ACS;DP05_0080PM;float8;moe;;0;100;2020-01-01;2020-12-31;2052498575",
-      "mp_crowd;Percentage of occupied housing units with more people than rooms estimate MOE;((SQRT (M_CROWD^2 - ((EP_CROWD / 100)^2 * DP04_0002M ^2))) / DP04_0002E) * 100;float8;moe;;0;100;2020-01-01;2020-12-31;2052498399",
-      "mp_disabl;Percentage of civilian noninstitutionalized population with a disability estimate MOE, 2016-2020 ACS;DP02_0072PM;float8;moe;;1;100;2020-01-01;2020-12-31;2052498557",
-      "mp_groupq;Percentage of persons in group quarters estimate MOE, 2016-2020 ACS;((SQRT (M_GROUPQ^2 - ((EP_GROUPQ / 100)^2 * M_TOTPOP^2))) / E_TOTPOP) * 100;float8;moe;;0;61;2020-01-01;2020-12-31;2052498375",
-      "mp_hburd;Percentage of housing cost-burdened occupied housing units with annual income less than 5,000 (30%+ of income spent on housing costs) estimate MOE, 2016-2020 ACS;((SQRT (M_HBURD^2 - ((EP_HBURD / 100)^2 * S2503_C01_001M ^2))) / S2503_C01_001E) * 100;float8;moe;;2;100;2020-01-01;2020-12-31;2052498463",
-      "mp_hisp;Adjunct variable - Percentage of Hispanic or Latino persons estimate MOE, 2016-2020 ACS;DP05_0071PM;float8;moe;;0;100;2020-01-01;2020-12-31;2052498519",
-      "mp_limeng;Percentage of persons (age 5+) who speak English \"less than well\" estimate MOE, 2016-2020 ACS;((SQRT (M_LIMENG^2 - ((EP_LIMENG / 100)^2 * B16005_001M ^2))) / B16005_001E) * 100;float8;moe;;1;100;2020-01-01;2020-12-31;2052498383",
-      "mp_minrty;Percentage minority (Hispanic or Latino (of any race) -- Black and African American, Not Hispanic or Latino -- American Indian and Alaska Native, Not Hispanic or Latino -- Asian, Not Hispanic or Latino -- Native Hawaiian and Other Pacific Islander, Not Hispanic or Latino -- Two or More Races, Not Hispanic or Latino -- Other Races, Not Hispanic or Latino) estimate MOE, 2016-2020 ACS;((SQRT (M_MINRTY^2 - ((EP_MINRTY / 100)^2 * M_TOTPOP^2))) / E_TOTPOP) * 100;float8;moe;;1;100;2020-01-01;2020-12-31;2052498609",
-      "mp_mobile;Percentage of mobile homes estimate MOE;DP04_0014PM;float8;moe;;0;100;2020-01-01;2020-12-31;2052498421",
-      "mp_munit;Percentage of housing in structures with 10 or more units estimate MOE;((SQRT (M_MUNIT^2 - ((EP_MUNIT / 100)^2 * M_HU^2))) / E_HU) * 100;float8;moe;;0;100;2020-01-01;2020-12-31;2052498460",
-      "mp_nhpi;Adjunct variable - Percentage of Native Hawaiian or Other Pacific Islander, not Hispanic or Latino persons estimate MOE, 2016-2020 ACS;DP05_0081PM;float8;moe;;0;100;2020-01-01;2020-12-31;2052498417",
-      "mp_nohsdp;Percentage of persons with no high school diploma (25+) estimate MOE;S0601_C01_033M;float8;moe;;0;100;2020-01-01;2020-12-31;2052498370",
-      "mp_noint;Adjunct variable - Percentage of households without a computer with a broadband Internet subscription estimate MOE, 2016-2020 ACS;((SQRT (M_NOINT^2 - ((EP_NOINT / 100)^2 * S2802_C01_001M^2))) / S2802_C01_001M) * 100;float8;moe;;1;100;2020-01-01;2020-12-31;2052498467",
-      "mp_noveh;Percentage of households with no vehicle available estimate MOE;DP04_0058PM;float8;moe;;0;100;2020-01-01;2020-12-31;2052498476",
-      "mp_otherrace;Adjunct variable - Percentage of some other race, not Hispanic or Latino persons estimate MOE, 2016-2020 ACS;DP05_0082PM;float8;moe;;0;100;2020-01-01;2020-12-31;2052498245",
+      "m_afam;Adjunct variable - Black/African American, not Hispanic or Latino persons estimate MOE, 2016-2020 ACS;DP05_0078M;int4;moe;;2;1217;2020-01-01;2020-12-31;2052499782",
+      "m_age17;Persons aged 17 and younger estimate MOE, 2016-2020 ACS;B09001_001M;int4;moe;;2;781;2020-01-01;2020-12-31;2052498114",
+      "m_age65;Persons aged 65 and older estimate MOE, 2016-2020 ACS;S0101_C01_030M;int4;moe;;2;730;2020-01-01;2020-12-31;2052498112",
+      "m_aian;Adjunct variable - American Indian or Alaska Native, not Hispanic or Latino persons estimate MOE, 2016-2020 ACS;DP05_0079M;int4;moe;;1;174;2020-01-01;2020-12-31;2052499860",
+      "m_asian;Adjunct variable - Asian, not Hispanic or Latino persons estimate MOE, 2016-2020 ACS;DP05_0080M;int4;moe;;2;1027;2020-01-01;2020-12-31;2052499832",
+      "m_crowd;At household level (occupied housing units), more people than rooms estimate MOE, 2016-2020 ACS;SQRT (DP04_0078M ^2 + DP04_0079M ^2);int4;moe;;5;328;2020-01-01;2020-12-31;2052499827",
+      "m_disabl;Civilian noninstitutionalized population with a disability estimate MOE, 2016-2020 ACS;DP02_0072M;int4;moe;;6;800;2020-01-01;2020-12-31;2052499668",
+      "m_groupq;Persons in group quarters estimate MOE, 2016-2020 ACS;B26001_001M;int4;moe;;1;411;2020-01-01;2020-12-31;2052498108",
+      "m_hburd;Housing cost-burdened occupied housing units with annual income less than 5,000 (30%+ of income spent on housing costs) estimate MOE, 2016-2020 ACS;SQRT (S2503_C01_028M ^2 + S2503_C01_032M ^2 + S2503_C01_036M ^2 + S2503_C01_040M ^2) ;int4;moe;;20;506;2020-01-01;2020-12-31;2052499084",
+      "m_hh;Households estimate MOE, 2016-2020 ACS;DP02_0001M;int4;moe;;6;518;2020-01-01;2020-12-31;2052499092",
+      "m_hisp;Adjunct variable - Hispanic or Latino persons estimate MOE, 2016-2020 ACS;DP05_0071M;int4;moe;;2;1505;2020-01-01;2020-12-31;2052499103",
+      "m_hu;Housing units estimate MOE, 2016-2020 ACS;DP04_0001M;int4;moe;;6;513;2020-01-01;2020-12-31;2052499074",
+      "m_limeng;Persons (age 5+) who speak English \"less than well\" estimate MOE, 2016-2020 ACS;SQRT (B16005_007M ^2 + B16005_008M ^2 + B16005_012M ^2 + B16005_013M ^2 + B16005_017M ^2 + B16005_018M ^2 + B16005_022M ^2 + B16005_023M ^2 + B16005_029M ^2 + B16005_030M ^2 + B16005_034M ^2 + B16005_035M ^2 + B16005_039M ^2 + B16005_040M ^2 + B16005_044M ^2 + B16005_045M ^2);int4;moe;;50;741;2020-01-01;2020-12-31;2052498116",
+      "m_minrty;Minority (Hispanic or Latino (of any race) -- Black and African American, Not Hispanic or Latino -- American Indian and Alaska Native, Not Hispanic or Latino -- Asian, Not Hispanic or Latino -- Native Hawaiian and Other Pacific Islander, Not Hispanic or Latino -- Two or More Races, Not Hispanic or Latino -- Other Races, Not Hispanic or Latino) estimate MOE, 2016-2020 ACS;SQRT (DP05_0071M ^2 + DP05_0078M ^2 + DP05_0079M ^2 + DP05_0080M ^2 + DP05_0081M ^2 + DP05_0082M ^2 + DP05_0083M ^2) ;int4;moe;;2;2208;2020-01-01;2020-12-31;2052490073",
+      "m_mobile;Mobile homes estimate MOE, 2016-2020 ACS;DP04_0014M;int4;moe;;3;259;2020-01-01;2020-12-31;2052498833",
+      "m_munit;Housing in structures with 10 or more units estimate MOE, 2016-2020 ACS;SQRT (DP04_0012M ^2 + DP04_0013M ^2) ;int4;moe;;8;540;2020-01-01;2020-12-31;2052499081",
+      "m_nhpi;Adjunct variable - Native Hawaiian or Other Pacific Islander, not Hispanic or Latino persons estimate MOE, 2016-2020 ACS;DP05_0081M;int4;moe;;3;156;2020-01-01;2020-12-31;2052498763",
+      "m_nohsdp;Persons (age 25+) with no high school diploma estimate MOE, 2016-2020 ACS;B06009_002M;int4;moe;;2;531;2020-01-01;2020-12-31;2052498118",
+      "m_noint;Adjunct variable - Households without a computer with a broadband Internet subscription estimate MOE, 2016-2020 ACS;SQRT (S2802_C01_001M ^2 - S2802_C02_001M ^2);int4;moe;;6;408;2020-01-01;2020-12-31;2052499088",
+      "m_noveh;Households with no vehicle available estimate MOE, 2016-2020 ACS;DP04_0058M;int4;moe;;5;493;2020-01-01;2020-12-31;2052499090",
+      "m_otherrace;Adjunct variable - Some other race, not Hispanic or Latino persons estimate MOE, 2016-2020 ACS;DP05_0082M;int4;moe;;2;892;2020-01-01;2020-12-31;2052497740",
+      "m_pov150;Persons below 150% poverty estimate MOE, 2016-2020 ACS;S1701_C01_040M;int4;moe;;2;1127;2020-01-01;2020-12-31;2052498110",
+      "m_sngpnt;Single-parent household with children under 18 estimate MOE, 2016-2020 ACS;SQRT (B11012_010M ^2 + B11012_015M ^2) ;int4;moe;;6;400;2020-01-01;2020-12-31;2052497777",
+      "m_totpop;Population estimate MOE, 2016-2020 ACS;S0601_C01_001M;int4;moe;;2;1745;2020-01-01;2020-12-31;2052498090",
+      "m_twomore;Adjunct variable - Two or more races, not Hispanic or Latino persons estimate MOE, 2016-2020 ACS;DP05_0083M;int4;moe;;2;1128;2020-01-01;2020-12-31;2052497159",
+      "m_unemp;Civilian (age 16+) unemployed estimate MOE, 2016-2020 ACS;DP03_0005M;int4;moe;;7;440;2020-01-01;2020-12-31;2052499670",
+      "m_uninsur;Uninsured in the total civilian noninstitutionalized population estimate MOE, 2016-2020 ACS;S2701_C04_001M;int4;moe;;4;927;2020-01-01;2020-12-31;2052497148",
+      "mp_afam;Adjunct variable - Percentage of Black/African American, not Hispanic or Latino persons estimate MOE, 2016-2020 ACS;DP05_0078PM;float8;moe;;0.1;100;2020-01-01;2020-12-31;2052498570",
+      "mp_age17;Percentage of persons aged 17 and younger estimate MOE, 2016-2020 ACS;((SQRT (M_AGE17^2 - ((EP_AGE17 / 100)^2 * M_TOTPOP^2))) / E_TOTPOP) * 100;float8;moe;;0.6;100;2020-01-01;2020-12-31;2052498381",
+      "mp_age65;Percentage of persons aged 65 and older estimate MOE, 2016-2020 ACS;S0101_C02_030M;float8;moe;;0.1;100;2020-01-01;2020-12-31;2052498379",
+      "mp_aian;Adjunct variable - Percentage of American Indian or Alaska Native, not Hispanic or Latino persons estimate MOE, 2016-2020 ACS;DP05_0079PM;float8;moe;;0.1;100;2020-01-01;2020-12-31;2052498580",
+      "mp_asian;Adjunct variable - Percentage of Asian, not Hispanic or Latino persons estimate MOE, 2016-2020 ACS;DP05_0080PM;float8;moe;;0.1;100;2020-01-01;2020-12-31;2052498575",
+      "mp_crowd;Percentage of occupied housing units with more people than rooms estimate MOE;((SQRT (M_CROWD^2 - ((EP_CROWD / 100)^2 * DP04_0002M ^2))) / DP04_0002E) * 100;float8;moe;;0.3;100;2020-01-01;2020-12-31;2052498399",
+      "mp_disabl;Percentage of civilian noninstitutionalized population with a disability estimate MOE, 2016-2020 ACS;DP02_0072PM;float8;moe;;0.9;100;2020-01-01;2020-12-31;2052498557",
+      "mp_groupq;Percentage of persons in group quarters estimate MOE, 2016-2020 ACS;((SQRT (M_GROUPQ^2 - ((EP_GROUPQ / 100)^2 * M_TOTPOP^2))) / E_TOTPOP) * 100;float8;moe;;0;60.9;2020-01-01;2020-12-31;2052498375",
+      "mp_hburd;Percentage of housing cost-burdened occupied housing units with annual income less than 5,000 (30%+ of income spent on housing costs) estimate MOE, 2016-2020 ACS;((SQRT (M_HBURD^2 - ((EP_HBURD / 100)^2 * S2503_C01_001M ^2))) / S2503_C01_001E) * 100;float8;moe;;2.4;100;2020-01-01;2020-12-31;2052498463",
+      "mp_hisp;Adjunct variable - Percentage of Hispanic or Latino persons estimate MOE, 2016-2020 ACS;DP05_0071PM;float8;moe;;0.1;100;2020-01-01;2020-12-31;2052498519",
+      "mp_limeng;Percentage of persons (age 5+) who speak English \"less than well\" estimate MOE, 2016-2020 ACS;((SQRT (M_LIMENG^2 - ((EP_LIMENG / 100)^2 * B16005_001M ^2))) / B16005_001E) * 100;float8;moe;;0.7;100;2020-01-01;2020-12-31;2052498383",
+      "mp_minrty;Percentage minority (Hispanic or Latino (of any race) -- Black and African American, Not Hispanic or Latino -- American Indian and Alaska Native, Not Hispanic or Latino -- Asian, Not Hispanic or Latino -- Native Hawaiian and Other Pacific Islander, Not Hispanic or Latino -- Two or More Races, Not Hispanic or Latino -- Other Races, Not Hispanic or Latino) estimate MOE, 2016-2020 ACS;((SQRT (M_MINRTY^2 - ((EP_MINRTY / 100)^2 * M_TOTPOP^2))) / E_TOTPOP) * 100;float8;moe;;0.8;100;2020-01-01;2020-12-31;2052498609",
+      "mp_mobile;Percentage of mobile homes estimate MOE;DP04_0014PM;float8;moe;;0.1;100;2020-01-01;2020-12-31;2052498421",
+      "mp_munit;Percentage of housing in structures with 10 or more units estimate MOE;((SQRT (M_MUNIT^2 - ((EP_MUNIT / 100)^2 * M_HU^2))) / E_HU) * 100;float8;moe;;0.2;100;2020-01-01;2020-12-31;2052498460",
+      "mp_nhpi;Adjunct variable - Percentage of Native Hawaiian or Other Pacific Islander, not Hispanic or Latino persons estimate MOE, 2016-2020 ACS;DP05_0081PM;float8;moe;;0.1;100;2020-01-01;2020-12-31;2052498417",
+      "mp_nohsdp;Percentage of persons with no high school diploma (25+) estimate MOE;S0601_C01_033M;float8;moe;;0.1;100;2020-01-01;2020-12-31;2052498370",
+      "mp_noint;Adjunct variable - Percentage of households without a computer with a broadband Internet subscription estimate MOE, 2016-2020 ACS;((SQRT (M_NOINT^2 - ((EP_NOINT / 100)^2 * S2802_C01_001M^2))) / S2802_C01_001M) * 100;float8;moe;;0.5;100;2020-01-01;2020-12-31;2052498467",
+      "mp_noveh;Percentage of households with no vehicle available estimate MOE;DP04_0058PM;float8;moe;;0.4;100;2020-01-01;2020-12-31;2052498476",
+      "mp_otherrace;Adjunct variable - Percentage of some other race, not Hispanic or Latino persons estimate MOE, 2016-2020 ACS;DP05_0082PM;float8;moe;;0.1;100;2020-01-01;2020-12-31;2052498245",
       "mp_pov150;Percentage of persons below 150% poverty estimate MOE;((SQRT(M_POV150^2-((EP_POV150 / 100)^2 * S1701_C01_001M ^2))) / S1701_C01_001E) * 100;float8;moe;;0;100;2020-01-01;2020-12-31;2052498377",
-      "mp_sngpnt;Percentage of single-parent households with children under 18 estimate MOE, 2016-2020 ACS;((SQRT (M_SNGPNT^2 - ((EP_SNGPNT / 100)^2 * M_HH^2))) / E_HH) * 100;float8;moe;;1;100;2020-01-01;2020-12-31;2052498248",
-      "mp_twomore;Adjunct variable - Percentage of two or more races, not Hispanic or Latino persons estimate MOE, 2016-2020 ACS;DP05_0083PM;float8;moe;;0;100;2020-01-01;2020-12-31;2052498227",
-      "mp_unemp;Unemployment Rate estimate MOE;DP03_0009PM;float8;moe;;0;100;2020-01-01;2020-12-31;2052497152",
-      "mp_uninsur;Percentage uninsured in the total civilian noninstitutionalized population estimate MOE, 2016-2020 ACS;S2701_C05_001M;float8;moe;;0;100;2020-01-01;2020-12-31;2052498199",
+      "mp_sngpnt;Percentage of single-parent households with children under 18 estimate MOE, 2016-2020 ACS;((SQRT (M_SNGPNT^2 - ((EP_SNGPNT / 100)^2 * M_HH^2))) / E_HH) * 100;float8;moe;;0.5;100;2020-01-01;2020-12-31;2052498248",
+      "mp_twomore;Adjunct variable - Percentage of two or more races, not Hispanic or Latino persons estimate MOE, 2016-2020 ACS;DP05_0083PM;float8;moe;;0.1;100;2020-01-01;2020-12-31;2052498227",
+      "mp_unemp;Unemployment Rate estimate MOE;DP03_0009PM;float8;moe;;0.3;100;2020-01-01;2020-12-31;2052497152",
+      "mp_uninsur;Percentage uninsured in the total civilian noninstitutionalized population estimate MOE, 2016-2020 ACS;S2701_C05_001M;float8;moe;;0.1;100;2020-01-01;2020-12-31;2052498199",
       "rpl_theme1;Percentile ranking for Socioeconomic Status theme summary;In Excel: PERCENTRANK.INC on SPL_THEME1 array with 4 significant digits;float8;moe;;0;1;2020-01-01;2020-12-31;2052498129",
       "rpl_theme2;Percentile ranking for Household Characteristics theme summary;In Excel: PERCENTRANK.INC on SPL_THEME2 array with 4 significant digits;float8;percentile;;0;1;2020-01-01;2020-12-31;2052498134",
       "rpl_theme3;Percentile ranking for Racial and Ethnic Minority Status theme;In Excel: PERCENTRANK.INC on SPL_THEME3 array with 4 significant digits;float8;percentile;;0;1;2020-01-01;2020-12-31;2052498130",
       "rpl_theme4;Percentile ranking for Housing Type/ Transportation theme;In Excel: PERCENTRANK.INC on SPL_THEME4 array with 4 significant digits;float8;percentile;;0;1;2020-01-01;2020-12-31;2052498133",
       "rpl_themes;Overall percentile ranking;In Excel: PERCENTRANK.INC on SPL_THEMES array with 4 significant digits;float8;percentile;;0;1;2020-01-01;2020-12-31;2052498131",
-      "spl_theme1;Sum of series for Socioeconomic Status theme;EPL_POV150 + EPL_UNEMP + EPL_HBURD + EPL_NOHSDP + EPL_UNINSUR;float8;svi index;;0;5;2020-01-01;2020-12-31;2052497697",
-      "spl_theme2;Sum of series for Household Characteristics theme;EPL_AGE65 + EPL_AGE17 + EPL_DISABL + EPL_SNGPNT + EPL_LIMENG;float8;svi index;;0;5;2020-01-01;2020-12-31;2052497700",
+      "spl_theme1;Sum of series for Socioeconomic Status theme;EPL_POV150 + EPL_UNEMP + EPL_HBURD + EPL_NOHSDP + EPL_UNINSUR;float8;svi index;;0;4.9356;2020-01-01;2020-12-31;2052497697",
+      "spl_theme2;Sum of series for Household Characteristics theme;EPL_AGE65 + EPL_AGE17 + EPL_DISABL + EPL_SNGPNT + EPL_LIMENG;float8;svi index;;0;4.6312;2020-01-01;2020-12-31;2052497700",
       "spl_theme3;Sum of series for Racial and Ethnic Minority Status theme;EPL_MINRTY;float8;svi index;;0;1;2020-01-01;2020-12-31;2052497698",
-      "spl_theme4;Sum of series for Housing Type/ Transportation theme;EPL_MUNIT + EPL_MOBIL + EPL_CROWD + EPL_NOVEH + EPL_GROUPQ;float8;svi index;;0;5;2020-01-01;2020-12-31;2052497699",
-      "spl_themes;Sum of series themes;SPL_THEME1 + SPL_THEME2 + SPL_THEME3 + SPL_THEME4;float8;svi index;;0;14;2020-01-01;2020-12-31;",
+      "spl_theme4;Sum of series for Housing Type/ Transportation theme;EPL_MUNIT + EPL_MOBIL + EPL_CROWD + EPL_NOVEH + EPL_GROUPQ;float8;svi index;;0;4.604;2020-01-01;2020-12-31;2052497699",
+      "spl_themes;Sum of series themes;SPL_THEME1 + SPL_THEME2 + SPL_THEME3 + SPL_THEME4;float8;svi index;;0;14.3088;2020-01-01;2020-12-31;",
       "st;State-level FIPS code;FIPS;varchar;;;;;;;2052497725",
       "st_abbr;State abbreviation;N/A Joined from Esri state boundary shapefile;varchar;;;;;;;2052497733",
       "state;State name;NAME;varchar;;;;;;;2052497730",
@@ -1363,16 +1318,16 @@ export const catalog = [
     ],
     "dcat:downloadURL": "https://svi.cdc.gov/Documents/Data/2022/db/states/Massachusetts.zip",
     "gdsc:tablename": "ma_2022_svi_tract",
-    "gdsc:up": "false",
+    "gdsc:up": "true",
     "gdsc:podID": "gaia-db",
-    "dct:modified": "2026-05-25T17:24:46Z",
+    "dct:modified": "2026-05-26T17:02:07Z",
     "dct:accrualPeriodicity": "Never",
-    "gdsc:version": "2026-08-23T15:56:55Z",
+    "gdsc:version": "2026-09-08T23:16:35Z",
     "spdx:checksum": "TBD",
-    "dct:extent": {
-      "size_bytes": "2372725",
-      "size_human_readable": "2.3M"
-    },
+    "dct:extent": [
+      "bash: line 7: numfmt: command not found\n2380917",
+      ""
+    ],
     "dcat:bbox": "POLYGON((-73.508142 41.237964, -69.928393 41.237964, -69.928393 42.886589, -73.508142 42.886589, -73.508142 41.237964))"
   },
   {
@@ -1404,29 +1359,20 @@ export const catalog = [
     "adms:representationTechnique": "vector",
     "locn:geometry": "multilinestring",
     "dct:conformsTo": "EPSG:4326",
-    "prov:action": "#########\n# GDSC ETL is performed in two steps: shell script to ETL data into postgres\n# and then additional transformations with SQL in postGIS (if needed).\n####\n\n#########\n# Step 1 - bash script (pseudo code)\n####\n\n# create directory structure and move into it\nmkdir -p /data/tt_ferry_routes/download -p /data/tt_ferry_routes/etl\nchmod 777 /data/tt_ferry_routes/download\ncd /data/tt_ferry_routes\n\n# set update flag based on last update and update frequency\ndo_update=0 if date() < last_update + update_frequency else do_update = 1\n\n# download if update flag is set:\nif do_update == 1 then\ncurl -o download/tt_ferry_routes.osm 'https://overpass-api.de/api/interpreter?data=way%5B%22route%22~%22ferry%22%5D(area:3600555717);(._;>;);out;'\n\n# load into postGIS with:\n  ogr2ogr -lco GEOMETRY_NAME=geom -f PostgreSQL PG:\"<postgres connection>\" download/tt_ferry_routes.osm\n\n#########\n# Step 2 - SQL script (pseudo code):\n####\n\n# Select proper geometry into the named table\npsql -d $POSTGRES_DB -U $POSTGRES_USER -p $POSTGRES_PORT -h gaia-db -c \"\nSELECT * INTO tt_ferry_routes FROM lines;\nDROP TABLE IF EXISTS lines;\nDROP TABLE IF EXISTS multilinestrings;\nDROP TABLE IF EXISTS multipolygons;\nDROP TABLE IF EXISTS other_relations;\nDROP TABLE IF EXISTS points;\"\n\n# remove duplicate points and make geometries valid:\nUPDATE tt_ferry_routes\n  SET geom=ST_MakeValid(ST_RemoveRepeatedPoints(geom));\n\n# add local geometry column and reproject existing geometries into local EPSG:\nSELECT AddGeometryColumn (\n  'tt_ferry_routes',\n  'geom_local', 8035, 'multilinestring', 2\n);\nUPDATE tt_ferry_routes\n  SET geom_local=ST_MakeValid(ST_RemoveRepeatedPoints(ST_Transform(ST_Multi(geom),8035)));\nCREATE INDEX tt_ferry_routes_geom_local_idx\n  ON tt_ferry_routes\n  USING GIST (geom_local);\nNOTIFY pgrst, 'reload schema';\n",
+    "prov:action": "#########\n# GDSC ETL is performed in two steps: shell script to ETL data into postgres\n# and then additional transformations with SQL in postGIS (if needed).\n####\n\n#########\n# Step 1 - bash script (pseudo code)\n####\n\n# create directory structure and move into it\nmkdir -p /data/tt_ferry_routes/download -p /data/tt_ferry_routes/etl\nchmod -R 777 /data/tt_ferry_routes\ncd /data/tt_ferry_routes\n\n# set update flag based on last update and update frequency\ndo_update=0 if date() < last_update + update_frequency else do_update = 1\n\n# download if update flag is set:\nif do_update == 1 then\ncurl -o download/tt_ferry_routes.osm 'https://overpass-api.de/api/interpreter?data=way%5B%22route%22~%22ferry%22%5D(area:3600555717);(._;>;);out;'\n\n# load into postGIS with:\nogr2ogr -lco GEOMETRY_NAME=geom -f PostgreSQL PG:\"<postgres connection>\" download/tt_ferry_routes.osm\n\n\n#########\n# Step 2 - SQL script (pseudo code):\n####\n\n# Select proper geometry into the named table\npsql -d $POSTGRES_DB -U $POSTGRES_USER -p $POSTGRES_PORT -h gaia-db -c \"\nSELECT * INTO tt_ferry_routes FROM lines;\nDROP TABLE IF EXISTS lines;\nDROP TABLE IF EXISTS multilinestrings;\nDROP TABLE IF EXISTS multipolygons;\nDROP TABLE IF EXISTS other_relations;\nDROP TABLE IF EXISTS points;\"\n\n# remove duplicate points and make geometries valid:\nUPDATE tt_ferry_routes\n  SET geom=ST_MakeValid(ST_RemoveRepeatedPoints(geom));\n\n# add local geometry column and reproject existing geometries into local EPSG:\nSELECT AddGeometryColumn (\n  'tt_ferry_routes',\n  'geom_local', 8035, 'multilinestring', 2\n);\nUPDATE tt_ferry_routes\n  SET geom_local=ST_MakeValid(ST_RemoveRepeatedPoints(ST_Transform(ST_Multi(geom),8035)));\nCREATE INDEX tt_ferry_routes_geom_local_idx\n  ON tt_ferry_routes\n  USING GIST (geom_local);\nNOTIFY pgrst, 'reload schema';\n",
     "prov:wasGeneratedBy": "GDSC automation (see Process Step)",
     "dcat:contactPoint": [
-      {
-        "contact_name": "Timothy B. Norris",
-        "contact_last_name": "Norris",
-        "contact_first_name": "Timothy",
-        "contact_email": "tnorris@miami.edu",
-        "contact_identifier": "https://orcid.org/0000-0002-0898-3027",
-        "contact_identifier_schema": "orcid",
-        "contact_identifier_schema_uri": "https://orcid.org/",
-        "contact_affiliation": "University of Miami Libraries, Frost Institute for Data Science and Computing",
-        "contact_affiliation_identifier": "https://ror.org/02dgjyy92",
-        "contact_affiliation_schema": "ror",
-        "contact_affiliation_schema_uri": "https://ror.org/"
-      }
+      "Timothy Norris",
+      "Librarian Associate Professor",
+      "University of Miami Libraries, Frost Institute for Data Science and Computing",
+      "txn60@miami.edu"
     ],
     "gdsc:label": "name",
     "gdsc:attributes": [
-      "osm_id;OpenStreetMap (OSM) ID;;varchar;",
-      "name;Ferry route name name;;varchar;",
+      "osm_id;OpenStreetMap (OSM) ID;;varchar;;;;",
+      "name;Ferry route name name;;varchar;;;;",
       "route;kind of route (only ferry);;varchar;",
-      "other_tags;Any other OSM tags with values, can include values for oneway, from, to, operator, duration, charge;;varchar;"
+      "other_tags;Any other OSM tags with values, can include values for oneway, from, to, operator, duration, charge;;varchar;;;;"
     ],
     "gdsc:collections": [
       "tt-disease-risk"
@@ -1442,16 +1388,17 @@ export const catalog = [
     ],
     "dcat:downloadURL": "https://overpass-api.de/api/interpreter?data=way%5B%22route%22~%22ferry%22%5D(area:3600555717);(._;>;);out;",
     "gdsc:tablename": "tt_ferry_routes",
-    "gdsc:up": "false",
+    "gdsc:up": "true",
     "gdsc:podID": "gaia-db",
-    "dct:modified": "2026-02-12T11:05:27Z",
+    "dct:modified": "2026-02-12T16:25:50Z",
     "dct:accrualPeriodicity": "As Needed",
-    "gdsc:version": "2026-08-23T15:57:14Z",
+    "gdsc:version": "2026-09-08T23:16:37Z",
     "spdx:checksum": "TBD",
-    "dct:extent": {
-      "size_bytes": "12387",
-      "size_human_readable": "13K"
-    }
+    "dct:extent": [
+      "bash: line 7: numfmt: command not found\n16483",
+      ""
+    ],
+    "dcat:bbox": "POLYGON((-61.7927875 10.2821958,-61.7927875 11.1817512,-60.7238938 11.1817512,-60.7238938 10.2821958,-61.7927875 10.2821958))"
   },
   {
     "id": "tt_populated_places",
@@ -1482,29 +1429,26 @@ export const catalog = [
     "adms:representationTechnique": "vector",
     "locn:geometry": "point",
     "dct:conformsTo": "EPSG:4326",
-    "prov:action": "#########\n# GDSC ETL is performed in two steps: shell script to ETL data into postgres\n# and then additional transformations with SQL in postGIS (if needed).\n####\n\n#########\n# Step 1 - bash script (pseudo code)\n####\n\n# create directory structure and move into it\nmkdir -p /data/tt_populated_places/download -p /data/tt_populated_places/etl\nchmod 777 /data/tt_populated_places/download\ncd /data/tt_populated_places\n\n# set update flag based on last update and update frequency\ndo_update=0 if date() < last_update + update_frequency else do_update = 1\n\n# download if update flag is set:\nif do_update == 1 then\ncurl -o download/tt_populated_places.osm 'https://overpass-api.de/api/interpreter?data=node%5B%22place%22~%22city|town|village%22%5D(area:3600555717);(._;>;);out;'\n\n# load into postGIS with:\n  ogr2ogr -lco GEOMETRY_NAME=geom -f PostgreSQL PG:\"<postgres connection>\" download/tt_populated_places.osm\n\n#########\n# Step 2 - SQL script (pseudo code):\n####\n\n# Select proper geometry into the named table\npsql -d $POSTGRES_DB -U $POSTGRES_USER -p $POSTGRES_PORT -h gaia-db -c \"\nSELECT * INTO tt_populated_places FROM points;\nDROP TABLE IF EXISTS lines;\nDROP TABLE IF EXISTS multilinestrings;\nDROP TABLE IF EXISTS multipolygons;\nDROP TABLE IF EXISTS other_relations;\nDROP TABLE IF EXISTS points;\"\n\n# remove duplicate points and make geometries valid:\nUPDATE tt_populated_places\n  SET geom=ST_MakeValid(ST_RemoveRepeatedPoints(geom));\n\n# add local geometry column and reproject existing geometries into local EPSG:\nSELECT AddGeometryColumn (\n  'tt_populated_places',\n  'geom_local', 8035, 'point', 2\n);\nUPDATE tt_populated_places\n  SET geom_local=ST_MakeValid(ST_RemoveRepeatedPoints(ST_Transform(geom,8035)));\nCREATE INDEX tt_populated_places_geom_local_idx\n  ON tt_populated_places\n  USING GIST (geom_local);\nNOTIFY pgrst, 'reload schema';\n",
+    "prov:action": "#########\n# GDSC ETL is performed in two steps: shell script to ETL data into postgres\n# and then additional transformations with SQL in postGIS (if needed).\n####\n\n#########\n# Step 1 - bash script (pseudo code)\n####\n\n# create directory structure and move into it\nmkdir -p /data/tt_populated_places/download -p /data/tt_populated_places/etl\nchmod -R 777 /data/tt_populated_places\ncd /data/tt_populated_places\n\n# set update flag based on last update and update frequency\ndo_update=0 if date() < last_update + update_frequency else do_update = 1\n\n# download if update flag is set:\nif do_update == 1 then\ncurl -o download/tt_populated_places.osm 'https://overpass-api.de/api/interpreter?data=node%5B%22place%22~%22city|town|village%22%5D(area:3600555717);(._;>;);out;'\n\n# load into postGIS with:\nogr2ogr -lco GEOMETRY_NAME=geom -f PostgreSQL PG:\"<postgres connection>\" download/tt_populated_places.osm\n\n\n#########\n# Step 2 - SQL script (pseudo code):\n####\n\n# Select proper geometry into the named table\npsql -d $POSTGRES_DB -U $POSTGRES_USER -p $POSTGRES_PORT -h gaia-db -c \"\nSELECT * INTO tt_populated_places FROM points;\nDROP TABLE IF EXISTS lines;\nDROP TABLE IF EXISTS multilinestrings;\nDROP TABLE IF EXISTS multipolygons;\nDROP TABLE IF EXISTS other_relations;\nDROP TABLE IF EXISTS points;\"\n\n# remove duplicate points and make geometries valid:\nUPDATE tt_populated_places\n  SET geom=ST_MakeValid(ST_RemoveRepeatedPoints(geom));\n\n# add local geometry column and reproject existing geometries into local EPSG:\nSELECT AddGeometryColumn (\n  'tt_populated_places',\n  'geom_local', 8035, 'point', 2\n);\nUPDATE tt_populated_places\n  SET geom_local=ST_MakeValid(ST_RemoveRepeatedPoints(ST_Transform(geom,8035)));\nCREATE INDEX tt_populated_places_geom_local_idx\n  ON tt_populated_places\n  USING GIST (geom_local);\nNOTIFY pgrst, 'reload schema';\n",
     "prov:wasGeneratedBy": "GDSC automation (see Process Step)",
     "dcat:contactPoint": [
-      {
-        "contact_name": "Timothy B. Norris",
-        "contact_last_name": "Norris",
-        "contact_first_name": "Timothy",
-        "contact_email": "tnorris@miami.edu",
-        "contact_identifier": "https://orcid.org/0000-0002-0898-3027",
-        "contact_identifier_schema": "orcid",
-        "contact_identifier_schema_uri": "https://orcid.org/",
-        "contact_affiliation": "University of Miami Libraries, Frost Institute for Data Science and Computing",
-        "contact_affiliation_identifier": "https://ror.org/02dgjyy92",
-        "contact_affiliation_schema": "ror",
-        "contact_affiliation_schema_uri": "https://ror.org/"
-      }
+      "Timothy Norris",
+      "Librarian Associate Professor",
+      "University of Miami Libraries, Frost Institute for Data Science and Computing",
+      "txn60@miami.edu"
     ],
     "gdsc:label": "name",
+    "gdsc:value": [
+      "osm_id",
+      "name",
+      "place",
+      "other_tags"
+    ],
     "gdsc:attributes": [
-      "osm_id;OpenStreetMap (OSM) ID;;varchar;",
-      "name;Place Name;;varchar;",
-      "place;kind of place (i.e. village, town, city);;varchar;",
-      "other_tags;Any other OSM tags with values, can include values for population and some wikipedia data;;varchar;"
+      "osm_id;OpenStreetMap (OSM) ID;;varchar;;;;",
+      "name;Place Name;;varchar;;;;",
+      "place;kind of place (i.e. village, town, city);;varchar;;;;",
+      "other_tags;Any other OSM tags with values, can include values for population and some wikipedia data;;varchar;;;;"
     ],
     "gdsc:collections": [
       "tt-disease-risk"
@@ -1520,16 +1464,17 @@ export const catalog = [
     ],
     "dcat:downloadURL": "https://overpass-api.de/api/interpreter?data=node%5B%22place%22~%22city|town|village%22%5D(area:3600555717);(._;>;);out;",
     "gdsc:tablename": "tt_populated_places",
-    "gdsc:up": "false",
+    "gdsc:up": "true",
     "gdsc:podID": "gaia-db",
-    "dct:modified": "2026-02-12T11:05:32Z",
+    "dct:modified": "2026-02-16T12:00:42Z",
     "dct:accrualPeriodicity": "As Needed",
-    "gdsc:version": "2026-08-23T15:57:15Z",
+    "gdsc:version": "2026-09-08T23:16:39Z",
     "spdx:checksum": "TBD",
-    "dct:extent": {
-      "size_bytes": "45838",
-      "size_human_readable": "45K"
-    }
+    "dct:extent": [
+      "bash: line 7: numfmt: command not found\n49446",
+      ""
+    ],
+    "dcat:bbox": "POLYGON((-61.9140361 10.0456354,-61.9140361 11.3223399,-60.533741 11.3223399,-60.533741 10.0456354,-61.9140361 10.0456354))"
   },
   {
     "id": "tt_regions",
@@ -1560,31 +1505,22 @@ export const catalog = [
     "adms:representationTechnique": "vector",
     "locn:geometry": "multipolygon",
     "dct:conformsTo": "EPSG:4326",
-    "prov:action": "#########\n# GDSC ETL is performed in two steps: shell script to ETL data into postgres\n# and then additional transformations with SQL in postGIS (if needed).\n####\n\n#########\n# Step 1 - bash script (pseudo code)\n####\n\n# create directory structure and move into it\nmkdir -p /data/tt_regions/download -p /data/tt_regions/etl\nchmod 777 /data/tt_regions/download\ncd /data/tt_regions\n\n# set update flag based on last update and update frequency\ndo_update=0 if date() < last_update + update_frequency else do_update = 1\n\n# download if update flag is set:\nif do_update == 1 then\ncurl -o download/tt_regions.osm 'https://overpass-api.de/api/interpreter?data=rel%5B%22ISO3166-2%22~%22^TT%22%5D%5Badmin_level=4%5D%5Btype=boundary%5D%5Bboundary=administrative%5D;(._;>;);out;'\n\n# load into postGIS with:\n  ogr2ogr -lco GEOMETRY_NAME=geom -f PostgreSQL PG:\"<postgres connection>\" download/tt_regions.osm\n\n#########\n# Step 2 - SQL script (pseudo code):\n####\n\n# Select proper geometry into the named table\npsql -d $POSTGRES_DB -U $POSTGRES_USER -p $POSTGRES_PORT -h gaia-db -c \"\nSELECT * INTO tt_regions FROM multipolygons;\nDROP TABLE IF EXISTS lines;\nDROP TABLE IF EXISTS multilinestrings;\nDROP TABLE IF EXISTS multipolygons;\nDROP TABLE IF EXISTS other_relations;\nDROP TABLE IF EXISTS points;\"\n\n# remove duplicate points and make geometries valid:\nUPDATE tt_regions\n  SET geom=ST_MakeValid(ST_RemoveRepeatedPoints(geom));\n\n# add local geometry column and reproject existing geometries into local EPSG:\nSELECT AddGeometryColumn (\n  'tt_regions',\n  'geom_local', 8035, 'multipolygon', 2\n);\nUPDATE tt_regions\n  SET geom_local=ST_MakeValid(ST_RemoveRepeatedPoints(ST_Transform(ST_Multi(geom),8035)));\nCREATE INDEX tt_regions_geom_local_idx\n  ON tt_regions\n  USING GIST (geom_local);\nNOTIFY pgrst, 'reload schema';\n",
+    "prov:action": "#########\n# GDSC ETL is performed in two steps: shell script to ETL data into postgres\n# and then additional transformations with SQL in postGIS (if needed).\n####\n\n#########\n# Step 1 - bash script (pseudo code)\n####\n\n# create directory structure and move into it\nmkdir -p /data/tt_regions/download -p /data/tt_regions/etl\nchmod -R 777 /data/tt_regions\ncd /data/tt_regions\n\n# set update flag based on last update and update frequency\ndo_update=0 if date() < last_update + update_frequency else do_update = 1\n\n# download if update flag is set:\nif do_update == 1 then\ncurl -o download/tt_regions.osm 'https://overpass-api.de/api/interpreter?data=rel%5B%22ISO3166-2%22~%22^TT%22%5D%5Badmin_level=4%5D%5Btype=boundary%5D%5Bboundary=administrative%5D;(._;>;);out;'\n\n# load into postGIS with:\nogr2ogr -lco GEOMETRY_NAME=geom -f PostgreSQL PG:\"<postgres connection>\" download/tt_regions.osm\n\n\n#########\n# Step 2 - SQL script (pseudo code):\n####\n\n# Select proper geometry into the named table\npsql -d $POSTGRES_DB -U $POSTGRES_USER -p $POSTGRES_PORT -h gaia-db -c \"\nSELECT * INTO tt_regions FROM multipolygons;\nDROP TABLE IF EXISTS lines;\nDROP TABLE IF EXISTS multilinestrings;\nDROP TABLE IF EXISTS multipolygons;\nDROP TABLE IF EXISTS other_relations;\nDROP TABLE IF EXISTS points;\"\n\n# remove duplicate points and make geometries valid:\nUPDATE tt_regions\n  SET geom=ST_MakeValid(ST_RemoveRepeatedPoints(geom));\n\n# add local geometry column and reproject existing geometries into local EPSG:\nSELECT AddGeometryColumn (\n  'tt_regions',\n  'geom_local', 8035, 'multipolygon', 2\n);\nUPDATE tt_regions\n  SET geom_local=ST_MakeValid(ST_RemoveRepeatedPoints(ST_Transform(ST_Multi(geom),8035)));\nCREATE INDEX tt_regions_geom_local_idx\n  ON tt_regions\n  USING GIST (geom_local);\nNOTIFY pgrst, 'reload schema';\n",
     "prov:wasGeneratedBy": "GDSC automation (see Process Step)",
     "dcat:contactPoint": [
-      {
-        "contact_name": "Timothy B. Norris",
-        "contact_last_name": "Norris",
-        "contact_first_name": "Timothy",
-        "contact_email": "tnorris@miami.edu",
-        "contact_identifier": "https://orcid.org/0000-0002-0898-3027",
-        "contact_identifier_schema": "orcid",
-        "contact_identifier_schema_uri": "https://orcid.org/",
-        "contact_affiliation": "University of Miami Libraries, Frost Institute for Data Science and Computing",
-        "contact_affiliation_identifier": "https://ror.org/02dgjyy92",
-        "contact_affiliation_schema": "ror",
-        "contact_affiliation_schema_uri": "https://ror.org/"
-      }
+      "Timothy Norris",
+      "Librarian Associate Professor",
+      "University of Miami Libraries, Frost Institute for Data Science and Computing",
+      "txn60@miami.edu"
     ],
     "gdsc:label": "name",
     "gdsc:attributes": [
-      "osm_id;OpenStreetMap (OSM) ID;;varchar;",
-      "name;Region name;;varchar;",
-      "type;Type of boundary;;varchar;",
-      "admin_level;OSM Administrative level;;varchar;",
-      "boundary;OSM boundary type;;varchar;",
-      "other_tags;Any other OSM tags with values, first one is the ISO3166-2 code for the administrative region;;varchar;"
+      "osm_id;OpenStreetMap (OSM) ID;;varchar;;;;",
+      "name;Region name;;varchar;;;;",
+      "type;Type of boundary;;varchar;;;;",
+      "admin_level;OSM Administrative level;;varchar;;;;",
+      "boundary;OSM boundary type;;varchar;;;;",
+      "other_tags;Any other OSM tags with values, first one is the ISO3166-2 code for the administrative region;;varchar;;;;"
     ],
     "gdsc:collections": [
       "tt-disease-risk"
@@ -1600,16 +1536,17 @@ export const catalog = [
     ],
     "dcat:downloadURL": "https://overpass-api.de/api/interpreter?data=rel%5B%22ISO3166-2%22~%22^TT%22%5D%5Badmin_level=4%5D%5Btype=boundary%5D%5Bboundary=administrative%5D;(._;>;);out;",
     "gdsc:tablename": "tt_regions",
-    "gdsc:up": "false",
+    "gdsc:up": "true",
     "gdsc:podID": "gaia-db",
-    "dct:modified": "0001-01-01T00:00:00Z",
+    "dct:modified": "2026-02-13T12:43:07Z",
     "dct:accrualPeriodicity": "As Needed",
-    "gdsc:version": "2026-08-23T15:57:16Z",
+    "gdsc:version": "2026-09-08T23:16:41Z",
     "spdx:checksum": "TBD",
-    "dct:extent": {
-      "size_bytes": "0",
-      "size_human_readable": "0"
-    }
+    "dct:extent": [
+      "bash: line 7: numfmt: command not found\n2706622",
+      ""
+    ],
+    "dcat:bbox": "POLYGON((-62.0154447 10.042842,-62.0154447 11.3467272,-60.5176038 11.3467272,-60.5176038 10.042842,-62.0154447 10.042842))"
   },
   {
     "id": "tt_roads",
@@ -1642,35 +1579,26 @@ export const catalog = [
     "adms:representationTechnique": "vector",
     "locn:geometry": "multilinestring",
     "dct:conformsTo": "EPSG:4326",
-    "prov:action": "#########\n# GDSC ETL is performed in two steps: shell script to ETL data into postgres\n# and then additional transformations with SQL in postGIS (if needed).\n####\n\n#########\n# Step 1 - bash script (pseudo code)\n####\n\n# create directory structure and move into it\nmkdir -p /data/tt_roads/download -p /data/tt_roads/etl\nchmod 777 /data/tt_roads/download\ncd /data/tt_roads\n\n# set update flag based on last update and update frequency\ndo_update=0 if date() < last_update + update_frequency else do_update = 1\n\n# download if update flag is set:\nif do_update == 1 then\ncurl -o download/tt_roads.osm 'https://overpass-api.de/api/interpreter?data=way%5B%22highway%22~%22secondary|primary%22%5D(area:3600555717);(._;>;);out;'\n\n# load into postGIS with:\n  ogr2ogr -lco GEOMETRY_NAME=geom -f PostgreSQL PG:\"<postgres connection>\" download/tt_roads.osm\n\n#########\n# Step 2 - SQL script (pseudo code):\n####\n\n# Select proper geometry into the named table\npsql -d $POSTGRES_DB -U $POSTGRES_USER -p $POSTGRES_PORT -h gaia-db -c \"\nSELECT * INTO tt_roads FROM lines;\nDROP TABLE IF EXISTS lines;\nDROP TABLE IF EXISTS multilinestrings;\nDROP TABLE IF EXISTS multipolygons;\nDROP TABLE IF EXISTS other_relations;\nDROP TABLE IF EXISTS points;\"\n\n# remove duplicate points and make geometries valid:\nUPDATE tt_roads\n  SET geom=ST_MakeValid(ST_RemoveRepeatedPoints(geom));\n\n# add local geometry column and reproject existing geometries into local EPSG:\nSELECT AddGeometryColumn (\n  'tt_roads',\n  'geom_local', 8035, 'multilinestring', 2\n);\nUPDATE tt_roads\n  SET geom_local=ST_MakeValid(ST_RemoveRepeatedPoints(ST_Transform(ST_Multi(geom),8035)));\nCREATE INDEX tt_roads_geom_local_idx\n  ON tt_roads\n  USING GIST (geom_local);\nNOTIFY pgrst, 'reload schema';\n",
+    "prov:action": "#########\n# GDSC ETL is performed in two steps: shell script to ETL data into postgres\n# and then additional transformations with SQL in postGIS (if needed).\n####\n\n#########\n# Step 1 - bash script (pseudo code)\n####\n\n# create directory structure and move into it\nmkdir -p /data/tt_roads/download -p /data/tt_roads/etl\nchmod -R 777 /data/tt_roads\ncd /data/tt_roads\n\n# set update flag based on last update and update frequency\ndo_update=0 if date() < last_update + update_frequency else do_update = 1\n\n# download if update flag is set:\nif do_update == 1 then\ncurl -o download/tt_roads.osm 'https://overpass-api.de/api/interpreter?data=way%5B%22highway%22~%22secondary|primary%22%5D(area:3600555717);(._;>;);out;'\n\n# load into postGIS with:\nogr2ogr -lco GEOMETRY_NAME=geom -f PostgreSQL PG:\"<postgres connection>\" download/tt_roads.osm\n\n\n#########\n# Step 2 - SQL script (pseudo code):\n####\n\n# Select proper geometry into the named table\npsql -d $POSTGRES_DB -U $POSTGRES_USER -p $POSTGRES_PORT -h gaia-db -c \"\nSELECT * INTO tt_roads FROM lines;\nDROP TABLE IF EXISTS lines;\nDROP TABLE IF EXISTS multilinestrings;\nDROP TABLE IF EXISTS multipolygons;\nDROP TABLE IF EXISTS other_relations;\nDROP TABLE IF EXISTS points;\"\n\n# remove duplicate points and make geometries valid:\nUPDATE tt_roads\n  SET geom=ST_MakeValid(ST_RemoveRepeatedPoints(geom));\n\n# add local geometry column and reproject existing geometries into local EPSG:\nSELECT AddGeometryColumn (\n  'tt_roads',\n  'geom_local', 8035, 'multilinestring', 2\n);\nUPDATE tt_roads\n  SET geom_local=ST_MakeValid(ST_RemoveRepeatedPoints(ST_Transform(ST_Multi(geom),8035)));\nCREATE INDEX tt_roads_geom_local_idx\n  ON tt_roads\n  USING GIST (geom_local);\nNOTIFY pgrst, 'reload schema';\n",
     "prov:wasGeneratedBy": "GDSC automation (see Process Step)",
     "dcat:contactPoint": [
-      {
-        "contact_name": "Timothy B. Norris",
-        "contact_last_name": "Norris",
-        "contact_first_name": "Timothy",
-        "contact_email": "tnorris@miami.edu",
-        "contact_identifier": "https://orcid.org/0000-0002-0898-3027",
-        "contact_identifier_schema": "orcid",
-        "contact_identifier_schema_uri": "https://orcid.org/",
-        "contact_affiliation": "University of Miami Libraries, Frost Institute for Data Science and Computing",
-        "contact_affiliation_identifier": "https://ror.org/02dgjyy92",
-        "contact_affiliation_schema": "ror",
-        "contact_affiliation_schema_uri": "https://ror.org/"
-      }
+      "Timothy Norris",
+      "Librarian Associate Professor",
+      "University of Miami Libraries, Frost Institute for Data Science and Computing",
+      "txn60@miami.edu"
     ],
     "gdsc:label": "name",
     "gdsc:attributes": [
-      "osm_id;OpenStreetMap (OSM) ID;;varchar;",
-      "name;Road name;;varchar;",
-      "highway;Type of road (primary, secondary, etc);;varchar;",
-      "waterway;;;boolean;",
-      "aerialway;;;boolean;",
-      "barrier;;;boolean;",
-      "man_made;;;boolean;",
-      "railway;;;boolean;",
-      "z_order;Drawing order;;int4;;;;",
-      "other_tags;Any other OSM tags with values, can include values for oneway, est_width, foot, lanes, maxspeed, surface;;varchar;"
+      "osm_id;OpenStreetMap (OSM) ID;;varchar;;;;",
+      "name;Road name;;varchar;;;;",
+      "highway;Type of road (primary, secondary, etc);;varchar;;;;",
+      "waterway;;;varchar;;;;",
+      "aerialway;;;varchar;;;;",
+      "barrier;;;varchar;;;;",
+      "man_made;;;varchar;;;;",
+      "railway;;;varchar;;;;",
+      "z_order;Drawing order;;int4;;;-14;27",
+      "other_tags;Any other OSM tags with values, can include values for oneway, est_width, foot, lanes, maxspeed, surface;;varchar;;;;"
     ],
     "gdsc:collections": [
       "tt-disease-risk"
@@ -1686,16 +1614,17 @@ export const catalog = [
     ],
     "dcat:downloadURL": "https://overpass-api.de/api/interpreter?data=way%5B%22highway%22~%22secondary|primary%22%5D(area:3600555717);(._;>;);out;",
     "gdsc:tablename": "tt_roads",
-    "gdsc:up": "false",
+    "gdsc:up": "true",
     "gdsc:podID": "gaia-db",
-    "dct:modified": "2026-02-12T11:05:22Z",
+    "dct:modified": "2026-02-12T17:09:35Z",
     "dct:accrualPeriodicity": "As Needed",
-    "gdsc:version": "2026-08-23T15:57:18Z",
+    "gdsc:version": "2026-09-08T23:16:43Z",
     "spdx:checksum": "TBD",
-    "dct:extent": {
-      "size_bytes": "4250213",
-      "size_human_readable": "4.1M"
-    }
+    "dct:extent": [
+      "bash: line 7: numfmt: command not found\n4254309",
+      ""
+    ],
+    "dcat:bbox": "POLYGON((-61.861942 10.074078,-61.861942 11.3246857,-60.5329641 11.3246857,-60.5329641 10.074078,-61.861942 10.074078))"
   },
   {
     "id": "tz_1984_copernicus_avg_temp",
@@ -1730,22 +1659,13 @@ export const catalog = [
     "dcat:spatialResolutionInMeters": 0.25,
     "dct:conformsTo": "EPSG:4326",
     "dcat:bbox": "POLYGON((28.875000 -12.125000, 41.125000 -12.125000, 41.125000 -0.875000, 28.875000 -0.875000, 28.875000 -12.125000))",
-    "prov:action": "#########\n# GDSC ETL is performed in two steps: shell script to ETL data into postgres\n# and then additional transformations with SQL in postGIS (if needed).\n####\n\n#########\n# Step 1 - bash script (pseudo code)\n####\n\n# create directory structure and move into it\nmkdir -p /data/tz_1984_copernicus_avg_temp/download -p /data/tz_1984_copernicus_avg_temp/etl\nchmod 777 /data/tz_1984_copernicus_avg_temp/download\ncd /data/tz_1984_copernicus_avg_temp\n\n# set update flag based on last update and update frequency\ndo_update=0 if date() < last_update + update_frequency else do_update = 1\n\n# clone a git repo and run the code# save netcdf as tif\ncd download\ngdal_translate NETCDF:tz_1984_copernicus_avg_temp.nc:2m_temperature tz_1984_copernicus_avg_temp.tif\ncd ..\n\n\n#########\n# Step 2 - SQL script (pseudo code):\n####\n\n# load raster into postGIS with:\n    raster2pgsql -s 4326 -d -C -I -t auto tz_1984_copernicus_avg_temp.tif -F tz_1984_copernicus_avg_temp > load_raster.sql\npsql <connection options> < load_raster.sql\nrm load_raster.sql\n\n# Move into corrrect directory and create derivative directory in data package on osgeo\ncd /data/tz_1984_copernicus_avg_temp/\nmkdir -p derived\n\n# Create downloadable zip of download/geotiff in derivate directory \nrm -f derived/tz_1984_copernicus_avg_temp.tif.tar.gz\ntar -czf derived/tz_1984_copernicus_avg_temp.tif.tar.gz meta_dcat_tz_1984_copernicus_avg_temp.json -C download tz_1984_copernicus_avg_temp.tif\n\n# Move into correct directory\ncd /data/tz_1984_copernicus_avg_temp/\n\n",
+    "prov:action": "#########\n# GDSC ETL is performed in two steps: shell script to ETL data into postgres\n# and then additional transformations with SQL in postGIS (if needed).\n####\n\n#########\n# Step 1 - bash script (pseudo code)\n####\n\n# create directory structure and move into it\nmkdir -p /data/tz_1984_copernicus_avg_temp/download -p /data/tz_1984_copernicus_avg_temp/etl\nchmod -R 777 /data/tz_1984_copernicus_avg_temp\ncd /data/tz_1984_copernicus_avg_temp\n\n# set update flag based on last update and update frequency\ndo_update=0 if date() < last_update + update_frequency else do_update = 1\n\n# clone a git repo and run the code# save netcdf as tif\ncd download\ngdal_translate NETCDF:tz_1984_copernicus_avg_temp.nc:2m_temperature tz_1984_copernicus_avg_temp.tif\ncd ..\n\n\n#########\n# Step 2 - SQL script (pseudo code):\n####\n\n# load raster into postGIS with:\n    raster2pgsql -s 4326 -d -C -I -t auto tz_1984_copernicus_avg_temp.tif -F tz_1984_copernicus_avg_temp > load_raster.sql\npsql <connection options> < load_raster.sql\nrm load_raster.sql\n\n# Move into corrrect directory and create derivative directory in data package on osgeo\ncd /data/tz_1984_copernicus_avg_temp/\nmkdir -p derived\n\n# Create downloadable zip of download/geotiff in derivate directory \nrm -f derived/tz_1984_copernicus_avg_temp.tif.tar.gz\ntar -czf derived/tz_1984_copernicus_avg_temp.tif.tar.gz meta_dcat_tz_1984_copernicus_avg_temp.json -C download tz_1984_copernicus_avg_temp.tif\n\n# Move into correct directory\ncd /data/tz_1984_copernicus_avg_temp/\n\n",
     "prov:wasGeneratedBy": "GDSC automation (see Process Step)",
     "dcat:contactPoint": [
-      {
-        "contact_name": "Timothy B. Norris",
-        "contact_last_name": "Norris",
-        "contact_first_name": "Timothy",
-        "contact_email": "tnorris@miami.edu",
-        "contact_identifier": "https://orcid.org/0000-0002-0898-3027",
-        "contact_identifier_schema": "orcid",
-        "contact_identifier_schema_uri": "https://orcid.org/",
-        "contact_affiliation": "University of Miami Libraries, Frost Institute for Data Science and Computing",
-        "contact_affiliation_identifier": "https://ror.org/02dgjyy92",
-        "contact_affiliation_schema": "ror",
-        "contact_affiliation_schema_uri": "https://ror.org/"
-      }
+      "Timothy Norris",
+      "Librarian Associate Professor",
+      "University of Miami Libraries, Frost Institute for Data Science and Computing",
+      "txn60@miami.edu"
     ],
     "gdsc:attributes": [
       "2m_temperature;Average yearly 2m temperature in Kelvin from Copernicus reanalysis era5 single levels;Copernicus;float;Kelvin;9523;287.315857;301.010986;1984-01-01;1984-12-31;35814756;2m_temperature@tz_1984_copernicus_avg_temp"
@@ -1773,12 +1693,12 @@ export const catalog = [
     "gdsc:podID": "gaia-db",
     "dct:modified": "0001-01-01T00:00:00Z",
     "dct:accrualPeriodicity": "As Needed",
-    "gdsc:version": "2026-08-23T15:57:18Z",
+    "gdsc:version": "2026-09-08T23:16:44Z",
     "spdx:checksum": "TBD",
-    "dct:extent": {
-      "size_bytes": "89189368",
-      "size_human_readable": "86M"
-    }
+    "dct:extent": [
+      "bash: line 7: numfmt: command not found\n85196127",
+      ""
+    ]
   },
   {
     "id": "tz_2022_nbs_magu_district",
@@ -1812,22 +1732,13 @@ export const catalog = [
     "adms:representationTechnique": "vector",
     "locn:geometry": "multipolygon",
     "dct:conformsTo": "EPSG:4326",
-    "prov:action": "#########\n# GDSC ETL is performed in two steps: shell script to ETL data into postgres\n# and then additional transformations with SQL in postGIS (if needed).\n####\n\n#########\n# Step 1 - bash script (pseudo code)\n####\n\n# create directory structure and move into it\nmkdir -p /data/tz_2022_nbs_magu_district/download -p /data/tz_2022_nbs_magu_district/etl\nchmod 777 /data/tz_2022_nbs_magu_district/download\ncd /data/tz_2022_nbs_magu_district\n\n# set update flag based on last update and update frequency\ndo_update=0 if date() < last_update + update_frequency else do_update = 1\n\n# load tz_2022_nbs_districts as dependency (see tz_2022_nbs_districts for details).\n\n# Create copy of geom dependency\npg_dump -d $POSTGRES_DB -U $POSTGRES_USER -p $POSTGRES_PORT -h gaia-db -t tz_2022_nbs_districts | sed 's/tz_2022_nbs_districts/tz_2022_nbs_magu_district/g' | psql -d $POSTGRES_DB -U $POSTGRES_USER -p $POSTGRES_PORT -h gaia-db \n\n# drop geom_local and subset as per custom parameters\npsql -d $POSTGRES_DB -U $POSTGRES_USER -p $POSTGRES_PORT -h gaia-db -c \"\nALTER TABLE tz_2022_nbs_magu_district DROP COLUMN IF EXISTS geom_local;\nDELETE FROM tz_2022_nbs_magu_district\n  WHERE NOT (reg_code = '19' AND dist_code = '02');\nCOMMIT;\"\n# add local geometry column and reproject existing geometries into local EPSG:\nSELECT AddGeometryColumn (\n  'tz_2022_nbs_magu_district',\n  'geom_local', 4326, 'multipolygon', 2\n);\nUPDATE tz_2022_nbs_magu_district\n  SET geom_local=ST_MakeValid(ST_RemoveRepeatedPoints(ST_Transform(ST_Multi(geom),4326)));\nCREATE INDEX tz_2022_nbs_magu_district_geom_local_idx\n  ON tz_2022_nbs_magu_district\n  USING GIST (geom_local);\nNOTIFY pgrst, 'reload schema';\n# add local geometry column and reproject existing geometries into local EPSG:\nSELECT AddGeometryColumn (\n  'tz_2022_nbs_magu_district',\n  'geom_local', 4326, 'multipolygon', 2\n);\nUPDATE tz_2022_nbs_magu_district\n  SET geom_local=ST_MakeValid(ST_RemoveRepeatedPoints(ST_Transform(ST_Multi(geom),4326)));\nCREATE INDEX tz_2022_nbs_magu_district_geom_local_idx\n  ON tz_2022_nbs_magu_district\n  USING GIST (geom_local);\nNOTIFY pgrst, 'reload schema';\n# Move into corrrect directory and create derivative directory in data package on osgeo\ncd /data/tz_2022_nbs_magu_district/\nmkdir -p derived\n\n# Create shapefile of table in derivate directory on osgeo \nogr2ogr -f \"ESRI Shapefile\" -overwrite derived/tz_2022_nbs_magu_district.shp PG:\"<postgres connection>\" tz_2022_nbs_magu_district\n\n# Create downloadable tarfile of shp in derivative directory on osgeo\nrm -f derived/tz_2022_nbs_magu_district.shp.tar.gz\ntar -czf derived/tz_2022_nbs_magu_district.shp.tar.gz meta_dcat_tz_2022_nbs_magu_district.json -C derived tz_2022_nbs_magu_district.shp tz_2022_nbs_magu_district.prj tz_2022_nbs_magu_district.shx tz_2022_nbs_magu_district.dbf\n\n# Move into correct directory\ncd /data/tz_2022_nbs_magu_district/\n\n",
+    "prov:action": "#########\n# GDSC ETL is performed in two steps: shell script to ETL data into postgres\n# and then additional transformations with SQL in postGIS (if needed).\n####\n\n#########\n# Step 1 - bash script (pseudo code)\n####\n\n# create directory structure and move into it\nmkdir -p /data/tz_2022_nbs_magu_district/download -p /data/tz_2022_nbs_magu_district/etl\nchmod -R 777 /data/tz_2022_nbs_magu_district\ncd /data/tz_2022_nbs_magu_district\n\n# set update flag based on last update and update frequency\ndo_update=0 if date() < last_update + update_frequency else do_update = 1\n\n# Create copy of geom dependency\npg_dump -d $POSTGRES_DB -U $POSTGRES_USER -p $POSTGRES_PORT -h gaia-db -t tz_2022_nbs_districts | sed 's/tz_2022_nbs_districts/tz_2022_nbs_magu_district/g' | psql -d $POSTGRES_DB -U $POSTGRES_USER -p $POSTGRES_PORT -h gaia-db \n\n# drop geom_local and subset as per custom parameters\npsql -d $POSTGRES_DB -U $POSTGRES_USER -p $POSTGRES_PORT -h gaia-db -c \"\nALTER TABLE tz_2022_nbs_magu_district DROP COLUMN IF EXISTS geom_local;\nDELETE FROM tz_2022_nbs_magu_district\n  WHERE NOT (reg_code = '19' AND dist_code = '02');\nCOMMIT;\"\n# add local geometry column and reproject existing geometries into local EPSG:\nSELECT AddGeometryColumn (\n  'tz_2022_nbs_magu_district',\n  'geom_local', 4326, 'multipolygon', 2\n);\nUPDATE tz_2022_nbs_magu_district\n  SET geom_local=ST_MakeValid(ST_RemoveRepeatedPoints(ST_Transform(ST_Multi(geom),4326)));\nCREATE INDEX tz_2022_nbs_magu_district_geom_local_idx\n  ON tz_2022_nbs_magu_district\n  USING GIST (geom_local);\nNOTIFY pgrst, 'reload schema';\n# add local geometry column and reproject existing geometries into local EPSG:\nSELECT AddGeometryColumn (\n  'tz_2022_nbs_magu_district',\n  'geom_local', 4326, 'multipolygon', 2\n);\nUPDATE tz_2022_nbs_magu_district\n  SET geom_local=ST_MakeValid(ST_RemoveRepeatedPoints(ST_Transform(ST_Multi(geom),4326)));\nCREATE INDEX tz_2022_nbs_magu_district_geom_local_idx\n  ON tz_2022_nbs_magu_district\n  USING GIST (geom_local);\nNOTIFY pgrst, 'reload schema';\n# Move into corrrect directory and create derivative directory in data package on osgeo\ncd /data/tz_2022_nbs_magu_district/\nmkdir -p derived\n\n# Create shapefile of table in derivate directory on osgeo \nogr2ogr -f \"ESRI Shapefile\" -overwrite derived/tz_2022_nbs_magu_district.shp PG:\"<postgres connection>\" tz_2022_nbs_magu_district\n\n# Create downloadable tarfile of shp in derivative directory on osgeo\nrm -f derived/tz_2022_nbs_magu_district.shp.tar.gz\ntar -czf derived/tz_2022_nbs_magu_district.shp.tar.gz meta_dcat_tz_2022_nbs_magu_district.json -C derived tz_2022_nbs_magu_district.shp tz_2022_nbs_magu_district.prj tz_2022_nbs_magu_district.shx tz_2022_nbs_magu_district.dbf\n\n# Move into correct directory\ncd /data/tz_2022_nbs_magu_district/\n\n",
     "prov:wasGeneratedBy": "GDSC automation (see Process Step)",
     "dcat:contactPoint": [
-      {
-        "contact_name": "Timothy B. Norris",
-        "contact_last_name": "Norris",
-        "contact_first_name": "Timothy",
-        "contact_email": "tnorris@miami.edu",
-        "contact_identifier": "https://orcid.org/0000-0002-0898-3027",
-        "contact_identifier_schema": "orcid",
-        "contact_identifier_schema_uri": "https://orcid.org/",
-        "contact_affiliation": "University of Miami Libraries, Frost Institute for Data Science and Computing",
-        "contact_affiliation_identifier": "https://ror.org/02dgjyy92",
-        "contact_affiliation_schema": "ror",
-        "contact_affiliation_schema_uri": "https://ror.org/"
-      }
+      "Timothy Norris",
+      "Librarian Associate Professor",
+      "University of Miami Libraries, Frost Institute for Data Science and Computing",
+      "txn60@miami.edu"
     ],
     "gdsc:label": "dist_name",
     "gdsc:value": [
@@ -1836,9 +1747,9 @@ export const catalog = [
       "reg_name"
     ],
     "gdsc:attributes": [
-      "dist_code;Unique district code;Tanzania National Bureau of Statistics;numeric;;;;",
+      "dist_code;Unique district code;Tanzania National Bureau of Statistics;varchar;;;;",
       "\ndist_name; District names;Tanzania National Bureau of Statistics;string",
-      "\nreg_code; unique code;Tanzania National Bureau of Statistics;numeric;;;;",
+      "\nreg_code; unique code;Tanzania National Bureau of Statistics;numeric",
       "\nreg_name; name;Tanzania National Bureau of Statistics;varchar"
     ],
     "gdsc:collections": [
@@ -1862,16 +1773,17 @@ export const catalog = [
     "dcat:qualifiedRelation": [
       "tz_2022_nbs_districts"
     ],
-    "gdsc:up": "false",
+    "gdsc:up": "true",
     "gdsc:podID": "gaia-db",
-    "dct:modified": "0001-01-01T00:00:00Z",
+    "dct:modified": "2026-05-26T15:17:11Z",
     "dct:accrualPeriodicity": "As Needed",
-    "gdsc:version": "2026-08-23T15:57:20Z",
+    "gdsc:version": "2026-09-08T23:16:50Z",
     "spdx:checksum": "TBD",
-    "dct:extent": {
-      "size_bytes": "0",
-      "size_human_readable": "0"
-    }
+    "dct:extent": [
+      "bash: line 7: numfmt: command not found\n4096",
+      ""
+    ],
+    "dcat:bbox": "POLYGON((33.01235115700007 -2.838643495999975,33.01235115700007 -2.383387099999936,33.790629651000074 -2.383387099999936,33.790629651000074 -2.838643495999975,33.01235115700007 -2.838643495999975))"
   },
   {
     "id": "tz_magu_dem_srtm",
@@ -1881,7 +1793,8 @@ export const catalog = [
     ],
     "dcat:landingPage": "https://lpdaac.usgs.gov/products/srtmgl1v003/",
     "dct:publisher": [
-      "NASA EOSDIS Land Processes Distributed Active Archive Center (LPDAAC)"
+      "NASA EOSDIS Land Processes Distributed Active Archive Center (LPDAAC)",
+      "ESA"
     ],
     "dct:rights": "Public Domain",
     "dct:licenseText": "This data is open to the public and browse images are freely available without\nrestriction.",
@@ -1892,7 +1805,8 @@ export const catalog = [
     ],
     "dct:type": "Raster Dataset",
     "dct:issued": "2013-01-01T00:00:00Z",
-    "dct:description": "An elevation raster dataset derived from the SRTM GL1 V3 dataset at 1 ARC second resolution (~30 meters). ",
+    "dct:description": "An elevation raster dataset derived from the SRTM GL1 V3 dataset at 1 ARC second resolution (~30 meters). Republished by the European Space Agency (ESA).",
+    "prov:qualifiedAttribution": "Direct from source.",
     "dcat:keyword": [
       "Tanzania",
       "Magu District",
@@ -1904,25 +1818,16 @@ export const catalog = [
     "dcat:spatialResolutionInMeters": 30,
     "dct:conformsTo": "EPSG:4326",
     "dcat:bbox": "POLYGON((32.750139 -3.089861, 34.039861 -3.089861, 34.039861 -2.130139, 32.750139 -2.130139, 32.750139 -3.089861))",
-    "prov:action": "#########\n# GDSC ETL is performed in two steps: shell script to ETL data into postgres\n# and then additional transformations with SQL in postGIS (if needed).\n####\n\n#########\n# Step 1 - bash script (pseudo code)\n####\n\n# create directory structure and move into it\nmkdir -p /data/tz_magu_dem_srtm/download -p /data/tz_magu_dem_srtm/etl\nchmod 777 /data/tz_magu_dem_srtm/download\ncd /data/tz_magu_dem_srtm\n\n# set update flag based on last update and update frequency\ndo_update=0 if date() < last_update + update_frequency else do_update = 1\n\n# load raster into postGIS with:\n    raster2pgsql -s 4326 -d -C -I -t auto tz_magu_dem_srtm.tif -F tz_magu_dem_srtm > load_raster.sql\npsql <connection options> < load_raster.sql\nrm load_raster.sql\n\n# render raster tiles \ncd /data/tz_magu_dem_srtm/\ngdal2tiles.py -ex --xyz -z 14-18 /data/tz_magu_dem_srtm/download/tz_magu_dem_srtm.tif /tiles/raster/tz_magu_dem_srtm\n# Move into corrrect directory and create derivative directory in data package on osgeo\ncd /data/tz_magu_dem_srtm/\nmkdir -p derived\n\n# Create downloadable zip of download/geotiff in derivate directory \nrm -f derived/tz_magu_dem_srtm.tif.tar.gz\ntar -czf derived/tz_magu_dem_srtm.tif.tar.gz meta_dcat_tz_magu_dem_srtm.json -C download tz_magu_dem_srtm.tif\n\n# Move into correct directory\ncd /data/tz_magu_dem_srtm/\n\n",
+    "prov:action": "#########\n# GDSC ETL is performed in two steps: shell script to ETL data into postgres\n# and then additional transformations with SQL in postGIS (if needed).\n####\n\n#########\n# Step 1 - bash script (pseudo code)\n####\n\n# create directory structure and move into it\nmkdir -p /data/tz_magu_dem_srtm/download -p /data/tz_magu_dem_srtm/etl\nchmod -R 777 /data/tz_magu_dem_srtm\ncd /data/tz_magu_dem_srtm\n\n# set update flag based on last update and update frequency\ndo_update=0 if date() < last_update + update_frequency else do_update = 1\n\n# load raster into postGIS with:\n    raster2pgsql -s 4326 -d -C -I -t auto tz_magu_dem_srtm.tif -F tz_magu_dem_srtm > load_raster.sql\npsql <connection options> < load_raster.sql\nrm load_raster.sql\n\n# render raster tiles \ncd /data/tz_magu_dem_srtm/\ngdal2tiles.py -ex --xyz -z 14-18 /data/tz_magu_dem_srtm/download/tz_magu_dem_srtm.tif /tiles/raster/tz_magu_dem_srtm\n# Move into corrrect directory and create derivative directory in data package on osgeo\ncd /data/tz_magu_dem_srtm/\nmkdir -p derived\n\n# Create downloadable zip of download/geotiff in derivate directory \nrm -f derived/tz_magu_dem_srtm.tif.tar.gz\ntar -czf derived/tz_magu_dem_srtm.tif.tar.gz meta_dcat_tz_magu_dem_srtm.json -C download tz_magu_dem_srtm.tif\n\n# Move into correct directory\ncd /data/tz_magu_dem_srtm/\n\n",
     "prov:wasGeneratedBy": "GDSC automation (see Process Step)",
     "dcat:contactPoint": [
-      {
-        "contact_name": "Timothy B. Norris",
-        "contact_last_name": "Norris",
-        "contact_first_name": "Timothy",
-        "contact_email": "tnorris@miami.edu",
-        "contact_identifier": "https://orcid.org/0000-0002-0898-3027",
-        "contact_identifier_schema": "orcid",
-        "contact_identifier_schema_uri": "https://orcid.org/",
-        "contact_affiliation": "University of Miami Libraries, Frost Institute for Data Science and Computing",
-        "contact_affiliation_identifier": "https://ror.org/02dgjyy92",
-        "contact_affiliation_schema": "ror",
-        "contact_affiliation_schema_uri": "https://ror.org/"
-      }
+      "Timothy Norris",
+      "Librarian Associate Professor",
+      "University of Miami Libraries, Frost Institute for Data Science and Computing",
+      "txn60@miami.edu"
     ],
     "gdsc:attributes": [
-      "elevation;Mean elevation above sea level;NASA JPL;float;meters\n"
+      "elevation;Mean elevation above sea level;NASA JPL;int16;meters\n;;1125;1508"
     ],
     "gdsc:collections": [
       "tz-climate-change",
@@ -1940,18 +1845,18 @@ export const catalog = [
       "IDSC;https://idsc.miami.edu",
       "Library;https://www.library.miami.edu"
     ],
-    "dcat:downloadURL": "https://e4ftl01.cr.usgs.gov/MEASURES/SRTMGL1.003/2000.02.11/",
+    "dcat:downloadURL": "https://step.esa.int/auxdata/dem/SRTMGL1/",
     "gdsc:tablename": "tz_magu_dem_srtm",
-    "gdsc:up": "false",
+    "gdsc:up": "true",
     "gdsc:podID": "gaia-db",
-    "dct:modified": "0001-01-01T00:00:00Z",
+    "dct:modified": "2026-09-08T12:18:02Z",
     "dct:accrualPeriodicity": "As Needed",
-    "gdsc:version": "2026-08-23T15:57:21Z",
+    "gdsc:version": "2026-09-08T23:16:51Z",
     "spdx:checksum": "TBD",
-    "dct:extent": {
-      "size_bytes": "498902627",
-      "size_human_readable": "476M"
-    }
+    "dct:extent": [
+      "bash: line 7: numfmt: command not found\n498906314",
+      ""
+    ]
   },
   {
     "id": "tz_populated_places_osm",
@@ -1985,22 +1890,13 @@ export const catalog = [
     "adms:representationTechnique": "vector",
     "locn:geometry": "point",
     "dct:conformsTo": "EPSG:4326",
-    "prov:action": "#########\n# GDSC ETL is performed in two steps: shell script to ETL data into postgres\n# and then additional transformations with SQL in postGIS (if needed).\n####\n\n#########\n# Step 1 - bash script (pseudo code)\n####\n\n# create directory structure and move into it\nmkdir -p /data/tz_populated_places_osm/download -p /data/tz_populated_places_osm/etl\nchmod 777 /data/tz_populated_places_osm/download\ncd /data/tz_populated_places_osm\n\n# set update flag based on last update and update frequency\ndo_update=0 if date() < last_update + update_frequency else do_update = 1\n\n# download if update flag is set:\nif do_update == 1 then\ncurl -o download/tz_populated_places_osm.osm 'https://overpass-api.de/api/interpreter?data=area%28id:3600195270%29-%3E.searchArea;node%5B%22place%22~%22city|town|village|hamlet%22%5D%28area.searchArea%29;%28._;%3E;%29;out;'\n\n# load into postGIS with:\n  ogr2ogr -lco GEOMETRY_NAME=geom -f PostgreSQL PG:\"<postgres connection>\" download/tz_populated_places_osm.osm\n\n#########\n# Step 2 - SQL script (pseudo code):\n####\n\n# Select proper geometry into the named table\npsql -d $POSTGRES_DB -U $POSTGRES_USER -p $POSTGRES_PORT -h gaia-db -c \"\nSELECT * INTO tz_populated_places_osm FROM points;\nDROP TABLE IF EXISTS lines;\nDROP TABLE IF EXISTS multilinestrings;\nDROP TABLE IF EXISTS multipolygons;\nDROP TABLE IF EXISTS other_relations;\nDROP TABLE IF EXISTS points;\"\n\n# remove duplicate points and make geometries valid:\nUPDATE tz_populated_places_osm\n  SET geom=ST_MakeValid(ST_RemoveRepeatedPoints(geom));\n\n# add local geometry column and reproject existing geometries into local EPSG:\nSELECT AddGeometryColumn (\n  'tz_populated_places_osm',\n  'geom_local', 4326, 'point', 2\n);\nUPDATE tz_populated_places_osm\n  SET geom_local=ST_MakeValid(ST_RemoveRepeatedPoints(ST_Transform(geom,4326)));\nCREATE INDEX tz_populated_places_osm_geom_local_idx\n  ON tz_populated_places_osm\n  USING GIST (geom_local);\nNOTIFY pgrst, 'reload schema';\n# Move into corrrect directory and create derivative directory in data package on osgeo\ncd /data/tz_populated_places_osm/\nmkdir -p derived\n\n# Create shapefile of table in derivate directory on osgeo \nogr2ogr -f \"ESRI Shapefile\" -overwrite derived/tz_populated_places_osm.shp PG:\"<postgres connection>\" tz_populated_places_osm\n\n# Create downloadable tarfile of shp in derivative directory on osgeo\nrm -f derived/tz_populated_places_osm.shp.tar.gz\ntar -czf derived/tz_populated_places_osm.shp.tar.gz meta_dcat_tz_populated_places_osm.json -C derived tz_populated_places_osm.shp tz_populated_places_osm.prj tz_populated_places_osm.shx tz_populated_places_osm.dbf\n\n# Move into correct directory\ncd /data/tz_populated_places_osm/\n\n",
+    "prov:action": "#########\n# GDSC ETL is performed in two steps: shell script to ETL data into postgres\n# and then additional transformations with SQL in postGIS (if needed).\n####\n\n#########\n# Step 1 - bash script (pseudo code)\n####\n\n# create directory structure and move into it\nmkdir -p /data/tz_populated_places_osm/download -p /data/tz_populated_places_osm/etl\nchmod -R 777 /data/tz_populated_places_osm\ncd /data/tz_populated_places_osm\n\n# set update flag based on last update and update frequency\ndo_update=0 if date() < last_update + update_frequency else do_update = 1\n\n# download if update flag is set:\nif do_update == 1 then\ncurl -o download/tz_populated_places_osm.osm 'https://overpass-api.de/api/interpreter?data=area%28id:3600195270%29-%3E.searchArea;node%5B%22place%22~%22city|town|village|hamlet%22%5D%28area.searchArea%29;%28._;%3E;%29;out;'\n\n# load into postGIS with:\nogr2ogr -lco GEOMETRY_NAME=geom -f PostgreSQL PG:\"<postgres connection>\" download/tz_populated_places_osm.osm\n\n\n#########\n# Step 2 - SQL script (pseudo code):\n####\n\n# Select proper geometry into the named table\npsql -d $POSTGRES_DB -U $POSTGRES_USER -p $POSTGRES_PORT -h gaia-db -c \"\nSELECT * INTO tz_populated_places_osm FROM points;\nDROP TABLE IF EXISTS lines;\nDROP TABLE IF EXISTS multilinestrings;\nDROP TABLE IF EXISTS multipolygons;\nDROP TABLE IF EXISTS other_relations;\nDROP TABLE IF EXISTS points;\"\n\n# remove duplicate points and make geometries valid:\nUPDATE tz_populated_places_osm\n  SET geom=ST_MakeValid(ST_RemoveRepeatedPoints(geom));\n\n# add local geometry column and reproject existing geometries into local EPSG:\nSELECT AddGeometryColumn (\n  'tz_populated_places_osm',\n  'geom_local', 4326, 'point', 2\n);\nUPDATE tz_populated_places_osm\n  SET geom_local=ST_MakeValid(ST_RemoveRepeatedPoints(ST_Transform(geom,4326)));\nCREATE INDEX tz_populated_places_osm_geom_local_idx\n  ON tz_populated_places_osm\n  USING GIST (geom_local);\nNOTIFY pgrst, 'reload schema';\n# Move into corrrect directory and create derivative directory in data package on osgeo\ncd /data/tz_populated_places_osm/\nmkdir -p derived\n\n# Create shapefile of table in derivate directory on osgeo \nogr2ogr -f \"ESRI Shapefile\" -overwrite derived/tz_populated_places_osm.shp PG:\"<postgres connection>\" tz_populated_places_osm\n\n# Create downloadable tarfile of shp in derivative directory on osgeo\nrm -f derived/tz_populated_places_osm.shp.tar.gz\ntar -czf derived/tz_populated_places_osm.shp.tar.gz meta_dcat_tz_populated_places_osm.json -C derived tz_populated_places_osm.shp tz_populated_places_osm.prj tz_populated_places_osm.shx tz_populated_places_osm.dbf\n\n# Move into correct directory\ncd /data/tz_populated_places_osm/\n\n",
     "prov:wasGeneratedBy": "GDSC automation (see Process Step)",
     "dcat:contactPoint": [
-      {
-        "contact_name": "Timothy B. Norris",
-        "contact_last_name": "Norris",
-        "contact_first_name": "Timothy",
-        "contact_email": "tnorris@miami.edu",
-        "contact_identifier": "https://orcid.org/0000-0002-0898-3027",
-        "contact_identifier_schema": "orcid",
-        "contact_identifier_schema_uri": "https://orcid.org/",
-        "contact_affiliation": "University of Miami Libraries, Frost Institute for Data Science and Computing",
-        "contact_affiliation_identifier": "https://ror.org/02dgjyy92",
-        "contact_affiliation_schema": "ror",
-        "contact_affiliation_schema_uri": "https://ror.org/"
-      }
+      "Timothy Norris",
+      "Librarian Associate Professor",
+      "University of Miami Libraries, Frost Institute for Data Science and Computing",
+      "txn60@miami.edu"
     ],
     "gdsc:label": "name",
     "gdsc:value": [
@@ -2010,11 +1906,10 @@ export const catalog = [
       "other_tags"
     ],
     "gdsc:attributes": [
-      "osm_id;OpenStreetMap (OSM) ID;;varchar",
-      "\nname;Place/settlement name;varchar",
-      "\nplace;Kind of settlement as City, Town, Village, Hamlet, City Block, or other;varchar",
-      "\nother_tags;Any other OSM tags with values;varchar",
-      ""
+      "osm_id;OpenStreetMap (OSM) ID;;varchar;;;;",
+      "name;Place/settlement name;varchar;varchar;;;;",
+      "place;Kind of settlement as City, Town, Village, Hamlet, City Block, or other;varchar;varchar;;;;",
+      "other_tags;Any other OSM tags with values;varchar;varchar;;;;"
     ],
     "gdsc:collections": [
       "tz-climate-change",
@@ -2034,16 +1929,17 @@ export const catalog = [
     ],
     "dcat:downloadURL": "https://overpass-api.de/api/interpreter?data=area%28id:3600195270%29-%3E.searchArea;node%5B%22place%22~%22city|town|village|hamlet%22%5D%28area.searchArea%29;%28._;%3E;%29;out;",
     "gdsc:tablename": "tz_populated_places_osm",
-    "gdsc:up": "false",
+    "gdsc:up": "true",
     "gdsc:podID": "gaia-db",
-    "dct:modified": "2025-09-07T11:08:15Z",
+    "dct:modified": "2026-02-16T12:49:34Z",
     "dct:accrualPeriodicity": "As Needed",
-    "gdsc:version": "2026-08-23T15:57:22Z",
+    "gdsc:version": "2026-09-08T23:16:54Z",
     "spdx:checksum": "TBD",
-    "dct:extent": {
-      "size_bytes": "2914659",
-      "size_human_readable": "2.8M"
-    }
+    "dct:extent": [
+      "bash: line 7: numfmt: command not found\n2878741",
+      ""
+    ],
+    "dcat:bbox": "POLYGON((29.6 -11.6489089,29.6 -0.9997506,40.4319387 -0.9997506,40.4319387 -11.6489089,29.6 -11.6489089))"
   },
   {
     "id": "tz_regions_osm",
@@ -2074,26 +1970,17 @@ export const catalog = [
     "adms:representationTechnique": "vector",
     "locn:geometry": "multipolygon",
     "dct:conformsTo": "EPSG:4326",
-    "prov:action": "#########\n# GDSC ETL is performed in two steps: shell script to ETL data into postgres\n# and then additional transformations with SQL in postGIS (if needed).\n####\n\n#########\n# Step 1 - bash script (pseudo code)\n####\n\n# create directory structure and move into it\nmkdir -p /data/tz_regions_osm/download -p /data/tz_regions_osm/etl\nchmod 777 /data/tz_regions_osm/download\ncd /data/tz_regions_osm\n\n# set update flag based on last update and update frequency\ndo_update=0 if date() < last_update + update_frequency else do_update = 1\n\n# download if update flag is set:\nif do_update == 1 then\ncurl -o download/tz_regions_osm.osm 'https://overpass-api.de/api/interpreter?data=rel%5B%22ISO3166-2%22~%22^TZ%22%5D%5Badmin_level=4%5D%5Btype=boundary%5D%5Bboundary=administrative%5D;(._;>;);out;'\n\n# load into postGIS with:\n  ogr2ogr -lco GEOMETRY_NAME=geom -f PostgreSQL PG:\"<postgres connection>\" download/tz_regions_osm.osm\n\n#########\n# Step 2 - SQL script (pseudo code):\n####\n\n# Select proper geometry into the named table\npsql -d $POSTGRES_DB -U $POSTGRES_USER -p $POSTGRES_PORT -h gaia-db -c \"\nSELECT * INTO tz_regions_osm FROM multipolygons;\nDROP TABLE IF EXISTS lines;\nDROP TABLE IF EXISTS multilinestrings;\nDROP TABLE IF EXISTS multipolygons;\nDROP TABLE IF EXISTS other_relations;\nDROP TABLE IF EXISTS points;\"\n\n# remove duplicate points and make geometries valid:\nUPDATE tz_regions_osm\n  SET geom=ST_MakeValid(ST_RemoveRepeatedPoints(geom));\n\n# add local geometry column and reproject existing geometries into local EPSG:\nSELECT AddGeometryColumn (\n  'tz_regions_osm',\n  'geom_local', 4326, 'multipolygon', 2\n);\nUPDATE tz_regions_osm\n  SET geom_local=ST_MakeValid(ST_RemoveRepeatedPoints(ST_Transform(ST_Multi(geom),4326)));\nCREATE INDEX tz_regions_osm_geom_local_idx\n  ON tz_regions_osm\n  USING GIST (geom_local);\nNOTIFY pgrst, 'reload schema';\n# Move into corrrect directory and create derivative directory in data package on osgeo\ncd /data/tz_regions_osm/\nmkdir -p derived\n\n# Create shapefile of table in derivate directory on osgeo \nogr2ogr -f \"ESRI Shapefile\" -overwrite derived/tz_regions_osm.shp PG:\"<postgres connection>\" tz_regions_osm\n\n# Create downloadable tarfile of shp in derivative directory on osgeo\nrm -f derived/tz_regions_osm.shp.tar.gz\ntar -czf derived/tz_regions_osm.shp.tar.gz meta_dcat_tz_regions_osm.json -C derived tz_regions_osm.shp tz_regions_osm.prj tz_regions_osm.shx tz_regions_osm.dbf\n\n# Move into correct directory\ncd /data/tz_regions_osm/\n\n",
+    "prov:action": "#########\n# GDSC ETL is performed in two steps: shell script to ETL data into postgres\n# and then additional transformations with SQL in postGIS (if needed).\n####\n\n#########\n# Step 1 - bash script (pseudo code)\n####\n\n# create directory structure and move into it\nmkdir -p /data/tz_regions_osm/download -p /data/tz_regions_osm/etl\nchmod -R 777 /data/tz_regions_osm\ncd /data/tz_regions_osm\n\n# set update flag based on last update and update frequency\ndo_update=0 if date() < last_update + update_frequency else do_update = 1\n\n# download if update flag is set:\nif do_update == 1 then\ncurl -o download/tz_regions_osm.osm 'https://overpass-api.de/api/interpreter?data=rel%5B%22ISO3166-2%22~%22^TZ%22%5D%5Badmin_level=4%5D%5Btype=boundary%5D%5Bboundary=administrative%5D;(._;>;);out;'\n\n# load into postGIS with:\nogr2ogr -lco GEOMETRY_NAME=geom -f PostgreSQL PG:\"<postgres connection>\" download/tz_regions_osm.osm\n\n\n#########\n# Step 2 - SQL script (pseudo code):\n####\n\n# Select proper geometry into the named table\npsql -d $POSTGRES_DB -U $POSTGRES_USER -p $POSTGRES_PORT -h gaia-db -c \"\nSELECT * INTO tz_regions_osm FROM multipolygons;\nDROP TABLE IF EXISTS lines;\nDROP TABLE IF EXISTS multilinestrings;\nDROP TABLE IF EXISTS multipolygons;\nDROP TABLE IF EXISTS other_relations;\nDROP TABLE IF EXISTS points;\"\n\n# remove duplicate points and make geometries valid:\nUPDATE tz_regions_osm\n  SET geom=ST_MakeValid(ST_RemoveRepeatedPoints(geom));\n\n# add local geometry column and reproject existing geometries into local EPSG:\nSELECT AddGeometryColumn (\n  'tz_regions_osm',\n  'geom_local', 4326, 'multipolygon', 2\n);\nUPDATE tz_regions_osm\n  SET geom_local=ST_MakeValid(ST_RemoveRepeatedPoints(ST_Transform(ST_Multi(geom),4326)));\nCREATE INDEX tz_regions_osm_geom_local_idx\n  ON tz_regions_osm\n  USING GIST (geom_local);\nNOTIFY pgrst, 'reload schema';\n# Move into corrrect directory and create derivative directory in data package on osgeo\ncd /data/tz_regions_osm/\nmkdir -p derived\n\n# Create shapefile of table in derivate directory on osgeo \nogr2ogr -f \"ESRI Shapefile\" -overwrite derived/tz_regions_osm.shp PG:\"<postgres connection>\" tz_regions_osm\n\n# Create downloadable tarfile of shp in derivative directory on osgeo\nrm -f derived/tz_regions_osm.shp.tar.gz\ntar -czf derived/tz_regions_osm.shp.tar.gz meta_dcat_tz_regions_osm.json -C derived tz_regions_osm.shp tz_regions_osm.prj tz_regions_osm.shx tz_regions_osm.dbf\n\n# Move into correct directory\ncd /data/tz_regions_osm/\n\n",
     "prov:wasGeneratedBy": "GDSC automation (see Process Step)",
     "dcat:contactPoint": [
-      {
-        "contact_name": "Timothy B. Norris",
-        "contact_last_name": "Norris",
-        "contact_first_name": "Timothy",
-        "contact_email": "tnorris@miami.edu",
-        "contact_identifier": "https://orcid.org/0000-0002-0898-3027",
-        "contact_identifier_schema": "orcid",
-        "contact_identifier_schema_uri": "https://orcid.org/",
-        "contact_affiliation": "University of Miami Libraries, Frost Institute for Data Science and Computing",
-        "contact_affiliation_identifier": "https://ror.org/02dgjyy92",
-        "contact_affiliation_schema": "ror",
-        "contact_affiliation_schema_uri": "https://ror.org/"
-      }
+      "Timothy Norris",
+      "Librarian Associate Professor",
+      "University of Miami Libraries, Frost Institute for Data Science and Computing",
+      "txn60@miami.edu"
     ],
     "gdsc:label": "name",
     "gdsc:attributes": [
-      "osm_id;OpenStreetMap (OSM) ID;varchar",
+      "osm_id;OpenStreetMap (OSM) ID;varchar;varchar;;;;",
       "\nname;Region name;varchar",
       "\ntype;Type of boundary;varchar",
       "\nadmin_level;OSM Administrative level;varchar",
@@ -2118,16 +2005,122 @@ export const catalog = [
     ],
     "dcat:downloadURL": "https://overpass-api.de/api/interpreter?data=rel%5B%22ISO3166-2%22~%22^TZ%22%5D%5Badmin_level=4%5D%5Btype=boundary%5D%5Bboundary=administrative%5D;(._;>;);out;",
     "gdsc:tablename": "tz_regions_osm",
-    "gdsc:up": "false",
+    "gdsc:up": "true",
     "gdsc:podID": "gaia-db",
-    "dct:modified": "2025-09-07T11:19:11Z",
+    "dct:modified": "2025-09-12T09:34:27Z",
     "dct:accrualPeriodicity": "As Needed",
-    "gdsc:version": "2026-08-23T15:57:23Z",
+    "gdsc:version": "2026-09-08T23:16:56Z",
     "spdx:checksum": "TBD",
-    "dct:extent": {
-      "size_bytes": "31690805",
-      "size_human_readable": "31M"
-    }
+    "dct:extent": [
+      "bash: line 7: numfmt: command not found\n31694901",
+      ""
+    ],
+    "dcat:bbox": "POLYGON((29.5946708 -11.761254,29.5946708 -0.9854812,40.4453945 -0.9854812,40.4453945 -11.761254,29.5946708 -11.761254))"
+  },
+  {
+    "id": "us_2015_2019_monthly_pm25_by_county_cdc",
+    "dct:title": "2014-2019 CDC PM 2.5 Monthly Predictions for US Counties",
+    "dct:creator": [
+      "Center for Disease Control;Organization;;;https://ror.org/04hsdam77;ROR;https://ror.org/",
+      "Timothy B Norris;Person;Norris;Timothy B;https://orcid.org/0000-0002-0898-3027;ORCID;https://orcid.org/;University of Miami Libraries, University of Miami;https://ror.org/02dgjyy92;ROR;https://ror.org/"
+    ],
+    "dcat:landingPage": "https://data.cdc.gov/Environmental-Health-Toxicology/Daily-County-Level-PM2-5-Concentrations-2001-2022/53mz-4zqd/about_data",
+    "dct:publisher": [
+      "University of Miami GDSC"
+    ],
+    "dct:rights": "Public Domain",
+    "dct:license": "odc_by",
+    "dct:licenseText": "Open Data Commons Attribution License (ODC-By): http://opendatacommons.org/licenses/by/1.0/",
+    "dct:coverage": [
+      "United States;6252001;geonames;https://www.geonames.org/"
+    ],
+    "dct:temporal": [
+      "2014-01-01",
+      "2019-12-31"
+    ],
+    "dct:relation": [
+      "us_2023_county_tl"
+    ],
+    "dct:type": "Vector Dataset",
+    "dct:issued": "2026-08-31T00:00:00Z",
+    "dct:description": "Aggregated monthly PM 2.5 modelled estimates that span 2014-01-01 to 2019-12-31 derived from the CDC Daily County-Level PM2.5 Concentrations 2001-2022 provided by the CDC National Environmental Public Health Tracking Network. From the CDC description: This dataset provides modeled predictions of PM2.5 levels from the EPA Downscaler model. Data are at the county level for 2001-2022. These data are used by the CDC National Environmental Public Health Tracking Network to generate air quality measures.\n\nBy using these data, you signify your agreement to comply with the following requirements:\n1. Use the data for statistical reporting and analysis only.\n2. Do not attempt to learn the identity of any person included in the data and do not combine these data with other data for the purpose of matching records to identify individuals.\n3. Do not disclose of or make use of the identity of any person or establishment discovered inadvertently and report the discovery to: trackingsupport@cdc.gov.\n4. Do not imply or state, either in written or oral form, that interpretations based on the data are those of the original data sources and CDC unless the data user and data source are formally collaborating.\n5. Acknowledge, in all reports or presentations based on these data, the original source of the data and CDC.\n6. Suggested citation: Centers for Disease Control and Prevention. National Environmental Public Health Tracking Network. Web. Accessed: insert date. www.cdc.gov/ephtracking.",
+    "prov:qualifiedAttribution": "Retrieved from the data.cdc.gov socrata endpoint as daily predictions a the county level and aggregated as monthly predictions for each county. NOTE: current aggregation is only valid for max and mean columns (the med and pop columns use methods with assumptions that are not valid). Counties with no data are dropped.",
+    "dcat:keyword": [
+      "environmental health",
+      "air pollution",
+      "asthma",
+      "pm2.5",
+      "particulate matter",
+      "air quality",
+      "national ambient air quality standards",
+      "national environmental health tracking network",
+      "United States"
+    ],
+    "dct:language": "en",
+    "adms:representationTechnique": "vector",
+    "locn:geometry": "multipolygon",
+    "dcat:temporalResolution": "1 month",
+    "dct:conformsTo": "EPSG:4269",
+    "dcat:bbox": "POLYGON((-179.231086 -14.601813,-179.231086 71.439786,179.85968107125612 71.439786,179.85968107125612 -14.601813,-179.231086 -14.601813))",
+    "prov:action": "#########\n# GDSC ETL is performed in two steps: shell script to ETL data into postgres\n# and then additional transformations with SQL in postGIS (if needed).\n####\n\n#########\n# Step 1 - bash script (pseudo code)\n####\n\n# create directory structure and move into it\nmkdir -p /data/us_2015_2019_monthly_pm25_by_county_cdc/download -p /data/us_2015_2019_monthly_pm25_by_county_cdc/etl\nchmod -R 777 /data/us_2015_2019_monthly_pm25_by_county_cdc\ncd /data/us_2015_2019_monthly_pm25_by_county_cdc\n\n# set update flag based on last update and update frequency\ndo_update=0 if date() < last_update + update_frequency else do_update = 1\n\n# download if update flag is set:\nif do_update == 1 then\nwget -O download/us_2015_2019_monthly_pm25_by_county_cdc.csv 'https://data.cdc.gov/api/v3/views/53mz-4zqd/query.csv?query=SELECT%0A%20%20%60year%60%2C%0A%20%20%60date%60%2C%0A%20%20%60statefips%60%2C%0A%20%20%60countyfips%60%2C%0A%20%20%60pm25_max_pred%60%2C%0A%20%20%60pm25_med_pred%60%2C%0A%20%20%60pm25_mean_pred%60%2C%0A%20%20%60pm25_pop_pred%60%0AWHERE%0A%20%20caseless_one_of(%60year%60%2C%20%222014%22%2C%20%222015%22%2C%20%222016%22%2C%20%222017%22%2C%20%222018%22%2C%20%222019%22)&app_token='\"$CDC_APP_TOKEN\"''\n\n# remove spaces and periods for all column headers and make sure no column starts with a number\n  sed -i '1 s/ /_/g; s/\\.//g;  s/\\\"\\([0-9]\\)/\\\"n\\1/g' download/us_2015_2019_monthly_pm25_by_county_cdc.csv\n\n# load into postGIS with:\nogr2ogr -lco GEOMETRY_NAME=geom -f PostgreSQL PG:\"<postgres connection>\" download/us_2015_2019_monthly_pm25_by_county_cdc.csv -dialect sqlite -sql \"WITH all_rows AS (SELECT year, DATE(SUBSTR(date, 6) || '-' || CASE SUBSTR(date, 3, 3) WHEN 'JAN' THEN '01' WHEN 'FEB' THEN '02' WHEN 'MAR' THEN '03' WHEN 'APR' THEN '04' WHEN 'MAY' THEN '05' WHEN 'JUN' THEN '06' WHEN 'JUL' THEN '07' WHEN 'AUG' THEN '08' WHEN 'SEP' THEN '09' WHEN 'OCT' THEN '10' WHEN 'NOV' THEN '11' WHEN 'DEC' THEN '12' END || '-01') AS start_date, FORMAT('%02d', statefips) AS statefips, FORMAT('%03d', countyfips) AS countyfips, MAX(CAST(pm25_max_pred AS decimal)) AS pm25_max_pred, MEDIAN(CAST(pm25_med_pred AS decimal)) AS pm25_med_pred, AVG(CAST(pm25_mean_pred AS decimal)) AS pm25_mean_pred, AVG(CAST(pm25_pop_pred AS decimal)) AS pm25_pop_pred FROM us_2015_2019_monthly_pm25_by_county_cdc WHERE pm25_max_pred != '' AND pm25_med_pred != '' AND pm25_mean_pred != '' AND pm25_pop_pred != '' GROUP BY statefips, countyfips, start_date) SELECT statefips, countyfips, statefips || countyfips as geoid, JSON_GROUP_OBJECT(start_date || '/' || DATE(start_date, '+1 month', '-1 day'), pm25_max_pred) AS pm25_max_pred, JSON_GROUP_OBJECT(start_date || '/' || DATE(start_date, '+1 month', '-1 day'), pm25_med_pred) AS pm25_med_pred, JSON_GROUP_OBJECT(start_date || '/' || DATE(start_date, '+1 month', '-1 day'), pm25_mean_pred) AS pm25_mean_pred, JSON_GROUP_OBJECT(start_date || '/' || DATE(start_date, '+1 month', '-1 day'), pm25_pop_pred) AS pm25_pop_pred FROM all_rows GROUP BY statefips, countyfips\" -lco COLUMN_TYPES=\"pm25_mean_pred=jsonb,pm25_med_pred=jsonb,pm25_max_pred=jsonb,pm25_pop_pred=jsonb\" -nlt multipolygon -nln us_2015_2019_monthly_pm25_by_county_cdc\n\n\n#########\n# Step 2 - SQL script (pseudo code):\n####\n\n# remove duplicate points and make geometries valid:\nUPDATE us_2015_2019_monthly_pm25_by_county_cdc\n  SET geom=ST_MakeValid(ST_RemoveRepeatedPoints(geom));\n\n# add local geometry column and reproject existing geometries into local EPSG:\nSELECT AddGeometryColumn (\n  'us_2015_2019_monthly_pm25_by_county_cdc',\n  'geom_local', 4269, 'multipolygon', 2\n);\nUPDATE us_2015_2019_monthly_pm25_by_county_cdc\n  SET geom_local=ST_MakeValid(ST_RemoveRepeatedPoints(ST_Transform(ST_Multi(geom),4269)));\nCREATE INDEX us_2015_2019_monthly_pm25_by_county_cdc_geom_local_idx\n  ON us_2015_2019_monthly_pm25_by_county_cdc\n  USING GIST (geom_local);\nNOTIFY pgrst, 'reload schema';\n-- join temp to us_2015_2019_monthly_pm25_by_county_cdc (column)\nALTER TABLE us_2015_2019_monthly_pm25_by_county_cdc\n  ADD COLUMN IF NOT EXISTS pm25_max_pred jsonb,\n  ADD COLUMN IF NOT EXISTS pm25_med_pred jsonb,\n  ADD COLUMN IF NOT EXISTS pm25_mean_pred jsonb,\n  ADD COLUMN IF NOT EXISTS pm25_pop_pred jsonb;\nSET LOCAL statement_timeout = '10min';\nUPDATE us_2015_2019_monthly_pm25_by_county_cdc \nSET\n  pm25_max_pred = temp.pm25_max_pred,\n  pm25_med_pred = temp.pm25_med_pred,\n  pm25_mean_pred = temp.pm25_mean_pred,\n  pm25_pop_pred = temp.pm25_pop_pred\nFROM temp\nWHERE us_2015_2019_monthly_pm25_by_county_cdc.geoid = temp.geoid;\n\n-- remove temporary table\nDROP TABLE temp CASCADE;\n\"\n\n# Move into corrrect directory and create derivative directory in data package on osgeo\ncd /data/us_2015_2019_monthly_pm25_by_county_cdc/\nmkdir -p derived\n\n# Create gpkg of table in derivate directory on osgeo \nrm -f derived/us_2015_2019_monthly_pm25_by_county_cdc.gpkg\nogr2ogr -f GPKG -overwrite derived/us_2015_2019_monthly_pm25_by_county_cdc.gpkg PG:\"<postgres connection>\" -select \"state_fips,countyfips,geoid,pm25_max_pred,pm25_med_pred,pm25_mean_pred,pm25_pop_pred,geom\" us_2015_2019_monthly_pm25_by_county_cdc\n\n# Create downloadable tarfile of gpkg in derivative directory on osgeo\nrm -f derived/us_2015_2019_monthly_pm25_by_county_cdc.gpkg.tar.gz\ntar -czf derived/us_2015_2019_monthly_pm25_by_county_cdc.gpkg.tar.gz meta_dcat_us_2015_2019_monthly_pm25_by_county_cdc.json -C derived us_2015_2019_monthly_pm25_by_county_cdc.gpkg\n\n# Move into correct directory\ncd /data/us_2015_2019_monthly_pm25_by_county_cdc/\n\n# Create pg_dump of table SQL in derivate directory on postgis.\npg_dump <postgres opts> -h gaia-db -t us_2015_2019_monthly_pm25_by_county_cdc > derived/us_2015_2019_monthly_pm25_by_county_cdc.sql\n\n# Create downloadable tarfile of SQL in derivative directory on postgis\nrm -f derived/us_2015_2019_monthly_pm25_by_county_cdc.sql.tar.gz\ntar -czf derived/us_2015_2019_monthly_pm25_by_county_cdc.sql.tar.gz meta_dcat_us_2015_2019_monthly_pm25_by_county_cdc.json -C derived us_2015_2019_monthly_pm25_by_county_cdc.sql\n\n",
+    "prov:wasGeneratedBy": "GDSC automation (see Process Step)",
+    "dcat:contactPoint": [
+      "Timothy Norris",
+      "Librarian Associate Professor",
+      "University of Miami Libraries, Frost Institute for Data Science and Computing",
+      "txn60@miami.edu"
+    ],
+    "gdsc:label": "name",
+    "gdsc:value": [
+      "state_fips",
+      "countyfips",
+      "geoid",
+      "pm25_max_pred",
+      "pm25_med_pred",
+      "pm25_mean_pred",
+      "pm25_pop_pred"
+    ],
+    "gdsc:attributes": [
+      "statefips;State FIPS Code as two numeric characters;American National Standards Institute (ANSI);varchar",
+      "countyfips;County FIPS Code as three numeric characters;American National Standards Institute (ANSI);varchar",
+      "geoid;Geographic identifier as a five numeric characters created as a concatenation of the statefips and countyfips;American National Standards Institute (ANSI);varchar;;;;",
+      "pm25_max_pred;The series of maximum predicted values for the given county and month stored as a jsonb object with date ranges as keys (startDate/endDate formatted as YYYY-MM-DD/YYYY-MM-DD) and maximum pm 2.5 values for each date key.;Derived from the CDC data as the max() of maximum values for each day in the month;jsonb;micrograms/cubic meter;32964;3.10;302.16;2014-01-01;2019-12-31;2052499839",
+      "pm25_med_pred;The series of median of medians predicted values for the given county and month stored as a jsonb object with date ranges as keys (startDate/endDate formatted as YYYY-MM-DD/YYYY-MM-DD) and median of medians pm 2.5 values for each date key.;Derived from the CDC data as the median() of all median values for each day in the month. NOTE: THIS IS NOT A VALID MEDIAN;jsonb;micrograms/cubic meter;32964;1.43;53.39;2014-01-01;2019-12-31;2052499839",
+      "pm25_mean_pred;The series of mean predicted values for the given county and month stored as a jsonb object with date ranges as keys (startDate/endDate formatted as YYYY-MM-DD/YYYY-MM-DD) and mean pm 2.5 values for each date key.;Derived from the CDC data as the mean() of all mean values for each day in the month. NOTE: all sub-samples may not be the same size (dpending on which monitoring staions were used to calculate the original mean), so this is likely not a true mean;jsonb;micrograms/cubic meter;32964;1.59;50.59;2014-01-01;2019-12-31;2052499839",
+      "pm25_pop_pred;The series of population weighted mean predicted values for the given county and month stored as a jsonb object with date ranges as keys (startDate/endDate formatted as YYYY-MM-DD/YYYY-MM-DD) and population weighted mean pm 2.5 values for each date key.;Derived from the CDC data as the mean() of all population weighted means for each day in the month. NOTE, this is likely not a true population weighted mean;jsonb;micrograms/cubic meter;32964;1.52;50.52;2014-01-01;2019-12-31;2052499839"
+    ],
+    "gdsc:collections": [
+      "ohdsi-gaia"
+    ],
+    "gdsc:functions": [
+      "gdsc_get_attributes"
+    ],
+    "gdsc:analyticConformsTo": "EPSG:4269",
+    "gdsc:derived": [
+      "sql",
+      "gpkg"
+    ],
+    "dcat:accessURL": "/data/us_2015_2019_monthly_pm25_by_county_cdc/",
+    "gdsc:sponsor": [
+      "TuftsCTSI;https://www.tuftsctsi.org/",
+      "IDSC;https://idsc.miami.edu",
+      "Library;https://www.library.miami.edu"
+    ],
+    "dcat:downloadURL": "https://data.cdc.gov/api/v3/views/53mz-4zqd/query.csv?query=SELECT%0A%20%20%60year%60%2C%0A%20%20%60date%60%2C%0A%20%20%60statefips%60%2C%0A%20%20%60countyfips%60%2C%0A%20%20%60pm25_max_pred%60%2C%0A%20%20%60pm25_med_pred%60%2C%0A%20%20%60pm25_mean_pred%60%2C%0A%20%20%60pm25_pop_pred%60%0AWHERE%0A%20%20caseless_one_of(%60year%60%2C%20%222014%22%2C%20%222015%22%2C%20%222016%22%2C%20%222017%22%2C%20%222018%22%2C%20%222019%22)&app_token='\"\"'",
+    "gdsc:tablename": "us_2015_2019_monthly_pm25_by_county_cdc",
+    "dcat:qualifiedRelation": [
+      "us_2023_county_tl"
+    ],
+    "gdsc:up": "true",
+    "gdsc:podID": "gaia-db",
+    "dct:modified": "2026-09-04T15:32:53Z",
+    "dct:accrualPeriodicity": "Never",
+    "gdsc:version": "2026-09-08T23:16:58Z",
+    "spdx:checksum": "TBD",
+    "dct:extent": [
+      "bash: line 7: numfmt: command not found\n1145462895",
+      ""
+    ]
   },
   {
     "id": "us_2018_svi_county",
@@ -2162,22 +2155,13 @@ export const catalog = [
     "adms:representationTechnique": "vector",
     "locn:geometry": "multipolygon",
     "dct:conformsTo": "EPSG:4269",
-    "prov:action": "#########\n# GDSC ETL is performed in two steps: shell script to ETL data into postgres\n# and then additional transformations with SQL in postGIS (if needed).\n####\n\n#########\n# Step 1 - bash script (pseudo code)\n####\n\n# create directory structure and move into it\nmkdir -p /data/us_2018_svi_county/download -p /data/us_2018_svi_county/etl\nchmod 777 /data/us_2018_svi_county/download\ncd /data/us_2018_svi_county\n\n# set update flag based on last update and update frequency\ndo_update=0 if date() < last_update + update_frequency else do_update = 1\n\n# download if update flag is set:\nif do_update == 1 then\nwget -O download/us_2018_svi_county.zip 'https://svi.cdc.gov/Documents/Data/2018/db/states_counties/SVI_2018_US_county.zip'\n\n# unzip to download directory if update flag is set\nif do_update == 1 then\nunzip -d download download/us_2018_svi_county.zip && rm download/us_2018_svi_county.zip\n\n# load into postGIS with:\n  ogr2ogr -lco GEOMETRY_NAME=geom -f PostgreSQL PG:\"<postgres connection>\" download/SVI2018_US_county.gdb -nlt multipolygon -nln us_2018_svi_county\n\n#########\n# Step 2 - SQL script (pseudo code):\n####\n\n# remove duplicate points and make geometries valid:\nUPDATE us_2018_svi_county\n  SET geom=ST_MakeValid(ST_RemoveRepeatedPoints(geom));\n\n# add local geometry column and reproject existing geometries into local EPSG:\nSELECT AddGeometryColumn (\n  'us_2018_svi_county',\n  'geom_local', 6350, 'multipolygon', 2\n);\nUPDATE us_2018_svi_county\n  SET geom_local=ST_MakeValid(ST_RemoveRepeatedPoints(ST_Transform(ST_Multi(geom),6350)));\nCREATE INDEX us_2018_svi_county_geom_local_idx\n  ON us_2018_svi_county\n  USING GIST (geom_local);\nNOTIFY pgrst, 'reload schema';\n# Move into corrrect directory and create derivative directory in data package on osgeo\ncd /data/us_2018_svi_county/\nmkdir -p derived\n\n# Move into correct directory\ncd /data/us_2018_svi_county/\n\n# Create pg_dump of table SQL in derivate directory on postgis.\npg_dump <postgres opts> -h gaia-db -t us_2018_svi_county > derived/us_2018_svi_county.sql\n\n# Create downloadable tarfile of SQL in derivative directory on postgis\nrm -f derived/us_2018_svi_county.sql.tar.gz\ntar -czf derived/us_2018_svi_county.sql.tar.gz meta_dcat_us_2018_svi_county.json -C derived us_2018_svi_county.sql\n\n",
+    "prov:action": "#########\n# GDSC ETL is performed in two steps: shell script to ETL data into postgres\n# and then additional transformations with SQL in postGIS (if needed).\n####\n\n#########\n# Step 1 - bash script (pseudo code)\n####\n\n# create directory structure and move into it\nmkdir -p /data/us_2018_svi_county/download -p /data/us_2018_svi_county/etl\nchmod -R 777 /data/us_2018_svi_county\ncd /data/us_2018_svi_county\n\n# set update flag based on last update and update frequency\ndo_update=0 if date() < last_update + update_frequency else do_update = 1\n\n# download if update flag is set:\nif do_update == 1 then\nwget -O download/us_2018_svi_county.zip 'https://svi.cdc.gov/Documents/Data/2018/db/states_counties/SVI_2018_US_county.zip'\n\n# unzip to download directory if update flag is set\nif do_update == 1 then\nunzip -o download/us_2018_svi_county.zip -d download && rm download/us_2018_svi_county.zip\n\n# load into postGIS with:\nogr2ogr -lco GEOMETRY_NAME=geom -f PostgreSQL PG:\"<postgres connection>\" download/SVI2018_US_county.gdb -nlt multipolygon -nln us_2018_svi_county\n\n\n#########\n# Step 2 - SQL script (pseudo code):\n####\n\n# remove duplicate points and make geometries valid:\nUPDATE us_2018_svi_county\n  SET geom=ST_MakeValid(ST_RemoveRepeatedPoints(geom));\n\n# add local geometry column and reproject existing geometries into local EPSG:\nSELECT AddGeometryColumn (\n  'us_2018_svi_county',\n  'geom_local', 6350, 'multipolygon', 2\n);\nUPDATE us_2018_svi_county\n  SET geom_local=ST_MakeValid(ST_RemoveRepeatedPoints(ST_Transform(ST_Multi(geom),6350)));\nCREATE INDEX us_2018_svi_county_geom_local_idx\n  ON us_2018_svi_county\n  USING GIST (geom_local);\nNOTIFY pgrst, 'reload schema';\n# Move into corrrect directory and create derivative directory in data package on osgeo\ncd /data/us_2018_svi_county/\nmkdir -p derived\n\n# Move into correct directory\ncd /data/us_2018_svi_county/\n\n# Create pg_dump of table SQL in derivate directory on postgis.\npg_dump <postgres opts> -h gaia-db -t us_2018_svi_county > derived/us_2018_svi_county.sql\n\n# Create downloadable tarfile of SQL in derivative directory on postgis\nrm -f derived/us_2018_svi_county.sql.tar.gz\ntar -czf derived/us_2018_svi_county.sql.tar.gz meta_dcat_us_2018_svi_county.json -C derived us_2018_svi_county.sql\n\n",
     "prov:wasGeneratedBy": "GDSC automation (see Process Step)",
     "dcat:contactPoint": [
-      {
-        "contact_name": "Timothy B. Norris",
-        "contact_last_name": "Norris",
-        "contact_first_name": "Timothy",
-        "contact_email": "tnorris@miami.edu",
-        "contact_identifier": "https://orcid.org/0000-0002-0898-3027",
-        "contact_identifier_schema": "orcid",
-        "contact_identifier_schema_uri": "https://orcid.org/",
-        "contact_affiliation": "University of Miami Libraries, Frost Institute for Data Science and Computing",
-        "contact_affiliation_identifier": "https://ror.org/02dgjyy92",
-        "contact_affiliation_schema": "ror",
-        "contact_affiliation_schema_uri": "https://ror.org/"
-      }
+      "Timothy Norris",
+      "Librarian Associate Professor",
+      "University of Miami Libraries, Frost Institute for Data Science and Computing",
+      "txn60@miami.edu"
     ],
     "gdsc:label": "location",
     "gdsc:value": [
@@ -2308,7 +2292,7 @@ export const catalog = [
       "stcnty"
     ],
     "gdsc:attributes": [
-      "area_sqmi;Tract area in square miles;Census ACS;float8;square miles;;2;145574;;;2052497175;gaia-132",
+      "area_sqmi;Tract area in square miles;Census ACS;float8;square miles;;2.0464429;145573.8327613;;;2052497175;gaia-132",
       "\ncounty;County name;Census ACS;varchar;;;;;;;2052499639",
       "\ne_age17;\"Persons aged 17 and younger estimate, 2014-2018 ACS\";Census ACS;int4;persons;;;;1/1/18;12/31/18;2052498115;gaia-149",
       "\ne_age65;\"Persons aged 65 and older estimate, 2014-2018 ACS\";Census ACS;int4;persons;;;;1/1/18;12/31/18;2052498113;gaia-147",
@@ -2342,7 +2326,7 @@ export const catalog = [
       "\nep_nohsdp;Percentage of persons with no high school diploma (age 25+) estimate;Census ACS;float8;percentage;;;;1/1/18;12/31/18;2052498369;gaia-175",
       "\nep_noveh;Percentage of households with no vehicle available estimate;Census ACS;float8;percentage;;;;1/1/18;12/31/18;2052498477;gaia-195",
       "\nep_pci;\"Per capita income estimate, 2014-2018 ACS\";Census ACS;int4;US dollars;;;;1/1/18;12/31/18;;gaia-173",
-      "ep_pov;Percentage of persons below poverty estimate;Census ACS;float8;percentage;;2;55;1/1/18;12/31/18;2052498378;gaia-169",
+      "ep_pov;Percentage of persons below poverty estimate;Census ACS;float8;percentage;;2.3;55.1;1/1/18;12/31/18;2052498378;gaia-169",
       "\nep_sngpnt;\"Percentage of single parent households with children under 18 estimate, 2014-2018 ACS\";Census ACS;float8;percentage;;;;1/1/18;12/31/18;2052498249;gaia-183",
       "\nep_unemp;Unemployment Rate estimate;Census ACS;float8;percentage;;;;1/1/18;12/31/18;2052497153;gaia-171",
       "\nep_uninsur;\"Adjunct variable - Percentage uninsured in the total civilian non-institutionalized population estimate, 2014-2018 ACS\";Census ACS;float8;percentage;;;;1/1/18;12/31/18;2052498200;gaia-246",
@@ -2456,17 +2440,437 @@ export const catalog = [
     ],
     "dcat:downloadURL": "https://svi.cdc.gov/Documents/Data/2018/db/states_counties/SVI_2018_US_county.zip",
     "gdsc:tablename": "us_2018_svi_county",
-    "gdsc:up": "false",
+    "gdsc:up": "true",
     "gdsc:podID": "gaia-db",
-    "dct:modified": "2025-05-23T08:50:42Z",
+    "dct:modified": "2026-09-06T17:29:58Z",
     "dct:accrualPeriodicity": "Never",
-    "gdsc:version": "2026-08-23T15:57:24Z",
+    "gdsc:version": "2026-09-08T23:17:05Z",
     "spdx:checksum": "TBD",
-    "dct:extent": {
-      "size_bytes": "10300589",
-      "size_human_readable": "9.9M"
-    },
+    "dct:extent": [
+      "bash: line 7: numfmt: command not found\n10308781",
+      ""
+    ],
     "dcat:bbox": "POLYGON((-179.148909 18.910361, 179.778470 18.910361, 179.778470 71.365162, -179.148909 71.365162, -179.148909 18.910361))"
+  },
+  {
+    "id": "us_2020_census_county_fips",
+    "dct:title": "2020 Census County FIPS Codes",
+    "dct:creator": [
+      "United States Census Bureau"
+    ],
+    "dcat:landingPage": "https://www.census.gov/library/reference/code-lists.html",
+    "dct:publisher": [
+      "U.S. Census Bureau"
+    ],
+    "dct:rights": "Public Domain",
+    "dct:licenseText": "This Software was created by U.S. Government employees and therefore is not subject to copyright in the United States (17 U.S.C. §105). The United States/U.S.Department of Commerce (“Commerce”) reserve all rights to seek and obtain copyright protection in countries other than the United States. The United States/Commerce hereby grant to User a royalty-free, nonexclusive license to use, copy, and create derivative works of the Software outside of the United States.\n\nThe Software is provided to the User and those who may take by, through or under it, “as is,” without any warranty (whether express or implied) or representation whatsoever, including but not limited to any warranty of merchantability. The Software is taken hereunder without any right to support or to any improvements, extensions, or modifications, except as may be agreed to separately, in writing, by Commerce.\n\nUser, on behalf of itself and all others who take by, through or under it, hereby and forever waives, releases, and discharges the United States/Commerce and all its instrumentalities from any and all liabilities and obligations in connection with the use, application, sale or conveyance of the Software. User shall indemnify and hold harmless the United States/Commerce and its instrumentalities from all claims, liabilities, demands, damages, expenses, and losses arising from or in connection with User's use, application, sale or conveyance of the Software, including those who take by, through or under User whether or not User was directly involved. This provision will survive termination of this Agreement and will include any and all claims or liabilities arising under intellectual property rights, such as patents, copyrights, trademarks, and trade secrets. If User of software is an Executive Agency of the United States, this clause is not applicable.\n\nThe construction, validity, performance, and effect of this Agreement for all purposes will be governed by Federal law of the United States.\n\nUser agrees to make a good faith effort to use the Software in a way that does not cause damage, harm, or embarrassment to the United States/Commerce. The United States/Commerce expressly reserve all rights and remedies.",
+    "dct:coverage": [
+      "United States;6252001;geonames;https://www.geonames.org/"
+    ],
+    "dct:type": "API",
+    "dct:issued": "2022-12-08T00:00:00Z",
+    "dct:description": "FIPS codes are numbers which uniquely identify geographic areas.  The number of \ndigits in FIPS codes vary depending on the level of geography.  State-level FIPS\ncodes have two digits, county-level FIPS codes have five digits of which the \nfirst two are the FIPS code of the state to which the county belongs.  When \nusing the list below to look up county FIPS codes, it is advisable to first look\nup the FIPS code for the state to which the county belongs.  This will help you\nidentify the right section of the list while scrolling down, which can be\nimportant since there are over 3000 counties and county-equivalents (e.g.\nindependent cities, parishes, boroughs) in the United States.",
+    "prov:qualifiedAttribution": "direct from API",
+    "dcat:keyword": [
+      "Census",
+      "2020",
+      "County",
+      "FIPS"
+    ],
+    "dct:language": "en",
+    "adms:representationTechnique": "table",
+    "prov:action": "#########\n# GDSC ETL is performed in two steps: shell script to ETL data into postgres\n# and then additional transformations with SQL in postGIS (if needed).\n####\n\n#########\n# Step 1 - bash script (pseudo code)\n####\n\n# create directory structure and move into it\nmkdir -p /data/us_2020_census_county_fips/download -p /data/us_2020_census_county_fips/etl\nchmod -R 777 /data/us_2020_census_county_fips\ncd /data/us_2020_census_county_fips\n\n# set update flag based on last update and update frequency\ndo_update=0 if date() < last_update + update_frequency else do_update = 1\n\n# Download and etl as needed\nif [[ $do_update = 1 ]]; then\n  curl -o download/us_2020_census_county_fips.json \"https://api.census.gov/data/2020/dec/dp?get=NAME&for=county:*&key=<your key here>\"\nfi\nawk '{gsub(/\\[|\\]|.$/,\"\"); print;}' download/us_2020_census_county_fips.json | \n  sed 's/, /\\\",\\\"/g' | \n  sed 's/\\\"NAME\\\"/\\\"county_name\\\",\\\"state_name\\\"/g' | \n  ogr2ogr -f PostgreSQL PG:\"<postgres_connection>\" csv:/vsistdin/ -nln us_2020_census_county_fips\n\n",
+    "prov:wasGeneratedBy": "GDSC automation (see Process Step)",
+    "dcat:contactPoint": [
+      "Timothy Norris",
+      "Librarian Associate Professor",
+      "University of Miami Libraries, Frost Institute for Data Science and Computing",
+      "txn60@miami.edu"
+    ],
+    "gdsc:label": "geoid",
+    "gdsc:attributes": [
+      "name;County name;Census;varchar;",
+      "state;State FIPS Code (2 digit);Census;varchar;;;;",
+      "county;County FIPS Code (3 digit);Census;varchar;;;;"
+    ],
+    "gdsc:collections": [
+      "us-census"
+    ],
+    "dcat:accessURL": "/data/us_2020_census_county_fips/",
+    "dcat:downloadURL": "https://api.census.gov/data/2020/dec/dp?get=NAME&for=county:*",
+    "gdsc:tablename": "us_2020_census_county_fips",
+    "gdsc:up": "true",
+    "gdsc:podID": "gaia-db",
+    "dct:accrualPeriodicity": "Never",
+    "gdsc:version": "2026-09-08T23:17:08Z",
+    "spdx:checksum": "TBD",
+    "dct:modified": "2026-09-01T19:06:50Z",
+    "dct:extent": [
+      "bash: line 7: numfmt: command not found\n137059",
+      ""
+    ]
+  },
+  {
+    "id": "us_2022_annual_aqi_by_county",
+    "dct:title": "2022 US EPA Annual AQI by County ",
+    "dct:creator": [
+      "US Environmental Protection Agency;Organization"
+    ],
+    "dcat:landingPage": "https://aqs.epa.gov/aqsweb/airdata/download_files.html",
+    "dct:publisher": [
+      "US Environmental Protection Agency"
+    ],
+    "dct:rights": "Public Domain",
+    "dct:licenseText": "Unless otherwise specified, all data produced by the U.S EPA is by default in the public domain and is not subject to domestic copyright protection under 17 U.S.C. § 105 . More details on the U.S. Public Domain license are available here: \n\nhttp://www.usa.gov/publicdomain/label/1.0/ \n\nAdditionally, please be advised that although these data have been processed successfully on a computer system at the U.S. EPA, no warranty expressed or implied is made regarding the accuracy or utility of the data on any other system or for general or scientific purposes, nor shall the act of distribution constitute any such warranty.",
+    "dct:coverage": [
+      "United States;6252001;geonames;https://www.geonames.org/"
+    ],
+    "dct:temporal": [
+      "2022-01-01",
+      "2022-12-31"
+    ],
+    "dct:relation": [
+      "us_2020_census_county_fips",
+      "us_2022_county_tl"
+    ],
+    "dct:type": "Vector Dataset",
+    "dct:issued": "2022-11-14T00:00:00Z",
+    "dct:description": "The AirData Air Quality Index Summary Report displays an annual summary of Air Quality Index (AQI) values for counties or core based statistical areas (CBSA). Air Quality Index is an indicator of overall air quality, because it takes into account all of the criteria air pollutants measured within a geographic area. Although AQI includes all available pollutant measurements, you should be aware that many areas have monitoring stations for some, but not all, of the pollutants. Each row of the AQI Report lists summary values for one year for one county or CBSA. The summary values include both qualitative measures (days of the year having \"good\" air quality, for example) and descriptive statistics (median AQI value, for example).\n\nSummary statistics for the current year are incomplete because data are still being reported and quality assured. Data for the current year are considered preliminary until May 1 of the following year. Therefore, comparing reported values for the current year with previous years may not be valid.\n\nsee https://www.epa.gov/outdoor-air-quality-data/about-air-data-reports for more information.",
+    "prov:qualifiedAttribution": "The Air Quality Index (AQI) values are presented in several files. AQI is calculated each day for each monitor for the Criteria Gases and PM10 and PM2.5 (FRM and non FRM). The AQI values are on the respective records in those Daily Summary files. There are also annual summary AQI files that show by CBSA (metro area) or county the annual statistics for AQI (max, number of values in each category, etc.). This file has one record per year per CBSA or county. There are also daily summary files that show the AQI by CBSA or county. These have one record per day per CBSA or county.",
+    "dcat:keyword": [
+      "EPA",
+      "AQI",
+      "annual",
+      "USA",
+      "county"
+    ],
+    "dct:language": "en",
+    "adms:representationTechnique": "table",
+    "locn:geometry": "multipolygon",
+    "prov:action": "#########\n# GDSC ETL is performed in two steps: shell script to ETL data into postgres\n# and then additional transformations with SQL in postGIS (if needed).\n####\n\n#########\n# Step 1 - bash script (pseudo code)\n####\n\n# create directory structure and move into it\nmkdir -p /data/us_2022_annual_aqi_by_county/download -p /data/us_2022_annual_aqi_by_county/etl\nchmod -R 777 /data/us_2022_annual_aqi_by_county\ncd /data/us_2022_annual_aqi_by_county\n\n# set update flag based on last update and update frequency\ndo_update=0 if date() < last_update + update_frequency else do_update = 1\n\n# download if update flag is set:\nif do_update == 1 then\nOPENSSL_CONF=/openssl/openssl.conf curl -o download/us_2022_annual_aqi_by_county.zip 'https://aqs.epa.gov/aqsweb/airdata/annual_aqi_by_county_2022.zip'\n\n# unzip to download directory if update flag is set\nif do_update == 1 then\nunzip -o download/us_2022_annual_aqi_by_county.zip -d download && rm download/us_2022_annual_aqi_by_county.zip\n\n# remove spaces and periods for all column headers and make sure no column starts with a number\n  sed -i '1 s/ /_/g; s/\\.//g;  s/\\\"\\([0-9]\\)/\\\"n\\1/g' download/annual_aqi_by_county_2022.csv\n\n# load into postGIS with:\nogr2ogr -lco GEOMETRY_NAME=geom -f PostgreSQL PG:\"<postgres connection>\" download/annual_aqi_by_county_2022.csv -nlt multipolygon -nln us_2022_annual_aqi_by_county\n\n# rename data table to temp\npsql -d $POSTGRES_DB -U $POSTGRES_USER -p $POSTGRES_PORT -h gaia-db -c \"\nALTER SEQUENCE IF EXISTS us_2022_annual_aqi_by_county_ogc_fid_seq RENAME TO temp_ogc_fid_seq;\nALTER INDEX IF EXISTS us_2022_annual_aqi_by_county_geom_geom_idx RENAME TO temp_geom_idx;\nALTER TABLE IF EXISTS us_2022_annual_aqi_by_county RENAME CONSTRAINT us_2022_annual_aqi_by_county_pkey TO temp_pkey;\nALTER TABLE us_2022_annual_aqi_by_county RENAME TO temp;\"\n\n# Create copy of geom dependency\npg_dump -d $POSTGRES_DB -U $POSTGRES_USER -p $POSTGRES_PORT -h gaia-db -t us_2022_county_tl | sed 's/us_2022_county_tl/us_2022_annual_aqi_by_county/g' | psql -d $POSTGRES_DB -U $POSTGRES_USER -p $POSTGRES_PORT -h gaia-db\n\n# join as per custom parameters\npsql -d $POSTGRES_DB -U $POSTGRES_USER -p $POSTGRES_PORT -h gaia-db -c \"\nALTER TABLE temp ADD COLUMN geoid varchar;\nUPDATE temp SET geoid = CONCAT(us_2020_census_county_fips.state,us_2020_census_county_fips.county)\n  FROM us_2020_census_county_fips\n  WHERE position(temp.state in us_2020_census_county_fips.state_name)>0\n  AND position(temp.county in us_2020_census_county_fips.county_name)>0;\n\nALTER TABLE us_2022_annual_aqi_by_county ADD COLUMN state varchar;\nUPDATE us_2022_annual_aqi_by_county SET state=temp.state::varchar\n  FROM temp\n  WHERE us_2022_annual_aqi_by_county.geoid = temp.geoid;\n\nALTER TABLE us_2022_annual_aqi_by_county ADD COLUMN county varchar;\nUPDATE us_2022_annual_aqi_by_county SET county=temp.county::varchar\n  FROM temp\n  WHERE us_2022_annual_aqi_by_county.geoid = temp.geoid;\n\nALTER TABLE us_2022_annual_aqi_by_county ADD COLUMN year varchar;\nUPDATE us_2022_annual_aqi_by_county SET year=temp.year::varchar\n  FROM temp\n  WHERE us_2022_annual_aqi_by_county.geoid = temp.geoid;\n\nALTER TABLE us_2022_annual_aqi_by_county ADD COLUMN days_with_aqi int4;\nUPDATE us_2022_annual_aqi_by_county SET days_with_aqi=temp.days_with_aqi::int4\n  FROM temp\n  WHERE us_2022_annual_aqi_by_county.geoid = temp.geoid;\n\nALTER TABLE us_2022_annual_aqi_by_county ADD COLUMN good_days int4;\nUPDATE us_2022_annual_aqi_by_county SET good_days=temp.good_days::int4\n  FROM temp\n  WHERE us_2022_annual_aqi_by_county.geoid = temp.geoid;\n\nALTER TABLE us_2022_annual_aqi_by_county ADD COLUMN moderate_days int4;\nUPDATE us_2022_annual_aqi_by_county SET moderate_days=temp.moderate_days::int4\n  FROM temp\n  WHERE us_2022_annual_aqi_by_county.geoid = temp.geoid;\n\nALTER TABLE us_2022_annual_aqi_by_county ADD COLUMN unhealthy_for_sensitive_groups_days int4;\nUPDATE us_2022_annual_aqi_by_county SET unhealthy_for_sensitive_groups_days=temp.unhealthy_for_sensitive_groups_days::int4\n  FROM temp\n  WHERE us_2022_annual_aqi_by_county.geoid = temp.geoid;\n\nALTER TABLE us_2022_annual_aqi_by_county ADD COLUMN unhealthy_days int4;\nUPDATE us_2022_annual_aqi_by_county SET unhealthy_days=temp.unhealthy_days::int4\n  FROM temp\n  WHERE us_2022_annual_aqi_by_county.geoid = temp.geoid;\n\nALTER TABLE us_2022_annual_aqi_by_county ADD COLUMN very_unhealthy_days int4;\nUPDATE us_2022_annual_aqi_by_county SET very_unhealthy_days=temp.very_unhealthy_days::int4\n  FROM temp\n  WHERE us_2022_annual_aqi_by_county.geoid = temp.geoid;\n\nALTER TABLE us_2022_annual_aqi_by_county ADD COLUMN hazardous_days int4;\nUPDATE us_2022_annual_aqi_by_county SET hazardous_days=temp.hazardous_days::int4\n  FROM temp\n  WHERE us_2022_annual_aqi_by_county.geoid = temp.geoid;\n\nALTER TABLE us_2022_annual_aqi_by_county ADD COLUMN max_aqi int4;\nUPDATE us_2022_annual_aqi_by_county SET max_aqi=temp.max_aqi::int4\n  FROM temp\n  WHERE us_2022_annual_aqi_by_county.geoid = temp.geoid;\n\nALTER TABLE us_2022_annual_aqi_by_county ADD COLUMN n90th_percentile_aqi int4;\nUPDATE us_2022_annual_aqi_by_county SET n90th_percentile_aqi=temp.n90th_percentile_aqi::int4\n  FROM temp\n  WHERE us_2022_annual_aqi_by_county.geoid = temp.geoid;\n\nALTER TABLE us_2022_annual_aqi_by_county ADD COLUMN median_aqi int4;\nUPDATE us_2022_annual_aqi_by_county SET median_aqi=temp.median_aqi::int4\n  FROM temp\n  WHERE us_2022_annual_aqi_by_county.geoid = temp.geoid;\n\nALTER TABLE us_2022_annual_aqi_by_county ADD COLUMN days_co int4;\nUPDATE us_2022_annual_aqi_by_county SET days_co=temp.days_co::int4\n  FROM temp\n  WHERE us_2022_annual_aqi_by_county.geoid = temp.geoid;\n\nALTER TABLE us_2022_annual_aqi_by_county ADD COLUMN days_no2 int4;\nUPDATE us_2022_annual_aqi_by_county SET days_no2=temp.days_no2::int4\n  FROM temp\n  WHERE us_2022_annual_aqi_by_county.geoid = temp.geoid;\n\nALTER TABLE us_2022_annual_aqi_by_county ADD COLUMN days_ozone int4;\nUPDATE us_2022_annual_aqi_by_county SET days_ozone=temp.days_ozone::int4\n  FROM temp\n  WHERE us_2022_annual_aqi_by_county.geoid = temp.geoid;\n\nALTER TABLE us_2022_annual_aqi_by_county ADD COLUMN days_pm25 int4;\nUPDATE us_2022_annual_aqi_by_county SET days_pm25=temp.days_pm25::int4\n  FROM temp\n  WHERE us_2022_annual_aqi_by_county.geoid = temp.geoid;\n\nALTER TABLE us_2022_annual_aqi_by_county ADD COLUMN days_pm10 int4;\nUPDATE us_2022_annual_aqi_by_county SET days_pm10=temp.days_pm10::int4\n  FROM temp\n  WHERE us_2022_annual_aqi_by_county.geoid = temp.geoid;\n\nDROP table temp;\n\"\n",
+    "prov:wasGeneratedBy": "GDSC automation (see Process Step)",
+    "dcat:contactPoint": [
+      "Timothy Norris",
+      "Librarian Associate Professor",
+      "University of Miami Libraries, Frost Institute for Data Science and Computing",
+      "txn60@miami.edu"
+    ],
+    "gdsc:label": "county",
+    "gdsc:attributes": [
+      "state;The state name.;;varchar;;;;",
+      "county;The county name.;;varchar;;;;",
+      "year;The year.;;varchar;;;;",
+      "days_with_aqi;Days with valid AQI index calculated.;;int4;days;;42;365;2022-01-01;2022-12-31",
+      "good_days;Days with AQI measure from 0-50.;;int4;days;;17;364;2022-01-01;2022-12-31",
+      "moderate_days;Days with AQI measure from 51-100.;;int4;days;;0;297;2022-01-01;2022-12-31",
+      "unhealthy_for_sensitive_groups_days;Days with AQI measure from 101-150.;;int4;days;;0;109;2022-01-01;2022-12-31",
+      "unhealthy_days;Days with AQI measure from 151-200.;;int4;days;;0;56;2022-01-01;2022-12-31",
+      "very_unhealthy_days;Days with AQI measure from 201-300.;;int4;days;;0;9;2022-01-01;2022-12-31",
+      "hazardous_days;Days with AQI measure from 301-500.;;int4;days;;0;15;2022-01-01;2022-12-31",
+      "max_aqi;The maximum AQI in the county for the year.;;int4;AQI;;23;8368;2022-01-01;2022-12-31",
+      "n90th_percentile_aqi;90 percent of daily AQI values during the year were less than or equal to the 90th percentile value.;;int4;AQI;;7;166;2022-01-01;2022-12-31",
+      "median_aqi;Half of daily AQI values during the year were less than or equal to the median value, and half equaled or exceeded it.;;int4;AQI;;2;80;2022-01-01;2022-12-31",
+      "days_co;The number of days CO was the main pollutant used to calculate the AQI.;;int4;days;;0;118;2022-01-01;2022-12-31",
+      "days_no2;The number of days NO2 was the main pollutant used to calculate the AQI.;;int4;days;;0;363;2022-01-01;2022-12-31",
+      "days_ozone;The number of days Ozone was the main pollutant used to calculate the AQI.;;int4;days;;0;365;2022-01-01;2022-12-31",
+      "days_pm25;The number of days PM2.5 was the main pollutant used to calculate the AQI.;;int4;days;;0;365;2022-01-01;2022-12-31",
+      "days_pm10;The number of days PM10 was the main pollutant used to calculate the AQI.;;int4;days;;0;365;2022-01-01;2022-12-31"
+    ],
+    "gdsc:collections": [
+      "climate-change",
+      "mdc-health-outcomes",
+      "vulnerability",
+      "ohdsi-gaia"
+    ],
+    "gdsc:functions": [
+      "gdsc_get_attributes"
+    ],
+    "dcat:accessURL": "/data/us_2022_annual_aqi_by_county/",
+    "gdsc:sponsor": [
+      "IDSC;https://idsc.miami.edu",
+      "Library;https://www.library.miami.edu"
+    ],
+    "dcat:downloadURL": "https://aqs.epa.gov/aqsweb/airdata/annual_aqi_by_county_2022.zip",
+    "gdsc:tablename": "us_2022_annual_aqi_by_county",
+    "dcat:qualifiedRelation": [
+      "us_2020_census_county_fips",
+      "us_2022_county_tl"
+    ],
+    "gdsc:up": "true",
+    "gdsc:podID": "gaia-db",
+    "dct:modified": "2026-09-07T21:03:21Z",
+    "dct:accrualPeriodicity": "As Needed",
+    "gdsc:version": "2026-09-08T23:17:09Z",
+    "spdx:checksum": "TBD",
+    "dct:extent": [
+      "bash: line 7: numfmt: command not found\n73126",
+      ""
+    ]
+  },
+  {
+    "id": "us_2022_county_tl",
+    "dct:title": "TIGER/Line Shapefile, 2022, US, Current County",
+    "dct:creator": [
+      "U.S. Department of Commerce;Organization;;;https://ror.org/04chq2495;ROR;https://ror.org/",
+      "U.S. Census Bureau;Organization;;;https://ror.org/01qn7cs15;ROR;https://ror.org/",
+      "Geography Division;Organization",
+      "Spatial Data Collection and Products Branch;Organization"
+    ],
+    "dcat:landingPage": "https://www.census.gov/geographies/mapping-files/time-series/geo/cartographic-boundary.html",
+    "dct:publisher": [
+      "Department of Commerce",
+      "U.S. Census Bureau",
+      "Geography Division",
+      "Spatial Data Collection and Products Branch"
+    ],
+    "dct:rights": "Public Domain",
+    "dct:licenseText": "This Software was created by U.S. Government employees and therefore is not subject to copyright in the United States (17 U.S.C. §105). The United States/U.S.Department of Commerce (“Commerce”) reserve all rights to seek and obtain copyright protection in countries other than the United States. The United States/Commerce hereby grant to User a royalty-free, nonexclusive license to use, copy, and create derivative works of the Software outside of the United States.\n\nThe Software is provided to the User and those who may take by, through or under it, “as is,” without any warranty (whether express or implied) or representation whatsoever, including but not limited to any warranty of merchantability. The Software is taken hereunder without any right to support or to any improvements, extensions, or modifications, except as may be agreed to separately, in writing, by Commerce.\n\nUser, on behalf of itself and all others who take by, through or under it, hereby and forever waives, releases, and discharges the United States/Commerce and all its instrumentalities from any and all liabilities and obligations in connection with the use, application, sale or conveyance of the Software. User shall indemnify and hold harmless the United States/Commerce and its instrumentalities from all claims, liabilities, demands, damages, expenses, and losses arising from or in connection with User's use, application, sale or conveyance of the Software, including those who take by, through or under User whether or not User was directly involved. This provision will survive termination of this Agreement and will include any and all claims or liabilities arising under intellectual property rights, such as patents, copyrights, trademarks, and trade secrets. If User of software is an Executive Agency of the United States, this clause is not applicable.\n\nThe construction, validity, performance, and effect of this Agreement for all purposes will be governed by Federal law of the United States.\n\nUser agrees to make a good faith effort to use the Software in a way that does not cause damage, harm, or embarrassment to the United States/Commerce. The United States/Commerce expressly reserve all rights and remedies.",
+    "dct:coverage": [
+      "United States;6252001;geonames;https://www.geonames.org/"
+    ],
+    "dct:type": "Vector Dataset",
+    "dct:description": "TIGER/Line Shapefile, 2016,  state, Florida, Current County Subdivision State-based\n\nThe TIGER/Line shapefiles and related database files (.dbf) are an extract of selected geographic and cartographic information from the U.S. Census Bureau's Master Address File / Topologically Integrated Geographic Encoding and Referencing (MAF/TIGER) Database (MTBD).  The MTBD represents a seamless national file with no overlaps or gaps between parts, however, each TIGER/Line shapefile is designed to stand alone as an independent data set, or they can be combined to cover the entire nation.\n\nCounty subdivisions are the primary divisions of counties and their equivalent entities for the reporting of Census Bureau data. They include legally-recognized minor civil divisions (MCDs) and statistical census county divisions (CCDs), and unorganized territories.  For the 2010 Census, the MCDs are the primary governmental and/or administrative divisions of counties in 29 States and Puerto Rico; Tennessee changed from having CCDs for Census 2000 to having MCDs for the 2010 Census.  In MCD States where no MCD exists or is not defined, the Census Bureau creates statistical unorganized territories to complete coverage.  The entire area of the United States, Puerto Rico, and the Island Areas are covered by county subdivisions.  The boundaries of most legal MCDs are as of January 1, 2015, as reported through the Census Bureau's Boundary and Annexation Survey (BAS).  \n\nThe boundaries of all CCDs, delineated in 20 states, are those as reported as part of the Census Bureau's Participant Statistical Areas Program (PSAP) for the 2010 Census.",
+    "prov:qualifiedAttribution": "direct from source",
+    "dcat:keyword": [
+      "USA",
+      "Counties",
+      "TIGER"
+    ],
+    "dct:language": "en",
+    "adms:representationTechnique": "vector",
+    "locn:geometry": "multipolygon",
+    "dct:conformsTo": "EPSG:4269",
+    "dcat:bbox": "POLYGON((-179.231086 -14.601813, 179.859681 -14.601813, 179.859681 71.439786, -179.231086 71.439786, -179.231086 -14.601813))",
+    "prov:action": "#########\n# GDSC ETL is performed in two steps: shell script to ETL data into postgres\n# and then additional transformations with SQL in postGIS (if needed).\n####\n\n#########\n# Step 1 - bash script (pseudo code)\n####\n\n# create directory structure and move into it\nmkdir -p /data/us_2022_county_tl/download -p /data/us_2022_county_tl/etl\nchmod -R 777 /data/us_2022_county_tl\ncd /data/us_2022_county_tl\n\n# set update flag based on last update and update frequency\ndo_update=0 if date() < last_update + update_frequency else do_update = 1\n\n# download if update flag is set:\nif do_update == 1 then\nwget -O download/us_2022_county_tl.zip 'ftp://ftp2.census.gov/geo/tiger/TIGER2022/COUNTY/tl_2022_us_county.zip'\n\n# unzip to download directory if update flag is set\nif do_update == 1 then\nunzip -o download/us_2022_county_tl.zip -d download && rm download/us_2022_county_tl.zip\n\n# load into postGIS with:\nogr2ogr -lco GEOMETRY_NAME=geom -f PostgreSQL PG:\"<postgres connection>\" download/tl_2022_us_county.shp -nlt multipolygon -nln us_2022_county_tl\n\n\n#########\n# Step 2 - SQL script (pseudo code):\n####\n\n# remove duplicate points and make geometries valid:\nUPDATE us_2022_county_tl\n  SET geom=ST_MakeValid(ST_RemoveRepeatedPoints(geom));\n\n# add local geometry column and reproject existing geometries into local EPSG:\nSELECT AddGeometryColumn (\n  'us_2022_county_tl',\n  'geom_local', 4269, 'multipolygon', 2\n);\nUPDATE us_2022_county_tl\n  SET geom_local=ST_MakeValid(ST_RemoveRepeatedPoints(ST_Transform(ST_Multi(geom),4269)));\nCREATE INDEX us_2022_county_tl_geom_local_idx\n  ON us_2022_county_tl\n  USING GIST (geom_local);\nNOTIFY pgrst, 'reload schema';\n",
+    "prov:wasGeneratedBy": "GDSC automation (see Process Step)",
+    "dcat:contactPoint": [
+      "Timothy Norris",
+      "Librarian Associate Professor",
+      "University of Miami Libraries, Frost Institute for Data Science and Computing",
+      "txn60@miami.edu"
+    ],
+    "gdsc:label": "name",
+    "gdsc:attributes": [
+      "statefp;;;varchar;;;;",
+      "countyfp;;;varchar;;;;",
+      "countyns;;;varchar;;;;",
+      "geoid;;;varchar;;;;",
+      "name;;;varchar;;;;",
+      "namelsad;;;varchar;;;;",
+      "lsad;;;varchar;;;;",
+      "classfp;;;varchar;;;;",
+      "mtfcc;;;varchar;;;;",
+      "csafp;;;varchar;;;;",
+      "cbsafp;;;varchar;;;;",
+      "metdivfp;;;varchar;;;;",
+      "funcstat;;;varchar;;;;",
+      "aland;;;numeric;;;82093.00;377038947604.00",
+      "awater;;;numeric;;;0.00;25989695209.00",
+      "intptlat;;;varchar;;;;",
+      "intptlon;;;varchar;;;;"
+    ],
+    "gdsc:collections": [
+      "us-census"
+    ],
+    "gdsc:analyticConformsTo": "EPSG:4269",
+    "dcat:accessURL": "/data/us_2022_county_tl/",
+    "gdsc:sponsor": [
+      "IDSC;https://idsc.miami.edu",
+      "Library;https://www.library.miami.edu"
+    ],
+    "dcat:downloadURL": "ftp://ftp2.census.gov/geo/tiger/TIGER2022/COUNTY/tl_2022_us_county.zip",
+    "gdsc:tablename": "us_2022_county_tl",
+    "gdsc:up": "true",
+    "gdsc:podID": "gaia-db",
+    "dct:modified": "2026-09-01T19:09:43Z",
+    "dct:accrualPeriodicity": "Never",
+    "gdsc:version": "2026-09-08T23:17:11Z",
+    "spdx:checksum": "TBD",
+    "dct:extent": [
+      "bash: line 7: numfmt: command not found\n132310453",
+      ""
+    ]
+  },
+  {
+    "id": "us_2023_annual_aqi_by_county",
+    "dct:title": "2023 US EPA Annual AQI by County ",
+    "dct:creator": [
+      "US Environmental Protection Agency;Organization"
+    ],
+    "dcat:landingPage": "https://aqs.epa.gov/aqsweb/airdata/download_files.html",
+    "dct:publisher": [
+      "US Environmental Protection Agency"
+    ],
+    "dct:rights": "Public Domain",
+    "dct:licenseText": "Unless otherwise specified, all data produced by the U.S EPA is by default in the public domain and is not subject to domestic copyright protection under 17 U.S.C. § 105 . More details on the U.S. Public Domain license are available here: \n\nhttp://www.usa.gov/publicdomain/label/1.0/ \n\nAdditionally, please be advised that although these data have been processed successfully on a computer system at the U.S. EPA, no warranty expressed or implied is made regarding the accuracy or utility of the data on any other system or for general or scientific purposes, nor shall the act of distribution constitute any such warranty.",
+    "dct:coverage": [
+      "United States;6252001;geonames;https://www.geonames.org/"
+    ],
+    "dct:temporal": [
+      "2023-01-01",
+      "2023-12-31"
+    ],
+    "dct:relation": [
+      "us_2020_census_county_fips",
+      "us_2023_county_tl"
+    ],
+    "dct:type": "Vector Dataset",
+    "dct:issued": "2022-11-14T00:00:00Z",
+    "dct:description": "The AirData Air Quality Index Summary Report displays an annual summary of Air Quality Index (AQI) values for counties or core based statistical areas (CBSA). Air Quality Index is an indicator of overall air quality, because it takes into account all of the criteria air pollutants measured within a geographic area. Although AQI includes all available pollutant measurements, you should be aware that many areas have monitoring stations for some, but not all, of the pollutants. Each row of the AQI Report lists summary values for one year for one county or CBSA. The summary values include both qualitative measures (days of the year having \"good\" air quality, for example) and descriptive statistics (median AQI value, for example).\n\nSummary statistics for the current year are incomplete because data are still being reported and quality assured. Data for the current year are considered preliminary until May 1 of the following year. Therefore, comparing reported values for the current year with previous years may not be valid.\n\nsee https://www.epa.gov/outdoor-air-quality-data/about-air-data-reports for more information.",
+    "prov:qualifiedAttribution": "The Air Quality Index (AQI) values are presented in several files. AQI is calculated each day for each monitor for the Criteria Gases and PM10 and PM2.5 (FRM and non FRM). The AQI values are on the respective records in those Daily Summary files. There are also annual summary AQI files that show by CBSA (metro area) or county the annual statistics for AQI (max, number of values in each category, etc.). This file has one record per year per CBSA or county. There are also daily summary files that show the AQI by CBSA or county. These have one record per day per CBSA or county.",
+    "dcat:keyword": [
+      "EPA",
+      "AQI",
+      "annual",
+      "USA",
+      "county"
+    ],
+    "dct:language": "en",
+    "adms:representationTechnique": "table",
+    "locn:geometry": "multipolygon",
+    "prov:action": "#########\n# GDSC ETL is performed in two steps: shell script to ETL data into postgres\n# and then additional transformations with SQL in postGIS (if needed).\n####\n\n#########\n# Step 1 - bash script (pseudo code)\n####\n\n# create directory structure and move into it\nmkdir -p /data/us_2023_annual_aqi_by_county/download -p /data/us_2023_annual_aqi_by_county/etl\nchmod -R 777 /data/us_2023_annual_aqi_by_county\ncd /data/us_2023_annual_aqi_by_county\n\n# set update flag based on last update and update frequency\ndo_update=0 if date() < last_update + update_frequency else do_update = 1\n\n# download if update flag is set:\nif do_update == 1 then\nOPENSSL_CONF=/openssl/openssl.conf curl -o download/us_2023_annual_aqi_by_county.zip 'https://aqs.epa.gov/aqsweb/airdata/annual_aqi_by_county_2023.zip'\n\n# unzip to download directory if update flag is set\nif do_update == 1 then\nunzip -o download/us_2023_annual_aqi_by_county.zip -d download && rm download/us_2023_annual_aqi_by_county.zip\n\n# remove spaces and periods for all column headers and make sure no column starts with a number\n  sed -i '1 s/ /_/g; s/\\.//g;  s/\\\"\\([0-9]\\)/\\\"n\\1/g' download/annual_aqi_by_county_2023.csv\n\n# load into postGIS with:\nogr2ogr -lco GEOMETRY_NAME=geom -f PostgreSQL PG:\"<postgres connection>\" download/annual_aqi_by_county_2023.csv -nlt multipolygon -nln us_2023_annual_aqi_by_county\n\n# rename data table to temp\npsql -d $POSTGRES_DB -U $POSTGRES_USER -p $POSTGRES_PORT -h gaia-db -c \"\nALTER SEQUENCE IF EXISTS us_2023_annual_aqi_by_county_ogc_fid_seq RENAME TO temp_ogc_fid_seq;\nALTER INDEX IF EXISTS us_2023_annual_aqi_by_county_geom_geom_idx RENAME TO temp_geom_idx;\nALTER TABLE IF EXISTS us_2023_annual_aqi_by_county RENAME CONSTRAINT us_2023_annual_aqi_by_county_pkey TO temp_pkey;\nALTER TABLE us_2023_annual_aqi_by_county RENAME TO temp;\"\n\n# Create copy of geom dependency\npg_dump -d $POSTGRES_DB -U $POSTGRES_USER -p $POSTGRES_PORT -h gaia-db -t us_2023_county_tl | sed 's/us_2023_county_tl/us_2023_annual_aqi_by_county/g' | psql -d $POSTGRES_DB -U $POSTGRES_USER -p $POSTGRES_PORT -h gaia-db\n\n# join as per custom parameters\npsql -d $POSTGRES_DB -U $POSTGRES_USER -p $POSTGRES_PORT -h gaia-db -c \"\nALTER TABLE temp ADD COLUMN geoid varchar;\nUPDATE temp SET geoid = CONCAT(us_2020_census_county_fips.state,us_2020_census_county_fips.county)\n  FROM us_2020_census_county_fips\n  WHERE position(temp.state in us_2020_census_county_fips.state_name)>0\n  AND position(temp.county in us_2020_census_county_fips.county_name)>0;\n\nALTER TABLE us_2023_annual_aqi_by_county ADD COLUMN state varchar;\nUPDATE us_2023_annual_aqi_by_county SET state=temp.state::varchar\n  FROM temp\n  WHERE us_2023_annual_aqi_by_county.geoid = temp.geoid;\n\nALTER TABLE us_2023_annual_aqi_by_county ADD COLUMN county varchar;\nUPDATE us_2023_annual_aqi_by_county SET county=temp.county::varchar\n  FROM temp\n  WHERE us_2023_annual_aqi_by_county.geoid = temp.geoid;\n\nALTER TABLE us_2023_annual_aqi_by_county ADD COLUMN year varchar;\nUPDATE us_2023_annual_aqi_by_county SET year=temp.year::varchar\n  FROM temp\n  WHERE us_2023_annual_aqi_by_county.geoid = temp.geoid;\n\nALTER TABLE us_2023_annual_aqi_by_county ADD COLUMN days_with_aqi int4;\nUPDATE us_2023_annual_aqi_by_county SET days_with_aqi=temp.days_with_aqi::int4\n  FROM temp\n  WHERE us_2023_annual_aqi_by_county.geoid = temp.geoid;\n\nALTER TABLE us_2023_annual_aqi_by_county ADD COLUMN good_days int4;\nUPDATE us_2023_annual_aqi_by_county SET good_days=temp.good_days::int4\n  FROM temp\n  WHERE us_2023_annual_aqi_by_county.geoid = temp.geoid;\n\nALTER TABLE us_2023_annual_aqi_by_county ADD COLUMN moderate_days int4;\nUPDATE us_2023_annual_aqi_by_county SET moderate_days=temp.moderate_days::int4\n  FROM temp\n  WHERE us_2023_annual_aqi_by_county.geoid = temp.geoid;\n\nALTER TABLE us_2023_annual_aqi_by_county ADD COLUMN unhealthy_for_sensitive_groups_days int4;\nUPDATE us_2023_annual_aqi_by_county SET unhealthy_for_sensitive_groups_days=temp.unhealthy_for_sensitive_groups_days::int4\n  FROM temp\n  WHERE us_2023_annual_aqi_by_county.geoid = temp.geoid;\n\nALTER TABLE us_2023_annual_aqi_by_county ADD COLUMN unhealthy_days int4;\nUPDATE us_2023_annual_aqi_by_county SET unhealthy_days=temp.unhealthy_days::int4\n  FROM temp\n  WHERE us_2023_annual_aqi_by_county.geoid = temp.geoid;\n\nALTER TABLE us_2023_annual_aqi_by_county ADD COLUMN very_unhealthy_days int4;\nUPDATE us_2023_annual_aqi_by_county SET very_unhealthy_days=temp.very_unhealthy_days::int4\n  FROM temp\n  WHERE us_2023_annual_aqi_by_county.geoid = temp.geoid;\n\nALTER TABLE us_2023_annual_aqi_by_county ADD COLUMN hazardous_days int4;\nUPDATE us_2023_annual_aqi_by_county SET hazardous_days=temp.hazardous_days::int4\n  FROM temp\n  WHERE us_2023_annual_aqi_by_county.geoid = temp.geoid;\n\nALTER TABLE us_2023_annual_aqi_by_county ADD COLUMN max_aqi int4;\nUPDATE us_2023_annual_aqi_by_county SET max_aqi=temp.max_aqi::int4\n  FROM temp\n  WHERE us_2023_annual_aqi_by_county.geoid = temp.geoid;\n\nALTER TABLE us_2023_annual_aqi_by_county ADD COLUMN n90th_percentile_aqi int4;\nUPDATE us_2023_annual_aqi_by_county SET n90th_percentile_aqi=temp.n90th_percentile_aqi::int4\n  FROM temp\n  WHERE us_2023_annual_aqi_by_county.geoid = temp.geoid;\n\nALTER TABLE us_2023_annual_aqi_by_county ADD COLUMN median_aqi int4;\nUPDATE us_2023_annual_aqi_by_county SET median_aqi=temp.median_aqi::int4\n  FROM temp\n  WHERE us_2023_annual_aqi_by_county.geoid = temp.geoid;\n\nALTER TABLE us_2023_annual_aqi_by_county ADD COLUMN days_co int4;\nUPDATE us_2023_annual_aqi_by_county SET days_co=temp.days_co::int4\n  FROM temp\n  WHERE us_2023_annual_aqi_by_county.geoid = temp.geoid;\n\nALTER TABLE us_2023_annual_aqi_by_county ADD COLUMN days_no2 int4;\nUPDATE us_2023_annual_aqi_by_county SET days_no2=temp.days_no2::int4\n  FROM temp\n  WHERE us_2023_annual_aqi_by_county.geoid = temp.geoid;\n\nALTER TABLE us_2023_annual_aqi_by_county ADD COLUMN days_ozone int4;\nUPDATE us_2023_annual_aqi_by_county SET days_ozone=temp.days_ozone::int4\n  FROM temp\n  WHERE us_2023_annual_aqi_by_county.geoid = temp.geoid;\n\nALTER TABLE us_2023_annual_aqi_by_county ADD COLUMN days_pm25 int4;\nUPDATE us_2023_annual_aqi_by_county SET days_pm25=temp.days_pm25::int4\n  FROM temp\n  WHERE us_2023_annual_aqi_by_county.geoid = temp.geoid;\n\nALTER TABLE us_2023_annual_aqi_by_county ADD COLUMN days_pm10 int4;\nUPDATE us_2023_annual_aqi_by_county SET days_pm10=temp.days_pm10::int4\n  FROM temp\n  WHERE us_2023_annual_aqi_by_county.geoid = temp.geoid;\n\nDROP table temp;\n\"\n",
+    "prov:wasGeneratedBy": "GDSC automation (see Process Step)",
+    "dcat:contactPoint": [
+      "Timothy Norris",
+      "Librarian Associate Professor",
+      "University of Miami Libraries, Frost Institute for Data Science and Computing",
+      "txn60@miami.edu"
+    ],
+    "gdsc:label": "county",
+    "gdsc:attributes": [
+      "state;The state name.;;varchar;;;;",
+      "county;The county name.;;varchar;;;;",
+      "year;The year.;;varchar;;;;",
+      "days_with_aqi;Days with valid AQI index calculated.;;int4;days;;55;365;2023-01-01;2023-12-31",
+      "good_days;Days with AQI measure from 0-50.;;int4;days;;36;365;2023-01-01;2023-12-31",
+      "moderate_days;Days with AQI measure from 51-100.;;int4;days;;0;277;2023-01-01;2023-12-31",
+      "unhealthy_for_sensitive_groups_days;Days with AQI measure from 101-150.;;int4;days;;0;73;2023-01-01;2023-12-31",
+      "unhealthy_days;Days with AQI measure from 151-200.;;int4;days;;0;44;2023-01-01;2023-12-31",
+      "very_unhealthy_days;Days with AQI measure from 201-300.;;int4;days;;0;7;2023-01-01;2023-12-31",
+      "hazardous_days;Days with AQI measure from 301-500.;;int4;days;;0;6;2023-01-01;2023-12-31",
+      "max_aqi;The maximum AQI in the county for the year.;;int4;AQI;;29;1829;2023-01-01;2023-12-31",
+      "n90th_percentile_aqi;90 percent of daily AQI values during the year were less than or equal to the 90th percentile value.;;int4;AQI;;12;164;2023-01-01;2023-12-31",
+      "median_aqi;Half of daily AQI values during the year were less than or equal to the median value, and half equaled or exceeded it.;;int4;AQI;;3;77;2023-01-01;2023-12-31",
+      "days_co;The number of days CO was the main pollutant used to calculate the AQI.;;int4;days;;0;134;2023-01-01;2023-12-31",
+      "days_no2;The number of days NO2 was the main pollutant used to calculate the AQI.;;int4;days;;0;362;2023-01-01;2023-12-31",
+      "days_ozone;The number of days Ozone was the main pollutant used to calculate the AQI.;;int4;days;;0;365;2023-01-01;2023-12-31",
+      "days_pm25;The number of days PM2.5 was the main pollutant used to calculate the AQI.;;int4;days;;0;365;2023-01-01;2023-12-31",
+      "days_pm10;The number of days PM10 was the main pollutant used to calculate the AQI.;;int4;days;;0;365;2023-01-01;2023-12-31"
+    ],
+    "gdsc:collections": [
+      "climate-change",
+      "mdc-health-outcomes",
+      "vulnerability",
+      "ohdsi-gaia"
+    ],
+    "gdsc:functions": [
+      "gdsc_get_attributes"
+    ],
+    "dcat:accessURL": "/data/us_2023_annual_aqi_by_county/",
+    "gdsc:sponsor": [
+      "IDSC;https://idsc.miami.edu",
+      "Library;https://www.library.miami.edu"
+    ],
+    "dcat:downloadURL": "https://aqs.epa.gov/aqsweb/airdata/annual_aqi_by_county_2023.zip",
+    "gdsc:tablename": "us_2023_annual_aqi_by_county",
+    "dcat:qualifiedRelation": [
+      "us_2020_census_county_fips",
+      "us_2023_county_tl"
+    ],
+    "gdsc:up": "true",
+    "gdsc:podID": "gaia-db",
+    "dct:modified": "2026-09-07T19:12:14Z",
+    "dct:accrualPeriodicity": "As Needed",
+    "gdsc:version": "2026-09-08T23:17:13Z",
+    "spdx:checksum": "TBD",
+    "dct:extent": [
+      "bash: line 7: numfmt: command not found\n72840",
+      ""
+    ]
+  },
+  {
+    "id": "us_2023_county_tl",
+    "dct:title": "TIGER/Line Shapefile, 2023, US, Current County",
+    "dct:creator": [
+      "U.S. Department of Commerce;Organization;;;https://ror.org/04chq2495;ROR;https://ror.org/",
+      "U.S. Census Bureau;Organization;;;https://ror.org/01qn7cs15;ROR;https://ror.org/",
+      "Geography Division;Organization",
+      "Spatial Data Collection and Products Branch;Organization"
+    ],
+    "dcat:landingPage": "https://www.census.gov/geographies/mapping-files/time-series/geo/cartographic-boundary.html",
+    "dct:publisher": [
+      "Department of Commerce",
+      "U.S. Census Bureau",
+      "Geography Division",
+      "Spatial Data Collection and Products Branch"
+    ],
+    "dct:rights": "Public Domain",
+    "dct:licenseText": "This Software was created by U.S. Government employees and therefore is not subject to copyright in the United States (17 U.S.C. §105). The United States/U.S.Department of Commerce (“Commerce”) reserve all rights to seek and obtain copyright protection in countries other than the United States. The United States/Commerce hereby grant to User a royalty-free, nonexclusive license to use, copy, and create derivative works of the Software outside of the United States.\n\nThe Software is provided to the User and those who may take by, through or under it, “as is,” without any warranty (whether express or implied) or representation whatsoever, including but not limited to any warranty of merchantability. The Software is taken hereunder without any right to support or to any improvements, extensions, or modifications, except as may be agreed to separately, in writing, by Commerce.\n\nUser, on behalf of itself and all others who take by, through or under it, hereby and forever waives, releases, and discharges the United States/Commerce and all its instrumentalities from any and all liabilities and obligations in connection with the use, application, sale or conveyance of the Software. User shall indemnify and hold harmless the United States/Commerce and its instrumentalities from all claims, liabilities, demands, damages, expenses, and losses arising from or in connection with User's use, application, sale or conveyance of the Software, including those who take by, through or under User whether or not User was directly involved. This provision will survive termination of this Agreement and will include any and all claims or liabilities arising under intellectual property rights, such as patents, copyrights, trademarks, and trade secrets. If User of software is an Executive Agency of the United States, this clause is not applicable.\n\nThe construction, validity, performance, and effect of this Agreement for all purposes will be governed by Federal law of the United States.\n\nUser agrees to make a good faith effort to use the Software in a way that does not cause damage, harm, or embarrassment to the United States/Commerce. The United States/Commerce expressly reserve all rights and remedies.",
+    "dct:coverage": [
+      "United States;6252001;geonames;https://www.geonames.org/"
+    ],
+    "dct:type": "Vector Dataset",
+    "dct:description": "TIGER/Line Shapefile, 2016,  state, Florida, Current County Subdivision State-based\n\nThe TIGER/Line shapefiles and related database files (.dbf) are an extract of selected geographic and cartographic information from the U.S. Census Bureau's Master Address File / Topologically Integrated Geographic Encoding and Referencing (MAF/TIGER) Database (MTBD).  The MTBD represents a seamless national file with no overlaps or gaps between parts, however, each TIGER/Line shapefile is designed to stand alone as an independent data set, or they can be combined to cover the entire nation.\n\nCounty subdivisions are the primary divisions of counties and their equivalent entities for the reporting of Census Bureau data. They include legally-recognized minor civil divisions (MCDs) and statistical census county divisions (CCDs), and unorganized territories.  For the 2010 Census, the MCDs are the primary governmental and/or administrative divisions of counties in 29 States and Puerto Rico; Tennessee changed from having CCDs for Census 2000 to having MCDs for the 2010 Census.  In MCD States where no MCD exists or is not defined, the Census Bureau creates statistical unorganized territories to complete coverage.  The entire area of the United States, Puerto Rico, and the Island Areas are covered by county subdivisions.  The boundaries of most legal MCDs are as of January 1, 2015, as reported through the Census Bureau's Boundary and Annexation Survey (BAS).  \n\nThe boundaries of all CCDs, delineated in 20 states, are those as reported as part of the Census Bureau's Participant Statistical Areas Program (PSAP) for the 2010 Census.",
+    "prov:qualifiedAttribution": "direct from source",
+    "dcat:keyword": [
+      "USA",
+      "Counties",
+      "TIGER"
+    ],
+    "dct:language": "en",
+    "adms:representationTechnique": "vector",
+    "locn:geometry": "multipolygon",
+    "dct:conformsTo": "EPSG:4269",
+    "dcat:bbox": "POLYGON((-179.231086 -14.601813, 179.859681 -14.601813, 179.859681 71.439786, -179.231086 71.439786, -179.231086 -14.601813))",
+    "prov:action": "#########\n# GDSC ETL is performed in two steps: shell script to ETL data into postgres\n# and then additional transformations with SQL in postGIS (if needed).\n####\n\n#########\n# Step 1 - bash script (pseudo code)\n####\n\n# create directory structure and move into it\nmkdir -p /data/us_2023_county_tl/download -p /data/us_2023_county_tl/etl\nchmod -R 777 /data/us_2023_county_tl\ncd /data/us_2023_county_tl\n\n# set update flag based on last update and update frequency\ndo_update=0 if date() < last_update + update_frequency else do_update = 1\n\n# download if update flag is set:\nif do_update == 1 then\nwget -O download/us_2023_county_tl.zip 'ftp://ftp2.census.gov/geo/tiger/TIGER2023/COUNTY/tl_2023_us_county.zip'\n\n# unzip to download directory if update flag is set\nif do_update == 1 then\nunzip -o download/us_2023_county_tl.zip -d download && rm download/us_2023_county_tl.zip\n\n# load into postGIS with:\nogr2ogr -lco GEOMETRY_NAME=geom -f PostgreSQL PG:\"<postgres connection>\" download/tl_2023_us_county.shp -nlt multipolygon -nln us_2023_county_tl\n\n\n#########\n# Step 2 - SQL script (pseudo code):\n####\n\n# remove duplicate points and make geometries valid:\nUPDATE us_2023_county_tl\n  SET geom=ST_MakeValid(ST_RemoveRepeatedPoints(geom));\n\n# add local geometry column and reproject existing geometries into local EPSG:\nSELECT AddGeometryColumn (\n  'us_2023_county_tl',\n  'geom_local', 4269, 'multipolygon', 2\n);\nUPDATE us_2023_county_tl\n  SET geom_local=ST_MakeValid(ST_RemoveRepeatedPoints(ST_Transform(ST_Multi(geom),4269)));\nCREATE INDEX us_2023_county_tl_geom_local_idx\n  ON us_2023_county_tl\n  USING GIST (geom_local);\nNOTIFY pgrst, 'reload schema';\n",
+    "prov:wasGeneratedBy": "GDSC automation (see Process Step)",
+    "dcat:contactPoint": [
+      "Timothy Norris",
+      "Librarian Associate Professor",
+      "University of Miami Libraries, Frost Institute for Data Science and Computing",
+      "txn60@miami.edu"
+    ],
+    "gdsc:label": "name",
+    "gdsc:attributes": [
+      "statefp;;;varchar;;;;",
+      "countyfp;;;varchar;;;;",
+      "countyns;;;varchar;;;;",
+      "geoid;;;varchar;;;;",
+      "name;;;varchar;;;;",
+      "namelsad;;;varchar;;;;",
+      "lsad;;;varchar;;;;",
+      "classfp;;;varchar;;;;",
+      "mtfcc;;;varchar;;;;",
+      "csafp;;;varchar;;;;",
+      "cbsafp;;;varchar;;;;",
+      "metdivfp;;;varchar;;;;",
+      "funcstat;;;varchar;;;;",
+      "aland;;;numeric;;;82093.00;377055293513.00",
+      "awater;;;numeric;;;0.00;25989628379.00",
+      "intptlat;;;varchar;;;;",
+      "intptlon;;;varchar;;;;"
+    ],
+    "gdsc:collections": [
+      "us-census"
+    ],
+    "gdsc:analyticConformsTo": "EPSG:4269",
+    "dcat:accessURL": "/data/us_2023_county_tl/",
+    "gdsc:sponsor": [
+      "IDSC;https://idsc.miami.edu",
+      "Library;https://www.library.miami.edu"
+    ],
+    "dcat:downloadURL": "ftp://ftp2.census.gov/geo/tiger/TIGER2023/COUNTY/tl_2023_us_county.zip",
+    "gdsc:tablename": "us_2023_county_tl",
+    "gdsc:up": "true",
+    "gdsc:podID": "gaia-db",
+    "dct:modified": "2026-09-01T19:40:41Z",
+    "dct:accrualPeriodicity": "Never",
+    "gdsc:version": "2026-09-08T23:17:14Z",
+    "spdx:checksum": "TBD",
+    "dct:extent": [
+      "bash: line 7: numfmt: command not found\n132517843",
+      ""
+    ]
   },
   {
     "id": "tz_2022_nbs_districts",
@@ -2499,22 +2903,13 @@ export const catalog = [
     "adms:representationTechnique": "vector",
     "locn:geometry": "multipolygon",
     "dct:conformsTo": "EPSG:4326",
-    "prov:action": "#########\n# GDSC ETL is performed in two steps: shell script to ETL data into postgres\n# and then additional transformations with SQL in postGIS (if needed).\n####\n\n#########\n# Step 1 - bash script (pseudo code)\n####\n\n# create directory structure and move into it\nmkdir -p /data/tz_2022_nbs/download -p /data/tz_2022_nbs/tz_2022_nbs_districts/etl\nchmod 777 /data/tz_2022_nbs/download\ncd /data/tz_2022_nbs\n\n# set update flag based on last update and update frequency\ndo_update=0 if date() < last_update + update_frequency else do_update = 1\n\n# download if update flag is set:\nif do_update == 1 then\nwget -O download/tz_2022_nbs.zip 'https://microdata.nbs.go.tz/index.php/catalog/49/download/317'\n\n# unzip to download directory if update flag is set\nif do_update == 1 then\nunzip -d download download/tz_2022_nbs.zip && rm download/tz_2022_nbs.zip\n\n# extract mpkx to download directory\n7z x download/TANZANIA_2022_POST_PHC_GEODATABASE.mpkx -o'download/TANZANIA_2022_POST_PHC_GEODATABASE'\n\n# load into postGIS with:\n  ogr2ogr -lco GEOMETRY_NAME=geom -f PostgreSQL PG:\"<postgres connection>\" download/TANZANIA_2022_POST_PHC_GEODATABASE/commondata/tanzania_2022phc_geodatabase.gdb Districts -nlt multipolygon -nln tz_2022_nbs_districts\n\n#########\n# Step 2 - SQL script (pseudo code):\n####\n\n# remove duplicate points and make geometries valid:\nUPDATE tz_2022_nbs_districts\n  SET geom=ST_MakeValid(ST_RemoveRepeatedPoints(geom));\n\n# add local geometry column and reproject existing geometries into local EPSG:\nSELECT AddGeometryColumn (\n  'tz_2022_nbs_districts',\n  'geom_local', 4326, 'multipolygon', 2\n);\nUPDATE tz_2022_nbs_districts\n  SET geom_local=ST_MakeValid(ST_RemoveRepeatedPoints(ST_Transform(ST_Multi(geom),4326)));\nCREATE INDEX tz_2022_nbs_districts_geom_local_idx\n  ON tz_2022_nbs_districts\n  USING GIST (geom_local);\nNOTIFY pgrst, 'reload schema';\n# Move into corrrect directory and create derivative directory in data package on osgeo\ncd /data/tz_2022_nbs/tz_2022_nbs_districts/\nmkdir -p derived\n\n# Create shapefile of table in derivate directory on osgeo \nogr2ogr -f \"ESRI Shapefile\" -overwrite derived/tz_2022_nbs_districts.shp PG:\"<postgres connection>\" tz_2022_nbs_districts\n\n# Create downloadable tarfile of shp in derivative directory on osgeo\nrm -f derived/tz_2022_nbs_districts.shp.tar.gz\ntar -czf derived/tz_2022_nbs_districts.shp.tar.gz meta_dcat_tz_2022_nbs_districts.json -C derived tz_2022_nbs_districts.shp tz_2022_nbs_districts.prj tz_2022_nbs_districts.shx tz_2022_nbs_districts.dbf\n\n# Move into correct directory\ncd /data/tz_2022_nbs/tz_2022_nbs_districts/\n\n",
+    "prov:action": "#########\n# GDSC ETL is performed in two steps: shell script to ETL data into postgres\n# and then additional transformations with SQL in postGIS (if needed).\n####\n\n#########\n# Step 1 - bash script (pseudo code)\n####\n\n# create directory structure and move into it\nmkdir -p /data/tz_2022_nbs/download -p /data/tz_2022_nbs/tz_2022_nbs_districts/etl\nchmod -R 777 /data/tz_2022_nbs\ncd /data/tz_2022_nbs\n\n# set update flag based on last update and update frequency\ndo_update=0 if date() < last_update + update_frequency else do_update = 1\n\n# download if update flag is set:\nif do_update == 1 then\nwget -O download/tz_2022_nbs.zip 'https://microdata.nbs.go.tz/index.php/catalog/49/download/317'\n\n# unzip to download directory if update flag is set\nif do_update == 1 then\nunzip -o download/tz_2022_nbs.zip -d download && rm download/tz_2022_nbs.zip\n\n# extract mpkx to download directory\n7z x download/TANZANIA_2022_POST_PHC_GEODATABASE.mpkx -o'download/TANZANIA_2022_POST_PHC_GEODATABASE'\n\n# load into postGIS with:\nogr2ogr -lco GEOMETRY_NAME=geom -f PostgreSQL PG:\"<postgres connection>\" download/TANZANIA_2022_POST_PHC_GEODATABASE/commondata/tanzania_2022phc_geodatabase.gdb Districts -nlt multipolygon -nln tz_2022_nbs_districts\n\n\n#########\n# Step 2 - SQL script (pseudo code):\n####\n\n# remove duplicate points and make geometries valid:\nUPDATE tz_2022_nbs_districts\n  SET geom=ST_MakeValid(ST_RemoveRepeatedPoints(geom));\n\n# add local geometry column and reproject existing geometries into local EPSG:\nSELECT AddGeometryColumn (\n  'tz_2022_nbs_districts',\n  'geom_local', 4326, 'multipolygon', 2\n);\nUPDATE tz_2022_nbs_districts\n  SET geom_local=ST_MakeValid(ST_RemoveRepeatedPoints(ST_Transform(ST_Multi(geom),4326)));\nCREATE INDEX tz_2022_nbs_districts_geom_local_idx\n  ON tz_2022_nbs_districts\n  USING GIST (geom_local);\nNOTIFY pgrst, 'reload schema';\n# Move into corrrect directory and create derivative directory in data package on osgeo\ncd /data/tz_2022_nbs/tz_2022_nbs_districts/\nmkdir -p derived\n\n# Create shapefile of table in derivate directory on osgeo \nogr2ogr -f \"ESRI Shapefile\" -overwrite derived/tz_2022_nbs_districts.shp PG:\"<postgres connection>\" tz_2022_nbs_districts\n\n# Create downloadable tarfile of shp in derivative directory on osgeo\nrm -f derived/tz_2022_nbs_districts.shp.tar.gz\ntar -czf derived/tz_2022_nbs_districts.shp.tar.gz meta_dcat_tz_2022_nbs_districts.json -C derived tz_2022_nbs_districts.shp tz_2022_nbs_districts.prj tz_2022_nbs_districts.shx tz_2022_nbs_districts.dbf\n\n# Move into correct directory\ncd /data/tz_2022_nbs/tz_2022_nbs_districts/\n\n",
     "prov:wasGeneratedBy": "GDSC automation (see Process Step)",
     "dcat:contactPoint": [
-      {
-        "contact_name": "Timothy B. Norris",
-        "contact_last_name": "Norris",
-        "contact_first_name": "Timothy",
-        "contact_email": "tnorris@miami.edu",
-        "contact_identifier": "https://orcid.org/0000-0002-0898-3027",
-        "contact_identifier_schema": "orcid",
-        "contact_identifier_schema_uri": "https://orcid.org/",
-        "contact_affiliation": "University of Miami Libraries, Frost Institute for Data Science and Computing",
-        "contact_affiliation_identifier": "https://ror.org/02dgjyy92",
-        "contact_affiliation_schema": "ror",
-        "contact_affiliation_schema_uri": "https://ror.org/"
-      }
+      "Timothy Norris",
+      "Librarian Associate Professor",
+      "University of Miami Libraries, Frost Institute for Data Science and Computing",
+      "txn60@miami.edu"
     ],
     "gdsc:label": "dist_name",
     "gdsc:value": [
@@ -2523,9 +2918,9 @@ export const catalog = [
       "reg_name"
     ],
     "gdsc:attributes": [
-      "dist_code;Unique district code;Tanzania National Bureau of Statistics;numeric;;;;",
+      "dist_code;Unique district code;Tanzania National Bureau of Statistics;varchar;;;;",
       "\ndist_name; District names;Tanzania National Bureau of Statistics;string",
-      "\nreg_code; unique code;Tanzania National Bureau of Statistics;numeric;;;;",
+      "\nreg_code; unique code;Tanzania National Bureau of Statistics;numeric",
       "\nreg_name; name;Tanzania National Bureau of Statistics;varchar"
     ],
     "gdsc:collections": [
@@ -2546,15 +2941,16 @@ export const catalog = [
     ],
     "dcat:downloadURL": "https://microdata.nbs.go.tz/index.php/catalog/49/download/317",
     "gdsc:tablename": "tz_2022_nbs_districts",
-    "gdsc:up": "false",
+    "gdsc:up": "true",
     "gdsc:podID": "gaia-db",
-    "dct:modified": "0001-01-01T00:00:00Z",
+    "dct:modified": "2025-09-12T09:44:25Z",
     "dct:accrualPeriodicity": "As Needed",
-    "gdsc:version": "2026-08-23T15:57:19Z",
+    "gdsc:version": "2026-09-08T23:16:46Z",
     "spdx:checksum": "TBD",
-    "dct:extent": {
-      "size_bytes": "0",
-      "size_human_readable": "0"
-    }
+    "dct:extent": [
+      "bash: line 7: numfmt: command not found\n326218116",
+      ""
+    ],
+    "dcat:bbox": "POLYGON((29.594677 -11.760241, 40.446140 -11.760241, 40.446140 -0.984775, 29.594677 -0.984775, 29.594677 -11.760241))"
   }
 ];

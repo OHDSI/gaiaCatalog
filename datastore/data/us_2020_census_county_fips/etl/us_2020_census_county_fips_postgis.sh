@@ -1,12 +1,12 @@
 #!/bin/bash
 
-# kenya_ppd_survey_2014_postgis.sh
+# us_2020_census_county_fips_postgis.sh
 # Finish ETL into postGIS from postgis_postgis container
 #
-# Data source: local file
-# Destination postGIS table: kenya_ppd_survey_2014
+# Data source: https://api.census.gov/data/2020/dec/dp?get=NAME&for=county:*
+# Destination postGIS table: us_2020_census_county_fips
 #
-# Created by etl() on 2026-09-08 22:16:29
+# Created by etl() on 2026-09-08 22:17:08
 # Do not edit directly
 
 # set credentials from postgres defaults and secret files

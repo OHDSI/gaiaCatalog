@@ -21,7 +21,7 @@ wget -O download/us_2018_svi_county.zip 'https://svi.cdc.gov/Documents/Data/2018
 
 # unzip to download directory if update flag is set
 if do_update == 1 then
-unzip -d download download/us_2018_svi_county.zip && rm download/us_2018_svi_county.zip
+unzip -o download/us_2018_svi_county.zip -d download && rm download/us_2018_svi_county.zip
 
 # load into postGIS with:
 ogr2ogr -lco GEOMETRY_NAME=geom -f PostgreSQL PG:"<postgres connection>" download/SVI2018_US_county.gdb -nlt multipolygon -nln us_2018_svi_county

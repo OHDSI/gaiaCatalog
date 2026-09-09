@@ -3,14 +3,19 @@
 # tz_magu_dem_srtm_osgeo.sh
 # Download and ETL into postGIS from osgeo_postgis container
 #
-# Data source: https://e4ftl01.cr.usgs.gov/MEASURES/SRTMGL1.003/2000.02.11/
+# Data source: https://step.esa.int/auxdata/dem/SRTMGL1/
 # Destination postGIS table: tz_magu_dem_srtm
 #
-# Created by etl() on 2026-09-06 12:36:47
+# Created by etl() on 2026-09-08 22:16:54
 # Do not edit directly
 
+# set credentials from postgres defaults and secret files
+export POSTGRES_PASSWORD=$(cat $PG_PASSWORD_FILE)
+export CDC_APP_TOKEN=$(cat $CDC_APP_TOKEN_FILE)
+export AIRNOW_API_KEY=$(cat $AIRNOW_API_KEY_FILE)
 export USGS_USER=$(cat $USGS_USER_FILE)
 export USGS_PASSWORD=$(cat $USGS_PASSWORD_FILE)
+
 # create directory structure and move into it
 mkdir -p /data/tz_magu_dem_srtm/download -p /data/tz_magu_dem_srtm/etl
 chmod -R 777 /data/tz_magu_dem_srtm
@@ -31,32 +36,35 @@ if [[ $exists ]]; then
   if [[ ! $no_update ]]; then
     last_update=$(date -d "$(cat datestamp)" '+%s')
     check_date="$(date -d '-'"$update_frequency" '+%s')"
-    if [[ "$check_date" -ge "$last_update" ]]; then do_update=1; fi
+    if [[ "$check_date -ge $last_update" ]]; then do_update=1; fi
   fi
 
 # does not exist
 else do_update=1; fi
 
-wget --load-cookies ~/.urs_cookies --save-cookies ~/.urs_cookies --keep-session-cookies -O download/S02E032.SRTMGL1.hgt.zip 'https://e4ftl01.cr.usgs.gov/MEASURES/SRTMGL1.003/2000.02.11/S02E032.SRTMGL1.hgt.zip'
-unzip -d download download/S02E032.SRTMGL1.hgt.zip && rm download/S02E032.SRTMGL1.hgt.zip
-wget --load-cookies ~/.urs_cookies --save-cookies ~/.urs_cookies --keep-session-cookies -O download/S02E033.SRTMGL1.hgt.zip 'https://e4ftl01.cr.usgs.gov/MEASURES/SRTMGL1.003/2000.02.11/S02E033.SRTMGL1.hgt.zip'
-unzip -d download download/S02E033.SRTMGL1.hgt.zip && rm download/S02E033.SRTMGL1.hgt.zip
-wget --load-cookies ~/.urs_cookies --save-cookies ~/.urs_cookies --keep-session-cookies -O download/S02E034.SRTMGL1.hgt.zip 'https://e4ftl01.cr.usgs.gov/MEASURES/SRTMGL1.003/2000.02.11/S02E034.SRTMGL1.hgt.zip'
-unzip -d download download/S02E034.SRTMGL1.hgt.zip && rm download/S02E034.SRTMGL1.hgt.zip
-wget --load-cookies ~/.urs_cookies --save-cookies ~/.urs_cookies --keep-session-cookies -O download/S03E032.SRTMGL1.hgt.zip 'https://e4ftl01.cr.usgs.gov/MEASURES/SRTMGL1.003/2000.02.11/S03E032.SRTMGL1.hgt.zip'
-unzip -d download download/S03E032.SRTMGL1.hgt.zip && rm download/S03E032.SRTMGL1.hgt.zip
-wget --load-cookies ~/.urs_cookies --save-cookies ~/.urs_cookies --keep-session-cookies -O download/S03E033.SRTMGL1.hgt.zip 'https://e4ftl01.cr.usgs.gov/MEASURES/SRTMGL1.003/2000.02.11/S03E033.SRTMGL1.hgt.zip'
-unzip -d download download/S03E033.SRTMGL1.hgt.zip && rm download/S03E033.SRTMGL1.hgt.zip
-wget --load-cookies ~/.urs_cookies --save-cookies ~/.urs_cookies --keep-session-cookies -O download/S03E034.SRTMGL1.hgt.zip 'https://e4ftl01.cr.usgs.gov/MEASURES/SRTMGL1.003/2000.02.11/S03E034.SRTMGL1.hgt.zip'
-unzip -d download download/S03E034.SRTMGL1.hgt.zip && rm download/S03E034.SRTMGL1.hgt.zip
-wget --load-cookies ~/.urs_cookies --save-cookies ~/.urs_cookies --keep-session-cookies -O download/S04E032.SRTMGL1.hgt.zip 'https://e4ftl01.cr.usgs.gov/MEASURES/SRTMGL1.003/2000.02.11/S04E032.SRTMGL1.hgt.zip'
-unzip -d download download/S04E032.SRTMGL1.hgt.zip && rm download/S04E032.SRTMGL1.hgt.zip
-wget --load-cookies ~/.urs_cookies --save-cookies ~/.urs_cookies --keep-session-cookies -O download/S04E033.SRTMGL1.hgt.zip 'https://e4ftl01.cr.usgs.gov/MEASURES/SRTMGL1.003/2000.02.11/S04E033.SRTMGL1.hgt.zip'
-unzip -d download download/S04E033.SRTMGL1.hgt.zip && rm download/S04E033.SRTMGL1.hgt.zip
-wget --load-cookies ~/.urs_cookies --save-cookies ~/.urs_cookies --keep-session-cookies -O download/S04E034.SRTMGL1.hgt.zip 'https://e4ftl01.cr.usgs.gov/MEASURES/SRTMGL1.003/2000.02.11/S04E034.SRTMGL1.hgt.zip'
-unzip -d download download/S04E034.SRTMGL1.hgt.zip && rm download/S04E034.SRTMGL1.hgt.zip
-gdal_merge -o download/tz_magu_dem_srtm_full.tif download/S02E032.hgt download/S02E033.hgt download/S02E034.hgt download/S03E032.hgt download/S03E033.hgt download/S03E034.hgt download/S04E032.hgt download/S04E033.hgt download/S04E034.hgt 
-gdalwarp -cutline 'POLYGON ((32.75 -3.09, 32.75 -2.13, 34.04 -2.13, 34.04 -3.09, 32.75 -3.09))' -crop_to_cutline -cutline_srs EPSG:4326 -s_srs EPSG:4326 -t_srs EPSG:4326 download/tz_magu_dem_srtm_full.tif download/tz_magu_dem_srtm.tif && rm download/tz_magu_dem_srtm_full.tifif [[ $do_update = 1 ]]; then
+if [[ $do_update = 1 ]]; then
+  wget --load-cookies ~/.urs_cookies --save-cookies ~/.urs_cookies --keep-session-cookies -O download/S02E032.SRTMGL1.hgt.zip 'https://step.esa.int/auxdata/dem/SRTMGL1/S02E032.SRTMGL1.hgt.zip'
+  unzip -d download download/S02E032.SRTMGL1.hgt.zip && rm download/S02E032.SRTMGL1.hgt.zip
+  wget --load-cookies ~/.urs_cookies --save-cookies ~/.urs_cookies --keep-session-cookies -O download/S02E033.SRTMGL1.hgt.zip 'https://step.esa.int/auxdata/dem/SRTMGL1/S02E033.SRTMGL1.hgt.zip'
+  unzip -d download download/S02E033.SRTMGL1.hgt.zip && rm download/S02E033.SRTMGL1.hgt.zip
+  wget --load-cookies ~/.urs_cookies --save-cookies ~/.urs_cookies --keep-session-cookies -O download/S02E034.SRTMGL1.hgt.zip 'https://step.esa.int/auxdata/dem/SRTMGL1/S02E034.SRTMGL1.hgt.zip'
+  unzip -d download download/S02E034.SRTMGL1.hgt.zip && rm download/S02E034.SRTMGL1.hgt.zip
+  wget --load-cookies ~/.urs_cookies --save-cookies ~/.urs_cookies --keep-session-cookies -O download/S03E032.SRTMGL1.hgt.zip 'https://step.esa.int/auxdata/dem/SRTMGL1/S03E032.SRTMGL1.hgt.zip'
+  unzip -d download download/S03E032.SRTMGL1.hgt.zip && rm download/S03E032.SRTMGL1.hgt.zip
+  wget --load-cookies ~/.urs_cookies --save-cookies ~/.urs_cookies --keep-session-cookies -O download/S03E033.SRTMGL1.hgt.zip 'https://step.esa.int/auxdata/dem/SRTMGL1/S03E033.SRTMGL1.hgt.zip'
+  unzip -d download download/S03E033.SRTMGL1.hgt.zip && rm download/S03E033.SRTMGL1.hgt.zip
+  wget --load-cookies ~/.urs_cookies --save-cookies ~/.urs_cookies --keep-session-cookies -O download/S03E034.SRTMGL1.hgt.zip 'https://step.esa.int/auxdata/dem/SRTMGL1/S03E034.SRTMGL1.hgt.zip'
+  unzip -d download download/S03E034.SRTMGL1.hgt.zip && rm download/S03E034.SRTMGL1.hgt.zip
+  wget --load-cookies ~/.urs_cookies --save-cookies ~/.urs_cookies --keep-session-cookies -O download/S04E032.SRTMGL1.hgt.zip 'https://step.esa.int/auxdata/dem/SRTMGL1/S04E032.SRTMGL1.hgt.zip'
+  unzip -d download download/S04E032.SRTMGL1.hgt.zip && rm download/S04E032.SRTMGL1.hgt.zip
+  wget --load-cookies ~/.urs_cookies --save-cookies ~/.urs_cookies --keep-session-cookies -O download/S04E033.SRTMGL1.hgt.zip 'https://step.esa.int/auxdata/dem/SRTMGL1/S04E033.SRTMGL1.hgt.zip'
+  unzip -d download download/S04E033.SRTMGL1.hgt.zip && rm download/S04E033.SRTMGL1.hgt.zip
+  wget --load-cookies ~/.urs_cookies --save-cookies ~/.urs_cookies --keep-session-cookies -O download/S04E034.SRTMGL1.hgt.zip 'https://step.esa.int/auxdata/dem/SRTMGL1/S04E034.SRTMGL1.hgt.zip'
+  unzip -d download download/S04E034.SRTMGL1.hgt.zip && rm download/S04E034.SRTMGL1.hgt.zip
+  gdal_merge -o download/tz_magu_dem_srtm_full.tif download/S02E032.hgt download/S02E033.hgt download/S02E034.hgt download/S03E032.hgt download/S03E033.hgt download/S03E034.hgt download/S04E032.hgt download/S04E033.hgt download/S04E034.hgt 
+  gdalwarp -cutline 'POLYGON ((32.75 -3.09, 32.75 -2.13, 34.04 -2.13, 34.04 -3.09, 32.75 -3.09))' -crop_to_cutline -cutline_srs EPSG:4326 -s_srs EPSG:4326 -t_srs EPSG:4326   download/tz_magu_dem_srtm_full.tif download/tz_magu_dem_srtm.tif && rm download/tz_magu_dem_srtm_full.tif
+fi
+if [[ $do_update = 1 ]]; then
   # record download datestamp
   echo $(date '+%F %T') > datestamp
 fi

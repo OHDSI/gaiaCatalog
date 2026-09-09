@@ -46,6 +46,7 @@
       "name": "United States"
     }
   ],
+  "temporalCoverage": "2022-01-01/2022-12-31",
   "type": "Vector Dataset",
   "datePublished": "2022-11-14",
   "description": "The AirData Air Quality Index Summary Report displays an annual summary of Air Quality Index (AQI) values for counties or core based statistical areas (CBSA). Air Quality Index is an indicator of overall air quality, because it takes into account all of the criteria air pollutants measured within a geographic area. Although AQI includes all available pollutant measurements, you should be aware that many areas have monitoring stations for some, but not all, of the pollutants. Each row of the AQI Report lists summary values for one year for one county or CBSA. The summary values include both qualitative measures (days of the year having \"good\" air quality, for example) and descriptive statistics (median AQI value, for example).\n\nSummary statistics for the current year are incomplete because data are still being reported and quality assured. Data for the current year are considered preliminary until May 1 of the following year. Therefore, comparing reported values for the current year with previous years may not be valid.\n\nsee https://www.epa.gov/outdoor-air-quality-data/about-air-data-reports for more information.",
@@ -80,6 +81,29 @@
         ]
       },
       "termCode": "table"
+    },
+    {
+      "@type": "DefinedTerm",
+      "description": "GIS Vector Geometery",
+      "inDefinedTermSet": {
+        "@type": "DefinedTermSet",
+        "name": "vectorGeometry",
+        "hasDefinedTerm": [
+          {
+            "@type": "DefinedTerm",
+            "termCode": "point"
+          },
+          {
+            "@type": "DefinedTerm",
+            "termCode": "line"
+          },
+          {
+            "@type": "DefinedTerm",
+            "termCode": "polygon"
+          }
+        ]
+      },
+      "termCode": "multipolygon"
     }
   ],
   "about": [
@@ -172,105 +196,165 @@
       "name": "days_with_aqi",
       "description": "Days with valid AQI index calculated.",
       "qudt:dataType": "int4",
-      "unitText": "days"
+      "unitText": "days",
+      "minValue": "42",
+      "maxValue": "365",
+      "startDate": "2022-01-01",
+      "endDate": "2022-12-31"
     },
     {
       "@type": "PropertyValue",
       "name": "good_days",
       "description": "Days with AQI measure from 0-50.",
       "qudt:dataType": "int4",
-      "unitText": "days"
+      "unitText": "days",
+      "minValue": "17",
+      "maxValue": "364",
+      "startDate": "2022-01-01",
+      "endDate": "2022-12-31"
     },
     {
       "@type": "PropertyValue",
       "name": "moderate_days",
       "description": "Days with AQI measure from 51-100.",
       "qudt:dataType": "int4",
-      "unitText": "days"
+      "unitText": "days",
+      "minValue": "0",
+      "maxValue": "297",
+      "startDate": "2022-01-01",
+      "endDate": "2022-12-31"
     },
     {
       "@type": "PropertyValue",
       "name": "unhealthy_for_sensitive_groups_days",
       "description": "Days with AQI measure from 101-150.",
       "qudt:dataType": "int4",
-      "unitText": "days"
+      "unitText": "days",
+      "minValue": "0",
+      "maxValue": "109",
+      "startDate": "2022-01-01",
+      "endDate": "2022-12-31"
     },
     {
       "@type": "PropertyValue",
       "name": "unhealthy_days",
       "description": "Days with AQI measure from 151-200.",
       "qudt:dataType": "int4",
-      "unitText": "days"
+      "unitText": "days",
+      "minValue": "0",
+      "maxValue": "56",
+      "startDate": "2022-01-01",
+      "endDate": "2022-12-31"
     },
     {
       "@type": "PropertyValue",
       "name": "very_unhealthy_days",
       "description": "Days with AQI measure from 201-300.",
       "qudt:dataType": "int4",
-      "unitText": "days"
+      "unitText": "days",
+      "minValue": "0",
+      "maxValue": "9",
+      "startDate": "2022-01-01",
+      "endDate": "2022-12-31"
     },
     {
       "@type": "PropertyValue",
       "name": "hazardous_days",
       "description": "Days with AQI measure from 301-500.",
       "qudt:dataType": "int4",
-      "unitText": "days"
+      "unitText": "days",
+      "minValue": "0",
+      "maxValue": "15",
+      "startDate": "2022-01-01",
+      "endDate": "2022-12-31"
     },
     {
       "@type": "PropertyValue",
       "name": "max_aqi",
       "description": "The maximum AQI in the county for the year.",
       "qudt:dataType": "int4",
-      "unitText": "AQI"
+      "unitText": "AQI",
+      "minValue": "23",
+      "maxValue": "8368",
+      "startDate": "2022-01-01",
+      "endDate": "2022-12-31"
     },
     {
       "@type": "PropertyValue",
-      "name": "90th_percentile_aqi",
+      "name": "n90th_percentile_aqi",
       "description": "90 percent of daily AQI values during the year were less than or equal to the 90th percentile value.",
       "qudt:dataType": "int4",
-      "unitText": "AQI"
+      "unitText": "AQI",
+      "minValue": "7",
+      "maxValue": "166",
+      "startDate": "2022-01-01",
+      "endDate": "2022-12-31"
     },
     {
       "@type": "PropertyValue",
       "name": "median_aqi",
       "description": "Half of daily AQI values during the year were less than or equal to the median value, and half equaled or exceeded it.",
       "qudt:dataType": "int4",
-      "unitText": "AQI"
+      "unitText": "AQI",
+      "minValue": "2",
+      "maxValue": "80",
+      "startDate": "2022-01-01",
+      "endDate": "2022-12-31"
     },
     {
       "@type": "PropertyValue",
       "name": "days_co",
       "description": "The number of days CO was the main pollutant used to calculate the AQI.",
       "qudt:dataType": "int4",
-      "unitText": "days"
+      "unitText": "days",
+      "minValue": "0",
+      "maxValue": "118",
+      "startDate": "2022-01-01",
+      "endDate": "2022-12-31"
     },
     {
       "@type": "PropertyValue",
       "name": "days_no2",
       "description": "The number of days NO2 was the main pollutant used to calculate the AQI.",
       "qudt:dataType": "int4",
-      "unitText": "days"
+      "unitText": "days",
+      "minValue": "0",
+      "maxValue": "363",
+      "startDate": "2022-01-01",
+      "endDate": "2022-12-31"
     },
     {
       "@type": "PropertyValue",
       "name": "days_ozone",
       "description": "The number of days Ozone was the main pollutant used to calculate the AQI.",
       "qudt:dataType": "int4",
-      "unitText": "days"
+      "unitText": "days",
+      "minValue": "0",
+      "maxValue": "365",
+      "startDate": "2022-01-01",
+      "endDate": "2022-12-31"
     },
     {
       "@type": "PropertyValue",
-      "name": "days_pm2.5",
+      "name": "days_pm25",
       "description": "The number of days PM2.5 was the main pollutant used to calculate the AQI.",
       "qudt:dataType": "int4",
-      "unitText": "days"
+      "unitText": "days",
+      "minValue": "0",
+      "maxValue": "365",
+      "startDate": "2022-01-01",
+      "endDate": "2022-12-31"
     },
     {
       "@type": "PropertyValue",
       "name": "days_pm10",
       "description": "The number of days PM10 was the main pollutant used to calculate the AQI.",
       "qudt:dataType": "int4",
-      "unitText": "days"
+      "unitText": "days",
+      "minValue": "0",
+      "maxValue": "365",
+      "startDate": "2022-01-01",
+      "endDate": "2022-12-31"
     }
   ],
   "distribution": "TBD",
@@ -289,5 +373,5 @@
     }
   ],
   "dateModified": "2022-07-31",
-  "version": "2026-09-06"
+  "version": "2026-09-08"
 }

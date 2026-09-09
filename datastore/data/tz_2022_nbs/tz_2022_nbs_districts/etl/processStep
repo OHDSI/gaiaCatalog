@@ -21,7 +21,7 @@ wget -O download/tz_2022_nbs.zip 'https://microdata.nbs.go.tz/index.php/catalog/
 
 # unzip to download directory if update flag is set
 if do_update == 1 then
-unzip -d download download/tz_2022_nbs.zip && rm download/tz_2022_nbs.zip
+unzip -o download/tz_2022_nbs.zip -d download && rm download/tz_2022_nbs.zip
 
 # extract mpkx to download directory
 7z x download/TANZANIA_2022_POST_PHC_GEODATABASE.mpkx -o'download/TANZANIA_2022_POST_PHC_GEODATABASE'

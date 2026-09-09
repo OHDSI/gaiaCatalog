@@ -3,7 +3,7 @@
   "structure": "vector",
   "geometry": "multipolygon",
   "epsg": "EPSG:4326",
-  "attributes": ["osm_id;OpenStreetMap (OSM) ID;varchar", "\nname;Region name;varchar", "\ntype;Type of boundary;varchar", "\nadmin_level;OSM Administrative level;varchar", "\nboundary;OSM boundary type;varchar", "\nother_tags;Any other OSM tags with values, first one is the ISO3166-2 code for the administrative region;varchar"],
+  "attributes": ["osm_id;OpenStreetMap (OSM) ID;varchar;varchar;;;;", "\nname;Region name;varchar", "\ntype;Type of boundary;varchar", "\nadmin_level;OSM Administrative level;varchar", "\nboundary;OSM boundary type;varchar", "\nother_tags;Any other OSM tags with values, first one is the ISO3166-2 code for the administrative region;varchar"],
   "local_epsg": "EPSG:4326",
   "derive": ["shp"],
   "service": ["api"],
@@ -14,9 +14,10 @@
   "table": "tz_regions_osm",
   "format": "osm",
   "etl_parameters": "multipolygons",
-  "up": "false",
+  "up": "true",
   "podID": "gaia-db",
-  "last_updated": "2025-09-07T11:19:11Z",
+  "last_updated": "2025-09-12T09:34:27Z",
   "update_frequency": "As Needed",
-  "checksum": "TBD"
+  "checksum": "TBD",
+  "extent": "POLYGON((29.5946708 -11.761254,29.5946708 -0.9854812,40.4453945 -0.9854812,40.4453945 -11.761254,29.5946708 -11.761254))"
 }

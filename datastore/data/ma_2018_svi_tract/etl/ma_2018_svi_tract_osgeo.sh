@@ -6,8 +6,15 @@
 # Data source: https://svi.cdc.gov/Documents/Data/2018/db/states/Massachusetts.zip
 # Destination postGIS table: ma_2018_svi_tract
 #
-# Created by etl() on 2026-09-06 12:36:29
+# Created by etl() on 2026-09-08 22:16:32
 # Do not edit directly
+
+# set credentials from postgres defaults and secret files
+export POSTGRES_PASSWORD=$(cat $PG_PASSWORD_FILE)
+export CDC_APP_TOKEN=$(cat $CDC_APP_TOKEN_FILE)
+export AIRNOW_API_KEY=$(cat $AIRNOW_API_KEY_FILE)
+export USGS_USER=$(cat $USGS_USER_FILE)
+export USGS_PASSWORD=$(cat $USGS_PASSWORD_FILE)
 
 # create directory structure and move into it
 mkdir -p /data/ma_2018_svi_tract/download -p /data/ma_2018_svi_tract/etl
@@ -29,7 +36,7 @@ if [[ $exists ]]; then
   if [[ ! $no_update ]]; then
     last_update=$(date -d "$(cat datestamp)" '+%s')
     check_date="$(date -d '-'"$update_frequency" '+%s')"
-    if [[ "$check_date" -ge "$last_update" ]]; then do_update=1; fi
+    if [[ "$check_date -ge $last_update" ]]; then do_update=1; fi
   fi
 
 # does not exist
@@ -37,14 +44,15 @@ else do_update=1; fi
 
 # download if needed
 if [[ $do_update = 1 ]]; then
+  # fail after 3 attempts to download
   attempts=0
   until (
     wget -O download/ma_2018_svi_tract.zip 'https://svi.cdc.gov/Documents/Data/2018/db/states/Massachusetts.zip'
   ); do
     ((attempts++))
-    if [[ attempts > 3 ]]; then echo $?; break; fi
+    if (( attempts > 3 )); then echo $?; break; fi
   done
-  unzip -d download download/ma_2018_svi_tract.zip && rm download/ma_2018_svi_tract.zip
+  unzip -o download/ma_2018_svi_tract.zip -d download && rm download/ma_2018_svi_tract.zip
   # record download datestamp
   echo $(date '+%F %T') > datestamp
 fi

@@ -6,9 +6,17 @@
 # Data source: https://github.com/tibbben/copernicus_aggregate.git
 # Destination postGIS table: tz_1984_copernicus_avg_temp
 #
-# Created by etl() on 2026-09-06 12:36:40
+# Created by etl() on 2026-09-08 22:16:45
 # Do not edit directly
 
+# set credentials from postgres defaults and secret files
+export POSTGRES_PASSWORD=$(cat $PG_PASSWORD_FILE)
+export CDC_APP_TOKEN=$(cat $CDC_APP_TOKEN_FILE)
+export AIRNOW_API_KEY=$(cat $AIRNOW_API_KEY_FILE)
+export USGS_USER=$(cat $USGS_USER_FILE)
+export USGS_PASSWORD=$(cat $USGS_PASSWORD_FILE)
+
+# fail after 3 attempts to download
 attempts=0
 until (
     cd /data/tz_1984_copernicus_avg_temp/download
@@ -18,6 +26,6 @@ until (
     cd /data/tz_1984_copernicus_avg_temp
 ); do
   ((attempts++))
-  if [[ attempts > 3 ]]; then echo $?; break; fi
+  if (( attempts > 3 )); then echo $?; break; fi
 done
 

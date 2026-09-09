@@ -179,7 +179,7 @@
       "qudt:dataType": "float8",
       "unitText": "square miles",
       "minValue": "0",
-      "maxValue": "194"
+      "maxValue": "194.451590410428"
     },
     {
       "@type": "PropertyValue",
@@ -448,7 +448,7 @@
       "qudt:dataType": "float8",
       "unitText": "percentage",
       "minValue": "0",
-      "maxValue": "65",
+      "maxValue": "65.4",
       "startDate": "1/1/18",
       "endDate": "12/31/18"
     },
@@ -460,7 +460,7 @@
       "qudt:dataType": "float8",
       "unitText": "percentage",
       "minValue": "0",
-      "maxValue": "21",
+      "maxValue": "20.8",
       "startDate": "1/1/18",
       "endDate": "12/31/18"
     },
@@ -472,7 +472,7 @@
       "qudt:dataType": "float8",
       "unitText": "percentage",
       "minValue": "0",
-      "maxValue": "74",
+      "maxValue": "73.7",
       "startDate": "1/1/18",
       "endDate": "12/31/18"
     },
@@ -496,7 +496,7 @@
       "qudt:dataType": "float8",
       "unitText": "percentage",
       "minValue": "0",
-      "maxValue": "43",
+      "maxValue": "43.2",
       "startDate": "1/1/18",
       "endDate": "12/31/18"
     },
@@ -520,7 +520,7 @@
       "qudt:dataType": "float8",
       "unitText": "percentage",
       "minValue": "0",
-      "maxValue": "37",
+      "maxValue": "37.1",
       "startDate": "1/1/18",
       "endDate": "12/31/18"
     },
@@ -544,7 +544,7 @@
       "qudt:dataType": "float8",
       "unitText": "percentage",
       "minValue": "0",
-      "maxValue": "68",
+      "maxValue": "67.5",
       "startDate": "1/1/18",
       "endDate": "12/31/18"
     },
@@ -556,7 +556,7 @@
       "qudt:dataType": "float8",
       "unitText": "percentage",
       "minValue": "0",
-      "maxValue": "79",
+      "maxValue": "78.8",
       "startDate": "1/1/18",
       "endDate": "12/31/18"
     },
@@ -564,7 +564,7 @@
       "@type": "PropertyValue",
       "name": "ep_pci",
       "description": "\"Per capita income estimate, 2014-2018 ACS\"",
-      "qudt:dataType": "int4",
+      "qudt:dataType": "float8",
       "unitText": "US dollars",
       "minValue": "3272",
       "maxValue": "153108",
@@ -579,7 +579,7 @@
       "qudt:dataType": "float8",
       "unitText": "percentage",
       "minValue": "0",
-      "maxValue": "81",
+      "maxValue": "80.6",
       "startDate": "1/1/18",
       "endDate": "12/31/18"
     },
@@ -591,7 +591,7 @@
       "qudt:dataType": "float8",
       "unitText": "percentage",
       "minValue": "0",
-      "maxValue": "57",
+      "maxValue": "56.5",
       "startDate": "1/1/18",
       "endDate": "12/31/18"
     },
@@ -603,7 +603,7 @@
       "qudt:dataType": "float8",
       "unitText": "percentage",
       "minValue": "0",
-      "maxValue": "61",
+      "maxValue": "60.6",
       "startDate": "1/1/18",
       "endDate": "12/31/18"
     },
@@ -615,7 +615,7 @@
       "qudt:dataType": "float8",
       "unitText": "percentage",
       "minValue": "0",
-      "maxValue": "24",
+      "maxValue": "23.5",
       "startDate": "1/1/18",
       "endDate": "12/31/18"
     },
@@ -675,7 +675,7 @@
       "qudt:dataType": "float8",
       "unitText": "percentile",
       "minValue": "0",
-      "maxValue": "1",
+      "maxValue": "0.9973",
       "startDate": "1/1/18",
       "endDate": "12/31/18"
     },
@@ -803,7 +803,9 @@
       "name": "f_age17",
       "description": "\"Flag - the percentage of persons aged 17 and younger is in the 90th percentile (1 = yes, 0 = no)\"",
       "propertyID": "2052499366",
-      "qudt:dataType": "boolean",
+      "qudt:dataType": "int2",
+      "minValue": "0",
+      "maxValue": "1",
       "startDate": "1/1/18",
       "endDate": "12/31/18"
     },
@@ -812,7 +814,9 @@
       "name": "f_age65",
       "description": "\"Flag - the percentage of persons aged 65 and older is in the 90th percentile (1 = yes, 0 = no)\"",
       "propertyID": "2052499365",
-      "qudt:dataType": "boolean",
+      "qudt:dataType": "int2",
+      "minValue": "0",
+      "maxValue": "1",
       "startDate": "1/1/18",
       "endDate": "12/31/18"
     },
@@ -821,7 +825,9 @@
       "name": "f_crowd",
       "description": "\"Flag - the percentage of crowded households is in the 90th percentile (1 = yes, 0 = no)\"",
       "propertyID": "2052499372",
-      "qudt:dataType": "boolean",
+      "qudt:dataType": "int2",
+      "minValue": "0",
+      "maxValue": "1",
       "startDate": "1/1/18",
       "endDate": "12/31/18"
     },
@@ -830,7 +836,9 @@
       "name": "f_disabl",
       "description": "\"Flag - the percentage of persons with a disability is in the 90th percentile (1 = yes, 0 = no)\"",
       "propertyID": "2052499362",
-      "qudt:dataType": "boolean",
+      "qudt:dataType": "int2",
+      "minValue": "0",
+      "maxValue": "1",
       "startDate": "1/1/18",
       "endDate": "12/31/18"
     },
@@ -839,7 +847,9 @@
       "name": "f_groupq",
       "description": "\"Flag - the percentage of persons in institutionalized group quarters is in the 90th percentile (1 = yes, 0 = no)\"",
       "propertyID": "2052499363",
-      "qudt:dataType": "boolean",
+      "qudt:dataType": "int2",
+      "minValue": "0",
+      "maxValue": "1",
       "startDate": "1/1/18",
       "endDate": "12/31/18"
     },
@@ -848,7 +858,9 @@
       "name": "f_limeng",
       "description": "\"Flag - the percentage those with limited English is in the 90th percentile (1 = yes, 0 = no)\"",
       "propertyID": "2052499358",
-      "qudt:dataType": "boolean",
+      "qudt:dataType": "int2",
+      "minValue": "0",
+      "maxValue": "1",
       "startDate": "1/1/18",
       "endDate": "12/31/18"
     },
@@ -857,7 +869,9 @@
       "name": "f_minrty",
       "description": "\"Flag - the percentage of minority is in the 90th percentile (1 = yes, 0 = no)\"",
       "propertyID": "2052499368",
-      "qudt:dataType": "boolean",
+      "qudt:dataType": "int2",
+      "minValue": "0",
+      "maxValue": "1",
       "startDate": "1/1/18",
       "endDate": "12/31/18"
     },
@@ -866,7 +880,9 @@
       "name": "f_mobile",
       "description": "\"Flag - the percentage of mobile homes is in the 90th percentile (1 = yes, 0 = no)\"",
       "propertyID": "2052499367",
-      "qudt:dataType": "boolean",
+      "qudt:dataType": "int2",
+      "minValue": "0",
+      "maxValue": "1",
       "startDate": "1/1/18",
       "endDate": "12/31/18"
     },
@@ -875,7 +891,9 @@
       "name": "f_munit",
       "description": "\"Flag - the percentage of households in multi-unit housing is in the 90th percentile (1 = yes, 0 = no)\"",
       "propertyID": "2052499371",
-      "qudt:dataType": "boolean",
+      "qudt:dataType": "int2",
+      "minValue": "0",
+      "maxValue": "1",
       "startDate": "1/1/18",
       "endDate": "12/31/18"
     },
@@ -884,7 +902,9 @@
       "name": "f_nohsdp",
       "description": "\"Flag - the percentage of persons with no high school diploma is in the 90th percentile (1 = yes, 0 = no)\"",
       "propertyID": "2052499361",
-      "qudt:dataType": "boolean",
+      "qudt:dataType": "int2",
+      "minValue": "0",
+      "maxValue": "1",
       "startDate": "1/1/18",
       "endDate": "12/31/18"
     },
@@ -893,7 +913,9 @@
       "name": "f_noveh",
       "description": "\"Flag - the percentage of households with no vehicles is in the 90th percentile (1 = yes, 0 = no)\"",
       "propertyID": "2052499370",
-      "qudt:dataType": "boolean",
+      "qudt:dataType": "int2",
+      "minValue": "0",
+      "maxValue": "1",
       "startDate": "1/1/18",
       "endDate": "12/31/18"
     },
@@ -901,7 +923,9 @@
       "@type": "PropertyValue",
       "name": "f_pci",
       "description": "\"Flag - per capita income is in the 90th percentile (1 = yes, 0 = no)\"",
-      "qudt:dataType": "boolean",
+      "qudt:dataType": "int2",
+      "minValue": "0",
+      "maxValue": "1",
       "startDate": "1/1/18",
       "endDate": "12/31/18"
     },
@@ -910,7 +934,9 @@
       "name": "f_pov",
       "description": "\"Flag - the percentage of persons in poverty is in the 90th percentile (1 = yes, 0 = no)\"",
       "propertyID": "2052499364",
-      "qudt:dataType": "boolean",
+      "qudt:dataType": "int2",
+      "minValue": "0",
+      "maxValue": "1",
       "startDate": "1/1/18",
       "endDate": "12/31/18"
     },
@@ -919,7 +945,9 @@
       "name": "f_sngpnt",
       "description": "\"Flag - the percentage of single parent households is in the 90th percentile (1 = yes, 0 = no)\"",
       "propertyID": "2052499360",
-      "qudt:dataType": "boolean",
+      "qudt:dataType": "int2",
+      "minValue": "0",
+      "maxValue": "1",
       "startDate": "1/1/18",
       "endDate": "12/31/18"
     },
@@ -928,7 +956,7 @@
       "name": "f_theme1",
       "description": "Sum of flags for Socioeconomic Status theme",
       "propertyID": "2052497702",
-      "qudt:dataType": "int4",
+      "qudt:dataType": "int2",
       "minValue": "0",
       "maxValue": "4",
       "startDate": "1/1/18",
@@ -939,7 +967,7 @@
       "name": "f_theme2",
       "description": "Sum of flags for Household Composition theme",
       "propertyID": "2052497705",
-      "qudt:dataType": "int4",
+      "qudt:dataType": "int2",
       "minValue": "0",
       "maxValue": "3",
       "startDate": "1/1/18",
@@ -950,7 +978,7 @@
       "name": "f_theme3",
       "description": "Sum of flags for Minority Status/Language theme",
       "propertyID": "2052497703",
-      "qudt:dataType": "int4",
+      "qudt:dataType": "int2",
       "minValue": "0",
       "maxValue": "2",
       "startDate": "1/1/18",
@@ -961,7 +989,7 @@
       "name": "f_theme4",
       "description": "Sum of flags for Housing Type/ Transportation theme",
       "propertyID": "2052497704",
-      "qudt:dataType": "int4",
+      "qudt:dataType": "int2",
       "minValue": "0",
       "maxValue": "4",
       "startDate": "1/1/18",
@@ -972,7 +1000,7 @@
       "name": "f_total",
       "description": "Sum of flags for the four themes",
       "propertyID": "2052497701",
-      "qudt:dataType": "int4",
+      "qudt:dataType": "int2",
       "minValue": "0",
       "maxValue": "12",
       "startDate": "1/1/18",
@@ -983,7 +1011,9 @@
       "name": "f_unemp",
       "description": "\"Flag - the percentage of civilian unemployed is in the 90th percentile (1 = yes, 0 = no)\"",
       "propertyID": "2052499373",
-      "qudt:dataType": "boolean",
+      "qudt:dataType": "int2",
+      "minValue": "0",
+      "maxValue": "1",
       "startDate": "1/1/18",
       "endDate": "12/31/18"
     },
@@ -1237,8 +1267,8 @@
       "propertyID": "2052498381",
       "qudt:dataType": "float8",
       "unitText": "percentage",
-      "minValue": "0",
-      "maxValue": "31",
+      "minValue": "0.1",
+      "maxValue": "31.3",
       "startDate": "1/1/18",
       "endDate": "12/31/18"
     },
@@ -1249,8 +1279,8 @@
       "propertyID": "2052498379",
       "qudt:dataType": "float8",
       "unitText": "percentage",
-      "minValue": "0",
-      "maxValue": "44",
+      "minValue": "0.1",
+      "maxValue": "44.4",
       "startDate": "1/1/18",
       "endDate": "12/31/18"
     },
@@ -1261,8 +1291,8 @@
       "propertyID": "2052498399",
       "qudt:dataType": "float8",
       "unitText": "percentage",
-      "minValue": "1",
-      "maxValue": "567",
+      "minValue": "0.6",
+      "maxValue": "566.7",
       "startDate": "1/1/18",
       "endDate": "12/31/18"
     },
@@ -1273,7 +1303,7 @@
       "propertyID": "2052498557",
       "qudt:dataType": "float8",
       "unitText": "percentage",
-      "minValue": "1",
+      "minValue": "0.7",
       "maxValue": "100",
       "startDate": "1/1/18",
       "endDate": "12/31/18"
@@ -1286,7 +1316,7 @@
       "qudt:dataType": "float8",
       "unitText": "percentage",
       "minValue": "0",
-      "maxValue": "46",
+      "maxValue": "46.2",
       "startDate": "1/1/18",
       "endDate": "12/31/18"
     },
@@ -1297,8 +1327,8 @@
       "propertyID": "2052498383",
       "qudt:dataType": "float8",
       "unitText": "percentage",
-      "minValue": "1",
-      "maxValue": "229",
+      "minValue": "0.6",
+      "maxValue": "228.6",
       "startDate": "1/1/18",
       "endDate": "12/31/18"
     },
@@ -1309,8 +1339,8 @@
       "propertyID": "2052498609",
       "qudt:dataType": "float8",
       "unitText": "percentage",
-      "minValue": "1",
-      "maxValue": "104",
+      "minValue": "1.2",
+      "maxValue": "103.5",
       "startDate": "1/1/18",
       "endDate": "12/31/18"
     },
@@ -1321,7 +1351,7 @@
       "propertyID": "2052498421",
       "qudt:dataType": "float8",
       "unitText": "percentage",
-      "minValue": "0",
+      "minValue": "0.2",
       "maxValue": "100",
       "startDate": "1/1/18",
       "endDate": "12/31/18"
@@ -1333,8 +1363,8 @@
       "propertyID": "2052498460",
       "qudt:dataType": "float8",
       "unitText": "percentage",
-      "minValue": "0",
-      "maxValue": "567",
+      "minValue": "0.4",
+      "maxValue": "566.7",
       "startDate": "1/1/18",
       "endDate": "12/31/18"
     },
@@ -1345,7 +1375,7 @@
       "propertyID": "2052498370",
       "qudt:dataType": "float8",
       "unitText": "percentage",
-      "minValue": "0",
+      "minValue": "0.1",
       "maxValue": "100",
       "startDate": "1/1/18",
       "endDate": "12/31/18"
@@ -1357,7 +1387,7 @@
       "propertyID": "2052498476",
       "qudt:dataType": "float8",
       "unitText": "percentage",
-      "minValue": "0",
+      "minValue": "0.4",
       "maxValue": "100",
       "startDate": "1/1/18",
       "endDate": "12/31/18"
@@ -1366,7 +1396,7 @@
       "@type": "PropertyValue",
       "name": "mp_pci",
       "description": "\"Per capita income estimate MOE, 2014-2018 ACS\"",
-      "qudt:dataType": "int4",
+      "qudt:dataType": "float8",
       "unitText": "US dollars",
       "minValue": "391",
       "maxValue": "98137",
@@ -1380,7 +1410,7 @@
       "propertyID": "2052498377",
       "qudt:dataType": "float8",
       "unitText": "percentage",
-      "minValue": "0",
+      "minValue": "0.1",
       "maxValue": "100",
       "startDate": "1/1/18",
       "endDate": "12/31/18"
@@ -1392,8 +1422,8 @@
       "propertyID": "2052498248",
       "qudt:dataType": "float8",
       "unitText": "percentage",
-      "minValue": "1",
-      "maxValue": "567",
+      "minValue": "0.6",
+      "maxValue": "566.7",
       "startDate": "1/1/18",
       "endDate": "12/31/18"
     },
@@ -1404,8 +1434,8 @@
       "propertyID": "2052497152",
       "qudt:dataType": "float8",
       "unitText": "percentage",
-      "minValue": "0",
-      "maxValue": "54",
+      "minValue": "0.2",
+      "maxValue": "53.6",
       "startDate": "1/1/18",
       "endDate": "12/31/18"
     },
@@ -1416,7 +1446,7 @@
       "propertyID": "2052498199",
       "qudt:dataType": "float8",
       "unitText": "percentage",
-      "minValue": "0",
+      "minValue": "0.1",
       "maxValue": "100",
       "startDate": "1/1/18",
       "endDate": "12/31/18"
@@ -1488,8 +1518,8 @@
       "propertyID": "2052497697",
       "qudt:dataType": "float8",
       "unitText": "svi index",
-      "minValue": "0",
-      "maxValue": "4",
+      "minValue": "0.0815",
+      "maxValue": "3.9857",
       "startDate": "1/1/18",
       "endDate": "12/31/18"
     },
@@ -1501,7 +1531,7 @@
       "qudt:dataType": "float8",
       "unitText": "svi index",
       "minValue": "0",
-      "maxValue": "4",
+      "maxValue": "3.5619",
       "startDate": "1/1/18",
       "endDate": "12/31/18"
     },
@@ -1512,8 +1542,8 @@
       "propertyID": "2052497698",
       "qudt:dataType": "float8",
       "unitText": "svi index",
-      "minValue": "0",
-      "maxValue": "2",
+      "minValue": "0.0014",
+      "maxValue": "1.9904",
       "startDate": "1/1/18",
       "endDate": "12/31/18"
     },
@@ -1525,7 +1555,7 @@
       "qudt:dataType": "float8",
       "unitText": "svi index",
       "minValue": "0",
-      "maxValue": "5",
+      "maxValue": "4.6218",
       "startDate": "1/1/18",
       "endDate": "12/31/18"
     },
@@ -1535,8 +1565,8 @@
       "description": "Sum of series themes",
       "qudt:dataType": "float8",
       "unitText": "svi index",
-      "minValue": "2",
-      "maxValue": "13",
+      "minValue": "1.9351",
+      "maxValue": "12.5931",
       "startDate": "1/1/18",
       "endDate": "12/31/18"
     },
@@ -1573,5 +1603,5 @@
     "https://gdsc.idsc.miami.edu/download/data/ma_2018_svi_tract/?file=ma_2018_svi_tract&format=sql"
   ],
   "dateModified": "2022-02-08",
-  "version": "2026-09-06"
+  "version": "2026-09-08"
 }

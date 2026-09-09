@@ -6,14 +6,14 @@ This directory contains an [SSSOM](https://mapping-commons.github.io/sssom/) (Si
 
 | File | Description |
 |------|-------------|
-| `test.sssom.tsv` | SSSOM mapping file defining the field-level correspondence between the source JSON and schema.org JSON-LD |
+| `kobo_form_sssom.tsv` | SSSOM mapping file defining the field-level correspondence between the source JSON and schema.org JSON-LD |
 | `example_input.json` | Example source JSON file with two dataset records |
 | `sssom_to_jsonld.py` | Python script that reads the SSSOM file and transforms the input JSON into a JSON-LD document |
 | `example_output.jsonld` | JSON-LD output produced by running the script against the example input |
 
 ## The SSSOM File
 
-`test.sssom.tsv` is a valid SSSOM TSV file. Its YAML metadata header (lines prefixed with `#`) declares:
+`kobo_form_sssom.tsv` is a valid SSSOM TSV file. Its YAML metadata header (lines prefixed with `#`) declares:
 
 - **`curie_map`** — prefix expansions for all CURIEs used in the file (`schema:`, `skos:`, `semapv:`, `owl:`, `myjson:`, `ext:`, `orcid:`)
 - **`extension_definitions`** — two non-standard extension slots, `source_jsonpath` and `target_jsonpath`, declared under the `ext:` namespace and typed as `xsd:string`; these carry the JSONPath expressions the transform script uses
@@ -50,12 +50,12 @@ pip install pyyaml jsonpath-ng ply
 python3 sssom_to_jsonld.py
 ```
 
-The script expects `test.sssom.tsv` and `example_input.json` to be in the same directory and writes the result to `example_output.jsonld`.
+The script expects `kobo_form_sssom.tsv` and `example_input.json` to be in the same directory and writes the result to `example_output.jsonld`.
 
 ### Expected output
 
 ```
-Parsing test.sssom.tsv ...
+Parsing kobo_form_sssom.tsv ...
   10 mapping row(s) loaded
 Transforming example_input.json ...
   2 dataset record(s) mapped
@@ -64,6 +64,6 @@ Output written to example_output.jsonld
 
 ## Notes
 
-- **`creator_id`** in `test.sssom.tsv` is set to a placeholder ORCID (`orcid:0000-0000-0000-0000`). Update this with a real ORCID before publishing the mapping set.
+- **`creator_id`** in `kobo_form_sssom.tsv` is set to a placeholder ORCID (`orcid:0000-0000-0000-0000`). Update this with a real ORCID before publishing the mapping set.
 - The `publisher` field is carried through as a plain string. The SSSOM `comment` column for that row notes that schema.org expects an `Organization` or `Person` object — a structural transform would be needed for full compliance.
 - The `keywords` field uses `skos:closeMatch` (confidence 0.9) because the source is a JSON array of strings while schema.org accepts either a comma-separated string or an array; the script passes the array through as-is.

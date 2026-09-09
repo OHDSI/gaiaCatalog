@@ -21,7 +21,7 @@ wget -O download/us_2023_county_tl.zip 'ftp://ftp2.census.gov/geo/tiger/TIGER202
 
 # unzip to download directory if update flag is set
 if do_update == 1 then
-unzip -d download download/us_2023_county_tl.zip && rm download/us_2023_county_tl.zip
+unzip -o download/us_2023_county_tl.zip -d download && rm download/us_2023_county_tl.zip
 
 # load into postGIS with:
 ogr2ogr -lco GEOMETRY_NAME=geom -f PostgreSQL PG:"<postgres connection>" download/tl_2023_us_county.shp -nlt multipolygon -nln us_2023_county_tl

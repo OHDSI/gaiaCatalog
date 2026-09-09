@@ -17,8 +17,8 @@
   <!-- settings button -->
   <button id="settingsBtn" class="btn btn-md settings-btn" aria-label="Settings">⚙️</button>
   <!-- Settings modal (hidden by default) -->
-  <div id="settingsModal" class="settings-modal hidden">
-    <div class="settings-modal-content">
+  <div id="settingsModal" class="ui-modal hidden">
+    <div class="ui-modal-content settings-content">
       <h3>PostgREST Endpoint</h3>
       <form id="pgEndpointForm">
         <label for="pgEndpointInput">Endpoint URL (e.g. https://my‑db.com/api/)</label>
@@ -26,6 +26,17 @@
         <div class="modal-actions">
           <button type="submit" class="btn btn-primary">Save</button>
           <button type="button" class="btn btn-secondary" id="closeSettings">Cancel</button>
+        </div>
+      </form>
+    </div>
+  </div>
+  <div id="progressModal" class="ui-modal hidden">
+    <div class="ui-modal-content progress-content">
+      <h3>ETL Progress</h3>
+      <div id="progressContent" class="progress-steps"></div>
+      <form id="progressForm">
+        <div class="modal-actions">
+          <button type="button" class="btn btn-secondary" id="closeProgress">Close</button>
         </div>
       </form>
     </div>

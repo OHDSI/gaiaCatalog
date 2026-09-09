@@ -3,12 +3,20 @@
 # tz_magu_dem_srtm_postgis.sh
 # Finish ETL into postGIS from postgis_postgis container
 #
-# Data source: https://e4ftl01.cr.usgs.gov/MEASURES/SRTMGL1.003/2000.02.11/
+# Data source: https://step.esa.int/auxdata/dem/SRTMGL1/
 # Destination postGIS table: tz_magu_dem_srtm
 #
-# Created by etl() on 2026-09-06 12:36:47
+# Created by etl() on 2026-09-08 22:16:54
 # Do not edit directly
 
+# set credentials from postgres defaults and secret files
+export POSTGRES_PASSWORD=$(cat $PG_PASSWORD_FILE)
+export CDC_APP_TOKEN=$(cat $CDC_APP_TOKEN_FILE)
+export AIRNOW_API_KEY=$(cat $AIRNOW_API_KEY_FILE)
+export USGS_USER=$(cat $USGS_USER_FILE)
+export USGS_PASSWORD=$(cat $USGS_PASSWORD_FILE)
+
+# fail after 3 attempts to download
 attempts=0
 until (
     cd /data/tz_magu_dem_srtm/download
@@ -18,6 +26,6 @@ until (
     cd /data/tz_magu_dem_srtm
 ); do
   ((attempts++))
-  if [[ attempts > 3 ]]; then echo $?; break; fi
+  if (( attempts > 3 )); then echo $?; break; fi
 done
 

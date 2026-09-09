@@ -21,7 +21,7 @@ wget -O download/ma_2022_svi_tract.zip 'https://svi.cdc.gov/Documents/Data/2022/
 
 # unzip to download directory if update flag is set
 if do_update == 1 then
-unzip -d download download/ma_2022_svi_tract.zip && rm download/ma_2022_svi_tract.zip
+unzip -o download/ma_2022_svi_tract.zip -d download && rm download/ma_2022_svi_tract.zip
 
 # load into postGIS with:
 ogr2ogr -lco GEOMETRY_NAME=geom -f PostgreSQL PG:"<postgres connection>" download/SVI2022_MASSACHUSETTS_tract.gdb -nlt multipolygon -nln ma_2022_svi_tract
