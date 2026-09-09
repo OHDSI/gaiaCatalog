@@ -521,7 +521,7 @@ async function renderSearch() {
   searchBox.placeholder = 'Free‑text search…';
   searchBox.value = searchString;
   searchBox.setAttribute('autofocus', '');
-  searchBox.addEventListener('input', () => {
+  searchBox.addEventListener('input', async () => {
     searchString = searchBox.value;
     if (searchString.length > 2 || searchString.length == 0) {
       const right = document.getElementById('resultsPane');
@@ -530,7 +530,7 @@ async function renderSearch() {
         matchesFilters(entry) &&
         matchesQuery(entry, searchString.trim().toLowerCase())
       );
-      right.appendChild(renderResults(results));
+      right.appendChild(await renderResults(results));
     }
   });
   banner.appendChild(searchBox);
