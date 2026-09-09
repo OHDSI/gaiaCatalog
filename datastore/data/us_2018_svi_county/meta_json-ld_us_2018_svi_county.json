@@ -177,9 +177,7 @@
       "description": "Tract area in square miles",
       "propertyID": "2052497175",
       "qudt:dataType": "float8",
-      "unitText": "square miles",
-      "minValue": "2.0464429",
-      "maxValue": "145573.8327613"
+      "unitText": "square miles"
     },
     {
       "@type": "PropertyValue",
@@ -514,8 +512,6 @@
       "propertyID": "2052498378",
       "qudt:dataType": "float8",
       "unitText": "percentage",
-      "minValue": "2.3",
-      "maxValue": "55.1",
       "startDate": "1/1/18",
       "endDate": "12/31/18"
     },
@@ -1373,5 +1369,5 @@
     "https://gdsc.idsc.miami.edu/download/data/us_2018_svi_county/?file=us_2018_svi_county&format=sql"
   ],
   "dateModified": "2022-02-08",
-  "version": "2026-09-08"
+  "version": "2026-09-09"
 }

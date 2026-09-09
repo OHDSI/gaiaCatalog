@@ -6,7 +6,7 @@
 # Data source: https://microdata.nbs.go.tz/index.php/catalog/49/download/317
 # Destination postGIS table: tz_2022_nbs_districts
 #
-# Created by etl() on 2026-09-08 22:16:49
+# Created by etl() on 2026-09-09 15:19:52
 # Do not edit directly
 
 # set credentials from postgres defaults and secret files
@@ -15,6 +15,7 @@ export CDC_APP_TOKEN=$(cat $CDC_APP_TOKEN_FILE)
 export AIRNOW_API_KEY=$(cat $AIRNOW_API_KEY_FILE)
 export USGS_USER=$(cat $USGS_USER_FILE)
 export USGS_PASSWORD=$(cat $USGS_PASSWORD_FILE)
+export CENSUS_API_KEY=$(cat $CENSUS_API_KEY_FILE)
 
 # create directory structure and move into it
 mkdir -p /data/tz_2022_nbs/download -p /data/tz_2022_nbs/tz_2022_nbs_districts/etl
@@ -47,7 +48,7 @@ if [[ $do_update = 1 ]]; then
   # fail after 3 attempts to download
   attempts=0
   until (
-    wget -O download/tz_2022_nbs.zip 'https://microdata.nbs.go.tz/index.php/catalog/49/download/317'
+    wget --retry-connrefused --waitretry=1 --read-timeout=20 --timeout=15 -t 10 -c -O download/tz_2022_nbs.zip 'https://microdata.nbs.go.tz/index.php/catalog/49/download/317'
   ); do
     ((attempts++))
     if (( attempts > 3 )); then echo $?; break; fi

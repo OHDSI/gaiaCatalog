@@ -6,7 +6,7 @@
 # Data source: https://step.esa.int/auxdata/dem/SRTMGL1/
 # Destination postGIS table: tz_magu_dem_srtm
 #
-# Created by etl() on 2026-09-08 22:16:54
+# Created by etl() on 2026-09-09 15:19:54
 # Do not edit directly
 
 # set credentials from postgres defaults and secret files
@@ -15,6 +15,7 @@ export CDC_APP_TOKEN=$(cat $CDC_APP_TOKEN_FILE)
 export AIRNOW_API_KEY=$(cat $AIRNOW_API_KEY_FILE)
 export USGS_USER=$(cat $USGS_USER_FILE)
 export USGS_PASSWORD=$(cat $USGS_PASSWORD_FILE)
+export CENSUS_API_KEY=$(cat $CENSUS_API_KEY_FILE)
 
 # create directory structure and move into it
 mkdir -p /data/tz_magu_dem_srtm/download -p /data/tz_magu_dem_srtm/etl

@@ -6,7 +6,7 @@
 # Data source: https://api.census.gov/data/2020/dec/dp?get=NAME&for=county:*
 # Destination postGIS table: us_2020_census_county_fips
 #
-# Created by etl() on 2026-09-08 22:17:08
+# Created by etl() on 2026-09-09 15:19:59
 # Do not edit directly
 
 # set credentials from postgres defaults and secret files
@@ -15,5 +15,6 @@ export CDC_APP_TOKEN=$(cat $CDC_APP_TOKEN_FILE)
 export AIRNOW_API_KEY=$(cat $AIRNOW_API_KEY_FILE)
 export USGS_USER=$(cat $USGS_USER_FILE)
 export USGS_PASSWORD=$(cat $USGS_PASSWORD_FILE)
+export CENSUS_API_KEY=$(cat $CENSUS_API_KEY_FILE)
 
 

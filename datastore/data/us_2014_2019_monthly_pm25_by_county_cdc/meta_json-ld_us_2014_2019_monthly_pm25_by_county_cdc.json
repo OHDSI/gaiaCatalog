@@ -10,7 +10,7 @@
     "sdmx": "https://sdmx.org"
   },
   "@type": "Dataset",
-  "@id": "https://gdsc.idsc.miami.edu/detail/us_2015_2019_monthly_pm25_by_county_cdc",
+  "@id": "https://gdsc.idsc.miami.edu/detail/us_2014_2019_monthly_pm25_by_county_cdc",
   "includedInDataCatalog": [
     {
       "@type": "DataCatalog",
@@ -69,7 +69,7 @@
       "name": "bbox",
       "geo": {
         "@type": "GeoShape",
-        "polygon": "-179.231086 -14.601813 -179.231086 71.439786 179.85968107125612 71.439786 179.85968107125612 -14.601813 -179.231086 -14.601813"
+        "polygon": "-179.231086 -14.601813 179.859681 -14.601813 179.859681 71.439786 -179.231086 71.439786 -179.231086 -14.601813"
       }
     }
   ],
@@ -156,7 +156,7 @@
         "result": {
           "@type": "Dataset",
           "encodingFormat": "sql",
-          "url": "https://gdsc.idsc.miami.edu/download/data/us_2015_2019_monthly_pm25_by_county_cdc/?file=us_2015_2019_monthly_pm25_by_county_cdc&format=sql"
+          "url": "https://gdsc.idsc.miami.edu/download/data/us_2014_2019_monthly_pm25_by_county_cdc/?file=us_2014_2019_monthly_pm25_by_county_cdc&format=sql"
         }
       }
     },
@@ -185,7 +185,7 @@
           "name": "2014-2019 CDC PM 2.5 Monthly Predictions for US Counties",
           "description": "Aggregated monthly PM 2.5 modelled estimates that span 2014-01-01 to 2019-12-31 derived from the CDC Daily County-Level PM2.5 Concentrations 2001-2022 provided by the CDC National Environmental Public Health Tracking Network. From the CDC description: This dataset provides modeled predictions of PM2.5 levels from the EPA Downscaler model. Data are at the county level for 2001-2022. These data are used by the CDC National Environmental Public Health Tracking Network to generate air quality measures.\n\nBy using these data, you signify your agreement to comply with the following requirements:\n1. Use the data for statistical reporting and analysis only.\n2. Do not attempt to learn the identity of any person included in the data and do not combine these data with other data for the purpose of matching records to identify individuals.\n3. Do not disclose of or make use of the identity of any person or establishment discovered inadvertently and report the discovery to: trackingsupport@cdc.gov.\n4. Do not imply or state, either in written or oral form, that interpretations based on the data are those of the original data sources and CDC unless the data user and data source are formally collaborating.\n5. Acknowledge, in all reports or presentations based on these data, the original source of the data and CDC.\n6. Suggested citation: Centers for Disease Control and Prevention. National Environmental Public Health Tracking Network. Web. Accessed: insert date. www.cdc.gov/ephtracking.",
           "encodingFormat": "sql",
-          "url": "https://gdsc.idsc.miami.edu/download/data/us_2015_2019_monthly_pm25_by_county_cdc/?file=us_2015_2019_monthly_pm25_by_county_cdc&format=sql"
+          "url": "https://gdsc.idsc.miami.edu/download/data/us_2014_2019_monthly_pm25_by_county_cdc/?file=us_2014_2019_monthly_pm25_by_county_cdc&format=sql"
         }
       }
     },
@@ -214,7 +214,7 @@
           "name": "2014-2019 CDC PM 2.5 Monthly Predictions for US Counties",
           "description": "Aggregated monthly PM 2.5 modelled estimates that span 2014-01-01 to 2019-12-31 derived from the CDC Daily County-Level PM2.5 Concentrations 2001-2022 provided by the CDC National Environmental Public Health Tracking Network. From the CDC description: This dataset provides modeled predictions of PM2.5 levels from the EPA Downscaler model. Data are at the county level for 2001-2022. These data are used by the CDC National Environmental Public Health Tracking Network to generate air quality measures.\n\nBy using these data, you signify your agreement to comply with the following requirements:\n1. Use the data for statistical reporting and analysis only.\n2. Do not attempt to learn the identity of any person included in the data and do not combine these data with other data for the purpose of matching records to identify individuals.\n3. Do not disclose of or make use of the identity of any person or establishment discovered inadvertently and report the discovery to: trackingsupport@cdc.gov.\n4. Do not imply or state, either in written or oral form, that interpretations based on the data are those of the original data sources and CDC unless the data user and data source are formally collaborating.\n5. Acknowledge, in all reports or presentations based on these data, the original source of the data and CDC.\n6. Suggested citation: Centers for Disease Control and Prevention. National Environmental Public Health Tracking Network. Web. Accessed: insert date. www.cdc.gov/ephtracking.",
           "encodingFormat": "sql",
-          "url": "https://gdsc.idsc.miami.edu/download/data/us_2015_2019_monthly_pm25_by_county_cdc/?file=us_2015_2019_monthly_pm25_by_county_cdc&format=sql"
+          "url": "https://gdsc.idsc.miami.edu/download/data/us_2014_2019_monthly_pm25_by_county_cdc/?file=us_2014_2019_monthly_pm25_by_county_cdc&format=sql"
         }
       }
     }
@@ -246,8 +246,6 @@
       "qudt:dataType": "jsonb",
       "unitCode": "32964",
       "unitText": "micrograms/cubic meter",
-      "minValue": "3.10",
-      "maxValue": "302.16",
       "startDate": "2014-01-01",
       "endDate": "2019-12-31"
     },
@@ -259,8 +257,6 @@
       "qudt:dataType": "jsonb",
       "unitCode": "32964",
       "unitText": "micrograms/cubic meter",
-      "minValue": "1.43",
-      "maxValue": "53.39",
       "startDate": "2014-01-01",
       "endDate": "2019-12-31"
     },
@@ -272,8 +268,6 @@
       "qudt:dataType": "jsonb",
       "unitCode": "32964",
       "unitText": "micrograms/cubic meter",
-      "minValue": "1.59",
-      "maxValue": "50.59",
       "startDate": "2014-01-01",
       "endDate": "2019-12-31"
     },
@@ -285,15 +279,13 @@
       "qudt:dataType": "jsonb",
       "unitCode": "32964",
       "unitText": "micrograms/cubic meter",
-      "minValue": "1.52",
-      "maxValue": "50.52",
       "startDate": "2014-01-01",
       "endDate": "2019-12-31"
     }
   ],
   "distribution": [
-    "https://gdsc.idsc.miami.edu/download/data/us_2015_2019_monthly_pm25_by_county_cdc/?file=us_2015_2019_monthly_pm25_by_county_cdc&format=sql",
-    "https://gdsc.idsc.miami.edu/download/data/us_2015_2019_monthly_pm25_by_county_cdc/?file=us_2015_2019_monthly_pm25_by_county_cdc&format=gpkg"
+    "https://gdsc.idsc.miami.edu/download/data/us_2014_2019_monthly_pm25_by_county_cdc/?file=us_2014_2019_monthly_pm25_by_county_cdc&format=sql",
+    "https://gdsc.idsc.miami.edu/download/data/us_2014_2019_monthly_pm25_by_county_cdc/?file=us_2014_2019_monthly_pm25_by_county_cdc&format=gpkg"
   ],
   "isBasedOn": [
     {
@@ -304,5 +296,5 @@
     }
   ],
   "dateModified": "2026-08-31",
-  "version": "2026-09-08"
+  "version": "2026-09-09"
 }

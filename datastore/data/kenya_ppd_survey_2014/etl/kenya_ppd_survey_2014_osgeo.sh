@@ -6,7 +6,7 @@
 # Data source: local file
 # Destination postGIS table: kenya_ppd_survey_2014
 #
-# Created by etl() on 2026-09-08 22:16:29
+# Created by etl() on 2026-09-09 15:19:42
 # Do not edit directly
 
 # set credentials from postgres defaults and secret files
@@ -15,6 +15,7 @@ export CDC_APP_TOKEN=$(cat $CDC_APP_TOKEN_FILE)
 export AIRNOW_API_KEY=$(cat $AIRNOW_API_KEY_FILE)
 export USGS_USER=$(cat $USGS_USER_FILE)
 export USGS_PASSWORD=$(cat $USGS_PASSWORD_FILE)
+export CENSUS_API_KEY=$(cat $CENSUS_API_KEY_FILE)
 
 # create directory structure and move into it
 mkdir -p /data/kenya_ppd_survey_2014/download -p /data/kenya_ppd_survey_2014/etl
@@ -45,7 +46,7 @@ else do_update=1; fi
 # download if needed
 if [[ $do_update = 1 ]]; then
   # remove spaces and periods for all column headers and make sure no column starts with a number
-  sed -i '1 s/ /_/g; s/\.//g;  s/\"\([0-9]\)/\"n\1/g' download/kenya_ppd_survey_2014.csv
+  sed -i '1s/ /_/g; 1s/\.//g;  1s/\"\([0-9]\)/\"n\1/g' download/kenya_ppd_survey_2014.csv
   # record download datestamp
   echo $(date '+%F %T') > datestamp
 fi

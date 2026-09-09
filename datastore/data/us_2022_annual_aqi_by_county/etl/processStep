@@ -15,6 +15,10 @@ cd /data/us_2022_annual_aqi_by_county
 # set update flag based on last update and update frequency
 do_update=0 if date() < last_update + update_frequency else do_update = 1
 
+# load us_2020_census_county_fips as dependency (see us_2020_census_county_fips for details).
+
+# load us_2022_county_tl as dependency (see us_2022_county_tl for details).
+
 # download if update flag is set:
 if do_update == 1 then
 OPENSSL_CONF=/openssl/openssl.conf curl -o download/us_2022_annual_aqi_by_county.zip 'https://aqs.epa.gov/aqsweb/airdata/annual_aqi_by_county_2022.zip'
@@ -24,7 +28,7 @@ if do_update == 1 then
 unzip -o download/us_2022_annual_aqi_by_county.zip -d download && rm download/us_2022_annual_aqi_by_county.zip
 
 # remove spaces and periods for all column headers and make sure no column starts with a number
-  sed -i '1 s/ /_/g; s/\.//g;  s/\"\([0-9]\)/\"n\1/g' download/annual_aqi_by_county_2022.csv
+  sed -i '1s/ /_/g; 1s/\.//g;  1s/\"\([0-9]\)/\"n\1/g' download/annual_aqi_by_county_2022.csv
 
 # load into postGIS with:
 ogr2ogr -lco GEOMETRY_NAME=geom -f PostgreSQL PG:"<postgres connection>" download/annual_aqi_by_county_2022.csv -nlt multipolygon -nln us_2022_annual_aqi_by_county

@@ -44,14 +44,6 @@
       "@id": "https://www.geonames.org/149590",
       "@type": "Place",
       "name": "Tanzania"
-    },
-    {
-      "@type": "Place",
-      "name": "bbox",
-      "geo": {
-        "@type": "GeoShape",
-        "polygon": "29.5946708 -11.761254 29.5946708 -0.9854812 40.4453945 -0.9854812 40.4453945 -11.761254 29.5946708 -11.761254"
-      }
     }
   ],
   "type": "Vector Dataset",
@@ -167,8 +159,7 @@
     {
       "@type": "PropertyValue",
       "name": "osm_id",
-      "description": "OpenStreetMap (OSM) ID",
-      "qudt:dataType": "varchar"
+      "description": "OpenStreetMap (OSM) ID"
     },
     {
       "@type": "PropertyValue",
@@ -208,5 +199,5 @@
     }
   ],
   "dateModified": "2025-02-24",
-  "version": "2026-09-08"
+  "version": "2026-09-09"
 }

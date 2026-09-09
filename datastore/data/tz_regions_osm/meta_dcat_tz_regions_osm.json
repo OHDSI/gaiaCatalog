@@ -20,7 +20,7 @@
   "prov:wasGeneratedBy": "GDSC automation (see Process Step)",
   "dcat:contactPoint": ["Timothy Norris", "Librarian Associate Professor", "University of Miami Libraries, Frost Institute for Data Science and Computing", "txn60@miami.edu"],
   "gdsc:label": "name",
-  "gdsc:attributes": ["osm_id;OpenStreetMap (OSM) ID;varchar;varchar;;;;", "\nname;Region name;varchar", "\ntype;Type of boundary;varchar", "\nadmin_level;OSM Administrative level;varchar", "\nboundary;OSM boundary type;varchar", "\nother_tags;Any other OSM tags with values, first one is the ISO3166-2 code for the administrative region;varchar"],
+  "gdsc:attributes": ["osm_id;OpenStreetMap (OSM) ID;varchar", "\nname;Region name;varchar", "\ntype;Type of boundary;varchar", "\nadmin_level;OSM Administrative level;varchar", "\nboundary;OSM boundary type;varchar", "\nother_tags;Any other OSM tags with values, first one is the ISO3166-2 code for the administrative region;varchar"],
   "gdsc:collections": ["tz-climate-change", "tz-health-outcomes"],
   "gdsc:functions": ["gdsc_get_attributes"],
   "gdsc:analyticConformsTo": "EPSG:4326",
@@ -29,12 +29,11 @@
   "gdsc:sponsor": ["IDSC;https://idsc.miami.edu", "Library;https://www.library.miami.edu"],
   "dcat:downloadURL": "https://overpass-api.de/api/interpreter?data=rel%5B%22ISO3166-2%22~%22^TZ%22%5D%5Badmin_level=4%5D%5Btype=boundary%5D%5Bboundary=administrative%5D;(._;>;);out;",
   "gdsc:tablename": "tz_regions_osm",
-  "gdsc:up": "true",
+  "gdsc:up": "false",
   "gdsc:podID": "gaia-db",
-  "dct:modified": "2025-09-12T09:34:27Z",
+  "dct:modified": "2025-09-07T11:19:11Z",
   "dct:accrualPeriodicity": "As Needed",
-  "gdsc:version": "2026-09-08T23:16:56Z",
+  "gdsc:version": "2026-09-09T16:19:55Z",
   "spdx:checksum": "TBD",
-  "dct:extent": ["bash: line 7: numfmt: command not found\n31694901", ""],
-  "dcat:bbox": "POLYGON((29.5946708 -11.761254,29.5946708 -0.9854812,40.4453945 -0.9854812,40.4453945 -11.761254,29.5946708 -11.761254))"
+  "dct:extent": ["bash: line 7: numfmt: command not found\n31690901", ""]
 }

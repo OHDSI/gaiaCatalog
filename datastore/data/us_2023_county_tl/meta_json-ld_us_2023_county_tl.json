@@ -190,95 +190,74 @@
   "variableMeasured": [
     {
       "@type": "PropertyValue",
-      "name": "statefp",
-      "qudt:dataType": "varchar"
+      "name": "statefp"
     },
     {
       "@type": "PropertyValue",
-      "name": "countyfp",
-      "qudt:dataType": "varchar"
+      "name": "countyfp"
     },
     {
       "@type": "PropertyValue",
-      "name": "countyns",
-      "qudt:dataType": "varchar"
+      "name": "countyns"
     },
     {
       "@type": "PropertyValue",
-      "name": "geoid",
-      "qudt:dataType": "varchar"
+      "name": "geoid"
     },
     {
       "@type": "PropertyValue",
-      "name": "name",
-      "qudt:dataType": "varchar"
+      "name": "name"
     },
     {
       "@type": "PropertyValue",
-      "name": "namelsad",
-      "qudt:dataType": "varchar"
+      "name": "namelsad"
     },
     {
       "@type": "PropertyValue",
-      "name": "lsad",
-      "qudt:dataType": "varchar"
+      "name": "lsad"
     },
     {
       "@type": "PropertyValue",
-      "name": "classfp",
-      "qudt:dataType": "varchar"
+      "name": "classfp"
     },
     {
       "@type": "PropertyValue",
-      "name": "mtfcc",
-      "qudt:dataType": "varchar"
+      "name": "mtfcc"
     },
     {
       "@type": "PropertyValue",
-      "name": "csafp",
-      "qudt:dataType": "varchar"
+      "name": "csafp"
     },
     {
       "@type": "PropertyValue",
-      "name": "cbsafp",
-      "qudt:dataType": "varchar"
+      "name": "cbsafp"
     },
     {
       "@type": "PropertyValue",
-      "name": "metdivfp",
-      "qudt:dataType": "varchar"
+      "name": "metdivfp"
     },
     {
       "@type": "PropertyValue",
-      "name": "funcstat",
-      "qudt:dataType": "varchar"
+      "name": "funcstat"
     },
     {
       "@type": "PropertyValue",
-      "name": "aland",
-      "qudt:dataType": "numeric",
-      "minValue": "82093.00",
-      "maxValue": "377055293513.00"
+      "name": "aland"
     },
     {
       "@type": "PropertyValue",
-      "name": "awater",
-      "qudt:dataType": "numeric",
-      "minValue": "0.00",
-      "maxValue": "25989628379.00"
+      "name": "awater"
     },
     {
       "@type": "PropertyValue",
-      "name": "intptlat",
-      "qudt:dataType": "varchar"
+      "name": "intptlat"
     },
     {
       "@type": "PropertyValue",
-      "name": "intptlon",
-      "qudt:dataType": "varchar"
+      "name": "intptlon"
     }
   ],
   "distribution": "TBD",
   "dateModified": "2022-10-31",
-  "version": "2026-09-08"
+  "version": "2026-09-09"
 }

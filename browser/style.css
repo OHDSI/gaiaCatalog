@@ -155,6 +155,14 @@ input[type="text"]:focus {
 .progress-content {
   font-size: 1rem; 
 }
+.progress-success {
+  font-weight: 800;
+  font-sixe: 1.1em;
+  color: #007700;
+}
+.progress-fail {
+  color: #770000;
+}
 
 /* -------------------------------------------------------------------------- */
 /*  Flex layout – left filter pane, right results pane                        */

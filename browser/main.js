@@ -141,8 +141,10 @@ document.getElementById('pgEndpointForm').addEventListener('submit', async e => 
 });
 
 function addProgressMessage(message) {
-  const progressMessage = document.createElement('p');
-  progressMessage.textContent = message;
+  const progressMessage = document.createElement('pre');
+  if (message.includes('**')) progressMessage.className = 'progress-success';
+  if (message.includes('failed')) progressMessage.className = 'progress-fail';
+  progressMessage.textContent = message.replaceAll('\\n', '\n');
   progressContent.appendChild(progressMessage);
   const lastElement = progressContent.lastElementChild;
   lastElement.scrollIntoView({ behavior: 'smooth' });
@@ -189,8 +191,8 @@ async function callPostgrest(func, params) {
     if (!response.ok) throw new Error(`HTTP error! Status: ${response.status}`);
 
     const data = await response.json();
-    addProgressMessage(`Success (${func}): ${JSON.stringify(data,null,2)}`);
-    console.log(`Success (${func}):`, data);
+    addProgressMessage(`Success (${func}):\n ${JSON.stringify(data,null,2)}`);
+    console.log(`Success (${func}):\n`, data);
     return data;
   } catch (error) {
     addProgressMessage(`Post failed (${func}): ${JSON.stringify(error,null,2)}`);
@@ -218,7 +220,7 @@ async function loadLayer(table) {
 
   /* load the table */
   for (const script of ['osgeo','postgis']) {
-    addProgressMessage(`gdsc_exec('bash', ${dataPath}/etl/${table}_${script})`);
+    addProgressMessage(`start: gdsc_exec('bash', ${dataPath}/etl/${table}_${script})`);
     console.log(`${dataPath}/etl/${table}_${script}`);
     const response = await callPostgrest(
       'gdsc_exec',
@@ -481,7 +483,7 @@ async function renderResults(entries) {
       e.preventDefault();
       showModal(null,'progress');
       await loadLayer(entry['gdsc:tablename']);
-      addProgressMessage(`Finished ETL for ${entry['gdsc:tablename']}`);
+      addProgressMessage(`**Finished ETL for ${entry['gdsc:tablename']}**`);
     });
     title.appendChild(status);
     card.appendChild(title);
@@ -688,8 +690,9 @@ async function renderLanding(entry) {
           : ' red-fill';
         button.addEventListener('click', async () => { 
           showModal(null,'progress');
-          await loadVariable(entry['gdsc:tablename'],attrSpec[0]); });
+          await loadVariable(entry['gdsc:tablename'],attrSpec[0]);
           addProgressMessage(`Finished ETL for ${entry['gdsc:tablename']} and variable ${attrSpec[0]}`);
+        });
         buttonWrap.appendChild(button);
         attrElement.appendChild(buttonWrap);
       } else {

@@ -20,7 +20,7 @@
   "prov:action": "#########\n# GDSC ETL is performed in two steps: shell script to ETL data into postgres\n# and then additional transformations with SQL in postGIS (if needed).\n####\n\n#########\n# Step 1 - bash script (pseudo code)\n####\n\n# create directory structure and move into it\nmkdir -p /data/tz_magu_dem_srtm/download -p /data/tz_magu_dem_srtm/etl\nchmod -R 777 /data/tz_magu_dem_srtm\ncd /data/tz_magu_dem_srtm\n\n# set update flag based on last update and update frequency\ndo_update=0 if date() < last_update + update_frequency else do_update = 1\n\n# load raster into postGIS with:\n    raster2pgsql -s 4326 -d -C -I -t auto tz_magu_dem_srtm.tif -F tz_magu_dem_srtm > load_raster.sql\npsql <connection options> < load_raster.sql\nrm load_raster.sql\n\n# render raster tiles \ncd /data/tz_magu_dem_srtm/\ngdal2tiles.py -ex --xyz -z 14-18 /data/tz_magu_dem_srtm/download/tz_magu_dem_srtm.tif /tiles/raster/tz_magu_dem_srtm\n# Move into corrrect directory and create derivative directory in data package on osgeo\ncd /data/tz_magu_dem_srtm/\nmkdir -p derived\n\n# Create downloadable zip of download/geotiff in derivate directory \nrm -f derived/tz_magu_dem_srtm.tif.tar.gz\ntar -czf derived/tz_magu_dem_srtm.tif.tar.gz meta_dcat_tz_magu_dem_srtm.json -C download tz_magu_dem_srtm.tif\n\n# Move into correct directory\ncd /data/tz_magu_dem_srtm/\n\n",
   "prov:wasGeneratedBy": "GDSC automation (see Process Step)",
   "dcat:contactPoint": ["Timothy Norris", "Librarian Associate Professor", "University of Miami Libraries, Frost Institute for Data Science and Computing", "txn60@miami.edu"],
-  "gdsc:attributes": ["elevation;Mean elevation above sea level;NASA JPL;int16;meters\n;;1125;1508"],
+  "gdsc:attributes": ["elevation;Mean elevation above sea level;NASA JPL;float;meters\n"],
   "gdsc:collections": ["tz-climate-change", "tz-health-outcomes"],
   "gdsc:functions": ["gdsc_zonal_statistics"],
   "gdsc:analyticConformsTo": "EPSG:4326",
@@ -29,11 +29,11 @@
   "gdsc:sponsor": ["IDSC;https://idsc.miami.edu", "Library;https://www.library.miami.edu"],
   "dcat:downloadURL": "https://step.esa.int/auxdata/dem/SRTMGL1/",
   "gdsc:tablename": "tz_magu_dem_srtm",
-  "gdsc:up": "true",
+  "gdsc:up": "false",
   "gdsc:podID": "gaia-db",
-  "dct:modified": "2026-09-08T12:18:02Z",
+  "dct:modified": "0001-01-01T00:00:00Z",
   "dct:accrualPeriodicity": "As Needed",
-  "gdsc:version": "2026-09-08T23:16:51Z",
+  "gdsc:version": "2026-09-09T16:19:53Z",
   "spdx:checksum": "TBD",
-  "dct:extent": ["bash: line 7: numfmt: command not found\n498906314", ""]
+  "dct:extent": ["bash: line 7: numfmt: command not found\n498903363", ""]
 }

@@ -16,7 +16,7 @@ cd /data/kenya_ppd_survey_2014
 do_update=0 if date() < last_update + update_frequency else do_update = 1
 
 # remove spaces and periods for all column headers and make sure no column starts with a number
-  sed -i '1 s/ /_/g; s/\.//g;  s/\"\([0-9]\)/\"n\1/g' download/kenya_ppd_survey_2014.csv
+  sed -i '1s/ /_/g; 1s/\.//g;  1s/\"\([0-9]\)/\"n\1/g' download/kenya_ppd_survey_2014.csv
 
 # load into postGIS with:
 ogr2ogr -lco GEOMETRY_NAME=geom -f PostgreSQL PG:"<postgres connection>" download/kenya_ppd_survey_2014.csv -nln kenya_ppd_survey_2014

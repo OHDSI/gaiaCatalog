@@ -6,7 +6,7 @@
 # Data source: https://aqs.epa.gov/aqsweb/airdata/annual_aqi_by_county_2022.zip
 # Destination postGIS table: us_2022_annual_aqi_by_county
 #
-# Created by etl() on 2026-09-08 22:17:10
+# Created by etl() on 2026-09-09 15:20:00
 # Do not edit directly
 
 # set credentials from postgres defaults and secret files
@@ -15,6 +15,7 @@ export CDC_APP_TOKEN=$(cat $CDC_APP_TOKEN_FILE)
 export AIRNOW_API_KEY=$(cat $AIRNOW_API_KEY_FILE)
 export USGS_USER=$(cat $USGS_USER_FILE)
 export USGS_PASSWORD=$(cat $USGS_PASSWORD_FILE)
+export CENSUS_API_KEY=$(cat $CENSUS_API_KEY_FILE)
 
 # create directory structure and move into it
 mkdir -p /data/us_2022_annual_aqi_by_county/download -p /data/us_2022_annual_aqi_by_county/etl
@@ -54,7 +55,7 @@ if [[ $do_update = 1 ]]; then
   done
   unzip -o download/us_2022_annual_aqi_by_county.zip -d download && rm download/us_2022_annual_aqi_by_county.zip
   # remove spaces and periods for all column headers and make sure no column starts with a number
-  sed -i '1 s/ /_/g; s/\.//g;  s/\"\([0-9]\)/\"n\1/g' download/annual_aqi_by_county_2022.csv
+  sed -i '1s/ /_/g; 1s/\.//g;  1s/\"\([0-9]\)/\"n\1/g' download/annual_aqi_by_county_2022.csv
   # record download datestamp
   echo $(date '+%F %T') > datestamp
 fi
