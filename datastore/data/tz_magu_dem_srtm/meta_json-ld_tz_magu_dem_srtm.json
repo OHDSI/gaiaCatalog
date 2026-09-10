@@ -161,8 +161,10 @@
       "@type": "PropertyValue",
       "name": "elevation",
       "description": "Mean elevation above sea level",
-      "qudt:dataType": "float",
-      "unitText": "meters\n"
+      "qudt:dataType": "int16",
+      "unitText": "meters\n",
+      "minValue": "1125",
+      "maxValue": "1508"
     }
   ],
   "distribution": [

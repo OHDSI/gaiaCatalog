@@ -4,7 +4,7 @@
   "geometry": "multipolygon",
   "epsg": "EPSG:4269",
   "extent": "POLYGON((-179.231086 -14.601813, 179.859681 -14.601813, 179.859681 71.439786, -179.231086 71.439786, -179.231086 -14.601813))",
-  "attributes": ["statefp", "countyfp", "countyns", "geoid", "name", "namelsad", "lsad", "classfp", "mtfcc", "csafp", "cbsafp", "metdivfp", "funcstat", "aland", "awater", "intptlat", "intptlon"],
+  "attributes": ["statefp;;;varchar;;;;", "countyfp;;;varchar;;;;", "countyns;;;varchar;;;;", "geoid;;;varchar;;;;", "name;;;varchar;;;;", "namelsad;;;varchar;;;;", "lsad;;;varchar;;;;", "classfp;;;varchar;;;;", "mtfcc;;;varchar;;;;", "csafp;;;varchar;;;;", "cbsafp;;;varchar;;;;", "metdivfp;;;varchar;;;;", "funcstat;;;varchar;;;;", "aland;;;numeric;;;82093.00;377055293513.00", "awater;;;numeric;;;0.00;25989628379.00", "intptlat;;;varchar;;;;", "intptlon;;;varchar;;;;"],
   "local_epsg": "EPSG:4269",
   "source": "ftp://ftp2.census.gov/geo/tiger/TIGER2023/COUNTY/tl_2023_us_county.zip",
   "file": ["us_2023_county_tl", "tl_2023_us_county"],
@@ -12,9 +12,9 @@
   "download": "wget",
   "table": "us_2023_county_tl",
   "format": "shp",
-  "up": "false",
+  "up": "true",
   "podID": "gaia-db",
-  "last_updated": "2026-09-09T11:34:47Z",
+  "last_updated": "2026-09-09T21:09:32Z",
   "update_frequency": "Never",
   "checksum": "TBD"
 }

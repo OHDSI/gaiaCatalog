@@ -6,7 +6,7 @@
 # Data source: https://overpass-api.de/api/interpreter?data=rel%5B%22ISO3166-2%22~%22^TZ%22%5D%5Badmin_level=4%5D%5Btype=boundary%5D%5Bboundary=administrative%5D;(._;>;);out;
 # Destination postGIS table: tz_regions_osm
 #
-# Created by etl() on 2026-09-09 15:19:56
+# Created by etl() on 2026-09-09 21:11:39
 # Do not edit directly
 
 # set credentials from postgres defaults and secret files
@@ -29,7 +29,7 @@ DROP TABLE IF EXISTS points;"
 # remove duplicate points and make geometries valid:
 psql -d $POSTGRES_DB -U $POSTGRES_USER -p $POSTGRES_PORT -h gaia-db -c "
 UPDATE tz_regions_osm
-  SET geom=ST_MakeValid(ST_RemoveRepeatedPoints(geom));"
+  SET geom=ST_MakeValid(ST_RemoveRepeatedPoints(geom));" 2>&1
 
 # add local geometry column and reproject existing geometries into local EPSG:
 psql -d $POSTGRES_DB -U $POSTGRES_USER -p $POSTGRES_PORT -h gaia-db -c "

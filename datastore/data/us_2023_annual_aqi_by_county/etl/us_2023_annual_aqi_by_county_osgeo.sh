@@ -6,7 +6,7 @@
 # Data source: https://aqs.epa.gov/aqsweb/airdata/annual_aqi_by_county_2023.zip
 # Destination postGIS table: us_2023_annual_aqi_by_county
 #
-# Created by etl() on 2026-09-09 15:20:01
+# Created by etl() on 2026-09-09 21:11:51
 # Do not edit directly
 
 # set credentials from postgres defaults and secret files
@@ -48,14 +48,14 @@ if [[ $do_update = 1 ]]; then
   # fail after 3 attempts to download
   attempts=0
   until (
-    OPENSSL_CONF=/openssl/openssl.conf curl -o download/us_2023_annual_aqi_by_county.zip 'https://aqs.epa.gov/aqsweb/airdata/annual_aqi_by_county_2023.zip'
+    OPENSSL_CONF=/openssl/openssl.conf curl -o download/us_2023_annual_aqi_by_county.zip 'https://aqs.epa.gov/aqsweb/airdata/annual_aqi_by_county_2023.zip' 2>&1
   ); do
     ((attempts++))
     if (( attempts > 3 )); then echo $?; break; fi
   done
-  unzip -o download/us_2023_annual_aqi_by_county.zip -d download && rm download/us_2023_annual_aqi_by_county.zip
+  unzip -o download/us_2023_annual_aqi_by_county.zip -d download && rm download/us_2023_annual_aqi_by_county.zip 2>&1
   # remove spaces and periods for all column headers and make sure no column starts with a number
-  sed -i '1s/ /_/g; 1s/\.//g;  1s/\"\([0-9]\)/\"n\1/g' download/annual_aqi_by_county_2023.csv
+  sed -i '1s/ /_/g; 1s/\.//g;  1s/\"\([0-9]\)/\"n\1/g' download/annual_aqi_by_county_2023.csv 2>&1
   # record download datestamp
   echo $(date '+%F %T') > datestamp
 fi

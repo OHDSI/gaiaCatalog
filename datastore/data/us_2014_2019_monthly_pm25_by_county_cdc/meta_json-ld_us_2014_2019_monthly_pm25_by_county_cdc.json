@@ -69,7 +69,7 @@
       "name": "bbox",
       "geo": {
         "@type": "GeoShape",
-        "polygon": "-179.231086 -14.601813 179.859681 -14.601813 179.859681 71.439786 -179.231086 71.439786 -179.231086 -14.601813"
+        "polygon": "-179.231086 -14.601813 -179.231086 71.439786 179.85968107125612 71.439786 179.85968107125612 -14.601813 -179.231086 -14.601813"
       }
     }
   ],
@@ -246,6 +246,8 @@
       "qudt:dataType": "jsonb",
       "unitCode": "32964",
       "unitText": "micrograms/cubic meter",
+      "minValue": "3.10",
+      "maxValue": "302.16",
       "startDate": "2014-01-01",
       "endDate": "2019-12-31"
     },
@@ -257,6 +259,8 @@
       "qudt:dataType": "jsonb",
       "unitCode": "32964",
       "unitText": "micrograms/cubic meter",
+      "minValue": "1.43",
+      "maxValue": "53.39",
       "startDate": "2014-01-01",
       "endDate": "2019-12-31"
     },
@@ -268,6 +272,8 @@
       "qudt:dataType": "jsonb",
       "unitCode": "32964",
       "unitText": "micrograms/cubic meter",
+      "minValue": "1.59",
+      "maxValue": "50.59",
       "startDate": "2014-01-01",
       "endDate": "2019-12-31"
     },
@@ -279,6 +285,8 @@
       "qudt:dataType": "jsonb",
       "unitCode": "32964",
       "unitText": "micrograms/cubic meter",
+      "minValue": "1.52",
+      "maxValue": "48.59",
       "startDate": "2014-01-01",
       "endDate": "2019-12-31"
     }

@@ -190,71 +190,92 @@
   "variableMeasured": [
     {
       "@type": "PropertyValue",
-      "name": "statefp"
+      "name": "statefp",
+      "qudt:dataType": "varchar"
     },
     {
       "@type": "PropertyValue",
-      "name": "countyfp"
+      "name": "countyfp",
+      "qudt:dataType": "varchar"
     },
     {
       "@type": "PropertyValue",
-      "name": "countyns"
+      "name": "countyns",
+      "qudt:dataType": "varchar"
     },
     {
       "@type": "PropertyValue",
-      "name": "geoid"
+      "name": "geoid",
+      "qudt:dataType": "varchar"
     },
     {
       "@type": "PropertyValue",
-      "name": "name"
+      "name": "name",
+      "qudt:dataType": "varchar"
     },
     {
       "@type": "PropertyValue",
-      "name": "namelsad"
+      "name": "namelsad",
+      "qudt:dataType": "varchar"
     },
     {
       "@type": "PropertyValue",
-      "name": "lsad"
+      "name": "lsad",
+      "qudt:dataType": "varchar"
     },
     {
       "@type": "PropertyValue",
-      "name": "classfp"
+      "name": "classfp",
+      "qudt:dataType": "varchar"
     },
     {
       "@type": "PropertyValue",
-      "name": "mtfcc"
+      "name": "mtfcc",
+      "qudt:dataType": "varchar"
     },
     {
       "@type": "PropertyValue",
-      "name": "csafp"
+      "name": "csafp",
+      "qudt:dataType": "varchar"
     },
     {
       "@type": "PropertyValue",
-      "name": "cbsafp"
+      "name": "cbsafp",
+      "qudt:dataType": "varchar"
     },
     {
       "@type": "PropertyValue",
-      "name": "metdivfp"
+      "name": "metdivfp",
+      "qudt:dataType": "varchar"
     },
     {
       "@type": "PropertyValue",
-      "name": "funcstat"
+      "name": "funcstat",
+      "qudt:dataType": "varchar"
     },
     {
       "@type": "PropertyValue",
-      "name": "aland"
+      "name": "aland",
+      "qudt:dataType": "numeric",
+      "minValue": "82093.00",
+      "maxValue": "377038947604.00"
     },
     {
       "@type": "PropertyValue",
-      "name": "awater"
+      "name": "awater",
+      "qudt:dataType": "numeric",
+      "minValue": "0.00",
+      "maxValue": "25989695209.00"
     },
     {
       "@type": "PropertyValue",
-      "name": "intptlat"
+      "name": "intptlat",
+      "qudt:dataType": "varchar"
     },
     {
       "@type": "PropertyValue",
-      "name": "intptlon"
+      "name": "intptlon",
+      "qudt:dataType": "varchar"
     }
   ],
   "distribution": "TBD",

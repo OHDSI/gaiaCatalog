@@ -1,16 +1,16 @@
 {
   "rights": "Public Domain",
   "structure": "table",
-  "attributes": ["name;County name;Census;varchar;", "state;State FIPS Code (2 digit);Census;varchar;", "county;County FIPS Code (3 digit);Census;varchar;"],
+  "attributes": ["name;County name;Census;varchar;", "state;State FIPS Code (2 digit);Census;varchar;;;;", "county;County FIPS Code (3 digit);Census;varchar;;;;"],
   "source": "https://api.census.gov/data/2020/dec/dp?get=NAME&for=county:*",
   "file": ["us_2020_census_county_fips"],
   "extension": "json",
   "table": "us_2020_census_county_fips",
   "format": "json",
   "custom_etl": "census_fips",
-  "up": "false",
+  "up": "true",
   "podID": "gaia-db",
   "update_frequency": "Never",
   "checksum": "TBD",
-  "last_updated": "2026-09-09T15:46:57Z"
+  "last_updated": "2026-09-01T19:06:50Z"
 }

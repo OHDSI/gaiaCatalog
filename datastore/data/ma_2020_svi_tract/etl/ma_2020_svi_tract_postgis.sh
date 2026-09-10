@@ -6,7 +6,7 @@
 # Data source: https://svi.cdc.gov/Documents/Data/2020/db/states/Massachusetts.zip
 # Destination postGIS table: ma_2020_svi_tract
 #
-# Created by etl() on 2026-09-09 15:19:44
+# Created by etl() on 2026-09-09 21:11:17
 # Do not edit directly
 
 # set credentials from postgres defaults and secret files
@@ -20,7 +20,7 @@ export CENSUS_API_KEY=$(cat $CENSUS_API_KEY_FILE)
 # remove duplicate points and make geometries valid:
 psql -d $POSTGRES_DB -U $POSTGRES_USER -p $POSTGRES_PORT -h gaia-db -c "
 UPDATE ma_2020_svi_tract
-  SET geom=ST_MakeValid(ST_RemoveRepeatedPoints(geom));"
+  SET geom=ST_MakeValid(ST_RemoveRepeatedPoints(geom));" 2>&1
 
 # add local geometry column and reproject existing geometries into local EPSG:
 psql -d $POSTGRES_DB -U $POSTGRES_USER -p $POSTGRES_PORT -h gaia-db -c "

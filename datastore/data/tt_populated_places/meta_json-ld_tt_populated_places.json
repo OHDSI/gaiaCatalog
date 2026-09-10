@@ -44,6 +44,14 @@
       "@id": "https://www.geonames.org/3573591",
       "@type": "Place",
       "name": "Trinidad and Tobago"
+    },
+    {
+      "@type": "Place",
+      "name": "bbox",
+      "geo": {
+        "@type": "GeoShape",
+        "polygon": "-61.9140361 10.0456354 -61.9140361 11.3223399 -60.533741 11.3223399 -60.533741 10.0456354 -61.9140361 10.0456354"
+      }
     }
   ],
   "type": "Vector Dataset",

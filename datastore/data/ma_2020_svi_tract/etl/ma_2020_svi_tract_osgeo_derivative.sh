@@ -6,7 +6,7 @@
 # Data source: https://svi.cdc.gov/Documents/Data/2020/db/states/Massachusetts.zip
 # Destination postGIS table: ma_2020_svi_tract
 #
-# Created by etl() on 2026-09-09 15:19:44
+# Created by etl() on 2026-09-09 21:11:17
 # Do not edit directly
 
 # Move into corrrect directory and create derivative directory in data package on osgeo

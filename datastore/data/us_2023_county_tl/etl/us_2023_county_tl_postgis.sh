@@ -6,7 +6,7 @@
 # Data source: ftp://ftp2.census.gov/geo/tiger/TIGER2023/COUNTY/tl_2023_us_county.zip
 # Destination postGIS table: us_2023_county_tl
 #
-# Created by etl() on 2026-09-09 15:20:02
+# Created by etl() on 2026-09-09 21:11:53
 # Do not edit directly
 
 # set credentials from postgres defaults and secret files
@@ -20,7 +20,7 @@ export CENSUS_API_KEY=$(cat $CENSUS_API_KEY_FILE)
 # remove duplicate points and make geometries valid:
 psql -d $POSTGRES_DB -U $POSTGRES_USER -p $POSTGRES_PORT -h gaia-db -c "
 UPDATE us_2023_county_tl
-  SET geom=ST_MakeValid(ST_RemoveRepeatedPoints(geom));"
+  SET geom=ST_MakeValid(ST_RemoveRepeatedPoints(geom));" 2>&1
 
 # add local geometry column and reproject existing geometries into local EPSG:
 psql -d $POSTGRES_DB -U $POSTGRES_USER -p $POSTGRES_PORT -h gaia-db -c "

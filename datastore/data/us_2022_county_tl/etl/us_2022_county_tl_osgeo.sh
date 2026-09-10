@@ -6,7 +6,7 @@
 # Data source: ftp://ftp2.census.gov/geo/tiger/TIGER2022/COUNTY/tl_2022_us_county.zip
 # Destination postGIS table: us_2022_county_tl
 #
-# Created by etl() on 2026-09-09 15:20:00
+# Created by etl() on 2026-09-09 21:11:49
 # Do not edit directly
 
 # set credentials from postgres defaults and secret files
@@ -48,12 +48,12 @@ if [[ $do_update = 1 ]]; then
   # fail after 3 attempts to download
   attempts=0
   until (
-    wget --retry-connrefused --waitretry=1 --read-timeout=20 --timeout=15 -t 10 -c -O download/us_2022_county_tl.zip 'ftp://ftp2.census.gov/geo/tiger/TIGER2022/COUNTY/tl_2022_us_county.zip'
+    wget --retry-connrefused --waitretry=1 --read-timeout=20 --timeout=15 -t 10 -c -O download/us_2022_county_tl.zip 'ftp://ftp2.census.gov/geo/tiger/TIGER2022/COUNTY/tl_2022_us_county.zip' 2>&1
   ); do
     ((attempts++))
     if (( attempts > 3 )); then echo $?; break; fi
   done
-  unzip -o download/us_2022_county_tl.zip -d download && rm download/us_2022_county_tl.zip
+  unzip -o download/us_2022_county_tl.zip -d download && rm download/us_2022_county_tl.zip 2>&1
   # record download datestamp
   echo $(date '+%F %T') > datestamp
 fi

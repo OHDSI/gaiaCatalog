@@ -650,7 +650,7 @@ def load(layer_id,variable_id):
     parameters = {
         "params": {
             "table_id": layer_id,
-            "table_description": document['dct_description'][0],
+            "table_description": document['dct_description'][0].strip('"').replace("\n", "\\n"),
             "geom_type": document['locn_geometry'][0],
             "geom_label": document['gdsc_label'][0],
             "variable_nodata": "" if 'gdsc_nodata' not in document else document['gdsc_nodata'][1],

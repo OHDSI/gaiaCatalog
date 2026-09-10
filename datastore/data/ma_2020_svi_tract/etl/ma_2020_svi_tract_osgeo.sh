@@ -6,7 +6,7 @@
 # Data source: https://svi.cdc.gov/Documents/Data/2020/db/states/Massachusetts.zip
 # Destination postGIS table: ma_2020_svi_tract
 #
-# Created by etl() on 2026-09-09 15:19:44
+# Created by etl() on 2026-09-09 21:11:17
 # Do not edit directly
 
 # set credentials from postgres defaults and secret files
@@ -48,12 +48,12 @@ if [[ $do_update = 1 ]]; then
   # fail after 3 attempts to download
   attempts=0
   until (
-    wget --retry-connrefused --waitretry=1 --read-timeout=20 --timeout=15 -t 10 -c -O download/ma_2020_svi_tract.zip 'https://svi.cdc.gov/Documents/Data/2020/db/states/Massachusetts.zip'
+    wget --retry-connrefused --waitretry=1 --read-timeout=20 --timeout=15 -t 10 -c -O download/ma_2020_svi_tract.zip 'https://svi.cdc.gov/Documents/Data/2020/db/states/Massachusetts.zip' 2>&1
   ); do
     ((attempts++))
     if (( attempts > 3 )); then echo $?; break; fi
   done
-  unzip -o download/ma_2020_svi_tract.zip -d download && rm download/ma_2020_svi_tract.zip
+  unzip -o download/ma_2020_svi_tract.zip -d download && rm download/ma_2020_svi_tract.zip 2>&1
   # record download datestamp
   echo $(date '+%F %T') > datestamp
 fi

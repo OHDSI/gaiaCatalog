@@ -177,7 +177,9 @@
       "description": "Tract area in square miles",
       "propertyID": "2052497175",
       "qudt:dataType": "float8",
-      "unitText": "square miles"
+      "unitText": "square miles",
+      "minValue": "2.0464429",
+      "maxValue": "145573.8327613"
     },
     {
       "@type": "PropertyValue",
@@ -512,6 +514,8 @@
       "propertyID": "2052498378",
       "qudt:dataType": "float8",
       "unitText": "percentage",
+      "minValue": "2.3",
+      "maxValue": "55.1",
       "startDate": "1/1/18",
       "endDate": "12/31/18"
     },

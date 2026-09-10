@@ -6,7 +6,7 @@
 # Data source: local file
 # Destination postGIS table: kenya_ppd_survey_2014
 #
-# Created by etl() on 2026-09-09 15:19:42
+# Created by etl() on 2026-09-09 21:11:13
 # Do not edit directly
 
 # set credentials from postgres defaults and secret files
@@ -46,7 +46,7 @@ else do_update=1; fi
 # download if needed
 if [[ $do_update = 1 ]]; then
   # remove spaces and periods for all column headers and make sure no column starts with a number
-  sed -i '1s/ /_/g; 1s/\.//g;  1s/\"\([0-9]\)/\"n\1/g' download/kenya_ppd_survey_2014.csv
+  sed -i '1s/ /_/g; 1s/\.//g;  1s/\"\([0-9]\)/\"n\1/g' download/kenya_ppd_survey_2014.csv 2>&1
   # record download datestamp
   echo $(date '+%F %T') > datestamp
 fi

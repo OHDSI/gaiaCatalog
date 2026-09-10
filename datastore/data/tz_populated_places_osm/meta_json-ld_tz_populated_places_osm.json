@@ -44,6 +44,14 @@
       "@id": "https://www.geonames.org/149590",
       "@type": "Place",
       "name": "Tanzania"
+    },
+    {
+      "@type": "Place",
+      "name": "bbox",
+      "geo": {
+        "@type": "GeoShape",
+        "polygon": "29.6 -11.6489089 29.6 -0.9997506 40.4319387 -0.9997506 40.4319387 -11.6489089 29.6 -11.6489089"
+      }
     }
   ],
   "type": "Vector Dataset",
@@ -168,17 +176,20 @@
     {
       "@type": "PropertyValue",
       "name": "name",
-      "description": "Place/settlement name"
+      "description": "Place/settlement name",
+      "qudt:dataType": "varchar"
     },
     {
       "@type": "PropertyValue",
       "name": "place",
-      "description": "Kind of settlement as City, Town, Village, Hamlet, City Block, or other"
+      "description": "Kind of settlement as City, Town, Village, Hamlet, City Block, or other",
+      "qudt:dataType": "varchar"
     },
     {
       "@type": "PropertyValue",
       "name": "other_tags",
-      "description": "Any other OSM tags with values"
+      "description": "Any other OSM tags with values",
+      "qudt:dataType": "varchar"
     }
   ],
   "distribution": [

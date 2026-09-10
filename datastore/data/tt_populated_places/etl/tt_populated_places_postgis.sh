@@ -6,7 +6,7 @@
 # Data source: https://overpass-api.de/api/interpreter?data=node%5B%22place%22~%22city|town|village%22%5D(area:3600555717);(._;>;);out;
 # Destination postGIS table: tt_populated_places
 #
-# Created by etl() on 2026-09-09 15:19:48
+# Created by etl() on 2026-09-09 21:11:23
 # Do not edit directly
 
 # set credentials from postgres defaults and secret files
@@ -29,7 +29,7 @@ DROP TABLE IF EXISTS points;"
 # remove duplicate points and make geometries valid:
 psql -d $POSTGRES_DB -U $POSTGRES_USER -p $POSTGRES_PORT -h gaia-db -c "
 UPDATE tt_populated_places
-  SET geom=ST_MakeValid(ST_RemoveRepeatedPoints(geom));"
+  SET geom=ST_MakeValid(ST_RemoveRepeatedPoints(geom));" 2>&1
 
 # add local geometry column and reproject existing geometries into local EPSG:
 psql -d $POSTGRES_DB -U $POSTGRES_USER -p $POSTGRES_PORT -h gaia-db -c "

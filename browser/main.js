@@ -190,8 +190,10 @@ async function callPostgrest(func, params) {
 
     if (!response.ok) throw new Error(`HTTP error! Status: ${response.status}`);
 
-    const data = await response.json();
-    addProgressMessage(`Success (${func}):\n ${JSON.stringify(data,null,2)}`);
+    let data = await response.json();
+    if (func != 'gdsc_get_schema_tables') {
+      addProgressMessage(`Success (${func}):\n${JSON.stringify(data,null,2)}`);
+    }
     console.log(`Success (${func}):\n`, data);
     return data;
   } catch (error) {
@@ -237,26 +239,30 @@ async function loadLayer(table) {
 }
 
 async function loadVariable(table,variable) {
-  const entry = catalog.find(e => e['gdsc:tablename'] === table);
-  await getLoadedVariables(entry);
-  if (loadedVariables.has(variable)) {
-    addProgressMessage(`variable ${variable} for table ${table} already loaded`);
-    console.log(`variable ${variable} for table ${table} already loaded`);
-    return;
-  }
-  addProgressMessage(`loading variable ${variable} from ${table}.`);
-  console.log(`loading variable ${variable} from ${table}.`);
 
   /* make sure the layer is loaded */
   await getLoadedTables();
   if (!loadedTables.has(table)) await loadLayer(table);
+
+  /* check for already loaded variables */
+  const entry = catalog.find(e => e['gdsc:tablename'] === table);
+  await getLoadedVariables(entry);
+  if (loadedVariables.size > 0 && loadedVariables.has(variable)) {
+    addProgressMessage(`variable ${variable} for table ${table} already loaded`);
+    console.log(`variable ${variable} for table ${table} already loaded`);
+    return;
+  }
+
+  /* load variable */
+  addProgressMessage(`loading variable ${variable} from ${table}.`);
+  console.log(`loading variable ${variable} from ${table}.`);
 
   /* construct the parameters */
   const attribute = entry['gdsc:attributes'].find(e => e.includes(variable)).split(';');
   const parameters = {
     "params": {
       "table_id": table,
-      "table_description": entry['dct:description'],
+      "table_description": entry['dct:description'].replaceAll('"', '').replaceAll('\n', '\\n'),
       "geom_type": entry['locn:geometry'] ? entry['locn:geometry'] : "",
       "geom_label": entry['gdsc:label'] ? entry['gdsc:label'] : "",
       "variable_nodata": entry['gdsc:nodata'] ? entry['gdsc:nodata'][1] : "",
@@ -625,7 +631,7 @@ async function renderLanding(entry) {
   status.addEventListener('click', async () => { 
     showModal(null,'progress');
     await loadlayer(entry['gdsc:tablename']);
-    addProgressMessage(`Finished ETL for ${entry['gdsc:tablename']}`);
+    addProgressMessage(`**Finished ETL for ${entry['gdsc:tablename']}**`);
   });
   title.appendChild(status);
   wrapper.appendChild(title);
@@ -691,7 +697,7 @@ async function renderLanding(entry) {
         button.addEventListener('click', async () => { 
           showModal(null,'progress');
           await loadVariable(entry['gdsc:tablename'],attrSpec[0]);
-          addProgressMessage(`Finished ETL for ${entry['gdsc:tablename']} and variable ${attrSpec[0]}`);
+          addProgressMessage(`**Finished ETL for ${entry['gdsc:tablename']} and variable ${attrSpec[0]}**`);
         });
         buttonWrap.appendChild(button);
         attrElement.appendChild(buttonWrap);
