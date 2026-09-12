@@ -6,7 +6,7 @@
 # Data source: local file
 # Destination postGIS table: kenya_ppd_survey_2014
 #
-# Created by etl() on 2026-09-09 21:11:13
+# Created by etl() on 2026-09-11 21:42:52
 # Do not edit directly
 
 # set credentials from postgres defaults and secret files
@@ -45,13 +45,16 @@ else do_update=1; fi
 
 # download if needed
 if [[ $do_update = 1 ]]; then
-  # remove spaces and periods for all column headers and make sure no column starts with a number
-  sed -i '1s/ /_/g; 1s/\.//g;  1s/\"\([0-9]\)/\"n\1/g' download/kenya_ppd_survey_2014.csv 2>&1
+  # remove spaces, periods, and leading numerical digits in column headers (if needed)
+  if (head -n 1 download/kenya_ppd_survey_2014.csv | grep -qE '\s|\.|\"[0-9]'); then
+    sed -i '1s/ /_/g; 1s/\.//g; 1s/\"\([0-9]\)/\"n\1/g' download/kenya_ppd_survey_2014.csv 2>&1
+  fi
   # record download datestamp
   echo $(date '+%F %T') > datestamp
 fi
 
 # load into postGIS
 ogr2ogr -lco GEOMETRY_NAME=geom -f PostgreSQL PG:"dbname=$POSTGRES_DB port=$POSTGRES_PORT user=$POSTGRES_USER password=$POSTGRES_PASSWORD host='gaia-db'" download/kenya_ppd_survey_2014.csv -nln kenya_ppd_survey_2014
+echo success: kenya_ppd_survey_2014.csv loaded with ogr2ogr
 
 

@@ -17,7 +17,7 @@ do_update=0 if date() < last_update + update_frequency else do_update = 1
 
 # download if update flag is set:
 if do_update == 1 then
-wget --retry-connrefused --waitretry=1 --read-timeout=20 --timeout=15 -t 10 -c -O download/us_2018_svi_county.zip 'https://svi.cdc.gov/Documents/Data/2018/db/states_counties/SVI_2018_US_county.zip' 2>&1
+wget --retry-connrefused --waitretry=1 --read-timeout=20 --timeout=15 -t 10 -O download/us_2018_svi_county.zip 'https://svi.cdc.gov/Documents/Data/2018/db/states_counties/SVI_2018_US_county.zip' 2>&1
 
 # unzip to download directory if update flag is set
 if do_update == 1 then
@@ -25,6 +25,7 @@ unzip -o download/us_2018_svi_county.zip -d download && rm download/us_2018_svi_
 
 # load into postGIS with:
 ogr2ogr -lco GEOMETRY_NAME=geom -f PostgreSQL PG:"<postgres connection>" download/SVI2018_US_county.gdb -nlt multipolygon -nln us_2018_svi_county
+echo success: SVI2018_US_county.gdb loaded with ogr2ogr
 
 
 #########
@@ -36,6 +37,7 @@ UPDATE us_2018_svi_county
   SET geom=ST_MakeValid(ST_RemoveRepeatedPoints(geom));
 
 # add local geometry column and reproject existing geometries into local EPSG:
+ALTER TABLE us_2018_svi_county DROP COLUMN IF EXISTS geom_local CASCADE;
 SELECT AddGeometryColumn (
   'us_2018_svi_county',
   'geom_local', 6350, 'multipolygon', 2

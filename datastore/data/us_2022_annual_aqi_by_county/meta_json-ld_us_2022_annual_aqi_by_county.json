@@ -197,8 +197,6 @@
       "description": "Days with valid AQI index calculated.",
       "qudt:dataType": "int4",
       "unitText": "days",
-      "minValue": "42",
-      "maxValue": "365",
       "startDate": "2022-01-01",
       "endDate": "2022-12-31"
     },
@@ -208,8 +206,6 @@
       "description": "Days with AQI measure from 0-50.",
       "qudt:dataType": "int4",
       "unitText": "days",
-      "minValue": "17",
-      "maxValue": "364",
       "startDate": "2022-01-01",
       "endDate": "2022-12-31"
     },
@@ -219,8 +215,6 @@
       "description": "Days with AQI measure from 51-100.",
       "qudt:dataType": "int4",
       "unitText": "days",
-      "minValue": "0",
-      "maxValue": "297",
       "startDate": "2022-01-01",
       "endDate": "2022-12-31"
     },
@@ -230,8 +224,6 @@
       "description": "Days with AQI measure from 101-150.",
       "qudt:dataType": "int4",
       "unitText": "days",
-      "minValue": "0",
-      "maxValue": "109",
       "startDate": "2022-01-01",
       "endDate": "2022-12-31"
     },
@@ -241,8 +233,6 @@
       "description": "Days with AQI measure from 151-200.",
       "qudt:dataType": "int4",
       "unitText": "days",
-      "minValue": "0",
-      "maxValue": "56",
       "startDate": "2022-01-01",
       "endDate": "2022-12-31"
     },
@@ -252,8 +242,6 @@
       "description": "Days with AQI measure from 201-300.",
       "qudt:dataType": "int4",
       "unitText": "days",
-      "minValue": "0",
-      "maxValue": "9",
       "startDate": "2022-01-01",
       "endDate": "2022-12-31"
     },
@@ -263,8 +251,6 @@
       "description": "Days with AQI measure from 301-500.",
       "qudt:dataType": "int4",
       "unitText": "days",
-      "minValue": "0",
-      "maxValue": "15",
       "startDate": "2022-01-01",
       "endDate": "2022-12-31"
     },
@@ -274,8 +260,6 @@
       "description": "The maximum AQI in the county for the year.",
       "qudt:dataType": "int4",
       "unitText": "AQI",
-      "minValue": "23",
-      "maxValue": "8368",
       "startDate": "2022-01-01",
       "endDate": "2022-12-31"
     },
@@ -285,8 +269,6 @@
       "description": "90 percent of daily AQI values during the year were less than or equal to the 90th percentile value.",
       "qudt:dataType": "int4",
       "unitText": "AQI",
-      "minValue": "7",
-      "maxValue": "166",
       "startDate": "2022-01-01",
       "endDate": "2022-12-31"
     },
@@ -296,8 +278,6 @@
       "description": "Half of daily AQI values during the year were less than or equal to the median value, and half equaled or exceeded it.",
       "qudt:dataType": "int4",
       "unitText": "AQI",
-      "minValue": "2",
-      "maxValue": "80",
       "startDate": "2022-01-01",
       "endDate": "2022-12-31"
     },
@@ -307,8 +287,6 @@
       "description": "The number of days CO was the main pollutant used to calculate the AQI.",
       "qudt:dataType": "int4",
       "unitText": "days",
-      "minValue": "0",
-      "maxValue": "118",
       "startDate": "2022-01-01",
       "endDate": "2022-12-31"
     },
@@ -318,8 +296,6 @@
       "description": "The number of days NO2 was the main pollutant used to calculate the AQI.",
       "qudt:dataType": "int4",
       "unitText": "days",
-      "minValue": "0",
-      "maxValue": "363",
       "startDate": "2022-01-01",
       "endDate": "2022-12-31"
     },
@@ -329,8 +305,6 @@
       "description": "The number of days Ozone was the main pollutant used to calculate the AQI.",
       "qudt:dataType": "int4",
       "unitText": "days",
-      "minValue": "0",
-      "maxValue": "365",
       "startDate": "2022-01-01",
       "endDate": "2022-12-31"
     },
@@ -340,8 +314,6 @@
       "description": "The number of days PM2.5 was the main pollutant used to calculate the AQI.",
       "qudt:dataType": "int4",
       "unitText": "days",
-      "minValue": "0",
-      "maxValue": "365",
       "startDate": "2022-01-01",
       "endDate": "2022-12-31"
     },
@@ -351,8 +323,6 @@
       "description": "The number of days PM10 was the main pollutant used to calculate the AQI.",
       "qudt:dataType": "int4",
       "unitText": "days",
-      "minValue": "0",
-      "maxValue": "365",
       "startDate": "2022-01-01",
       "endDate": "2022-12-31"
     }
@@ -373,5 +343,5 @@
     }
   ],
   "dateModified": "2022-07-31",
-  "version": "2026-09-09"
+  "version": "2026-09-11"
 }

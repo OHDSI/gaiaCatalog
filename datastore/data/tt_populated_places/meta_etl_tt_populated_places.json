@@ -4,7 +4,7 @@
   "geometry": "point",
   "epsg": "EPSG:4326",
   "fields": ["osm_id", "name", "place", "other_tags"],
-  "attributes": ["osm_id;OpenStreetMap (OSM) ID;;varchar;;;;", "name;Place Name;;varchar;;;;", "place;kind of place (i.e. village, town, city);;varchar;;;;", "other_tags;Any other OSM tags with values, can include values for population and some wikipedia data;;varchar;;;;"],
+  "attributes": ["osm_id;OpenStreetMap (OSM) ID;;varchar;", "name;Place Name;;varchar;", "place;kind of place (i.e. village, town, city);;varchar;", "other_tags;Any other OSM tags with values, can include values for population and some wikipedia data;;varchar;"],
   "local_epsg": "EPSG:8035",
   "service": ["api"],
   "source": "https://overpass-api.de/api/interpreter?data=node%5B%22place%22~%22city|town|village%22%5D(area:3600555717);(._;>;);out;",
@@ -14,10 +14,9 @@
   "table": "tt_populated_places",
   "format": "osm",
   "etl_parameters": "points",
-  "up": "true",
+  "up": "false",
   "podID": "gaia-db",
   "last_updated": "2026-02-16T12:00:42Z",
   "update_frequency": "As Needed",
-  "checksum": "TBD",
-  "extent": "POLYGON((-61.9140361 10.0456354,-61.9140361 11.3223399,-60.533741 11.3223399,-60.533741 10.0456354,-61.9140361 10.0456354))"
+  "checksum": "TBD"
 }

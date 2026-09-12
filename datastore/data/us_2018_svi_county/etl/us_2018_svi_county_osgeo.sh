@@ -6,7 +6,7 @@
 # Data source: https://svi.cdc.gov/Documents/Data/2018/db/states_counties/SVI_2018_US_county.zip
 # Destination postGIS table: us_2018_svi_county
 #
-# Created by etl() on 2026-09-09 21:11:45
+# Created by etl() on 2026-09-11 21:43:21
 # Do not edit directly
 
 # set credentials from postgres defaults and secret files
@@ -48,7 +48,7 @@ if [[ $do_update = 1 ]]; then
   # fail after 3 attempts to download
   attempts=0
   until (
-    wget --retry-connrefused --waitretry=1 --read-timeout=20 --timeout=15 -t 10 -c -O download/us_2018_svi_county.zip 'https://svi.cdc.gov/Documents/Data/2018/db/states_counties/SVI_2018_US_county.zip' 2>&1
+    wget --retry-connrefused --waitretry=1 --read-timeout=20 --timeout=15 -t 10 -O download/us_2018_svi_county.zip 'https://svi.cdc.gov/Documents/Data/2018/db/states_counties/SVI_2018_US_county.zip' 2>&1
   ); do
     ((attempts++))
     if (( attempts > 3 )); then echo $?; break; fi
@@ -60,5 +60,6 @@ fi
 
 # load into postGIS
 ogr2ogr -lco GEOMETRY_NAME=geom -f PostgreSQL PG:"dbname=$POSTGRES_DB port=$POSTGRES_PORT user=$POSTGRES_USER password=$POSTGRES_PASSWORD host='gaia-db'" download/SVI2018_US_county.gdb -nlt multipolygon -nln us_2018_svi_county
+echo success: SVI2018_US_county.gdb loaded with ogr2ogr
 
 

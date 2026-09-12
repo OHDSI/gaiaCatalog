@@ -6,7 +6,7 @@
 # Data source: https://overpass-api.de/api/interpreter?data=rel%5B%22ISO3166-2%22~%22^TZ%22%5D%5Badmin_level=4%5D%5Btype=boundary%5D%5Bboundary=administrative%5D;(._;>;);out;
 # Destination postGIS table: tz_regions_osm
 #
-# Created by etl() on 2026-09-09 21:11:39
+# Created by etl() on 2026-09-11 21:43:17
 # Do not edit directly
 
 # set credentials from postgres defaults and secret files
@@ -33,6 +33,7 @@ UPDATE tz_regions_osm
 
 # add local geometry column and reproject existing geometries into local EPSG:
 psql -d $POSTGRES_DB -U $POSTGRES_USER -p $POSTGRES_PORT -h gaia-db -c "
+ALTER TABLE tz_regions_osm DROP COLUMN IF EXISTS geom_local CASCADE;
 SELECT AddGeometryColumn (
   'tz_regions_osm',
   'geom_local', 4326, 'multipolygon', 2

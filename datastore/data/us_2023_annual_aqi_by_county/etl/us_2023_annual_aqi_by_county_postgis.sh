@@ -6,7 +6,7 @@
 # Data source: https://aqs.epa.gov/aqsweb/airdata/annual_aqi_by_county_2023.zip
 # Destination postGIS table: us_2023_annual_aqi_by_county
 #
-# Created by etl() on 2026-09-09 21:11:51
+# Created by etl() on 2026-09-11 21:43:27
 # Do not edit directly
 
 # set credentials from postgres defaults and secret files

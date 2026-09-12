@@ -21,6 +21,7 @@ curl -o download/tt_populated_places.osm 'https://overpass-api.de/api/interprete
 
 # load into postGIS with:
 ogr2ogr -lco GEOMETRY_NAME=geom -f PostgreSQL PG:"<postgres connection>" download/tt_populated_places.osm
+echo success: tt_populated_places.osm loaded with ogr2ogr
 
 
 #########
@@ -41,6 +42,7 @@ UPDATE tt_populated_places
   SET geom=ST_MakeValid(ST_RemoveRepeatedPoints(geom));
 
 # add local geometry column and reproject existing geometries into local EPSG:
+ALTER TABLE tt_populated_places DROP COLUMN IF EXISTS geom_local CASCADE;
 SELECT AddGeometryColumn (
   'tt_populated_places',
   'geom_local', 8035, 'point', 2

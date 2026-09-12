@@ -6,7 +6,7 @@
 # Data source: https://data.cdc.gov/api/v3/views/53mz-4zqd/query.csv?query=SELECT%0A%20%20%60year%60%2C%0A%20%20%60date%60%2C%0A%20%20%60statefips%60%2C%0A%20%20%60countyfips%60%2C%0A%20%20%60pm25_max_pred%60%2C%0A%20%20%60pm25_med_pred%60%2C%0A%20%20%60pm25_mean_pred%60%2C%0A%20%20%60pm25_pop_pred%60%0AWHERE%0A%20%20caseless_one_of(%60year%60%2C%20%222014%22%2C%20%222015%22%2C%20%222016%22%2C%20%222017%22%2C%20%222018%22%2C%20%222019%22)&app_token='"$CDC_APP_TOKEN"'
 # Destination postGIS table: us_2014_2019_monthly_pm25_by_county_cdc
 #
-# Created by etl() on 2026-09-09 21:11:43
+# Created by etl() on 2026-09-11 21:43:19
 # Do not edit directly
 
 # give the data table and its relations a temporary name
@@ -28,7 +28,6 @@ ALTER TABLE us_2014_2019_monthly_pm25_by_county_cdc
   ADD COLUMN IF NOT EXISTS pm25_med_pred jsonb,
   ADD COLUMN IF NOT EXISTS pm25_mean_pred jsonb,
   ADD COLUMN IF NOT EXISTS pm25_pop_pred jsonb;
-SET LOCAL statement_timeout = '10min';
 UPDATE us_2014_2019_monthly_pm25_by_county_cdc 
 SET
   pm25_max_pred = temp.pm25_max_pred,
@@ -37,6 +36,7 @@ SET
   pm25_pop_pred = temp.pm25_pop_pred
 FROM temp
 WHERE us_2014_2019_monthly_pm25_by_county_cdc.geoid = temp.geoid;
+
 
 -- remove temporary table
 DROP TABLE temp CASCADE;

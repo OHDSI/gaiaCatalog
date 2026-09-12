@@ -21,6 +21,7 @@ curl -o download/tt_roads.osm 'https://overpass-api.de/api/interpreter?data=way%
 
 # load into postGIS with:
 ogr2ogr -lco GEOMETRY_NAME=geom -f PostgreSQL PG:"<postgres connection>" download/tt_roads.osm
+echo success: tt_roads.osm loaded with ogr2ogr
 
 
 #########
@@ -41,6 +42,7 @@ UPDATE tt_roads
   SET geom=ST_MakeValid(ST_RemoveRepeatedPoints(geom));
 
 # add local geometry column and reproject existing geometries into local EPSG:
+ALTER TABLE tt_roads DROP COLUMN IF EXISTS geom_local CASCADE;
 SELECT AddGeometryColumn (
   'tt_roads',
   'geom_local', 8035, 'multilinestring', 2

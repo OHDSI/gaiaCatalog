@@ -6,7 +6,7 @@
 # Data source: https://overpass-api.de/api/interpreter?data=rel%5B%22ISO3166-2%22~%22^TT%22%5D%5Badmin_level=4%5D%5Btype=boundary%5D%5Bboundary=administrative%5D;(._;>;);out;
 # Destination postGIS table: tt_regions
 #
-# Created by etl() on 2026-09-09 21:11:25
+# Created by etl() on 2026-09-11 21:43:03
 # Do not edit directly
 
 # set credentials from postgres defaults and secret files
@@ -59,5 +59,6 @@ fi
 
 # load into postGIS
 ogr2ogr -lco GEOMETRY_NAME=geom -f PostgreSQL PG:"dbname=$POSTGRES_DB port=$POSTGRES_PORT user=$POSTGRES_USER password=$POSTGRES_PASSWORD host='gaia-db'" download/tt_regions.osm
+echo success: tt_regions.osm loaded with ogr2ogr
 
 

@@ -21,6 +21,7 @@ curl -o download/tz_regions_osm.osm 'https://overpass-api.de/api/interpreter?dat
 
 # load into postGIS with:
 ogr2ogr -lco GEOMETRY_NAME=geom -f PostgreSQL PG:"<postgres connection>" download/tz_regions_osm.osm
+echo success: tz_regions_osm.osm loaded with ogr2ogr
 
 
 #########
@@ -41,6 +42,7 @@ UPDATE tz_regions_osm
   SET geom=ST_MakeValid(ST_RemoveRepeatedPoints(geom));
 
 # add local geometry column and reproject existing geometries into local EPSG:
+ALTER TABLE tz_regions_osm DROP COLUMN IF EXISTS geom_local CASCADE;
 SELECT AddGeometryColumn (
   'tz_regions_osm',
   'geom_local', 4326, 'multipolygon', 2

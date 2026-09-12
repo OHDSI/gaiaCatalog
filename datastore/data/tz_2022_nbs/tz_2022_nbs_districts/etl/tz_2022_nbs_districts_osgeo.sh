@@ -6,7 +6,7 @@
 # Data source: https://microdata.nbs.go.tz/index.php/catalog/49/download/317
 # Destination postGIS table: tz_2022_nbs_districts
 #
-# Created by etl() on 2026-09-09 21:11:31
+# Created by etl() on 2026-09-11 21:43:10
 # Do not edit directly
 
 # set credentials from postgres defaults and secret files
@@ -48,7 +48,7 @@ if [[ $do_update = 1 ]]; then
   # fail after 3 attempts to download
   attempts=0
   until (
-    wget --retry-connrefused --waitretry=1 --read-timeout=20 --timeout=15 -t 10 -c -O download/tz_2022_nbs.zip 'https://microdata.nbs.go.tz/index.php/catalog/49/download/317' 2>&1
+    wget --retry-connrefused --waitretry=1 --read-timeout=20 --timeout=15 -t 10 -O download/tz_2022_nbs.zip 'https://microdata.nbs.go.tz/index.php/catalog/49/download/317' 2>&1
   ); do
     ((attempts++))
     if (( attempts > 3 )); then echo $?; break; fi
@@ -61,5 +61,6 @@ fi
 
 # load into postGIS
 ogr2ogr -lco GEOMETRY_NAME=geom -f PostgreSQL PG:"dbname=$POSTGRES_DB port=$POSTGRES_PORT user=$POSTGRES_USER password=$POSTGRES_PASSWORD host='gaia-db'" download/TANZANIA_2022_POST_PHC_GEODATABASE/commondata/tanzania_2022phc_geodatabase.gdb Districts -nlt multipolygon -nln tz_2022_nbs_districts
+echo success: TANZANIA_2022_POST_PHC_GEODATABASE/commondata/tanzania_2022phc_geodatabase.gdb loaded with ogr2ogr
 
 

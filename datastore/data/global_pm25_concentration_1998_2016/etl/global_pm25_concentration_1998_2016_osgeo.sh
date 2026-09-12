@@ -6,7 +6,7 @@
 # Data source: https://sedac.ciesin.columbia.edu/downloads/data/sdei/sdei-annual-pm2-5-concentrations-countries-urban-areas-v1-1998-2016/sdei-annual-pm2-5-concentrations-countries-urban-areas-v1-1998-2016-urban-areas-shp.zip
 # Destination postGIS table: global_pm25_concentration_1998_2016
 #
-# Created by etl() on 2026-09-09 21:11:12
+# Created by etl() on 2026-09-11 21:42:52
 # Do not edit directly
 
 # set credentials from postgres defaults and secret files
@@ -48,7 +48,7 @@ if [[ $do_update = 1 ]]; then
   # fail after 3 attempts to download
   attempts=0
   until (
-    wget --retry-connrefused --waitretry=1 --read-timeout=20 --timeout=15 -t 10 -c -O download/global_pm25_concentration_1998_2016.zip 'https://sedac.ciesin.columbia.edu/downloads/data/sdei/sdei-annual-pm2-5-concentrations-countries-urban-areas-v1-1998-2016/sdei-annual-pm2-5-concentrations-countries-urban-areas-v1-1998-2016-urban-areas-shp.zip' 2>&1
+    wget --retry-connrefused --waitretry=1 --read-timeout=20 --timeout=15 -t 10 -O download/global_pm25_concentration_1998_2016.zip 'https://sedac.ciesin.columbia.edu/downloads/data/sdei/sdei-annual-pm2-5-concentrations-countries-urban-areas-v1-1998-2016/sdei-annual-pm2-5-concentrations-countries-urban-areas-v1-1998-2016-urban-areas-shp.zip' 2>&1
   ); do
     ((attempts++))
     if (( attempts > 3 )); then echo $?; break; fi
@@ -60,5 +60,6 @@ fi
 
 # load into postGIS
 ogr2ogr -lco GEOMETRY_NAME=geom -f PostgreSQL PG:"dbname=$POSTGRES_DB port=$POSTGRES_PORT user=$POSTGRES_USER password=$POSTGRES_PASSWORD host='gaia-db'" download/sdei-annual-pm2-5-concentrations-countries-urban-areas-v1-1998-2016-urban-areas.shp -nlt multipolygon -nln global_pm25_concentration_1998_2016
+echo success: sdei-annual-pm2-5-concentrations-countries-urban-areas-v1-1998-2016-urban-areas.shp loaded with ogr2ogr
 
 

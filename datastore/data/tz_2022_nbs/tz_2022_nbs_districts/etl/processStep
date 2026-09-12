@@ -17,7 +17,7 @@ do_update=0 if date() < last_update + update_frequency else do_update = 1
 
 # download if update flag is set:
 if do_update == 1 then
-wget --retry-connrefused --waitretry=1 --read-timeout=20 --timeout=15 -t 10 -c -O download/tz_2022_nbs.zip 'https://microdata.nbs.go.tz/index.php/catalog/49/download/317' 2>&1
+wget --retry-connrefused --waitretry=1 --read-timeout=20 --timeout=15 -t 10 -O download/tz_2022_nbs.zip 'https://microdata.nbs.go.tz/index.php/catalog/49/download/317' 2>&1
 
 # unzip to download directory if update flag is set
 if do_update == 1 then
@@ -28,6 +28,7 @@ unzip -o download/tz_2022_nbs.zip -d download && rm download/tz_2022_nbs.zip 2>&
 
 # load into postGIS with:
 ogr2ogr -lco GEOMETRY_NAME=geom -f PostgreSQL PG:"<postgres connection>" download/TANZANIA_2022_POST_PHC_GEODATABASE/commondata/tanzania_2022phc_geodatabase.gdb Districts -nlt multipolygon -nln tz_2022_nbs_districts
+echo success: TANZANIA_2022_POST_PHC_GEODATABASE/commondata/tanzania_2022phc_geodatabase.gdb loaded with ogr2ogr
 
 
 #########
@@ -39,6 +40,7 @@ UPDATE tz_2022_nbs_districts
   SET geom=ST_MakeValid(ST_RemoveRepeatedPoints(geom));
 
 # add local geometry column and reproject existing geometries into local EPSG:
+ALTER TABLE tz_2022_nbs_districts DROP COLUMN IF EXISTS geom_local CASCADE;
 SELECT AddGeometryColumn (
   'tz_2022_nbs_districts',
   'geom_local', 4326, 'multipolygon', 2

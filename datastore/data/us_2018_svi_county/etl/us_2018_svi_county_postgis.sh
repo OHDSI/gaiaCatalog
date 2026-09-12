@@ -6,7 +6,7 @@
 # Data source: https://svi.cdc.gov/Documents/Data/2018/db/states_counties/SVI_2018_US_county.zip
 # Destination postGIS table: us_2018_svi_county
 #
-# Created by etl() on 2026-09-09 21:11:45
+# Created by etl() on 2026-09-11 21:43:21
 # Do not edit directly
 
 # set credentials from postgres defaults and secret files
@@ -24,6 +24,7 @@ UPDATE us_2018_svi_county
 
 # add local geometry column and reproject existing geometries into local EPSG:
 psql -d $POSTGRES_DB -U $POSTGRES_USER -p $POSTGRES_PORT -h gaia-db -c "
+ALTER TABLE us_2018_svi_county DROP COLUMN IF EXISTS geom_local CASCADE;
 SELECT AddGeometryColumn (
   'us_2018_svi_county',
   'geom_local', 6350, 'multipolygon', 2

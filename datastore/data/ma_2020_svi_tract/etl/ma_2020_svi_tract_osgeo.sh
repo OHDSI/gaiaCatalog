@@ -6,7 +6,7 @@
 # Data source: https://svi.cdc.gov/Documents/Data/2020/db/states/Massachusetts.zip
 # Destination postGIS table: ma_2020_svi_tract
 #
-# Created by etl() on 2026-09-09 21:11:17
+# Created by etl() on 2026-09-11 21:42:56
 # Do not edit directly
 
 # set credentials from postgres defaults and secret files
@@ -48,7 +48,7 @@ if [[ $do_update = 1 ]]; then
   # fail after 3 attempts to download
   attempts=0
   until (
-    wget --retry-connrefused --waitretry=1 --read-timeout=20 --timeout=15 -t 10 -c -O download/ma_2020_svi_tract.zip 'https://svi.cdc.gov/Documents/Data/2020/db/states/Massachusetts.zip' 2>&1
+    wget --retry-connrefused --waitretry=1 --read-timeout=20 --timeout=15 -t 10 -O download/ma_2020_svi_tract.zip 'https://svi.cdc.gov/Documents/Data/2020/db/states/Massachusetts.zip' 2>&1
   ); do
     ((attempts++))
     if (( attempts > 3 )); then echo $?; break; fi
@@ -60,5 +60,6 @@ fi
 
 # load into postGIS
 ogr2ogr -lco GEOMETRY_NAME=geom -f PostgreSQL PG:"dbname=$POSTGRES_DB port=$POSTGRES_PORT user=$POSTGRES_USER password=$POSTGRES_PASSWORD host='gaia-db'" download/SVI2020_MASSACHUSETTS_tract.gdb -nlt multipolygon -nln ma_2020_svi_tract
+echo success: SVI2020_MASSACHUSETTS_tract.gdb loaded with ogr2ogr
 
 

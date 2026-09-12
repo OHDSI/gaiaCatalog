@@ -6,7 +6,7 @@
 # Data source: https://aqs.epa.gov/aqsweb/airdata/annual_aqi_by_county_2022.zip
 # Destination postGIS table: us_2022_annual_aqi_by_county
 #
-# Created by etl() on 2026-09-09 21:11:48
+# Created by etl() on 2026-09-11 21:43:24
 # Do not edit directly
 
 # set credentials from postgres defaults and secret files
@@ -54,14 +54,17 @@ if [[ $do_update = 1 ]]; then
     if (( attempts > 3 )); then echo $?; break; fi
   done
   unzip -o download/us_2022_annual_aqi_by_county.zip -d download && rm download/us_2022_annual_aqi_by_county.zip 2>&1
-  # remove spaces and periods for all column headers and make sure no column starts with a number
-  sed -i '1s/ /_/g; 1s/\.//g;  1s/\"\([0-9]\)/\"n\1/g' download/annual_aqi_by_county_2022.csv 2>&1
+  # remove spaces, periods, and leading numerical digits in column headers (if needed)
+  if (head -n 1 download/annual_aqi_by_county_2022.csv | grep -qE '\s|\.|\"[0-9]'); then
+    sed -i '1s/ /_/g; 1s/\.//g; 1s/\"\([0-9]\)/\"n\1/g' download/annual_aqi_by_county_2022.csv 2>&1
+  fi
   # record download datestamp
   echo $(date '+%F %T') > datestamp
 fi
 
 # load into postGIS
 ogr2ogr -lco GEOMETRY_NAME=geom -f PostgreSQL PG:"dbname=$POSTGRES_DB port=$POSTGRES_PORT user=$POSTGRES_USER password=$POSTGRES_PASSWORD host='gaia-db'" download/annual_aqi_by_county_2022.csv -nlt multipolygon -nln us_2022_annual_aqi_by_county
+echo success: annual_aqi_by_county_2022.csv loaded with ogr2ogr
 
 if [[ $do_update = 1 ]]; then
   # record download datestamp

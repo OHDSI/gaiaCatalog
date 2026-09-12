@@ -17,7 +17,7 @@ do_update=0 if date() < last_update + update_frequency else do_update = 1
 
 # download if update flag is set:
 if do_update == 1 then
-wget --retry-connrefused --waitretry=1 --read-timeout=20 --timeout=15 -t 10 -c -O download/ma_2022_svi_tract.zip 'https://svi.cdc.gov/Documents/Data/2022/db/states/Massachusetts.zip' 2>&1
+wget --retry-connrefused --waitretry=1 --read-timeout=20 --timeout=15 -t 10 -O download/ma_2022_svi_tract.zip 'https://svi.cdc.gov/Documents/Data/2022/db/states/Massachusetts.zip' 2>&1
 
 # unzip to download directory if update flag is set
 if do_update == 1 then
@@ -25,6 +25,7 @@ unzip -o download/ma_2022_svi_tract.zip -d download && rm download/ma_2022_svi_t
 
 # load into postGIS with:
 ogr2ogr -lco GEOMETRY_NAME=geom -f PostgreSQL PG:"<postgres connection>" download/SVI2022_MASSACHUSETTS_tract.gdb -nlt multipolygon -nln ma_2022_svi_tract
+echo success: SVI2022_MASSACHUSETTS_tract.gdb loaded with ogr2ogr
 
 
 #########
@@ -36,6 +37,7 @@ UPDATE ma_2022_svi_tract
   SET geom=ST_MakeValid(ST_RemoveRepeatedPoints(geom));
 
 # add local geometry column and reproject existing geometries into local EPSG:
+ALTER TABLE ma_2022_svi_tract DROP COLUMN IF EXISTS geom_local CASCADE;
 SELECT AddGeometryColumn (
   'ma_2022_svi_tract',
   'geom_local', 26986, 'multipolygon', 2

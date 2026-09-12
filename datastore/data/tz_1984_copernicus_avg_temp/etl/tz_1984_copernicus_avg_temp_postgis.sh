@@ -6,7 +6,7 @@
 # Data source: https://github.com/tibbben/copernicus_aggregate.git
 # Destination postGIS table: tz_1984_copernicus_avg_temp
 #
-# Created by etl() on 2026-09-09 21:11:28
+# Created by etl() on 2026-09-11 21:43:06
 # Do not edit directly
 
 # set credentials from postgres defaults and secret files
@@ -23,6 +23,7 @@ until (
     cd /data/tz_1984_copernicus_avg_temp/download
     raster2pgsql -s 4326 -d -C -I -t auto tz_1984_copernicus_avg_temp.tif -F tz_1984_copernicus_avg_temp > load_raster.sql
     psql -d $POSTGRES_DB -U $POSTGRES_USER -p $POSTGRES_PORT -h gaia-db < load_raster.sql
+    echo success: tz_1984_copernicus_avg_temp.tif loaded with raster2pgsql
     rm load_raster.sql
     cd /data/tz_1984_copernicus_avg_temp
 ); do

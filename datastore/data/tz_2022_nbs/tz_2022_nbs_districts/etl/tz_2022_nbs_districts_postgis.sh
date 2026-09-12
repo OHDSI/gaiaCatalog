@@ -6,7 +6,7 @@
 # Data source: https://microdata.nbs.go.tz/index.php/catalog/49/download/317
 # Destination postGIS table: tz_2022_nbs_districts
 #
-# Created by etl() on 2026-09-09 21:11:31
+# Created by etl() on 2026-09-11 21:43:10
 # Do not edit directly
 
 # set credentials from postgres defaults and secret files
@@ -24,6 +24,7 @@ UPDATE tz_2022_nbs_districts
 
 # add local geometry column and reproject existing geometries into local EPSG:
 psql -d $POSTGRES_DB -U $POSTGRES_USER -p $POSTGRES_PORT -h gaia-db -c "
+ALTER TABLE tz_2022_nbs_districts DROP COLUMN IF EXISTS geom_local CASCADE;
 SELECT AddGeometryColumn (
   'tz_2022_nbs_districts',
   'geom_local', 4326, 'multipolygon', 2

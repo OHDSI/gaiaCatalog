@@ -4,7 +4,7 @@
   "geometry": "point",
   "epsg": "EPSG:4326",
   "fields": ["osm_id", "name", "place", "other_tags"],
-  "attributes": ["osm_id;OpenStreetMap (OSM) ID;;varchar;;;;", "name;Place/settlement name;varchar;varchar;;;;", "place;Kind of settlement as City, Town, Village, Hamlet, City Block, or other;varchar;varchar;;;;", "other_tags;Any other OSM tags with values;varchar;varchar;;;;"],
+  "attributes": ["osm_id;OpenStreetMap (OSM) ID;;varchar", "name;Place/settlement name;varchar", "place;Kind of settlement as City, Town, Village, Hamlet, City Block, or other;varchar", "other_tags;Any other OSM tags with values;varchar"],
   "local_epsg": "EPSG:4326",
   "derive": ["shp"],
   "service": ["api"],
@@ -15,10 +15,9 @@
   "table": "tz_populated_places_osm",
   "format": "osm",
   "etl_parameters": "points",
-  "up": "true",
+  "up": "false",
   "podID": "gaia-db",
   "last_updated": "2026-02-16T12:49:34Z",
   "update_frequency": "As Needed",
-  "checksum": "TBD",
-  "extent": "POLYGON((29.6 -11.6489089,29.6 -0.9997506,40.4319387 -0.9997506,40.4319387 -11.6489089,29.6 -11.6489089))"
+  "checksum": "TBD"
 }

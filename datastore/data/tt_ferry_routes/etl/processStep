@@ -21,6 +21,7 @@ curl -o download/tt_ferry_routes.osm 'https://overpass-api.de/api/interpreter?da
 
 # load into postGIS with:
 ogr2ogr -lco GEOMETRY_NAME=geom -f PostgreSQL PG:"<postgres connection>" download/tt_ferry_routes.osm
+echo success: tt_ferry_routes.osm loaded with ogr2ogr
 
 
 #########
@@ -41,6 +42,7 @@ UPDATE tt_ferry_routes
   SET geom=ST_MakeValid(ST_RemoveRepeatedPoints(geom));
 
 # add local geometry column and reproject existing geometries into local EPSG:
+ALTER TABLE tt_ferry_routes DROP COLUMN IF EXISTS geom_local CASCADE;
 SELECT AddGeometryColumn (
   'tt_ferry_routes',
   'geom_local', 8035, 'multilinestring', 2

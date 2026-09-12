@@ -169,7 +169,7 @@
       "@type": "PropertyValue",
       "name": "dist_code",
       "description": "Unique district code",
-      "qudt:dataType": "varchar"
+      "qudt:dataType": "numeric"
     },
     {
       "@type": "PropertyValue",
@@ -194,5 +194,5 @@
     "https://gdsc.idsc.miami.edu/download/data/tz_2022_nbs_districts/?file=tz_2022_nbs_districts&format=shp"
   ],
   "dateModified": "2025-06-01",
-  "version": "2026-09-09"
+  "version": "2026-09-11"
 }

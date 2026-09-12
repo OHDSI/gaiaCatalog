@@ -6,7 +6,7 @@
 # Data source: ftp://ftp2.census.gov/geo/tiger/TIGER2023/COUNTY/tl_2023_us_county.zip
 # Destination postGIS table: us_2023_county_tl
 #
-# Created by etl() on 2026-09-09 21:11:53
+# Created by etl() on 2026-09-11 21:43:29
 # Do not edit directly
 
 # set credentials from postgres defaults and secret files
@@ -24,6 +24,7 @@ UPDATE us_2023_county_tl
 
 # add local geometry column and reproject existing geometries into local EPSG:
 psql -d $POSTGRES_DB -U $POSTGRES_USER -p $POSTGRES_PORT -h gaia-db -c "
+ALTER TABLE us_2023_county_tl DROP COLUMN IF EXISTS geom_local CASCADE;
 SELECT AddGeometryColumn (
   'us_2023_county_tl',
   'geom_local', 4269, 'multipolygon', 2

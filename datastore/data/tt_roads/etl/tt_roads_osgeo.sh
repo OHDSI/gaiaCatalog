@@ -6,7 +6,7 @@
 # Data source: https://overpass-api.de/api/interpreter?data=way%5B%22highway%22~%22secondary|primary%22%5D(area:3600555717);(._;>;);out;
 # Destination postGIS table: tt_roads
 #
-# Created by etl() on 2026-09-09 21:11:26
+# Created by etl() on 2026-09-11 21:43:05
 # Do not edit directly
 
 # set credentials from postgres defaults and secret files
@@ -59,5 +59,6 @@ fi
 
 # load into postGIS
 ogr2ogr -lco GEOMETRY_NAME=geom -f PostgreSQL PG:"dbname=$POSTGRES_DB port=$POSTGRES_PORT user=$POSTGRES_USER password=$POSTGRES_PASSWORD host='gaia-db'" download/tt_roads.osm
+echo success: tt_roads.osm loaded with ogr2ogr
 
 

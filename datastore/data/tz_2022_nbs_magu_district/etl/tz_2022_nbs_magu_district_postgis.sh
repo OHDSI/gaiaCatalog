@@ -6,7 +6,7 @@
 # Data source: tz_2022_nbs_districts
 # Destination postGIS table: tz_2022_nbs_magu_district
 #
-# Created by etl() on 2026-09-09 21:11:33
+# Created by etl() on 2026-09-11 21:43:13
 # Do not edit directly
 
 # set credentials from postgres defaults and secret files
@@ -28,6 +28,7 @@ DELETE FROM tz_2022_nbs_magu_district
 COMMIT;"
 # add local geometry column and reproject existing geometries into local EPSG:
 psql -d $POSTGRES_DB -U $POSTGRES_USER -p $POSTGRES_PORT -h gaia-db -c "
+ALTER TABLE tz_2022_nbs_magu_district DROP COLUMN IF EXISTS geom_local CASCADE;
 SELECT AddGeometryColumn (
   'tz_2022_nbs_magu_district',
   'geom_local', 4326, 'multipolygon', 2
@@ -40,6 +41,7 @@ CREATE INDEX tz_2022_nbs_magu_district_geom_local_idx
 NOTIFY pgrst, 'reload schema';
 "# add local geometry column and reproject existing geometries into local EPSG:
 psql -d $POSTGRES_DB -U $POSTGRES_USER -p $POSTGRES_PORT -h gaia-db -c "
+ALTER TABLE tz_2022_nbs_magu_district DROP COLUMN IF EXISTS geom_local CASCADE;
 SELECT AddGeometryColumn (
   'tz_2022_nbs_magu_district',
   'geom_local', 4326, 'multipolygon', 2

@@ -6,7 +6,7 @@
 # Data source: ftp://ftp2.census.gov/geo/tiger/TIGER2023/COUNTY/tl_2023_us_county.zip
 # Destination postGIS table: us_2023_county_tl
 #
-# Created by etl() on 2026-09-09 21:11:53
+# Created by etl() on 2026-09-11 21:43:29
 # Do not edit directly
 
 # set credentials from postgres defaults and secret files
@@ -48,7 +48,7 @@ if [[ $do_update = 1 ]]; then
   # fail after 3 attempts to download
   attempts=0
   until (
-    wget --retry-connrefused --waitretry=1 --read-timeout=20 --timeout=15 -t 10 -c -O download/us_2023_county_tl.zip 'ftp://ftp2.census.gov/geo/tiger/TIGER2023/COUNTY/tl_2023_us_county.zip' 2>&1
+    wget --retry-connrefused --waitretry=1 --read-timeout=20 --timeout=15 -t 10 -O download/us_2023_county_tl.zip 'ftp://ftp2.census.gov/geo/tiger/TIGER2023/COUNTY/tl_2023_us_county.zip' 2>&1
   ); do
     ((attempts++))
     if (( attempts > 3 )); then echo $?; break; fi
@@ -60,5 +60,6 @@ fi
 
 # load into postGIS
 ogr2ogr -lco GEOMETRY_NAME=geom -f PostgreSQL PG:"dbname=$POSTGRES_DB port=$POSTGRES_PORT user=$POSTGRES_USER password=$POSTGRES_PASSWORD host='gaia-db'" download/tl_2023_us_county.shp -nlt multipolygon -nln us_2023_county_tl
+echo success: tl_2023_us_county.shp loaded with ogr2ogr
 
 

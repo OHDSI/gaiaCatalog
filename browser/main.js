@@ -630,7 +630,7 @@ async function renderLanding(entry) {
     : ' red-fill';
   status.addEventListener('click', async () => { 
     showModal(null,'progress');
-    await loadlayer(entry['gdsc:tablename']);
+    await loadLayer(entry['gdsc:tablename']);
     addProgressMessage(`**Finished ETL for ${entry['gdsc:tablename']}**`);
   });
   title.appendChild(status);

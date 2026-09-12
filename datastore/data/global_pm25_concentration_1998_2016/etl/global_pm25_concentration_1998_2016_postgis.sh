@@ -6,7 +6,7 @@
 # Data source: https://sedac.ciesin.columbia.edu/downloads/data/sdei/sdei-annual-pm2-5-concentrations-countries-urban-areas-v1-1998-2016/sdei-annual-pm2-5-concentrations-countries-urban-areas-v1-1998-2016-urban-areas-shp.zip
 # Destination postGIS table: global_pm25_concentration_1998_2016
 #
-# Created by etl() on 2026-09-09 21:11:12
+# Created by etl() on 2026-09-11 21:42:52
 # Do not edit directly
 
 # set credentials from postgres defaults and secret files
@@ -24,6 +24,7 @@ UPDATE global_pm25_concentration_1998_2016
 
 # add local geometry column and reproject existing geometries into local EPSG:
 psql -d $POSTGRES_DB -U $POSTGRES_USER -p $POSTGRES_PORT -h gaia-db -c "
+ALTER TABLE global_pm25_concentration_1998_2016 DROP COLUMN IF EXISTS geom_local CASCADE;
 SELECT AddGeometryColumn (
   'global_pm25_concentration_1998_2016',
   'geom_local', 3857, 'multipolygon', 2

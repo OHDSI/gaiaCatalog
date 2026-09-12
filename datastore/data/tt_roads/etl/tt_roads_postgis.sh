@@ -6,7 +6,7 @@
 # Data source: https://overpass-api.de/api/interpreter?data=way%5B%22highway%22~%22secondary|primary%22%5D(area:3600555717);(._;>;);out;
 # Destination postGIS table: tt_roads
 #
-# Created by etl() on 2026-09-09 21:11:26
+# Created by etl() on 2026-09-11 21:43:05
 # Do not edit directly
 
 # set credentials from postgres defaults and secret files
@@ -33,6 +33,7 @@ UPDATE tt_roads
 
 # add local geometry column and reproject existing geometries into local EPSG:
 psql -d $POSTGRES_DB -U $POSTGRES_USER -p $POSTGRES_PORT -h gaia-db -c "
+ALTER TABLE tt_roads DROP COLUMN IF EXISTS geom_local CASCADE;
 SELECT AddGeometryColumn (
   'tt_roads',
   'geom_local', 8035, 'multilinestring', 2
