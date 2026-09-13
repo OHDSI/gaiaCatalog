@@ -6,7 +6,7 @@
 # Data source: https://svi.cdc.gov/Documents/Data/2018/db/states_counties/SVI_2018_US_county.zip
 # Destination postGIS table: us_2018_svi_county
 #
-# Created by etl() on 2026-09-11 21:43:21
+# Created by etl() on 2026-09-13 15:23:31
 # Do not edit directly
 
 # set credentials from postgres defaults and secret files
@@ -45,7 +45,7 @@ else do_update=1; fi
 
 # download if needed
 if [[ $do_update = 1 ]]; then
-  # fail after 3 attempts to download
+  # fail after 3 attempts
   attempts=0
   until (
     wget --retry-connrefused --waitretry=1 --read-timeout=20 --timeout=15 -t 10 -O download/us_2018_svi_county.zip 'https://svi.cdc.gov/Documents/Data/2018/db/states_counties/SVI_2018_US_county.zip' 2>&1

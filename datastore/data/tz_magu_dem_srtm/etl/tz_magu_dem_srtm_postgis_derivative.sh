@@ -6,7 +6,7 @@
 # Data source: https://step.esa.int/auxdata/dem/SRTMGL1/
 # Destination postGIS table: tz_magu_dem_srtm
 #
-# Created by etl() on 2026-09-11 21:43:14
+# Created by etl() on 2026-09-13 15:23:15
 # Do not edit directly
 
 # Move into correct directory

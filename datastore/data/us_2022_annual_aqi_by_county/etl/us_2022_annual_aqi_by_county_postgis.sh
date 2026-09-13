@@ -6,7 +6,7 @@
 # Data source: https://aqs.epa.gov/aqsweb/airdata/annual_aqi_by_county_2022.zip
 # Destination postGIS table: us_2022_annual_aqi_by_county
 #
-# Created by etl() on 2026-09-11 21:43:24
+# Created by etl() on 2026-09-13 15:23:34
 # Do not edit directly
 
 # set credentials from postgres defaults and secret files

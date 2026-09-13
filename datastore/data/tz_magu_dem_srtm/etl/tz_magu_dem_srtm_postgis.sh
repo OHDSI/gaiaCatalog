@@ -6,7 +6,7 @@
 # Data source: https://step.esa.int/auxdata/dem/SRTMGL1/
 # Destination postGIS table: tz_magu_dem_srtm
 #
-# Created by etl() on 2026-09-11 21:43:14
+# Created by etl() on 2026-09-13 15:23:15
 # Do not edit directly
 
 # set credentials from postgres defaults and secret files
@@ -17,7 +17,7 @@ export USGS_USER=$(cat $USGS_USER_FILE)
 export USGS_PASSWORD=$(cat $USGS_PASSWORD_FILE)
 export CENSUS_API_KEY=$(cat $CENSUS_API_KEY_FILE)
 
-# fail after 3 attempts to download
+# fail after 3 attempts
 attempts=0
 until (
     cd /data/tz_magu_dem_srtm/download

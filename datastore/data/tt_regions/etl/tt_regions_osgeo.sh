@@ -6,7 +6,7 @@
 # Data source: https://overpass-api.de/api/interpreter?data=rel%5B%22ISO3166-2%22~%22^TT%22%5D%5Badmin_level=4%5D%5Btype=boundary%5D%5Bboundary=administrative%5D;(._;>;);out;
 # Destination postGIS table: tt_regions
 #
-# Created by etl() on 2026-09-11 21:43:03
+# Created by etl() on 2026-09-13 15:23:02
 # Do not edit directly
 
 # set credentials from postgres defaults and secret files
@@ -45,7 +45,7 @@ else do_update=1; fi
 
 # download if needed
 if [[ $do_update = 1 ]]; then
-  # fail after 3 attempts to download
+  # fail after 3 attempts
   attempts=0
   until (
     curl -o download/tt_regions.osm 'https://overpass-api.de/api/interpreter?data=rel%5B%22ISO3166-2%22~%22^TT%22%5D%5Badmin_level=4%5D%5Btype=boundary%5D%5Bboundary=administrative%5D;(._;>;);out;' 2>&1

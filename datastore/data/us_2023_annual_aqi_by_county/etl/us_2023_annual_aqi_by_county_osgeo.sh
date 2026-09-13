@@ -6,7 +6,7 @@
 # Data source: https://aqs.epa.gov/aqsweb/airdata/annual_aqi_by_county_2023.zip
 # Destination postGIS table: us_2023_annual_aqi_by_county
 #
-# Created by etl() on 2026-09-11 21:43:27
+# Created by etl() on 2026-09-13 15:23:37
 # Do not edit directly
 
 # set credentials from postgres defaults and secret files
@@ -45,7 +45,7 @@ else do_update=1; fi
 
 # download if needed
 if [[ $do_update = 1 ]]; then
-  # fail after 3 attempts to download
+  # fail after 3 attempts
   attempts=0
   until (
     OPENSSL_CONF=/openssl/openssl.conf curl -o download/us_2023_annual_aqi_by_county.zip 'https://aqs.epa.gov/aqsweb/airdata/annual_aqi_by_county_2023.zip' 2>&1

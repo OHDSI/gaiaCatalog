@@ -6,7 +6,7 @@
 # Data source: tz_2022_nbs_districts
 # Destination postGIS table: tz_2022_nbs_magu_district
 #
-# Created by etl() on 2026-09-11 21:43:13
+# Created by etl() on 2026-09-13 15:23:10
 # Do not edit directly
 
 # set credentials from postgres defaults and secret files

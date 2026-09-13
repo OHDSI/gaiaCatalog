@@ -157,11 +157,11 @@
       "name": "2m_temperature",
       "description": "Average yearly 2m temperature in Kelvin from Copernicus reanalysis era5 single levels",
       "propertyID": "35814756",
-      "qudt:dataType": "float",
+      "qudt:dataType": "float64",
       "unitCode": "9523",
       "unitText": "Kelvin",
-      "minValue": "287.315857",
-      "maxValue": "301.010986",
+      "minValue": "287.31585693359375",
+      "maxValue": "301.010986328125",
       "startDate": "1984-01-01",
       "endDate": "1984-12-31"
     }
@@ -179,5 +179,5 @@
     }
   ],
   "dateModified": "2025-06-01",
-  "version": "2026-09-11"
+  "version": "2026-09-13"
 }

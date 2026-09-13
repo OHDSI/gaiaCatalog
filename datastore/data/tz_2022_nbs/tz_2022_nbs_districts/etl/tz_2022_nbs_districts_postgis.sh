@@ -6,7 +6,7 @@
 # Data source: https://microdata.nbs.go.tz/index.php/catalog/49/download/317
 # Destination postGIS table: tz_2022_nbs_districts
 #
-# Created by etl() on 2026-09-11 21:43:10
+# Created by etl() on 2026-09-13 15:23:09
 # Do not edit directly
 
 # set credentials from postgres defaults and secret files

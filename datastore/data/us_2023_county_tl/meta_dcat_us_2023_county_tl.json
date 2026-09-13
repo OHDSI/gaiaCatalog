@@ -28,9 +28,9 @@
   "gdsc:tablename": "us_2023_county_tl",
   "gdsc:up": "true",
   "gdsc:podID": "gaia-db",
-  "dct:modified": "2026-09-11T22:18:21Z",
+  "dct:modified": "2026-09-12T11:59:39Z",
   "dct:accrualPeriodicity": "Never",
-  "gdsc:version": "2026-09-11T22:43:28Z",
+  "gdsc:version": "2026-09-13T16:23:38Z",
   "spdx:checksum": "TBD",
-  "dct:extent": ["bash: line 7: numfmt: command not found\n132517843", ""]
+  "dct:extent": ["bash: line 7: numfmt: command not found\n132520215", ""]
 }

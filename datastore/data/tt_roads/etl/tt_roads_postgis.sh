@@ -6,7 +6,7 @@
 # Data source: https://overpass-api.de/api/interpreter?data=way%5B%22highway%22~%22secondary|primary%22%5D(area:3600555717);(._;>;);out;
 # Destination postGIS table: tt_roads
 #
-# Created by etl() on 2026-09-11 21:43:05
+# Created by etl() on 2026-09-13 15:23:04
 # Do not edit directly
 
 # set credentials from postgres defaults and secret files

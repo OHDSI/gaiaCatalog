@@ -24,9 +24,9 @@
   "gdsc:tablename": "kenya_ppd_survey_2014",
   "gdsc:up": "false",
   "gdsc:podID": "gaia-db",
-  "dct:modified": "2026-03-19T10:58:52Z",
+  "dct:modified": "0001-01-01T00:00:00Z",
   "dct:accrualPeriodicity": "As Needed",
-  "gdsc:version": "2026-09-11T22:42:52Z",
+  "gdsc:version": "2026-09-13T16:22:49Z",
   "dcat:accessURL": "/data/kenya_ppd_survey_2014/",
-  "dct:extent": ["bash: line 7: numfmt: command not found\n4871", ""]
+  "dct:extent": ["bash: line 7: numfmt: command not found\n0", ""]
 }

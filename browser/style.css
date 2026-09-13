@@ -176,9 +176,6 @@ input[type="text"]:focus {
 .progress-fail {
   color: #770000;
 }
-#progressSpinner {
-
-}
 
 /* -------------------------------------------------------------------------- */
 /*  Flex layout – left filter pane, right results pane                        */
