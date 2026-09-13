@@ -8,6 +8,7 @@
 /* -------------------------------------------------------------------------- */
 /*  Root variables                                                            */
 /* -------------------------------------------------------------------------- */
+
 :root {
   --primary: #0066cc;
   --primary-dark: #005bb5;
@@ -16,11 +17,14 @@
   --card-shadow: 0 2px 8px rgba(0,0,0,0.1);
   --font-base: 16px;
   --spacing: 0.5rem;
+  --small-circle: 10px;
+  --large-circle: 23px; 
 }
 
 /* -------------------------------------------------------------------------- */
 /*  Global styles                                                             */
 /* -------------------------------------------------------------------------- */
+
 *,
 *::before,
 *::after {
@@ -50,6 +54,7 @@ body {
 /* -------------------------------------------------------------------------- */
 /*  Header                                                                    */
 /* -------------------------------------------------------------------------- */
+
 header {
   margin-bottom: var(--spacing);
 }
@@ -63,6 +68,7 @@ h1 {
 /* -------------------------------------------------------------------------- */
 /*  Search box                                                                */
 /* -------------------------------------------------------------------------- */
+
 #bannerWrapper {
   padding: 0.5em;
 }
@@ -86,7 +92,6 @@ input[type="text"]:focus {
 /*  Settings button                                                           */
 /* -------------------------------------------------------------------------- */
 
-/* Settings button (top‑right) ------------------------------------------ */
 .settings-btn {
   position: fixed;
   top: 1rem;
@@ -100,7 +105,10 @@ input[type="text"]:focus {
   box-shadow: 0 2px 6px rgba(0,0,0,0.15);
 }
 
-/* Settings modal ------------------------------------------------------- */
+/* -------------------------------------------------------------------------- */
+/*  Settings modal                                                            */
+/* -------------------------------------------------------------------------- */
+
 .ui-modal {
   position: fixed;
   inset: 0;
@@ -121,6 +129,11 @@ input[type="text"]:focus {
 .settings-content {
   max-width: 400px;
 }
+
+/* -------------------------------------------------------------------------- */
+/*  progress modal                                                            */
+/* -------------------------------------------------------------------------- */
+
 .progress-content {
   max-width: 800px;
   height: 80%;
@@ -157,16 +170,20 @@ input[type="text"]:focus {
 }
 .progress-success {
   font-weight: 800;
-  font-sixe: 1.1em;
+  font-size: 1.1em;
   color: #007700;
 }
 .progress-fail {
   color: #770000;
 }
+#progressSpinner {
+
+}
 
 /* -------------------------------------------------------------------------- */
 /*  Flex layout – left filter pane, right results pane                        */
 /* -------------------------------------------------------------------------- */
+
 #searchWrapper {
   display: flex;
   flex: 1;
@@ -207,6 +224,7 @@ input[type="text"]:focus {
 /* -------------------------------------------------------------------------- */
 /*  Results pane – scrollable area                                            */
 /* -------------------------------------------------------------------------- */
+
 #resultsPane {
   flex: 1;
   overflow-y: auto;
@@ -224,6 +242,7 @@ input[type="text"]:focus {
 /* -------------------------------------------------------------------------- */
 /*  Results grid                                                              */
 /* -------------------------------------------------------------------------- */
+
 #results {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
@@ -242,6 +261,7 @@ input[type="text"]:focus {
 /* -------------------------------------------------------------------------- */
 /*  Card                                                                      */
 /* -------------------------------------------------------------------------- */
+
 .card {
   background: var(--card-bg);
   border-radius: 6px;
@@ -272,6 +292,7 @@ input[type="text"]:focus {
 /* -------------------------------------------------------------------------- */
 /*  Detail pages                                                              */
 /* -------------------------------------------------------------------------- */
+
 .detail-title {
   margin-bottom: 0em;
 }
@@ -322,18 +343,28 @@ input[type="text"]:focus {
 /* -------------------------------------------------------------------------- */
 /*  Interface response for loading and searching                              */
 /* -------------------------------------------------------------------------- */
+
 .highlight-term {
   background-color: #ffc;
 }
 .circle {
+  position: relative;
+  border-radius: 100%;
+  display: inline-block;
+}
+.small-circle {
   width: 10px;
   height: 10px;
   border-radius: 5px 5px 5px 5px;
   margin-left: 5px;
   margin-top: 5px;
-  position: relative;
-  border-radius: 100%;
-  display: inline-block
+}
+.large-circle {
+  width: 24px;
+  height: 24px;
+  border-radius: 12px 12px 12px 12px;
+  margin-left: 12px;
+  margin-top: 12px;
 }
 .green-fill {
   background: green;
@@ -344,8 +375,85 @@ input[type="text"]:focus {
 }
 
 /* -------------------------------------------------------------------------- */
+/*  yin-yang spinner                                                          */
+/* -------------------------------------------------------------------------- */
+
+.yin-yang {
+  box-sizing: border-box;
+	position:relative;
+	border-style:solid;
+	background:#fff;
+	border-radius: 100%;
+  -webkit-animation:spin 4s linear infinite;
+  -moz-animation:spin 4s linear infinite;
+  animation:spin 4s linear infinite;
+}
+.yin-yang:before,
+.yin-yang:after {
+	content:"";
+	position:absolute;
+	top:50%;
+	border-radius: 100%;
+  box-sizing: content-box;
+}
+.yin-yang:before {
+	background:white;
+	left:0;
+}
+.yin-yang:after {
+	left:50%;
+}
+
+.yin-yang-large {
+  border-color:rgb(152, 152, 152);
+  margin-right: 42px;
+	width:42px;
+	height:42px;
+	border-width:2px 2px 22px 2px;
+}
+.yin-yang-large:before,
+.yin-yang-large:after {
+	width:5px;
+	height:5px;
+}
+.yin-yang-large:before {
+	border:7px solid rgb(152, 152, 152);
+}
+.yin-yang-large:after {
+  background:rgb(152, 152, 152);
+	border:7px solid white;
+}
+
+.yin-yang-small {
+  border-color:rgb(255, 0, 0);
+  margin-top: 5px;
+  margin-left: 5px;
+  display: inline-block;
+	width:10px;
+	height:10px;
+	border-width:1px 1px 4px 1px;
+}
+.yin-yang-small:before,
+.yin-yang-small:after {
+	width: 1.25px;
+	height:1.25px;
+}
+.yin-yang-small:before {
+	border:1.35px solid rgb(255, 0, 0);
+}
+.yin-yang-small:after {
+	background:rgb(255, 0, 0);
+	border:1.35px solid white;
+}
+
+@-moz-keyframes spin { 100% { -moz-transform: rotate(360deg); } }
+@-webkit-keyframes spin { 100% { -webkit-transform: rotate(360deg); } }
+@keyframes spin { 100% { -webkit-transform: rotate(360deg); transform:rotate(360deg); } }
+
+/* -------------------------------------------------------------------------- */
 /*  Responsive adjustments                                                    */
 /* -------------------------------------------------------------------------- */
+
 @media (max-width: 768px) {
   #searchWrapper {
     flex-direction: column;

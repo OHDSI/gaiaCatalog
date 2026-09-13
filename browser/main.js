@@ -140,9 +140,26 @@ document.getElementById('pgEndpointForm').addEventListener('submit', async e => 
   }
 });
 
+function startSpinner() {
+  const progress_indicator = document.getElementById(`progressSpinner`);
+  progress_indicator.className = 'yin-yang yin-yang-large';
+  const button = document.getElementById('closeProgress');
+  button.disabled = true;
+  button.classList.add('disabled');
+  button.innerText = 'loading...';
+}
+
 function addProgressMessage(message) {
   const progressMessage = document.createElement('pre');
-  if (message.includes('**')) progressMessage.className = 'progress-success';
+  if (message.includes('**')) { 
+    progressMessage.className = 'progress-success';
+    const progress_indicator = document.getElementById(`progressSpinner`);
+    progress_indicator.className = '';
+    const button = document.getElementById('closeProgress');
+    button.disabled = false;
+    button.classList.remove('disabled');
+    button.innerText = 'Close';
+  }
   if (message.includes('failed')) progressMessage.className = 'progress-fail';
   progressMessage.textContent = message.replaceAll('\\n', '\n');
   progressContent.appendChild(progressMessage);
@@ -191,13 +208,13 @@ async function callPostgrest(func, params) {
     if (!response.ok) throw new Error(`HTTP error! Status: ${response.status}`);
 
     let data = await response.json();
-    if (func != 'gdsc_get_schema_tables') {
+    if (!['gdsc_get_schema_tables', 'gdsc_get_loaded_variables_for_table'].includes(func)) {
       addProgressMessage(`Success (${func}):\n${JSON.stringify(data,null,2)}`);
     }
     console.log(`Success (${func}):\n`, data);
     return data;
   } catch (error) {
-    addProgressMessage(`Post failed (${func}): ${JSON.stringify(error,null,2)}`);
+    addProgressMessage(`Post failed (${func}):${JSON.stringify(error,null,2)}`);
     console.error(`Post failed (${func}):`, error);
   }
 
@@ -213,6 +230,8 @@ async function loadLayer(table) {
   showModal(null,'progress');
   addProgressMessage(`loading table ${table}.`);
   console.log(`loading table ${table}.`);
+  const status_indicator = document.getElementById(`layer-${table}`);
+  startSpinner();
 
   /* load dependencies if any */
   const response = await callPostgrest('gdsc_path_and_dependencies',{'table_id':table});
@@ -239,30 +258,29 @@ async function loadLayer(table) {
 }
 
 async function loadVariable(table,variable) {
-
-  /* make sure the layer is loaded */
-  await getLoadedTables();
-  if (!loadedTables.has(table)) await loadLayer(table);
-
-  /* check for already loaded variables */
   const entry = catalog.find(e => e['gdsc:tablename'] === table);
   await getLoadedVariables(entry);
-  if (loadedVariables.size > 0 && loadedVariables.has(variable)) {
+  if (loadedVariables.has(variable)) {
     addProgressMessage(`variable ${variable} for table ${table} already loaded`);
     console.log(`variable ${variable} for table ${table} already loaded`);
     return;
   }
-
-  /* load variable */
   addProgressMessage(`loading variable ${variable} from ${table}.`);
   console.log(`loading variable ${variable} from ${table}.`);
+  const status_indicator = document.getElementById(`variable-${variable}`);
+  status_indicator.className = 'yin-yang yin-yang-small';
+  startSpinner();
+
+  /* make sure the layer is loaded */
+  await getLoadedTables();
+  if (!loadedTables.has(table)) await loadLayer(table);
 
   /* construct the parameters */
   const attribute = entry['gdsc:attributes'].find(e => e.includes(variable)).split(';');
   const parameters = {
     "params": {
       "table_id": table,
-      "table_description": entry['dct:description'].replaceAll('"', '').replaceAll('\n', '\\n'),
+      "table_description": entry['dct:description'],
       "geom_type": entry['locn:geometry'] ? entry['locn:geometry'] : "",
       "geom_label": entry['gdsc:label'] ? entry['gdsc:label'] : "",
       "variable_nodata": entry['gdsc:nodata'] ? entry['gdsc:nodata'][1] : "",
@@ -481,7 +499,7 @@ async function renderResults(entries) {
     /* status circle and load button */
     const status = document.createElement('div');
     status.id = `layer-${entry['gdsc:tablename']}`;
-    status.className = 'float-left circle';
+    status.className = 'float-left circle small-circle';
     status.className += loadedTables.has(entry['gdsc:tablename']) 
       ? ' green-fill' 
       : ' red-fill';
@@ -624,7 +642,7 @@ async function renderLanding(entry) {
   title.textContent = entry[titleField] || entry.id;
   const status = document.createElement('div');
   status.id = `layer-${entry['gdsc:tablename']}`;
-  status.className = 'float-left circle';
+  status.className = 'float-left circle small-circle';
   status.className += loadedTables.has(entry['gdsc:tablename'])
     ? ' green-fill'
     : ' red-fill';
@@ -687,10 +705,9 @@ async function renderLanding(entry) {
       if (attrHeaders.get(header) < 0 && (attrSpec[8] != '' && attrSpec[8]) && (attrSpec[9] != '' && attrSpec[9])) {
         // button to load variable
         const buttonWrap = document.createElement('div');
-        buttonWrap.className = 'none';
         const button = document.createElement('div');
         button.id = `variable-${attrSpec[0]}`;
-        button.className = 'float-left circle';
+        button.className = 'float-left circle small-circle';
         button.className += loadedVariables.has(attrSpec[0])
           ? ' green-fill'
           : ' red-fill';
