@@ -9,7 +9,7 @@
 
 # create directory structure and move into it
 mkdir -p /data/tt_ferry_routes/download -p /data/tt_ferry_routes/etl
-chmod 777 /data/tt_ferry_routes/download
+chmod -R 777 /data/tt_ferry_routes
 cd /data/tt_ferry_routes
 
 # set update flag based on last update and update frequency
@@ -17,10 +17,12 @@ do_update=0 if date() < last_update + update_frequency else do_update = 1
 
 # download if update flag is set:
 if do_update == 1 then
-curl -o download/tt_ferry_routes.osm 'https://overpass-api.de/api/interpreter?data=way%5B%22route%22~%22ferry%22%5D(area:3600555717);(._;>;);out;'
+curl -o download/tt_ferry_routes.osm 'https://overpass-api.de/api/interpreter?data=way%5B%22route%22~%22ferry%22%5D(area:3600555717);(._;>;);out;' 2>&1
 
 # load into postGIS with:
-  ogr2ogr -lco GEOMETRY_NAME=geom -f PostgreSQL PG:"<postgres connection>" download/tt_ferry_routes.osm
+ogr2ogr -lco GEOMETRY_NAME=geom -f PostgreSQL PG:"<postgres connection>" download/tt_ferry_routes.osm
+echo success: tt_ferry_routes.osm loaded with ogr2ogr
+
 
 #########
 # Step 2 - SQL script (pseudo code):
@@ -40,6 +42,7 @@ UPDATE tt_ferry_routes
   SET geom=ST_MakeValid(ST_RemoveRepeatedPoints(geom));
 
 # add local geometry column and reproject existing geometries into local EPSG:
+ALTER TABLE tt_ferry_routes DROP COLUMN IF EXISTS geom_local CASCADE;
 SELECT AddGeometryColumn (
   'tt_ferry_routes',
   'geom_local', 8035, 'multilinestring', 2

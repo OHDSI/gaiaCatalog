@@ -6,12 +6,20 @@
 # Data source: https://svi.cdc.gov/Documents/Data/2018/db/states_counties/SVI_2018_US_county.zip
 # Destination postGIS table: us_2018_svi_county
 #
-# Created by etl() on 2026-08-23 14:57:43
+# Created by etl() on 2026-09-13 15:23:31
 # Do not edit directly
+
+# set credentials from postgres defaults and secret files
+export POSTGRES_PASSWORD=$(cat $PG_PASSWORD_FILE)
+export CDC_APP_TOKEN=$(cat $CDC_APP_TOKEN_FILE)
+export AIRNOW_API_KEY=$(cat $AIRNOW_API_KEY_FILE)
+export USGS_USER=$(cat $USGS_USER_FILE)
+export USGS_PASSWORD=$(cat $USGS_PASSWORD_FILE)
+export CENSUS_API_KEY=$(cat $CENSUS_API_KEY_FILE)
 
 # create directory structure and move into it
 mkdir -p /data/us_2018_svi_county/download -p /data/us_2018_svi_county/etl
-chmod 777 /data/us_2018_svi_county/download
+chmod -R 777 /data/us_2018_svi_county
 cd /data/us_2018_svi_county
 
 # check for existence
@@ -29,7 +37,7 @@ if [[ $exists ]]; then
   if [[ ! $no_update ]]; then
     last_update=$(date -d "$(cat datestamp)" '+%s')
     check_date="$(date -d '-'"$update_frequency" '+%s')"
-    if [[ "$check_date" -ge "$last_update" ]]; then do_update=1; fi
+    if [[ "$check_date -ge $last_update" ]]; then do_update=1; fi
   fi
 
 # does not exist
@@ -37,18 +45,21 @@ else do_update=1; fi
 
 # download if needed
 if [[ $do_update = 1 ]]; then
-  (exit 1)
-  until [[ "$?" == 0 ]]; do
-      wget -O download/us_2018_svi_county.zip 'https://svi.cdc.gov/Documents/Data/2018/db/states_counties/SVI_2018_US_county.zip'
+  # fail after 3 attempts
+  attempts=0
+  until (
+    wget --retry-connrefused --waitretry=1 --read-timeout=20 --timeout=15 -t 10 -O download/us_2018_svi_county.zip 'https://svi.cdc.gov/Documents/Data/2018/db/states_counties/SVI_2018_US_county.zip' 2>&1
+  ); do
+    ((attempts++))
+    if (( attempts > 3 )); then echo $?; break; fi
   done
-  unzip -d download download/us_2018_svi_county.zip && rm download/us_2018_svi_county.zip
+  unzip -o download/us_2018_svi_county.zip -d download && rm download/us_2018_svi_county.zip 2>&1
   # record download datestamp
   echo $(date '+%F %T') > datestamp
 fi
 
 # load into postGIS
-(exit 1)
-until [[ "$?" == 0 ]]; do
-  ogr2ogr -lco GEOMETRY_NAME=geom -f PostgreSQL PG:"dbname=$POSTGRES_DB port=$POSTGRES_PORT user=$POSTGRES_USER password=$POSTGRES_PASSWORD host='gaia-db'" download/SVI2018_US_county.gdb -nlt multipolygon -nln us_2018_svi_county
-done
+ogr2ogr -lco GEOMETRY_NAME=geom -f PostgreSQL PG:"dbname=$POSTGRES_DB port=$POSTGRES_PORT user=$POSTGRES_USER password=$POSTGRES_PASSWORD host='gaia-db'" download/SVI2018_US_county.gdb -nlt multipolygon -nln us_2018_svi_county
+echo success: SVI2018_US_county.gdb loaded with ogr2ogr
+
 

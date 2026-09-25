@@ -6,12 +6,20 @@
 # Data source: https://overpass-api.de/api/interpreter?data=rel%5B%22ISO3166-2%22~%22^TT%22%5D%5Badmin_level=4%5D%5Btype=boundary%5D%5Bboundary=administrative%5D;(._;>;);out;
 # Destination postGIS table: tt_regions
 #
-# Created by etl() on 2026-08-23 14:57:17
+# Created by etl() on 2026-09-13 15:23:02
 # Do not edit directly
+
+# set credentials from postgres defaults and secret files
+export POSTGRES_PASSWORD=$(cat $PG_PASSWORD_FILE)
+export CDC_APP_TOKEN=$(cat $CDC_APP_TOKEN_FILE)
+export AIRNOW_API_KEY=$(cat $AIRNOW_API_KEY_FILE)
+export USGS_USER=$(cat $USGS_USER_FILE)
+export USGS_PASSWORD=$(cat $USGS_PASSWORD_FILE)
+export CENSUS_API_KEY=$(cat $CENSUS_API_KEY_FILE)
 
 # create directory structure and move into it
 mkdir -p /data/tt_regions/download -p /data/tt_regions/etl
-chmod 777 /data/tt_regions/download
+chmod -R 777 /data/tt_regions
 cd /data/tt_regions
 
 # check for existence
@@ -29,7 +37,7 @@ if [[ $exists ]]; then
   if [[ ! $no_update ]]; then
     last_update=$(date -d "$(cat datestamp)" '+%s')
     check_date="$(date -d '-'"$update_frequency" '+%s')"
-    if [[ "$check_date" -ge "$last_update" ]]; then do_update=1; fi
+    if [[ "$check_date -ge $last_update" ]]; then do_update=1; fi
   fi
 
 # does not exist
@@ -37,17 +45,20 @@ else do_update=1; fi
 
 # download if needed
 if [[ $do_update = 1 ]]; then
-  (exit 1)
-  until [[ "$?" == 0 ]]; do
-      curl -o download/tt_regions.osm 'https://overpass-api.de/api/interpreter?data=rel%5B%22ISO3166-2%22~%22^TT%22%5D%5Badmin_level=4%5D%5Btype=boundary%5D%5Bboundary=administrative%5D;(._;>;);out;'
+  # fail after 3 attempts
+  attempts=0
+  until (
+    curl -o download/tt_regions.osm 'https://overpass-api.de/api/interpreter?data=rel%5B%22ISO3166-2%22~%22^TT%22%5D%5Badmin_level=4%5D%5Btype=boundary%5D%5Bboundary=administrative%5D;(._;>;);out;' 2>&1
+  ); do
+    ((attempts++))
+    if (( attempts > 3 )); then echo $?; break; fi
   done
   # record download datestamp
   echo $(date '+%F %T') > datestamp
 fi
 
 # load into postGIS
-(exit 1)
-until [[ "$?" == 0 ]]; do
-  ogr2ogr -lco GEOMETRY_NAME=geom -f PostgreSQL PG:"dbname=$POSTGRES_DB port=$POSTGRES_PORT user=$POSTGRES_USER password=$POSTGRES_PASSWORD host='gaia-db'" download/tt_regions.osm
-done
+ogr2ogr -lco GEOMETRY_NAME=geom -f PostgreSQL PG:"dbname=$POSTGRES_DB port=$POSTGRES_PORT user=$POSTGRES_USER password=$POSTGRES_PASSWORD host='gaia-db'" download/tt_regions.osm
+echo success: tt_regions.osm loaded with ogr2ogr
+
 

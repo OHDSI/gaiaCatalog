@@ -9,7 +9,7 @@
 
 # create directory structure and move into it
 mkdir -p /data/ma_2020_svi_tract/download -p /data/ma_2020_svi_tract/etl
-chmod 777 /data/ma_2020_svi_tract/download
+chmod -R 777 /data/ma_2020_svi_tract
 cd /data/ma_2020_svi_tract
 
 # set update flag based on last update and update frequency
@@ -17,14 +17,16 @@ do_update=0 if date() < last_update + update_frequency else do_update = 1
 
 # download if update flag is set:
 if do_update == 1 then
-wget -O download/ma_2020_svi_tract.zip 'https://svi.cdc.gov/Documents/Data/2020/db/states/Massachusetts.zip'
+wget --retry-connrefused --waitretry=1 --read-timeout=20 --timeout=15 -t 10 -O download/ma_2020_svi_tract.zip 'https://svi.cdc.gov/Documents/Data/2020/db/states/Massachusetts.zip' 2>&1
 
 # unzip to download directory if update flag is set
 if do_update == 1 then
-unzip -d download download/ma_2020_svi_tract.zip && rm download/ma_2020_svi_tract.zip
+unzip -o download/ma_2020_svi_tract.zip -d download && rm download/ma_2020_svi_tract.zip 2>&1
 
 # load into postGIS with:
-  ogr2ogr -lco GEOMETRY_NAME=geom -f PostgreSQL PG:"<postgres connection>" download/SVI2020_MASSACHUSETTS_tract.gdb -nlt multipolygon -nln ma_2020_svi_tract
+ogr2ogr -lco GEOMETRY_NAME=geom -f PostgreSQL PG:"<postgres connection>" download/SVI2020_MASSACHUSETTS_tract.gdb -nlt multipolygon -nln ma_2020_svi_tract
+echo success: SVI2020_MASSACHUSETTS_tract.gdb loaded with ogr2ogr
+
 
 #########
 # Step 2 - SQL script (pseudo code):
@@ -35,6 +37,7 @@ UPDATE ma_2020_svi_tract
   SET geom=ST_MakeValid(ST_RemoveRepeatedPoints(geom));
 
 # add local geometry column and reproject existing geometries into local EPSG:
+ALTER TABLE ma_2020_svi_tract DROP COLUMN IF EXISTS geom_local CASCADE;
 SELECT AddGeometryColumn (
   'ma_2020_svi_tract',
   'geom_local', 26986, 'multipolygon', 2

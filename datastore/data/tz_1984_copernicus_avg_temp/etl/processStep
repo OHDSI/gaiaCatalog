@@ -9,7 +9,7 @@
 
 # create directory structure and move into it
 mkdir -p /data/tz_1984_copernicus_avg_temp/download -p /data/tz_1984_copernicus_avg_temp/etl
-chmod 777 /data/tz_1984_copernicus_avg_temp/download
+chmod -R 777 /data/tz_1984_copernicus_avg_temp
 cd /data/tz_1984_copernicus_avg_temp
 
 # set update flag based on last update and update frequency

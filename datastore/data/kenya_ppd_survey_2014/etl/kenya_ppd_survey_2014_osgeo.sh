@@ -6,12 +6,20 @@
 # Data source: local file
 # Destination postGIS table: kenya_ppd_survey_2014
 #
-# Created by etl() on 2026-08-23 14:56:21
+# Created by etl() on 2026-09-13 15:22:50
 # Do not edit directly
+
+# set credentials from postgres defaults and secret files
+export POSTGRES_PASSWORD=$(cat $PG_PASSWORD_FILE)
+export CDC_APP_TOKEN=$(cat $CDC_APP_TOKEN_FILE)
+export AIRNOW_API_KEY=$(cat $AIRNOW_API_KEY_FILE)
+export USGS_USER=$(cat $USGS_USER_FILE)
+export USGS_PASSWORD=$(cat $USGS_PASSWORD_FILE)
+export CENSUS_API_KEY=$(cat $CENSUS_API_KEY_FILE)
 
 # create directory structure and move into it
 mkdir -p /data/kenya_ppd_survey_2014/download -p /data/kenya_ppd_survey_2014/etl
-chmod 777 /data/kenya_ppd_survey_2014/download
+chmod -R 777 /data/kenya_ppd_survey_2014
 cd /data/kenya_ppd_survey_2014
 
 # check for existence
@@ -29,7 +37,7 @@ if [[ $exists ]]; then
   if [[ ! $no_update ]]; then
     last_update=$(date -d "$(cat datestamp)" '+%s')
     check_date="$(date -d '-'"$update_frequency" '+%s')"
-    if [[ "$check_date" -ge "$last_update" ]]; then do_update=1; fi
+    if [[ "$check_date -ge $last_update" ]]; then do_update=1; fi
   fi
 
 # does not exist
@@ -37,15 +45,16 @@ else do_update=1; fi
 
 # download if needed
 if [[ $do_update = 1 ]]; then
-  # remove spaces for all column headers in csv
-  sed -i '1 s/ /_/g' download/kenya_ppd_survey_2014.csv
+  # remove spaces, periods, and leading numerical digits in column headers (if needed)
+  if (head -n 1 download/kenya_ppd_survey_2014.csv | grep -qE '\s|\.|\"[0-9]'); then
+    sed -i '1s/ /_/g; 1s/\.//g; 1s/\"\([0-9]\)/\"n\1/g' download/kenya_ppd_survey_2014.csv 2>&1
+  fi
   # record download datestamp
   echo $(date '+%F %T') > datestamp
 fi
 
 # load into postGIS
-(exit 1)
-until [[ "$?" == 0 ]]; do
-  ogr2ogr -lco GEOMETRY_NAME=geom -f PostgreSQL PG:"dbname=$POSTGRES_DB port=$POSTGRES_PORT user=$POSTGRES_USER password=$POSTGRES_PASSWORD host='gaia-db'" download/kenya_ppd_survey_2014.csv -nln kenya_ppd_survey_2014
-done
+ogr2ogr -lco GEOMETRY_NAME=geom -f PostgreSQL PG:"dbname=$POSTGRES_DB port=$POSTGRES_PORT user=$POSTGRES_USER password=$POSTGRES_PASSWORD host='gaia-db'" download/kenya_ppd_survey_2014.csv -nln kenya_ppd_survey_2014
+echo success: kenya_ppd_survey_2014.csv loaded with ogr2ogr
+
 

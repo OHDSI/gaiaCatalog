@@ -6,12 +6,20 @@
 # Data source: tz_2022_nbs_districts
 # Destination postGIS table: tz_2022_nbs_magu_district
 #
-# Created by etl() on 2026-08-23 14:57:21
+# Created by etl() on 2026-09-13 15:23:10
 # Do not edit directly
+
+# set credentials from postgres defaults and secret files
+export POSTGRES_PASSWORD=$(cat $PG_PASSWORD_FILE)
+export CDC_APP_TOKEN=$(cat $CDC_APP_TOKEN_FILE)
+export AIRNOW_API_KEY=$(cat $AIRNOW_API_KEY_FILE)
+export USGS_USER=$(cat $USGS_USER_FILE)
+export USGS_PASSWORD=$(cat $USGS_PASSWORD_FILE)
+export CENSUS_API_KEY=$(cat $CENSUS_API_KEY_FILE)
 
 # create directory structure and move into it
 mkdir -p /data/tz_2022_nbs_magu_district/download -p /data/tz_2022_nbs_magu_district/etl
-chmod 777 /data/tz_2022_nbs_magu_district/download
+chmod -R 777 /data/tz_2022_nbs_magu_district
 cd /data/tz_2022_nbs_magu_district
 
 # check for existence
@@ -29,7 +37,7 @@ if [[ $exists ]]; then
   if [[ ! $no_update ]]; then
     last_update=$(date -d "$(cat datestamp)" '+%s')
     check_date="$(date -d '-'"$update_frequency" '+%s')"
-    if [[ "$check_date" -ge "$last_update" ]]; then do_update=1; fi
+    if [[ "$check_date -ge $last_update" ]]; then do_update=1; fi
   fi
 
 # does not exist

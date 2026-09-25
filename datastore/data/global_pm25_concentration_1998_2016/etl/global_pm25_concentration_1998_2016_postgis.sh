@@ -6,16 +6,25 @@
 # Data source: https://sedac.ciesin.columbia.edu/downloads/data/sdei/sdei-annual-pm2-5-concentrations-countries-urban-areas-v1-1998-2016/sdei-annual-pm2-5-concentrations-countries-urban-areas-v1-1998-2016-urban-areas-shp.zip
 # Destination postGIS table: global_pm25_concentration_1998_2016
 #
-# Created by etl() on 2026-08-23 14:56:20
+# Created by etl() on 2026-09-13 15:22:49
 # Do not edit directly
+
+# set credentials from postgres defaults and secret files
+export POSTGRES_PASSWORD=$(cat $PG_PASSWORD_FILE)
+export CDC_APP_TOKEN=$(cat $CDC_APP_TOKEN_FILE)
+export AIRNOW_API_KEY=$(cat $AIRNOW_API_KEY_FILE)
+export USGS_USER=$(cat $USGS_USER_FILE)
+export USGS_PASSWORD=$(cat $USGS_PASSWORD_FILE)
+export CENSUS_API_KEY=$(cat $CENSUS_API_KEY_FILE)
 
 # remove duplicate points and make geometries valid:
 psql -d $POSTGRES_DB -U $POSTGRES_USER -p $POSTGRES_PORT -h gaia-db -c "
 UPDATE global_pm25_concentration_1998_2016
-  SET geom=ST_MakeValid(ST_RemoveRepeatedPoints(geom));"
+  SET geom=ST_MakeValid(ST_RemoveRepeatedPoints(geom));" 2>&1
 
 # add local geometry column and reproject existing geometries into local EPSG:
 psql -d $POSTGRES_DB -U $POSTGRES_USER -p $POSTGRES_PORT -h gaia-db -c "
+ALTER TABLE global_pm25_concentration_1998_2016 DROP COLUMN IF EXISTS geom_local CASCADE;
 SELECT AddGeometryColumn (
   'global_pm25_concentration_1998_2016',
   'geom_local', 3857, 'multipolygon', 2

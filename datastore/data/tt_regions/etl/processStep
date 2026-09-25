@@ -9,7 +9,7 @@
 
 # create directory structure and move into it
 mkdir -p /data/tt_regions/download -p /data/tt_regions/etl
-chmod 777 /data/tt_regions/download
+chmod -R 777 /data/tt_regions
 cd /data/tt_regions
 
 # set update flag based on last update and update frequency
@@ -17,10 +17,12 @@ do_update=0 if date() < last_update + update_frequency else do_update = 1
 
 # download if update flag is set:
 if do_update == 1 then
-curl -o download/tt_regions.osm 'https://overpass-api.de/api/interpreter?data=rel%5B%22ISO3166-2%22~%22^TT%22%5D%5Badmin_level=4%5D%5Btype=boundary%5D%5Bboundary=administrative%5D;(._;>;);out;'
+curl -o download/tt_regions.osm 'https://overpass-api.de/api/interpreter?data=rel%5B%22ISO3166-2%22~%22^TT%22%5D%5Badmin_level=4%5D%5Btype=boundary%5D%5Bboundary=administrative%5D;(._;>;);out;' 2>&1
 
 # load into postGIS with:
-  ogr2ogr -lco GEOMETRY_NAME=geom -f PostgreSQL PG:"<postgres connection>" download/tt_regions.osm
+ogr2ogr -lco GEOMETRY_NAME=geom -f PostgreSQL PG:"<postgres connection>" download/tt_regions.osm
+echo success: tt_regions.osm loaded with ogr2ogr
+
 
 #########
 # Step 2 - SQL script (pseudo code):
@@ -40,6 +42,7 @@ UPDATE tt_regions
   SET geom=ST_MakeValid(ST_RemoveRepeatedPoints(geom));
 
 # add local geometry column and reproject existing geometries into local EPSG:
+ALTER TABLE tt_regions DROP COLUMN IF EXISTS geom_local CASCADE;
 SELECT AddGeometryColumn (
   'tt_regions',
   'geom_local', 8035, 'multipolygon', 2

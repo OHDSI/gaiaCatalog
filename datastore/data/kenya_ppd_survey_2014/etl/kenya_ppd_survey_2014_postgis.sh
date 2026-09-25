@@ -6,9 +6,15 @@
 # Data source: local file
 # Destination postGIS table: kenya_ppd_survey_2014
 #
-# Created by etl() on 2026-05-26 10:16:03
+# Created by etl() on 2026-09-13 15:22:50
 # Do not edit directly
 
-export PGPASSWORD=$(cat $POSTGRES_PASSWORD_FILE)
-export POSTGRES_PASSWORD=$(cat $POSTGRES_PASSWORD_FILE)
+# set credentials from postgres defaults and secret files
+export POSTGRES_PASSWORD=$(cat $PG_PASSWORD_FILE)
+export CDC_APP_TOKEN=$(cat $CDC_APP_TOKEN_FILE)
+export AIRNOW_API_KEY=$(cat $AIRNOW_API_KEY_FILE)
+export USGS_USER=$(cat $USGS_USER_FILE)
+export USGS_PASSWORD=$(cat $USGS_PASSWORD_FILE)
+export CENSUS_API_KEY=$(cat $CENSUS_API_KEY_FILE)
+
 

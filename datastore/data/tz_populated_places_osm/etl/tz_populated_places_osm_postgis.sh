@@ -6,8 +6,16 @@
 # Data source: https://overpass-api.de/api/interpreter?data=area%28id:3600195270%29-%3E.searchArea;node%5B%22place%22~%22city|town|village|hamlet%22%5D%28area.searchArea%29;%28._;%3E;%29;out;
 # Destination postGIS table: tz_populated_places_osm
 #
-# Created by etl() on 2026-08-23 14:57:23
+# Created by etl() on 2026-09-13 15:23:17
 # Do not edit directly
+
+# set credentials from postgres defaults and secret files
+export POSTGRES_PASSWORD=$(cat $PG_PASSWORD_FILE)
+export CDC_APP_TOKEN=$(cat $CDC_APP_TOKEN_FILE)
+export AIRNOW_API_KEY=$(cat $AIRNOW_API_KEY_FILE)
+export USGS_USER=$(cat $USGS_USER_FILE)
+export USGS_PASSWORD=$(cat $USGS_PASSWORD_FILE)
+export CENSUS_API_KEY=$(cat $CENSUS_API_KEY_FILE)
 
 # Select proper geometry into the named table
 psql -d $POSTGRES_DB -U $POSTGRES_USER -p $POSTGRES_PORT -h gaia-db -c "
@@ -21,10 +29,11 @@ DROP TABLE IF EXISTS points;"
 # remove duplicate points and make geometries valid:
 psql -d $POSTGRES_DB -U $POSTGRES_USER -p $POSTGRES_PORT -h gaia-db -c "
 UPDATE tz_populated_places_osm
-  SET geom=ST_MakeValid(ST_RemoveRepeatedPoints(geom));"
+  SET geom=ST_MakeValid(ST_RemoveRepeatedPoints(geom));" 2>&1
 
 # add local geometry column and reproject existing geometries into local EPSG:
 psql -d $POSTGRES_DB -U $POSTGRES_USER -p $POSTGRES_PORT -h gaia-db -c "
+ALTER TABLE tz_populated_places_osm DROP COLUMN IF EXISTS geom_local CASCADE;
 SELECT AddGeometryColumn (
   'tz_populated_places_osm',
   'geom_local', 4326, 'point', 2

@@ -6,12 +6,20 @@
 # Data source: https://microdata.nbs.go.tz/index.php/catalog/49/download/317
 # Destination postGIS table: tz_2022_nbs_districts
 #
-# Created by etl() on 2026-08-23 14:57:20
+# Created by etl() on 2026-09-13 15:23:09
 # Do not edit directly
+
+# set credentials from postgres defaults and secret files
+export POSTGRES_PASSWORD=$(cat $PG_PASSWORD_FILE)
+export CDC_APP_TOKEN=$(cat $CDC_APP_TOKEN_FILE)
+export AIRNOW_API_KEY=$(cat $AIRNOW_API_KEY_FILE)
+export USGS_USER=$(cat $USGS_USER_FILE)
+export USGS_PASSWORD=$(cat $USGS_PASSWORD_FILE)
+export CENSUS_API_KEY=$(cat $CENSUS_API_KEY_FILE)
 
 # create directory structure and move into it
 mkdir -p /data/tz_2022_nbs/download -p /data/tz_2022_nbs/tz_2022_nbs_districts/etl
-chmod 777 /data/tz_2022_nbs/download
+chmod -R 777 /data/tz_2022_nbs
 cd /data/tz_2022_nbs
 
 # check for existence
@@ -29,7 +37,7 @@ if [[ $exists ]]; then
   if [[ ! $no_update ]]; then
     last_update=$(date -d "$(cat datestamp)" '+%s')
     check_date="$(date -d '-'"$update_frequency" '+%s')"
-    if [[ "$check_date" -ge "$last_update" ]]; then do_update=1; fi
+    if [[ "$check_date -ge $last_update" ]]; then do_update=1; fi
   fi
 
 # does not exist
@@ -37,19 +45,22 @@ else do_update=1; fi
 
 # download if needed
 if [[ $do_update = 1 ]]; then
-  (exit 1)
-  until [[ "$?" == 0 ]]; do
-      wget -O download/tz_2022_nbs.zip 'https://microdata.nbs.go.tz/index.php/catalog/49/download/317'
+  # fail after 3 attempts
+  attempts=0
+  until (
+    wget --retry-connrefused --waitretry=1 --read-timeout=20 --timeout=15 -t 10 -O download/tz_2022_nbs.zip 'https://microdata.nbs.go.tz/index.php/catalog/49/download/317' 2>&1
+  ); do
+    ((attempts++))
+    if (( attempts > 3 )); then echo $?; break; fi
   done
-  unzip -d download download/tz_2022_nbs.zip && rm download/tz_2022_nbs.zip
-  7z x download/TANZANIA_2022_POST_PHC_GEODATABASE.mpkx -o'download/TANZANIA_2022_POST_PHC_GEODATABASE'
+  unzip -o download/tz_2022_nbs.zip -d download && rm download/tz_2022_nbs.zip 2>&1
+  7z x download/TANZANIA_2022_POST_PHC_GEODATABASE.mpkx -o'download/TANZANIA_2022_POST_PHC_GEODATABASE' 2>&1
   # record download datestamp
   echo $(date '+%F %T') > datestamp
 fi
 
 # load into postGIS
-(exit 1)
-until [[ "$?" == 0 ]]; do
-  ogr2ogr -lco GEOMETRY_NAME=geom -f PostgreSQL PG:"dbname=$POSTGRES_DB port=$POSTGRES_PORT user=$POSTGRES_USER password=$POSTGRES_PASSWORD host='gaia-db'" download/TANZANIA_2022_POST_PHC_GEODATABASE/commondata/tanzania_2022phc_geodatabase.gdb Districts -nlt multipolygon -nln tz_2022_nbs_districts
-done
+ogr2ogr -lco GEOMETRY_NAME=geom -f PostgreSQL PG:"dbname=$POSTGRES_DB port=$POSTGRES_PORT user=$POSTGRES_USER password=$POSTGRES_PASSWORD host='gaia-db'" download/TANZANIA_2022_POST_PHC_GEODATABASE/commondata/tanzania_2022phc_geodatabase.gdb Districts -nlt multipolygon -nln tz_2022_nbs_districts
+echo success: TANZANIA_2022_POST_PHC_GEODATABASE/commondata/tanzania_2022phc_geodatabase.gdb loaded with ogr2ogr
+
 

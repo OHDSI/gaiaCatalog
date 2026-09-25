@@ -1,0 +1,27 @@
+#########
+# GDSC ETL is performed in two steps: shell script to ETL data into postgres
+# and then additional transformations with SQL in postGIS (if needed).
+####
+
+#########
+# Step 1 - bash script (pseudo code)
+####
+
+# create directory structure and move into it
+mkdir -p /data/us_2020_census_county_fips/download -p /data/us_2020_census_county_fips/etl
+chmod -R 777 /data/us_2020_census_county_fips
+cd /data/us_2020_census_county_fips
+
+# set update flag based on last update and update frequency
+do_update=0 if date() < last_update + update_frequency else do_update = 1
+
+# Download and etl as needed
+if [[ $do_update = 1 ]]; then
+  curl -o download/us_2020_census_county_fips.json "https://api.census.gov/data/2020/dec/dp?get=NAME&for=county:*&key=<your key here>"
+fi
+awk '{gsub(/\[|\]|.$/,""); print;}' download/us_2020_census_county_fips.json | 
+  sed 's/, /\",\"/g' | 
+  sed 's/\"NAME\"/\"county_name\",\"state_name\"/g' | 
+  ogr2ogr -f PostgreSQL PG:"<postgres_connection>" csv:/vsistdin/ -nln us_2020_census_county_fips
+
+

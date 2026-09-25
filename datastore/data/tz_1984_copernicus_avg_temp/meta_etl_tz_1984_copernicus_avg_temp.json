@@ -7,7 +7,7 @@
   "pixel_dimension": "decimal degrees",
   "epsg": "EPSG:4326",
   "extent": "POLYGON((28.875000 -12.125000, 41.125000 -12.125000, 41.125000 -0.875000, 28.875000 -0.875000, 28.875000 -12.125000))",
-  "attributes": ["2m_temperature;Average yearly 2m temperature in Kelvin from Copernicus reanalysis era5 single levels;Copernicus;float;Kelvin;9523;287.315857;301.010986;1984-01-01;1984-12-31;35814756;2m_temperature@tz_1984_copernicus_avg_temp"],
+  "attributes": ["2m_temperature;Average yearly 2m temperature in Kelvin from Copernicus reanalysis era5 single levels;Copernicus;float64;Kelvin;9523;287.31585693359375;301.010986328125;1984-01-01;1984-12-31;35814756;2m_temperature@tz_1984_copernicus_avg_temp"],
   "local_epsg": "EPSG:4326",
   "derive": ["geotiff"],
   "service": ["API", "cdsapi", "python"],
@@ -18,9 +18,9 @@
   "format": "tif",
   "custom_etl": "github_code",
   "custom_parameters": "python|copernicus_aggregate.py|json;table;extension;extent;attributes;bands;format|1984",
-  "up": "false",
+  "up": "true",
   "podID": "gaia-db",
-  "last_updated": "0001-01-01T00:00:00Z",
+  "last_updated": "2026-09-12T12:13:27Z",
   "update_frequency": "As Needed",
   "checksum": "TBD"
 }
