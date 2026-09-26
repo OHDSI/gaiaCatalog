@@ -151,6 +151,34 @@ def call_etl_api(api: str, func: str, params: dict) -> list:
     return output['res'] if GAIA_CATALOG_FLAVOR == "gdsc-api" else output
 
 
+def get_loaded_list(func: str, params: dict) -> list:
+    """
+    py:function:: get_loaded_list(func, params)
+
+    call a read-only status function on the database (e.g. loaded tables or variables)
+    and return a list; on failure log the error and return an empty list so pages
+    still render when the ETL/PostgREST backend is unavailable or misconfigured
+
+    :param str func: the function to request on the postgis/postgrest api
+    :param dict params: the parameters to pass to the function
+    :return: a list of the results
+    :rtype: list
+    """
+
+    try:
+        output = call_etl_api("postgis", func, params)
+    except error.HTTPError as e:
+        body = e.read().decode('utf-8', errors='replace')
+        print(f"Error calling {func} ({e.code} {e.reason}) at {e.url}: {body}", flush=True)
+        return []
+    except error.URLError as e:
+        print(f"Error calling {func}: could not reach API ({e.reason})", flush=True)
+        return []
+
+    if GAIA_CATALOG_FLAVOR == "gdsc-api": output = output.split()[2:-2]
+    return output
+
+
 def get_layer_meta(layer_id: str) -> dict:
     """
     py:function:: get_layer_meta(layer_id)
@@ -499,8 +527,7 @@ def index() -> str:
             facet_data[spec["facet_name"]] = values
 
     # check for loaded tables
-    loaded_tables = call_etl_api("postgis","gdsc_get_schema_tables",{"schema_name": "public"})
-    if GAIA_CATALOG_FLAVOR == "gdsc-api": loaded_tables = loaded_tables.split()[2:-2]
+    loaded_tables = get_loaded_list("gdsc_get_schema_tables",{"schema_name": "public"})
 
     # --- Render ---
     return render_template(
@@ -551,12 +578,10 @@ def detail(name_id: str) -> str:
         document['gdsc_derived'] = [attr.split(';') for attr in document['gdsc_derived']]
 
     # check for loaded tables
-    loaded_tables = call_etl_api("postgis","gdsc_get_schema_tables",{"schema_name": "public"})
-    if GAIA_CATALOG_FLAVOR == "gdsc-api": loaded_tables = loaded_tables.split()[2:-2]
+    loaded_tables = get_loaded_list("gdsc_get_schema_tables",{"schema_name": "public"})
 
     # check for loaded variables
-    loaded_variables = call_etl_api("postgis","gdsc_get_loaded_variables_for_table",{"table_id": document['gdsc_tablename'][0]})
-    if GAIA_CATALOG_FLAVOR == "gdsc-api": loaded_variables = loaded_variables.split()[2:-2]
+    loaded_variables = get_loaded_list("gdsc_get_loaded_variables_for_table",{"table_id": document['gdsc_tablename'][0]})
  
     # get json_ld 
     try:
@@ -584,8 +609,7 @@ def loadlayer(layer_id):
     """
 
     # check if layer is already loaded
-    loaded_tables = call_etl_api("postgis","gdsc_get_schema_tables",{"schema_name": "public"})
-    if GAIA_CATALOG_FLAVOR == "gdsc-api": loaded_tables = loaded_tables.split()[2:-2]
+    loaded_tables = get_loaded_list("gdsc_get_schema_tables",{"schema_name": "public"})
     if layer_id in loaded_tables: return {'already loaded': layer_id}
 
     # check for dependencies and load recursively if needed
@@ -631,6 +655,7 @@ def load(layer_id,variable_id):
         """
         validates if a time string matches the expected format pattern.
         """
+        if date_string == "Null": return ""
         try:
             datetime.strptime(date_string, "%m/%d/%y")
             return datetime.strptime(date_string,"%m/%d/%y").strftime("%Y-%m-%d")
