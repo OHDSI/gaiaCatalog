@@ -1,5 +1,5 @@
 # start from an official solr base image
-FROM solr:9.8.1
+FROM solr:9.8.1-slim
 
 USER root
 
@@ -11,8 +11,8 @@ RUN chown -R solr:solr /var/solr/data
 COPY ./datastore/ /catalog
 
 # copy the init script
-COPY --chown=solr --chmod=0500 ./docker/solr/init.sh /init.sh
+COPY --chown=solr --chmod=0500 ./docker/solr/init.sh /docker-entrypoint-initdb.d/init.sh
 
 USER solr
 
-ENTRYPOINT ["/init.sh"]
+ENTRYPOINT ["/docker-entrypoint-initdb.d/init.sh"]

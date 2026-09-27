@@ -1,6 +1,6 @@
-{% extends 'base.html' %}
-{% block title %}GDSC{% endblock %}
-{% block head %}
+{%- extends 'base.html' %}
+{%- block title %}GDSC{%- endblock %}
+{%- block head %}
     {{ super() }}
     <style>
       .btn-link.btn-anchor {
@@ -12,57 +12,71 @@
       .btn-link.btn-anchor:focus {
           box-shadow: none !important;
       }
+      .active-filters-row {
+          display: flex;
+          align-items: flex-start;
+          gap: 0.5rem;
+          flex-wrap: nowrap;
+      }
+
+      .active-filters-label {
+          font-size: 0.8rem;
+          font-weight: 600;
+          color: #6c757d;
+          white-space: nowrap;
+          padding-top: 0.3rem;
+          text-transform: capitalize;
+          min-width: 90px;
+          text-align: right;
+      }
+
+      .active-filters-chips {
+          display: flex;
+          flex-wrap: wrap;
+          gap: 0.4rem;
+      }
     </style>
-{% endblock %}
+{%- endblock %}
 
-{% block content %}
+{%- block content %}
 
-      <!-- Collection information -->
-<!--
-      <div class="mb-4">
-        <h2 class="mb-1">
-          {{ collections[collection]['Title'][0] }}
-        </h2>
-        <p class="mb-0">
-          {% autoescape off %}{{ collections[collection]['Description'][0] }}{% endautoescape %}
-        </p>
-        {% if collections[collection]['Creator'] and collections[collection]['Creator'][0]|length > 0 %}
+      <!-- collection information -->
+      <!-- <div class="mb-4">
+        <h2 class="mb-1">{{ collections[collection]['Title'][0] }}</h2>
+        <p class="mb-0">{%- autoescape off %}{{ collections[collection]['Description'][0] }}{%- endautoescape %}</p>
+        {%- if collections[collection]['Creator'] and collections[collection]['Creator'][0]|length > 0 %}
         <p class="mb-0 mt-1"><b>Contributors:</b></p>
-        {% for contributor in collections[collection]['Creator'][0].split('|') %}
-          {% set contributor = contributor.split(';') %}
+        {%- for contributor in collections[collection]['Creator'][0].split('|') %}
+          {%- set contributor = contributor.split(';') %}
           <p class="mb-0">
-            {{ contributor[0] }}{% if contributor[7] %}, {{ contributor[7] }}{% endif %}{% if contributor[4] %}, <a href="{{ contributor[4] }}" target="_blank">{{ contributor[4] }}</a>{% endif %}
+            {{- contributor[0] }}{%- if contributor[7] %}, {{ contributor[7] }}{%- endif %}{%- if contributor[4] %}, <a href="{{ contributor[4] }}" target="_blank">{{ contributor[4] }}</a>{%- endif %}
           </p>
-        {% endfor %}
-        {% endif %}
-        {% if collections[collection]['Relations'] %}
+        {%- endfor %}
+        {%- endif %}
+        {%- if collections[collection]['Relations'] %}
         <p class="mb-0 mt-1"><b>Related Content:</b></p>
-        {% for relation in collections[collection]['Relations'][0].split('|') %}
-          {% set relationship = relation.split(';') %}
-          <p class="mb-0">
-            The <a href="{{ relationship[2] }}" target="_blank">{{ relationship[0] }}</a> {{ relationship[1].lower() }} this collection.
-          </p>
-        {% endfor %}
-        {% endif %}
-        {% if collections[collection]['Coverage'] %}
+        {%- for relation in collections[collection]['Relations'][0].split('|') %}
+          {%- set relationship = relation.split(';') %}
+          <p class="mb-0">The <a href="{{ relationship[2] }}" target="_blank">{{ relationship[0] }}</a> {{ relationship[1].lower() }} this collection.</p>
+        {%- endfor %}
+        {%- endif %}
+        {%- if collections[collection]['Coverage'] %}
         <p class="mb-0 mt-1"><b>Geographical coverage:</b></p>
-        {% for coverage in collections[collection]['Coverage'][0].split('|') %}
-          {% set coverage = coverage.split(';') %}
+        {%- for coverage in collections[collection]['Coverage'][0].split('|') %}
+          {%- set coverage = coverage.split(';') %}
           <p class="mb-0">
-            {% if coverage[1] == 'gazeteer' %}
+            {%- if coverage[1] == 'gazeteer' %}
               <a href="{{ coverage[2] }}" target="_blank">{{ coverage[0] }}</a>
-            {% endif %}
+            {%- endif %}
           </p>
-        {% endfor %}
-        {% endif %}
-      </div>
--->
+        {%- endfor %}
+        {%- endif %}
+      </div> -->
+      <!-- end collection information -->
 
-      <!-- begin search form and results -->
+      <!-- search form and results -->
       <div class="row border rounded p-2">
-
         <div class="col-lg-12 mb-4 container">
-
           <div class="row d-block d-lg-none border-top"></div>
 
           <!-- results count and search -->
@@ -71,7 +85,6 @@
             <div class="col-md-6 order-md-2 container">
               <form method="get" id="filterForm" name="filterForm">
                 <div class="row">
-
                   <div class="col-md-8 pb-2 pb-md-0">
                     <input type="text"
                            class="form-control"
@@ -79,19 +92,14 @@
                            placeholder="Enter search term(s)"
                            value="{{ query }}">
                   </div>
-
                   <div class="col-md-4 pt-2 pt-md-0">
-                    <button type="submit" class="btn btn-primary mb-2">
-                      Search
-                    </button>
+                    <button type="submit" class="btn btn-primary mb-2">Search</button>
                   </div>
-
                   <!-- preserve filter state -->
                   <input type="hidden" name="collection" value="{{ collection }}">
-                  {% if active == "true" %}
+                  {%- if active == "true" %}
                   <input type="hidden" name="active" value="true">
-                  {% endif %}
-
+                  {%- endif %}
                 </div>
               </form>
             </div>
@@ -101,14 +109,10 @@
               </button>
               <ul class="dropdown-menu pt-0 pb-0">
                 <li class="dropdown-item p-0">
-                  <a href="/bibliography/{{collection}}/bibtex" class="btn">
-                    BibTeX
-                  </a>
+                  <a href="/bibliography/{{collection}}/bibtex" class="btn">BibTeX</a>
                 </li>
                 <li class="dropdown-item p-0">
-                  <a href="/bibliography/{{collection}}/ris" class="btn">
-                    RIS
-                  </a>
+                  <a href="/bibliography/{{collection}}/ris" class="btn">RIS</a>
                 </li>
               </ul>
             </div>
@@ -118,8 +122,11 @@
           <div class="row mt-0 mb-4 container-xxl">
             <div class="col-md-3"></div>
             <div class="col-md-9 d-flex flex-wrap gap-2">
-              {% for key in filter_specs %}
-                {% for item in selected_filters[key] %}
+              {%- for key in filter_specs %}
+                {%- if selected_filters[key] != [] %}
+                  {{ filter_specs[key]["frontend_name"] }}:
+                {%- endif %}
+                {%- for item in selected_filters[key] %}
                 <span class="badge rounded-pill bg-light text-dark d-flex align-items-center">
                   
                   {{ item }}  
@@ -140,250 +147,224 @@
                   </label>
 
                 </span>
-                {% endfor %}
-              {% endfor %}
+                {%- endfor %}
+              {%- endfor %}
             </div>
           </div>
+          <!-- end badges from filters -->
 
           <div class="row">
 
             <!-- filters -->
             <div class="col-lg-3" style="max-width: 300px;">
               <form method="get" id="filterForm" name="filterForm">
-                <div class="container">
+                <!-- preserve search query -->
+                <input type="hidden" name="query" value="{{ query }}">
 
-                  <div class="row">
-                    <h5 class="mr-2">Collection: </h5>
-                  </div>
-
-                  <div class="row mb-4">
-                    <select class="form-control mb-2"
-                            id="collection"
-                            name="collection"
-                            onchange="this.form.submit()">
-                      {% for coll in collections %}
-                      <option value="{{ collections[coll]['CollectionID'][0] }}"
-                        {{ "selected" if collection == collections[coll]['CollectionID'][0] else "" }}>
-                        {{ collections[coll]['Title'][0] }}
-                      </option>
-                      {% endfor %}
-                    </select>
-                  </div>
-
-                  <!-- preserve search query -->
-                  <input type="hidden" name="query" value="{{ query }}">
-
-                </div>
-
-                {% from "filters.html" import accordion_item%}
+                {%- from "filters.html" import accordion_item %}
 
                 <div class="accordion" id="filterAccordion">
                   <h5 class="ps-4">Filter:</h5>
                   <hr />
-                  {% for key in filter_specs %}
-                    {{  accordion_item(filter_specs[key]["frontend_name"], key, facet_data[filter_specs[key]["facet_name"]], selected_filters[key]) }}
-                  {% endfor %}
+                  {%- for key in filter_specs %}
+                  {{ accordion_item(filter_specs[key]["frontend_name"], key, facet_data[filter_specs[key]["facet_name"]], selected_filters[key], collections) }}
+                  {%- endfor %}
                 </div>
-
               </form>
             </div>
+            <!-- end filters -->
 
             <!-- all results -->
             <div class="col">
 
-              {% if results and results|length > 0 %}
-              <!-- results -->
+              {%- if results and results|length > 0 %}
               <div class="col-md-3 order-md-1"><h5 class="ml-2">Results (n={{ numresults }}):</h5></div>
-              {% for document in results %}
-              {% autoescape off %}
-              <div class="row mb-2 border rounded p-2 container-xxl"><div class="col-12">
 
-                <!-- title and collections -->
-                <div class="row">
-                  <div class="col-md-7 align-top">
-                    <h5 class="float-left">
-                      {% if document['adms_representationTechnique'] %}
-                        {% if document['adms_representationTechnique'] == 'raster' %}
-                          <img src="/static/raster.jpg" class="mb-1" style="max-width: 18px;">
-                        {% else %}
-                          {% if document['locn_geometry'] %}
-                            <img src="/static/{{ document['locn_geometry'][0] }}.jpg" class="mb-1" style="max-width: 18px;">
-                          {% endif %}
-                        {% endif %}
-                      {% endif %}
-                      {% if document['dct_title'] %}
-                        <a href="/detail/{{ document['gdsc_tablename'][0] }}?collection={{ collection }}&active={{ active }}&query={{ query }}">{{ document['dct_title'][0] }}</a>
-                      {% endif %}
+              {%- for document in results %}
+              {%- autoescape off %}
+
+              <!-- dataset block -->
+              <div class="row mb-2 border rounded p-2 container-xxl">
+                <div class="col-12">
+
+                  <!-- title and collections -->
+                  <div class="row">
+                    <div class="col-md-7 align-top">
+                      <h5 class="float-left">
+                        {%- if document['adms_representationTechnique'] %}
+                          {%- if document['adms_representationTechnique'] == 'raster' %}
+                            <img src="/static/raster.jpg" class="mb-1" style="max-width: 18px;">
+                          {%- else %}
+                            {%- if document['locn_geometry'] %}
+                              <img src="/static/{{ document['locn_geometry'][0] }}.jpg" class="mb-1" style="max-width: 18px;">
+                            {%- endif %}
+                          {%- endif %}
+                        {%- endif %}
+                        {%- if document['dct_title'] %}
+                          <a href="/detail/{{ document['gdsc_tablename'][0] }}?collection={{ collection }}&active={{ active }}&query={{ query }}">{{ document['dct_title'][0] }}</a>
+                        {%- endif %}
                       <div class="none" style="float: left; display: contents;"><div id="layer-{{ document['gdsc_tablename'][0] }}" class="float-left circle {{ 'green-fill' if document['gdsc_tablename'][0] in loaded_tables or document['gdsc_tileUrl'] else 'red-fill' }}" onclick="javascript:loadlayer('{{ document['gdsc_tablename'][0] }}')"></div></div>
-                    </h5>
+                      </h5>
+                    </div>
+                    <div class="col-md-5 align-top text-end mb-dm-2 mb-0">
+                      {%- if document['gdsc_collections'] and document['gdsc_collections']|length > 0 %}
+                        <b>Collections:</b> {%- for collection in document['gdsc_collections'] %}{{ collection }}{{ " | " if not loop.last else "" }}{%- endfor %}
+                      {%- endif %}
+                    </div>
                   </div>
-                  <div class="col-md-5 align-top text-end mb-dm-2 mb-0">
-                    {% if document['gdsc_collections'] and document['gdsc_collections']|length > 0 %}
-                      <b>Collections:</b> {% for collection in document['gdsc_collections'] %}{{ collection }}{{ " | " if not loop.last else "" }}{% endfor %}
-                    {% endif %}
-                  </div>
-                </div>
 
-                <!-- source -->
-                <div class="row">
-                  <div class="col-md-9 container ml-2 order-last">
-                    <div class="row ml-2 pl-2">
-                      <div class="col">
-                        {% if document['dct_creator'] %}
-                          {% for creator in document['dct_creator'] %}
-                            {% set creator = creator.split(';') %}
-                            {{ creator[0] }}{{ ", " if not loop.last else "" -}}
-                          {% endfor -%}
-                        {% endif -%}
-                        {% if document['dct_issued'] %} ({{ document['dct_issued'][0][:4] }}){% endif %}.
-                        {% if document['dct_title'] %}{{ document['dct_title'][0] }}{% endif %} [gis dataset].
-                        {% if document['dct_publisher'] %}{{ document['dct_publisher'][0] }}. {% endif %}
-                        {% if document['dct_identifier'] %}<a href="{{ document['dct_identifier'][0] }}" class="text-break text-wrap" target="_blank">{{ document['dct_identifier'][0] }}</a>{% endif %}
+                  <!-- source -->
+                  <div class="row">
+                    <div class="col-md-9 container ml-2 order-last">
+                      <div class="row ml-2 pl-2">
+                        <div class="col">
+                          {%- if document['dct_creator'] -%}
+                            {%- for creator in document['dct_creator'] -%}
+                              {%- set creator = creator.split(';') -%}
+                              {{ creator[0] }}{{ ", " if not loop.last else "" -}}
+                            {%- endfor -%}
+                          {%- endif -%}
+                          {%- if document['dct_issued'] %} ({{ document['dct_issued'][0][:4] }}){%- endif -%}.
+                          {%- if document['dct_title'] %} {{ document['dct_title'][0] }}{%- endif %} [gis dataset].
+                          {%- if document['dct_publisher'] %} {{ document['dct_publisher'][0] }}.{%- endif %}
+                          {%- if document['dct_identifier'] %} <a href="{{ document['dct_identifier'][0] }}" class="text-break text-wrap" target="_blank">{{ document['dct_identifier'][0] }}</a>{%- endif %}
+                        </div>
                       </div>
+                      {%- if document['dct_description'] and not "TBD" in document['dct_description'] %}
+                      <div class="row mt-2">
+                        <p class="text-break text-wrap my-0">{{ document['display_description'] }}</p>
+                      </div>
+                      {%- endif %}
+                      {%- if document['found_in'] %}
+                      {%- if document['found_in']['gdsc_attributes'] and document['found_in']['gdsc_attributes']|length > 0 %}
+                      <div class="row mt-2"><div class="col"><b>Attributes with <span class="highlight-term">{{ query }}</span>:</b>
+                        {%- for attr in document['found_in']['gdsc_attributes'] %} {{ attr[0] }}{{ "," if not loop.last else "" }}{%- endfor %}
+                      </div></div>
+                      {%- endif %}
+                      {%- endif %}
                     </div>
-                    {% if document['dct_description'] and not "TBD" in document['dct_description'] %}
-                    <div class="row mt-2">
-                      <p class="text-break text-wrap my-0">{{ document['display_description'] }}</p>
+                    <div class="col-md-3 align-top mt-2i order-first pl-2 text-md-start text-end mb-3 mb-md-0">
+                      <div class="dropdown mt-0">
+                        <button class="btn float-right dropdown-toggle" data-bs-toggle="dropdown" type="button" aria-expanded="true">
+                          Cite
+                        </button>
+                        <ul class="dropdown-menu pt-0 pb-0">
+                          <li class="dropdown-item p-0">
+                            <a href="/cite/{{ document['gdsc_tablename'][0] }}/bibtex" class="btn">BibTeX</a>
+                          </li>
+                          <li class="dropdown-item p-0">
+                            <a href="/cite/{{ document['gdsc_tablename'][0] }}/ris" class="btn">RIS</a>
+                          </li>
+                        </ul>
+                      </div>
+                      {%- if document['dct_modified'] %}<div class="ml-2">last updated: {{ document['dct_modified'][0][:10] }}</div>{%- endif %}
                     </div>
-                    {% endif %}
-                    {% if document['found_in'] %}
-                    {% if document['found_in']['gdsc_attributes'] and document['found_in']['gdsc_attributes']|length > 0 %}
-                    <div class="row mt-2"><div class="col"><b>Attributes with <span class="highlight-term">{{ query }}</span>:</b>
-                      {% for attr in document['found_in']['gdsc_attributes'] %}{{ attr[0] }}{{ ", " if not loop.last else "" }}{% endfor %}
-                      {# { ", ".join([attr[0] for attr in document['found_in']['gdsc_attributes']]) } #}
-                    </div></div>
-                    {% endif %}
-                    {% endif %}
                   </div>
-                  <div class="col-md-3 align-top mt-2i order-first pl-2 text-md-start text-end mb-3 mb-md-0">
-                    <div class="dropdown mt-0">
-                      <button class="btn float-right dropdown-toggle" data-bs-toggle="dropdown" type="button" aria-expanded="true">
-                        Cite
-                      </button>
-                      <ul class="dropdown-menu pt-0 pb-0">
-                        <li class="dropdown-item p-0">
-                          <a href="/cite/{{ document['gdsc_tablename'][0] }}/bibtex" class="btn">
-                            BibTeX
-                          </a>
-                        </li>
-                        <li class="dropdown-item p-0">
-                          <a href="/cite/{{ document['gdsc_tablename'][0] }}/ris" class="btn">
-                            RIS
-                          </a>
-                        </li>
-                      </ul>
-                    </div>
-                    {% if document['dct_modified'] %} <div class="ml-2">last updated: {{ document['dct_modified'][0][:10] }}</div> {% endif %}
+
+                  <!-- keywords -->
+                  <div class="row ml-2 mt-2">
+                    {%- if document['dcat_keyword'] and document['dcat_keyword']|length > 0 %}
+                    <p><b>key words:</b> {{ ", ".join(document['dcat_keyword']) }}</p>
+                    {%- endif %}
                   </div>
-                </div>
 
-                <!-- keywords -->
-                <div class="row ml-2 mt-2">
-                  {% if document['dcat_keyword'] and document['dcat_keyword']|length > 0 %}
-                  <p><b>key words:</b> {{ ", ".join(document['dcat_keyword']) }}</p>
-                  {% endif %}
                 </div>
-              </div></div>
-              {% endautoescape %}
-              {% endfor %}
+              </div>
+              <!-- end dataset block -->
+              {%- endautoescape %}
+              {%- endfor %}
 
+              <!-- page navigation -->
               <div class="row mb-2 m-0">
-                <nav aria-label="Page navigation example">
+                <nav aria-label="page navigation">
                   <ul class="pagination">
-                    <!-- First-->
-                    <li class="page-item {% if page == 1 %}disabled{% endif %}">
+
+                    <!-- First -->
+                    <li class="page-item {%- if page == 1 %}disabled{%- endif %}">
                       <button
                         class="page-link"
                         type="submit"
                         form="filterForm"
                         name="page"
-                        value="{{ 1 }}"
-                        {% if page == 1 %}disabled{% endif %}>
+                        value="1"
+                        {%- if page == 1 %} disabled{%- endif %}>
                         <span aria-hidden="true">&laquo;</span>
                       </button>
                     </li>
 
                     <!-- Previous -->
-                    <li class="page-item {% if page == 1 %}disabled{% endif %}">
+                    <li class="page-item {%- if page == 1 %}disabled{%- endif %}">
                       <button
                         class="page-link"
                         type="submit"
                         form="filterForm"
                         name="page"
                         value="{{ page - 1 }}"
-                        {% if page == 1 %}disabled{% endif %}>
+                        {%- if page == 1 %} disabled{%- endif %}>
                         <span aria-hidden="true">&lsaquo;</span>
                       </button>
                     </li>
 
                     <!-- Page numbers -->
-                    {% for i in range(numresults//10 + 1) %}
-                    <li class="page-item {% if page == i + 1 %}active{% endif %}">
+                    {%- for i in (range(([0, page - 3]|max), ([numresults//10 + 1, page + 2]|min))) %}
+                    <li class="page-item {%- if page == i + 1 %}active{%- endif %}">
                       <button
                         class="page-link"
                         type="submit"
                         form="filterForm"
                         name="page"
-                        value="{{ i + 1 }}">
-                        {{ i + 1 }}
-                      </button>
+                        value="{{ i + 1 }}">{{ i + 1 }}</button>
                     </li>
-                    {% endfor %}
+                    {%- endfor %}
 
                     <!-- Next -->
-                    <li class="page-item {% if page > numresults//10%}disabled{% endif %}">
+                    <li class="page-item {%- if page > numresults//10 %}disabled{%- endif %}">
                       <button
                         class="page-link"
                         type="submit"
                         form="filterForm"
                         name="page"
                         value="{{ page + 1 }}"
-                        {% if page > numresults//10%}disabled{% endif %}>
+                        {%- if page > numresults//10 %} disabled{%- endif %}>
                         <span aria-hidden="true">&rsaquo;</span>
                       </button>
                     </li>
 
-                    <!-- Next -->
-                    <li class="page-item {% if page > numresults//10%}disabled{% endif %}">
+                    <!-- Last -->
+                    <li class="page-item {%- if page > numresults//10 %}disabled{%- endif %}">
                       <button
                         class="page-link"
                         type="submit"
                         form="filterForm"
                         name="page"
                         value="{{ numresults//10 + 1 }}"
-                        {% if page > numresults//10%}disabled{% endif %}>
+                        {%- if page > numresults//10 %} disabled{%- endif %}>
                         <span aria-hidden="true">&raquo;</span>
                       </button>
                     </li>
+
                   </ul>
                 </nav>
               </div>
+              <!-- end page navigation -->
 
-              {% else %}
+              {%- else %}
+              <!-- no results -->
+              <div class="nav justify-content-center border rounded pt-1">
+                <h3>No Results</h3>
+              </div>
+              <!-- end no results -->
+              {%- endif %}
 
-                <div class="nav justify-content-center border rounded pt-1">
-                  <h3>
-                    No Results
-                  </h3>
-                </div>
-
-              {% endif %}
             </div>
           </div>
+          <!-- end all results -->
 
         </div>
-
       </div>
-
+      <!-- end search form and results -->
+      
       <script>
-        const collection = document.getElementById("collection");
-        collection.addEventListener("change", function() {
-         document.getElementById("filterForm").submit();
-        });
-        /* const active = document.getElementById("active");
-        active.addEventListener("change", function() {
-         document.getElementById("filterForm").submit();
-        }); */
         var loadlayer=function(layer_id) {
           console.log('starting with: '+layer_id.toString());
           var status_indicator = document.getElementById('layer-'+layer_id);

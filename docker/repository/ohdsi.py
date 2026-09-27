@@ -143,14 +143,22 @@ def call_etl_api(api: str, func: str, params: dict) -> list:
     for header in headers[GAIA_CATALOG_FLAVOR]:
         req.add_header(header,headers[GAIA_CATALOG_FLAVOR][header])
 
-    # make the request and read the response
-    resp = urlopen(req).read()
-    output = loads(resp.decode('utf-8').strip(),strict=False)
+    # make the request and read the response with graceful fail
+    try: 
+        resp = urlopen(req).read()
+        output = loads(resp.decode('utf-8').strip(),strict=False)
+    except error.HTTPError as e:
+        body = e.read().decode('utf-8', errors='replace')
+        print(f"Error calling {func} ({e.code} {e.reason}) at {e.url}: {body}", flush=True)
+        return []
+    except error.URLError as e:
+        print(f"Error calling {func}: could not reach API ({e.reason})", flush=True)
+        return []
+
     if output in ['null','None'] or output == None: output = []
+    return output['res'].split()[2:-2] if GAIA_CATALOG_FLAVOR == "gdsc-api" else output
 
-    return output['res'] if GAIA_CATALOG_FLAVOR == "gdsc-api" else output
-
-
+#### ***** I moved this functionality directly into call_etl_api() ***** ####
 def get_loaded_list(func: str, params: dict) -> list:
     """
     py:function:: get_loaded_list(func, params)
@@ -197,17 +205,34 @@ def get_layer_meta(layer_id: str) -> dict:
     document = response['response']['docs'][0]
 
     return document
+
+
+def escape_solr_query(query: str) -> str:
+    """
+    py:function:: escape_solr_query(query)
     
+    Escape characters know to mess with the SOLR query parser
+
+    :param str query: the string to clean
+    :return: the cleaned query string
+    :rtype: str
+    """
+
+    # Solr's reserved syntax characters
+    # +, -, &&, ||, !, (, ), {, }, [, ], ^, ~, *, ?, :, \
+    pattern = r'[\+\-\&\|\!\(\)\{\}\[\]\^\"\~\*\?\:\\]'
+    return re.sub(pattern,'',query)
+
 
 def query_solr(path: str, parameters: dict, facet_field: str = None) -> tuple:
     """
-    py:function:: query_solr(path, parameters)
+    py:function:: query_solr(path, parameters, facet_field)
 
     Query the SOLR API with an index for the catalog or collections.
 
     :param str path: the base url for the SOLR API
     :param dict parameters: the query parameters
-    :param facet_field: optional field for which to get all possible options for froma all documents, if unspecified, query normally
+    :param facet_field: optional field for facet counts; if unspecified, queries normally
     :return: the query results, the number of results
     :rtype: tuple
     """
@@ -225,7 +250,7 @@ def query_solr(path: str, parameters: dict, facet_field: str = None) -> tuple:
         return [], 0
 
     # Extract results
-    if facet_field != None:
+    if facet_field is not None:
         if DEBUG: print('getting facets:')
         results = response.get('facet_counts', {}).get('facet_fields', {}).get(facet_field, [])
         numresults = len(results)
@@ -250,45 +275,48 @@ def highlight_query(document: dict, query: str) -> dict:
     :rtype: dict
     """
 
-    def add_tags(string_value,query):
+    def add_tags(string_value, term):
         return re.sub(
-            r'(' + term  + ')',
-            '<span class="highlight-term">\g<1></span>',
+            r'(' + re.escape(term) + ')',
+            r'<span class="highlight-term">\1</span>',
             string_value,
-            flags=re.IGNORECASE)
+            flags=re.IGNORECASE
+        )
 
     document['found_in'] = {}
+    terms = query.split(' ')
     for field in QUERY_FIELDS:
         if field in document:
             attrs = []
             for i, attr in enumerate(document[field]):
-                terms = query.split(' ')
                 found = True
                 for term in terms:
                     if term.upper() not in attr.upper(): found = False
                 if found:
                     document['found_in'][field] = []
+                    for term in terms:
+                        document[field][i] = add_tags(document[field][i],term)
                     row = attr.split(';')
                     if len(row) > 1:
-                        row[1] = add_tags(row[1],term) # attribute description
+                        document[field][i] = add_tags(document[field][i],row[0])
+                        for j in range(0,2):
+                            for term in terms:
+                                row[j] = add_tags(row[j],term)
+                        row[0] = add_tags(row[0],row[0])
                         attrs.append([row[0],row[1]])
-                        document[field][i] = ";".join(row)
-                    else:
-                        for term in terms:
-                            document[field][i] = add_tags(document[field][i],term)
             if len(attrs) > 0: document['found_in'][field] = attrs
 
     return document
 
 
-def build_citation(document: dict, type: str) -> str:
+def build_citation(document: dict, fmt: str) -> str:
     """
-    py:function:: build_citation(document, type)
+    py:function:: build_citation(document, fmt)
 
     Create a formatted citation string for the document in the given format type.
 
     :param dict document: the document metadata
-    :param str type: the format type ["bibtex", "ris"]
+    :param str fmt: the format type ["bibtex", "ris"]
     :return: the formatted citation
     :rtype: str
     """
@@ -370,32 +398,32 @@ def build_citation(document: dict, type: str) -> str:
         }
     }
 
-    def build_element(field,value):
+    formatters = cite_formats['formatters'][fmt]
+
+    def build_element(field, value):
         return (
             f"{formatters['indent']}{field}{formatters['seperator']}"
             f"{formatters['quote_start']}{value}{formatters['quote_end']}"
             f"{formatters['line_seperator']}\n"
         )
 
-    formatters = cite_formats['formatters'][type]
     entry = formatters['begin']
-    if type == "bibtex":
-        entry += f"{document['gdsc_tablename'][0]}\n" or "citation\n"
+    if fmt == "bibtex":
+        entry += f"{document.get('gdsc_tablename', ['citation'])[0]}\n"
 
-    formatters = cite_formats['formatters'][type]
-    # looped citation body construction
-    for dc_term in cite_formats['fields']:
-        field = cite_formats['fields'][dc_term]
-        if type in field:
-            if dc_term in document:
-                val = document[dc_term]       
-                if field['type'] in ["single", "date"]:
-                    if dc_term in ["dct_issued"]: val[0] = val[0][:4]
-                    if dc_term in ["dct_modified"]: val[0] = val[0].split('T')[0]    
-                    entry += build_element(field[type],val[0])
-                elif field['type'] == "list":
-                    for item in val:
-                        entry += build_element(field[type],item.split(";")[0])
+    for dc_term, field in cite_formats['fields'].items():
+        if fmt not in field or dc_term not in document:
+            continue
+        val = list(document[dc_term])  # copy to avoid mutating the document
+        if field['type'] in ("single", "date"):
+            if dc_term == "dct_issued":
+                val[0] = val[0][:4]
+            elif dc_term == "dct_modified":
+                val[0] = val[0].split('T')[0]
+            entry += build_element(field[fmt], val[0])
+        elif field['type'] == "list":
+            for item in val:
+                entry += build_element(field[fmt], item.split(";")[0])
 
     entry += formatters['end']
     return entry
@@ -408,7 +436,10 @@ def fetch_facets(field: str, query: str, fq: str) -> tuple:
     Fetch the facets from SOLR for a given field and return a tuple with the 
     results and the number of results.
 
-    :return: the query results, the number of results
+    :param str field: the Solr field to facet on
+    :param str query: the current search query
+    :param str fq: the current filter query string
+    :return: the facet values and count
     :rtype: tuple
     """
 
@@ -434,11 +465,9 @@ def fetch_facets(field: str, query: str, fq: str) -> tuple:
     )
 
 
-
 ##
  # Routes and views
  ##
-
 
 @app.route('/', methods=["GET"])
 def index() -> str:
@@ -452,8 +481,7 @@ def index() -> str:
     """
 
     collection = request.args.get("collection", "all")
-    query = request.args.get("query", "")
-    query = re.sub(r'[\+\-\&\|\!\(\)\{\}\[\]\^\"\~\*\?\:\\]','',query)
+    query = escape_solr_query(request.args.get("query", ""))
     page = int(request.args.get("page", 1))
 
     # --- Collect filters dynamically ---
@@ -467,6 +495,7 @@ def index() -> str:
 
     fq_parts = []
 
+    # TODO: remove perhaps ...
     if collection == "all":
         fq_parts.append("gdsc_collections:*")
     else:
@@ -477,8 +506,7 @@ def index() -> str:
         if len(values) > 0:
             field = FILTER_SPECS[key]["field"]
             clauses = [f'{field}:"{v}"' for v in values]
-            clause = f"({' AND '.join(clauses)})"
-            fq_parts.append(clause)
+            fq_parts.append(f"({' AND '.join(clauses)})")
 
     fq = " ".join(fq_parts)
 
@@ -527,7 +555,9 @@ def index() -> str:
             facet_data[spec["facet_name"]] = values
 
     # check for loaded tables
-    loaded_tables = get_loaded_list("gdsc_get_schema_tables",{"schema_name": "public"})
+    # loaded_tables = get_loaded_list("gdsc_get_schema_tables",{"schema_name": "public"})
+    loaded_tables = call_etl_api("postgis","gdsc_get_schema_tables",{"schema_name": "public"})
+    #if GAIA_CATALOG_FLAVOR == "gdsc-api": loaded_tables = loaded_tables.split()[2:-2]
 
     # --- Render ---
     return render_template(
@@ -546,7 +576,7 @@ def index() -> str:
     )
 
 
-@app.route('/detail/<name_id>', methods=["GET","POST"])
+@app.route('/detail/<name_id>', methods=["GET"])
 def detail(name_id: str) -> str:
     """
     py:function:: detail(name_id)
@@ -564,10 +594,10 @@ def detail(name_id: str) -> str:
     document = get_layer_meta(name_id)
 
     # highlight query if exists
-    if "query" in args:
-        if args['query'] != None and args['query'] != 'None' and args['query'] != '':
-            document = highlight_query(document,args['query'])
-    else: args['query'] = None
+    query_arg = args.get('query')
+    if query_arg:
+        highlight_query(document, query_arg)
+    args['query'] = query_arg or None
 
     # structure results for display
     if 'gdsc_attributes' in document:
@@ -575,13 +605,17 @@ def detail(name_id: str) -> str:
     if 'gdsc_attributes' in document:
         document['gdsc_attributes'] = [attr.split(';') for attr in document['gdsc_attributes']]
     if 'gdsc_derivatives' in document:
-        document['gdsc_derived'] = [attr.split(';') for attr in document['gdsc_derived']]
+        document['gdsc_derived'] = [attr.split(';')[0] for attr in document['gdsc_derived']]
 
     # check for loaded tables
-    loaded_tables = get_loaded_list("gdsc_get_schema_tables",{"schema_name": "public"})
+    # loaded_tables = get_loaded_list("gdsc_get_schema_tables",{"schema_name": "public"})
+    loaded_tables = call_etl_api("postgis","gdsc_get_schema_tables",{"schema_name": "public"})
+    #if GAIA_CATALOG_FLAVOR == "gdsc-api": loaded_tables = loaded_tables.split()[2:-2]
 
     # check for loaded variables
-    loaded_variables = get_loaded_list("gdsc_get_loaded_variables_for_table",{"table_id": document['gdsc_tablename'][0]})
+    # loaded_variables = get_loaded_list("gdsc_get_loaded_variables_for_table",{"table_id": document['gdsc_tablename'][0]})
+    loaded_variables = call_etl_api("postgis","gdsc_get_loaded_variables_for_table",{"table_id": document['gdsc_tablename'][0]})
+    #if GAIA_CATALOG_FLAVOR == "gdsc-api": loaded_variables = loaded_variables.split()[2:-2]
  
     # get json_ld 
     try:
@@ -597,19 +631,28 @@ def detail(name_id: str) -> str:
         document=document, 
         loaded_variables=loaded_variables,
         loaded_tables=loaded_tables,
-        referrer=request.args,
+        referrer=args,
+        root='../',
         json_ld=json_ld
     )
 
 
-@app.route('/loadlayer/<layer_id>', methods=["GET","POST"])
-def loadlayer(layer_id):
+@app.route('/loadlayer/<layer_id>', methods=["POST"])
+def loadlayer(layer_id: str) -> dict:
     """
-    load a layer given an id from the catalog
+    py:function:: loadlayer(layer_id)
+
+    Load a layer given a layer_id_id. 
+
+    :param str layer_id: the ID for the layer
+    :return: the response body as dict from the postgres API
+    :rtype: dict
     """
 
     # check if layer is already loaded
-    loaded_tables = get_loaded_list("gdsc_get_schema_tables",{"schema_name": "public"})
+    # loaded_tables = get_loaded_list("gdsc_get_schema_tables",{"schema_name": "public"})
+    loaded_tables = call_etl_api("postgis","gdsc_get_schema_tables",{"schema_name": "public"})
+    #if GAIA_CATALOG_FLAVOR == "gdsc-api": loaded_tables = loaded_tables.split()[2:-2]
     if layer_id in loaded_tables: return {'already loaded': layer_id}
 
     # check for dependencies and load recursively if needed
@@ -638,12 +681,12 @@ def loadlayer(layer_id):
     return response
 
 
-@app.route('/load/<layer_id>/<variable_id>', methods=["GET","POST"])
-def load(layer_id,variable_id):
+@app.route('/load/<layer_id>/<variable_id>', methods=["POST"])
+def load(layer_id: str, variable_id: str) -> dict:
     """
     py:function:: load(layer_id,variable_id)
 
-    Load one variable given a variable_id. 
+    Load one variable given a layer_id and a variable_id. 
 
     :param str layer_id: the ID for the layer for the variable
     :param str variable_id: the ID for the variable to be loaded
@@ -702,12 +745,12 @@ def cite(collection: str = None, table_id: str = None, fmt: str = None) -> Respo
     """
     py:function:: cite(collection, table_id, fmt)
 
-    Create a set of correctly formatted citations and return as a (Flask) Response.
+    Create formatted citations and return as a download Response.
 
     :param str collection: the unique identifier for the collection
     :param str table_id: the unique identifier for the dataset (tablename)
-    :param str fmt: the citation format identifier 
-    :return Response: correctly formatted citations as a (Flask) Response
+    :param str fmt: the citation format, one of "bibtex" or "ris"
+    :return: formatted citations as a Flask Response
     :rtype: Response
     """
 
@@ -742,6 +785,34 @@ def cite(collection: str = None, table_id: str = None, fmt: str = None) -> Respo
     resp.headers["Content-Disposition"] = f"attachment; filename={filename}"
     resp.headers["Content-Type"] = "text/plain"
     return resp
+
+
+@app.route('/download/<path:download_path>', methods=["GET"])
+def download(download_path: str) -> Response:
+    """
+    py:function:: download(download_path: str) -> Response
+
+    Retrieve the correct derivative for download and return as a Flask Response.
+
+    :param str download_path: the path to the derivative for download 
+    :return Response: the derivative package as a (Flask) Response
+    :rtype: Response
+    """
+
+    args = request.args
+
+    # in case of reverse proxy
+    download_path = download_path[download_path.index('data/'):]
+
+    if 'format' in args:
+        ext = ".tar.gz" if args['format'] in ["sql","shp","geotiff","geojson"] else ""
+        return send_from_directory(
+            f"/{download_path}/",
+            f"{args['file']}.{args['format']}{ext}",
+            as_attachment=True
+        )
+
+    return "File not found", 400
 
 
 ##
