@@ -138,11 +138,11 @@
               <div class="accordion mt-2" id="attributes-container">
                 <div class="accordion-itemb order-0">
                   <div class="accordion-header">
-                    <a href="attributes" data-bs-toggle="collapse" data-bs-target="#attributes" aria-expanded="false" aria-controls="attributes">
+                    <a href="attributes" data-bs-toggle="collapse" data-bs-target="#attributes" aria-expanded="true" aria-controls="attributes">
                       <b>Attributes:</b>
                     </a>
                   </div>
-                  <div id="attributes" class="accordion-collapse collapse" data-bs-parent="#attributes-container">
+                  <div id="attributes" class="accordion-collapse collapse show" data-bs-parent="#attributes-container">
                     <div class="accordion-body">
                       <div class="container mt-2 text-break">
                         <div class="container-fluid"><div class="row"><div class="wrapScroll">
@@ -166,13 +166,13 @@
                             {% for attr in document['gdsc_attributes'] -%}
                             <tr>
                               <td>
-                                {% if attr[10]|length > 0 %}
+                                {%- if attr[8] and attr[9] %}
                                 <div class="none"> 
-                                  <div id="variable-{{ attr[0] }}" class="float-left circle {{ 'green-fill' if attr[0] in loaded_variables else 'red-fill' }}" onclick="javascript:loadvar('{{ document['gdsc_tablename'][0] }}','{{ attr[0] }}')"></div>
+                                  <div id="variable-{{ document['gdsc_columns'][loop.index0] }}" class="float-left circle {{ 'green-fill' if document['gdsc_columns'][loop.index0] in loaded_variables else 'red-fill' }}" onclick="javascript:loadvar('{{ document['gdsc_tablename'][0] }}','{{ document['gdsc_columns'][loop.index0] }}')"></div>
                                 </div>
-                                {% else %}
+                                {%- else %}
                                   &nbsp;
-                                {% endif %}
+                                {%- endif %}
                               </td>
                               <td>{{ attr[0] }}</td>
                               <td>{{ attr[1] }}</td>

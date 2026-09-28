@@ -593,15 +593,17 @@ def detail(name_id: str) -> str:
     # query solr
     document = get_layer_meta(name_id)
 
+    # copy unmodified column names
+    if 'gdsc_attributes' in document:
+        document['gdsc_columns'] = [attr.split(';')[0] for attr in document['gdsc_attributes']]
+
     # highlight query if exists
     query_arg = args.get('query')
     if query_arg:
         highlight_query(document, query_arg)
     args['query'] = query_arg or None
 
-    # structure results for display
-    if 'gdsc_attributes' in document:
-        document['gdsc_columns'] = [attr.split(';')[0] for attr in document['gdsc_attributes']]
+    # structure remaining document data
     if 'gdsc_attributes' in document:
         document['gdsc_attributes'] = [attr.split(';') for attr in document['gdsc_attributes']]
     if 'gdsc_derivatives' in document:
@@ -713,6 +715,7 @@ def load(layer_id: str, variable_id: str) -> dict:
     document = get_layer_meta(layer_id)
     variable = [attr for attr in document['gdsc_attributes'] if variable_id in attr][0].split(";")  
     variable = [var if var !='' else 'Null' for var in variable]
+    variable.extend(['Null' for i in range(len(variable),11)])
 
     # construct and make request
     parameters = {
