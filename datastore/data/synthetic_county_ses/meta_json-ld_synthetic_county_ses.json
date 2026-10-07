@@ -5,7 +5,7 @@
     "qudt": "http://qudt.org/schema/qudt/"
   },
   "@type": "Dataset",
-  "@id": "https://github.com/OHDSI/GIS/tree/main/syntheticDataGIS/catalog/synthetic_county_ses",
+  "@id": "https://github.com/OHDSI/gaiaCatalog/tree/main/datastore/data/synthetic_county_ses",
   "name": "Simulated county SES index for the OHDSI GIS tutorial",
   "creator": [
     {
