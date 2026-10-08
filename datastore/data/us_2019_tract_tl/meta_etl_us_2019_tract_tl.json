@@ -1,0 +1,49 @@
+{
+  "rights": "Public Domain",
+  "structure": "vector",
+  "geometry": "multipolygon",
+  "epsg": "EPSG:4269",
+  "extent": "POLYGON((-179.231086 -14.601813, 179.859681 -14.601813, 179.859681 71.439786, -179.231086 71.439786, -179.231086 -14.601813))",
+  "attributes": [
+    "statefp;State FIPS code;U.S. Census Bureau;varchar;;;;",
+    "countyfp;County FIPS code (3 digits);U.S. Census Bureau;varchar;;;;",
+    "tractce;Census tract code (6 digits);U.S. Census Bureau;varchar;;;;",
+    "geoid;Geographic identifier: state + county + tract FIPS (11 digits);U.S. Census Bureau;varchar;;;;",
+    "name;Census tract name;U.S. Census Bureau;varchar;;;;",
+    "namelsad;Census tract name and legal/statistical area description;U.S. Census Bureau;varchar;;;;",
+    "mtfcc;MAF/TIGER feature class code;U.S. Census Bureau;varchar;;;;",
+    "funcstat;Functional status;U.S. Census Bureau;varchar;;;;",
+    "aland;Land area (square meters);U.S. Census Bureau;numeric;;;;",
+    "awater;Water area (square meters);U.S. Census Bureau;numeric;;;;",
+    "intptlat;Latitude of the internal point;U.S. Census Bureau;varchar;;;;",
+    "intptlon;Longitude of the internal point;U.S. Census Bureau;varchar;;;;"
+  ],
+  "local_epsg": "EPSG:4269",
+  "source": "https://www2.census.gov/geo/tiger/TIGER2019/TRACT/tl_2019_<state fips>_tract.zip",
+  "file": [
+    "us_2019_tract_tl"
+  ],
+  "extension": "zip",
+  "download": "wget",
+  "table": "us_2019_tract_tl",
+  "format": "shp",
+  "up": "true",
+  "podID": "gaia-db",
+  "last_updated": "2026-09-12T11:59:39Z",
+  "update_frequency": "Never",
+  "checksum": "TBD",
+  "fields": [
+    "statefp",
+    "countyfp",
+    "tractce",
+    "geoid",
+    "name",
+    "namelsad",
+    "mtfcc",
+    "funcstat",
+    "aland",
+    "awater",
+    "intptlat",
+    "intptlon"
+  ]
+}

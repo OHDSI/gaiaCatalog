@@ -1,0 +1,51 @@
+{
+  "rights": "Public Domain",
+  "temporal_extent": [
+    "2014-01-01",
+    "2019-12-31"
+  ],
+  "structure": "vector",
+  "geometry": "multipolygon",
+  "temporal_dimension": "1 month",
+  "epsg": "EPSG:4269",
+  "extent": "POLYGON((-179.231086 -14.601813,-179.231086 71.439786,179.85968107125612 71.439786,179.85968107125612 -14.601813,-179.231086 -14.601813))",
+  "fields": [
+    "statefips",
+    "countyfips",
+    "geoid",
+    "pm25_mean_pred"
+  ],
+  "attributes": [
+    "statefips;State FIPS Code;ANSI;varchar",
+    "countyfips;County FIPS Code;ANSI;varchar",
+    "geoid;Census tract identifier, 11 characters;ANSI;varchar;;;;",
+    "pm25_mean_pred;Monthly mean predicted PM 2.5 by census tract as a jsonb series keyed by date range;Mean of the daily Downscaler predictions;jsonb;micrograms/cubic meter;32964;;;2014-01-01;2019-12-31;2052499839"
+  ],
+  "local_epsg": "EPSG:4269",
+  "derive": [
+    "sql",
+    "gpkg"
+  ],
+  "service": [
+    "API",
+    "socrata"
+  ],
+  "source": "https://data.cdc.gov/resource/96sd-hxdt.csv",
+  "file": [
+    "us_2014_2019_monthly_pm25_by_tract_cdc"
+  ],
+  "extension": "csv",
+  "download": "wget",
+  "table": "us_2014_2019_monthly_pm25_by_tract_cdc",
+  "format": "csv",
+  "dependency": [
+    "us_2019_tract_tl"
+  ],
+  "custom_etl": "join",
+  "custom_parameters": "column;temp;geoid;pm25_mean_pred;jsonb",
+  "up": "true",
+  "podID": "gaia-db",
+  "last_updated": "2026-10-07T00:00:00Z",
+  "update_frequency": "Never",
+  "checksum": "TBD"
+}
