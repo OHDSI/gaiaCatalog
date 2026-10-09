@@ -1,0 +1,99 @@
+{
+  "@context": {
+    "@vocab": "https://schema.org/",
+    "dct": "http://purl.org/dc/terms/",
+    "qudt": "http://qudt.org/schema/qudt/"
+  },
+  "@type": "Dataset",
+  "@id": "https://github.com/OHDSI/gaiaCatalog/tree/main/datastore/data/synthetic_surface_1km",
+  "name": "Simulated exposure surface, correlation length 1000 m",
+  "creator": [
+    {
+      "@type": "Organization",
+      "name": "OHDSI GIS Working Group"
+    }
+  ],
+  "url": "https://github.com/OHDSI/GIS/tree/main/syntheticDataGIS",
+  "provider": [
+    {
+      "@type": "Organization",
+      "name": "OHDSI GIS Working Group"
+    }
+  ],
+  "license": "cc0-1.0",
+  "spatialCoverage": [
+    {
+      "@type": "Place",
+      "name": "Los Angeles, California, United States (10 km window)"
+    }
+  ],
+  "temporalCoverage": "2014-01-01/2019-12-31",
+  "type": "Vector Dataset",
+  "datePublished": "2026-10-09",
+  "dateModified": "2026-10-09",
+  "description": "SIMULATED exposure surface used to check the geocoding stress test of the OHDSI GIS benchmark through Gaia: a Gaussian random field with exponential covariance and correlation length 1000 m (mean 9, SD 1.9 ug/m3), rendered as a 250 m square grid over a 10 km window around downtown Los Angeles. It is not a measurement of any real exposure. The field is built from random Fourier features in the postGIS step.",
+  "keywords": [
+    "simulated",
+    "synthetic",
+    "exposure surface",
+    "grid",
+    "OHDSI benchmark"
+  ],
+  "@language": "en",
+  "measurementTechnique": [
+    {
+      "@type": "DefinedTerm",
+      "description": "GIS Data Structure for Representation",
+      "inDefinedTermSet": {
+        "@type": "DefinedTermSet",
+        "name": "dataRepresentation"
+      },
+      "termCode": "vector"
+    },
+    {
+      "@type": "DefinedTerm",
+      "description": "GIS Vector Geometery",
+      "inDefinedTermSet": {
+        "@type": "DefinedTermSet",
+        "name": "vectorGeometry"
+      },
+      "termCode": "multipolygon"
+    }
+  ],
+  "additionalProperty": [
+    {
+      "@type": "PropertyValue",
+      "propertyID": "http://dbpedia.org/resource/Spatial_reference_system",
+      "value": "https://epsg.io/4269"
+    }
+  ],
+  "about": [
+    {
+      "@type": "Event",
+      "name": "ETL process for the simulated exposure surface",
+      "description": "The random Fourier features (w1, w2, phase) are published as a CSV and loaded into a temporary table; the square grid is created in EPSG:5070 with ST_SquareGrid and the value of every cell is computed at its centre."
+    }
+  ],
+  "variableMeasured": [
+    {
+      "@type": "PropertyValue",
+      "name": "cell_id",
+      "description": "Grid cell identifier",
+      "qudt:dataType": "integer"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "pm25_surface",
+      "description": "Simulated exposure at the cell centre. Static over 2014-2019.",
+      "propertyID": "2052499839",
+      "qudt:dataType": "numeric",
+      "unitText": "micrograms/cubic meter",
+      "startDate": "2014-01-01",
+      "endDate": "2019-12-31"
+    }
+  ],
+  "version": "1",
+  "distribution": [
+    "https://raw.githubusercontent.com/OHDSI/GIS/main/syntheticDataGIS/tract/data/surface_1km_features.csv"
+  ]
+}

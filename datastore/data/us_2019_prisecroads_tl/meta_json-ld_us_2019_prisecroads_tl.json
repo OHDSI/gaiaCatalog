@@ -1,0 +1,98 @@
+{
+  "@context": {
+    "@vocab": "https://schema.org/",
+    "dct": "http://purl.org/dc/terms/",
+    "qudt": "http://qudt.org/schema/qudt/"
+  },
+  "@type": "Dataset",
+  "@id": "https://github.com/OHDSI/gaiaCatalog/tree/main/datastore/data/us_2019_prisecroads_tl",
+  "name": "TIGER/Line Shapefile, 2019, State(s), Primary and Secondary Roads",
+  "creator": [
+    {
+      "@type": "Organization",
+      "name": "OHDSI GIS Working Group"
+    }
+  ],
+  "url": "https://www2.census.gov/geo/tiger/TIGER2019/PRISECROADS/",
+  "provider": [
+    {
+      "@type": "Organization",
+      "name": "OHDSI GIS Working Group"
+    }
+  ],
+  "license": "cc0-1.0",
+  "spatialCoverage": [
+    {
+      "@type": "Place",
+      "name": "United States"
+    }
+  ],
+  "temporalCoverage": "2014-01-01/2019-12-31",
+  "type": "Vector Dataset",
+  "datePublished": "2026-10-09",
+  "dateModified": "2026-10-09",
+  "description": "Census TIGER/Line 2019 primary (S1100) and secondary (S1200) roads. The states loaded are set by the TRACT_STATES environment variable of the gaia-db container (default Alabama).",
+  "keywords": [
+    "roads",
+    "TIGER",
+    "OHDSI benchmark"
+  ],
+  "@language": "en",
+  "measurementTechnique": [
+    {
+      "@type": "DefinedTerm",
+      "description": "GIS Data Structure for Representation",
+      "inDefinedTermSet": {
+        "@type": "DefinedTermSet",
+        "name": "dataRepresentation"
+      },
+      "termCode": "vector"
+    },
+    {
+      "@type": "DefinedTerm",
+      "description": "GIS Vector Geometery",
+      "inDefinedTermSet": {
+        "@type": "DefinedTermSet",
+        "name": "vectorGeometry"
+      },
+      "termCode": "multilinestring"
+    }
+  ],
+  "additionalProperty": [
+    {
+      "@type": "PropertyValue",
+      "propertyID": "http://dbpedia.org/resource/Spatial_reference_system",
+      "value": "https://epsg.io/4269"
+    }
+  ],
+  "variableMeasured": [
+    {
+      "@type": "PropertyValue",
+      "name": "linearid",
+      "description": "Linear feature identifier",
+      "qudt:dataType": "varchar"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "fullname",
+      "description": "Road name",
+      "qudt:dataType": "varchar"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "rttyp",
+      "description": "Route type code",
+      "qudt:dataType": "varchar"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "mtfcc",
+      "description": "MAF/TIGER feature class code",
+      "qudt:dataType": "varchar"
+    }
+  ],
+  "version": "1",
+  "distribution": [
+    "TBD"
+  ]
+}

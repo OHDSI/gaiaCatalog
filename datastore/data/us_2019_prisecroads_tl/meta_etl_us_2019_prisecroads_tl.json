@@ -1,0 +1,32 @@
+{
+  "rights": "Public Domain",
+  "structure": "vector",
+  "geometry": "multilinestring",
+  "epsg": "EPSG:4269",
+  "attributes": [
+    "linearid;Linear feature identifier;U.S. Census Bureau;varchar;;;;",
+    "fullname;Road name;U.S. Census Bureau;varchar;;;;",
+    "rttyp;Route type code;U.S. Census Bureau;varchar;;;;",
+    "mtfcc;MAF/TIGER feature class code (S1100 primary, S1200 secondary road);U.S. Census Bureau;varchar;;;;"
+  ],
+  "local_epsg": "EPSG:4269",
+  "source": "https://www2.census.gov/geo/tiger/TIGER2019/PRISECROADS/tl_2019_<state fips>_prisecroads.zip",
+  "file": [
+    "us_2019_prisecroads_tl"
+  ],
+  "extension": "zip",
+  "download": "wget",
+  "table": "us_2019_prisecroads_tl",
+  "format": "shp",
+  "up": "true",
+  "podID": "gaia-db",
+  "last_updated": "2026-10-09T00:00:00Z",
+  "update_frequency": "Never",
+  "checksum": "TBD",
+  "fields": [
+    "linearid",
+    "fullname",
+    "rttyp",
+    "mtfcc"
+  ]
+}

@@ -1,0 +1,40 @@
+{
+  "rights": "CC0-1.0",
+  "temporal_extent": [
+    "2014-01-01",
+    "2019-12-31"
+  ],
+  "structure": "vector",
+  "geometry": "multipolygon",
+  "temporal_dimension": "static",
+  "epsg": "EPSG:4269",
+  "fields": [
+    "cell_id",
+    "pm25_surface"
+  ],
+  "attributes": [
+    "cell_id;Grid cell identifier;OHDSI GIS tutorial data generator (simulated);integer;;;;",
+    "pm25_surface;Simulated exposure surface, Gaussian random field with exponential covariance;OHDSI GIS tutorial data generator (simulated);numeric;micrograms/cubic meter;;;;2014-01-01;2019-12-31;2052499839"
+  ],
+  "local_epsg": "EPSG:4269",
+  "derive": [],
+  "service": [
+    "file"
+  ],
+  "source": "https://raw.githubusercontent.com/OHDSI/GIS/main/syntheticDataGIS/tract/data/surface_10km_features.csv",
+  "file": [
+    "synthetic_surface_10km"
+  ],
+  "extension": "csv",
+  "download": "wget",
+  "table": "synthetic_surface_10km",
+  "format": "csv",
+  "dependency": [],
+  "etl_parameters": "",
+  "custom_etl": "",
+  "custom_parameters": "",
+  "up": "true",
+  "podID": "gaia-db",
+  "update_frequency": "Never",
+  "checksum": "TBD"
+}

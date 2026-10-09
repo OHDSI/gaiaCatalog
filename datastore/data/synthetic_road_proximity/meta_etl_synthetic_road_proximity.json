@@ -1,0 +1,42 @@
+{
+  "rights": "CC0-1.0",
+  "temporal_extent": [
+    "2014-01-01",
+    "2019-12-31"
+  ],
+  "structure": "vector",
+  "geometry": "multipolygon",
+  "temporal_dimension": "static",
+  "epsg": "EPSG:4269",
+  "fields": [
+    "band",
+    "road_increment"
+  ],
+  "attributes": [
+    "band;Distance band from the nearest primary or secondary road;OHDSI GIS tutorial data generator (simulated);varchar;;;;",
+    "road_increment;Simulated near-road increment in PM2.5, 2 * exp(-d_mid / 150 m) for the distance band;OHDSI GIS tutorial data generator (simulated);numeric;micrograms/cubic meter;;;;2014-01-01;2019-12-31;2052499839"
+  ],
+  "local_epsg": "EPSG:4269",
+  "derive": [],
+  "service": [
+    "file"
+  ],
+  "source": "derived from us_2019_prisecroads_tl",
+  "file": [
+    "synthetic_road_proximity"
+  ],
+  "extension": "none",
+  "download": "none",
+  "table": "synthetic_road_proximity",
+  "format": "derived",
+  "dependency": [
+    "us_2019_prisecroads_tl"
+  ],
+  "etl_parameters": "",
+  "custom_etl": "",
+  "custom_parameters": "",
+  "up": "true",
+  "podID": "gaia-db",
+  "update_frequency": "Never",
+  "checksum": "TBD"
+}
