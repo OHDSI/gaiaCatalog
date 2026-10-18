@@ -4,114 +4,17 @@
     {%- block head -%}
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script> 
-    <style>
-      .highlight-term {
-        background-color: #ffc;
-      }
-      .circle {
-        width: 10px;
-        height: 10px;
-        border-radius: 5px 5px 5px 5px;
-        margin-left: 5px;
-        margin-top: 5px;
-        position: absolute;
-        border-radius: 100%;
-        display: inline-block
-      }
-      .green-fill {
-        background: green;
-      }
-      .red-fill {                                          
-        background: red;
-        cursor: pointer;
-      }
-      .wrapScroll {
-        white-space: nowrap;
-        overflow-x: auto;
-        border: 1px solid grey;
-        border-radius: 4px;
-      }
-      @keyframes spin {
-          0% { transform: rotate(360deg); }
-          100% { transform: rotate(0deg); }
-      }
-      @-moz-keyframes spin {
-          0% { -moz-transform: rotate(360deg); }
-          100% { -moz-transform: rotate(0deg); }
-      }
-      @-webkit-keyframes spin {
-          0% {-webkit-transform: rotate(360deg); }
-          100% { -webkit-transform: rotate(0deg); }
-      }
-      @-o-keyframes spin {
-          0% { -o-transform: rotate(360deg); }
-          100% { -o-transform: rotate(0deg); }
-      }
-      .spin {
-          width: 10px;
-          height: 10px;
-          border-radius: 6px 6px 6px 6px;
-          overflow: hidden;
-          margin-left: 5px;
-          margin-top: 5px;
-          display: inline-block !important;
-          position: absolute;
-          animation: spin 2s linear 0s infinite reverse;
-          -moz-animation: 2s linear 0s reverse none infinite spin;
-          -webkit-animation: spin 2s linear 0s infinite reverse;
-          -0-animation: spin 2s linear 0s infinite reverse;
-          -webkit-animation-play-state: running;
-          -o-animation-play-state: running;
-          -moz-animation-play-state: running;
-          animation-play-state: running;
-      }
-      .yin-yang {
-          animation: spin 4s linear 0s infinite normal;
-          -moz-animation: 4s linear 0s normal none infinite spin;
-          -webkit-animation: spin 4s linear 0s infinite normal;
-          -0-animation: spin 4s linear 0s infinite normal;
-          width: 9px;
-          height: 4px;
-          background: #eee;
-          border-color: red;
-          border-style: solid;
-          border-width: 0px 0.5px 5px 0.5px;
-          border-radius: 100%;
-          position: relative;
-      }
-      .yin-yang:before {
-          content:"";
-          position: absolute;
-          top: 50%;
-          left: 0;
-          background: #eee;
-          border: 2px solid red;
-          border-radius: 100%;
-          width: 1px;
-          height: 1px;
-      }
-      .yin-yang:after {
-          content:"";
-          position: absolute;
-          top: 50%;
-          left: 50%;
-          background: red;
-          border: 2px solid #eee;
-          border-radius:100%;
-          width: 1px;
-          height: 1px;
-      }
-    </style>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <link href="/static/css/style.css" rel="stylesheet">
     <title>{% block title %}{% endblock %}</title>
     {% endblock %}
   </head>
   <body>
-    <div class="container-xxl mx-auto my-0" style="height: 80px;">
+    <div class="gdsc-header container-xxl mx-auto my-0" style="height: 80px;">
       <div class="row align-items-end">
-        <div class="col-lg-5 bg-white"><a href="/"><img src="/static/OHDSI-banner.png" style="max-height: 80px"></a></div>
+        <div class="col-lg-5 bg-white"><a href="/"><img src="/static/img/OHDSI-banner.png" style="max-height: 80px"></a></div>
         <div class="col-lg-7 text-end d-flex flex-column">
           <a href="https://github.com/OHDSI/GIS" style="text-decoration: none;"><h3>OHDSI GIS Workgroup</h3></a>
           <a href="https://github.com/OHDSI/gaiaCatalog" style="text-decoration: none;"><h5>https://github.com/OHDSI/gaiaCatalog</h5></a>
@@ -119,17 +22,29 @@
       </div>
     </div>
     <hr class="my-0">
-    <div id="content" class="container-xxl mt-4">
+    <div id="content" class="container-xxl mt-4 gdsc-content">
     {% block content %}
     {% endblock %}
     </div>
-    <div id="footer" class="container text-center mb-4 mt-2">
+    <div id="footer" class="gdsc-footer container text-center mb-4 mt-2">
     {% block footer %}
       <hr>
-      <span style="margin-left: -100px;">Powered by: <a href="https://gdsc.idsc.miami.edu" target="_blank">GDSC</a> - <a href="mailto:tnorris@miami.edu">contact</a><br>
-      <!-- <a href="https://idsc.miami.edu/"><img src="/static/IDSC-wide.jpg" class="img-fluid w-50" style="max-width: 350px"></a>
-      <a href="https://www.library.miami.edu/"><img src="/static/Library-wide.jpg" class="img-fluid w-50" style="max-width: 350px"></a><br> -->
+      <span style="margin-left: -100px;">Powered by: <a href="https://gdsc.idsc.miami.edu" target="_blank">GDSC</a> - <a href="mailto:tnorris@miami.edu">contact</a><br></span>
     {% endblock %}
     </div>
+    <div id="progressModal" class="modal">
+      <div class="modal-dialog modal-dialog-centered progress-dialog">
+      <div class="modal-content progress-content p-4">
+        <h3>ETL Progress</h3>
+        <div id="progressContent" class="progress-steps"></div>
+        <form id="progressForm">
+          <div class="modal-actions">
+            <div id="progressSpinner" class="float-right yin-yang yin-yang-large"></div>
+            <button type="button" class="btn btn-secondary" id="closeProgress">Close</button>
+          </div>
+        </form>
+      </div></div>
+    </div>
+    <script src="/static/js/ohdsi.js"></script>
   </body>
 </html>

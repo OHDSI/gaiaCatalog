@@ -6,7 +6,7 @@
 # Data source: local file
 # Destination postGIS table: kenya_ppd_survey_2014
 #
-# Created by etl() on 2026-09-13 15:22:50
+# Created by etl() on 2026-10-09 22:51:27
 # Do not edit directly
 
 # set credentials from postgres defaults and secret files
@@ -37,7 +37,7 @@ if [[ $exists ]]; then
   if [[ ! $no_update ]]; then
     last_update=$(date -d "$(cat datestamp)" '+%s')
     check_date="$(date -d '-'"$update_frequency" '+%s')"
-    if [[ "$check_date -ge $last_update" ]]; then do_update=1; fi
+    if [[ "$check_date" -ge "$last_update" ]]; then do_update=1; fi
   fi
 
 # does not exist

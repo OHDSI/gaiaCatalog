@@ -1,0 +1,223 @@
+{
+  "control_group": {
+    "id": 16
+  },
+  "dublin_core_group": {
+    "title": "TIGER/Line Shapefile, 2022, state, Florida, Current County Subdivision State-based",
+    "creator_group": [
+      {
+        "creator_name": "U.S. Department of Commerce",
+        "creator_type": "organization",
+        "creator_identifier": "https://ror.org/04chq2495",
+        "creator_identifier_schema": "ror",
+        "creator_identifier_schema_uri": "https://ror.org/"
+      },
+      {
+        "creator_name": "U.S. Census Bureau",
+        "creator_type": "organization",
+        "creator_identifier": "https://ror.org/01qn7cs15",
+        "creator_identifier_schema": "ror",
+        "creator_identifier_schema_uri": "https://ror.org/"
+      },
+      {
+        "creator_name": "Geography Division",
+        "creator_type": "organization"
+      },
+      {
+        "creator_name": "Spatial Data Collection and Products Branch",
+        "creator_type": "organization"
+      }
+    ],
+    "url": "https://www.census.gov/geographies/mapping-files/time-series/geo/cartographic-boundary.html",
+    "publisher_group": [
+      {
+        "publisher_name": "Department of Commerce"
+      },
+      {
+        "publisher_name": "U.S. Census Bureau"
+      },
+      {
+        "publisher_name": "Geography Division"
+      },
+      {
+        "publisher_name": "Spatial Data Collection and Products Branch"
+      }
+    ],
+    "rights": "Public Domain",
+    "license_text": "This Software was created by U.S. Government employees and therefore is not subject to copyright in the United States (17 U.S.C. \u00a7105). The United States/U.S.Department of Commerce (\u201cCommerce\u201d) reserve all rights to seek and obtain copyright protection in countries other than the United States. The United States/Commerce hereby grant to User a royalty-free, nonexclusive license to use, copy, and create derivative works of the Software outside of the United States.\n\nThe Software is provided to the User and those who may take by, through or under it, \u201cas is,\u201d without any warranty (whether express or implied) or representation whatsoever, including but not limited to any warranty of merchantability. The Software is taken hereunder without any right to support or to any improvements, extensions, or modifications, except as may be agreed to separately, in writing, by Commerce.\n\nUser, on behalf of itself and all others who take by, through or under it, hereby and forever waives, releases, and discharges the United States/Commerce and all its instrumentalities from any and all liabilities and obligations in connection with the use, application, sale or conveyance of the Software. User shall indemnify and hold harmless the United States/Commerce and its instrumentalities from all claims, liabilities, demands, damages, expenses, and losses arising from or in connection with User's use, application, sale or conveyance of the Software, including those who take by, through or under User whether or not User was directly involved. This provision will survive termination of this Agreement and will include any and all claims or liabilities arising under intellectual property rights, such as patents, copyrights, trademarks, and trade secrets. If User of software is an Executive Agency of the United States, this clause is not applicable.\n\nThe construction, validity, performance, and effect of this Agreement for all purposes will be governed by Federal law of the United States.\n\nUser agrees to make a good faith effort to use the Software in a way that does not cause damage, harm, or embarrassment to the United States/Commerce. The United States/Commerce expressly reserve all rights and remedies.",
+    "coverage_group": [
+      {
+        "coverage_name": "Florida",
+        "coverage_identifier": "4155751",
+        "coverage_identifier_schema": "geonames",
+        "coverage_identifier_schema_uri": "https://www.geonames.org/"
+      }
+    ],
+    "resource_type": "Vector Dataset",
+    "description": "TIGER/Line Shapefile, 2016,  state, Florida, Current County Subdivision State-based\n\nThe TIGER/Line shapefiles and related database files (.dbf) are an extract of selected geographic and cartographic information from the U.S. Census Bureau's Master Address File / Topologically Integrated Geographic Encoding and Referencing (MAF/TIGER) Database (MTBD).  The MTBD represents a seamless national file with no overlaps or gaps between parts, however, each TIGER/Line shapefile is designed to stand alone as an independent data set, or they can be combined to cover the entire nation.\n\nCounty subdivisions are the primary divisions of counties and their equivalent entities for the reporting of Census Bureau data. They include legally-recognized minor civil divisions (MCDs) and statistical census county divisions (CCDs), and unorganized territories.  For the 2010 Census, the MCDs are the primary governmental and/or administrative divisions of counties in 29 States and Puerto Rico; Tennessee changed from having CCDs for Census 2000 to having MCDs for the 2010 Census.  In MCD States where no MCD exists or is not defined, the Census Bureau creates statistical unorganized territories to complete coverage.  The entire area of the United States, Puerto Rico, and the Island Areas are covered by county subdivisions.  The boundaries of most legal MCDs are as of January 1, 2015, as reported through the Census Bureau's Boundary and Annexation Survey (BAS).  \n\nThe boundaries of all CCDs, delineated in 20 states, are those as reported as part of the Census Bureau's Participant Statistical Areas Program (PSAP) for the 2010 Census.",
+    "provenance": "direct from source",
+    "subject_group": [
+      {
+        "subject_term": "Florida"
+      },
+      {
+        "subject_term": "Counties"
+      },
+      {
+        "subject_term": "TIGER"
+      }
+    ],
+    "language": "en",
+    "size_group": [
+      {
+        "size_bytes": "7853940",
+        "size_human_readable": "7.5M"
+      }
+    ]
+  },
+  "iso_group": {
+    "structure": "vector",
+    "geometry": "multipolygon",
+    "epsg": 4269,
+    "extent": "ENVELOPE(-87.634896,-79.974306,31.000968,24.396308)",
+    "lineage": "TBD",
+    "process_step": "#########\n# GDSC ETL is performed in two steps: shell script to ETL data into postgres\n# and then additional transformations with SQL in postGIS (if needed).\n####\n\n#########\n# Step 1 - bash script (pseudo code)\n####\n\n# create directory structure and move into it\nmkdir -p /data/fl_2022_tl_cousub/download -p /data/fl_2022_tl_cousub/etl\nchmod -R 777 /data/fl_2022_tl_cousub\ncd /data/fl_2022_tl_cousub\n\n# set update flag based on last update and update frequency\ndo_update=0 if date() < last_update + update_frequency else do_update = 1\n\n# download if update flag is set:\nif do_update == 1 then\nwget --retry-connrefused --waitretry=1 --read-timeout=20 --timeout=15 -t 10 -O download/fl_2022_tl_cousub.zip 'ftp://ftp2.census.gov/geo/tiger/TIGER2022/COUSUB/tl_2022_12_cousub.zip' 2>&1\n\n# unzip to download directory if update flag is set\nif do_update == 1 then\nunzip -o download/fl_2022_tl_cousub.zip -d download && rm download/fl_2022_tl_cousub.zip 2>&1\n\n# load into postGIS with:\nogr2ogr -lco GEOMETRY_NAME=geom -f PostgreSQL PG:\"<postgres connection>\" download/tl_2022_12_cousub.shp -nlt multipolygon -nln fl_2022_tl_cousub\necho success: tl_2022_12_cousub.shp loaded with ogr2ogr\n\n\n#########\n# Step 2 - SQL script (pseudo code):\n####\n\n# remove duplicate points and make geometries valid:\nUPDATE fl_2022_tl_cousub\n  SET geom=ST_MakeValid(ST_RemoveRepeatedPoints(geom));\n\n# add local geometry column and reproject existing geometries into local EPSG:\nALTER TABLE fl_2022_tl_cousub DROP COLUMN IF EXISTS geom_local CASCADE;\nSELECT AddGeometryColumn (\n  'fl_2022_tl_cousub',\n  'geom_local', 2236, 'multipolygon', 2\n);\nUPDATE fl_2022_tl_cousub\n  SET geom_local=ST_MakeValid(ST_RemoveRepeatedPoints(ST_Transform(ST_Multi(geom),2236)));\nCREATE INDEX fl_2022_tl_cousub_geom_local_idx\n  ON fl_2022_tl_cousub\n  USING GIST (geom_local);\nNOTIFY pgrst, 'reload schema';\n",
+    "processor": "GDSC automation (see Process Step)",
+    "point_of_contact_group": [
+      {
+        "contact_name": "Timothy B. Norris",
+        "contact_last_name": "Norris",
+        "contact_first_name": "Timothy",
+        "contact_email": "tnorris@miami.edu",
+        "contact_identifier": "https://orcid.org/0000-0002-0898-3027",
+        "contact_identifier_schema": "orcid",
+        "contact_identifier_schema_uri": "https://orcid.org/",
+        "contact_affiliation": "University of Miami Libraries, Frost Institute for Data Science and Computing",
+        "contact_affiliation_identifier": "https://ror.org/02dgjyy92",
+        "contact_affiliation_schema": "ror",
+        "contact_affiliation_schema_uri": "https://ror.org/"
+      }
+    ],
+    "data_level": "observed"
+  },
+  "cartography_group": {
+    "label": "name",
+    "attributes_group": [
+      {
+        "attribute_name": "statefp",
+        "attribute_type": "varchar"
+      },
+      {
+        "attribute_name": "countyfp",
+        "attribute_type": "varchar"
+      },
+      {
+        "attribute_name": "cousubfp",
+        "attribute_type": "varchar"
+      },
+      {
+        "attribute_name": "cousubns",
+        "attribute_type": "varchar"
+      },
+      {
+        "attribute_name": "geoid",
+        "attribute_type": "varchar"
+      },
+      {
+        "attribute_name": "name",
+        "attribute_type": "varchar"
+      },
+      {
+        "attribute_name": "namelsad",
+        "attribute_type": "varchar"
+      },
+      {
+        "attribute_name": "lsad",
+        "attribute_type": "varchar"
+      },
+      {
+        "attribute_name": "classfp",
+        "attribute_type": "varchar"
+      },
+      {
+        "attribute_name": "mtfcc",
+        "attribute_type": "varchar"
+      },
+      {
+        "attribute_name": "cnectafp",
+        "attribute_type": "varchar"
+      },
+      {
+        "attribute_name": "nectafp",
+        "attribute_type": "varchar"
+      },
+      {
+        "attribute_name": "nctadvfp",
+        "attribute_type": "varchar"
+      },
+      {
+        "attribute_name": "funcstat",
+        "attribute_type": "varchar"
+      },
+      {
+        "attribute_name": "aland",
+        "attribute_type": "numeric",
+        "attribute_min_value": "5759959.00",
+        "attribute_max_value": "2906267461.00"
+      },
+      {
+        "attribute_name": "awater",
+        "attribute_type": "numeric",
+        "attribute_min_value": "0.00",
+        "attribute_max_value": "4197077413.00"
+      },
+      {
+        "attribute_name": "intptlat",
+        "attribute_type": "varchar"
+      },
+      {
+        "attribute_name": "intptlon",
+        "attribute_type": "varchar"
+      }
+    ]
+  },
+  "collection_group": {
+    "collections": "us-census",
+    "analytic_function": "--",
+    "analytic_epsg": 2236,
+    "derivative_url": "/data/fl_2022_tl_cousub/",
+    "sponsor_group": [
+      {
+        "sponsor_name": "IDSC",
+        "sponsor_url": "https://idsc.miami.edu"
+      },
+      {
+        "sponsor_name": "Library",
+        "sponsor_url": "https://www.library.miami.edu"
+      }
+    ],
+    "disclaimer": "The Software is provided to the User and those who may take by, through or under it, \u201cas is,\u201d without any warranty (whether express or implied) or representation whatsoever, including but not limited to any warranty of merchantability. The Software is taken hereunder without any right to support or to any improvements, extensions, or modifications, except as may be agreed to separately, in writing, by Commerce.\n\nUser, on behalf of itself and all others who take by, through or under it, hereby and forever waives, releases, and discharges the United States/Commerce and all its instrumentalities from any and all liabilities and obligations in connection with the use, application, sale or conveyance of the Software. User shall indemnify and hold harmless the United States/Commerce and its instrumentalities from all claims, liabilities, demands, damages, expenses, and losses arising from or in connection with User's use, application, sale or conveyance of the Software, including those who take by, through or under User whether or not User was directly involved. This provision will survive termination of this Agreement and will include any and all claims or liabilities arising under intellectual property rights, such as patents, copyrights, trademarks, and trade secrets. If User of software is an Executive Agency of the United States, this clause is not applicable.\n\nThe construction, validity, performance, and effect of this Agreement for all purposes will be governed by Federal law of the United States.\n\nUser agrees to make a good faith effort to use the Software in a way that does not cause damage, harm, or embarrassment to the United States/Commerce. The United States/Commerce expressly reserve all rights and remedies."
+  },
+  "etl_group": {
+    "source": "ftp://ftp2.census.gov/geo/tiger/TIGER2022/COUSUB/tl_2022_12_cousub.zip",
+    "file_name_group": [
+      {
+        "file_name_value": "fl_2022_tl_cousub",
+        "file_inside_archive": "tl_2022_12_cousub"
+      }
+    ],
+    "extension": "zip",
+    "download": "wget",
+    "table_name": "fl_2022_tl_cousub",
+    "format": "shp",
+    "up": "true",
+    "podid": "gaia-db",
+    "last_updated": "2026-10-05 22:48:11",
+    "update_frequency": "Never",
+    "checksum": "TBD"
+  },
+  "_submission_time": "2026-10-09 23:52:38",
+  "meta": {
+    "instanceID": "8eb86c77-f039-4e17-900e-c6804627134"
+  }
+}

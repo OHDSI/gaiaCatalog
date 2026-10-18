@@ -1,0 +1,232 @@
+{
+  "@context": {
+    "@vocab": "https://schema.org/",
+    "dct": "http://purl.org/dc/terms/",
+    "qudt": "http://qudt.org/schema/qudt/",
+    "quantitykind": "http://qudt.org/vocab/quantitykind/",
+    "unit": "http://qudt.org/vocab/unit/",
+    "xsd": "http://www.w3.org/2001/XMLSchema",
+    "extendedConstraintProperty": "http://codata.org/vocab/extendedConstraintProperty",
+    "sdmx": "https://sdmx.org"
+  },
+  "@type": "Dataset",
+  "@id": "https://gdsc.idsc.miami.edu/detail/mdc_cooling_stations",
+  "includedInDataCatalog": [
+    {
+      "@type": "DataCatalog",
+      "@id": "https://gdsc.idsc.miami.edu",
+      "name": "Geospatial Digital Special Collections",
+      "url": "https://gdsc.idsc.miami.edu"
+    },
+    {
+      "@type": "DataCatalog",
+      "name": "climate-and-equity-mapping-program",
+      "@id": "https://gdsc.idsc.miami.edu/?collection=climate-and-equity-mapping-program",
+      "url": "https://gdsc.idsc.miami.edu/?collection=climate-and-equity-mapping-program"
+    }
+  ],
+  "name": "Miami-Dade Cooling Stations",
+  "creator": [
+    {
+      "@type": "Organization",
+      "name": "Miami-Dade County Open Data Hub"
+    },
+    {
+      "@type": "Organization",
+      "name": "Information Technology Department"
+    }
+  ],
+  "url": "https://mdc.maps.arcgis.com/apps/mapviewer/index.html?layers=9a42d1aae6e74cdcb2cbc9d82d58d6bd",
+  "provider": [
+    {
+      "@type": "Organization",
+      "name": "Miami-Dade County"
+    }
+  ],
+  "spatialCoverage": [
+    {
+      "@id": "https://www.geonames.org/4164238",
+      "@type": "Place",
+      "name": "Miami-Dade County"
+    },
+    {
+      "@type": "Place",
+      "name": "bbox",
+      "geo": {
+        "@type": "GeoShape",
+        "polygon": "25.506312 -80.441642 25.506312 -80.120714 25.960397 -80.120714 25.960397 -80.441642 25.506312 -80.441642"
+      }
+    }
+  ],
+  "type": "Vector Dataset",
+  "description": "A point feature class with all of the cooling centers in Miami-Dade County. These sites consist of libraries and certain parks and recreation locations. These sites can be activated in case of a heat emergency. ",
+  "keywords": [
+    "Florida",
+    "Miami-Dade County",
+    "MDC",
+    "Emergency",
+    "Cooling Station"
+  ],
+  "@language": "en",
+  "measurementTechnique": [
+    {
+      "@type": "DefinedTerm",
+      "description": "GIS Data Structure for Representation",
+      "inDefinedTermSet": {
+        "@type": "DefinedTermSet",
+        "name": "dataRepresentation",
+        "hasDefinedTerm": [
+          {
+            "@type": "DefinedTerm",
+            "termCode": "raster"
+          },
+          {
+            "@type": "DefinedTerm",
+            "termCode": "vector"
+          },
+          {
+            "@type": "DefinedTerm",
+            "termCode": "table"
+          }
+        ]
+      },
+      "termCode": "vector"
+    },
+    {
+      "@type": "DefinedTerm",
+      "description": "GIS Vector Geometery",
+      "inDefinedTermSet": {
+        "@type": "DefinedTermSet",
+        "name": "vectorGeometry",
+        "hasDefinedTerm": [
+          {
+            "@type": "DefinedTerm",
+            "termCode": "point"
+          },
+          {
+            "@type": "DefinedTerm",
+            "termCode": "line"
+          },
+          {
+            "@type": "DefinedTerm",
+            "termCode": "polygon"
+          }
+        ]
+      },
+      "termCode": "point"
+    }
+  ],
+  "additionalProperty": [
+    {
+      "@type": "PropertyValue",
+      "propertyID": "http://dbpedia.org/resource/Spatial_reference_system",
+      "value": "https://epsg.io/4326"
+    }
+  ],
+  "about": [
+    {
+      "@type": "Event",
+      "description": " direct from source",
+      "name": "ETL process for Miami-Dade Cooling Stations",
+      "potentialAction": {
+        "@type": "Action",
+        "name": "Pseudo Code",
+        "description": "TODO"
+      }
+    },
+    {
+      "@type": "Event",
+      "description": " direct from source",
+      "name": "ETL process for Miami-Dade Cooling Stations",
+      "potentialAction": {
+        "@type": "Action",
+        "name": "wget",
+        "description": "ETL process for Miami-Dade Cooling Stations",
+        "object": {
+          "@type": "Dataset",
+          "name": " direct from source",
+          "producer": "Miami-Dade County Open Data Hub",
+          "url": "https://mdc.maps.arcgis.com/apps/mapviewer/index.html?layers=9a42d1aae6e74cdcb2cbc9d82d58d6bd"
+        },
+        "instrument": {
+          "@type": "SoftwareApplication",
+          "@id": "https://github.com/Geospatial-Digital-Special-Collections/tools",
+          "featureList": "wget",
+          "downloadUrl": "https://github.com/Geospatial-Digital-Special-Collections/tools.git"
+        },
+        "result": {
+          "@type": "Dataset",
+          "name": "Miami-Dade Cooling Stations",
+          "description": "A point feature class with all of the cooling centers in Miami-Dade County. These sites consist of libraries and certain parks and recreation locations. These sites can be activated in case of a heat emergency. ",
+          "encodingFormat": "json"
+        }
+      }
+    }
+  ],
+  "variableMeasured": [
+    {
+      "@type": "PropertyValue",
+      "name": "name",
+      "qudt:dataType": "varchar"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "street",
+      "qudt:dataType": "varchar"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "city_1",
+      "qudt:dataType": "varchar"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "state_1",
+      "qudt:dataType": "varchar"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "zip_code",
+      "qudt:dataType": "int4",
+      "minValue": "33014",
+      "maxValue": "33196"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "phonenumbe",
+      "qudt:dataType": "varchar"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "type",
+      "qudt:dataType": "varchar"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "point_x",
+      "qudt:dataType": "float8",
+      "minValue": "-8954722.6148",
+      "maxValue": "925548.496346246"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "point_y",
+      "qudt:dataType": "float8",
+      "minValue": "518714.591877736",
+      "maxValue": "2994176.7496"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "operationalhours",
+      "qudt:dataType": "varchar"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "weblink",
+      "qudt:dataType": "varchar"
+    }
+  ],
+  "distribution": "/data/mdc_cooling_stations/",
+  "dateModified": "2026-10-17 22:32:18",
+  "version": "2026-10-17"
+}

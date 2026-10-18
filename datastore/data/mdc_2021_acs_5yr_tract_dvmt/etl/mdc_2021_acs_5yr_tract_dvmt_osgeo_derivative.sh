@@ -1,0 +1,24 @@
+#!/bin/bash
+
+# mdc_2021_acs_5yr_tract_dvmt_osgeo_derivative.sh
+# Finish ETL into postGIS from osgeo_derivative_postgis container
+#
+# Data source: https://api.census.gov/data/2021/acs/acs5/
+# Destination postGIS table: mdc_2021_acs_5yr_tract_dvmt
+#
+# Created by etl() on 2026-10-17 21:01:07
+# Do not edit directly
+
+# Move into corrrect directory and create derivative directory in data package on osgeo
+cd /data/mdc_2021_acs_5yr_tract_dvmt/
+mkdir -p derived
+
+# Create geojson of table in derivate directory on osgeo 
+rm -f derived/mdc_2021_acs_5yr_tract_dvmt.json
+ogr2ogr -f GeoJSON -overwrite derived/mdc_2021_acs_5yr_tract_dvmt.json PG:"dbname=$POSTGRES_DB port=$POSTGRES_PORT user=$POSTGRES_USER password=$POSTGRES_PASSWORD host='gaia-db'" -select "total_population,persons_4_years_old_and_younger,age_of_5_and_19,persons_between_the_age_of_20_and_64,persons_65_years_old_and_over,white_alone,black_or_african_american_alone,american_indian_and_alaska_native_alone,asian_alone,pacific_islander,some_other_race,two_or_more_races,hispanic_or_latino__any_race,white_alone__not_hispanic_or_latino,high_school_degree__ged_or_lower,some_college__no_degree,associates_degree,bachelors_degree,graduate_professional_degree,median_income_of_residents,median_monthly_housing_costs,median_monthly_owner_costs,median_monthly_renter_costs,median_monthly_owner_costs__percent_household_income,median_monthly_renter_costs__percent_household_income,aggregate_household_income,households_below_poverty_level,medicare_recipients,total_medicaid_recipients,total_snap_recipients,armed_forces_veterans,total_number_of_disabled_residents,total_housing_units,total_single_family_houses,total_duplex_multiple_units__less_than_10_units,number_of_housing_structures_with_10_19_units,number_of_housing_structures_with_20_49_units,number_of_housing_structures_with_50_or_more_units,housing_tenancy__owner_occupied_housing_units,housing_tenancy__renter_occupied_housing_units,geom" mdc_2021_acs_5yr_tract_dvmt
+
+# Create downloadable tarfile of geojson in derivative directory on osgeo
+rm -f derived/mdc_2021_acs_5yr_tract_dvmt.geojson.tar.gz
+tar -czf derived/mdc_2021_acs_5yr_tract_dvmt.geojson.tar.gz meta_dcat_mdc_2021_acs_5yr_tract_dvmt.json -C derived mdc_2021_acs_5yr_tract_dvmt.json
+
+

@@ -1,0 +1,14 @@
+{
+  "Index": 18,
+  "Title": "HARMONI Miami-Dade Sleep Outcomes",
+  "Creator": "Azizi Seixas;Person;Seixas;Azizi;https://orcid.org/0000-0003-0843-2679;ORCID;https://orcid.org/;University of Miami;https://ror.org/02dgjyy92;ROR;https://ror.org/|Sadeaqua Scott;Person;Scott;Sadeaqua;;;;University of Miami;https://ror.org/02dgjyy92;ROR;https://ror.org/",
+  "Publisher": "Frost Institute for Data Science and Computing, University of Miami;https://ror.org/02dgjyy92;ROR;https://ror.org/|University of Miami Libraries, University of Miami;https://ror.org/02dgjyy92;ROR;https://ror.org/",
+  "Contributor": "IDSC;https://idsc.miami.edu|Library;https://www.library.miami.edu",
+  "Coverage": "Miami-Dade County;gazeteer;https://www.geonames.org/4164238;geonames;https://www.geonames.org/",
+  "Relations": "Harmoni;References;https://harmoni.idsc.miami.edu/",
+  "Description": "Datasets used for the online platform where a user will enter their zip code and results will be generated informing you of several publicly available environmental factors that may impact the participants, such as greenspaces, air quality and neighborhood factors (e.g. built environment) that tie into sleep and CVD health.",
+  "Language": "en",
+  "CollectionID": "mdc-sleep-outcomes",
+  "Count": 27,
+  "Status": "published"
+}

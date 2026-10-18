@@ -1,0 +1,20 @@
+{
+  "rights": "Public Domain",
+  "structure": "vector",
+  "geometry": "point",
+  "epsg": "EPSG:4326",
+  "extent": "ENVELOPE(-80.441642,-80.120714,25.960397,25.506312)",
+  "attributes": ["name;;;varchar;;;;", "street;;;varchar;;;;", "city_1;;;varchar;;;;", "state_1;;;varchar;;;;", "zip_code;;;int4;;;33014;33196", "phonenumbe;;;varchar;;;;", "type;;;varchar;;;;", "point_x;;;float8;;;-8954722.6148;925548.496346246", "point_y;;;float8;;;518714.591877736;2994176.7496", "operationalhours;;;varchar;;;;", "weblink;;;varchar;;;;"],
+  "local_epsg": "EPSG:2236",
+  "source": "https://services.arcgis.com/8Pc9XBTAsYuxx9Ny/arcgis/rest/services/Cooling_Centers/FeatureServer/0/query?where=1%3D1&outFields=*&returnGeometry=true&outSR=4326&f=geojson",
+  "file": ["mdc_cooling_stations"],
+  "extension": "json",
+  "download": "wget",
+  "table": "mdc_cooling_stations",
+  "format": "json",
+  "up": "true",
+  "podID": "gaia-db",
+  "update_frequency": "As Needed",
+  "checksum": "TBD",
+  "last_updated": "2026-10-17T22:32:18Z"
+}

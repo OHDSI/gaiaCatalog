@@ -1,0 +1,209 @@
+{
+  "control_group": {
+    "id": 156
+  },
+  "dublin_core_group": {
+    "title": "R\u00edos Huayhuash",
+    "creator_group": [
+      {
+        "creator_name": "ANA"
+      }
+    ],
+    "url": "https://geosnirh.ana.gob.pe/server/rest/services/P%C3%BAblico/Rios/MapServer/37",
+    "publisher_group": [
+      {
+        "publisher_name": "ANA"
+      }
+    ],
+    "rights": "Public Domain",
+    "coverage_group": [
+      {
+        "coverage_name": "Per\u00fa",
+        "coverage_identifier": "3932488",
+        "coverage_identifier_schema": "geonames",
+        "coverage_identifier_schema_uri": "https://www.geonames.org/"
+      }
+    ],
+    "resource_type": "Vector Dataset",
+    "publication_date": "2018-01-30",
+    "description": "Se presenta una red hidrogr\u00e1fica inteligente, bajo un sistema de red ordenado por el sistema de codificaci\u00f3n Pfafstetter, es topol\u00f3gicamente consistente y de aplicaci\u00f3n global.\n\nEl c\u00f3digo del curso de agua te permitir\u00e1 ubicar en red hidrogr\u00e1fica nacional; adem\u00e1s, con la interpretaci\u00f3n de sus c\u00f3digos podr\u00e1s identificar a qu\u00e9 unidad hidrogr\u00e1fica pertenece.",
+    "provenance": "ANA",
+    "subject_group": [
+      {
+        "subject_term": "Huayhuash"
+      },
+      {
+        "subject_term": "Per\u00fa"
+      },
+      {
+        "subject_term": "R\u00edos"
+      }
+    ],
+    "language": "es",
+    "size_group": [
+      {
+        "size_bytes": "0",
+        "size_human_readable": "0"
+      }
+    ]
+  },
+  "iso_group": {
+    "structure": "vector",
+    "geometry": "multilinestring",
+    "epsg": 4326,
+    "extent": "ENVELOPE(-77.33,-76.55,-9.8,-10.7)",
+    "lineage": "TBD",
+    "process_step": "#########\n# GDSC ETL is performed in two steps: shell script to ETL data into postgres\n# and then additional transformations with SQL in postGIS (if needed).\n####\n\n#########\n# Step 1 - bash script (pseudo code)\n####\n\n# create directory structure and move into it\nmkdir -p /data/hh_rios_ana/download -p /data/hh_rios_ana/etl\nchmod -R 777 /data/hh_rios_ana\ncd /data/hh_rios_ana\n\n# set update flag based on last update and update frequency\ndo_update=0 if date() < last_update + update_frequency else do_update = 1\n\n# download if update flag is set:\nif do_update == 1 then\nogr2ogr -nln hh_rios_ana download/hh_rios_ana.json 'https://geosnirh.ana.gob.pe/server/rest/services/P%C3%BAblico/Rios/MapServer/37/query?where=1%3D1&geometry=%22xmin%22%3A-77.33%2C%22ymin%22%3A-10.7%2C%22xmax%22%3A-76.55%2C%22ymax%22%3A-9.8&geometryType=esriGeometryEnvelope&inSR=4326&spatialRel=esriSpatialRelIntersects&outFields=*&returnGeometry=true&outSR=4326&f=geojson 2>&1'\n\n# load into postGIS with:\nogr2ogr -lco GEOMETRY_NAME=geom -f PostgreSQL PG:\"<postgres connection>\" download/hh_rios_ana.json -nlt multilinestring -nln hh_rios_ana\necho success: hh_rios_ana.json loaded with ogr2ogr\n\n\n#########\n# Step 2 - SQL script (pseudo code):\n####\n\n# remove duplicate points and make geometries valid:\nUPDATE hh_rios_ana\n  SET geom=ST_MakeValid(ST_RemoveRepeatedPoints(geom));\n\n# add local geometry column and reproject existing geometries into local EPSG:\nALTER TABLE hh_rios_ana DROP COLUMN IF EXISTS geom_local CASCADE;\nSELECT AddGeometryColumn (\n  'hh_rios_ana',\n  'geom_local', 5387, 'multilinestring', 2\n);\nUPDATE hh_rios_ana\n  SET geom_local=ST_MakeValid(ST_RemoveRepeatedPoints(ST_Transform(ST_Multi(geom),5387)));\nCREATE INDEX hh_rios_ana_geom_local_idx\n  ON hh_rios_ana\n  USING GIST (geom_local);\nNOTIFY pgrst, 'reload schema';\n",
+    "processor": "GDSC automation (see Process Step)",
+    "point_of_contact_group": [
+      {
+        "contact_name": "Timothy B. Norris",
+        "contact_last_name": "Norris",
+        "contact_first_name": "Timothy",
+        "contact_email": "tnorris@miami.edu",
+        "contact_identifier": "https://orcid.org/0000-0002-0898-3027",
+        "contact_identifier_schema": "orcid",
+        "contact_identifier_schema_uri": "https://orcid.org/",
+        "contact_affiliation": "University of Miami Libraries, Frost Institute for Data Science and Computing",
+        "contact_affiliation_identifier": "https://ror.org/02dgjyy92",
+        "contact_affiliation_schema": "ror",
+        "contact_affiliation_schema_uri": "https://ror.org/"
+      }
+    ]
+  },
+  "cartography_group": {
+    "label": "nombre_ca",
+    "values_group": [
+      {
+        "value_field": "OBJECTID_1"
+      },
+      {
+        "value_field": "OBJECTID"
+      },
+      {
+        "value_field": "ID"
+      },
+      {
+        "value_field": "NRO"
+      },
+      {
+        "value_field": "CODIGO_CA"
+      },
+      {
+        "value_field": "NOMBRE_CA"
+      },
+      {
+        "value_field": "CATEGORIA"
+      },
+      {
+        "value_field": "CODIGO_ECA"
+      },
+      {
+        "value_field": "LONG_KM"
+      },
+      {
+        "value_field": "TIPO_CA"
+      },
+      {
+        "value_field": "TEXTO_MAP"
+      },
+      {
+        "value_field": "NOMBRE_UH"
+      },
+      {
+        "value_field": "CODIGO_UH"
+      },
+      {
+        "value_field": "CODIGO_AAA"
+      },
+      {
+        "value_field": "NOMBRE_AAA"
+      },
+      {
+        "value_field": "CODIGO_RH"
+      },
+      {
+        "value_field": "NOMBRE_RH"
+      },
+      {
+        "value_field": "Shape"
+      },
+      {
+        "value_field": "Shape.STLength() "
+      }
+    ],
+    "attributes_group": [
+      {
+        "attribute_name": "id"
+      },
+      {
+        "attribute_name": "nro"
+      },
+      {
+        "attribute_name": "condigo_ca"
+      },
+      {
+        "attribute_name": "nombre_ca"
+      },
+      {
+        "attribute_name": "categoria"
+      },
+      {
+        "attribute_name": "codigo_eca"
+      },
+      {
+        "attribute_name": "long_km"
+      },
+      {
+        "attribute_name": "tipo_ca"
+      },
+      {
+        "attribute_name": "texto_map"
+      },
+      {
+        "attribute_name": "nombre_uh"
+      },
+      {
+        "attribute_name": "codigo_uh"
+      },
+      {
+        "attribute_name": "codigo_aaa"
+      },
+      {
+        "attribute_name": "nombre_aaa"
+      },
+      {
+        "attribute_name": "codigo_rh"
+      },
+      {
+        "attribute_name": "nombre_rh"
+      }
+    ]
+  },
+  "collection_group": {
+    "collections": "hh-conservacion",
+    "analytic_epsg": 5387,
+    "derivative_url": "/data/hh_rios_ana/"
+  },
+  "etl_group": {
+    "source": "https://geosnirh.ana.gob.pe/server/rest/services/P%C3%BAblico/Rios/MapServer/37/query?where=1%3D1&geometry=%22xmin%22%3A-77.33%2C%22ymin%22%3A-10.7%2C%22xmax%22%3A-76.55%2C%22ymax%22%3A-9.8&geometryType=esriGeometryEnvelope&inSR=4326&spatialRel=esriSpatialRelIntersects&outFields=*&returnGeometry=true&outSR=4326&f=geojson",
+    "file_name_group": [
+      {
+        "file_name_value": "hh_rios_ana"
+      }
+    ],
+    "extension": "json",
+    "download": "esri_recursive_ogr",
+    "table_name": "hh_rios_ana",
+    "format": "json",
+    "up": "true",
+    "podid": "gaia-db",
+    "last_updated": "2026-10-17 22:42:39",
+    "update_frequency": "Never",
+    "checksum": "TBD"
+  },
+  "_submission_time": "2026-10-17 23:02:59",
+  "meta": {
+    "instanceID": "d6232d2d-f1cf-48f2-9d7b-a7343586870"
+  }
+}

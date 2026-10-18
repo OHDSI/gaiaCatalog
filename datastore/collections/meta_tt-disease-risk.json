@@ -1,0 +1,13 @@
+{
+  "Index": 13,
+  "Title": "Trinidad and Tobago Disease Risk",
+  "Creator": "Teola Noel;Person;Noel;Teola;;;;University of the West Indies, Trinidad and Tobago;https://ror.org/003kgv736;ROR;https://ror.org/|Timothy B Norris;Person;Norris;Timothy B;https://orcid.org/0000-0002-0898-3027;ORCID;https://orcid.org/;University of Miami Libraries, University of Miami;https://ror.org/02dgjyy92;ROR;https://ror.org/",
+  "Publisher": "Frost Institute for Data Science and Computing, University of Miami;https://ror.org/02dgjyy92;ROR;https://ror.org/|University of Miami Libraries, University of Miami;https://ror.org/02dgjyy92;ROR;https://ror.org/",
+  "Contributor": "IDSC;https://idsc.miami.edu|Library;https://www.library.miami.edu",
+  "Coverage": "Trinidad and Tobago;gazeteer;https://www.geonames.org/3573591;geonames;https://www.geonames.org/",
+  "Description": "A collection of layers for use in disease risk research in Trinidad and Tobago.",
+  "Language": "en",
+  "CollectionID": "tt-disease-risk",
+  "Count": 4,
+  "Status": "published"
+}

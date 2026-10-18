@@ -1,0 +1,21 @@
+{
+  "rights": "Public Domain",
+  "structure": "vector",
+  "geometry": "point",
+  "epsg": "EPSG:4326",
+  "extent": "ENVELOPE(-87.238268,-80.073667,30.728050,25.815579)",
+  "fields": ["program"],
+  "attributes": ["eric_id;;;varchar;;;;", "name;;;varchar;;;;", "address;;;varchar;;;;", "city;;;varchar;;;;", "county;;;varchar;;;;", "district;;;varchar;;;;", "program;;;varchar;;;;", "status;;;varchar;;;;", "manager;;;varchar;;;;"],
+  "local_epsg": "EPSG:2236",
+  "source": "https://ca.dep.state.fl.us/arcgis/rest/services/OpenData/CLEANUP_SP/MapServer/1/query?where=1%3D1&outFields=*&outSR=4326&f=json",
+  "file": ["fl_superfund_waste_cleanup_sites"],
+  "extension": "json",
+  "download": "wget",
+  "table": "fl_superfund_waste_cleanup_sites",
+  "format": "json",
+  "up": "true",
+  "podID": "gaia-db",
+  "last_updated": "2026-10-17T22:30:50Z",
+  "update_frequency": "1 day",
+  "checksum": "TBD"
+}

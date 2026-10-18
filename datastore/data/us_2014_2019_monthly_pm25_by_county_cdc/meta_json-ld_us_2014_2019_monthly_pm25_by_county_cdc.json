@@ -69,7 +69,7 @@
       "name": "bbox",
       "geo": {
         "@type": "GeoShape",
-        "polygon": "-179.231086 -14.601813 -179.231086 71.439786 179.85968107125612 71.439786 179.85968107125612 -14.601813 -179.231086 -14.601813"
+        "polygon": "-14.601813 -179.231086 -14.601813 179.85968107125612 71.439786 179.85968107125612 71.439786 -179.231086 -14.601813 -179.231086"
       }
     }
   ],
@@ -297,12 +297,12 @@
   ],
   "isBasedOn": [
     {
-      "@id": "https://gdsc.idsc.miami.edu/details/us_2023_county_tl",
+      "@id": "https://gdsc.idsc.miami.edu/details/us_2019_county_tl",
       "@type": "Dataset",
-      "name": "us_2023_county_tl",
-      "url": "https://gdsc.idsc.miami.edu/details/us_2023_county_tl"
+      "name": "us_2019_county_tl",
+      "url": "https://gdsc.idsc.miami.edu/details/us_2019_county_tl"
     }
   ],
-  "dateModified": "2026-08-31",
-  "version": "2026-09-13"
+  "dateModified": "2026-09-12 12:08:47",
+  "version": "2026-10-09"
 }

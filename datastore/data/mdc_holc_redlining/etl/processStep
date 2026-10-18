@@ -1,0 +1,61 @@
+#########
+# GDSC ETL is performed in two steps: shell script to ETL data into postgres
+# and then additional transformations with SQL in postGIS (if needed).
+####
+
+#########
+# Step 1 - bash script (pseudo code)
+####
+
+# create directory structure and move into it
+mkdir -p /data/mdc_holc_redlining/download -p /data/mdc_holc_redlining/etl
+chmod -R 777 /data/mdc_holc_redlining
+cd /data/mdc_holc_redlining
+
+# set update flag based on last update and update frequency
+do_update=0 if date() < last_update + update_frequency else do_update = 1
+
+# download if update flag is set:
+if do_update == 1 then
+ogr2ogr -nln mdc_holc_redlining download/mdc_holc_redlining.geojson 'https://services.arcgis.com/jIL9msH9OI208GCb/ArcGIS/rest/services/HOLC_Neighborhood_Redlining/FeatureServer/0/query?where=city=%27Miami%27&outFields=*&outSR=4326&f=json 2>&1'
+
+# load into postGIS with:
+ogr2ogr -lco GEOMETRY_NAME=geom -f PostgreSQL PG:"<postgres connection>" download/mdc_holc_redlining.geojson -nlt multipolygon -nln mdc_holc_redlining
+echo success: mdc_holc_redlining.geojson loaded with ogr2ogr
+
+
+#########
+# Step 2 - SQL script (pseudo code):
+####
+
+# remove duplicate points and make geometries valid:
+UPDATE mdc_holc_redlining
+  SET geom=ST_MakeValid(ST_RemoveRepeatedPoints(geom));
+
+# add local geometry column and reproject existing geometries into local EPSG:
+ALTER TABLE mdc_holc_redlining DROP COLUMN IF EXISTS geom_local CASCADE;
+SELECT AddGeometryColumn (
+  'mdc_holc_redlining',
+  'geom_local', 2236, 'multipolygon', 2
+);
+UPDATE mdc_holc_redlining
+  SET geom_local=ST_MakeValid(ST_RemoveRepeatedPoints(ST_Transform(ST_Multi(geom),2236)));
+CREATE INDEX mdc_holc_redlining_geom_local_idx
+  ON mdc_holc_redlining
+  USING GIST (geom_local);
+NOTIFY pgrst, 'reload schema';
+# Move into corrrect directory and create derivative directory in data package on osgeo
+cd /data/mdc_holc_redlining/
+mkdir -p derived
+
+# Move into correct directory
+cd /data/mdc_holc_redlining/
+
+# Create pg_dump of table SQL in derivate directory on postgis.
+pg_dump <postgres opts> -h gaia-db -t mdc_holc_redlining > derived/mdc_holc_redlining.sql
+
+# Create downloadable tarfile of SQL in derivative directory on postgis
+rm -f derived/mdc_holc_redlining.sql.tar.gz
+tar -czf derived/mdc_holc_redlining.sql.tar.gz meta_dcat_mdc_holc_redlining.json -C derived mdc_holc_redlining.sql
+
+

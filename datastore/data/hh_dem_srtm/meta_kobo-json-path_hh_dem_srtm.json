@@ -1,0 +1,152 @@
+{
+  "control_group": {
+    "id": 188
+  },
+  "dublin_core_group": {
+    "title": "Huayhuash DEM (SRTM)",
+    "creator_group": [
+      {
+        "creator_name": "NASA JPL"
+      }
+    ],
+    "url": "https://lpdaac.usgs.gov/products/srtmgl1v003/",
+    "publisher_group": [
+      {
+        "publisher_name": "NASA EOSDIS Land Processes Distributed Active Archive Center (LPDAAC)"
+      },
+      {
+        "publisher_name": "ESA"
+      }
+    ],
+    "rights": "Public Domain",
+    "license_text": "This data is open to the public and browse images are freely available without restriction.",
+    "restrictions": "This data is open to the public and browse images are freely available without\nrestriction.",
+    "coverage_group": [
+      {
+        "coverage_name": "Cordillera Huayhuash",
+        "coverage_identifier": "3938961",
+        "coverage_identifier_schema": "geonames",
+        "coverage_identifier_schema_uri": "https://www.geonames.org/"
+      }
+    ],
+    "resource_type": "Raster Dataset",
+    "publication_date": "2013-01-01",
+    "description": "An elevation raster dataset derived from the SRTM GL1 V3 dataset at 1 ARC second resolution (~30 meters). Republished by the European Space Agency (ESA).",
+    "provenance": "Direct from source.",
+    "subject_group": [
+      {
+        "subject_term": "Peru"
+      },
+      {
+        "subject_term": "Huayhuash"
+      },
+      {
+        "subject_term": "Elevation"
+      },
+      {
+        "subject_term": "DEM"
+      }
+    ],
+    "language": "en",
+    "size_group": [
+      {
+        "size_bytes": "121941154",
+        "size_human_readable": "117M"
+      }
+    ]
+  },
+  "iso_group": {
+    "structure": "raster",
+    "band_group": [
+      {
+        "band_name": "Single Band Elevation"
+      }
+    ],
+    "pixel_dimension": 30.0,
+    "dimension_units": "meters",
+    "epsg": 4326,
+    "extent": "ENVELOPE(-77.329861,-76.550139,-9.800139,-10.699861)",
+    "lineage": "TBD",
+    "process_step": "#########\n# GDSC ETL is performed in two steps: shell script to ETL data into postgres\n# and then additional transformations with SQL in postGIS (if needed).\n####\n\n#########\n# Step 1 - bash script (pseudo code)\n####\n\n# create directory structure and move into it\nmkdir -p /data/hh_dem_srtm/download -p /data/hh_dem_srtm/etl\nchmod -R 777 /data/hh_dem_srtm\ncd /data/hh_dem_srtm\n\n# set update flag based on last update and update frequency\ndo_update=0 if date() < last_update + update_frequency else do_update = 1\n\n# load raster into postGIS with:\n    raster2pgsql -s 4326 -d -C -I -t auto hh_dem_srtm.tif -F hh_dem_srtm > load_raster.sql\npsql <connection options> < load_raster.sql\nrm load_raster.sql\n\n# render raster tiles \ncd /data/hh_dem_srtm/\ngdal2tiles.py -ex --xyz -z 14-18 /data/hh_dem_srtm/download/hh_dem_srtm.tif /tiles/raster/hh_dem_srtm\n# Move into corrrect directory and create derivative directory in data package on osgeo\ncd /data/hh_dem_srtm/\nmkdir -p derived\n\n# Create downloadable zip of download/geotiff in derivate directory \nrm -f derived/hh_dem_srtm.tif.tar.gz\ntar -czf derived/hh_dem_srtm.tif.tar.gz meta_dcat_hh_dem_srtm.json -C download hh_dem_srtm.tif\n\n# Move into correct directory\ncd /data/hh_dem_srtm/\n\n",
+    "processor": "GDSC automation (see Process Step)",
+    "data_level": "derived",
+    "point_of_contact_group": [
+      [
+        {
+          "contact_name": "Timothy B. Norris",
+          "contact_last_name": "Norris",
+          "contact_first_name": "Timothy",
+          "contact_email": "tnorris@miami.edu",
+          "contact_identifier": "https://orcid.org/0000-0002-0898-3027",
+          "contact_identifier_schema": "orcid",
+          "contact_identifier_schema_uri": "https://orcid.org/",
+          "contact_affiliation": "University of Miami Libraries, Frost Institute for Data Science and Computing",
+          "contact_affiliation_identifier": "https://ror.org/02dgjyy92",
+          "contact_affiliation_schema": "ror",
+          "contact_affiliation_schema_uri": "https://ror.org/"
+        }
+      ]
+    ]
+  },
+  "cartography_group": {
+    "attributes_group": [
+      {
+        "attribute_name": "elevation",
+        "attribute_description": "Mean elevation above sea level",
+        "attribute_source": "NASA JPL",
+        "attribute_type": "int16",
+        "attribute_unit": "meters",
+        "attribute_min_value": "850",
+        "attribute_max_value": "6477"
+      }
+    ],
+    "tile_zoom_group": [
+      {
+        "tile_min_zoom": "14"
+      },
+      {
+        "tile_min_zoom": "18"
+      }
+    ]
+  },
+  "collection_group": {
+    "collections": "hh-conservacion",
+    "analytic_function": "gdsc_zonal_statistics",
+    "analytic_epsg": 5387,
+    "derivatives": "geotiff",
+    "derivative_url": "/data/hh_dem_srtm/",
+    "sponsor_group": [
+      {
+        "sponsor_name": "IDSC",
+        "sponsor_url": "https://idsc.miami.edu"
+      },
+      {
+        "sponsor_name": "Library",
+        "sponsor_url": "https://www.library.miami.edu"
+      }
+    ],
+    "rights_statement": "This data is open to the public and browse images are freely available without\nrestriction."
+  },
+  "etl_group": {
+    "source": "https://step.esa.int/auxdata/dem/SRTMGL1/",
+    "file_name_group": [
+      {
+        "file_name_value": "hh_dem_srtm"
+      }
+    ],
+    "extension": "zip",
+    "table_name": "hh_dem_srtm",
+    "format": "tif",
+    "custom_etl": "srtm_merge_and_crop",
+    "custom_parameters": "S10W077.SRTMGL1|S10W078.SRTMGL1|S11W077.SRTMGL1|S11W078.SRTMGL1|bbox;-77.33;-10.7;-76.55;-9.8",
+    "up": "true",
+    "podid": "gaia-db",
+    "last_updated": "2026-10-17 22:44:18",
+    "update_frequency": "As Needed",
+    "checksum": "TBD"
+  },
+  "_submission_time": "2026-10-17 22:44:22",
+  "meta": {
+    "instanceID": "52a1f20d-cd42-4ac5-b399-3802620017"
+  }
+}

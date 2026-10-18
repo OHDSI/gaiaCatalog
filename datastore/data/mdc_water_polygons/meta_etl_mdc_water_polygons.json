@@ -1,0 +1,20 @@
+{
+  "rights": "Public Domain",
+  "structure": "vector",
+  "geometry": "multipolygon",
+  "epsg": "EPSG:4326",
+  "extent": "ENVELOPE(-9008606.0344,-8915320.499,2996516.889,2891839.2926)",
+  "attributes": ["objectid;Internal feature number;Esri;oid;", "water;Water = 0 for no water and 1 for water present;MDC;boolean;", "type;Type =\"\" for open water and 'B' for locations that water flows under structure  and is blocked from the orthos view;MDC;string;", "last_updated;Year date that feature was last revised;MDC;int4;", "shape_area;area of feature;Esri;double;", "shape_length;length of feature;Esri;double;"],
+  "local_epsg": "EPSG:2236",
+  "source": "https://services.arcgis.com/8Pc9XBTAsYuxx9Ny/arcgis/rest/services/WaterP_gdb/FeatureServer/0/query?outFields=*&where=1%3D1&outSR=4326&f=geojson",
+  "file": ["mdc_water_polygons"],
+  "extension": "geojson",
+  "download": "esri_recursive_ogr",
+  "table": "mdc_water_polygons",
+  "format": "geojson",
+  "up": "true",
+  "podID": "gaia-db",
+  "last_updated": "2026-10-17T22:37:14Z",
+  "update_frequency": "As Needed",
+  "checksum": "TBD"
+}

@@ -1,0 +1,12 @@
+{
+  "Index": 23,
+  "Title": "Huayhuash Conservación",
+  "Creator": "Timothy B Norris;Person;Norris;Timothy B;https://orcid.org/0000-0002-0898-3027;ORCID;https://orcid.org/;University of Miami Libraries, University of Miami;https://ror.org/02dgjyy92;ROR;https://ror.org/|Melanie Nicole Malca Cruzado;Person;Malca Cruzado;Melanie Nicole;;;;Universidad Peruana Cayetano Herida",
+  "Publisher": "Frost Institute for Data Science and Computing, University of Miami;https://ror.org/02dgjyy92;ROR;https://ror.org/|University of Miami Libraries, University of Miami;https://ror.org/02dgjyy92;ROR;https://ror.org/",
+  "Coverage": "Cordillera Huayhuash;gazeteer;https://www.geonames.org/3938961;geonames;https://www.geonames.org/",
+  "Description": "Conjuntos de datos utilizados en el proceso para categorizar la Zona Reservada Cordillera Huayhuash (ZRCH) del Sistema Nacional de Áreas Protegidas del Peru (SINANPE) como Reserva Nacional por parte del Servicio Nacional de Areas Naturales Protegidas (SERNANP).",
+  "Language": "sp",
+  "CollectionID": "hh-conservacion",
+  "Count": 24,
+  "Status": "published"
+}

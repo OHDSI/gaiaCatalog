@@ -54,7 +54,7 @@
       "name": "bbox",
       "geo": {
         "@type": "GeoShape",
-        "polygon": "33.01235115700007 -2.838643495999975 33.01235115700007 -2.383387099999936 33.790629651000074 -2.383387099999936 33.790629651000074 -2.838643495999975 33.01235115700007 -2.838643495999975"
+        "polygon": "-11.760241 29.594677 -11.760241 40.446140 -0.984775 40.446140 -0.984775 29.594677 -11.760241 29.594677"
       }
     }
   ],
@@ -174,7 +174,7 @@
       "@type": "PropertyValue",
       "name": "dist_code",
       "description": "Unique district code",
-      "qudt:dataType": "varchar"
+      "qudt:dataType": "numeric"
     },
     {
       "@type": "PropertyValue",
@@ -206,6 +206,6 @@
       "url": "https://gdsc.idsc.miami.edu/details/tz_2022_nbs_districts"
     }
   ],
-  "dateModified": "2025-06-01",
-  "version": "2026-09-13"
+  "dateModified": "2026-09-09 15:35:35",
+  "version": "2026-10-09"
 }

@@ -14,13 +14,13 @@ echo "[gaia-solr] Starting Solr with custom configuration..."
 
 # wait for SOLR to become ready
 SOLR_BASE="http://localhost:8983/solr/"
-SOLR_URL="${SOLR_BASE}admin/info/system?wt=json"
+SOLR_URL="${SOLR_BASE}collections/update"
 MAX_ATTEMPTS=30
 WAIT_SECONDS=2
 
 echo "[gaia-solr] Waiting for SOLR to become ready"
 for i in $(seq 1 $MAX_ATTEMPTS); do
-  RESPONSE=$(curl -s -o /dev/null -w "%{http_code}" "$SOLR_URL")
+  RESPONSE=$(curl -s -o /dev/null -w "%{http_code}" "$SOLR_URL" -d '<delete><query>*:*</query></delete>')
   if [ "$RESPONSE" = "200" ]; then
     echo "[gaia-solr] Solr is ready!"
 

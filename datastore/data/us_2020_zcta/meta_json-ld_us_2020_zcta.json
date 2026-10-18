@@ -1,0 +1,260 @@
+{
+  "@context": {
+    "@vocab": "https://schema.org/",
+    "dct": "http://purl.org/dc/terms/",
+    "qudt": "http://qudt.org/schema/qudt/",
+    "quantitykind": "http://qudt.org/vocab/quantitykind/",
+    "unit": "http://qudt.org/vocab/unit/",
+    "xsd": "http://www.w3.org/2001/XMLSchema",
+    "extendedConstraintProperty": "http://codata.org/vocab/extendedConstraintProperty",
+    "sdmx": "https://sdmx.org"
+  },
+  "@type": "Dataset",
+  "@id": "https://gdsc.idsc.miami.edu/detail/us_2020_zcta",
+  "includedInDataCatalog": [
+    {
+      "@type": "DataCatalog",
+      "@id": "https://gdsc.idsc.miami.edu",
+      "name": "Geospatial Digital Special Collections",
+      "url": "https://gdsc.idsc.miami.edu"
+    },
+    {
+      "@type": "DataCatalog",
+      "name": "mdc-health-outcomes",
+      "@id": "https://gdsc.idsc.miami.edu/?collection=mdc-health-outcomes",
+      "url": "https://gdsc.idsc.miami.edu/?collection=mdc-health-outcomes"
+    }
+  ],
+  "name": "USA 2020 Zip Code Tabulation Areas",
+  "creator": [
+    {
+      "@type": "Organization",
+      "sameAs": "https://ror.org/04chq2495",
+      "@id": "https://ror.org/04chq2495",
+      "identifier": "https://ror.org/04chq2495",
+      "name": "U.S. Department of Commerce"
+    },
+    {
+      "@type": "Organization",
+      "sameAs": "https://ror.org/01qn7cs15",
+      "@id": "https://ror.org/01qn7cs15",
+      "identifier": "https://ror.org/01qn7cs15",
+      "name": "U.S. Census Bureau"
+    },
+    {
+      "@type": "Organization",
+      "name": "Geography Division"
+    },
+    {
+      "@type": "Organization",
+      "name": "Spatial Data Collection and Products Branch"
+    }
+  ],
+  "url": "https://www.census.gov/programs-surveys/geography/guidance/geo-areas/zctas.html",
+  "provider": [
+    {
+      "@type": "Organization",
+      "name": "Census"
+    }
+  ],
+  "spatialCoverage": [
+    {
+      "@id": "https://www.geonames.org/6252001",
+      "@type": "Place",
+      "name": "United States"
+    },
+    {
+      "@type": "Place",
+      "name": "bbox",
+      "geo": {
+        "@type": "GeoShape",
+        "polygon": "-14.373776 -176.696692 -14.373776 145.830505 71.341324 145.830505 71.341324 -176.696692 -14.373776 -176.696692"
+      }
+    }
+  ],
+  "type": "Vector Dataset",
+  "datePublished": "2024-08-26",
+  "description": "A polygon representation of the US Zip Code Tabulation Areas (ZCTA) boundaries.",
+  "keywords": [
+    "USA",
+    "Zipcode",
+    "ZCTA"
+  ],
+  "@language": "en",
+  "measurementTechnique": [
+    {
+      "@type": "DefinedTerm",
+      "description": "GIS Data Structure for Representation",
+      "inDefinedTermSet": {
+        "@type": "DefinedTermSet",
+        "name": "dataRepresentation",
+        "hasDefinedTerm": [
+          {
+            "@type": "DefinedTerm",
+            "termCode": "raster"
+          },
+          {
+            "@type": "DefinedTerm",
+            "termCode": "vector"
+          },
+          {
+            "@type": "DefinedTerm",
+            "termCode": "table"
+          }
+        ]
+      },
+      "termCode": "vector"
+    },
+    {
+      "@type": "DefinedTerm",
+      "description": "GIS Vector Geometery",
+      "inDefinedTermSet": {
+        "@type": "DefinedTermSet",
+        "name": "vectorGeometry",
+        "hasDefinedTerm": [
+          {
+            "@type": "DefinedTerm",
+            "termCode": "point"
+          },
+          {
+            "@type": "DefinedTerm",
+            "termCode": "line"
+          },
+          {
+            "@type": "DefinedTerm",
+            "termCode": "polygon"
+          }
+        ]
+      },
+      "termCode": "multipolygon"
+    }
+  ],
+  "additionalProperty": [
+    {
+      "@type": "PropertyValue",
+      "propertyID": "http://dbpedia.org/resource/Spatial_reference_system",
+      "value": "https://epsg.io/4269"
+    }
+  ],
+  "about": [
+    {
+      "@type": "Event",
+      "description": "Census from the Post Office",
+      "name": "ETL process for USA 2020 Zip Code Tabulation Areas",
+      "potentialAction": {
+        "@type": "Action",
+        "name": "Pseudo Code",
+        "description": "TODO"
+      }
+    },
+    {
+      "@type": "Event",
+      "description": "Census from the Post Office",
+      "name": "ETL process for USA 2020 Zip Code Tabulation Areas",
+      "potentialAction": {
+        "@type": "Action",
+        "name": "wget",
+        "description": "ETL process for USA 2020 Zip Code Tabulation Areas",
+        "object": {
+          "@type": "Dataset",
+          "name": "Census from the Post Office",
+          "producer": "U.S. Department of Commerce",
+          "url": "https://www.census.gov/programs-surveys/geography/guidance/geo-areas/zctas.html"
+        },
+        "instrument": {
+          "@type": "SoftwareApplication",
+          "@id": "https://github.com/Geospatial-Digital-Special-Collections/tools",
+          "featureList": "wget",
+          "downloadUrl": "https://github.com/Geospatial-Digital-Special-Collections/tools.git"
+        },
+        "result": {
+          "@type": "Dataset",
+          "name": "USA 2020 Zip Code Tabulation Areas",
+          "description": "A polygon representation of the US Zip Code Tabulation Areas (ZCTA) boundaries.",
+          "encodingFormat": "shp"
+        }
+      }
+    }
+  ],
+  "variableMeasured": [
+    {
+      "@type": "PropertyValue",
+      "name": "ogc_fid",
+      "description": "object ID",
+      "qudt:dataType": "int4",
+      "unitText": "id",
+      "minValue": "1",
+      "maxValue": "33791"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "geoid20",
+      "description": "Zip Code",
+      "qudt:dataType": "varchar",
+      "unitText": "zip code"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "zcta5ce20",
+      "description": "Zip Code",
+      "qudt:dataType": "varchar",
+      "unitText": "zip code"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "classfp20",
+      "description": "The class (CLASSFP) code defines the current class of a geographic entity.",
+      "qudt:dataType": "varchar",
+      "unitText": "code"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "mtfcc20",
+      "description": "5-digit code assigned by the Census Bureau intended to classify and describe geographic objects or features",
+      "qudt:dataType": "varchar",
+      "unitText": "code"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "aland20",
+      "description": "Area of land in square feet",
+      "qudt:dataType": "numeric",
+      "unitText": "Square Feet",
+      "minValue": "3551.00",
+      "maxValue": "35426845132.00"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "awater20",
+      "description": "Area of water in square feet",
+      "qudt:dataType": "numeric",
+      "unitText": "Square Feet",
+      "minValue": "0.00",
+      "maxValue": "3695341658.00"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "funcstat20",
+      "description": "The functional status (FUNCSTAT) code defines the current functional status of a geographic entity.",
+      "qudt:dataType": "varchar",
+      "unitText": "code"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "intptlat20",
+      "description": "NAD83 Latitude",
+      "qudt:dataType": "varchar",
+      "unitText": "Degrees Latitude"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "intptlon20",
+      "description": "NAD83 Longitude",
+      "qudt:dataType": "varchar",
+      "unitText": "Degrees Longitude"
+    }
+  ],
+  "distribution": "/data/us_2020_zcta/",
+  "dateModified": "2026-10-05 22:27:02",
+  "version": "2026-10-10"
+}

@@ -1,0 +1,231 @@
+{
+  "@context": {
+    "@vocab": "https://schema.org/",
+    "dct": "http://purl.org/dc/terms/",
+    "qudt": "http://qudt.org/schema/qudt/",
+    "quantitykind": "http://qudt.org/vocab/quantitykind/",
+    "unit": "http://qudt.org/vocab/unit/",
+    "xsd": "http://www.w3.org/2001/XMLSchema",
+    "extendedConstraintProperty": "http://codata.org/vocab/extendedConstraintProperty",
+    "sdmx": "https://sdmx.org"
+  },
+  "@type": "Dataset",
+  "@id": "https://gdsc.idsc.miami.edu/detail/hh_lagunas_ana",
+  "includedInDataCatalog": [
+    {
+      "@type": "DataCatalog",
+      "@id": "https://gdsc.idsc.miami.edu",
+      "name": "Geospatial Digital Special Collections",
+      "url": "https://gdsc.idsc.miami.edu"
+    },
+    {
+      "@type": "DataCatalog",
+      "name": "hh-conservacion",
+      "@id": "https://gdsc.idsc.miami.edu/?collection=hh-conservacion",
+      "url": "https://gdsc.idsc.miami.edu/?collection=hh-conservacion"
+    }
+  ],
+  "name": "Lagos y Lagunas Huayhuash (ANA)",
+  "creator": [
+    {
+      "name": "ANA"
+    }
+  ],
+  "url": "https://geosnirh.ana.gob.pe/server/rest/services/P%C3%BAblico/Lagunas/MapServer/36",
+  "provider": [
+    {
+      "@type": "Organization",
+      "name": "ANA"
+    }
+  ],
+  "spatialCoverage": [
+    {
+      "@id": "https://www.geonames.org/3932488",
+      "@type": "Place",
+      "name": "Per\u00fa"
+    },
+    {
+      "@type": "Place",
+      "name": "bbox",
+      "geo": {
+        "@type": "GeoShape",
+        "polygon": "-10.7 -77.33 -10.7 -76.55 -9.8 -76.55 -9.8 -77.33 -10.7 -77.33"
+      }
+    }
+  ],
+  "type": "Vector Dataset",
+  "datePublished": "2021-07-09",
+  "description": "Lagos y Lagunas de Huayhuash.",
+  "keywords": [
+    "Huayhuash",
+    "Per\u00fa",
+    "Lagos y lagunas"
+  ],
+  "@language": "es",
+  "measurementTechnique": [
+    {
+      "@type": "DefinedTerm",
+      "description": "GIS Data Structure for Representation",
+      "inDefinedTermSet": {
+        "@type": "DefinedTermSet",
+        "name": "dataRepresentation",
+        "hasDefinedTerm": [
+          {
+            "@type": "DefinedTerm",
+            "termCode": "raster"
+          },
+          {
+            "@type": "DefinedTerm",
+            "termCode": "vector"
+          },
+          {
+            "@type": "DefinedTerm",
+            "termCode": "table"
+          }
+        ]
+      },
+      "termCode": "vector"
+    },
+    {
+      "@type": "DefinedTerm",
+      "description": "GIS Vector Geometery",
+      "inDefinedTermSet": {
+        "@type": "DefinedTermSet",
+        "name": "vectorGeometry",
+        "hasDefinedTerm": [
+          {
+            "@type": "DefinedTerm",
+            "termCode": "point"
+          },
+          {
+            "@type": "DefinedTerm",
+            "termCode": "line"
+          },
+          {
+            "@type": "DefinedTerm",
+            "termCode": "polygon"
+          }
+        ]
+      },
+      "termCode": "multipolygon"
+    }
+  ],
+  "additionalProperty": [
+    {
+      "@type": "PropertyValue",
+      "propertyID": "http://dbpedia.org/resource/Spatial_reference_system",
+      "value": "https://epsg.io/4326"
+    }
+  ],
+  "about": [
+    {
+      "@type": "Event",
+      "description": "ANA",
+      "name": "ETL process for Lagos y Lagunas Huayhuash (ANA)",
+      "potentialAction": {
+        "@type": "Action",
+        "name": "Pseudo Code",
+        "description": "TODO",
+        "result": {
+          "@type": "Dataset",
+          "encodingFormat": "shp",
+          "url": "https://gdsc.idsc.miami.edu/download/data/hh_lagunas_ana/?file=hh_lagunas_ana&format=shp"
+        }
+      }
+    },
+    {
+      "@type": "Event",
+      "description": "ANA",
+      "name": "ETL process for Lagos y Lagunas Huayhuash (ANA)",
+      "potentialAction": {
+        "@type": "Action",
+        "name": "esri_recursive_ogr",
+        "description": "ETL process for Lagos y Lagunas Huayhuash (ANA)",
+        "object": {
+          "@type": "Dataset",
+          "name": "ANA",
+          "producer": "ANA",
+          "url": "https://geosnirh.ana.gob.pe/server/rest/services/P%C3%BAblico/Lagunas/MapServer/36"
+        },
+        "instrument": {
+          "@type": "SoftwareApplication",
+          "@id": "https://github.com/Geospatial-Digital-Special-Collections/tools",
+          "featureList": "esri_recursive_ogr",
+          "downloadUrl": "https://github.com/Geospatial-Digital-Special-Collections/tools.git"
+        },
+        "result": {
+          "@type": "Dataset",
+          "name": "Lagos y Lagunas Huayhuash (ANA)",
+          "description": "Lagos y Lagunas de Huayhuash.",
+          "encodingFormat": "shp",
+          "url": "https://gdsc.idsc.miami.edu/download/data/hh_lagunas_ana/?file=hh_lagunas_ana&format=shp"
+        }
+      }
+    }
+  ],
+  "variableMeasured": [
+    {
+      "@type": "PropertyValue",
+      "name": "id"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "nombreoficial"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "ubigeo"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "nombrecuerpo"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "codala"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "ala"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "codaaa"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "aaa"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "coordillera"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "fechaimagensatelital"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "fuente"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "geom"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "codigouh"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "nombreuh"
+    }
+  ],
+  "distribution": [
+    "https://gdsc.idsc.miami.edu/download/data/hh_lagunas_ana/?file=hh_lagunas_ana&format=shp",
+    "https://gdsc.idsc.miami.edu/download/data/hh_lagunas_ana/?file=hh_lagunas_ana&format=geojson",
+    "https://gdsc.idsc.miami.edu/download/data/hh_lagunas_ana/?file=hh_lagunas_ana&format=gpkg"
+  ],
+  "dateModified": "2026-10-17 22:42:48",
+  "version": "2026-10-17"
+}

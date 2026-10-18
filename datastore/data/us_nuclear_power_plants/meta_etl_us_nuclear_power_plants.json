@@ -1,0 +1,20 @@
+{
+  "rights": "Public Domain",
+  "structure": "vector",
+  "geometry": "point",
+  "epsg": "EPSG:4326",
+  "extent": ["TBD"],
+  "attributes": ["utility_name"],
+  "local_epsg": "EPSG:2236",
+  "source": "https://services7.arcgis.com/FGr1D95XCGALKXqM/arcgis/rest/services/ElectricPowerPlants/FeatureServer/6/query?where=1%3D1&outFields=*&outSR=4326&f=json",
+  "file": ["us_nuclear_power_plants"],
+  "extension": "json",
+  "download": "wget",
+  "table": "us_nuclear_power_plants",
+  "format": "json",
+  "up": "true",
+  "podID": "gaia-db",
+  "last_updated": "2026-10-17T22:28:47Z",
+  "update_frequency": "As Needed",
+  "checksum": "TBD"
+}

@@ -1,0 +1,20 @@
+{
+  "rights": "Public Domain",
+  "structure": "vector",
+  "geometry": "multipolygon",
+  "epsg": "EPSG:4326",
+  "extent": "ENVELOPE(-80.536021,-80.116539,25.973779,25.411217)",
+  "attributes": ["objectid;Unique object identifer;Esri;int4;;;1;310;2025-02-01;2025-06-30", "folio;Folio identifier;MDC;varchar;;;;;2025-02-01;2025-06-30", "id;Unique identifier;MDC;varchar;;;;;2025-02-01;2025-06-30", "name;Name of park facility;MDC;varchar;;;;;2025-02-01;2025-06-30", "address;Address of facility;MDC;varchar;;;;;2025-02-01;2025-06-30", "city;City of park facility;MDC;varchar;;;;;2025-02-01;2025-06-30", "zipcode;Zipcode of park facility;MDC;int4;;;33013;33196;2025-02-01;2025-06-30", "phone;Phone number of facility;numeric;varchar;;;;2025-02-01;2025-06-30", "class;classification of facility;MDC;varchar;;;;;2025-02-01;2025-06-30", "totacre;Total acres;MDC;float8;;;0.109999999403954;903.9;2025-02-01;2025-06-30", "type;type of facility;MDC;varchar;;;;;2025-02-01;2025-06-30", "develop;Developed or not;MDC;varchar;;;;;2025-02-01;2025-06-30", "natarea;Natural area;MDC;varchar;;;;;2025-02-01;2025-06-30", "pkschool;Whether or not facility is within a preschool;MDC;varchar;;;;;2025-02-01;2025-06-30", "wifi;Whether or not facility has wifi;MDC;varchar;;;;;2025-02-01;2025-06-30", "shape_area;County park boundary;Esri;numeric;;;;;2025-02-01;2025-06-30", "shape_length;County park boundary length;Esri;numeric;;;;;2025-02-01;2025-06-30"],
+  "local_epsg": "EPSG:2236",
+  "source": "https://services.arcgis.com/8Pc9XBTAsYuxx9Ny/arcgis/rest/services/CountyParkBoundaries_PROS_View_for_ALWAYS_ON/FeatureServer/1/query?outFields=*&where=1%3D1&spatialRefId=4326&f=geojson",
+  "file": ["mdc_county_park_boundaries"],
+  "extension": "geojson",
+  "download": "wget",
+  "table": "mdc_county_park_boundaries",
+  "format": "geojson",
+  "up": "true",
+  "podID": "gaia-db",
+  "last_updated": "2026-10-05T22:05:50Z",
+  "update_frequency": "6 months",
+  "checksum": "TBD"
+}

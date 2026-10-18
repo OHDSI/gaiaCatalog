@@ -1,0 +1,13 @@
+{
+  "Index": 10,
+  "Title": "Miami-Dade Health Outcomes",
+  "Creator": "Timothy B Norris;Person;Norris;Timothy B;https://orcid.org/0000-0002-0898-3027;ORCID;https://orcid.org/;University of Miami Libraries, University of Miami;https://ror.org/02dgjyy92;ROR;https://ror.org/",
+  "Publisher": "Frost Institute for Data Science and Computing, University of Miami;https://ror.org/02dgjyy92;ROR;https://ror.org/|University of Miami Libraries, University of Miami;https://ror.org/02dgjyy92;ROR;https://ror.org/",
+  "Contributor": "IDSC;https://idsc.miami.edu|Library;https://www.library.miami.edu",
+  "Coverage": "Miami-Dade County;gazeteer;https://www.geonames.org/4164238;geonames;https://www.geonames.org/",
+  "Description": "Datasets related to health outcomes research in Miami-Dade county.",
+  "Language": "en",
+  "CollectionID": "mdc-health-outcomes",
+  "Count": 65,
+  "Status": "published"
+}

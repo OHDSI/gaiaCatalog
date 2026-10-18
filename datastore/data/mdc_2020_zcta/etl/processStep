@@ -1,0 +1,39 @@
+#########
+# GDSC ETL is performed in two steps: shell script to ETL data into postgres
+# and then additional transformations with SQL in postGIS (if needed).
+####
+
+#########
+# Step 1 - bash script (pseudo code)
+####
+
+# create directory structure and move into it
+mkdir -p /data/mdc_2020_zcta/download -p /data/mdc_2020_zcta/etl
+chmod -R 777 /data/mdc_2020_zcta
+cd /data/mdc_2020_zcta
+
+# set update flag based on last update and update frequency
+do_update=0 if date() < last_update + update_frequency else do_update = 1
+
+# clip as per custom parameters
+psql -d $POSTGRES_DB -U $POSTGRES_USER -p $POSTGRES_PORT -h gaia-db -c "
+CREATE TABLE mdc_2020_zcta AS
+SELECT us_2020_zcta.ogc_fid, us_2020_zcta.geoid20, us_2020_zcta.zcta5ce20, us_2020_zcta.classfp20, us_2020_zcta.mtfcc20, us_2020_zcta.aland20, us_2020_zcta.awater20, us_2020_zcta.funcstat20, us_2020_zcta.intptlat20, us_2020_zcta.intptlon20, us_2020_zcta.geom
+FROM us_2020_zcta
+JOIN us_2020_county_tl on ST_Intersects(us_2020_zcta.geom, us_2020_county_tl.geom)
+WHERE us_2020_county_tl.geoid = '12086';
+COMMIT;"
+
+# add local geometry column and reproject existing geometries into local EPSG:
+ALTER TABLE mdc_2020_zcta DROP COLUMN IF EXISTS geom_local CASCADE;
+SELECT AddGeometryColumn (
+  'mdc_2020_zcta',
+  'geom_local', 4269, 'multipolygon', 2
+);
+UPDATE mdc_2020_zcta
+  SET geom_local=ST_MakeValid(ST_RemoveRepeatedPoints(ST_Transform(ST_Multi(geom),4269)));
+CREATE INDEX mdc_2020_zcta_geom_local_idx
+  ON mdc_2020_zcta
+  USING GIST (geom_local);
+NOTIFY pgrst, 'reload schema';
+

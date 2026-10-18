@@ -1,0 +1,263 @@
+{
+  "@context": {
+    "@vocab": "https://schema.org/",
+    "dct": "http://purl.org/dc/terms/",
+    "qudt": "http://qudt.org/schema/qudt/",
+    "quantitykind": "http://qudt.org/vocab/quantitykind/",
+    "unit": "http://qudt.org/vocab/unit/",
+    "xsd": "http://www.w3.org/2001/XMLSchema",
+    "extendedConstraintProperty": "http://codata.org/vocab/extendedConstraintProperty",
+    "sdmx": "https://sdmx.org"
+  },
+  "@type": "Dataset",
+  "@id": "https://gdsc.idsc.miami.edu/detail/hh_2023_bofedales_inaigem",
+  "includedInDataCatalog": [
+    {
+      "@type": "DataCatalog",
+      "@id": "https://gdsc.idsc.miami.edu",
+      "name": "Geospatial Digital Special Collections",
+      "url": "https://gdsc.idsc.miami.edu"
+    },
+    {
+      "@type": "DataCatalog",
+      "name": "hh-conservacion",
+      "@id": "https://gdsc.idsc.miami.edu/?collection=hh-conservacion",
+      "url": "https://gdsc.idsc.miami.edu/?collection=hh-conservacion"
+    }
+  ],
+  "name": "Inventario Bofedales Huayhuash 2023 (INAIGEM)",
+  "creator": [
+    {
+      "name": "INAIGEM"
+    }
+  ],
+  "url": "https://datacochageoespacial.inaigem.gob.pe/geonetwork/srv/spa/catalog.search#/metadata/0b17e18e-2622-4158-9cc5-a31a587743df",
+  "provider": [
+    {
+      "@type": "Organization",
+      "name": "INAIGEM"
+    }
+  ],
+  "spatialCoverage": [
+    {
+      "@id": "https://www.geonames.org/3938961",
+      "@type": "Place",
+      "name": "Cordillera Huayhuash"
+    },
+    {
+      "@type": "Place",
+      "name": "bbox",
+      "geo": {
+        "@type": "GeoShape",
+        "polygon": "-10.707429 -77.336770 -10.707429 -76.545281 -9.779092 -76.545281 -9.779092 -77.336770 -10.707429 -77.336770"
+      }
+    }
+  ],
+  "type": "Vector Dataset",
+  "datePublished": "2023-01-01",
+  "description": "El primer Inventario Nacional de Bofedales (INB) del Per\u00fa tiene como finalidad delimitar y cuantificar el ecosistema de bofedales, con el objetivo de proporcionar informaci\u00f3n a escala nacional detallada sobre la ubicaci\u00f3n y extensi\u00f3n de estos ecosistemas. Esta informaci\u00f3n busca apoyar la toma de decisiones relacionadas con su gesti\u00f3n sostenible.\n\nLa extensi\u00f3n de los bofedales en el Per\u00fa se estima en 910 398.2 hect\u00e1reas (ha), lo que representa el 0.71% del territorio nacional. Los bofedales est\u00e1n distribuidos en 19 departamentos, siendo Puno, Arequipa y Ayacucho los que concentran m\u00e1s del 50% de la superficie total con aproximadamente de 493 235.2 ha; mientras que los departamentos de Ica, Amazonas y Piura tienen una menor superficie.\n\nEl INB se elabor\u00f3 con un nivel de detalle que permiti\u00f3 cartografiar mediante el uso de t\u00e9cnicas de teledetecci\u00f3n unidades m\u00ednimas de 0.09 ha, conocido como la Unidad M\u00ednima Cartografiable (UMC). Estas t\u00e9cnicas incluyen el an\u00e1lisis de im\u00e1genes satelitales de la constelaci\u00f3n Sentinel-1 y Sentinel-2 (correspondientes a la temporada h\u00fameda) y productos DEM - ALOS PALSAR. El an\u00e1lisis se realiz\u00f3 utilizando un clasificador basado en \u00e1rboles de decisi\u00f3n que integr\u00f3 cinco m\u00e1scaras como indicadores de presencia de bofedales: altitud (DEM), \u00edndice de posici\u00f3n topogr\u00e1fica (TPI), pendiente, \u00edndice de humedad (NDII), mixtura espectral (LSU) e intensidad. \n\nEs importante destacar que para cada m\u00e1scara se utiliz\u00f3 umbrales espec\u00edficos definidos seg\u00fan las macrozonas altoandinas (p\u00e1ramo, norte, centro y sur).\n\nCorreo electr\u00f3nico de contacto.\nhmallqui@inaigem.gob.pe, fmedina@inaigem.gob.pe",
+  "keywords": [
+    "Huayhuash",
+    "Per\u00fa",
+    "Bofedales"
+  ],
+  "@language": "es",
+  "measurementTechnique": [
+    {
+      "@type": "DefinedTerm",
+      "description": "GIS Data Structure for Representation",
+      "inDefinedTermSet": {
+        "@type": "DefinedTermSet",
+        "name": "dataRepresentation",
+        "hasDefinedTerm": [
+          {
+            "@type": "DefinedTerm",
+            "termCode": "raster"
+          },
+          {
+            "@type": "DefinedTerm",
+            "termCode": "vector"
+          },
+          {
+            "@type": "DefinedTerm",
+            "termCode": "table"
+          }
+        ]
+      },
+      "termCode": "vector"
+    },
+    {
+      "@type": "DefinedTerm",
+      "description": "GIS Vector Geometery",
+      "inDefinedTermSet": {
+        "@type": "DefinedTermSet",
+        "name": "vectorGeometry",
+        "hasDefinedTerm": [
+          {
+            "@type": "DefinedTerm",
+            "termCode": "point"
+          },
+          {
+            "@type": "DefinedTerm",
+            "termCode": "line"
+          },
+          {
+            "@type": "DefinedTerm",
+            "termCode": "polygon"
+          }
+        ]
+      },
+      "termCode": "multipolygon"
+    }
+  ],
+  "additionalProperty": [
+    {
+      "@type": "PropertyValue",
+      "propertyID": "http://dbpedia.org/resource/Spatial_reference_system",
+      "value": "https://epsg.io/4326"
+    }
+  ],
+  "about": [
+    {
+      "@type": "Event",
+      "description": "INAIGEM",
+      "name": "ETL process for Inventario Bofedales Huayhuash 2023 (INAIGEM)",
+      "potentialAction": {
+        "@type": "Action",
+        "name": "Pseudo Code",
+        "description": "TODO",
+        "result": {
+          "@type": "Dataset",
+          "encodingFormat": "shp",
+          "url": "https://gdsc.idsc.miami.edu/download/data/hh_2023_bofedales_inaigem/?file=hh_2023_bofedales_inaigem&format=shp"
+        }
+      }
+    },
+    {
+      "@type": "Event",
+      "description": "INAIGEM",
+      "name": "ETL process for Inventario Bofedales Huayhuash 2023 (INAIGEM)",
+      "potentialAction": {
+        "@type": "Action",
+        "name": "curl",
+        "description": "ETL process for Inventario Bofedales Huayhuash 2023 (INAIGEM)",
+        "object": {
+          "@type": "Dataset",
+          "name": "INAIGEM",
+          "producer": "INAIGEM",
+          "url": "https://datacochageoespacial.inaigem.gob.pe/geonetwork/srv/spa/catalog.search#/metadata/0b17e18e-2622-4158-9cc5-a31a587743df"
+        },
+        "instrument": {
+          "@type": "SoftwareApplication",
+          "@id": "https://github.com/Geospatial-Digital-Special-Collections/tools",
+          "featureList": "curl",
+          "downloadUrl": "https://github.com/Geospatial-Digital-Special-Collections/tools.git"
+        },
+        "result": {
+          "@type": "Dataset",
+          "name": "Inventario Bofedales Huayhuash 2023 (INAIGEM)",
+          "description": "El primer Inventario Nacional de Bofedales (INB) del Per\u00fa tiene como finalidad delimitar y cuantificar el ecosistema de bofedales, con el objetivo de proporcionar informaci\u00f3n a escala nacional detallada sobre la ubicaci\u00f3n y extensi\u00f3n de estos ecosistemas. Esta informaci\u00f3n busca apoyar la toma de decisiones relacionadas con su gesti\u00f3n sostenible.\n\nLa extensi\u00f3n de los bofedales en el Per\u00fa se estima en 910 398.2 hect\u00e1reas (ha), lo que representa el 0.71% del territorio nacional. Los bofedales est\u00e1n distribuidos en 19 departamentos, siendo Puno, Arequipa y Ayacucho los que concentran m\u00e1s del 50% de la superficie total con aproximadamente de 493 235.2 ha; mientras que los departamentos de Ica, Amazonas y Piura tienen una menor superficie.\n\nEl INB se elabor\u00f3 con un nivel de detalle que permiti\u00f3 cartografiar mediante el uso de t\u00e9cnicas de teledetecci\u00f3n unidades m\u00ednimas de 0.09 ha, conocido como la Unidad M\u00ednima Cartografiable (UMC). Estas t\u00e9cnicas incluyen el an\u00e1lisis de im\u00e1genes satelitales de la constelaci\u00f3n Sentinel-1 y Sentinel-2 (correspondientes a la temporada h\u00fameda) y productos DEM - ALOS PALSAR. El an\u00e1lisis se realiz\u00f3 utilizando un clasificador basado en \u00e1rboles de decisi\u00f3n que integr\u00f3 cinco m\u00e1scaras como indicadores de presencia de bofedales: altitud (DEM), \u00edndice de posici\u00f3n topogr\u00e1fica (TPI), pendiente, \u00edndice de humedad (NDII), mixtura espectral (LSU) e intensidad. \n\nEs importante destacar que para cada m\u00e1scara se utiliz\u00f3 umbrales espec\u00edficos definidos seg\u00fan las macrozonas altoandinas (p\u00e1ramo, norte, centro y sur).\n\nCorreo electr\u00f3nico de contacto.\nhmallqui@inaigem.gob.pe, fmedina@inaigem.gob.pe",
+          "encodingFormat": "shp",
+          "url": "https://gdsc.idsc.miami.edu/download/data/hh_2023_bofedales_inaigem/?file=hh_2023_bofedales_inaigem&format=shp"
+        }
+      }
+    }
+  ],
+  "variableMeasured": [
+    {
+      "@type": "PropertyValue",
+      "name": "objectid",
+      "qudt:dataType": "int4",
+      "minValue": "198354",
+      "maxValue": "268371"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "fid_invent",
+      "qudt:dataType": "int4",
+      "minValue": "196429",
+      "maxValue": "368105"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "desc_cober",
+      "qudt:dataType": "varchar"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "zona_utm",
+      "qudt:dataType": "int4",
+      "minValue": "18",
+      "maxValue": "18"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "macrozona",
+      "qudt:dataType": "varchar"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "vertiente",
+      "qudt:dataType": "varchar"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "ubig_dep",
+      "qudt:dataType": "varchar"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "nomb_dep",
+      "qudt:dataType": "varchar"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "ubig_prov",
+      "qudt:dataType": "varchar"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "nomb_prov",
+      "qudt:dataType": "varchar"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "ubig_dist",
+      "qudt:dataType": "varchar"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "nomb_dist",
+      "qudt:dataType": "varchar"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "nomb_capdi",
+      "qudt:dataType": "varchar"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "cod_uh",
+      "qudt:dataType": "varchar"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "nomb_uh",
+      "qudt:dataType": "varchar"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "area_ha",
+      "qudt:dataType": "float8",
+      "minValue": "0.0900048797049",
+      "maxValue": "804.362001252"
+    }
+  ],
+  "distribution": [
+    "https://gdsc.idsc.miami.edu/download/data/hh_2023_bofedales_inaigem/?file=hh_2023_bofedales_inaigem&format=shp",
+    "https://gdsc.idsc.miami.edu/download/data/hh_2023_bofedales_inaigem/?file=hh_2023_bofedales_inaigem&format=geojson",
+    "https://gdsc.idsc.miami.edu/download/data/hh_2023_bofedales_inaigem/?file=hh_2023_bofedales_inaigem&format=gpkg"
+  ],
+  "dateModified": "2026-10-17 22:41:16",
+  "version": "2026-10-17"
+}

@@ -40,40 +40,6 @@
 
 {%- block content %}
 
-      <!-- collection information -->
-      <!-- <div class="mb-4">
-        <h2 class="mb-1">{{ collections[collection]['Title'][0] }}</h2>
-        <p class="mb-0">{%- autoescape off %}{{ collections[collection]['Description'][0] }}{%- endautoescape %}</p>
-        {%- if collections[collection]['Creator'] and collections[collection]['Creator'][0]|length > 0 %}
-        <p class="mb-0 mt-1"><b>Contributors:</b></p>
-        {%- for contributor in collections[collection]['Creator'][0].split('|') %}
-          {%- set contributor = contributor.split(';') %}
-          <p class="mb-0">
-            {{- contributor[0] }}{%- if contributor[7] %}, {{ contributor[7] }}{%- endif %}{%- if contributor[4] %}, <a href="{{ contributor[4] }}" target="_blank">{{ contributor[4] }}</a>{%- endif %}
-          </p>
-        {%- endfor %}
-        {%- endif %}
-        {%- if collections[collection]['Relations'] %}
-        <p class="mb-0 mt-1"><b>Related Content:</b></p>
-        {%- for relation in collections[collection]['Relations'][0].split('|') %}
-          {%- set relationship = relation.split(';') %}
-          <p class="mb-0">The <a href="{{ relationship[2] }}" target="_blank">{{ relationship[0] }}</a> {{ relationship[1].lower() }} this collection.</p>
-        {%- endfor %}
-        {%- endif %}
-        {%- if collections[collection]['Coverage'] %}
-        <p class="mb-0 mt-1"><b>Geographical coverage:</b></p>
-        {%- for coverage in collections[collection]['Coverage'][0].split('|') %}
-          {%- set coverage = coverage.split(';') %}
-          <p class="mb-0">
-            {%- if coverage[1] == 'gazeteer' %}
-              <a href="{{ coverage[2] }}" target="_blank">{{ coverage[0] }}</a>
-            {%- endif %}
-          </p>
-        {%- endfor %}
-        {%- endif %}
-      </div> -->
-      <!-- end collection information -->
-
       <!-- search form and results -->
       <div class="row border rounded p-2">
         <div class="col-lg-12 mb-4 container">
@@ -83,7 +49,7 @@
           <div class="row mt-2 mb-0 p-2 container-xxl">
             <div class="col-md-3"></div>
             <div class="col-md-6 order-md-2 container">
-              <form method="get" id="filterForm" name="filterForm">
+              <form method="get" id="filterForm" name="searchForm">
                 <div class="row">
                   <div class="col-md-8 pb-2 pb-md-0">
                     <input type="text"
@@ -189,22 +155,20 @@
 
                   <!-- title and collections -->
                   <div class="row">
-                    <div class="col-md-7 align-top">
-                      <h5 class="float-left">
+                    <div class="col-md-7 align-top float-left d-inline">
                         {%- if document['adms_representationTechnique'] %}
-                          {%- if document['adms_representationTechnique'] == 'raster' %}
-                            <img src="/static/raster.jpg" class="mb-1" style="max-width: 18px;">
+                          {%- if document['adms_representationTechnique'][0] == 'raster' %}
+                            <img src="/static/img/raster.jpg" class="mb-1" style="max-width: 18px;">
                           {%- else %}
                             {%- if document['locn_geometry'] %}
-                              <img src="/static/{{ document['locn_geometry'][0] }}.jpg" class="mb-1" style="max-width: 18px;">
+                              <img src="/static/img/{{ document['locn_geometry'][0] }}.jpg" class="mb-1" style="max-width: 18px;">
                             {%- endif %}
                           {%- endif %}
                         {%- endif %}
                         {%- if document['dct_title'] %}
-                          <a href="/detail/{{ document['gdsc_tablename'][0] }}?collection={{ collection }}&active={{ active }}&query={{ query }}">{{ document['dct_title'][0] }}</a>
+                          <h5 class="d-inline"><a href="/detail/{{ document['gdsc_tablename'][0] }}?collection={{ collection }}&active={{ active }}&query={{ query }}">{{ document['dct_title'][0] }}</a></h5>
                         {%- endif %}
-                      <div class="none" style="float: left; display: contents;"><div id="layer-{{ document['gdsc_tablename'][0] }}" class="float-left circle {{ 'green-fill' if document['gdsc_tablename'][0] in loaded_tables or document['gdsc_tileUrl'] else 'red-fill' }}" onclick="javascript:loadlayer('{{ document['gdsc_tablename'][0] }}')"></div></div>
-                      </h5>
+                      <div class="none" style="float: left; display: contents;"><div id="layer-{{ document['gdsc_tablename'][0] }}" class="float-left circle small-circle {{ 'green-fill' if document['gdsc_tablename'][0] in loaded_tables or document['gdsc_tileUrl'] else 'red-fill' }}" onclick="javascript:loadLayer('{{ document['gdsc_tablename'][0] }}')"></div></div>
                     </div>
                     <div class="col-md-5 align-top text-end mb-dm-2 mb-0">
                       {%- if document['gdsc_collections'] and document['gdsc_collections']|length > 0 %}
@@ -363,21 +327,4 @@
         </div>
       </div>
       <!-- end search form and results -->
-      
-      <script>
-        var loadlayer=function(layer_id) {
-          console.log('starting with: '+layer_id.toString());
-          var status_indicator = document.getElementById('layer-'+layer_id);
-          status_indicator.setAttribute('class', 'yin-yang');
-          status_indicator.parentElement.setAttribute('class', 'spin');
-          $.ajax({
-            type: 'POST',
-            url: '/loadlayer/' + layer_id,
-            success: function (resp) {
-                status_indicator.setAttribute('class', 'green-fill circle');
-                status_indicator.parentElement.setAttribute('class', 'none'); 
-                console.log(resp);
-            }});
-        }
-      </script>
 {% endblock %}

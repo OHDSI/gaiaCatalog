@@ -1,0 +1,343 @@
+{
+  "@context": {
+    "@vocab": "https://schema.org/",
+    "dct": "http://purl.org/dc/terms/",
+    "qudt": "http://qudt.org/schema/qudt/",
+    "quantitykind": "http://qudt.org/vocab/quantitykind/",
+    "unit": "http://qudt.org/vocab/unit/",
+    "xsd": "http://www.w3.org/2001/XMLSchema",
+    "extendedConstraintProperty": "http://codata.org/vocab/extendedConstraintProperty",
+    "sdmx": "https://sdmx.org"
+  },
+  "@type": "Dataset",
+  "@id": "https://gdsc.idsc.miami.edu/detail/mdc_2026_flma",
+  "includedInDataCatalog": [
+    {
+      "@type": "DataCatalog",
+      "@id": "https://gdsc.idsc.miami.edu",
+      "name": "Geospatial Digital Special Collections",
+      "url": "https://gdsc.idsc.miami.edu"
+    },
+    {
+      "@type": "DataCatalog",
+      "name": "climate-and-equity-mapping-program",
+      "@id": "https://gdsc.idsc.miami.edu/?collection=climate-and-equity-mapping-program",
+      "url": "https://gdsc.idsc.miami.edu/?collection=climate-and-equity-mapping-program"
+    }
+  ],
+  "name": "2026 MDC FLMA Managed Areas",
+  "creator": [
+    {
+      "name": "Florida Natural Areas Inventory"
+    }
+  ],
+  "url": "https://www.fnai.org/publications/gis-data",
+  "provider": [
+    {
+      "@type": "Organization",
+      "name": "University of Miami GDSC"
+    }
+  ],
+  "spatialCoverage": [
+    {
+      "@id": "https://www.geonames.org/4164238",
+      "@type": "Place",
+      "name": "Miami-Dade County"
+    },
+    {
+      "@type": "Place",
+      "name": "bbox",
+      "geo": {
+        "@type": "GeoShape",
+        "polygon": "25.242215809574343 -80.58986398643734 25.242215809574343 -80.08940946270674 25.97306254376044 -80.08940946270674 25.97306254376044 -80.58986398643734 25.242215809574343 -80.58986398643734"
+      }
+    }
+  ],
+  "type": "Vector Dataset",
+  "datePublished": "2026-03-01",
+  "description": "The State Parks are derived as a subset from The Florida Natural Areas Inventory. The Florida Natural Areas Inventory is the primary source for information on Florida's conservation lands. FNAI's database includes boundaries and statistics for more than 2,900 federal, state, local, and private managed areas, all provided directly by the managing agencies. National parks, state forests, wildlife management areas, local and private preserves are examples of the managed areas included. The shapefile is called FLMA for Florida Managed Areas; updated versions are published quarterly.\n\nFLORIDA CONSERVATION LANDS (layer name FLMA): This is a polygon data layer for public (and some private) lands that the Florida Natural Areas Inventory (FNAI) has identified as having natural resource value and that are being managed at least partially for conservation purposes. The term \"Managed Area\" refers to a managed conservation land.\n",
+  "keywords": [
+    "Miami-Dade County",
+    "FNAI",
+    "Conservation Lands",
+    "FLMA",
+    "State Parks"
+  ],
+  "@language": "en",
+  "measurementTechnique": [
+    {
+      "@type": "DefinedTerm",
+      "description": "GIS Data Structure for Representation",
+      "inDefinedTermSet": {
+        "@type": "DefinedTermSet",
+        "name": "dataRepresentation",
+        "hasDefinedTerm": [
+          {
+            "@type": "DefinedTerm",
+            "termCode": "raster"
+          },
+          {
+            "@type": "DefinedTerm",
+            "termCode": "vector"
+          },
+          {
+            "@type": "DefinedTerm",
+            "termCode": "table"
+          }
+        ]
+      },
+      "termCode": "vector"
+    },
+    {
+      "@type": "DefinedTerm",
+      "description": "GIS Vector Geometery",
+      "inDefinedTermSet": {
+        "@type": "DefinedTermSet",
+        "name": "vectorGeometry",
+        "hasDefinedTerm": [
+          {
+            "@type": "DefinedTerm",
+            "termCode": "point"
+          },
+          {
+            "@type": "DefinedTerm",
+            "termCode": "line"
+          },
+          {
+            "@type": "DefinedTerm",
+            "termCode": "polygon"
+          }
+        ]
+      },
+      "termCode": "multipolygon"
+    }
+  ],
+  "additionalProperty": [
+    {
+      "@type": "PropertyValue",
+      "propertyID": "http://dbpedia.org/resource/Spatial_reference_system",
+      "value": "https://epsg.io/3087"
+    }
+  ],
+  "about": [
+    {
+      "@type": "Event",
+      "description": "nan",
+      "name": "ETL process for 2026 MDC FLMA Managed Areas",
+      "potentialAction": {
+        "@type": "Action",
+        "name": "Pseudo Code",
+        "description": "TODO"
+      }
+    },
+    {
+      "@type": "Event",
+      "description": "nan",
+      "name": "ETL process for 2026 MDC FLMA Managed Areas",
+      "potentialAction": {
+        "@type": "Action",
+        "name": "subset",
+        "description": "Custom ETL process for 2026 MDC FLMA Managed Areas",
+        "object": {
+          "@type": "Dataset",
+          "producer": "Florida Natural Areas Inventory",
+          "url": "https://www.fnai.org/publications/gis-data"
+        },
+        "instrument": {
+          "@type": "SoftwareApplication",
+          "@id": "https://github.com/Geospatial-Digital-Special-Collections/tools",
+          "featureList": "county;=;'Miami-Dade'",
+          "downloadUrl": "https://github.com/Geospatial-Digital-Special-Collections/tools.git"
+        },
+        "result": {
+          "@type": "Dataset",
+          "name": "2026 MDC FLMA Managed Areas",
+          "description": "The State Parks are derived as a subset from The Florida Natural Areas Inventory. The Florida Natural Areas Inventory is the primary source for information on Florida's conservation lands. FNAI's database includes boundaries and statistics for more than 2,900 federal, state, local, and private managed areas, all provided directly by the managing agencies. National parks, state forests, wildlife management areas, local and private preserves are examples of the managed areas included. The shapefile is called FLMA for Florida Managed Areas; updated versions are published quarterly.\n\nFLORIDA CONSERVATION LANDS (layer name FLMA): This is a polygon data layer for public (and some private) lands that the Florida Natural Areas Inventory (FNAI) has identified as having natural resource value and that are being managed at least partially for conservation purposes. The term \"Managed Area\" refers to a managed conservation land.\n"
+        }
+      }
+    }
+  ],
+  "variableMeasured": [
+    {
+      "@type": "PropertyValue",
+      "name": "ma_id",
+      "description": "Managed Area ID, designed by NatureServe. Unique identifier for each Managed Area.",
+      "qudt:dataType": "float8",
+      "minValue": "63",
+      "maxValue": "3769"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "maname",
+      "description": "Official name of the Managed Area (conservation land)",
+      "qudt:dataType": "varchar"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "majorma",
+      "description": "Official name of the Major Managed Area.  Major Managed Area refers to a larger Managed Area that contains the Managed Area in question.",
+      "qudt:dataType": "varchar"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "matype",
+      "description": "Code for the Managed Area by lead managing agency. Each Managed Area has been coded as 1st byte = Managing Agency Category: F=Federal, S=State, L=Local, P=Private, 2nd and 3rd bytes = Managing Agency: (e.g., AF= US Air Force), 4th and 5th bytes = Managed Area Unit Type (e.g., AB= Air Force Base)",
+      "qudt:dataType": "varchar"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "managing_a",
+      "description": "Name of the lead managing agency for the Managed Area.",
+      "qudt:dataType": "varchar"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "matype2",
+      "description": "Code for Managed Area by managing agency category.",
+      "qudt:dataType": "varchar"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "owner",
+      "description": "Name of the main owner of the Managed Area",
+      "qudt:dataType": "varchar"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "coowners",
+      "description": "Name(s) of additional owner(s) of the managed area",
+      "qudt:dataType": "varchar"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "ownertypes",
+      "description": "Owner Types",
+      "qudt:dataType": "varchar"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "totacres",
+      "description": "Total number of acres within the Managed Area",
+      "qudt:dataType": "float8",
+      "unitText": "acres",
+      "minValue": "0.7",
+      "maxValue": "172971.11"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "ltf_acres",
+      "description": "Number of acres within the Managed Area that are in less-than-fee ownership.",
+      "qudt:dataType": "float8",
+      "unitText": "acres",
+      "minValue": "0",
+      "maxValue": "184.71"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "esmt_hold",
+      "description": "Easement Holder",
+      "qudt:dataType": "varchar"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "county",
+      "description": "Abbreviation (the first four letters of the county name) for the county",
+      "qudt:dataType": "varchar"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "prostat",
+      "description": "Protection Status as 1, 2, or 3",
+      "qudt:dataType": "double"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "descript",
+      "description": "General description of the Managed Area",
+      "qudt:dataType": "varchar"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "comments",
+      "description": "General comments",
+      "qudt:dataType": "varchar"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "manager",
+      "description": "Name and/or official job title of the current manager of the Managed Area.",
+      "qudt:dataType": "varchar"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "mgrinst",
+      "description": "Manager Institution",
+      "qudt:dataType": "varchar"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "mgrcity",
+      "description": "Manager City.",
+      "qudt:dataType": "varchar"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "mgrphone",
+      "description": "Manager Phone",
+      "qudt:dataType": "varchar"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "ma_website",
+      "description": "Managed Area Web Site",
+      "qudt:dataType": "varchar"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "maname_ab",
+      "description": "A shortened (abbreviated) name of the Managed Area",
+      "qudt:dataType": "varchar"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "digbnd_src",
+      "description": "Digital Boundary Source",
+      "qudt:dataType": "varchar"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "citation",
+      "description": "Suggested Citation",
+      "qudt:dataType": "varchar"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "shape_length",
+      "description": "Perimeter in meters.",
+      "qudt:dataType": "float8",
+      "unitText": "meters",
+      "minValue": "218.777995272167",
+      "maxValue": "371136.272304891"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "shape_area",
+      "description": "Area in square meters.",
+      "qudt:dataType": "float8",
+      "unitText": "square meters",
+      "minValue": "2814.22698527822",
+      "maxValue": "702991929.615823"
+    }
+  ],
+  "distribution": "/data/mdc_2026_flma/",
+  "isBasedOn": [
+    {
+      "@id": "https://gdsc.idsc.miami.edu/details/fl_2026_flma",
+      "@type": "Dataset",
+      "name": "fl_2026_flma",
+      "url": "https://gdsc.idsc.miami.edu/details/fl_2026_flma"
+    }
+  ],
+  "dateModified": "2026-10-05 23:29:50",
+  "version": "2026-10-09"
+}

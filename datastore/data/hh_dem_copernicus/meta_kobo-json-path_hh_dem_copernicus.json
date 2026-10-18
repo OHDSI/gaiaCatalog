@@ -1,0 +1,144 @@
+{
+  "control_group": {
+    "id": 323
+  },
+  "dublin_core_group": {
+    "title": "Huayhuash DEM 10m (Copernicus)",
+    "creator_group": [
+      {
+        "creator_name": "Copernicus",
+        "creator_type": "organization",
+        "creator_identifier": "https://ror.org/00yafkq43",
+        "creator_identifier_schema": "ror",
+        "creator_identifier_schema_uri": "https://ror.org/"
+      }
+    ],
+    "url": "https://cds.climate.copernicus.eu/datasets/reanalysis-era5-land",
+    "publisher_group": [
+      {
+        "publisher_name": "OHDSI"
+      }
+    ],
+    "rights": "Public Domain",
+    "license": "odc_by",
+    "license_text": "Open Data Commons Attribution License (ODC-By): http://opendatacommons.org/licenses/by/1.0/",
+    "coverage_group": [
+      {
+        "coverage_name": "Tanzania",
+        "coverage_identifier": "149590",
+        "coverage_identifier_schema": "geonames",
+        "coverage_identifier_schema_uri": "https://www.geonames.org/"
+      }
+    ],
+    "time_period_start": "1984-01-01",
+    "time_period_end": "1984-12-31",
+    "resource_type": "Raster Dataset",
+    "publication_date": "2025-06-01",
+    "description": "A raster dataset with yearly averages of the 2m temperature from the ERA 5 renanalysis data from Copernicus satellite sensors for Tanzania. ERA5 is the fifth generation ECMWF reanalysis for the global climate and weather for the past 8 decades. Data is available from 1940 onwards. ERA5 replaces the ERA-Interim reanalysis.",
+    "provenance": "Copernicus",
+    "subject_group": [
+      {
+        "subject_term": "Tanzania"
+      },
+      {
+        "subject_term": "temperature"
+      }
+    ],
+    "language": "en",
+    "size_group": [
+      {
+        "size_bytes": "0",
+        "size_human_readable": "0"
+      }
+    ]
+  },
+  "iso_group": {
+    "structure": "raster",
+    "band_group": [
+      {
+        "band_name": "t2m"
+      }
+    ],
+    "pixel_dimension": 0.25,
+    "dimension_units": "decimal_degrees",
+    "epsg": 4326,
+    "extent": "ENVELOPE(29,41,-0.8,-12)",
+    "lineage": "TBD",
+    "process_step": "#########\n# GDSC ETL is performed in two steps: shell script to ETL data into postgres\n# and then additional transformations with SQL in postGIS (if needed).\n####\n\n#########\n# Step 1 - bash script (pseudo code)\n####\n\n# create directory structure and move into it\nmkdir -p /data/hh_dem_copernicus/download -p /data/hh_dem_copernicus/etl\nchmod -R 777 /data/hh_dem_copernicus\ncd /data/hh_dem_copernicus\n\n# set update flag based on last update and update frequency\ndo_update=0 if date() < last_update + update_frequency else do_update = 1\n\n# clone a git repo and run the code# save netcdf as tif\ncd download\ngdal_translate NETCDF:hh_dem_copernicus.nc:2m_temperature hh_dem_copernicus.tif\ncd ..\n\n\n#########\n# Step 2 - SQL script (pseudo code):\n####\n\n# load raster into postGIS with:\n    raster2pgsql -s 4326 -d -C -I -t auto hh_dem_copernicus.tif -F hh_dem_copernicus > load_raster.sql\npsql <connection options> < load_raster.sql\nrm load_raster.sql\n\n# Move into corrrect directory and create derivative directory in data package on osgeo\ncd /data/hh_dem_copernicus/\nmkdir -p derived\n\n# Create downloadable zip of download/geotiff in derivate directory \nrm -f derived/hh_dem_copernicus.tif.tar.gz\ntar -czf derived/hh_dem_copernicus.tif.tar.gz meta_dcat_hh_dem_copernicus.json -C download hh_dem_copernicus.tif\n\n# Move into correct directory\ncd /data/hh_dem_copernicus/\n\n",
+    "processor": "GDSC automation (see Process Step)",
+    "point_of_contact_group": [
+      {
+        "contact_name": "Timothy B. Norris",
+        "contact_last_name": "Norris",
+        "contact_first_name": "Timothy",
+        "contact_email": "tnorris@miami.edu",
+        "contact_identifier": "https://orcid.org/0000-0002-0898-3027",
+        "contact_identifier_schema": "orcid",
+        "contact_identifier_schema_uri": "https://orcid.org/",
+        "contact_affiliation": "University of Miami Libraries, Frost Institute for Data Science and Computing",
+        "contact_affiliation_identifier": "https://ror.org/02dgjyy92",
+        "contact_affiliation_schema": "ror",
+        "contact_affiliation_schema_uri": "https://ror.org/"
+      }
+    ],
+    "data_level": "derived"
+  },
+  "cartography_group": {
+    "attributes_group": [
+      {
+        "attribute_name": "2m_temperature",
+        "attribute_description": "Average yearly 2m temperature in Kelvin from Copernicus reanalysis era5 single levels",
+        "attribute_source": "Copernicus",
+        "attribute_type": "float",
+        "attribute_unit": "Kelvin",
+        "attribute_unit_concept_id": "9523",
+        "attribute_min_value": "287.315857",
+        "attribute_max_value": "301.010986",
+        "attribute_start_date": "1984-01-01",
+        "attribute_end_date": "1984-12-31",
+        "attribute_concept_id": "35814756",
+        "attribute_external_id": "2m_temperature@tz_1984_copernicus_avg_temp"
+      }
+    ]
+  },
+  "collection_group": {
+    "collections": "hh-conservacion",
+    "analytic_function": "gdsc_zonal_statistics",
+    "analytic_epsg": 4326,
+    "derivatives": "geotiff",
+    "derivative_url": "/data/hh_dem_copernicus/",
+    "sponsor_group": [
+      {
+        "sponsor_name": "IDSC",
+        "sponsor_url": "https://idsc.miami.edu"
+      },
+      {
+        "sponsor_name": "Library",
+        "sponsor_url": "https://www.library.miami.edu"
+      }
+    ],
+    "status": "draft"
+  },
+  "etl_group": {
+    "source": "https://github.com/tibbben/copernicus_aggregate.git",
+    "file_name_group": [
+      {
+        "file_name_value": "hh_dem_copernicus"
+      }
+    ],
+    "extension": "zip",
+    "table_name": "hh_dem_copernicus",
+    "format": "nc",
+    "custom_etl": "github_code",
+    "custom_parameters": "python|copernicus_aggregate.py|json;table;extension;extent;attributes;bands;format|1984",
+    "up": "true",
+    "podid": "gaia-db",
+    "last_updated": "2026-10-17 22:45:04",
+    "update_frequency": "As Needed",
+    "checksum": "TBD"
+  },
+  "_submission_time": "2026-10-17 22:45:05",
+  "meta": {
+    "instanceID": "2ac7803f-0740-40f4-b0c7-c1778499618"
+  }
+}

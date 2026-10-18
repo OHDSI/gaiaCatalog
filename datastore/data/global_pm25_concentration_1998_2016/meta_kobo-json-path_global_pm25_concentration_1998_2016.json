@@ -1,12 +1,6 @@
 {
   "control_group": {
-    "id": 136,
-    "external_id_group": [
-      {
-        "external_id_type": "ohdsi",
-        "external_id_value": "5150"
-      }
-    ]
+    "id": 136
   },
   "dublin_core_group": {
     "title": "Annual PM2.5 Concentrations for Countries and Urban Areas, v1 (1998\u200a\u2013\u200a2016)",
@@ -25,7 +19,7 @@
         "publisher_name": "University of Miami GDSC"
       }
     ],
-    "rights": "public_domain",
+    "rights": "Public Domain",
     "coverage_group": [
       {
         "coverage_name": "Earth",
@@ -34,7 +28,7 @@
         "coverage_identifier_schema_uri": "https://www.geonames.org/"
       }
     ],
-    "resource_type": "vector_dataset",
+    "resource_type": "Vector Dataset",
     "publication_date": "2021-04-06",
     "description": "The Annual PM2.5 Concentrations for Countries and Urban Areas, 1998-2016, consists of mean concentrations of particulate matter (PM2.5) for countries and urban areas. The PM2.5 data are from the Global Annual PM2.5 Grids from MODIS, MISR and SeaWiFS Aerosol Optical Depth (AOD) with GWR, 1998-2016. The urban areas are from the Global Rural-Urban Mapping Project, Version 1 (GRUMPv1): Urban Extent Polygons, Revision 02, and its time series runs from 1998 to 2016. The country averages are population-weighted such that concentrations in populated areas count more toward the country average than concentrations in less populated areas, and its time series runs from 2008 to 2015",
     "provenance": "Direct from source",
@@ -59,10 +53,11 @@
   },
   "iso_group": {
     "structure": "vector",
-    "geometry": "polygon",
+    "geometry": "multipolygon",
     "epsg": 4326,
+    "extent": "ENVELOPE(-176.733337,179.458313,78.274611,-54.858002)",
     "lineage": "TBD",
-    "process_step": "#########\n# GDSC ETL is performed in two steps: shell script to ETL data into postgres\n# and then additional transformations with SQL in postGIS (if needed).\n####\n\n#########\n# Step 1 - bash script (pseudo code)\n####\n\n# create directory structure and move into it\nmkdir -p /data/global_pm25_concentration_1998_2016/download -p /data/global_pm25_concentration_1998_2016/etl\nchmod 777 /data/global_pm25_concentration_1998_2016/download\ncd /data/global_pm25_concentration_1998_2016\n\n# set update flag based on last update and update frequency\ndo_update=0 if date() < last_update + update_frequency else do_update = 1\n\n# download if update flag is set:\nif do_update == 1 then\nwget -O download/global_pm25_concentration_1998_2016.zip 'https://sedac.ciesin.columbia.edu/downloads/data/sdei/sdei-annual-pm2-5-concentrations-countries-urban-areas-v1-1998-2016/sdei-annual-pm2-5-concentrations-countries-urban-areas-v1-1998-2016-urban-areas-shp.zip'\n\n# unzip to download directory if update flag is set\nif do_update == 1 then\nunzip -d download download/global_pm25_concentration_1998_2016.zip && rm download/global_pm25_concentration_1998_2016.zip\n\n# load into postGIS with:\n  ogr2ogr -lco GEOMETRY_NAME=geom -f PostgreSQL PG:\"<postgres connection>\" download/sdei-annual-pm2-5-concentrations-countries-urban-areas-v1-1998-2016-urban-areas.shp -nlt multipolygon -nln global_pm25_concentration_1998_2016\n\n#########\n# Step 2 - SQL script (pseudo code):\n####\n\n# remove duplicate points and make geometries valid:\nUPDATE global_pm25_concentration_1998_2016\n  SET geom=ST_MakeValid(ST_RemoveRepeatedPoints(geom));\n\n# add local geometry column and reproject existing geometries into local EPSG:\nSELECT AddGeometryColumn (\n  'global_pm25_concentration_1998_2016',\n  'geom_local', 3857, 'multipolygon', 2\n);\nUPDATE global_pm25_concentration_1998_2016\n  SET geom_local=ST_MakeValid(ST_RemoveRepeatedPoints(ST_Transform(ST_Multi(geom),3857)));\nCREATE INDEX global_pm25_concentration_1998_2016_geom_local_idx\n  ON global_pm25_concentration_1998_2016\n  USING GIST (geom_local);\nNOTIFY pgrst, 'reload schema';\n# Move into corrrect directory and create derivative directory in data package on osgeo\ncd /data/global_pm25_concentration_1998_2016/\nmkdir -p derived\n\n# Create shapefile of table in derivate directory on osgeo \nogr2ogr -f \"ESRI Shapefile\" -overwrite derived/global_pm25_concentration_1998_2016.shp PG:\"<postgres connection>\" global_pm25_concentration_1998_2016\n\n# Create downloadable tarfile of shp in derivative directory on osgeo\nrm -f derived/global_pm25_concentration_1998_2016.shp.tar.gz\ntar -czf derived/global_pm25_concentration_1998_2016.shp.tar.gz meta_dcat_global_pm25_concentration_1998_2016.json -C derived global_pm25_concentration_1998_2016.shp global_pm25_concentration_1998_2016.prj global_pm25_concentration_1998_2016.shx global_pm25_concentration_1998_2016.dbf\n\n# Move into correct directory\ncd /data/global_pm25_concentration_1998_2016/\n\n# Create pg_dump of table SQL in derivate directory on postgis.\npg_dump <postgres opts> -h gaia-db -t global_pm25_concentration_1998_2016 > derived/global_pm25_concentration_1998_2016.sql\n\n# Create downloadable tarfile of SQL in derivative directory on postgis\nrm -f derived/global_pm25_concentration_1998_2016.sql.tar.gz\ntar -czf derived/global_pm25_concentration_1998_2016.sql.tar.gz meta_dcat_global_pm25_concentration_1998_2016.json -C derived global_pm25_concentration_1998_2016.sql\n\n",
+    "process_step": "#########\n# GDSC ETL is performed in two steps: shell script to ETL data into postgres\n# and then additional transformations with SQL in postGIS (if needed).\n####\n\n#########\n# Step 1 - bash script (pseudo code)\n####\n\n# create directory structure and move into it\nmkdir -p /data/global_pm25_concentration_1998_2016/download -p /data/global_pm25_concentration_1998_2016/etl\nchmod -R 777 /data/global_pm25_concentration_1998_2016\ncd /data/global_pm25_concentration_1998_2016\n\n# set update flag based on last update and update frequency\ndo_update=0 if date() < last_update + update_frequency else do_update = 1\n\n# download if update flag is set:\nif do_update == 1 then\nwget --retry-connrefused --waitretry=1 --read-timeout=20 --timeout=15 -t 10 -O download/global_pm25_concentration_1998_2016.zip 'https://sedac.ciesin.columbia.edu/downloads/data/sdei/sdei-annual-pm2-5-concentrations-countries-urban-areas-v1-1998-2016/sdei-annual-pm2-5-concentrations-countries-urban-areas-v1-1998-2016-urban-areas-shp.zip' 2>&1\n\n# unzip to download directory if update flag is set\nif do_update == 1 then\nunzip -o download/global_pm25_concentration_1998_2016.zip -d download && rm download/global_pm25_concentration_1998_2016.zip 2>&1\n\n# load into postGIS with:\nogr2ogr -lco GEOMETRY_NAME=geom -f PostgreSQL PG:\"<postgres connection>\" download/sdei-annual-pm2-5-concentrations-countries-urban-areas-v1-1998-2016-urban-areas.shp -nlt multipolygon -nln global_pm25_concentration_1998_2016\necho success: sdei-annual-pm2-5-concentrations-countries-urban-areas-v1-1998-2016-urban-areas.shp loaded with ogr2ogr\n\n\n#########\n# Step 2 - SQL script (pseudo code):\n####\n\n# remove duplicate points and make geometries valid:\nUPDATE global_pm25_concentration_1998_2016\n  SET geom=ST_MakeValid(ST_RemoveRepeatedPoints(geom));\n\n# add local geometry column and reproject existing geometries into local EPSG:\nALTER TABLE global_pm25_concentration_1998_2016 DROP COLUMN IF EXISTS geom_local CASCADE;\nSELECT AddGeometryColumn (\n  'global_pm25_concentration_1998_2016',\n  'geom_local', 3857, 'multipolygon', 2\n);\nUPDATE global_pm25_concentration_1998_2016\n  SET geom_local=ST_MakeValid(ST_RemoveRepeatedPoints(ST_Transform(ST_Multi(geom),3857)));\nCREATE INDEX global_pm25_concentration_1998_2016_geom_local_idx\n  ON global_pm25_concentration_1998_2016\n  USING GIST (geom_local);\nNOTIFY pgrst, 'reload schema';\n# Move into corrrect directory and create derivative directory in data package on osgeo\ncd /data/global_pm25_concentration_1998_2016/\nmkdir -p derived\n\n# Create shapefile of table in derivate directory on osgeo \nogr2ogr -f \"ESRI Shapefile\" -overwrite derived/global_pm25_concentration_1998_2016.shp PG:\"<postgres connection>\" global_pm25_concentration_1998_2016\n\n# Create downloadable tarfile of shp in derivative directory on osgeo\nrm -f derived/global_pm25_concentration_1998_2016.shp.tar.gz\ntar -czf derived/global_pm25_concentration_1998_2016.shp.tar.gz meta_dcat_global_pm25_concentration_1998_2016.json -C derived global_pm25_concentration_1998_2016.shp global_pm25_concentration_1998_2016.prj global_pm25_concentration_1998_2016.shx global_pm25_concentration_1998_2016.dbf\n\n# Move into correct directory\ncd /data/global_pm25_concentration_1998_2016/\n\n# Create pg_dump of table SQL in derivate directory on postgis.\npg_dump <postgres opts> -h gaia-db -t global_pm25_concentration_1998_2016 > derived/global_pm25_concentration_1998_2016.sql\n\n# Create downloadable tarfile of SQL in derivative directory on postgis\nrm -f derived/global_pm25_concentration_1998_2016.sql.tar.gz\ntar -czf derived/global_pm25_concentration_1998_2016.sql.tar.gz meta_dcat_global_pm25_concentration_1998_2016.json -C derived global_pm25_concentration_1998_2016.sql\n\n",
     "processor": "GDSC automation (see Process Step)",
     "point_of_contact_group": [
       {
@@ -79,8 +74,7 @@
         "contact_affiliation_schema_uri": "https://ror.org/"
       }
     ],
-    "data_level": "derived",
-    "extent": "POLYGON((-176.733337 -54.858002, 179.458313 -54.858002, 179.458313 78.274611, -176.733337 78.274611, -176.733337 -54.858002))"
+    "data_level": "derived"
   },
   "cartography_group": {
     "label": "name",
@@ -457,11 +451,11 @@
     "up": "false",
     "podid": "gaia-db",
     "last_updated": "2025-05-23 08:47:15",
-    "update_frequency": "as_needed",
+    "update_frequency": "As Needed",
     "checksum": "TBD"
   },
-  "_submission_time": "2026-08-23 15:55:26",
+  "_submission_time": "2026-10-09 23:31:19",
   "meta": {
-    "instanceID": "3237159f-7496-4cbc-9279-b6877567146"
+    "instanceID": "fa6aa22d-5382-4f0c-96b6-d1087258410"
   }
 }

@@ -17,7 +17,7 @@ do_update=0 if date() < last_update + update_frequency else do_update = 1
 
 # download if update flag is set:
 if do_update == 1 then
-OPENSSL_CONF=/openssl/openssl.conf curl -o download/us_2023_annual_aqi_by_county.zip 'https://aqs.epa.gov/aqsweb/airdata/annual_aqi_by_county_2023.zip' 2>&1
+curl -o download/us_2023_annual_aqi_by_county.zip 'https://aqs.epa.gov/aqsweb/airdata/annual_aqi_by_county_2023.zip' 2>&1
 
 # unzip to download directory if update flag is set
 if do_update == 1 then

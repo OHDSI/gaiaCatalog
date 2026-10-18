@@ -1,0 +1,158 @@
+{
+  "_submission_time": "2026-10-10 22:07:54",
+  "cartography_group": {
+    "attributes_group": [
+      {
+        "attribute_name": "Temperature",
+        "attribute_description": "Average surface temperature in degrees celsius",
+        "attribute_source": "Derived from LandSat data",
+        "attribute_type": "float32",
+        "attribute_unit": "celsius",
+        "attribute_min_value": "0",
+        "attribute_max_value": "33.87421798706055",
+        "attribute_start_date": "2013",
+        "attribute_end_date": "2022"
+      }
+    ],
+    "color_ramp": "33 127 39 4 255\n  31.20 166 54 3 255\n  29.04 217 72 1 255\n  26.70 241 105 19 255\n  24.36 253 141 60 255\n  22.02 253 174 107 255\n  19.68 253 208 162 255\n  17.34 254 230 206 255\n  15 255 245 235 255\n  0 0 0 0 0",
+    "legend": "TBD",
+    "tile_url_group": [
+      {
+        "tile_base_url": "https://gdsc.idsc.miami.edu/rastertiles/mdc_2013_2022_avg_lst_30m/"
+      },
+      {
+        "tile_base_url": "{z}/{x}/{y}.png"
+      },
+      {
+        "tile_base_url": "leaflet.html"
+      }
+    ],
+    "tile_zoom_group": [
+      {
+        "tile_min_zoom": "8"
+      },
+      {
+        "tile_min_zoom": "16"
+      }
+    ]
+  },
+  "collection_group": {
+    "analytic_epsg": "2236",
+    "analytic_function": "gdsc_zonal_statistics",
+    "collections": "mdc-health-outcomes mdc-sleep-outcomes",
+    "derivative_url": "/data/mdc_2013_2022_lst_30m/mdc_2013_2022_avg_lst_30m/",
+    "derivatives": "sql",
+    "sponsor_group": [
+      {
+        "sponsor_name": "IDSC",
+        "sponsor_url": "https://idsc.miami.edu"
+      },
+      {
+        "sponsor_name": "Library",
+        "sponsor_url": "https://www.library.miami.edu"
+      }
+    ],
+    "status": "draft"
+  },
+  "control_group": {
+    "id": "116"
+  },
+  "dublin_core_group": {
+    "coverage_group": [
+      {
+        "coverage_identifier": "4164238",
+        "coverage_identifier_schema": "geonames",
+        "coverage_identifier_schema_uri": "https://www.geonames.org/",
+        "coverage_name": "Miami-Dade County"
+      }
+    ],
+    "creator_group": [
+      {
+        "creator_first_name": "Nkosi",
+        "creator_last_name": "Muse",
+        "creator_name": "Nkosi Muse",
+        "creator_type": "person"
+      }
+    ],
+    "description": "This data collection is comprised of statistical summary as an average from LST scenes (processed in ArcGIS) that were captured at 11 AM EDT/12 PM EST by the Landsat 8 satellite (2013-2022). Scenes are Level 2-1, retrieved from the USGS Earth Explorer. Processed LST rasters in TIFF format are composed of 30x30m pixels that contain a LST value in Celsius (\u00b0C) for that area. Each raster image is clipped to Miami-Dade County boundaries (downloaded from the Miami-Dade County Open Data Hub). ",
+    "doi": "https://doi.org/10.17604/0zp4-6280",
+    "language": "en",
+    "publication_date": "2024-05-20",
+    "publisher_group": [
+      {
+        "publisher_name": "University of Miami GDSC"
+      }
+    ],
+    "resource_type": "Raster Dataset",
+    "rights": "Public Domain",
+    "size_group": [
+      {
+        "size_bytes": "288539313",
+        "size_human_readable": "276M"
+      }
+    ],
+    "subject_group": [
+      {
+        "subject_term": "Miami-Dade County"
+      },
+      {
+        "subject_term": "LST"
+      }
+    ],
+    "title": "Miami-Dade Average Land Surface Temperature 2013-2022",
+    "url": "https://scholarship.miami.edu/esploro/outputs/991032051519802976"
+  },
+  "etl_group": {
+    "checksum": "TBD",
+    "download": "wget",
+    "etl_parameters": "-t 48x48",
+    "extension": "zip",
+    "file_name_group": [
+      {
+        "file_inside_archive": "LST_Avg_Scenes/AvgMDC_LST_2013_2022",
+        "file_name_value": "mdc_2013_2022_lst_30m"
+      }
+    ],
+    "format": "tif",
+    "last_updated": "2026-10-10 22:07:46",
+    "podid": "gaia-db",
+    "source": "https://scholarship.miami.edu/view/fileRedirect?instCode=01UOML_INST&filePid=13440658420002976&download=true",
+    "table_name": "mdc_2013_2022_avg_lst_30m",
+    "up": "true",
+    "update_frequency": "As Needed"
+  },
+  "iso_group": {
+    "band_group": [
+      {
+        "band_name": "30-meter LST"
+      }
+    ],
+    "data_level": "derived",
+    "dimension_units": "meters",
+    "epsg": "32617",
+    "extent": "ENVELOPE(-80.874749,-80.035894,25.982708,25.134154)",
+    "lineage": "TBD",
+    "pixel_dimension": "30.0",
+    "point_of_contact_group": [
+      {
+        "contact_affiliation": "University of Miami Libraries, Frost Institute for Data Science and Computing",
+        "contact_affiliation_identifier": "https://ror.org/02dgjyy92",
+        "contact_affiliation_schema": "ror",
+        "contact_affiliation_schema_uri": "https://ror.org/",
+        "contact_email": "tnorris@miami.edu",
+        "contact_first_name": "Timothy",
+        "contact_identifier": "https://orcid.org/0000-0002-0898-3027",
+        "contact_identifier_schema": "orcid",
+        "contact_identifier_schema_uri": "https://orcid.org/",
+        "contact_last_name": "Norris",
+        "contact_name": "Timothy B. Norris"
+      }
+    ],
+    "process_step": "#########\n# GDSC ETL is performed in two steps: shell script to ETL data into postgres\n# and then additional transformations with SQL in postGIS (if needed).\n####\n\n#########\n# Step 1 - bash script (pseudo code)\n####\n\n# create directory structure and move into it\nmkdir -p /data/mdc_2013_2022_lst_30m/download -p /data/mdc_2013_2022_lst_30m/mdc_2013_2022_avg_lst_30m/etl\nchmod -R 777 /data/mdc_2013_2022_lst_30m\ncd /data/mdc_2013_2022_lst_30m\n\n# set update flag based on last update and update frequency\ndo_update=0 if date() < last_update + update_frequency else do_update = 1\n\n# download if update flag is set:\nif do_update == 1 then\nwget --retry-connrefused --waitretry=1 --read-timeout=20 --timeout=15 -t 10 -O download/mdc_2013_2022_lst_30m.zip 'https://scholarship.miami.edu/view/fileRedirect?instCode=01UOML_INST&filePid=13440658420002976&download=true' 2>&1\n\n# unzip to download directory if update flag is set\nif do_update == 1 then\nunzip -o download/mdc_2013_2022_lst_30m.zip -d download && rm download/mdc_2013_2022_lst_30m.zip 2>&1\n\n# load raster into postGIS with:\n    raster2pgsql -s 32617 -d -C -I -t 48x48 LST_Avg_Scenes/AvgMDC_LST_2013_2022.tif -F mdc_2013_2022_avg_lst_30m > load_raster.sql\npsql <connection options> < load_raster.sql\nrm load_raster.sql\n\n# create color raster\nmkdir -p /tiles/raster/mdc_2013_2022_avg_lst_30m\nmkdir -p /data/mdc_2013_2022_lst_30m/mdc_2013_2022_avg_lst_30m/derived\ncd /data/mdc_2013_2022_lst_30m\ncat > /data/mdc_2013_2022_lst_30m/mdc_2013_2022_avg_lst_30m/derived/mdc_2013_2022_avg_lst_30m_color_ramp.txt <<_EOF\n33 127 39 4 255\n  31.20 166 54 3 255\n  29.04 217 72 1 255\n  26.70 241 105 19 255\n  24.36 253 141 60 255\n  22.02 253 174 107 255\n  19.68 253 208 162 255\n  17.34 254 230 206 255\n  15 255 245 235 255\n  0 0 0 0 0\n_EOF\ngdaldem color-relief download/LST_Avg_Scenes/AvgMDC_LST_2013_2022.tif /data/mdc_2013_2022_lst_30m/mdc_2013_2022_avg_lst_30m/derived/mdc_2013_2022_avg_lst_30m_color_ramp.txt /data/mdc_2013_2022_lst_30m/mdc_2013_2022_avg_lst_30m/derived/mdc_2013_2022_avg_lst_30m_color.tif -alpha\n# create color raster and render raster tiles \nmkdir -p /data/mdc_2013_2022_lst_30m/mdc_2013_2022_avg_lst_30m/derived\nmkdir -p /tiles/raster/mdc_2013_2022_avg_lst_30m\ncd /data/mdc_2013_2022_lst_30m\necho \"iVBORw0KGgoAAAANSUhEUgAAAF0AAACrCAYAAAAEupDHAAAKeklEQVR4nO2dCUwUTRbH3wwQDgUPNioKGkRUFhQNGFcQBQ+8PqIRT4LGGNDEBVEiiBtXDYs3xjsxamKiRI2iGLyN8Q5ekxhBWDxBBBVEORQRRqzNq4TZAWGYA6e6h/dLOsNMd1fT/379uvpVvSoFY4wBYVaU5j0cQaILgkQXAIkuABJdACS6AEh0AZDoAiDRBUCiC4BEFwCJLgASXQAdWnS1Wg0igqxGiT558mRQKBQtLh8/fgQ58OvXLxg2bBjU1dWZ/dgKU+Pprq6ukJaWBsHBwSAnfv78CTY2NlBbWwt2dnbydy/Xr1+HoUOHQpcuXWD27NlQUVHBf1epVBASEgJLliwBBwcHCAoKguzsbPDz8wNHR0dITEzUbDd69GiIiIgAe3t7CAwMhDdv3rRZ/oMHD2DkyJEwatQobgwo6LZt22DQoEFga2sLXl5ecOfOHb4tlo9g+ZmZmeDj46Mp/969e/wuaK3M1o6vN8xE+vTpw27evKn5XlJSwhwdHVlGRgarrKxksbGxLCIigq97/PgxUygUbPfu3ay6upoFBAQwV1dXlpOTw54+fcrs7OxYcXGxZrvk5GRWUVHB4uLiWFBQUJvl379/H+9aduHCBVZaWsqysrKYu7s7KywsZDU1NWzVqlUsODiYb6tWq/m2tbW17O7du8zb21tzDvjd19e3xTJ1HV9f2l30ffv2sbCwMM13PFkbGxtWV1fHxXR2dtasS0pKYlFRUZrvXl5e7OHDh3w7FxcX1tDQoCnD2tqalZWV6SwfBdIuXxvcNzU1lfn4+BgsunaZuo6vL9bQzhQXF8P58+f5Q1WboqIi/uns7Kz5zcrKit+ijSiVSv6Aw89+/frxTwRdUdeuXeHTp09tlt+zZ88mtZP4+Hg4efIk9+EeHh5G1Va0y9R1/AEDBojx6b169YIFCxbwk9NeGv8hRbN/tjW0a0E1NTVQWVkJLi4uBpV/6NAhyMrKgkePHnG/u2HDhhaPhRcXL1Aj5eXlTdZrl9nW8YWIPmPGDP5gunLlClRXV8Phw4fBzc2tyUnpQ2FhIezfvx+qqqpgzZo1MGHCBOjWrZtB5aPQ+IDGu+vFixdc9MYqorW1NRe7rKyM31UFBQVw48YNKC0tha1bt/7R82t30fEETpw4AQkJCdwqDh48COfOnePVM0Nwd3fnVoo1hufPn8ORI0cMLn/p0qXcSvEOmTdvHq8doXv4+vUrX4+/eXp68gu7efNmmD9/Pvj7+/Na0588P5Pr6X8ClUoFkZGRkJ+fD5ZIhw4DiEKSlm7pkKULgES3ZNExnqEd32jtAWpIfVeuSMrS/f394dWrV2DpGC362bNnYeDAgdCpUyeYOnUqfP78mf+uTwROrVbDokWL+Db9+/eHTZs2/Wbpze8M7chfa/tbtOj49rZw4ULYtWsXvHv3Dnr37g2rV6+G9+/fw8yZMyE5OZnHIvClJCYm5rf909PT+UsK7osXae/evZCbm6v38U3dX5aiX7x4ESZOnMgtvHv37vxVGJeMjAzemIGvymiFW7ZsgdOnT0N9fX2T/Tt37gx5eXlw/PhxHuf+8OEDeHt76318U/eXpegY7cN4Q3O0I3C4oOtBV9AYAWwkLCwMVqxYwS8KloMXz5CGAFP3l6Xo6DZKSkp++92QCFxiYiIPamHLEUb1jh49alDkr639LU70adOmcV+KC4ZcU1JSuPXpG4Hbvn07TJ8+nVsnXigMFqHLaB7wai3yp8/+koYZSWZmJhs8eDBzcHBgoaGhvJkNuXTpEm+dsbe3ZyNGjGAqlUrTGtPYOlNbW8ubuJycnHjTV3R0NKuvr+ctRh4eHppjYEtPjx49eJPenj17NK05re0vFyj20tFfjjoKJLoASHQBkOgCINEFQKILgEQXAIkuABJdACS6AEh0AchW9AMHDvAIJkYXFy9eDD9+/NBrnSRgMkSlUjE3Nzf25MkTVl5ezkJCQlhKSkqb66RCu/dPNwd+fn5NWqOwXfb27dttrpMKsnUvjaDAmGg2adIkg9aJxChL3zDYsG7PxrIhX3efb8ywiI2N5ZkaAQEBeq8TjVGNGP/xMo9X+vd/f+q1HfZdX7t2LbdsTKnRd52sRN/0d/OI/q88/UT//v0773mADdTaOU1trZOVT7dSmGdpjTNnzvCc0GfPnvGsCkxrGT58OBdV1zqpYJTJWgt+/IaHh/MeXaGhofDt2zcYM2YM7+jU1jqpYJR72TXUPO5lRbZ+7kVuGKWerlufaBsSXQCy9OlyhyxdACS6AEh0AZBPFwDJJxtLV1BHX1Mg9yIfS2//f6QjYZToNmTpJkGWLgDy6QKg2osAyKcLgHy6AMinC4AsXQDk0wVA8snF0pVK8i/mF92KbhABopOlmwJZugCUxvp0cyy62LhxI09xwc6h48ePh9evX/PfcTC3lmalwaGu5C26ldIsS2tcvXoVjh07Brdu3eLjn/v6+vLR8xAc20t7KKtly5ZBVFQUHxJc1n0ZP0aaZ+imXmnf9J5VoG/fvnxAeu1R/XEsxzlz5vDx13HweqlgET49KysLhgwZ8tvUDzhW5Lp16yQluEXU04uKiiAuLk4zk0AjOA8GTsmAI5VKDVlbekFBAU/iwgmkcM4MbdDnz5071+yzdVl0PT0/P58PE7hz504+ZGFzLl++zCcykSKytPQvX77wSQvRmnEqtubgeI1YhcSBlqWINPyEgezYsQPevn3LU1u06+KY7oLgyKQ41i+OlCpFjKoyfo39/wxXfxLHvaVgiRjlXhQSycfsYKLLckgByUCWLgCydAGQpQuARBcAuRcBkKULgCxdAGTpAiBLF4AsA15yxziTVZJ7Mb/o5F5MgkQXAIkuH59OopsCWboASHQBkOgCIJ8uALJ0AZDoAiDRBSDbgNfGVjIxtElISOCTf1uG6PggNcdiRCYGgrO9xMfHQ2pqKlhMt7pfFxLAHCj/2m5UJgbO6I5/29ragre3NyQlJYGUsAifntUsEwNnW8dZ1mNiYkCKGCm6eSYiMTYTAwWXMrK29AIdmRhSRraWnt9GJoYFhgFsJJ2JIXVk6V52aGViaIOzveAkgVLHuCrjA/MkUCn/8U+wRGRp6XJHtg9SOUOiC0C2Aa+OZ+kK6uFlCtRcJwASXQDUgVQAZOkCINEFQLUXAZClC4BEFwDVXgRAli6blEYS3SQo4CWfKiNdK1Mg0QVAL0fyqb2QpZsCWboAyKcLgEQXAIUBBKA02tLNsehBSykuy5cvbzLwsb+/P1iA6FbmWXSgK8UlLy8Prl27ppmMRKVSgZSQrU+Pjo7mKS6RkZEtio6ZGVLFKPUUSiuzLLrAFJdTp07xcdK1qayshPLycp74hT14sWcvzv4if0t3+BuIplcrKS65ubng4OAA69ev59aenJwM4eHhkJOT89vsMKIQ7yfamcDAQG7t+Onk5MQfsi9fvuS5SVLB4kRvjlqthoaGBknNAmNxoqenp4OnpydkZ2dDVVUVrFy5EsaOHQs9e5pnSgl9sLgmoFmzZvHay5QpU3hu0rhx4yAtLQ1kn/5CmIbFuRc5QKILgEQXAIkuABJdACS6AEh0MD//A2quBUUoAXEIAAAAAElFTkSuQmCC\" | base64 -d > /data/mdc_2013_2022_lst_30m/mdc_2013_2022_avg_lst_30m/derived/mdc_2013_2022_avg_lst_30m_legend.png\ncp /data/mdc_2013_2022_lst_30m/mdc_2013_2022_avg_lst_30m/derived/mdc_2013_2022_avg_lst_30m_legend.png /tiles/raster/mdc_2013_2022_avg_lst_30m/\n# render raster tiles \ncd /data/mdc_2013_2022_lst_30m/mdc_2013_2022_avg_lst_30m/\ngdal2tiles.py -ex --xyz -z 8-16 /data/mdc_2013_2022_lst_30m/mdc_2013_2022_avg_lst_30m/derived/mdc_2013_2022_avg_lst_30m_color.tif /tiles/raster/mdc_2013_2022_avg_lst_30m\n# Move into corrrect directory and create derivative directory in data package on osgeo\ncd /data/mdc_2013_2022_lst_30m/mdc_2013_2022_avg_lst_30m/\nmkdir -p derived\n\n# Move into correct directory\ncd /data/mdc_2013_2022_lst_30m/mdc_2013_2022_avg_lst_30m/\n\n# Create pg_dump of table SQL in derivate directory on postgis.\npg_dump <postgres opts> -h gaia-db -t mdc_2013_2022_avg_lst_30m > derived/mdc_2013_2022_avg_lst_30m.sql\n\n# Create downloadable tarfile of SQL in derivative directory on postgis\nrm -f derived/mdc_2013_2022_avg_lst_30m.sql.tar.gz\ntar -czf derived/mdc_2013_2022_avg_lst_30m.sql.tar.gz meta_dcat_mdc_2013_2022_avg_lst_30m.json -C derived mdc_2013_2022_avg_lst_30m.sql\n\n",
+    "processor": "GDSC automation (see Process Step)",
+    "structure": "raster"
+  },
+  "meta": {
+    "instanceID": "b8ece58c-d8d4-4e3c-ae4a-65512684134"
+  }
+}

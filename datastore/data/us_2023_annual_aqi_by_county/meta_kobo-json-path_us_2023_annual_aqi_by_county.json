@@ -1,0 +1,309 @@
+{
+  "control_group": {
+    "id": 326
+  },
+  "dublin_core_group": {
+    "title": "2023 US EPA Annual AQI by County ",
+    "creator_group": [
+      {
+        "creator_name": "US Environmental Protection Agency",
+        "creator_type": "organization"
+      }
+    ],
+    "url": "https://aqs.epa.gov/aqsweb/airdata/download_files.html",
+    "publisher_group": [
+      {
+        "publisher_name": "US Environmental Protection Agency"
+      }
+    ],
+    "rights": "Public Domain",
+    "license_text": "Unless otherwise specified, all data produced by the U.S EPA is by default in the public domain and is not subject to domestic copyright protection under 17 U.S.C. \u00a7 105 . More details on the U.S. Public Domain license are available here:\u00a0\n\nhttp://www.usa.gov/publicdomain/label/1.0/\u00a0\n\nAdditionally, please be advised that although these data have been processed successfully on a computer system at the U.S. EPA, no warranty expressed or implied is made regarding the accuracy or utility of the data on any other system or for general or scientific purposes, nor shall the act of distribution constitute any such warranty.",
+    "coverage_group": [
+      {
+        "coverage_name": "United States",
+        "coverage_identifier": "6252001",
+        "coverage_identifier_schema": "geonames",
+        "coverage_identifier_schema_uri": "https://www.geonames.org/"
+      }
+    ],
+    "time_period_start": "2023-01-01",
+    "time_period_end": "2023-12-31",
+    "relation_group": [
+      {
+        "relation_title": "us_2020_census_county_fips"
+      },
+      {
+        "relation_title": "us_2023_county_tl"
+      }
+    ],
+    "resource_type": "Vector Dataset",
+    "publication_date": "2022-11-14",
+    "description": "The AirData Air Quality Index Summary Report displays an annual summary of Air Quality Index (AQI) values for counties or core based statistical areas (CBSA). Air Quality Index is an indicator of overall air quality, because it takes into account all of the criteria air pollutants measured within a geographic area. Although AQI includes all available pollutant measurements, you should be aware that many areas have monitoring stations for some, but not all, of the pollutants. Each row of the AQI Report lists summary values for one year for one county or CBSA. The summary values include both qualitative measures (days of the year having \"good\" air quality, for example) and descriptive statistics (median AQI value, for example).\n\nSummary statistics for the current year are incomplete because data are still being reported and quality assured. Data for the current year are considered preliminary until May 1 of the following year. Therefore, comparing reported values for the current year with previous years may not be valid.\n\nsee https://www.epa.gov/outdoor-air-quality-data/about-air-data-reports for more information.",
+    "provenance": "The Air Quality Index (AQI) values are presented in several files. AQI is calculated each day for each monitor for the Criteria Gases and PM10 and PM2.5 (FRM and non FRM). The AQI values are on the respective records in those Daily Summary files. There are also annual summary AQI files that show by CBSA (metro area) or county the annual statistics for AQI (max, number of values in each category, etc.). This file has one record per year per CBSA or county. There are also daily summary files that show the AQI by CBSA or county. These have one record per day per CBSA or county.",
+    "subject_group": [
+      {
+        "subject_term": "EPA"
+      },
+      {
+        "subject_term": "AQI"
+      },
+      {
+        "subject_term": "annual"
+      },
+      {
+        "subject_term": "USA"
+      },
+      {
+        "subject_term": "county"
+      }
+    ],
+    "language": "en",
+    "size_group": [
+      {
+        "size_bytes": "68744",
+        "size_human_readable": "68K"
+      }
+    ]
+  },
+  "iso_group": {
+    "structure": "table",
+    "geometry": "multipolygon",
+    "extent": "TBD",
+    "lineage": "TBD",
+    "process_step": "#########\n# GDSC ETL is performed in two steps: shell script to ETL data into postgres\n# and then additional transformations with SQL in postGIS (if needed).\n####\n\n#########\n# Step 1 - bash script (pseudo code)\n####\n\n# create directory structure and move into it\nmkdir -p /data/us_2023_annual_aqi_by_county/download -p /data/us_2023_annual_aqi_by_county/etl\nchmod -R 777 /data/us_2023_annual_aqi_by_county\ncd /data/us_2023_annual_aqi_by_county\n\n# set update flag based on last update and update frequency\ndo_update=0 if date() < last_update + update_frequency else do_update = 1\n\n# download if update flag is set:\nif do_update == 1 then\ncurl -o download/us_2023_annual_aqi_by_county.zip 'https://aqs.epa.gov/aqsweb/airdata/annual_aqi_by_county_2023.zip' 2>&1\n\n# unzip to download directory if update flag is set\nif do_update == 1 then\nunzip -o download/us_2023_annual_aqi_by_county.zip -d download && rm download/us_2023_annual_aqi_by_county.zip 2>&1\n\n# remove spaces, periods, and leading numerical digits in column headers (if needed)\n  if (head -n 1 download/annual_aqi_by_county_2023.csv | grep -qE '\s|\.|\\"[0-9]'); then\n    sed -i '1s/ /_/g; 1s/\.//g; 1s/\\"\([0-9]\)/\\"n\1/g' download/annual_aqi_by_county_2023.csv 2>&1\n  fi\n\n# load into postGIS with:\nogr2ogr -lco GEOMETRY_NAME=geom -f PostgreSQL PG:\"<postgres connection>\" download/annual_aqi_by_county_2023.csv -nlt multipolygon -nln us_2023_annual_aqi_by_county\necho success: annual_aqi_by_county_2023.csv loaded with ogr2ogr\n\n# rename data table to temp\npsql -d gaiacore -U postgres -p 5432 -h gaia-db -c \"\nALTER SEQUENCE IF EXISTS us_2023_annual_aqi_by_county_ogc_fid_seq RENAME TO temp_ogc_fid_seq;\nALTER INDEX IF EXISTS us_2023_annual_aqi_by_county_geom_geom_idx RENAME TO temp_geom_idx;\nALTER TABLE IF EXISTS us_2023_annual_aqi_by_county RENAME CONSTRAINT us_2023_annual_aqi_by_county_pkey TO temp_pkey;\nALTER TABLE us_2023_annual_aqi_by_county RENAME TO temp;\"\n\n# Create copy of geom dependency\npg_dump -d gaiacore -U postgres -p 5432 -h gaia-db -t us_2023_county_tl | sed 's/us_2023_county_tl/us_2023_annual_aqi_by_county/g' | psql -d gaiacore -U postgres -p 5432 -h gaia-db\n\n# join as per custom parameters\npsql -d gaiacore -U postgres -p 5432 -h gaia-db -c \"\nALTER TABLE temp ADD COLUMN geoid varchar;\nUPDATE temp SET geoid = CONCAT(us_2020_census_county_fips.state,us_2020_census_county_fips.county)\n  FROM us_2020_census_county_fips\n  WHERE position(temp.state in us_2020_census_county_fips.state_name)>0\n  AND position(temp.county in us_2020_census_county_fips.county_name)>0;\n\nALTER TABLE us_2023_annual_aqi_by_county ADD COLUMN state varchar;\nUPDATE us_2023_annual_aqi_by_county SET state=temp.state::varchar\n  FROM temp\n  WHERE us_2023_annual_aqi_by_county.geoid = temp.geoid;\n\nALTER TABLE us_2023_annual_aqi_by_county ADD COLUMN county varchar;\nUPDATE us_2023_annual_aqi_by_county SET county=temp.county::varchar\n  FROM temp\n  WHERE us_2023_annual_aqi_by_county.geoid = temp.geoid;\n\nALTER TABLE us_2023_annual_aqi_by_county ADD COLUMN year varchar;\nUPDATE us_2023_annual_aqi_by_county SET year=temp.year::varchar\n  FROM temp\n  WHERE us_2023_annual_aqi_by_county.geoid = temp.geoid;\n\nALTER TABLE us_2023_annual_aqi_by_county ADD COLUMN days_with_aqi int4;\nUPDATE us_2023_annual_aqi_by_county SET days_with_aqi=temp.days_with_aqi::int4\n  FROM temp\n  WHERE us_2023_annual_aqi_by_county.geoid = temp.geoid;\n\nALTER TABLE us_2023_annual_aqi_by_county ADD COLUMN good_days int4;\nUPDATE us_2023_annual_aqi_by_county SET good_days=temp.good_days::int4\n  FROM temp\n  WHERE us_2023_annual_aqi_by_county.geoid = temp.geoid;\n\nALTER TABLE us_2023_annual_aqi_by_county ADD COLUMN moderate_days int4;\nUPDATE us_2023_annual_aqi_by_county SET moderate_days=temp.moderate_days::int4\n  FROM temp\n  WHERE us_2023_annual_aqi_by_county.geoid = temp.geoid;\n\nALTER TABLE us_2023_annual_aqi_by_county ADD COLUMN unhealthy_for_sensitive_groups_days int4;\nUPDATE us_2023_annual_aqi_by_county SET unhealthy_for_sensitive_groups_days=temp.unhealthy_for_sensitive_groups_days::int4\n  FROM temp\n  WHERE us_2023_annual_aqi_by_county.geoid = temp.geoid;\n\nALTER TABLE us_2023_annual_aqi_by_county ADD COLUMN unhealthy_days int4;\nUPDATE us_2023_annual_aqi_by_county SET unhealthy_days=temp.unhealthy_days::int4\n  FROM temp\n  WHERE us_2023_annual_aqi_by_county.geoid = temp.geoid;\n\nALTER TABLE us_2023_annual_aqi_by_county ADD COLUMN very_unhealthy_days int4;\nUPDATE us_2023_annual_aqi_by_county SET very_unhealthy_days=temp.very_unhealthy_days::int4\n  FROM temp\n  WHERE us_2023_annual_aqi_by_county.geoid = temp.geoid;\n\nALTER TABLE us_2023_annual_aqi_by_county ADD COLUMN hazardous_days int4;\nUPDATE us_2023_annual_aqi_by_county SET hazardous_days=temp.hazardous_days::int4\n  FROM temp\n  WHERE us_2023_annual_aqi_by_county.geoid = temp.geoid;\n\nALTER TABLE us_2023_annual_aqi_by_county ADD COLUMN max_aqi int4;\nUPDATE us_2023_annual_aqi_by_county SET max_aqi=temp.max_aqi::int4\n  FROM temp\n  WHERE us_2023_annual_aqi_by_county.geoid = temp.geoid;\n\nALTER TABLE us_2023_annual_aqi_by_county ADD COLUMN n90th_percentile_aqi int4;\nUPDATE us_2023_annual_aqi_by_county SET n90th_percentile_aqi=temp.n90th_percentile_aqi::int4\n  FROM temp\n  WHERE us_2023_annual_aqi_by_county.geoid = temp.geoid;\n\nALTER TABLE us_2023_annual_aqi_by_county ADD COLUMN median_aqi int4;\nUPDATE us_2023_annual_aqi_by_county SET median_aqi=temp.median_aqi::int4\n  FROM temp\n  WHERE us_2023_annual_aqi_by_county.geoid = temp.geoid;\n\nALTER TABLE us_2023_annual_aqi_by_county ADD COLUMN days_co int4;\nUPDATE us_2023_annual_aqi_by_county SET days_co=temp.days_co::int4\n  FROM temp\n  WHERE us_2023_annual_aqi_by_county.geoid = temp.geoid;\n\nALTER TABLE us_2023_annual_aqi_by_county ADD COLUMN days_no2 int4;\nUPDATE us_2023_annual_aqi_by_county SET days_no2=temp.days_no2::int4\n  FROM temp\n  WHERE us_2023_annual_aqi_by_county.geoid = temp.geoid;\n\nALTER TABLE us_2023_annual_aqi_by_county ADD COLUMN days_ozone int4;\nUPDATE us_2023_annual_aqi_by_county SET days_ozone=temp.days_ozone::int4\n  FROM temp\n  WHERE us_2023_annual_aqi_by_county.geoid = temp.geoid;\n\nALTER TABLE us_2023_annual_aqi_by_county ADD COLUMN days_pm25 int4;\nUPDATE us_2023_annual_aqi_by_county SET days_pm25=temp.days_pm25::int4\n  FROM temp\n  WHERE us_2023_annual_aqi_by_county.geoid = temp.geoid;\n\nALTER TABLE us_2023_annual_aqi_by_county ADD COLUMN days_pm10 int4;\nUPDATE us_2023_annual_aqi_by_county SET days_pm10=temp.days_pm10::int4\n  FROM temp\n  WHERE us_2023_annual_aqi_by_county.geoid = temp.geoid;\n\nDROP table temp;\n\"\n",
+    "processor": "GDSC automation (see Process Step)",
+    "point_of_contact_group": [
+      {
+        "contact_name": "Timothy B. Norris",
+        "contact_last_name": "Norris",
+        "contact_first_name": "Timothy",
+        "contact_email": "tnorris@miami.edu",
+        "contact_identifier": "https://orcid.org/0000-0002-0898-3027",
+        "contact_identifier_schema": "orcid",
+        "contact_identifier_schema_uri": "https://orcid.org/",
+        "contact_affiliation": "University of Miami Libraries, Frost Institute for Data Science and Computing",
+        "contact_affiliation_identifier": "https://ror.org/02dgjyy92",
+        "contact_affiliation_schema": "ror",
+        "contact_affiliation_schema_uri": "https://ror.org/"
+      }
+    ],
+    "data_level": "derived"
+  },
+  "cartography_group": {
+    "label": "county",
+    "attributes_group": [
+      {
+        "attribute_name": "state",
+        "attribute_description": "The state name.",
+        "attribute_type": "varchar"
+      },
+      {
+        "attribute_name": "county",
+        "attribute_description": "The county name.",
+        "attribute_type": "varchar"
+      },
+      {
+        "attribute_name": "year",
+        "attribute_description": "The year.",
+        "attribute_type": "varchar"
+      },
+      {
+        "attribute_name": "days_with_aqi",
+        "attribute_description": "Days with valid AQI index calculated.",
+        "attribute_type": "int4",
+        "attribute_unit": "days",
+        "attribute_min_value": "55",
+        "attribute_max_value": "365",
+        "attribute_start_date": "2023-01-01",
+        "attribute_end_date": "2023-12-31"
+      },
+      {
+        "attribute_name": "good_days",
+        "attribute_description": "Days with AQI measure from 0-50.",
+        "attribute_type": "int4",
+        "attribute_unit": "days",
+        "attribute_min_value": "36",
+        "attribute_max_value": "365",
+        "attribute_start_date": "2023-01-01",
+        "attribute_end_date": "2023-12-31"
+      },
+      {
+        "attribute_name": "moderate_days",
+        "attribute_description": "Days with AQI measure from 51-100.",
+        "attribute_type": "int4",
+        "attribute_unit": "days",
+        "attribute_min_value": "0",
+        "attribute_max_value": "277",
+        "attribute_start_date": "2023-01-01",
+        "attribute_end_date": "2023-12-31"
+      },
+      {
+        "attribute_name": "unhealthy_for_sensitive_groups_days",
+        "attribute_description": "Days with AQI measure from 101-150.",
+        "attribute_type": "int4",
+        "attribute_unit": "days",
+        "attribute_min_value": "0",
+        "attribute_max_value": "73",
+        "attribute_start_date": "2023-01-01",
+        "attribute_end_date": "2023-12-31"
+      },
+      {
+        "attribute_name": "unhealthy_days",
+        "attribute_description": "Days with AQI measure from 151-200.",
+        "attribute_type": "int4",
+        "attribute_unit": "days",
+        "attribute_min_value": "0",
+        "attribute_max_value": "44",
+        "attribute_start_date": "2023-01-01",
+        "attribute_end_date": "2023-12-31"
+      },
+      {
+        "attribute_name": "very_unhealthy_days",
+        "attribute_description": "Days with AQI measure from 201-300.",
+        "attribute_type": "int4",
+        "attribute_unit": "days",
+        "attribute_min_value": "0",
+        "attribute_max_value": "7",
+        "attribute_start_date": "2023-01-01",
+        "attribute_end_date": "2023-12-31"
+      },
+      {
+        "attribute_name": "hazardous_days",
+        "attribute_description": "Days with AQI measure from 301-500.",
+        "attribute_type": "int4",
+        "attribute_unit": "days",
+        "attribute_min_value": "0",
+        "attribute_max_value": "6",
+        "attribute_start_date": "2023-01-01",
+        "attribute_end_date": "2023-12-31"
+      },
+      {
+        "attribute_name": "max_aqi",
+        "attribute_description": "The maximum AQI in the county for the year.",
+        "attribute_type": "int4",
+        "attribute_unit": "AQI",
+        "attribute_min_value": "29",
+        "attribute_max_value": "1829",
+        "attribute_start_date": "2023-01-01",
+        "attribute_end_date": "2023-12-31"
+      },
+      {
+        "attribute_name": "n90th_percentile_aqi",
+        "attribute_description": "90 percent of daily AQI values during the year were less than or equal to the 90th percentile value.",
+        "attribute_type": "int4",
+        "attribute_unit": "AQI",
+        "attribute_min_value": "12",
+        "attribute_max_value": "164",
+        "attribute_start_date": "2023-01-01",
+        "attribute_end_date": "2023-12-31"
+      },
+      {
+        "attribute_name": "median_aqi",
+        "attribute_description": "Half of daily AQI values during the year were less than or equal to the median value, and half equaled or exceeded it.",
+        "attribute_type": "int4",
+        "attribute_unit": "AQI",
+        "attribute_min_value": "3",
+        "attribute_max_value": "77",
+        "attribute_start_date": "2023-01-01",
+        "attribute_end_date": "2023-12-31"
+      },
+      {
+        "attribute_name": "days_co",
+        "attribute_description": "The number of days CO was the main pollutant used to calculate the AQI.",
+        "attribute_type": "int4",
+        "attribute_unit": "days",
+        "attribute_min_value": "0",
+        "attribute_max_value": "134",
+        "attribute_start_date": "2023-01-01",
+        "attribute_end_date": "2023-12-31"
+      },
+      {
+        "attribute_name": "days_no2",
+        "attribute_description": "The number of days NO2 was the main pollutant used to calculate the AQI.",
+        "attribute_type": "int4",
+        "attribute_unit": "days",
+        "attribute_min_value": "0",
+        "attribute_max_value": "362",
+        "attribute_start_date": "2023-01-01",
+        "attribute_end_date": "2023-12-31"
+      },
+      {
+        "attribute_name": "days_ozone",
+        "attribute_description": "The number of days Ozone was the main pollutant used to calculate the AQI.",
+        "attribute_type": "int4",
+        "attribute_unit": "days",
+        "attribute_min_value": "0",
+        "attribute_max_value": "365",
+        "attribute_start_date": "2023-01-01",
+        "attribute_end_date": "2023-12-31"
+      },
+      {
+        "attribute_name": "days_pm25",
+        "attribute_description": "The number of days PM2.5 was the main pollutant used to calculate the AQI.",
+        "attribute_type": "int4",
+        "attribute_unit": "days",
+        "attribute_min_value": "0",
+        "attribute_max_value": "365",
+        "attribute_start_date": "2023-01-01",
+        "attribute_end_date": "2023-12-31"
+      },
+      {
+        "attribute_name": "days_pm10",
+        "attribute_description": "The number of days PM10 was the main pollutant used to calculate the AQI.",
+        "attribute_type": "int4",
+        "attribute_unit": "days",
+        "attribute_min_value": "0",
+        "attribute_max_value": "365",
+        "attribute_start_date": "2023-01-01",
+        "attribute_end_date": "2023-12-31"
+      }
+    ]
+  },
+  "collection_group": {
+    "collections": "climate-change mdc-health-outcomes vulnerability ohdsi-gaia",
+    "analytic_function": "gdsc_get_attributes",
+    "derivative_url": "/data/us_2023_annual_aqi_by_county/",
+    "sponsor_group": [
+      {
+        "sponsor_name": "IDSC",
+        "sponsor_url": "https://idsc.miami.edu"
+      },
+      {
+        "sponsor_name": "Library",
+        "sponsor_url": "https://www.library.miami.edu"
+      }
+    ],
+    "disclaimer": "\"The data were generated as part of work covered by an approved Quality Assurance Project Plan (QAPP) or equivalent quality controls. It is strongly recommended that careful attention be paid to the contents of the metadata file associated with these data to evaluate data set limitations, restrictions or intended use. The U.S. EPA shall not be held liable for improper or incorrect use of the data.\n\nDatasets hosted outside of epa.gov\n\nEPA has relinquished control of the information and no longer has responsibility to protect the integrity, confidentiality or availability of the information. Any reference to specific commercial products, processes, or services by service mark, trademark, manufacturer, or otherwise, does not constitute or imply their endorsement, recommendation or favoring by EPA. The EPA seal and logo shall not be used in any manner to imply endorsement of any commercial product or activity by EPA or the United States Government.\""
+  },
+  "etl_group": {
+    "source": "https://aqs.epa.gov/aqsweb/airdata/annual_aqi_by_county_2023.zip",
+    "file_name_group": [
+      {
+        "file_name_value": "us_2023_annual_aqi_by_county",
+        "file_inside_archive": "annual_aqi_by_county_2023"
+      }
+    ],
+    "extension": "zip",
+    "download": "curl",
+    "table_name": "us_2023_annual_aqi_by_county",
+    "format": "csv",
+    "dependency_group": [
+      {
+        "dependency_table_name": "us_2020_census_county_fips"
+      },
+      {
+        "dependency_table_name": "us_2023_county_tl"
+      }
+    ],
+    "custom_etl": "annual_epa_aqs_county",
+    "up": "true",
+    "podid": "gaia-db",
+    "last_updated": "2026-09-09 15:46:59",
+    "update_frequency": "As Needed",
+    "checksum": "TBD"
+  },
+  "_submission_time": "2026-10-09 23:54:06",
+  "meta": {
+    "instanceID": "c9e12a2e-b54b-4e39-a280-e6124308129"
+  }
+}

@@ -50,7 +50,7 @@
       "name": "bbox",
       "geo": {
         "@type": "GeoShape",
-        "polygon": "29.6 -11.6489089 29.6 -0.9997506 40.4319387 -0.9997506 40.4319387 -11.6489089 29.6 -11.6489089"
+        "polygon": "TBD"
       }
     }
   ],
@@ -65,6 +65,7 @@
     "Villages",
     "Hamlets"
   ],
+  "@language": "en",
   "measurementTechnique": [
     {
       "@type": "DefinedTerm",
@@ -176,33 +177,22 @@
     {
       "@type": "PropertyValue",
       "name": "name",
-      "description": "Place/settlement name",
-      "qudt:dataType": "varchar"
+      "description": "Place/settlement name"
     },
     {
       "@type": "PropertyValue",
       "name": "place",
-      "description": "Kind of settlement as City, Town, Village, Hamlet, City Block, or other",
-      "qudt:dataType": "varchar"
+      "description": "Kind of settlement as City, Town, Village, Hamlet, City Block, or other"
     },
     {
       "@type": "PropertyValue",
       "name": "other_tags",
-      "description": "Any other OSM tags with values",
-      "qudt:dataType": "varchar"
+      "description": "Any other OSM tags with values"
     }
   ],
   "distribution": [
     "https://gdsc.idsc.miami.edu/download/data/tz_populated_places_osm/?file=tz_populated_places_osm&format=shp"
   ],
-  "isBasedOn": [
-    {
-      "@id": "https://gdsc.idsc.miami.edu/details/api",
-      "@type": "Dataset",
-      "name": "api",
-      "url": "https://gdsc.idsc.miami.edu/details/api"
-    }
-  ],
-  "dateModified": "2025-02-24",
-  "version": "2026-09-13"
+  "dateModified": "2025-09-07 11:08:15",
+  "version": "2026-10-09"
 }

@@ -1,0 +1,13 @@
+{
+  "Index": 12,
+  "Title": "US Census Bureau Data",
+  "Creator": "U.S. Census Bureau;Organizational;;;https://ror.org/01qn7cs15;ROR;https://ror.org/",
+  "Publisher": "Frost Institute for Data Science and Computing, University of Miami;https://ror.org/02dgjyy92;ROR;https://ror.org/|University of Miami Libraries, University of Miami;https://ror.org/02dgjyy92;ROR;https://ror.org/",
+  "Contributor": "IDSC;https://idsc.miami.edu|Library;https://www.library.miami.edu",
+  "Coverage": "Miami-Dade County;gazeteer;https://www.geonames.org/4164238;geonames;https://www.geonames.org/",
+  "Description": "All data in GDSC sourced from the US Census Bureau.",
+  "Language": "en",
+  "CollectionID": "us-census",
+  "Count": 25,
+  "Status": "published"
+}

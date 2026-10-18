@@ -1,0 +1,251 @@
+{
+  "control_group": {
+    "id": 128
+  },
+  "dublin_core_group": {
+    "title": "Miami-Dade County Municipal Park Boundaries",
+    "creator_group": [
+      {
+        "creator_name": "Miami-Dade County Open Data Hub",
+        "creator_type": "organization"
+      },
+      {
+        "creator_name": "Information Technology Department",
+        "creator_type": "organization"
+      }
+    ],
+    "url": "https://gis-mdc.opendata.arcgis.com/datasets/MDC::municipal-park-boundary/about",
+    "publisher_group": [
+      {
+        "publisher_name": "Miami-Dade County"
+      }
+    ],
+    "rights": "Public Domain",
+    "coverage_group": [
+      {
+        "coverage_name": "Miami-Dade County",
+        "coverage_identifier": "4164238",
+        "coverage_identifier_schema": "geonames",
+        "coverage_identifier_schema_uri": "https://www.geonames.org/"
+      }
+    ],
+    "resource_type": "Vector Dataset",
+    "publication_date": "2018-06-05",
+    "description": "A polygon feature class of Miami-Dade Municipal (Incorporated) Maintained Parks and Recreational boundary.",
+    "subject_group": [
+      {
+        "subject_term": "Miami-Dade County"
+      }
+    ],
+    "language": "en",
+    "size_group": [
+      {
+        "size_bytes": "1481388",
+        "size_human_readable": "1.5M"
+      }
+    ]
+  },
+  "iso_group": {
+    "structure": "vector",
+    "geometry": "multipolygon",
+    "epsg": 4326,
+    "extent": "ENVELOPE(-80.494577,-80.118706,25.974518,25.440561)",
+    "lineage": "TBD",
+    "process_step": "#########\n# GDSC ETL is performed in two steps: shell script to ETL data into postgres\n# and then additional transformations with SQL in postGIS (if needed).\n####\n\n#########\n# Step 1 - bash script (pseudo code)\n####\n\n# create directory structure and move into it\nmkdir -p /data/mdc_municipal_park_boundaries/download -p /data/mdc_municipal_park_boundaries/etl\nchmod -R 777 /data/mdc_municipal_park_boundaries\ncd /data/mdc_municipal_park_boundaries\n\n# set update flag based on last update and update frequency\ndo_update=0 if date() < last_update + update_frequency else do_update = 1\n\n# download if update flag is set:\nif do_update == 1 then\nwget --retry-connrefused --waitretry=1 --read-timeout=20 --timeout=15 -t 10 -O download/mdc_municipal_park_boundaries.geojson 'https://opendata.arcgis.com/api/v3/datasets/16fe02a1defa45b28bf14a29fb5f0428_0/downloads/data?format=geojson&spatialRefId=4326&where=1%3D1' 2>&1\n\n# load into postGIS with:\nogr2ogr -lco GEOMETRY_NAME=geom -f PostgreSQL PG:\"<postgres connection>\" download/mdc_municipal_park_boundaries.geojson -nlt multipolygon -nln mdc_municipal_park_boundaries\necho success: mdc_municipal_park_boundaries.geojson loaded with ogr2ogr\n\n\n#########\n# Step 2 - SQL script (pseudo code):\n####\n\n# remove duplicate points and make geometries valid:\nUPDATE mdc_municipal_park_boundaries\n  SET geom=ST_MakeValid(ST_RemoveRepeatedPoints(geom));\n\n# add local geometry column and reproject existing geometries into local EPSG:\nALTER TABLE mdc_municipal_park_boundaries DROP COLUMN IF EXISTS geom_local CASCADE;\nSELECT AddGeometryColumn (\n  'mdc_municipal_park_boundaries',\n  'geom_local', 2236, 'multipolygon', 2\n);\nUPDATE mdc_municipal_park_boundaries\n  SET geom_local=ST_MakeValid(ST_RemoveRepeatedPoints(ST_Transform(ST_Multi(geom),2236)));\nCREATE INDEX mdc_municipal_park_boundaries_geom_local_idx\n  ON mdc_municipal_park_boundaries\n  USING GIST (geom_local);\nNOTIFY pgrst, 'reload schema';\n",
+    "processor": "GDSC automation (see Process Step)",
+    "point_of_contact_group": [
+      {
+        "contact_name": "Timothy B. Norris",
+        "contact_last_name": "Norris",
+        "contact_first_name": "Timothy",
+        "contact_email": "tnorris@miami.edu",
+        "contact_identifier": "https://orcid.org/0000-0002-0898-3027",
+        "contact_identifier_schema": "orcid",
+        "contact_identifier_schema_uri": "https://orcid.org/",
+        "contact_affiliation": "University of Miami Libraries, Frost Institute for Data Science and Computing",
+        "contact_affiliation_identifier": "https://ror.org/02dgjyy92",
+        "contact_affiliation_schema": "ror",
+        "contact_affiliation_schema_uri": "https://ror.org/"
+      }
+    ],
+    "data_level": "observed"
+  },
+  "cartography_group": {
+    "label": "objectid",
+    "attributes_group": [
+      {
+        "attribute_name": "objectid",
+        "attribute_description": "Unique object identifer",
+        "attribute_source": "Esri",
+        "attribute_type": "int4",
+        "attribute_min_value": "1",
+        "attribute_max_value": "563",
+        "attribute_start_date": "2018-06-01",
+        "attribute_end_date": "2025-06-30"
+      },
+      {
+        "attribute_name": "folio",
+        "attribute_description": "Folio identifier",
+        "attribute_source": "MDC",
+        "attribute_type": "varchar",
+        "attribute_start_date": "2018-06-01",
+        "attribute_end_date": "2025-06-30"
+      },
+      {
+        "attribute_name": "id",
+        "attribute_description": "Unique identifier",
+        "attribute_source": "MDC",
+        "attribute_type": "varchar",
+        "attribute_start_date": "2018-06-01",
+        "attribute_end_date": "2025-06-30"
+      },
+      {
+        "attribute_name": "name",
+        "attribute_description": "Name of park facility",
+        "attribute_source": "MDC",
+        "attribute_type": "varchar",
+        "attribute_start_date": "2018-06-01",
+        "attribute_end_date": "2025-06-30"
+      },
+      {
+        "attribute_name": "address",
+        "attribute_description": "Address of facility",
+        "attribute_source": "MDC",
+        "attribute_type": "varchar",
+        "attribute_start_date": "2018-06-01",
+        "attribute_end_date": "2025-06-30"
+      },
+      {
+        "attribute_name": "city",
+        "attribute_description": "City of park facility",
+        "attribute_source": "MDC",
+        "attribute_type": "varchar",
+        "attribute_start_date": "2018-06-01",
+        "attribute_end_date": "2025-06-30"
+      },
+      {
+        "attribute_name": "zipcode",
+        "attribute_description": "Zipcode of park facility",
+        "attribute_source": "MDC",
+        "attribute_type": "int4",
+        "attribute_min_value": "33010",
+        "attribute_max_value": "33189",
+        "attribute_start_date": "2018-06-01",
+        "attribute_end_date": "2025-06-30"
+      },
+      {
+        "attribute_name": "phone",
+        "attribute_description": "Phone number of facility",
+        "attribute_source": "numeric",
+        "attribute_type": "varchar",
+        "attribute_max_value": "2018-06-01",
+        "attribute_start_date": "2025-06-30"
+      },
+      {
+        "attribute_name": "contact",
+        "attribute_description": "Official contact of facility",
+        "attribute_source": "MDC",
+        "attribute_type": "varchar",
+        "attribute_start_date": "2018-06-01",
+        "attribute_end_date": "2025-06-30"
+      },
+      {
+        "attribute_name": "class",
+        "attribute_description": "classification of facility",
+        "attribute_source": "MDC",
+        "attribute_type": "varchar",
+        "attribute_start_date": "2018-06-01",
+        "attribute_end_date": "2025-06-30"
+      },
+      {
+        "attribute_name": "totacre",
+        "attribute_description": "Total acres",
+        "attribute_source": "MDC",
+        "attribute_type": "float8",
+        "attribute_min_value": "0.03441150887",
+        "attribute_max_value": "646.19840651663",
+        "attribute_start_date": "2018-06-01",
+        "attribute_end_date": "2025-06-30"
+      },
+      {
+        "attribute_name": "type",
+        "attribute_description": "type of facility",
+        "attribute_source": "MDC",
+        "attribute_type": "varchar",
+        "attribute_start_date": "2018-06-01",
+        "attribute_end_date": "2025-06-30"
+      },
+      {
+        "attribute_name": "develop",
+        "attribute_description": "Developed or not",
+        "attribute_source": "MDC",
+        "attribute_type": "varchar",
+        "attribute_start_date": "2018-06-01",
+        "attribute_end_date": "2025-06-30"
+      },
+      {
+        "attribute_name": "mngtagcy",
+        "attribute_description": "Managing agency",
+        "attribute_source": "MDC",
+        "attribute_type": "varchar",
+        "attribute_start_date": "2018-06-01",
+        "attribute_end_date": "2025-06-30"
+      },
+      {
+        "attribute_name": "shape_area",
+        "attribute_description": "Municipal park boundary",
+        "attribute_source": "Esri",
+        "attribute_type": "double",
+        "attribute_start_date": "2018-06-01",
+        "attribute_end_date": "2025-06-30"
+      },
+      {
+        "attribute_name": "shape_length",
+        "attribute_description": "Municipal park boundary length",
+        "attribute_source": "Esri",
+        "attribute_type": "double",
+        "attribute_start_date": "2018-06-01",
+        "attribute_end_date": "2025-06-30"
+      }
+    ]
+  },
+  "collection_group": {
+    "collections": "mdc-health-outcomes mdc-sleep-outcomes mdc-climate-resilience",
+    "analytic_function": "gdsc_get_attributes",
+    "analytic_epsg": 2236,
+    "derivative_url": "/data/mdc_municipal_park_boundaries/",
+    "sponsor_group": [
+      {
+        "sponsor_name": "IDSC",
+        "sponsor_url": "https://idsc.miami.edu"
+      },
+      {
+        "sponsor_name": "Library",
+        "sponsor_url": "https://www.library.miami.edu"
+      }
+    ],
+    "status": "draft",
+    "disclaimer": "Miami-Dade County provides this data for use \"as is\". The areas depicted by this map/data are approximate, and are not accurate to surveying or engineering standards. The maps/data shown here are for illustration purposes only and are not suitable for site-specific decision making. Information found here should not be used for making financial or any other commitments. Miami-Dade County provides this information with the understanding that it is not guaranteed to be accurate, correct or complete and conclusions drawn from such information are the sole responsibility of the user. While every effort has been made to ensure the accuracy, correctness and timeliness of materials presented, Miami-Dade County assumes no responsibility for errors or omissions, even if Miami-Dade County is advised of the possibility of such damage."
+  },
+  "etl_group": {
+    "source": "https://opendata.arcgis.com/api/v3/datasets/16fe02a1defa45b28bf14a29fb5f0428_0/downloads/data?format=geojson&spatialRefId=4326&where=1%3D1",
+    "file_name_group": [
+      {
+        "file_name_value": "mdc_municipal_park_boundaries"
+      }
+    ],
+    "extension": "geojson",
+    "download": "wget",
+    "table_name": "mdc_municipal_park_boundaries",
+    "format": "geojson",
+    "up": "true",
+    "podid": "gaia-db",
+    "last_updated": "2026-10-05 22:06:17",
+    "update_frequency": "6 months",
+    "checksum": "TBD"
+  },
+  "_submission_time": "2026-10-09 23:52:51",
+  "meta": {
+    "instanceID": "4814572c-390f-49ed-8833-25723745620"
+  }
+}

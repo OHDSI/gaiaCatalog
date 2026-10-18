@@ -1,0 +1,213 @@
+{
+  "@context": {
+    "@vocab": "https://schema.org/",
+    "dct": "http://purl.org/dc/terms/",
+    "qudt": "http://qudt.org/schema/qudt/",
+    "quantitykind": "http://qudt.org/vocab/quantitykind/",
+    "unit": "http://qudt.org/vocab/unit/",
+    "xsd": "http://www.w3.org/2001/XMLSchema",
+    "extendedConstraintProperty": "http://codata.org/vocab/extendedConstraintProperty",
+    "sdmx": "https://sdmx.org"
+  },
+  "@type": "Dataset",
+  "@id": "https://gdsc.idsc.miami.edu/detail/mdc_brownfield_site",
+  "includedInDataCatalog": [
+    {
+      "@type": "DataCatalog",
+      "@id": "https://gdsc.idsc.miami.edu",
+      "name": "Geospatial Digital Special Collections",
+      "url": "https://gdsc.idsc.miami.edu"
+    },
+    {
+      "@type": "DataCatalog",
+      "name": "vulnerability",
+      "@id": "https://gdsc.idsc.miami.edu/?collection=vulnerability",
+      "url": "https://gdsc.idsc.miami.edu/?collection=vulnerability"
+    }
+  ],
+  "name": "Miami-Dade Brownfield Sites",
+  "creator": [
+    {
+      "@type": "Organization",
+      "name": "Miami-Dade County-DERM"
+    }
+  ],
+  "url": "https://gis-mdc.opendata.arcgis.com/datasets/MDC::brownfield/about",
+  "provider": [
+    {
+      "@type": "Organization",
+      "name": "Miami-Dade County"
+    }
+  ],
+  "spatialCoverage": [
+    {
+      "@id": "https://www.geonames.org/4164238",
+      "@type": "Place",
+      "name": "Miami-Dade County"
+    },
+    {
+      "@type": "Place",
+      "name": "bbox",
+      "geo": {
+        "@type": "GeoShape",
+        "polygon": "25.433153 -80.501554 25.433153 -80.129116 25.972097 -80.129116 25.972097 -80.501554 25.433153 -80.501554"
+      }
+    }
+  ],
+  "type": "Vector Dataset",
+  "datePublished": "2018-06-05",
+  "description": "A polygon feature class of the brownfield areas within Miami-Dade County",
+  "keywords": [
+    "Florida",
+    "Miami-Dade County",
+    "MDC",
+    "Environment",
+    "Health",
+    "Safety",
+    "Pollution",
+    "Contamination",
+    "Clean-Up Site",
+    "Brownfield",
+    "Brownfield Site",
+    "Hazard",
+    "Public-Safety"
+  ],
+  "@language": "en",
+  "measurementTechnique": [
+    {
+      "@type": "DefinedTerm",
+      "description": "GIS Data Structure for Representation",
+      "inDefinedTermSet": {
+        "@type": "DefinedTermSet",
+        "name": "dataRepresentation",
+        "hasDefinedTerm": [
+          {
+            "@type": "DefinedTerm",
+            "termCode": "raster"
+          },
+          {
+            "@type": "DefinedTerm",
+            "termCode": "vector"
+          },
+          {
+            "@type": "DefinedTerm",
+            "termCode": "table"
+          }
+        ]
+      },
+      "termCode": "vector"
+    },
+    {
+      "@type": "DefinedTerm",
+      "description": "GIS Vector Geometery",
+      "inDefinedTermSet": {
+        "@type": "DefinedTermSet",
+        "name": "vectorGeometry",
+        "hasDefinedTerm": [
+          {
+            "@type": "DefinedTerm",
+            "termCode": "point"
+          },
+          {
+            "@type": "DefinedTerm",
+            "termCode": "line"
+          },
+          {
+            "@type": "DefinedTerm",
+            "termCode": "polygon"
+          }
+        ]
+      },
+      "termCode": "multipolygon"
+    }
+  ],
+  "additionalProperty": [
+    {
+      "@type": "PropertyValue",
+      "propertyID": "http://dbpedia.org/resource/Spatial_reference_system",
+      "value": "https://epsg.io/4326"
+    }
+  ],
+  "about": [
+    {
+      "@type": "Event",
+      "description": " direct from source",
+      "name": "ETL process for Miami-Dade Brownfield Sites",
+      "potentialAction": {
+        "@type": "Action",
+        "name": "Pseudo Code",
+        "description": "TODO"
+      }
+    },
+    {
+      "@type": "Event",
+      "description": " direct from source",
+      "name": "ETL process for Miami-Dade Brownfield Sites",
+      "potentialAction": {
+        "@type": "Action",
+        "name": "wget",
+        "description": "ETL process for Miami-Dade Brownfield Sites",
+        "object": {
+          "@type": "Dataset",
+          "name": " direct from source",
+          "producer": "Miami-Dade County-DERM",
+          "url": "https://gis-mdc.opendata.arcgis.com/datasets/MDC::brownfield/about"
+        },
+        "instrument": {
+          "@type": "SoftwareApplication",
+          "@id": "https://github.com/Geospatial-Digital-Special-Collections/tools",
+          "featureList": "wget",
+          "downloadUrl": "https://github.com/Geospatial-Digital-Special-Collections/tools.git"
+        },
+        "result": {
+          "@type": "Dataset",
+          "name": "Miami-Dade Brownfield Sites",
+          "description": "A polygon feature class of the brownfield areas within Miami-Dade County",
+          "encodingFormat": "json"
+        }
+      }
+    }
+  ],
+  "variableMeasured": [
+    {
+      "@type": "PropertyValue",
+      "name": "name",
+      "qudt:dataType": "varchar"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "areaid",
+      "qudt:dataType": "varchar"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "siteid",
+      "qudt:dataType": "varchar"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "sitename",
+      "qudt:dataType": "varchar"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "jurisdtn",
+      "qudt:dataType": "varchar"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "acre",
+      "qudt:dataType": "float8",
+      "minValue": "0",
+      "maxValue": "9708.3"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "maplegion",
+      "qudt:dataType": "varchar"
+    }
+  ],
+  "distribution": "/data/mdc_brownfield_site/",
+  "dateModified": "2026-10-17 22:31:05",
+  "version": "2026-10-17"
+}

@@ -50,7 +50,7 @@
       "name": "bbox",
       "geo": {
         "@type": "GeoShape",
-        "polygon": "-61.7927875 10.2821958 -61.7927875 11.1817512 -60.7238938 11.1817512 -60.7238938 10.2821958 -61.7927875 10.2821958"
+        "polygon": "10.2821958 -61.7927875 10.2821958 -60.7238938 11.1817512 -60.7238938 11.1817512 -61.7927875 10.2821958 -61.7927875"
       }
     }
   ],
@@ -62,6 +62,7 @@
     "ferry routes",
     "transportation"
   ],
+  "@language": "en",
   "measurementTechnique": [
     {
       "@type": "DefinedTerm",
@@ -183,15 +184,7 @@
       "qudt:dataType": "varchar"
     }
   ],
-  "distribution": "TBD",
-  "isBasedOn": [
-    {
-      "@id": "https://gdsc.idsc.miami.edu/details/api",
-      "@type": "Dataset",
-      "name": "api",
-      "url": "https://gdsc.idsc.miami.edu/details/api"
-    }
-  ],
-  "dateModified": "2023-11-30",
-  "version": "2026-09-13"
+  "distribution": "/data/tt_ferry_routes/",
+  "dateModified": "2026-02-12 11:05:27",
+  "version": "2026-10-09"
 }

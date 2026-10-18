@@ -1,0 +1,285 @@
+{
+  "@context": {
+    "@vocab": "https://schema.org/",
+    "dct": "http://purl.org/dc/terms/",
+    "qudt": "http://qudt.org/schema/qudt/",
+    "quantitykind": "http://qudt.org/vocab/quantitykind/",
+    "unit": "http://qudt.org/vocab/unit/",
+    "xsd": "http://www.w3.org/2001/XMLSchema",
+    "extendedConstraintProperty": "http://codata.org/vocab/extendedConstraintProperty",
+    "sdmx": "https://sdmx.org"
+  },
+  "@type": "Dataset",
+  "@id": "https://gdsc.idsc.miami.edu/detail/fl_2021_acs_5yr_tract_fsr",
+  "includedInDataCatalog": [
+    {
+      "@type": "DataCatalog",
+      "@id": "https://gdsc.idsc.miami.edu",
+      "name": "Geospatial Digital Special Collections",
+      "url": "https://gdsc.idsc.miami.edu"
+    },
+    {
+      "@type": "DataCatalog",
+      "name": "us-census",
+      "@id": "https://gdsc.idsc.miami.edu/?collection=us-census",
+      "url": "https://gdsc.idsc.miami.edu/?collection=us-census"
+    }
+  ],
+  "name": "2021 Florida ACS 5 Year Estimates - Tract Level - FSR",
+  "creator": [
+    {
+      "@type": "Organization",
+      "sameAs": "https://ror.org/04chq2495",
+      "@id": "https://ror.org/04chq2495",
+      "identifier": "https://ror.org/04chq2495",
+      "name": "U.S. Department of Commerce"
+    },
+    {
+      "@type": "Organization",
+      "sameAs": "https://ror.org/01qn7cs15",
+      "@id": "https://ror.org/01qn7cs15",
+      "identifier": "https://ror.org/01qn7cs15",
+      "name": "U.S. Census Bureau"
+    },
+    {
+      "@type": "Organization",
+      "name": "Geography Division"
+    },
+    {
+      "@type": "Organization",
+      "name": "Spatial Data Collection and Products Branch"
+    }
+  ],
+  "url": "https://www.census.gov/data/developers/data-sets/acs-5year.html",
+  "provider": [
+    {
+      "@type": "Organization",
+      "name": "Department of Commerce"
+    },
+    {
+      "@type": "Organization",
+      "name": "U.S. Census Bureau"
+    }
+  ],
+  "spatialCoverage": [
+    {
+      "@id": "https://www.geonames.org/4155751",
+      "@type": "Place",
+      "name": "Florida"
+    },
+    {
+      "@type": "Place",
+      "name": "bbox",
+      "geo": {
+        "@type": "GeoShape",
+        "polygon": "24.396308 -87.634896 24.396308 -79.974306 31.000968 -79.974306 31.000968 -87.634896 24.396308 -87.634896"
+      }
+    }
+  ],
+  "type": "API",
+  "datePublished": "2022-12-08",
+  "description": "A special collection of aggregated columns from the 2021 5-year ACS variables at the census tract level selected for use with the Florida Stroke Registry. Please see the column metadata for the description of the columns.",
+  "keywords": [
+    "Florida",
+    "Census",
+    "ACS 2021",
+    "2021",
+    "5-Year Estimates",
+    "Tract",
+    "Census Tract",
+    "Demographic",
+    "Population",
+    "FSR"
+  ],
+  "@language": "en",
+  "measurementTechnique": [
+    {
+      "@type": "DefinedTerm",
+      "description": "GIS Data Structure for Representation",
+      "inDefinedTermSet": {
+        "@type": "DefinedTermSet",
+        "name": "dataRepresentation",
+        "hasDefinedTerm": [
+          {
+            "@type": "DefinedTerm",
+            "termCode": "raster"
+          },
+          {
+            "@type": "DefinedTerm",
+            "termCode": "vector"
+          },
+          {
+            "@type": "DefinedTerm",
+            "termCode": "table"
+          }
+        ]
+      },
+      "termCode": "vector"
+    },
+    {
+      "@type": "DefinedTerm",
+      "description": "GIS Vector Geometery",
+      "inDefinedTermSet": {
+        "@type": "DefinedTermSet",
+        "name": "vectorGeometry",
+        "hasDefinedTerm": [
+          {
+            "@type": "DefinedTerm",
+            "termCode": "point"
+          },
+          {
+            "@type": "DefinedTerm",
+            "termCode": "line"
+          },
+          {
+            "@type": "DefinedTerm",
+            "termCode": "polygon"
+          }
+        ]
+      },
+      "termCode": "multipolygon"
+    }
+  ],
+  "about": [
+    {
+      "@type": "Event",
+      "description": "direct from source and aggregated according to custom specification, see ETL documentation",
+      "name": "ETL process for 2021 Florida ACS 5 Year Estimates - Tract Level - FSR",
+      "potentialAction": {
+        "@type": "Action",
+        "name": "Pseudo Code",
+        "description": "TODO"
+      }
+    },
+    {
+      "@type": "Event",
+      "description": "direct from source and aggregated according to custom specification, see ETL documentation",
+      "name": "ETL process for 2021 Florida ACS 5 Year Estimates - Tract Level - FSR",
+      "potentialAction": {
+        "@type": "Action",
+        "name": "acs_custom_aggregate",
+        "description": "Custom ETL process for 2021 Florida ACS 5 Year Estimates - Tract Level - FSR",
+        "object": {
+          "@type": "Dataset",
+          "name": "direct from source and aggregated according to custom specification, see ETL documentation",
+          "producer": "U.S. Department of Commerce",
+          "url": "https://www.census.gov/data/developers/data-sets/acs-5year.html"
+        },
+        "instrument": {
+          "@type": "SoftwareApplication",
+          "@id": "https://github.com/Geospatial-Digital-Special-Collections/tools",
+          "featureList": "for=tract:* in=state:12",
+          "downloadUrl": "https://github.com/Geospatial-Digital-Special-Collections/tools.git"
+        },
+        "result": {
+          "@type": "Dataset",
+          "name": "2021 Florida ACS 5 Year Estimates - Tract Level - FSR",
+          "description": "A special collection of aggregated columns from the 2021 5-year ACS variables at the census tract level selected for use with the Florida Stroke Registry. Please see the column metadata for the description of the columns."
+        }
+      }
+    }
+  ],
+  "variableMeasured": [
+    {
+      "@type": "PropertyValue",
+      "name": "total_population",
+      "description": "Total population in census tract",
+      "qudt:dataType": "int4",
+      "unitText": "people",
+      "minValue": "0",
+      "maxValue": "22085"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "hispanic_population",
+      "description": "Number of people who identify as Hispanic or Latino any race",
+      "qudt:dataType": "int4",
+      "unitText": "people",
+      "minValue": "0",
+      "maxValue": "9345"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "creole_speaking",
+      "description": "Number of Creole speaking people in the tract",
+      "qudt:dataType": "int4",
+      "unitText": "people",
+      "minValue": "0",
+      "maxValue": "2356"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "latin_america_born",
+      "description": "Number of people who migrated from Latin America and the Caribbean",
+      "qudt:dataType": "int4",
+      "unitText": "people",
+      "minValue": "0",
+      "maxValue": "4944"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "persons_4_years_old_and_younger",
+      "description": "Number of people 4 years old and younger",
+      "qudt:dataType": "int4",
+      "unitText": "people",
+      "minValue": "0",
+      "maxValue": "1652"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "age_of_5_and_19",
+      "description": "Number of people with age of 5 to 20",
+      "qudt:dataType": "int4",
+      "unitText": "people",
+      "minValue": "0",
+      "maxValue": "9221"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "persons_between_the_age_of_20_and_64",
+      "description": "Number of people between the age of 20 and 65",
+      "qudt:dataType": "int4",
+      "unitText": "people",
+      "minValue": "0",
+      "maxValue": "11870"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "persons_65_years_old_and_over",
+      "description": "Number of people 65 years old and over",
+      "qudt:dataType": "int4",
+      "unitText": "people",
+      "minValue": "0",
+      "maxValue": "8868"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "born_in_haiti",
+      "description": "Number of people born in Haiti",
+      "qudt:dataType": "int4",
+      "unitText": "people",
+      "minValue": "0",
+      "maxValue": "2770"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "born_in_venezuela",
+      "description": "Number of people born in Venezuela",
+      "qudt:dataType": "int4",
+      "unitText": "people",
+      "minValue": "0",
+      "maxValue": "3054"
+    }
+  ],
+  "distribution": "/data/fl_2021_acs_5yr_tract_fsr/",
+  "isBasedOn": [
+    {
+      "@id": "https://gdsc.idsc.miami.edu/details/fl_2021_tl_tract",
+      "@type": "Dataset",
+      "name": "fl_2021_tl_tract",
+      "url": "https://gdsc.idsc.miami.edu/details/fl_2021_tl_tract"
+    }
+  ],
+  "dateModified": "2026-10-17 22:34:37",
+  "version": "2026-10-17"
+}

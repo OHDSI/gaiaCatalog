@@ -1,0 +1,233 @@
+{
+  "control_group": {
+    "id": 24
+  },
+  "dublin_core_group": {
+    "title": "Miami-Dade Hospitals",
+    "creator_group": [
+      {
+        "creator_name": "Miami-Dade County Open Data Hub",
+        "creator_type": "organization"
+      },
+      {
+        "creator_name": "Information Technology Department",
+        "creator_type": "organization"
+      }
+    ],
+    "url": "https://gis-mdc.opendata.arcgis.com/datasets/MDC::hospital/about",
+    "publisher_group": [
+      {
+        "publisher_name": "Miami-Dade County"
+      }
+    ],
+    "rights": "Public Domain",
+    "coverage_group": [
+      {
+        "coverage_name": "Miami-Dade County",
+        "coverage_identifier": "4164238",
+        "coverage_identifier_schema": "geonames",
+        "coverage_identifier_schema_uri": "https://www.geonames.org/"
+      }
+    ],
+    "resource_type": "Vector Dataset",
+    "publication_date": "2022-03-22",
+    "description": "A point feature class of the hospital facilities within Miami-Dade County.",
+    "provenance": "direct from source",
+    "subject_group": [
+      {
+        "subject_term": "Florida"
+      },
+      {
+        "subject_term": "Miami-Dade County"
+      },
+      {
+        "subject_term": "MDC"
+      },
+      {
+        "subject_term": "Health"
+      },
+      {
+        "subject_term": " Emergency"
+      },
+      {
+        "subject_term": "Hospital"
+      },
+      {
+        "subject_term": "Wellness"
+      },
+      {
+        "subject_term": "\nMedical"
+      },
+      {
+        "subject_term": "Public-Safety"
+      },
+      {
+        "subject_term": "Infrastructure"
+      }
+    ],
+    "language": "en",
+    "size_group": [
+      {
+        "size_bytes": "13270",
+        "size_human_readable": "13K"
+      }
+    ]
+  },
+  "iso_group": {
+    "structure": "vector",
+    "geometry": "point",
+    "epsg": 4326,
+    "extent": "ENVELOPE(-80.491432,-80.145337,25.970049,25.418943)",
+    "lineage": "TBD",
+    "process_step": "#########\n# GDSC ETL is performed in two steps: shell script to ETL data into postgres\n# and then additional transformations with SQL in postGIS (if needed).\n####\n\n#########\n# Step 1 - bash script (pseudo code)\n####\n\n# create directory structure and move into it\nmkdir -p /data/mdc_hospitals/download -p /data/mdc_hospitals/etl\nchmod -R 777 /data/mdc_hospitals\ncd /data/mdc_hospitals\n\n# set update flag based on last update and update frequency\ndo_update=0 if date() < last_update + update_frequency else do_update = 1\n\n# download if update flag is set:\nif do_update == 1 then\nwget --retry-connrefused --waitretry=1 --read-timeout=20 --timeout=15 -t 10 -O download/mdc_hospitals.json 'https://services.arcgis.com/8Pc9XBTAsYuxx9Ny/arcgis/rest/services/Hospital_gdb/FeatureServer/0/query?where=1%3D1&outFields=*&outSR=4326&f=json' 2>&1\n\n# load into postGIS with:\nogr2ogr -lco GEOMETRY_NAME=geom -f PostgreSQL PG:\"<postgres connection>\" download/mdc_hospitals.json -nlt point -nln mdc_hospitals\necho success: mdc_hospitals.json loaded with ogr2ogr\n\n\n#########\n# Step 2 - SQL script (pseudo code):\n####\n\n# remove duplicate points and make geometries valid:\nUPDATE mdc_hospitals\n  SET geom=ST_MakeValid(ST_RemoveRepeatedPoints(geom));\n\n# add local geometry column and reproject existing geometries into local EPSG:\nALTER TABLE mdc_hospitals DROP COLUMN IF EXISTS geom_local CASCADE;\nSELECT AddGeometryColumn (\n  'mdc_hospitals',\n  'geom_local', 2236, 'point', 2\n);\nUPDATE mdc_hospitals\n  SET geom_local=ST_MakeValid(ST_RemoveRepeatedPoints(ST_Transform(geom,2236)));\nCREATE INDEX mdc_hospitals_geom_local_idx\n  ON mdc_hospitals\n  USING GIST (geom_local);\nNOTIFY pgrst, 'reload schema';\n# Move into corrrect directory and create derivative directory in data package on osgeo\ncd /data/mdc_hospitals/\nmkdir -p derived\n\n# Move into correct directory\ncd /data/mdc_hospitals/\n\n# Create pg_dump of table SQL in derivate directory on postgis.\npg_dump <postgres opts> -h gaia-db -t mdc_hospitals > derived/mdc_hospitals.sql\n\n# Create downloadable tarfile of SQL in derivative directory on postgis\nrm -f derived/mdc_hospitals.sql.tar.gz\ntar -czf derived/mdc_hospitals.sql.tar.gz meta_dcat_mdc_hospitals.json -C derived mdc_hospitals.sql\n\n",
+    "processor": "GDSC automation (see Process Step)",
+    "point_of_contact_group": [
+      {
+        "contact_name": "Timothy B. Norris",
+        "contact_last_name": "Norris",
+        "contact_first_name": "Timothy",
+        "contact_email": "tnorris@miami.edu",
+        "contact_identifier": "https://orcid.org/0000-0002-0898-3027",
+        "contact_identifier_schema": "orcid",
+        "contact_identifier_schema_uri": "https://orcid.org/",
+        "contact_affiliation": "University of Miami Libraries, Frost Institute for Data Science and Computing",
+        "contact_affiliation_identifier": "https://ror.org/02dgjyy92",
+        "contact_affiliation_schema": "ror",
+        "contact_affiliation_schema_uri": "https://ror.org/"
+      }
+    ],
+    "data_level": "observed"
+  },
+  "cartography_group": {
+    "label": "name",
+    "attributes_group": [
+      {
+        "attribute_name": "objectid",
+        "attribute_description": "Internal feature number",
+        "attribute_source": "Esri",
+        "attribute_type": "int4",
+        "attribute_min_value": "1",
+        "attribute_max_value": "28"
+      },
+      {
+        "attribute_name": "folio",
+        "attribute_description": "Folio identifier",
+        "attribute_source": "MDC",
+        "attribute_type": "varchar"
+      },
+      {
+        "attribute_name": "name",
+        "attribute_description": "Name of hospital",
+        "attribute_source": "MDC",
+        "attribute_type": "varchar"
+      },
+      {
+        "attribute_name": "address",
+        "attribute_description": "Address",
+        "attribute_source": "MDC",
+        "attribute_type": "varchar"
+      },
+      {
+        "attribute_name": "city",
+        "attribute_description": "City",
+        "attribute_source": "MDC",
+        "attribute_type": "varchar"
+      },
+      {
+        "attribute_name": "zipcode",
+        "attribute_description": "Zipcode",
+        "attribute_source": "MDC",
+        "attribute_type": "int4",
+        "attribute_min_value": "33012",
+        "attribute_max_value": "33189"
+      },
+      {
+        "attribute_name": "phone",
+        "attribute_description": "Phone number",
+        "attribute_source": "MDC",
+        "attribute_type": "varchar"
+      },
+      {
+        "attribute_name": "bed",
+        "attribute_description": "Amount of beds",
+        "attribute_source": "MDC",
+        "attribute_type": "int4",
+        "attribute_min_value": "22",
+        "attribute_max_value": "1567"
+      },
+      {
+        "attribute_name": "lat",
+        "attribute_description": "Latitude",
+        "attribute_source": "MDC",
+        "attribute_type": "float8",
+        "attribute_min_value": "25.41894",
+        "attribute_max_value": "25.97004"
+      },
+      {
+        "attribute_name": "lon",
+        "attribute_description": "Longitude",
+        "attribute_source": "MDC",
+        "attribute_type": "float8",
+        "attribute_min_value": "-80.49143",
+        "attribute_max_value": "-80.14533"
+      },
+      {
+        "attribute_name": "point_x",
+        "attribute_description": "X-coordinate",
+        "attribute_source": "MDC",
+        "attribute_type": "float8",
+        "attribute_min_value": "824021.246645246",
+        "attribute_max_value": "936959.246818662"
+      },
+      {
+        "attribute_name": "point_y",
+        "attribute_description": "Y-coordinate",
+        "attribute_source": "MDC",
+        "attribute_type": "float8",
+        "attribute_min_value": "394828.684794404",
+        "attribute_max_value": "595720.107485823"
+      }
+    ]
+  },
+  "collection_group": {
+    "collections": "displacement-vulnerability-mitigation-tool",
+    "analytic_function": "gdsc_nearest_neighbor",
+    "analytic_epsg": 2236,
+    "thumbnail": "published",
+    "service_definition": "mdc_hospitals.sd",
+    "derivatives": "sql",
+    "derivative_url": "/data/mdc_hospitals/",
+    "sponsor_group": [
+      {
+        "sponsor_name": "IDSC",
+        "sponsor_url": "https://idsc.miami.edu"
+      },
+      {
+        "sponsor_name": "Library",
+        "sponsor_url": "https://www.library.miami.edu"
+      }
+    ],
+    "disclaimer": "Miami-Dade County provides this data for use \"as is\". The areas depicted by this map/data are approximate, and are not accurate to surveying or engineering standards. The maps/data shown here are for illustration purposes only and are not suitable for site-specific decision making. Information found here should not be used for making financial or any other commitments. Miami-Dade County provides this information with the understanding that it is not guaranteed to be accurate, correct or complete and conclusions drawn from such information are the sole responsibility of the user. While every effort has been made to ensure the accuracy, correctness and timeliness of materials presented, Miami-Dade County assumes no responsibility for errors or omissions, even if Miami-Dade County is advised of the possibility of such damage."
+  },
+  "etl_group": {
+    "source": "https://services.arcgis.com/8Pc9XBTAsYuxx9Ny/arcgis/rest/services/Hospital_gdb/FeatureServer/0/query?where=1%3D1&outFields=*&outSR=4326&f=json",
+    "file_name_group": [
+      {
+        "file_name_value": "mdc_hospitals"
+      }
+    ],
+    "extension": "json",
+    "download": "wget",
+    "table_name": "mdc_hospitals",
+    "format": "json",
+    "up": "true",
+    "podid": "gaia-db",
+    "last_updated": "2026-10-17 22:27:55",
+    "update_frequency": "As Needed",
+    "checksum": "TBD"
+  },
+  "_submission_time": "2026-10-17 22:27:56",
+  "meta": {
+    "instanceID": "4a6b5731-acf0-4f55-8401-8630715335"
+  }
+}

@@ -1,0 +1,226 @@
+{
+  "@context": {
+    "@vocab": "https://schema.org/",
+    "dct": "http://purl.org/dc/terms/",
+    "qudt": "http://qudt.org/schema/qudt/",
+    "quantitykind": "http://qudt.org/vocab/quantitykind/",
+    "unit": "http://qudt.org/vocab/unit/",
+    "xsd": "http://www.w3.org/2001/XMLSchema",
+    "extendedConstraintProperty": "http://codata.org/vocab/extendedConstraintProperty",
+    "sdmx": "https://sdmx.org"
+  },
+  "@type": "Dataset",
+  "@id": "https://gdsc.idsc.miami.edu/detail/bogota_2019_estratos_manzana_dane",
+  "includedInDataCatalog": [
+    {
+      "@type": "DataCatalog",
+      "@id": "https://gdsc.idsc.miami.edu",
+      "name": "Geospatial Digital Special Collections",
+      "url": "https://gdsc.idsc.miami.edu"
+    },
+    {
+      "@type": "DataCatalog",
+      "name": "bogota-disaster-resilience",
+      "@id": "https://gdsc.idsc.miami.edu/?collection=bogota-disaster-resilience",
+      "url": "https://gdsc.idsc.miami.edu/?collection=bogota-disaster-resilience"
+    }
+  ],
+  "name": "Estratos Socioecon\u00f3micos de Bogot\u00e1 Seg\u00fan Manzanas",
+  "creator": [
+    {
+      "@type": "Organization",
+      "name": "Departamento Administrativo Nacional de Estadistica (DANE)"
+    }
+  ],
+  "url": "https://datosabiertos.bogota.gov.co/dataset/estratificacion-para-bogota",
+  "provider": [
+    {
+      "@type": "Organization",
+      "name": "Departamento Administrativo Nacional de Estadistica (DANE)"
+    }
+  ],
+  "license": "cc_by",
+  "spatialCoverage": [
+    {
+      "@id": "https://www.geonames.org/3688689",
+      "@type": "Place",
+      "name": "Bogota"
+    },
+    {
+      "@type": "Place",
+      "name": "bbox",
+      "geo": {
+        "@type": "GeoShape",
+        "polygon": "85562.765000 83785.217800 85562.765000 107888.796900 126186.546900 107888.796900 126186.546900 83785.217800 85562.765000 83785.217800"
+      }
+    }
+  ],
+  "datePublished": "2019-09-12",
+  "description": "Base gr\u00e1fica que determina las \u00e1reas que conforman la clasificaci\u00f3n del estrato socioecon\u00f3mico por manzana y localidad, en que se divide el Distrito Capital (Alto, Medio, Bajo) en la totalidad del territorio. La estratificaci\u00f3n socioecon\u00f3mica en Colombia se refiere a la clasificaci\u00f3n de los inmuebles residenciales que deben recibir servicios p\u00fablicos.",
+  "keywords": [
+    "estratos socioeconomicos",
+    "Bogota",
+    "manzanas"
+  ],
+  "@language": "es",
+  "measurementTechnique": [
+    {
+      "@type": "DefinedTerm",
+      "description": "GIS Data Structure for Representation",
+      "inDefinedTermSet": {
+        "@type": "DefinedTermSet",
+        "name": "dataRepresentation",
+        "hasDefinedTerm": [
+          {
+            "@type": "DefinedTerm",
+            "termCode": "raster"
+          },
+          {
+            "@type": "DefinedTerm",
+            "termCode": "vector"
+          },
+          {
+            "@type": "DefinedTerm",
+            "termCode": "table"
+          }
+        ]
+      },
+      "termCode": "vector"
+    },
+    {
+      "@type": "DefinedTerm",
+      "description": "GIS Vector Geometery",
+      "inDefinedTermSet": {
+        "@type": "DefinedTermSet",
+        "name": "vectorGeometry",
+        "hasDefinedTerm": [
+          {
+            "@type": "DefinedTerm",
+            "termCode": "point"
+          },
+          {
+            "@type": "DefinedTerm",
+            "termCode": "line"
+          },
+          {
+            "@type": "DefinedTerm",
+            "termCode": "polygon"
+          }
+        ]
+      },
+      "termCode": "multipolygon"
+    }
+  ],
+  "additionalProperty": [
+    {
+      "@type": "PropertyValue",
+      "propertyID": "http://dbpedia.org/resource/Spatial_reference_system",
+      "value": "https://epsg.io/4686"
+    }
+  ],
+  "about": [
+    {
+      "@type": "Event",
+      "description": "Direct download",
+      "name": "ETL process for Estratos Socioecon\u00f3micos de Bogot\u00e1 Seg\u00fan Manzanas",
+      "potentialAction": {
+        "@type": "Action",
+        "name": "Pseudo Code",
+        "description": "TODO"
+      }
+    },
+    {
+      "@type": "Event",
+      "description": "Direct download",
+      "name": "ETL process for Estratos Socioecon\u00f3micos de Bogot\u00e1 Seg\u00fan Manzanas",
+      "potentialAction": {
+        "@type": "Action",
+        "name": "wget",
+        "description": "ETL process for Estratos Socioecon\u00f3micos de Bogot\u00e1 Seg\u00fan Manzanas",
+        "object": {
+          "@type": "Dataset",
+          "name": "Direct download",
+          "producer": "Departamento Administrativo Nacional de Estadistica (DANE)",
+          "url": "https://datosabiertos.bogota.gov.co/dataset/estratificacion-para-bogota"
+        },
+        "instrument": {
+          "@type": "SoftwareApplication",
+          "@id": "https://github.com/Geospatial-Digital-Special-Collections/tools",
+          "featureList": "wget",
+          "downloadUrl": "https://github.com/Geospatial-Digital-Special-Collections/tools.git"
+        },
+        "result": {
+          "@type": "Dataset",
+          "name": "Estratos Socioecon\u00f3micos de Bogot\u00e1 Seg\u00fan Manzanas",
+          "description": "Base gr\u00e1fica que determina las \u00e1reas que conforman la clasificaci\u00f3n del estrato socioecon\u00f3mico por manzana y localidad, en que se divide el Distrito Capital (Alto, Medio, Bajo) en la totalidad del territorio. La estratificaci\u00f3n socioecon\u00f3mica en Colombia se refiere a la clasificaci\u00f3n de los inmuebles residenciales que deben recibir servicios p\u00fablicos.",
+          "encodingFormat": "json"
+        }
+      }
+    }
+  ],
+  "variableMeasured": [
+    {
+      "@type": "PropertyValue",
+      "name": "fid"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "objectid"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "codigo_man"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "estrato"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "codigo_zon"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "codigo_cri"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "normativa"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "acto_admin"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "numero_act"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "fecha_acto"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "escala_cap"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "fecha_capt"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "responsabl"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "shape_area"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "shape_len"
+    }
+  ],
+  "distribution": "/data/bogota_2019_estratos_manzana_dane/",
+  "dateModified": "2026-10-17 22:35:28",
+  "version": "2026-10-18"
+}

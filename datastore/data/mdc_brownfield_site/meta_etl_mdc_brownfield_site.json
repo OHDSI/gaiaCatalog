@@ -1,0 +1,21 @@
+{
+  "rights": "Public Domain",
+  "structure": "vector",
+  "geometry": "multipolygon",
+  "epsg": "EPSG:4326",
+  "extent": "ENVELOPE(-80.501554,-80.129116,25.972097,25.433153)",
+  "fields": ["sitename"],
+  "attributes": ["name;;;varchar;;;;", "areaid;;;varchar;;;;", "siteid;;;varchar;;;;", "sitename;;;varchar;;;;", "jurisdtn;;;varchar;;;;", "acre;;;float8;;;0;9708.3", "maplegion;;;varchar;;;;"],
+  "local_epsg": "EPSG:2236",
+  "source": "https://services.arcgis.com/8Pc9XBTAsYuxx9Ny/arcgis/rest/services/Brownfield_gdb/FeatureServer/0/query?where=1%3D1&outFields=*&outSR=4326&f=json",
+  "file": ["mdc_brownfield_site"],
+  "extension": "json",
+  "download": "wget",
+  "table": "mdc_brownfield_site",
+  "format": "json",
+  "up": "true",
+  "podID": "gaia-db",
+  "last_updated": "2026-10-17T22:31:05Z",
+  "update_frequency": "As Needed",
+  "checksum": "TBD"
+}

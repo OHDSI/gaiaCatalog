@@ -1,0 +1,21 @@
+{
+  "rights": "Restricted",
+  "structure": "vector",
+  "geometry": "point",
+  "epsg": "EPSG:4326",
+  "extent": ["TBD"],
+  "attributes": ["folio"],
+  "local_epsg": "EPSG:2236",
+  "source": "file:///data/mdc_5000_addresses_normalized/download/mdc_5000_addresses_normalized",
+  "file": ["mdc_5000_addresses_normalized"],
+  "extension": "csv",
+  "download": "local",
+  "table": "mdc_5000_addresses_normalized",
+  "format": "csv",
+  "etl_parameters": "-oo X_POSSIBLE_NAMES=x_coord -oo Y_POSSIBLE_NAMES=y_coord -s_srs EPSG:2236 -t_srs EPSG:4326",
+  "up": "true",
+  "podID": "gaia-db",
+  "last_updated": "2026-10-17T22:39:09Z",
+  "update_frequency": "As Needed",
+  "checksum": "TBD"
+}

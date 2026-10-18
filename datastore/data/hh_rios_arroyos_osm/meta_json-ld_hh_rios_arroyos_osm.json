@@ -1,0 +1,208 @@
+{
+  "@context": {
+    "@vocab": "https://schema.org/",
+    "dct": "http://purl.org/dc/terms/",
+    "qudt": "http://qudt.org/schema/qudt/",
+    "quantitykind": "http://qudt.org/vocab/quantitykind/",
+    "unit": "http://qudt.org/vocab/unit/",
+    "xsd": "http://www.w3.org/2001/XMLSchema",
+    "extendedConstraintProperty": "http://codata.org/vocab/extendedConstraintProperty",
+    "sdmx": "https://sdmx.org"
+  },
+  "@type": "Dataset",
+  "@id": "https://gdsc.idsc.miami.edu/detail/hh_rios_arroyos_osm",
+  "includedInDataCatalog": [
+    {
+      "@type": "DataCatalog",
+      "@id": "https://gdsc.idsc.miami.edu",
+      "name": "Geospatial Digital Special Collections",
+      "url": "https://gdsc.idsc.miami.edu"
+    },
+    {
+      "@type": "DataCatalog",
+      "name": "hh-conservacion",
+      "@id": "https://gdsc.idsc.miami.edu/?collection=hh-conservacion",
+      "url": "https://gdsc.idsc.miami.edu/?collection=hh-conservacion"
+    }
+  ],
+  "name": "OSM Huayhuash Rios y Arroyos",
+  "creator": [
+    {
+      "name": "OpenStreetMap contributors"
+    }
+  ],
+  "url": "https://www.openstreetmap.org/",
+  "provider": [
+    {
+      "@type": "Organization",
+      "name": "OpenStreetMap"
+    }
+  ],
+  "license": "odbl",
+  "spatialCoverage": [
+    {
+      "@id": "https://www.geonames.org/3938961",
+      "@type": "Place",
+      "name": "Cordillera Huayhuash"
+    },
+    {
+      "@type": "Place",
+      "name": "bbox",
+      "geo": {
+        "@type": "GeoShape",
+        "polygon": "-10.7 -77.33 -10.7 -76.55 -9.8 -76.55 -9.8 -77.33 -10.7 -77.33"
+      }
+    }
+  ],
+  "type": "Vector Dataset",
+  "datePublished": "2025-04-23",
+  "description": "A line feature set for the hydrography of the Cordillera Huayhuash sourced from OpenStreetMap with a query that includes Rivers and Streams.",
+  "keywords": [
+    "Per\u00fa",
+    "Huayhuash",
+    "Hidrografia"
+  ],
+  "@language": "es",
+  "measurementTechnique": [
+    {
+      "@type": "DefinedTerm",
+      "description": "GIS Data Structure for Representation",
+      "inDefinedTermSet": {
+        "@type": "DefinedTermSet",
+        "name": "dataRepresentation",
+        "hasDefinedTerm": [
+          {
+            "@type": "DefinedTerm",
+            "termCode": "raster"
+          },
+          {
+            "@type": "DefinedTerm",
+            "termCode": "vector"
+          },
+          {
+            "@type": "DefinedTerm",
+            "termCode": "table"
+          }
+        ]
+      },
+      "termCode": "vector"
+    },
+    {
+      "@type": "DefinedTerm",
+      "description": "GIS Vector Geometery",
+      "inDefinedTermSet": {
+        "@type": "DefinedTermSet",
+        "name": "vectorGeometry",
+        "hasDefinedTerm": [
+          {
+            "@type": "DefinedTerm",
+            "termCode": "point"
+          },
+          {
+            "@type": "DefinedTerm",
+            "termCode": "line"
+          },
+          {
+            "@type": "DefinedTerm",
+            "termCode": "polygon"
+          }
+        ]
+      },
+      "termCode": "multilinestring"
+    }
+  ],
+  "additionalProperty": [
+    {
+      "@type": "PropertyValue",
+      "propertyID": "http://dbpedia.org/resource/Spatial_reference_system",
+      "value": "https://epsg.io/4326"
+    }
+  ],
+  "about": [
+    {
+      "@type": "Event",
+      "description": "Direct from source.",
+      "name": "ETL process for OSM Huayhuash Rios y Arroyos",
+      "potentialAction": {
+        "@type": "Action",
+        "name": "Pseudo Code",
+        "description": "TODO",
+        "result": {
+          "@type": "Dataset",
+          "encodingFormat": "shp",
+          "url": "https://gdsc.idsc.miami.edu/download/data/hh_rios_arroyos_osm/?file=hh_rios_arroyos_osm&format=shp"
+        }
+      }
+    },
+    {
+      "@type": "Event",
+      "description": "Direct from source.",
+      "name": "ETL process for OSM Huayhuash Rios y Arroyos",
+      "potentialAction": {
+        "@type": "Action",
+        "name": "curl",
+        "description": "ETL process for OSM Huayhuash Rios y Arroyos",
+        "object": {
+          "@type": "Dataset",
+          "name": "Direct from source.",
+          "producer": "OpenStreetMap contributors",
+          "url": "https://www.openstreetmap.org/"
+        },
+        "instrument": {
+          "@type": "SoftwareApplication",
+          "@id": "https://github.com/Geospatial-Digital-Special-Collections/tools",
+          "featureList": "curl",
+          "downloadUrl": "https://github.com/Geospatial-Digital-Special-Collections/tools.git"
+        },
+        "result": {
+          "@type": "Dataset",
+          "name": "OSM Huayhuash Rios y Arroyos",
+          "description": "A line feature set for the hydrography of the Cordillera Huayhuash sourced from OpenStreetMap with a query that includes Rivers and Streams.",
+          "encodingFormat": "shp",
+          "url": "https://gdsc.idsc.miami.edu/download/data/hh_rios_arroyos_osm/?file=hh_rios_arroyos_osm&format=shp"
+        }
+      }
+    }
+  ],
+  "variableMeasured": [
+    {
+      "@type": "PropertyValue",
+      "name": "osm_id"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "name"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "destination"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "intermittent"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "length"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "name:en"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "name:qu"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "waterway"
+    }
+  ],
+  "distribution": [
+    "https://gdsc.idsc.miami.edu/download/data/hh_rios_arroyos_osm/?file=hh_rios_arroyos_osm&format=shp",
+    "https://gdsc.idsc.miami.edu/download/data/hh_rios_arroyos_osm/?file=hh_rios_arroyos_osm&format=geojson",
+    "https://gdsc.idsc.miami.edu/download/data/hh_rios_arroyos_osm/?file=hh_rios_arroyos_osm&format=gpkg"
+  ],
+  "dateModified": "2026-10-17 22:43:11",
+  "version": "2026-10-17"
+}

@@ -1,0 +1,220 @@
+{
+  "@context": {
+    "@vocab": "https://schema.org/",
+    "dct": "http://purl.org/dc/terms/",
+    "qudt": "http://qudt.org/schema/qudt/",
+    "quantitykind": "http://qudt.org/vocab/quantitykind/",
+    "unit": "http://qudt.org/vocab/unit/",
+    "xsd": "http://www.w3.org/2001/XMLSchema",
+    "extendedConstraintProperty": "http://codata.org/vocab/extendedConstraintProperty",
+    "sdmx": "https://sdmx.org"
+  },
+  "@type": "Dataset",
+  "@id": "https://gdsc.idsc.miami.edu/detail/mdc_holc_redlining",
+  "includedInDataCatalog": [
+    {
+      "@type": "DataCatalog",
+      "@id": "https://gdsc.idsc.miami.edu",
+      "name": "Geospatial Digital Special Collections",
+      "url": "https://gdsc.idsc.miami.edu"
+    },
+    {
+      "@type": "DataCatalog",
+      "name": "displacement-vulnerability-mitigation-tool",
+      "@id": "https://gdsc.idsc.miami.edu/?collection=displacement-vulnerability-mitigation-tool",
+      "url": "https://gdsc.idsc.miami.edu/?collection=displacement-vulnerability-mitigation-tool"
+    }
+  ],
+  "name": "Miami-Dade Home Owner's Loan Corporation (HOLC) Neighborhood Redlining Grade",
+  "creator": [
+    {
+      "@type": "Organization",
+      "sameAs": "https://ror.org/03y71xh61",
+      "@id": "https://ror.org/03y71xh61",
+      "identifier": "https://ror.org/03y71xh61",
+      "name": "University of Richmond's Digital Scholarship Lab"
+    }
+  ],
+  "url": "https://services.arcgis.com/jIL9msH9OI208GCb/arcgis/rest/services/HOLC_Neighborhood_Redlining/FeatureServer",
+  "provider": [
+    {
+      "@type": "Organization",
+      "name": "University of Richmond's Digital Scholarship Lab"
+    }
+  ],
+  "spatialCoverage": [
+    {
+      "@id": "https://www.geonames.org/4164238",
+      "@type": "Place",
+      "name": "Miami-Dade County"
+    },
+    {
+      "@type": "Place",
+      "name": "bbox",
+      "geo": {
+        "@type": "GeoShape",
+        "polygon": "25.705373207 -122.767506653 25.705373207 -70.949200532 47.722514045 -70.949200532 47.722514045 -122.767506653 25.705373207 -122.767506653"
+      }
+    }
+  ],
+  "type": "Vector Dataset",
+  "datePublished": "2020-06-24",
+  "description": "The historical redlining grade from 143 cities across the United States. This dataset is the subset for Miami-Dade County in Florida.",
+  "keywords": [
+    "Florida",
+    "Miami-Dade County",
+    "MDC",
+    "Housing",
+    "Property",
+    "Racial Inequality",
+    "Race",
+    "Redlining History",
+    "HOLC",
+    "Social Justice"
+  ],
+  "@language": "en",
+  "measurementTechnique": [
+    {
+      "@type": "DefinedTerm",
+      "description": "GIS Data Structure for Representation",
+      "inDefinedTermSet": {
+        "@type": "DefinedTermSet",
+        "name": "dataRepresentation",
+        "hasDefinedTerm": [
+          {
+            "@type": "DefinedTerm",
+            "termCode": "raster"
+          },
+          {
+            "@type": "DefinedTerm",
+            "termCode": "vector"
+          },
+          {
+            "@type": "DefinedTerm",
+            "termCode": "table"
+          }
+        ]
+      },
+      "termCode": "vector"
+    },
+    {
+      "@type": "DefinedTerm",
+      "description": "GIS Vector Geometery",
+      "inDefinedTermSet": {
+        "@type": "DefinedTermSet",
+        "name": "vectorGeometry",
+        "hasDefinedTerm": [
+          {
+            "@type": "DefinedTerm",
+            "termCode": "point"
+          },
+          {
+            "@type": "DefinedTerm",
+            "termCode": "line"
+          },
+          {
+            "@type": "DefinedTerm",
+            "termCode": "polygon"
+          }
+        ]
+      },
+      "termCode": "multipolygon"
+    }
+  ],
+  "additionalProperty": [
+    {
+      "@type": "PropertyValue",
+      "propertyID": "http://dbpedia.org/resource/Spatial_reference_system",
+      "value": "https://epsg.io/4326"
+    }
+  ],
+  "about": [
+    {
+      "@type": "Event",
+      "description": "direct from source as subset",
+      "name": "ETL process for Miami-Dade Home Owner's Loan Corporation (HOLC) Neighborhood Redlining Grade",
+      "potentialAction": {
+        "@type": "Action",
+        "name": "Pseudo Code",
+        "description": "TODO",
+        "result": {
+          "@type": "Dataset",
+          "encodingFormat": "sql",
+          "url": "https://gdsc.idsc.miami.edu/download/data/mdc_holc_redlining/?file=mdc_holc_redlining&format=sql"
+        }
+      }
+    },
+    {
+      "@type": "Event",
+      "description": "direct from source as subset",
+      "name": "ETL process for Miami-Dade Home Owner's Loan Corporation (HOLC) Neighborhood Redlining Grade",
+      "potentialAction": {
+        "@type": "Action",
+        "name": "esri_recursive_ogr",
+        "description": "ETL process for Miami-Dade Home Owner's Loan Corporation (HOLC) Neighborhood Redlining Grade",
+        "object": {
+          "@type": "Dataset",
+          "name": "direct from source as subset",
+          "producer": "University of Richmond's Digital Scholarship Lab",
+          "url": "https://services.arcgis.com/jIL9msH9OI208GCb/arcgis/rest/services/HOLC_Neighborhood_Redlining/FeatureServer"
+        },
+        "instrument": {
+          "@type": "SoftwareApplication",
+          "@id": "https://github.com/Geospatial-Digital-Special-Collections/tools",
+          "featureList": "esri_recursive_ogr",
+          "downloadUrl": "https://github.com/Geospatial-Digital-Special-Collections/tools.git"
+        },
+        "result": {
+          "@type": "Dataset",
+          "name": "Miami-Dade Home Owner's Loan Corporation (HOLC) Neighborhood Redlining Grade",
+          "description": "The historical redlining grade from 143 cities across the United States. This dataset is the subset for Miami-Dade County in Florida.",
+          "encodingFormat": "sql",
+          "url": "https://gdsc.idsc.miami.edu/download/data/mdc_holc_redlining/?file=mdc_holc_redlining&format=sql"
+        }
+      }
+    }
+  ],
+  "variableMeasured": [
+    {
+      "@type": "PropertyValue",
+      "name": "holc_grade",
+      "description": "HOLC alphabetical system grade",
+      "qudt:dataType": "string"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "city",
+      "description": "City of polygon",
+      "qudt:dataType": "string"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "holc",
+      "description": "HOLC numeric system grade",
+      "qudt:dataType": "numeric"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "code",
+      "description": "FIPS code",
+      "qudt:dataType": "integer"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "st",
+      "description": "State of polygon",
+      "qudt:dataType": "string"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "citystate",
+      "description": "City and state of polygon",
+      "qudt:dataType": "string"
+    }
+  ],
+  "distribution": [
+    "https://gdsc.idsc.miami.edu/download/data/mdc_holc_redlining/?file=mdc_holc_redlining&format=sql"
+  ],
+  "dateModified": "2026-10-17 22:22:26",
+  "version": "2026-10-17"
+}

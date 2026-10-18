@@ -1,0 +1,60 @@
+#########
+# GDSC ETL is performed in two steps: shell script to ETL data into postgres
+# and then additional transformations with SQL in postGIS (if needed).
+####
+
+#########
+# Step 1 - bash script (pseudo code)
+####
+
+# create directory structure and move into it
+mkdir -p /data/mdc_2021_hylo/download -p /data/mdc_2021_hylo/mdc_2021_ndvi_greenness_30m/etl
+chmod -R 777 /data/mdc_2021_hylo
+cd /data/mdc_2021_hylo
+
+# set update flag based on last update and update frequency
+do_update=0 if date() < last_update + update_frequency else do_update = 1
+
+# download if update flag is set:
+if do_update == 1 then
+wget --retry-connrefused --waitretry=1 --read-timeout=20 --timeout=15 -t 10 -O download/mdc_2021_hylo.zip 'https://scholarship.miami.edu/view/fileRedirect?instCode=01UOML_INST&filePid=13395678880002976&download=true' 2>&1
+
+# unzip to download directory if update flag is set
+if do_update == 1 then
+unzip -o download/mdc_2021_hylo.zip -d download && rm download/mdc_2021_hylo.zip 2>&1
+
+# load raster into postGIS with:
+    raster2pgsql -s 3857 -d -C -I -t 48x48 GeoTIFF_Rasters/Greenness_30m_MDC.tif -F mdc_2021_ndvi_greenness_30m > load_raster.sql
+psql <connection options> < load_raster.sql
+rm load_raster.sql
+
+# create color raster
+mkdir -p /tiles/raster/mdc_2021_ndvi_greenness_30m
+mkdir -p /data/mdc_2021_hylo/mdc_2021_ndvi_greenness_30m/derived
+cd /data/mdc_2021_hylo
+cat > /data/mdc_2021_hylo/mdc_2021_ndvi_greenness_30m/derived/mdc_2021_ndvi_greenness_30m_color_ramp.txt <<_EOF
+nv 0 0 0 0
+178 0 68 27 255
+160.2 0 109 44 255
+142.4 29 134 65 255
+124.6 53 159 84 255
+106.8 85 181 103 255
+89 123 199 124 255
+71.2 158 215 152 255
+53.4 187 228 181 255
+35.6 213 239 207 255
+17.8 233 247 229 255
+1 247 252 245 255
+0 0 0 0 0
+_EOF
+gdaldem color-relief download/GeoTIFF_Rasters/Greenness_30m_MDC.tif /data/mdc_2021_hylo/mdc_2021_ndvi_greenness_30m/derived/mdc_2021_ndvi_greenness_30m_color_ramp.txt /data/mdc_2021_hylo/mdc_2021_ndvi_greenness_30m/derived/mdc_2021_ndvi_greenness_30m_color.tif -alpha
+# create color raster and render raster tiles 
+mkdir -p /data/mdc_2021_hylo/mdc_2021_ndvi_greenness_30m/derived
+mkdir -p /tiles/raster/mdc_2021_ndvi_greenness_30m
+cd /data/mdc_2021_hylo
+echo "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" | base64 -d > /data/mdc_2021_hylo/mdc_2021_ndvi_greenness_30m/derived/mdc_2021_ndvi_greenness_30m_legend.png
+cp /data/mdc_2021_hylo/mdc_2021_ndvi_greenness_30m/derived/mdc_2021_ndvi_greenness_30m_legend.png /tiles/raster/mdc_2021_ndvi_greenness_30m/
+# render raster tiles 
+cd /data/mdc_2021_hylo/mdc_2021_ndvi_greenness_30m/
+gdal2tiles.py -ex --xyz -z 8-16 /data/mdc_2021_hylo/mdc_2021_ndvi_greenness_30m/derived/mdc_2021_ndvi_greenness_30m_color.tif /tiles/raster/mdc_2021_ndvi_greenness_30m
+

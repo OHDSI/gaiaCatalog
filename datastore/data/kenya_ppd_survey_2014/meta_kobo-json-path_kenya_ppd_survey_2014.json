@@ -16,7 +16,7 @@
         "publisher_name": "APHRC"
       }
     ],
-    "rights": "public_domain",
+    "rights": "Public Domain",
     "license_text": "Controlled access author permission required",
     "restrictions": "This data is available on request",
     "coverage_group": [
@@ -29,7 +29,7 @@
     ],
     "time_period_start": "2014-03-15",
     "time_period_end": "2014-12-15",
-    "resource_type": "statistical_dataset",
+    "resource_type": "Statistical Dataset",
     "description": "Demographic, psychosocial and clinical factors associated with postpartum depression in Kenyan women",
     "provenance": " direct from source",
     "subject_group": [
@@ -65,8 +65,9 @@
   },
   "iso_group": {
     "structure": "table",
+    "extent": "TBD",
     "lineage": "TBD",
-    "process_step": "#########\n# GDSC ETL is performed in two steps: shell script to ETL data into postgres\n# and then additional transformations with SQL in postGIS (if needed).\n####\n\n#########\n# Step 1 - bash script (pseudo code)\n####\n\n# create directory structure and move into it\nmkdir -p /data/kenya_ppd_survey_2014/download -p /data/kenya_ppd_survey_2014/etl\nchmod 777 /data/kenya_ppd_survey_2014/download\ncd /data/kenya_ppd_survey_2014\n\n# set update flag based on last update and update frequency\ndo_update=0 if date() < last_update + update_frequency else do_update = 1\n\n# remove spaces for all column headers in csv\n  sed -i '1 s/ /_/g' download/kenya_ppd_survey_2014.csv\n\n# load into postGIS with:\n  ogr2ogr -lco GEOMETRY_NAME=geom -f PostgreSQL PG:\"<postgres connection>\" download/kenya_ppd_survey_2014.csv -nln kenya_ppd_survey_2014\n",
+    "process_step": "#########\n# GDSC ETL is performed in two steps: shell script to ETL data into postgres\n# and then additional transformations with SQL in postGIS (if needed).\n####\n\n#########\n# Step 1 - bash script (pseudo code)\n####\n\n# create directory structure and move into it\nmkdir -p /data/kenya_ppd_survey_2014/download -p /data/kenya_ppd_survey_2014/etl\nchmod -R 777 /data/kenya_ppd_survey_2014\ncd /data/kenya_ppd_survey_2014\n\n# set update flag based on last update and update frequency\ndo_update=0 if date() < last_update + update_frequency else do_update = 1\n\n# remove spaces, periods, and leading numerical digits in column headers (if needed)\n  if (head -n 1 download/kenya_ppd_survey_2014.csv | grep -qE '\s|\.|\\"[0-9]'); then\n    sed -i '1s/ /_/g; 1s/\.//g; 1s/\\"\([0-9]\)/\\"n\1/g' download/kenya_ppd_survey_2014.csv 2>&1\n  fi\n\n# load into postGIS with:\nogr2ogr -lco GEOMETRY_NAME=geom -f PostgreSQL PG:\"<postgres connection>\" download/kenya_ppd_survey_2014.csv -nln kenya_ppd_survey_2014\necho success: kenya_ppd_survey_2014.csv loaded with ogr2ogr\n\n",
     "processor": "GDSC automation (see Process Step)",
     "point_of_contact_group": [
       {
@@ -444,10 +445,10 @@
     "up": "false",
     "podid": "gaia-db",
     "last_updated": "not known",
-    "update_frequency": "as_needed"
+    "update_frequency": "As Needed"
   },
-  "_submission_time": "2026-08-23 15:56:20",
+  "_submission_time": "2026-10-09 23:51:27",
   "meta": {
-    "instanceID": "5697600c-4edd-44a1-9140-15347856616"
+    "instanceID": "4865bb7c-5dc1-4d10-979a-f9817473896"
   }
 }

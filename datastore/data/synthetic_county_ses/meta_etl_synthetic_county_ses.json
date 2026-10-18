@@ -1,0 +1,42 @@
+{
+  "rights": "CC0-1.0",
+  "temporal_extent": [
+    "2014-01-01",
+    "2019-12-31"
+  ],
+  "structure": "vector",
+  "geometry": "multipolygon",
+  "temporal_dimension": "static",
+  "epsg": "EPSG:4269",
+  "fields": [
+    "geoid",
+    "ses_index"
+  ],
+  "attributes": [
+    "geoid;Geographic identifier as five numeric characters (state and county FIPS);American National Standards Institute (ANSI);varchar;;;;",
+    "ses_index;Simulated composite socioeconomic status index, 0-100, higher = more affluent;OHDSI GIS tutorial data generator (simulated);numeric;index (0-100, higher = more affluent);;5;95;2014-01-01;2019-12-31;2052497744"
+  ],
+  "local_epsg": "EPSG:4269",
+  "derive": [],
+  "service": [
+    "file"
+  ],
+  "source": "https://raw.githubusercontent.com/OHDSI/GIS/main/syntheticDataGIS/data/county_ses.csv",
+  "file": [
+    "synthetic_county_ses"
+  ],
+  "extension": "csv",
+  "download": "wget",
+  "table": "synthetic_county_ses",
+  "format": "csv",
+  "dependency": [
+    "us_2023_county_tl"
+  ],
+  "etl_parameters": "-dialect sqlite -sql \"SELECT geoid, ses_index FROM synthetic_county_ses\" -lco COLUMN_TYPES=\"geoid=varchar,ses_index=varchar\" -nlt NONE",
+  "custom_etl": "join",
+  "custom_parameters": "column;temp;geoid;ses_index;numeric",
+  "up": "true",
+  "podID": "gaia-db",
+  "update_frequency": "Never",
+  "checksum": "TBD"
+}

@@ -1,0 +1,22 @@
+{
+  "rights": "Public Domain",
+  "structure": "vector",
+  "geometry": "multipolygon",
+  "epsg": "EPSG:4326",
+  "extent": "ENVELOPE(-77.336770,-76.545281,-9.779092,-10.707429)",
+  "fields": ["objectid", "fid_invent", "desc_cober", "zona_utm", "macrozona", "vertiente", "ubig_dep", "nomb_dep", "ubig_prov", "nomb_prov", "ubig_dist", "nomb_dist", "nomb_capdi", "cod_uh", "nomb_uh", "area_ha"],
+  "attributes": ["objectid;;;int4;;;198354;268371", "fid_invent;;;int4;;;196429;368105", "desc_cober;;;varchar;;;;", "zona_utm;;;int4;;;18;18", "macrozona;;;varchar;;;;", "vertiente;;;varchar;;;;", "ubig_dep;;;varchar;;;;", "nomb_dep;;;varchar;;;;", "ubig_prov;;;varchar;;;;", "nomb_prov;;;varchar;;;;", "ubig_dist;;;varchar;;;;", "nomb_dist;;;varchar;;;;", "nomb_capdi;;;varchar;;;;", "cod_uh;;;varchar;;;;", "nomb_uh;;;varchar;;;;", "area_ha;;;float8;;;0.0900048797049;804.362001252"],
+  "local_epsg": "EPSG:5387",
+  "derive": ["shp", "geojson", "gpkg"],
+  "source": "https://datacochageoespacial.inaigem.gob.pe/geoserver/inventario_bofedales/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=inventario_bofedales%3Ainventario_bofedales_2023&outputFormat=application/json&bbox=-77.33,-10.7,-76.55,-9.8,EPSG:4326",
+  "file": ["hh_2023_bofedales_inaigem"],
+  "extension": "json",
+  "download": "curl",
+  "table": "hh_2023_bofedales_inaigem",
+  "format": "json",
+  "up": "true",
+  "podID": "gaia-db",
+  "last_updated": "2026-10-17T22:41:16Z",
+  "update_frequency": "As Needed",
+  "checksum": "TBD"
+}

@@ -1,0 +1,22 @@
+{
+  "rights": "Public Domain",
+  "structure": "vector",
+  "geometry": "multipolygon",
+  "epsg": "EPSG:4326",
+  "extent": "ENVELOPE(-122.767506653,-70.949200532,47.722514045,25.705373207)",
+  "fields": ["holc"],
+  "attributes": ["holc_grade;HOLC alphabetical system grade;HOLC;string;", "city;City of polygon;;string;", "holc;HOLC numeric system grade;HOLC;numeric;", "code;FIPS code;U.S. Census Bureau;integer;", "st;State of polygon;;string;", "citystate;City and state of polygon;;string;"],
+  "local_epsg": "EPSG:2236",
+  "derive": ["sql"],
+  "source": "https://services.arcgis.com/jIL9msH9OI208GCb/ArcGIS/rest/services/HOLC_Neighborhood_Redlining/FeatureServer/0/query?where=city=%27Miami%27&outFields=*&outSR=4326&f=json",
+  "file": ["mdc_holc_redlining"],
+  "extension": "geojson",
+  "download": "esri_recursive_ogr",
+  "table": "mdc_holc_redlining",
+  "format": "geojson",
+  "up": "true",
+  "podID": "gaia-db",
+  "last_updated": "2026-10-17T22:22:26Z",
+  "update_frequency": "Never",
+  "checksum": "TBD"
+}

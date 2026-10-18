@@ -6,7 +6,7 @@
 # Data source: https://overpass-api.de/api/interpreter?data=node%5B%22place%22~%22city|town|village%22%5D(area:3600555717);(._;>;);out;
 # Destination postGIS table: tt_populated_places
 #
-# Created by etl() on 2026-09-13 15:23:01
+# Created by etl() on 2026-10-09 22:52:58
 # Do not edit directly
 
 # set credentials from postgres defaults and secret files

@@ -1,0 +1,21 @@
+{
+  "rights": "Public Domain",
+  "structure": "vector",
+  "geometry": "multipolygon",
+  "epsg": "EPSG:4269",
+  "extent": "ENVELOPE(-176.696692,145.830505,71.341324,-14.373776)",
+  "fields": ["ogc_fid", "geoid20", "zcta5ce20", "classfp20", "mtfcc20", "aland20", "awater20", "funcstat20", "intptlat20", "intptlon20"],
+  "attributes": ["ogc_fid;object ID;internal;int4;id;;1;33791", "geoid20;Zip Code;Census;varchar;zip code;;;", "zcta5ce20;Zip Code;Census;varchar;zip code;;;", "classfp20;The class (CLASSFP) code defines the current class of a geographic entity.;Census;varchar;code;;;", "mtfcc20;5-digit code assigned by the Census Bureau intended to classify and describe geographic objects or features;Census;varchar;code;;;", "aland20;Area of land in square feet;Census;numeric;Square Feet;;3551.00;35426845132.00", "awater20;Area of water in square feet;Census;numeric;Square Feet;;0.00;3695341658.00", "funcstat20;The functional status (FUNCSTAT) code defines the current functional status of a geographic entity.;Census;varchar;code;;;", "intptlat20;NAD83 Latitude;Census;varchar;Degrees Latitude;;;", "intptlon20;NAD83 Longitude;Census;varchar;Degrees Longitude;;;"],
+  "local_epsg": "EPSG:4269",
+  "source": "ftp://ftp2.census.gov/geo/tiger/TIGER2020/ZCTA520/tl_2020_us_zcta520.zip",
+  "file": ["us_2020_zcta", "tl_2020_us_zcta520"],
+  "extension": "zip",
+  "download": "wget",
+  "table": "us_2020_zcta",
+  "format": "shp",
+  "up": "true",
+  "podID": "gaia-db",
+  "last_updated": "2026-10-05T22:27:02Z",
+  "update_frequency": "Never",
+  "checksum": "TBD"
+}

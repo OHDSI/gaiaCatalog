@@ -1,0 +1,246 @@
+{
+  "control_group": {
+    "id": 130
+  },
+  "dublin_core_group": {
+    "title": "Miami-Dade County Distance to Parks",
+    "creator_group": [
+      {
+        "creator_name": "Tyler Harrison",
+        "creator_type": "person",
+        "creator_last_name": "Harrison",
+        "creator_first_name": "Tyler",
+        "creator_identifier": "https://orcid.org/0000-0002-0635-5967",
+        "creator_identifier_schema": "orcid",
+        "creator_identifier_schema_uri": "https://orcid.org/",
+        "creator_affiliation": "School of Communication, University of Miami",
+        "creator_affiliation_identifier": "https://ror.org/02dgjyy92",
+        "creator_affiliation_schema": "ror",
+        "creator_affiliation_schema_uri": "https://ror.org/"
+      },
+      {
+        "creator_name": "Amy C Clement",
+        "creator_type": "person",
+        "creator_last_name": "Clement",
+        "creator_first_name": "Amy C",
+        "creator_identifier": "https://orcid.org/0000-0002-0105-0961",
+        "creator_identifier_schema": "orcid",
+        "creator_identifier_schema_uri": "https://orcid.org/",
+        "creator_affiliation": "Atmospheric Sciences, Rosenstiel School, University of Miami",
+        "creator_affiliation_identifier": "https://ror.org/02dgjyy92",
+        "creator_affiliation_schema": "ror",
+        "creator_affiliation_schema_uri": "https://ror.org/"
+      },
+      {
+        "creator_name": "Gina L. Maranto",
+        "creator_type": "person",
+        "creator_last_name": "Maranto",
+        "creator_first_name": "Gina L."
+      },
+      {
+        "creator_name": "Sam Purkis",
+        "creator_type": "person",
+        "creator_last_name": "Purkis",
+        "creator_first_name": "Sam"
+      },
+      {
+        "creator_name": "Joanna L. Lombard",
+        "creator_type": "person",
+        "creator_last_name": "Lombard",
+        "creator_first_name": "Joanna L."
+      },
+      {
+        "creator_name": "Angela C. Clark-Hughes",
+        "creator_type": "person",
+        "creator_last_name": "Clark-Hughes",
+        "creator_first_name": "Angela C",
+        "creator_identifier": "https://orcid.org/0000-0003-0445-5830",
+        "creator_identifier_schema": "orcid",
+        "creator_identifier_schema_uri": "https://orcid.org/",
+        "creator_affiliation": "Rosenstiel School Library, University of Miami",
+        "creator_affiliation_identifier": "https://ror.org/02dgjyy92",
+        "creator_affiliation_schema": "ror",
+        "creator_affiliation_schema_uri": "https://ror.org/"
+      },
+      {
+        "creator_name": "Abraham K Parrish",
+        "creator_type": "person",
+        "creator_last_name": "Parrish",
+        "creator_first_name": "Abraham K"
+      },
+      {
+        "creator_name": "Marcus B. Reamer",
+        "creator_type": "person",
+        "creator_last_name": "Reamer",
+        "creator_first_name": "Marcus B."
+      },
+      {
+        "creator_name": "Olivia Collins",
+        "creator_type": "person",
+        "creator_last_name": "Collins",
+        "creator_first_name": "Olivia"
+      },
+      {
+        "creator_name": "Caroline Lewis",
+        "creator_type": "person",
+        "creator_last_name": "Lewis",
+        "creator_first_name": "Caroline"
+      },
+      {
+        "creator_name": "Mayra Cruz",
+        "creator_type": "person",
+        "creator_last_name": "Cruz",
+        "creator_first_name": "Mayra"
+      },
+      {
+        "creator_name": "Anaruth Solace",
+        "creator_type": "person",
+        "creator_last_name": "Solace",
+        "creator_first_name": "Anaruth"
+      }
+    ],
+    "url": "https://scholarship.miami.edu/esploro/outputs/991031655220702976",
+    "doi": "https://doi.org/10.17604/p318-6n41",
+    "publisher_group": [
+      {
+        "publisher_name": "University of Miami"
+      },
+      {
+        "publisher_name": "Otto G. Richter Library"
+      }
+    ],
+    "rights": "Public Domain",
+    "license": "odc_by",
+    "license_text": "All data are made available under the Open Data Commons Attribution License: http://opendatacommons.org/licenses/by/1.0/ with the exception of the PhotoVoice photos in the Hylo_Photovoice_Data.pdf file which are for viewing and analysis only. They may not be altered or reproduced in any way.",
+    "coverage_group": [
+      {
+        "coverage_name": "Miami-Dade County",
+        "coverage_identifier": "4164238",
+        "coverage_identifier_schema": "geonames",
+        "coverage_identifier_schema_uri": "https://www.geonames.org/"
+      }
+    ],
+    "resource_type": "Raster Dataset",
+    "publication_date": "2021-11-07",
+    "description": "A raster of the euclidean distance from parks within Miami-Dade County.",
+    "provenance": "Direct from source",
+    "subject_group": [
+      {
+        "subject_term": "Miami-Dade County"
+      }
+    ],
+    "language": "en",
+    "size_group": [
+      {
+        "size_bytes": "533777933",
+        "size_human_readable": "510M"
+      }
+    ]
+  },
+  "iso_group": {
+    "structure": "raster",
+    "band_group": [
+      {
+        "band_name": "30 meter ft"
+      }
+    ],
+    "pixel_dimension": 30.0,
+    "dimension_units": "meters",
+    "epsg": 3857,
+    "extent": "ENVELOPE(-80.873813,-80.117611,25.979615,25.137447)",
+    "lineage": "TBD",
+    "process_step": "#########\n# GDSC ETL is performed in two steps: shell script to ETL data into postgres\n# and then additional transformations with SQL in postGIS (if needed).\n####\n\n#########\n# Step 1 - bash script (pseudo code)\n####\n\n# create directory structure and move into it\nmkdir -p /data/mdc_2021_hylo/download -p /data/mdc_2021_hylo/mdc_distance_to_parks/etl\nchmod -R 777 /data/mdc_2021_hylo\ncd /data/mdc_2021_hylo\n\n# set update flag based on last update and update frequency\ndo_update=0 if date() < last_update + update_frequency else do_update = 1\n\n# download if update flag is set:\nif do_update == 1 then\nwget --retry-connrefused --waitretry=1 --read-timeout=20 --timeout=15 -t 10 -O download/mdc_2021_hylo.zip 'https://scholarship.miami.edu/view/fileRedirect?instCode=01UOML_INST&filePid=13395678880002976&download=true' 2>&1\n\n# unzip to download directory if update flag is set\nif do_update == 1 then\nunzip -o download/mdc_2021_hylo.zip -d download && rm download/mdc_2021_hylo.zip 2>&1\n\n# load raster into postGIS with:\n    raster2pgsql -s 3857 -d -C -I -t 48x48 GeoTIFF_Rasters/Parks_Euclid_Dist_30m_MDC.tif -F mdc_distance_to_parks > load_raster.sql\npsql <connection options> < load_raster.sql\nrm load_raster.sql\n\n# create color raster\nmkdir -p /tiles/raster/mdc_distance_to_parks\nmkdir -p /data/mdc_2021_hylo/mdc_distance_to_parks/derived\ncd /data/mdc_2021_hylo\ncat > /data/mdc_2021_hylo/mdc_distance_to_parks/derived/mdc_distance_to_parks_color_ramp.txt <<_EOF\n0 159 212 140 255\n150 158 211 139 230\n330 157 210 138 199\n525 156 209 136 166\n720 155 208 135 133\n915 154 207 134 99\n1110 152 206 133 66\n1305 151 205 131 33\n1500 150 204 130 0\n_EOF\ngdaldem color-relief download/GeoTIFF_Rasters/Parks_Euclid_Dist_30m_MDC.tif /data/mdc_2021_hylo/mdc_distance_to_parks/derived/mdc_distance_to_parks_color_ramp.txt /data/mdc_2021_hylo/mdc_distance_to_parks/derived/mdc_distance_to_parks_color.tif -alpha\n# create color raster and render raster tiles \nmkdir -p /data/mdc_2021_hylo/mdc_distance_to_parks/derived\nmkdir -p /tiles/raster/mdc_distance_to_parks\ncd /data/mdc_2021_hylo\necho \"iVBORw0KGgoAAAANSUhEUgAAAF0AAACrCAYAAAAEupDHAAAJQElEQVR4nO2dXUhU0RbH10iWjl9QSKOYFaYpV/sgKyOpSAi0hoQUIiwvhC+Fkd7qySgjqdD7kkEP9nCJKCxLcKhEQ5LKh/LJsk8KMz/Cby01m3Rd9uY6OKln5Iz3rNnO+slOz9lzzsT/rLP2OnvvdbYJEREYQ/Ex9usYFp0IFp0AFp0AFp0AFp0AFp0AFp0AFp0AFp0AFp0AFp0AFt0bRbfb7eBtHZ26RO/p6QGTyeQoS5YsgXXr1sGDBw8cn2lsbIQ1a9ZonmdiYgI2bNgAY2Nj4FWgDrq7u4VpYn9/v9weHh7G+/fvY0BAANbV1c35PHa7XZ5ndHQUvYl5EX2Ss2fP4p49e+Tfr169wqioKPn379+/MTs7G4ODg3H16tVYVFQk92/dulWeR5TOzk68cuUKxsTE4OLFizE2Nhbr6+sd50pMTMSMjAwMCQnB9evXY1NTk+N7xQWPjo5Gs9mMqamp2NPTI/fX1tZiQkKC/F5xbF9fHy440V+8eIGBgYHTRL99+zampKTg4OAgfv78GS0WC75588bJ0hsaGuQFaWlpkXfOqVOncNeuXY5zic+VlpbiwMAAHjt2DPft2yfrvnz5Iu+whw8fYm9vLx49elSW9vZ2DAoKwsrKSnlMbm4uHjp0CBec6O/evUOTyYTj4+NOoldVVWFYWBhev34d29raXLqXrq4uLCkpwfj4eLktzrV06VJHvbhAcXFx8m9xIdLT06f9H69du4ZWq9WxLS6kr68vjo2NITXzGr2IBjY8PBx8fJxPa7Va4eTJk3D58mVYsWIFpKWlQX9//7QoJjc3F0JDQyEmJgbu3LnjFNWI/ZP4+vrKRljQ3d0tz/k3bW1tYLPZHI19QECA/I7W1lagZl5Fr62tldHITJw5cwZaWlqgqalJXpybN2861ZeVlUFDQwO8fPlSXpDz58/P6TvDwsKgvb192n6LxQKHDx+WF25qcRVRKSP6yMgIlJeXw9WrV6W4f1NcXAz79++XYlosFmmpgYGBsGjRInlXdHV1QV9fHwQFBcGyZcvg48ePUvS5hJJ79+6FJ0+eyDIwMAAXL16Ud1Z6ejpUVVVBdXU1DA0NwY0bN+QdIaydHHd8+mQRDda2bduwurra8ZmpPl34bNGIiSgiKCgIc3JyZEQjEPtFtPL8+XPZcIoIZOPGjVheXo5+fn44NDQkz7V27Vqnc0/dFm2GiHbEsSJ6mmw3Hj16JNsFf39/3Lx5MzY2NqInYBL/UF94b4O8G8AbYdEJYNG9TXS7F/YwuiV6fn4++Pn5QXZ2tq7jJ7y1hxEAdEcvwcHB8PTpUync30+gc+HPnz8yXh8dHZUXz5vQZekRERHw48cP2LRpk3wAEQ8moj89JCQEMjMznR7xZ6tLTk6Wv/39/eH79+/gVegN8EXPnuiO1erN06qze2lfusBt0bV687Tq7F4s+iJ375SpvXlTEb15WnWrVq0Cb8XtkFGrN8+Te/pIcde9iJEeMYT2+PFjOTJUVlaGERERskNLq07g4+ODX79+lYMe3oTborvqzdOqO/S/Hsbm5mb0JriXkQDueyGARSeARSeARSeARSeARSeARSeARSeARSeARSeARSdAWdHr6+shLi4OzGYzHDlyRKkBbiVFHxkZkeOtYrLot2/fHBNHlQEVxGazYVJSkmNbpMJERkaiKihp6Z8+fYLY2FjHtkgiEEOAw8PDoAK6xkj/0/xvMIJ//uNfM+7/+fOn9OWTiJRKMQ4r5tCIjAtPR0lLN5vNUuBJRCMqxmJUEFy36CaDfmZDuBPhYib58OGDnAAlJi6pgJKi7969G96/fw/37t2D3t5eKCgogIMHD4Iq6HMvYh6LEWUWhBuprKyECxcuwMqVK+VcyMLCQlAFXQ2plhUaRXJyMrx+/RpURFnRVUaf6Bq3PuManXMZWXR3YPdCALsXdSydcQd2LwQo2feiOhy9EMDuhQCOXtSxdG4KCCzdre/0etjSCWCfTgBHLwSwpRPAlq6OpXND6g5s6QSwyRLAohPAD0cEcMhIADekysxlnLLyy/+zaHHixAmnzyYmJs4pNcYT0mZ0TiD1MaRo8fbtW6ipqXG8okos8eMqNcZT0mZ0ie5jMqa4Ej0hIWHa/rq6OoiKioIDBw7IF+AXFRU5ViXQqjMSnWGIyaAyM8JCxRIPwj2IFQd27Ngh56i7So3xlLQZnT7dx5AyG83NzdInnzt3Djo6OmDLli3SeoWb0UqN0arz+OhFeFxKtm/fLq19ErGqTGlpqbRardQYT0mbUdLSZ3ol+Pj4uEwO0EqN8ZS0GSXTXyoqKiA6Olou3zM4OAh5eXmwc+dOWL58uWZqjKekzSj5PJ+RkSHfbJqamirfcirCv1u3brlMjfGUtBld72V82moDI9gVaYWFCA9iEMB9LwSw6ARw1y4B+h6O2Ke7BbsXAlh0AjhkJIAbUgLYvRDAohPAzpkA9ukE8AwvAtjSCWBLJ4AtnQAOGQlgSyeAfbo6/els6e7Alk4A+3QCOHohQHk/cfr0aTmBdCp6MzGMytJQNv3l169fkJ+fDyUlJU779WZiGJmloWz6S05ODrS1tUFWVta8ZGIYmaWhrKUXFxfD3bt3ISQkxGm/3kwMI7M0lG1ILRbLjPv1ZmIYubjJggsZzTozMYzM0lDWp8+G3kwMI7M0lPXps6E3E8PILA0l01+00JuJYWSWhq5MjNahz2AEkcFRsBBRNnpRGe7aJYBf5U2A8h1eKsJTpQlQ8t0AqsOWTgAvuUMAWzoB/HBEAFs6AWzpBCy4QQwV4DR1Ati9EMDuhQD2EwSweyGA43QC2NIJ4IaUAM7EIIAtXZ2RI7Z042cDsKUTLM9g0BRSvekvHr9ICepgfGLckKLF6Ogo5uXliSmBeOnSJae6lJQUrKmpmXbM8PAwhoaGYkVFBfb09KDVasWCggKXdfONLtEnDPrRIisrCzMzM+Xvv0UPCwvDzs7OacfYbDZMSkpybDc1NWFkZKTLuvlG2Vm7xbOkv6iwSImyYYhllvQXFRYp0TmX0XPZrsAiJcpausqLlCw40StUWKQEFef48ePTopfCwkIMDw9HPz8/TEtLw46ODkfds2fPMD4+HgMCAmT0I0LFudTNJ7rSXxj3WHDuRQVYdAJYdAJYdAJYdAJYdAJYdDCe/wJuV/VqLozi0QAAAABJRU5ErkJggg==\" | base64 -d > /data/mdc_2021_hylo/mdc_distance_to_parks/derived/mdc_distance_to_parks_legend.png\ncp /data/mdc_2021_hylo/mdc_distance_to_parks/derived/mdc_distance_to_parks_legend.png /tiles/raster/mdc_distance_to_parks/\n# render raster tiles \ncd /data/mdc_2021_hylo/mdc_distance_to_parks/\ngdal2tiles.py -ex --xyz -z 8-16 /data/mdc_2021_hylo/mdc_distance_to_parks/derived/mdc_distance_to_parks_color.tif /tiles/raster/mdc_distance_to_parks\n",
+    "processor": "GDSC automation (see Process Step)",
+    "point_of_contact_group": [
+      {
+        "contact_name": "Timothy B. Norris",
+        "contact_last_name": "Norris",
+        "contact_first_name": "Timothy",
+        "contact_email": "tnorris@miami.edu",
+        "contact_identifier": "https://orcid.org/0000-0002-0898-3027",
+        "contact_identifier_schema": "orcid",
+        "contact_identifier_schema_uri": "https://orcid.org/",
+        "contact_affiliation": "University of Miami Libraries, Frost Institute for Data Science and Computing",
+        "contact_affiliation_identifier": "https://ror.org/02dgjyy92",
+        "contact_affiliation_schema": "ror",
+        "contact_affiliation_schema_uri": "https://ror.org/"
+      }
+    ],
+    "data_level": "derived"
+  },
+  "cartography_group": {
+    "attributes_group": [
+      {
+        "attribute_name": "Distance",
+        "attribute_description": "Distance to parks in feet",
+        "attribute_source": "Derived from MDC County and Municipal Parks Polygons",
+        "attribute_type": "float32",
+        "attribute_unit": "feet",
+        "attribute_min_value": "0",
+        "attribute_max_value": "48558.36328125",
+        "attribute_end_date": "2023"
+      }
+    ],
+    "tile_url_group": [
+      {
+        "tile_base_url": "https://gdsc.idsc.miami.edu/rastertiles/mdc_distance_to_parks/"
+      },
+      {
+        "tile_base_url": "{z}/{x}/{y}.png"
+      },
+      {
+        "tile_base_url": "openlayers.html"
+      }
+    ],
+    "color_ramp": "0 159 212 140 255\n150 158 211 139 230\n330 157 210 138 199\n525 156 209 136 166\n720 155 208 135 133\n915 154 207 134 99\n1110 152 206 133 66\n1305 151 205 131 33\n1500 150 204 130 0",
+    "legend": "TBD",
+    "tile_zoom_group": [
+      {
+        "tile_min_zoom": "8"
+      },
+      {
+        "tile_min_zoom": "16"
+      }
+    ]
+  },
+  "collection_group": {
+    "collections": "mdc-health-outcomes vulnerability mdc-sleep-outcomes",
+    "analytic_function": "gdsc_zonal_statistics",
+    "analytic_epsg": 2236,
+    "derivative_url": "/data/mdc_2021_hylo/mdc_distance_to_parks/",
+    "sponsor_group": [
+      {
+        "sponsor_name": "IDSC",
+        "sponsor_url": "https://idsc.miami.edu"
+      },
+      {
+        "sponsor_name": "Library",
+        "sponsor_url": "https://www.library.miami.edu"
+      }
+    ],
+    "status": "draft"
+  },
+  "etl_group": {
+    "source": "https://scholarship.miami.edu/view/fileRedirect?instCode=01UOML_INST&filePid=13395678880002976&download=true",
+    "file_name_group": [
+      {
+        "file_name_value": "mdc_2021_hylo",
+        "file_inside_archive": "GeoTIFF_Rasters/Parks_Euclid_Dist_30m_MDC"
+      }
+    ],
+    "extension": "zip",
+    "download": "wget",
+    "table_name": "mdc_distance_to_parks",
+    "format": "tif",
+    "etl_parameters": "-t 48x48",
+    "up": "true",
+    "podid": "gaia-db",
+    "last_updated": "2026-10-05 21:40:39",
+    "update_frequency": "Never",
+    "checksum": "TBD"
+  },
+  "_submission_time": "2026-10-09 23:52:20",
+  "meta": {
+    "instanceID": "4a9f2dc6-a193-40dc-86c0-59773668759"
+  }
+}

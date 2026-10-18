@@ -6,7 +6,7 @@
 # Data source: https://overpass-api.de/api/interpreter?data=rel%5B%22ISO3166-2%22~%22^TZ%22%5D%5Badmin_level=4%5D%5Btype=boundary%5D%5Bboundary=administrative%5D;(._;>;);out;
 # Destination postGIS table: tz_regions_osm
 #
-# Created by etl() on 2026-09-13 15:23:19
+# Created by etl() on 2026-10-09 22:53:32
 # Do not edit directly
 
 # set credentials from postgres defaults and secret files
@@ -37,7 +37,7 @@ if [[ $exists ]]; then
   if [[ ! $no_update ]]; then
     last_update=$(date -d "$(cat datestamp)" '+%s')
     check_date="$(date -d '-'"$update_frequency" '+%s')"
-    if [[ "$check_date -ge $last_update" ]]; then do_update=1; fi
+    if [[ "$check_date" -ge "$last_update" ]]; then do_update=1; fi
   fi
 
 # does not exist

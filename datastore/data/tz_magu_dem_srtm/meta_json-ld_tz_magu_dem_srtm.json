@@ -58,7 +58,7 @@
       "name": "bbox",
       "geo": {
         "@type": "GeoShape",
-        "polygon": "32.750139 -3.089861 34.039861 -3.089861 34.039861 -2.130139 32.750139 -2.130139 32.750139 -3.089861"
+        "polygon": "-3.089861 32.750139 -3.089861 34.039861 -2.130139 34.039861 -2.130139 32.750139 -3.089861 32.750139"
       }
     }
   ],
@@ -161,15 +161,13 @@
       "@type": "PropertyValue",
       "name": "elevation",
       "description": "Mean elevation above sea level",
-      "qudt:dataType": "int16",
-      "unitText": "meters\n",
-      "minValue": "1125",
-      "maxValue": "1508"
+      "qudt:dataType": "float",
+      "unitText": "meters\n"
     }
   ],
   "distribution": [
     "https://gdsc.idsc.miami.edu/download/data/tz_magu_dem_srtm/?file=tz_magu_dem_srtm&format=geotiff"
   ],
-  "dateModified": "2025-02-24",
-  "version": "2026-09-13"
+  "dateModified": "2026-09-12 12:52:55",
+  "version": "2026-10-09"
 }

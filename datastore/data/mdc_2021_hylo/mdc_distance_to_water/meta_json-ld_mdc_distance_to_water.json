@@ -1,0 +1,257 @@
+{
+  "@context": {
+    "@vocab": "https://schema.org/",
+    "dct": "http://purl.org/dc/terms/",
+    "qudt": "http://qudt.org/schema/qudt/",
+    "quantitykind": "http://qudt.org/vocab/quantitykind/",
+    "unit": "http://qudt.org/vocab/unit/",
+    "xsd": "http://www.w3.org/2001/XMLSchema",
+    "extendedConstraintProperty": "http://codata.org/vocab/extendedConstraintProperty",
+    "sdmx": "https://sdmx.org"
+  },
+  "@type": "Dataset",
+  "@id": "https://gdsc.idsc.miami.edu/detail/mdc_distance_to_water",
+  "includedInDataCatalog": [
+    {
+      "@type": "DataCatalog",
+      "@id": "https://gdsc.idsc.miami.edu",
+      "name": "Geospatial Digital Special Collections",
+      "url": "https://gdsc.idsc.miami.edu"
+    },
+    {
+      "@type": "DataCatalog",
+      "name": "mdc-health-outcomes",
+      "@id": "https://gdsc.idsc.miami.edu/?collection=mdc-health-outcomes",
+      "url": "https://gdsc.idsc.miami.edu/?collection=mdc-health-outcomes"
+    }
+  ],
+  "name": "Miami-Dade County Distance to Water",
+  "creator": [
+    {
+      "@type": "Person",
+      "givenName": "Tyler",
+      "familyName": "Harrison",
+      "affiliation": {
+        "@type": "Organization",
+        "@id": "https://ror.org/02dgjyy92",
+        "identifier": "https://ror.org/02dgjyy92",
+        "name": "School of Communication, University of Miami"
+      },
+      "sameAs": "https://orcid.org/0000-0002-0635-5967",
+      "@id": "https://orcid.org/0000-0002-0635-5967",
+      "identifier": "https://orcid.org/0000-0002-0635-5967",
+      "name": "Tyler Harrison"
+    },
+    {
+      "@type": "Person",
+      "givenName": "Amy C",
+      "familyName": "Clement",
+      "affiliation": {
+        "@type": "Organization",
+        "@id": "https://ror.org/02dgjyy92",
+        "identifier": "https://ror.org/02dgjyy92",
+        "name": "Atmospheric Sciences, Rosenstiel School, University of Miami"
+      },
+      "sameAs": "https://orcid.org/0000-0002-0105-0961",
+      "@id": "https://orcid.org/0000-0002-0105-0961",
+      "identifier": "https://orcid.org/0000-0002-0105-0961",
+      "name": "Amy C Clement"
+    },
+    {
+      "@type": "Person",
+      "givenName": "Gina L.",
+      "familyName": "Maranto",
+      "name": "Gina L. Maranto"
+    },
+    {
+      "@type": "Person",
+      "givenName": "Sam",
+      "familyName": "Purkis",
+      "name": "Sam Purkis"
+    },
+    {
+      "@type": "Person",
+      "givenName": "Joanna L.",
+      "familyName": "Lombard",
+      "name": "Joanna L. Lombard"
+    },
+    {
+      "@type": "Person",
+      "givenName": "Angela C",
+      "familyName": "Clark-Hughes",
+      "affiliation": {
+        "@type": "Organization",
+        "@id": "https://ror.org/02dgjyy92",
+        "identifier": "https://ror.org/02dgjyy92",
+        "name": "Rosenstiel School Library, University of Miami"
+      },
+      "sameAs": "https://orcid.org/0000-0003-0445-5830",
+      "@id": "https://orcid.org/0000-0003-0445-5830",
+      "identifier": "https://orcid.org/0000-0003-0445-5830",
+      "name": "Angela C. Clark-Hughes"
+    },
+    {
+      "@type": "Person",
+      "givenName": "Abraham K",
+      "familyName": "Parrish",
+      "name": "Abraham K Parrish"
+    },
+    {
+      "@type": "Person",
+      "givenName": "Marcus B.",
+      "familyName": "Reamer",
+      "name": "Marcus B. Reamer"
+    },
+    {
+      "@type": "Person",
+      "givenName": "Olivia",
+      "familyName": "Collins",
+      "name": "Olivia Collins"
+    },
+    {
+      "@type": "Person",
+      "givenName": "Caroline",
+      "familyName": "Lewis",
+      "name": "Caroline Lewis"
+    },
+    {
+      "@type": "Person",
+      "givenName": "Mayra",
+      "familyName": "Cruz",
+      "name": "Mayra Cruz"
+    },
+    {
+      "@type": "Person",
+      "givenName": "Anaruth",
+      "familyName": "Solace",
+      "name": "Anaruth Solace"
+    }
+  ],
+  "url": "https://scholarship.miami.edu/esploro/outputs/991031655220702976",
+  "provider": [
+    {
+      "@type": "Organization",
+      "name": "University of Miami"
+    },
+    {
+      "@type": "Organization",
+      "name": "Otto G. Richter Library"
+    }
+  ],
+  "license": "odc_by",
+  "spatialCoverage": [
+    {
+      "@id": "https://www.geonames.org/4164238",
+      "@type": "Place",
+      "name": "Miami-Dade County"
+    },
+    {
+      "@type": "Place",
+      "name": "bbox",
+      "geo": {
+        "@type": "GeoShape",
+        "polygon": "25.137447 -80.873813 25.137447 -80.117611 25.979615 -80.117611 25.979615 -80.873813 25.137447 -80.873813"
+      }
+    }
+  ],
+  "type": "Raster Dataset",
+  "datePublished": "2021-11-07",
+  "description": "A raster of the euclidean distance from bodies of water within Miami-Dade County.",
+  "keywords": [
+    "Miami-Dade County"
+  ],
+  "@language": "en",
+  "measurementTechnique": [
+    {
+      "@type": "DefinedTerm",
+      "description": "GIS Data Structure for Representation",
+      "inDefinedTermSet": {
+        "@type": "DefinedTermSet",
+        "name": "dataRepresentation",
+        "hasDefinedTerm": [
+          {
+            "@type": "DefinedTerm",
+            "termCode": "raster"
+          },
+          {
+            "@type": "DefinedTerm",
+            "termCode": "vector"
+          },
+          {
+            "@type": "DefinedTerm",
+            "termCode": "table"
+          }
+        ]
+      },
+      "termCode": "raster"
+    }
+  ],
+  "additionalProperty": [
+    {
+      "@type": "PropertyValue",
+      "name": "https://dbpedia.org/resource/Ground_sample_distance",
+      "value": 30.0,
+      "unitText": "meters"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "http://dbpedia.org/resource/Spatial_reference_system",
+      "value": "https://epsg.io/3857"
+    }
+  ],
+  "about": [
+    {
+      "@type": "Event",
+      "description": "Direct from source",
+      "name": "ETL process for Miami-Dade County Distance to Water",
+      "potentialAction": {
+        "@type": "Action",
+        "name": "Pseudo Code",
+        "description": "TODO"
+      }
+    },
+    {
+      "@type": "Event",
+      "description": "Direct from source",
+      "name": "ETL process for Miami-Dade County Distance to Water",
+      "potentialAction": {
+        "@type": "Action",
+        "name": "wget",
+        "description": "ETL process for Miami-Dade County Distance to Water",
+        "object": {
+          "@type": "Dataset",
+          "name": "Direct from source",
+          "producer": "Tyler Harrison",
+          "url": "https://scholarship.miami.edu/esploro/outputs/991031655220702976"
+        },
+        "instrument": {
+          "@type": "SoftwareApplication",
+          "@id": "https://github.com/Geospatial-Digital-Special-Collections/tools",
+          "featureList": "wget",
+          "downloadUrl": "https://github.com/Geospatial-Digital-Special-Collections/tools.git"
+        },
+        "result": {
+          "@type": "Dataset",
+          "name": "Miami-Dade County Distance to Water",
+          "description": "A raster of the euclidean distance from bodies of water within Miami-Dade County.",
+          "encodingFormat": "tif"
+        }
+      }
+    }
+  ],
+  "variableMeasured": [
+    {
+      "@type": "PropertyValue",
+      "name": "Distance",
+      "description": "Distance to water in feet",
+      "qudt:dataType": "float32",
+      "unitText": "feet",
+      "minValue": "0",
+      "maxValue": "15080.185546875",
+      "endDate": "2023"
+    }
+  ],
+  "distribution": "/data/mdc_2021_hylo/mdc_distance_to_water/",
+  "dateModified": "2026-10-05 21:40:39",
+  "version": "2026-10-09"
+}

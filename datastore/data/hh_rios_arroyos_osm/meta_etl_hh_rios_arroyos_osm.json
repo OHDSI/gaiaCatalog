@@ -1,0 +1,23 @@
+{
+  "rights": "Open Data",
+  "structure": "vector",
+  "geometry": "multilinestring",
+  "epsg": "EPSG:4326",
+  "extent": "ENVELOPE(-77.33,-76.55,-9.8,-10.7)",
+  "fields": ["osm_id", "name", "destination", "intermittent", "length", "name:en", "name:qu", "waterway"],
+  "attributes": ["osm_id", "name", "destination", "intermittent", "length", "name:en", "name:qu", "waterway"],
+  "local_epsg": "EPSG:5387",
+  "derive": ["shp", "geojson", "gpkg"],
+  "source": "https://overpass-api.de/api/interpreter?data=nwr%5B%22waterway%22~%22river|stream%22%5D%28-10.7,-77.33,-9.8,-76.55%29;%28._;>;%29;out;",
+  "file": ["hh_rios_arroyos_osm"],
+  "extension": "osm",
+  "download": "curl",
+  "table": "hh_rios_arroyos_osm",
+  "format": "osm",
+  "etl_parameters": "lines",
+  "up": "true",
+  "podID": "gaia-db",
+  "last_updated": "2026-10-17T22:43:11Z",
+  "update_frequency": "As Needed",
+  "checksum": "TBD"
+}

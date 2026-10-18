@@ -1,0 +1,174 @@
+{
+  "@context": {
+    "@vocab": "https://schema.org/",
+    "dct": "http://purl.org/dc/terms/",
+    "qudt": "http://qudt.org/schema/qudt/",
+    "quantitykind": "http://qudt.org/vocab/quantitykind/",
+    "unit": "http://qudt.org/vocab/unit/",
+    "xsd": "http://www.w3.org/2001/XMLSchema",
+    "extendedConstraintProperty": "http://codata.org/vocab/extendedConstraintProperty",
+    "sdmx": "https://sdmx.org"
+  },
+  "@type": "Dataset",
+  "@id": "https://gdsc.idsc.miami.edu/detail/hh_dem_copernicus",
+  "includedInDataCatalog": [
+    {
+      "@type": "DataCatalog",
+      "@id": "https://gdsc.idsc.miami.edu",
+      "name": "Geospatial Digital Special Collections",
+      "url": "https://gdsc.idsc.miami.edu"
+    },
+    {
+      "@type": "DataCatalog",
+      "name": "hh-conservacion",
+      "@id": "https://gdsc.idsc.miami.edu/?collection=hh-conservacion",
+      "url": "https://gdsc.idsc.miami.edu/?collection=hh-conservacion"
+    }
+  ],
+  "name": "Huayhuash DEM 10m (Copernicus)",
+  "creator": [
+    {
+      "@type": "Organization",
+      "sameAs": "https://ror.org/00yafkq43",
+      "@id": "https://ror.org/00yafkq43",
+      "identifier": "https://ror.org/00yafkq43",
+      "name": "Copernicus"
+    }
+  ],
+  "url": "https://cds.climate.copernicus.eu/datasets/reanalysis-era5-land",
+  "provider": [
+    {
+      "@type": "Organization",
+      "name": "OHDSI"
+    }
+  ],
+  "license": "odc_by",
+  "spatialCoverage": [
+    {
+      "@id": "https://www.geonames.org/149590",
+      "@type": "Place",
+      "name": "Tanzania"
+    },
+    {
+      "@type": "Place",
+      "name": "bbox",
+      "geo": {
+        "@type": "GeoShape",
+        "polygon": "-12 29 -12 41 -0.8 41 -0.8 29 -12 29"
+      }
+    }
+  ],
+  "temporalCoverage": "1984-01-01/1984-12-31",
+  "type": "Raster Dataset",
+  "datePublished": "2025-06-01",
+  "description": "A raster dataset with yearly averages of the 2m temperature from the ERA 5 renanalysis data from Copernicus satellite sensors for Tanzania. ERA5 is the fifth generation ECMWF reanalysis for the global climate and weather for the past 8 decades. Data is available from 1940 onwards. ERA5 replaces the ERA-Interim reanalysis.",
+  "keywords": [
+    "Tanzania",
+    "temperature"
+  ],
+  "@language": "en",
+  "measurementTechnique": [
+    {
+      "@type": "DefinedTerm",
+      "description": "GIS Data Structure for Representation",
+      "inDefinedTermSet": {
+        "@type": "DefinedTermSet",
+        "name": "dataRepresentation",
+        "hasDefinedTerm": [
+          {
+            "@type": "DefinedTerm",
+            "termCode": "raster"
+          },
+          {
+            "@type": "DefinedTerm",
+            "termCode": "vector"
+          },
+          {
+            "@type": "DefinedTerm",
+            "termCode": "table"
+          }
+        ]
+      },
+      "termCode": "raster"
+    }
+  ],
+  "additionalProperty": [
+    {
+      "@type": "PropertyValue",
+      "name": "https://dbpedia.org/resource/Ground_sample_distance",
+      "value": 0.25,
+      "unitText": "decimal degrees"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "http://dbpedia.org/resource/Spatial_reference_system",
+      "value": "https://epsg.io/4326"
+    }
+  ],
+  "about": [
+    {
+      "@type": "Event",
+      "description": "Copernicus",
+      "name": "ETL process for Huayhuash DEM 10m (Copernicus)",
+      "potentialAction": {
+        "@type": "Action",
+        "name": "Pseudo Code",
+        "description": "TODO",
+        "result": {
+          "@type": "Dataset",
+          "encodingFormat": "geotiff",
+          "url": "https://gdsc.idsc.miami.edu/download/data/hh_dem_copernicus/?file=hh_dem_copernicus&format=geotiff"
+        }
+      }
+    },
+    {
+      "@type": "Event",
+      "description": "Copernicus",
+      "name": "ETL process for Huayhuash DEM 10m (Copernicus)",
+      "potentialAction": {
+        "@type": "Action",
+        "name": "github_code",
+        "description": "Custom ETL process for Huayhuash DEM 10m (Copernicus)",
+        "object": {
+          "@type": "Dataset",
+          "name": "Copernicus",
+          "producer": "Copernicus",
+          "url": "https://cds.climate.copernicus.eu/datasets/reanalysis-era5-land"
+        },
+        "instrument": {
+          "@type": "SoftwareApplication",
+          "@id": "https://github.com/tibbben/copernicus_aggregate.git",
+          "featureList": "python copernicus_aggregate.py '{\"table\": \"hh_dem_copernicus\", \"extension\": \"zip\", \"extent\": \"ENVELOPE(29,41,-0.8,-12)\", \"attributes\": \"2m_temperature;Average yearly 2m temperature in Kelvin from Copernicus reanalysis era5 single levels;Copernicus;float;Kelvin;9523;287.315857;301.010986;1984-01-01;1984-12-31;35814756;2m_temperature@tz_1984_copernicus_avg_temp\", \"bands\": \"t2m\", \"format\": \"nc\"}' 1984",
+          "downloadUrl": "https://github.com/tibbben/copernicus_aggregate.git"
+        },
+        "result": {
+          "@type": "Dataset",
+          "name": "Huayhuash DEM 10m (Copernicus)",
+          "description": "A raster dataset with yearly averages of the 2m temperature from the ERA 5 renanalysis data from Copernicus satellite sensors for Tanzania. ERA5 is the fifth generation ECMWF reanalysis for the global climate and weather for the past 8 decades. Data is available from 1940 onwards. ERA5 replaces the ERA-Interim reanalysis.",
+          "encodingFormat": "geotiff",
+          "url": "https://gdsc.idsc.miami.edu/download/data/hh_dem_copernicus/?file=hh_dem_copernicus&format=geotiff"
+        }
+      }
+    }
+  ],
+  "variableMeasured": [
+    {
+      "@type": "PropertyValue",
+      "name": "2m_temperature",
+      "description": "Average yearly 2m temperature in Kelvin from Copernicus reanalysis era5 single levels",
+      "propertyID": "35814756",
+      "qudt:dataType": "float",
+      "unitCode": "9523",
+      "unitText": "Kelvin",
+      "minValue": "287.315857",
+      "maxValue": "301.010986",
+      "startDate": "1984-01-01",
+      "endDate": "1984-12-31"
+    }
+  ],
+  "distribution": [
+    "https://gdsc.idsc.miami.edu/download/data/hh_dem_copernicus/?file=hh_dem_copernicus&format=geotiff"
+  ],
+  "dateModified": "2026-10-17 22:45:04",
+  "version": "2026-10-17"
+}

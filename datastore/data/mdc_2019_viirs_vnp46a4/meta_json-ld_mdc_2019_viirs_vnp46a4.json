@@ -1,0 +1,172 @@
+{
+  "@context": {
+    "@vocab": "https://schema.org/",
+    "dct": "http://purl.org/dc/terms/",
+    "qudt": "http://qudt.org/schema/qudt/",
+    "quantitykind": "http://qudt.org/vocab/quantitykind/",
+    "unit": "http://qudt.org/vocab/unit/",
+    "xsd": "http://www.w3.org/2001/XMLSchema",
+    "extendedConstraintProperty": "http://codata.org/vocab/extendedConstraintProperty",
+    "sdmx": "https://sdmx.org"
+  },
+  "@type": "Dataset",
+  "@id": "https://gdsc.idsc.miami.edu/detail/mdc_2019_viirs_vnp46a4",
+  "includedInDataCatalog": [
+    {
+      "@type": "DataCatalog",
+      "@id": "https://gdsc.idsc.miami.edu",
+      "name": "Geospatial Digital Special Collections",
+      "url": "https://gdsc.idsc.miami.edu"
+    },
+    {
+      "@type": "DataCatalog",
+      "name": "mdc-health-outcomes",
+      "@id": "https://gdsc.idsc.miami.edu/?collection=mdc-health-outcomes",
+      "url": "https://gdsc.idsc.miami.edu/?collection=mdc-health-outcomes"
+    }
+  ],
+  "name": "2019 Miami-Dade VIIRS Nighttime Lights",
+  "creator": [
+    {
+      "name": "Level-1 and Atmosphere Archive & Distribution System Distributed Active Archive Center (LAADS DAAC)"
+    },
+    {
+      "name": "NASA"
+    }
+  ],
+  "url": "https://ladsweb.modaps.eosdis.nasa.gov/missions-and-measurements/products/VNP46A4/",
+  "provider": [
+    {
+      "@type": "Organization",
+      "name": "LAADS/NASA"
+    }
+  ],
+  "spatialCoverage": [
+    {
+      "@id": "https://www.geonames.org/4164238",
+      "@type": "Place",
+      "name": "Miami-Dade County"
+    },
+    {
+      "@type": "Place",
+      "name": "bbox",
+      "geo": {
+        "@type": "GeoShape",
+        "polygon": "TBD"
+      }
+    }
+  ],
+  "type": "Raster Dataset",
+  "datePublished": "2024-01-20",
+  "description": "VNP46A4 - VIIRS/NPP Lunar BRDF-Adjusted Nighttime Lights Yearly L3 Global 15 arc second Linear Lat Lon Grid\n\nThe Suomi National Polar-orbiting Partnership (SNPP) Visible Infrared Imaging Radiometer Suite (VIIRS) supports a Day-Night Band (DNB) sensor that provides global daily measurements of nocturnal visible and near-infrared (NIR) light that are suitable for Earth system science and applications. The VIIRS DNB's ultra-sensitivity in lowlight conditions enable us to generate a new set of science-quality nighttime products that manifest substantial improvements in sensor resolution and calibration when compared to the previous era of Defense Meteorological Satellite Program/Operational Linescan System's (DMSP/OLS) nighttime lights image products. Such improvements allow the VIIRS DNB products to better monitor both the magnitude and signature of nighttime phenomena, and anthropogenic sources of light emissions.\n\nVNP46A4 is the short-name for the fourth nighttime lights (NTL) product in the Black Marble suite, which provides yearly composites generated from daily atmospherically- and lunar-BRDF-corrected NTL radiance to remove the influence of extraneous artifacts and biases. Known by its long-name, VIIRS/NPP Lunar BRDF-Adjusted Nighttime Lights Yearly L3 Global 15 arc-second Linear Lat Lon Grid, this product contains 28 layers. They provide information on the NTL composite, the number of observations, quality, and standard deviation for multi-view zenith angle categories (near-nadir, off-nadir, and all angles), their snow-covered and snow-free statuses besides land-water mask, latitude and longitude coordinate information. They also include detailed information and description of the quality flags. This SNPP VIIRS collection-1 product record, identified by its version-ID 001 in its file name, starts from January 1st 2012.",
+  "keywords": [
+    "Miami-Dade",
+    "Nighttime lights"
+  ],
+  "@language": "en",
+  "measurementTechnique": [
+    {
+      "@type": "DefinedTerm",
+      "description": "GIS Data Structure for Representation",
+      "inDefinedTermSet": {
+        "@type": "DefinedTermSet",
+        "name": "dataRepresentation",
+        "hasDefinedTerm": [
+          {
+            "@type": "DefinedTerm",
+            "termCode": "raster"
+          },
+          {
+            "@type": "DefinedTerm",
+            "termCode": "vector"
+          },
+          {
+            "@type": "DefinedTerm",
+            "termCode": "table"
+          }
+        ]
+      },
+      "termCode": "raster"
+    }
+  ],
+  "additionalProperty": [
+    {
+      "@type": "PropertyValue",
+      "name": "https://dbpedia.org/resource/Ground_sample_distance",
+      "value": 0.00416666666666666,
+      "unitText": "decimal degrees"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "http://dbpedia.org/resource/Spatial_reference_system",
+      "value": "https://epsg.io/4326"
+    }
+  ],
+  "about": [
+    {
+      "@type": "Event",
+      "description": "Direct From Source, then extracted, clipped, and reprojected",
+      "name": "ETL process for 2019 Miami-Dade VIIRS Nighttime Lights",
+      "potentialAction": {
+        "@type": "Action",
+        "name": "Pseudo Code",
+        "description": "TODO"
+      }
+    },
+    {
+      "@type": "Event",
+      "description": "Direct From Source, then extracted, clipped, and reprojected",
+      "name": "ETL process for 2019 Miami-Dade VIIRS Nighttime Lights",
+      "potentialAction": {
+        "@type": "Action",
+        "name": "clip_raster",
+        "description": "Custom ETL process for 2019 Miami-Dade VIIRS Nighttime Lights",
+        "object": {
+          "@type": "Dataset",
+          "name": "Direct From Source, then extracted, clipped, and reprojected",
+          "producer": "Level-1 and Atmosphere Archive & Distribution System Distributed Active Archive Center (LAADS DAAC)",
+          "url": "https://ladsweb.modaps.eosdis.nasa.gov/missions-and-measurements/products/VNP46A4/"
+        },
+        "instrument": {
+          "@type": "SoftwareApplication",
+          "@id": "https://github.com/Geospatial-Digital-Special-Collections/tools",
+          "featureList": "egom_2019_viirs_vnp46a4 fl_2022_tl_cousub countyfp='086' -srcnodata 65535 -dstnodata 65535 ",
+          "downloadUrl": "https://github.com/Geospatial-Digital-Special-Collections/tools.git"
+        },
+        "result": {
+          "@type": "Dataset",
+          "name": "2019 Miami-Dade VIIRS Nighttime Lights",
+          "description": "VNP46A4 - VIIRS/NPP Lunar BRDF-Adjusted Nighttime Lights Yearly L3 Global 15 arc second Linear Lat Lon Grid\n\nThe Suomi National Polar-orbiting Partnership (SNPP) Visible Infrared Imaging Radiometer Suite (VIIRS) supports a Day-Night Band (DNB) sensor that provides global daily measurements of nocturnal visible and near-infrared (NIR) light that are suitable for Earth system science and applications. The VIIRS DNB's ultra-sensitivity in lowlight conditions enable us to generate a new set of science-quality nighttime products that manifest substantial improvements in sensor resolution and calibration when compared to the previous era of Defense Meteorological Satellite Program/Operational Linescan System's (DMSP/OLS) nighttime lights image products. Such improvements allow the VIIRS DNB products to better monitor both the magnitude and signature of nighttime phenomena, and anthropogenic sources of light emissions.\n\nVNP46A4 is the short-name for the fourth nighttime lights (NTL) product in the Black Marble suite, which provides yearly composites generated from daily atmospherically- and lunar-BRDF-corrected NTL radiance to remove the influence of extraneous artifacts and biases. Known by its long-name, VIIRS/NPP Lunar BRDF-Adjusted Nighttime Lights Yearly L3 Global 15 arc-second Linear Lat Lon Grid, this product contains 28 layers. They provide information on the NTL composite, the number of observations, quality, and standard deviation for multi-view zenith angle categories (near-nadir, off-nadir, and all angles), their snow-covered and snow-free statuses besides land-water mask, latitude and longitude coordinate information. They also include detailed information and description of the quality flags. This SNPP VIIRS collection-1 product record, identified by its version-ID 001 in its file name, starts from January 1st 2012."
+        }
+      }
+    }
+  ],
+  "variableMeasured": [
+    {
+      "@type": "PropertyValue",
+      "name": "Radiance",
+      "description": "Radiance as bidirectional reflectance distribution function (BRDF) in nanoWatts per square centimeter per steradian",
+      "qudt:dataType": "float",
+      "unitText": "nW/cm^2/sr",
+      "minValue": "0",
+      "maxValue": "5086"
+    }
+  ],
+  "distribution": "/data/mdc_2019_viirs_vnp46a4/",
+  "isBasedOn": [
+    {
+      "@id": "https://gdsc.idsc.miami.edu/details/egom_2019_viirs_vnp46a4",
+      "@type": "Dataset",
+      "name": "egom_2019_viirs_vnp46a4",
+      "url": "https://gdsc.idsc.miami.edu/details/egom_2019_viirs_vnp46a4"
+    },
+    {
+      "@id": "https://gdsc.idsc.miami.edu/details/fl_2022_tl_cousub",
+      "@type": "Dataset",
+      "name": "fl_2022_tl_cousub",
+      "url": "https://gdsc.idsc.miami.edu/details/fl_2022_tl_cousub"
+    }
+  ],
+  "dateModified": "2026-10-17 22:54:12",
+  "version": "2026-10-17"
+}

@@ -1,0 +1,21 @@
+{
+  "rights": "Public Domain",
+  "structure": "vector",
+  "geometry": "point",
+  "epsg": "EPSG:4326",
+  "extent": "ENVELOPE(-8976260.5448,-8918917.2292,2995906.1114,2913609.9319)",
+  "attributes": ["folio;Folio identifier;MDC;string;", "ttrrss;Township-range-section;MDC;string;", "x_coord;X-coordinate;MDC;double;", "y_coord;Y-coordinate;MDC;double;", "true_site_addr;Site address;MDC;string;", "true_site_unit; Site unit;MDC;string;", "true_site_city;Site city;MDC;string;", "true_site_zip_code;Site zipcode;MDC;string;", "true_mailing_addr1;True mailing address 1;MDC;string;", "true_mailing_addr2;True mailing address 2;MDC;string;", "true_mailing_addr3;True mailing address 3;MDC;string;", "true_mailing_city; True mailing city;MDC;string;", "true_mailing_state;True mailing state;MDC;string;", "true_mailing_zip_code;True mailing zipcode;MDC;string;", "true_mailing_country;True mailing country;MDC;string;", "true_owner1; Owner's name 1;MDC;string;", "true_owner2;Owner's name 2;MDC;string;", "true_owner3;Owner's name 3;MDC;string;", "condo_flag;Condo flag;MDC;string;", "parent_folio;Parent folio identifier;MDC;string;", "dor_code_cur;Current DOR (Department of Revenue) Code that idenitifies the land use;DOR;string;", "dor_desc;Department of Revenue classification description;DOR;string;", "subdivision;Subdivision;;string;", "bedroom_count; Number of bedrooms;MDC;long;bedrooms", "bathroom_count;Number of bathrooms;MDC;double;bathrooms", "half_bathroom_count;Number of half bathrooms;MDC;long;half bathrooms", "floor_count;Number of floors;MDC;long;floors", "unit_count;Number of units;MDC;long;units", "building_actual_area;Actual area of building;MDC;double;", "building_heated_area;Heated area of building;MDC;double;", "lot_size;Land Lot Size - in Square Feet;MDC;double;", "year_built;Year built;MDC;int2;", "assessment_year_cur;Current assessment year;MDC;long;", "assessed_val_cur;Current assessed value;MDC;double;", "dos_1;Date of sale;;string;", "price_1;Price of sale;;double;", "legal;Legal representation;;string;", "mdc_county_zone;County zone from mdc_county zones provided by Miami-Dade County;spatial join parcel within mdc_county_zones;string;", "pid;Property identification number;MDC;integer;", "dateofsale_utc;Sell Date (UTC Time Zone);MDC;date;"],
+  "local_epsg": "EPSG:2236",
+  "derive": ["sql"],
+  "source": "https://services.arcgis.com/8Pc9XBTAsYuxx9Ny/arcgis/rest/services/PaGISView_gdb/FeatureServer/0/query?where=DOR_DESC=%27CHARITABLE%20-%20EXEMPT%20:%20HEALTH%20CARE%27&outFields=*&outSR=4326&f=json&orderBy=ObjectId",
+  "file": ["mdc_community_health_centers"],
+  "extension": "geojson",
+  "download": "esri_recursive_ogr",
+  "table": "mdc_community_health_centers",
+  "format": "geojson",
+  "up": "true",
+  "podID": "gaia-db",
+  "last_updated": "2026-10-17T22:28:27Z",
+  "update_frequency": "1 week",
+  "checksum": "TBD"
+}
