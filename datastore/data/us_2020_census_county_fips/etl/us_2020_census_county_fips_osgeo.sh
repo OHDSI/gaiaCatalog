@@ -6,7 +6,7 @@
 # Data source: https://api.census.gov/data/2020/dec/dp?get=NAME&for=county:*
 # Destination postGIS table: us_2020_census_county_fips
 #
-# Created by etl() on 2026-10-09 22:54:03
+# Created by etl() on 2026-10-18 11:51:57
 # Do not edit directly
 
 # set credentials from postgres defaults and secret files
@@ -45,7 +45,7 @@ else do_update=1; fi
 
 # Download and etl as needed
 if [[ $do_update = 1 ]]; then
-  curl -o download/us_2020_census_county_fips.json "https://api.census.gov/data/2020/dec/dp?get=NAME&for=county:*&key=f2d1ef72bd4b793b33f640ac711d90c3454fc559"
+  curl -o download/us_2020_census_county_fips.json "https://api.census.gov/data/2020/dec/dp?get=NAME&for=county:*&key=$CENSUS_API_KEY"
 fi
 awk '{gsub(/\[|\]|.$/,""); print;}' download/us_2020_census_county_fips.json | sed 's/, /\",\"/g' | sed 's/\"NAME\"/\"county_name\",\"state_name\"/g' | ogr2ogr -f PostgreSQL PG:"dbname=$POSTGRES_DB port=$POSTGRES_PORT user=$POSTGRES_USER password=$POSTGRES_PASSWORD host='gaia-db'" csv:/vsistdin/ -nln us_2020_census_county_fips
 

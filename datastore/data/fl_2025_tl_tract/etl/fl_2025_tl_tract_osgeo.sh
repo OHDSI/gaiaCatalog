@@ -3,10 +3,10 @@
 # fl_2025_tl_tract_osgeo.sh
 # Download and ETL into postGIS from osgeo_postgis container
 #
-# Data source: ftp://ftp2.census.gov/geo/tiger/TIGER2024/TRACT/tl_2025_12_tract.zip
+# Data source: ftp://ftp2.census.gov/geo/tiger/TIGER2025/TRACT/tl_2025_12_tract.zip
 # Destination postGIS table: fl_2025_tl_tract
 #
-# Created by etl() on 2026-10-17 13:23:27
+# Created by etl() on 2026-10-18 11:41:47
 # Do not edit directly
 
 # set credentials from postgres defaults and secret files
@@ -48,7 +48,7 @@ if [[ $do_update = 1 ]]; then
   # fail after 3 attempts
   attempts=0
   until (
-    wget --retry-connrefused --waitretry=1 --read-timeout=20 --timeout=15 -t 10 -O download/fl_2025_tl_tract.zip 'ftp://ftp2.census.gov/geo/tiger/TIGER2024/TRACT/tl_2025_12_tract.zip' 2>&1
+    wget --retry-connrefused --waitretry=1 --read-timeout=20 --timeout=15 -t 10 -O download/fl_2025_tl_tract.zip 'ftp://ftp2.census.gov/geo/tiger/TIGER2025/TRACT/tl_2025_12_tract.zip' 2>&1
   ); do
     ((attempts++))
     if (( attempts > 3 )); then echo $?; break; fi

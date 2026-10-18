@@ -3,10 +3,10 @@
 # fl_2025_tl_tract_postgis.sh
 # Finish ETL into postGIS from postgis_postgis container
 #
-# Data source: ftp://ftp2.census.gov/geo/tiger/TIGER2024/TRACT/tl_2025_12_tract.zip
+# Data source: ftp://ftp2.census.gov/geo/tiger/TIGER2025/TRACT/tl_2025_12_tract.zip
 # Destination postGIS table: fl_2025_tl_tract
 #
-# Created by etl() on 2026-10-17 13:23:27
+# Created by etl() on 2026-10-18 11:41:47
 # Do not edit directly
 
 # set credentials from postgres defaults and secret files

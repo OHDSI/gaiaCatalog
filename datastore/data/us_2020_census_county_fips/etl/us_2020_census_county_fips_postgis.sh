@@ -6,7 +6,7 @@
 # Data source: https://api.census.gov/data/2020/dec/dp?get=NAME&for=county:*
 # Destination postGIS table: us_2020_census_county_fips
 #
-# Created by etl() on 2026-10-09 22:54:03
+# Created by etl() on 2026-10-18 11:51:57
 # Do not edit directly
 
 # set credentials from postgres defaults and secret files

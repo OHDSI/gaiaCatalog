@@ -17,7 +17,7 @@ do_update=0 if date() < last_update + update_frequency else do_update = 1
 
 # download if update flag is set:
 if do_update == 1 then
-wget --retry-connrefused --waitretry=1 --read-timeout=20 --timeout=15 -t 10 -O download/fl_2025_tl_tract.zip 'ftp://ftp2.census.gov/geo/tiger/TIGER2024/TRACT/tl_2025_12_tract.zip' 2>&1
+wget --retry-connrefused --waitretry=1 --read-timeout=20 --timeout=15 -t 10 -O download/fl_2025_tl_tract.zip 'ftp://ftp2.census.gov/geo/tiger/TIGER2025/TRACT/tl_2025_12_tract.zip' 2>&1
 
 # unzip to download directory if update flag is set
 if do_update == 1 then
