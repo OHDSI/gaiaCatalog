@@ -62,7 +62,7 @@
             <div class="col-md-6 align-top mt-1">
               <h4 class="float-left">
                 {%- if document['dct_title'] %}{{ document['dct_title'][0] }}{% endif %}
-                <div class="none" style="float: left; display: contents;"><div id="layer-{{ document['gdsc_tablename'][0] }}" class="float-left circle small-circle {{ 'green-fill' if document['gdsc_tablename'][0] in loaded_tables or document['gdsc_tileUrl'] else 'red-fill' }}" onclick="javascript:loadlayer('{{ document['gdsc_tablename'][0] }}')"></div></div>
+                <div class="none" style="float: left; display: contents;"><div id="layer-{{ document['gdsc_tablename'][0] }}" class="float-left circle small-circle {{ 'green-fill' if document['gdsc_tablename'][0] in loaded_tables else 'red-fill' }}" onclick="javascript:loadlayer('{{ document['gdsc_tablename'][0] }}')"></div></div>
               </h4>
             </div>
             <div class="col-md-4 align-top mt-2">

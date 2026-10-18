@@ -168,7 +168,7 @@
                         {%- if document['dct_title'] %}
                           <h5 class="d-inline"><a href="/detail/{{ document['gdsc_tablename'][0] }}?collection={{ collection }}&active={{ active }}&query={{ query }}">{{ document['dct_title'][0] }}</a></h5>
                         {%- endif %}
-                      <div class="none" style="float: left; display: contents;"><div id="layer-{{ document['gdsc_tablename'][0] }}" class="float-left circle small-circle {{ 'green-fill' if document['gdsc_tablename'][0] in loaded_tables or document['gdsc_tileUrl'] else 'red-fill' }}" onclick="javascript:loadLayer('{{ document['gdsc_tablename'][0] }}')"></div></div>
+                      <div class="none" style="float: left; display: contents;"><div id="layer-{{ document['gdsc_tablename'][0] }}" class="float-left circle small-circle {{ 'green-fill' if document['gdsc_tablename'][0] in loaded_tables else 'red-fill' }}" onclick="javascript:loadLayer('{{ document['gdsc_tablename'][0] }}')"></div></div>
                     </div>
                     <div class="col-md-5 align-top text-end mb-dm-2 mb-0">
                       {%- if document['gdsc_collections'] and document['gdsc_collections']|length > 0 %}
