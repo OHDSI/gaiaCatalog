@@ -1,0 +1,182 @@
+{
+  "control_group": {
+    "id": 50
+  },
+  "dublin_core_group": {
+    "title": "Florida Superfund Waste Cleanup Sites",
+    "creator_group": [
+      {
+        "creator_name": "Florida Department of Environmental Protection",
+        "creator_type": "organization",
+        "creator_identifier": "https://ror.org/042v2q176",
+        "creator_identifier_schema": "ror",
+        "creator_identifier_schema_uri": "https://ror.org/"
+      },
+      {
+        "creator_name": "Division of Waste Management",
+        "creator_type": "organization",
+        "creator_identifier": "https://ror.org/011bwvz55",
+        "creator_identifier_schema": "ror",
+        "creator_identifier_schema_uri": "https://ror.org/"
+      }
+    ],
+    "url": "https://geodata.dep.state.fl.us/datasets/FDEP::florida-superfund-waste-cleanup-sites/about",
+    "publisher_group": [
+      {
+        "publisher_name": "FDEP Open Data Administrator"
+      }
+    ],
+    "rights": "Public Domain",
+    "coverage_group": [
+      {
+        "coverage_name": "Florida",
+        "coverage_identifier": "4155751",
+        "coverage_identifier_schema": "geonames",
+        "coverage_identifier_schema_uri": "https://www.geonames.org/"
+      }
+    ],
+    "resource_type": "Vector Dataset",
+    "publication_date": "2001-02-23",
+    "description": "Point feature class of the superfund sites in Florida from the National Priority List (NPL).",
+    "provenance": " direct from source",
+    "subject_group": [
+      {
+        "subject_term": "Florida"
+      },
+      {
+        "subject_term": "Superfund Waste Cleanup Site"
+      },
+      {
+        "subject_term": "Safety"
+      },
+      {
+        "subject_term": "Public Health"
+      },
+      {
+        "subject_term": "Pollution"
+      },
+      {
+        "subject_term": "Contamination"
+      },
+      {
+        "subject_term": "Superfund"
+      }
+    ],
+    "language": "en",
+    "size_group": [
+      {
+        "size_bytes": "28548",
+        "size_human_readable": "28K"
+      }
+    ]
+  },
+  "iso_group": {
+    "structure": "vector",
+    "geometry": "point",
+    "epsg": 4326,
+    "extent": "ENVELOPE(-87.238268,-80.073667,30.728050,25.815579)",
+    "lineage": "TBD",
+    "process_step": "#########\n# GDSC ETL is performed in two steps: shell script to ETL data into postgres\n# and then additional transformations with SQL in postGIS (if needed).\n####\n\n#########\n# Step 1 - bash script (pseudo code)\n####\n\n# create directory structure and move into it\nmkdir -p /data/fl_superfund_waste_cleanup_sites/download -p /data/fl_superfund_waste_cleanup_sites/etl\nchmod -R 777 /data/fl_superfund_waste_cleanup_sites\ncd /data/fl_superfund_waste_cleanup_sites\n\n# set update flag based on last update and update frequency\ndo_update=0 if date() < last_update + update_frequency else do_update = 1\n\n# download if update flag is set:\nif do_update == 1 then\nwget --retry-connrefused --waitretry=1 --read-timeout=20 --timeout=15 -t 10 -O download/fl_superfund_waste_cleanup_sites.json 'https://ca.dep.state.fl.us/arcgis/rest/services/OpenData/CLEANUP_SP/MapServer/1/query?where=1%3D1&outFields=*&outSR=4326&f=json' 2>&1\n\n# load into postGIS with:\nogr2ogr -lco GEOMETRY_NAME=geom -f PostgreSQL PG:\"<postgres connection>\" download/fl_superfund_waste_cleanup_sites.json -nlt point -nln fl_superfund_waste_cleanup_sites\necho success: fl_superfund_waste_cleanup_sites.json loaded with ogr2ogr\n\n\n#########\n# Step 2 - SQL script (pseudo code):\n####\n\n# remove duplicate points and make geometries valid:\nUPDATE fl_superfund_waste_cleanup_sites\n  SET geom=ST_MakeValid(ST_RemoveRepeatedPoints(geom));\n\n# add local geometry column and reproject existing geometries into local EPSG:\nALTER TABLE fl_superfund_waste_cleanup_sites DROP COLUMN IF EXISTS geom_local CASCADE;\nSELECT AddGeometryColumn (\n  'fl_superfund_waste_cleanup_sites',\n  'geom_local', 2236, 'point', 2\n);\nUPDATE fl_superfund_waste_cleanup_sites\n  SET geom_local=ST_MakeValid(ST_RemoveRepeatedPoints(ST_Transform(geom,2236)));\nCREATE INDEX fl_superfund_waste_cleanup_sites_geom_local_idx\n  ON fl_superfund_waste_cleanup_sites\n  USING GIST (geom_local);\nNOTIFY pgrst, 'reload schema';\n",
+    "processor": "GDSC automation (see Process Step)",
+    "point_of_contact_group": [
+      {
+        "contact_name": "Timothy B. Norris",
+        "contact_last_name": "Norris",
+        "contact_first_name": "Timothy",
+        "contact_email": "tnorris@miami.edu",
+        "contact_identifier": "https://orcid.org/0000-0002-0898-3027",
+        "contact_identifier_schema": "orcid",
+        "contact_identifier_schema_uri": "https://orcid.org/",
+        "contact_affiliation": "University of Miami Libraries, Frost Institute for Data Science and Computing",
+        "contact_affiliation_identifier": "https://ror.org/02dgjyy92",
+        "contact_affiliation_schema": "ror",
+        "contact_affiliation_schema_uri": "https://ror.org/"
+      }
+    ],
+    "data_level": "observed"
+  },
+  "cartography_group": {
+    "label": "name",
+    "values_group": [
+      {
+        "value_field": "program"
+      }
+    ],
+    "attributes_group": [
+      {
+        "attribute_name": "eric_id",
+        "attribute_type": "varchar"
+      },
+      {
+        "attribute_name": "name",
+        "attribute_type": "varchar"
+      },
+      {
+        "attribute_name": "address",
+        "attribute_type": "varchar"
+      },
+      {
+        "attribute_name": "city",
+        "attribute_type": "varchar"
+      },
+      {
+        "attribute_name": "county",
+        "attribute_type": "varchar"
+      },
+      {
+        "attribute_name": "district",
+        "attribute_type": "varchar"
+      },
+      {
+        "attribute_name": "program",
+        "attribute_type": "varchar"
+      },
+      {
+        "attribute_name": "status",
+        "attribute_type": "varchar"
+      },
+      {
+        "attribute_name": "manager",
+        "attribute_type": "varchar"
+      }
+    ]
+  },
+  "collection_group": {
+    "collections": "vulnerability mdc-health-outcomes",
+    "analytic_function": "gdsc_nearest_neighbor",
+    "analytic_epsg": 2236,
+    "derivative_url": "/data/fl_superfund_waste_cleanup_sites/",
+    "sponsor_group": [
+      {
+        "sponsor_name": "IDSC",
+        "sponsor_url": "https://idsc.miami.edu"
+      },
+      {
+        "sponsor_name": "Library",
+        "sponsor_url": "https://www.library.miami.edu"
+      }
+    ],
+    "disclaimer": "Because a variety of sources and methods were used to derive information for this data, the quality of the locations may vary accordingly. The data is undergoing review to improve accuracy. This data is intended to be used for general locational representation and should not be considered appropriate for legal and/or cadastral purposes."
+  },
+  "etl_group": {
+    "source": "https://ca.dep.state.fl.us/arcgis/rest/services/OpenData/CLEANUP_SP/MapServer/1/query?where=1%3D1&outFields=*&outSR=4326&f=json",
+    "file_name_group": [
+      {
+        "file_name_value": "fl_superfund_waste_cleanup_sites"
+      }
+    ],
+    "extension": "json",
+    "download": "wget",
+    "table_name": "fl_superfund_waste_cleanup_sites",
+    "format": "json",
+    "up": "true",
+    "podid": "gaia-db",
+    "last_updated": "2026-10-17 22:30:50",
+    "update_frequency": "1 day",
+    "checksum": "TBD"
+  },
+  "_submission_time": "2026-10-17 22:30:52",
+  "meta": {
+    "instanceID": "e25f6315-2d4c-4b0b-864f-a5415482454"
+  }
+}

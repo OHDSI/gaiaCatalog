@@ -50,7 +50,7 @@
       "name": "bbox",
       "geo": {
         "@type": "GeoShape",
-        "polygon": "-62.0154447 10.042842 -62.0154447 11.3467272 -60.5176038 11.3467272 -60.5176038 10.042842 -62.0154447 10.042842"
+        "polygon": "10.042842 -62.015445 10.042842 -60.517604 11.346727 -60.517604 11.346727 -62.015445 10.042842 -62.015445"
       }
     }
   ],
@@ -62,6 +62,7 @@
     "Regions",
     "Administrative Boundaries"
   ],
+  "@language": "en",
   "measurementTechnique": [
     {
       "@type": "DefinedTerm",
@@ -195,15 +196,7 @@
       "qudt:dataType": "varchar"
     }
   ],
-  "distribution": "TBD",
-  "isBasedOn": [
-    {
-      "@id": "https://gdsc.idsc.miami.edu/details/api",
-      "@type": "Dataset",
-      "name": "api",
-      "url": "https://gdsc.idsc.miami.edu/details/api"
-    }
-  ],
-  "dateModified": "2023-11-30",
-  "version": "2026-09-13"
+  "distribution": "/data/tt_regions/",
+  "dateModified": "2026-08-25 23:49:05",
+  "version": "2026-10-09"
 }

@@ -1,0 +1,185 @@
+{
+  "control_group": {
+    "id": 1
+  },
+  "dublin_core_group": {
+    "title": "Miami-Dade Home Owner's Loan Corporation (HOLC) Neighborhood Redlining Grade",
+    "creator_group": [
+      {
+        "creator_name": "University of Richmond's Digital Scholarship Lab",
+        "creator_type": "organization",
+        "creator_identifier": "https://ror.org/03y71xh61",
+        "creator_identifier_schema": "ror",
+        "creator_identifier_schema_uri": "https://ror.org/"
+      }
+    ],
+    "url": "https://services.arcgis.com/jIL9msH9OI208GCb/arcgis/rest/services/HOLC_Neighborhood_Redlining/FeatureServer",
+    "publisher_group": [
+      {
+        "publisher_name": "University of Richmond's Digital Scholarship Lab"
+      }
+    ],
+    "rights": "Public Domain",
+    "restrictions": "Use items owned by Esri in ArcGIS Online in conjunction with Esri software or an ArcGIS or Developer subscription for\nprojects and applications that are both internal and external use\n\nUse the basemap data offline in the following manner\n\u2022 The data may only be taken offline using Esri Content Packages\n\u2022 The package can be used with any device as long as it is used exclusively with Esri software",
+    "coverage_group": [
+      {
+        "coverage_name": "Miami-Dade County",
+        "coverage_identifier": "4164238",
+        "coverage_identifier_schema": "geonames",
+        "coverage_identifier_schema_uri": "https://www.geonames.org/"
+      }
+    ],
+    "resource_type": "Vector Dataset",
+    "publication_date": "2020-06-24",
+    "description": "The historical redlining grade from 143 cities across the United States. This dataset is the subset for Miami-Dade County in Florida.",
+    "provenance": "direct from source as subset",
+    "subject_group": [
+      {
+        "subject_term": "Florida"
+      },
+      {
+        "subject_term": "Miami-Dade County"
+      },
+      {
+        "subject_term": "MDC"
+      },
+      {
+        "subject_term": "Housing"
+      },
+      {
+        "subject_term": "Property"
+      },
+      {
+        "subject_term": "Racial Inequality"
+      },
+      {
+        "subject_term": "Race"
+      },
+      {
+        "subject_term": "Redlining History"
+      },
+      {
+        "subject_term": "HOLC"
+      },
+      {
+        "subject_term": "Social Justice"
+      }
+    ],
+    "language": "en",
+    "size_group": [
+      {
+        "size_bytes": "0",
+        "size_human_readable": "0"
+      }
+    ]
+  },
+  "iso_group": {
+    "structure": "vector",
+    "geometry": "multipolygon",
+    "epsg": 4326,
+    "extent": "ENVELOPE(-122.767506653,-70.949200532,47.722514045,25.705373207)",
+    "lineage": "TBD",
+    "process_step": "#########\n# GDSC ETL is performed in two steps: shell script to ETL data into postgres\n# and then additional transformations with SQL in postGIS (if needed).\n####\n\n#########\n# Step 1 - bash script (pseudo code)\n####\n\n# create directory structure and move into it\nmkdir -p /data/mdc_holc_redlining/download -p /data/mdc_holc_redlining/etl\nchmod -R 777 /data/mdc_holc_redlining\ncd /data/mdc_holc_redlining\n\n# set update flag based on last update and update frequency\ndo_update=0 if date() < last_update + update_frequency else do_update = 1\n\n# download if update flag is set:\nif do_update == 1 then\nogr2ogr -nln mdc_holc_redlining download/mdc_holc_redlining.geojson 'https://services.arcgis.com/jIL9msH9OI208GCb/ArcGIS/rest/services/HOLC_Neighborhood_Redlining/FeatureServer/0/query?where=city=%27Miami%27&outFields=*&outSR=4326&f=json 2>&1'\n\n# load into postGIS with:\nogr2ogr -lco GEOMETRY_NAME=geom -f PostgreSQL PG:\"<postgres connection>\" download/mdc_holc_redlining.geojson -nlt multipolygon -nln mdc_holc_redlining\necho success: mdc_holc_redlining.geojson loaded with ogr2ogr\n\n\n#########\n# Step 2 - SQL script (pseudo code):\n####\n\n# remove duplicate points and make geometries valid:\nUPDATE mdc_holc_redlining\n  SET geom=ST_MakeValid(ST_RemoveRepeatedPoints(geom));\n\n# add local geometry column and reproject existing geometries into local EPSG:\nALTER TABLE mdc_holc_redlining DROP COLUMN IF EXISTS geom_local CASCADE;\nSELECT AddGeometryColumn (\n  'mdc_holc_redlining',\n  'geom_local', 2236, 'multipolygon', 2\n);\nUPDATE mdc_holc_redlining\n  SET geom_local=ST_MakeValid(ST_RemoveRepeatedPoints(ST_Transform(ST_Multi(geom),2236)));\nCREATE INDEX mdc_holc_redlining_geom_local_idx\n  ON mdc_holc_redlining\n  USING GIST (geom_local);\nNOTIFY pgrst, 'reload schema';\n# Move into corrrect directory and create derivative directory in data package on osgeo\ncd /data/mdc_holc_redlining/\nmkdir -p derived\n\n# Move into correct directory\ncd /data/mdc_holc_redlining/\n\n# Create pg_dump of table SQL in derivate directory on postgis.\npg_dump <postgres opts> -h gaia-db -t mdc_holc_redlining > derived/mdc_holc_redlining.sql\n\n# Create downloadable tarfile of SQL in derivative directory on postgis\nrm -f derived/mdc_holc_redlining.sql.tar.gz\ntar -czf derived/mdc_holc_redlining.sql.tar.gz meta_dcat_mdc_holc_redlining.json -C derived mdc_holc_redlining.sql\n\n",
+    "processor": "GDSC automation (see Process Step)",
+    "point_of_contact_group": [
+      {
+        "contact_name": "Timothy B. Norris",
+        "contact_last_name": "Norris",
+        "contact_first_name": "Timothy",
+        "contact_email": "tnorris@miami.edu",
+        "contact_identifier": "https://orcid.org/0000-0002-0898-3027",
+        "contact_identifier_schema": "orcid",
+        "contact_identifier_schema_uri": "https://orcid.org/",
+        "contact_affiliation": "University of Miami Libraries, Frost Institute for Data Science and Computing",
+        "contact_affiliation_identifier": "https://ror.org/02dgjyy92",
+        "contact_affiliation_schema": "ror",
+        "contact_affiliation_schema_uri": "https://ror.org/"
+      }
+    ],
+    "data_level": "derived"
+  },
+  "cartography_group": {
+    "label": "holc_grade",
+    "values_group": [
+      {
+        "value_field": "holc"
+      }
+    ],
+    "attributes_group": [
+      {
+        "attribute_name": "holc_grade",
+        "attribute_description": "HOLC alphabetical system grade",
+        "attribute_source": "HOLC",
+        "attribute_type": "string"
+      },
+      {
+        "attribute_name": "city",
+        "attribute_description": "City of polygon",
+        "attribute_type": "string"
+      },
+      {
+        "attribute_name": "holc",
+        "attribute_description": "HOLC numeric system grade",
+        "attribute_source": "HOLC",
+        "attribute_type": "numeric"
+      },
+      {
+        "attribute_name": "code",
+        "attribute_description": "FIPS code",
+        "attribute_source": "U.S. Census Bureau",
+        "attribute_type": "integer"
+      },
+      {
+        "attribute_name": "st",
+        "attribute_description": "State of polygon",
+        "attribute_type": "string"
+      },
+      {
+        "attribute_name": "citystate",
+        "attribute_description": "City and state of polygon",
+        "attribute_type": "string"
+      }
+    ]
+  },
+  "collection_group": {
+    "collections": "displacement-vulnerability-mitigation-tool displacement vulnerability climate-and-equity-mapping-program lr-climate-resilience mdc-climate-resilience miami-affordability-project",
+    "analytic_function": "gdsc_get_attributes gdsc_nearest_neighbor",
+    "analytic_epsg": 2236,
+    "thumbnail": "published",
+    "service_definition": "mdc_holc_redlining.sd",
+    "derivatives": "sql",
+    "derivative_url": "/data/mdc_holc_redlining/",
+    "sponsor_group": [
+      {
+        "sponsor_name": "IDSC",
+        "sponsor_url": "https://idsc.miami.edu"
+      },
+      {
+        "sponsor_name": "Library",
+        "sponsor_url": "https://www.library.miami.edu"
+      }
+    ],
+    "status": "published"
+  },
+  "etl_group": {
+    "source": "https://services.arcgis.com/jIL9msH9OI208GCb/ArcGIS/rest/services/HOLC_Neighborhood_Redlining/FeatureServer/0/query?where=city=%27Miami%27&outFields=*&outSR=4326&f=json",
+    "file_name_group": [
+      {
+        "file_name_value": "mdc_holc_redlining"
+      }
+    ],
+    "extension": "geojson",
+    "download": "esri_recursive_ogr",
+    "table_name": "mdc_holc_redlining",
+    "format": "geojson",
+    "up": "true",
+    "podid": "gaia-db",
+    "last_updated": "2026-10-17 22:22:26",
+    "update_frequency": "Never",
+    "checksum": "TBD"
+  },
+  "_submission_time": "2026-10-17 22:22:27",
+  "meta": {
+    "instanceID": "15ba97f4-f9f7-4e07-b41f-77744893956"
+  }
+}

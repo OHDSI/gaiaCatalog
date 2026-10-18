@@ -1,0 +1,153 @@
+{
+  "control_group": {
+    "id": 86
+  },
+  "dublin_core_group": {
+    "title": "Estratos Socioecon\u00f3micos de Bogot\u00e1 Seg\u00fan Manzanas",
+    "creator_group": [
+      {
+        "creator_name": "Departamento Administrativo Nacional de Estadistica (DANE)",
+        "creator_type": "organization"
+      }
+    ],
+    "url": "https://datosabiertos.bogota.gov.co/dataset/estratificacion-para-bogota",
+    "publisher_group": [
+      {
+        "publisher_name": "Departamento Administrativo Nacional de Estadistica (DANE)"
+      }
+    ],
+    "rights": "Public Domain",
+    "license": "cc_by",
+    "license_text": "El DANE ofrece la descarga y uso de informaci\u00f3n georreferenciada producida por la entidad bajo una licencia Creative Commons, reservando el derecho de autor sobre la obra. Este tipo de licencias ofrecen algunos derechos a terceras personas bajo ciertas condiciones que se describen en (Creative Commons Internacional, 2019). https://geoportal.dane.gov.co/acerca-del-geoportal/licencia-y-condiciones-de-uso/#gsc.tab=0.",
+    "coverage_group": [
+      {
+        "coverage_name": "Bogota",
+        "coverage_identifier": "3688689",
+        "coverage_identifier_schema": "geonames",
+        "coverage_identifier_schema_uri": "https://www.geonames.org/"
+      }
+    ],
+    "publication_date": "2019-09-12",
+    "description": "Base gr\u00e1fica que determina las \u00e1reas que conforman la clasificaci\u00f3n del estrato socioecon\u00f3mico por manzana y localidad, en que se divide el Distrito Capital (Alto, Medio, Bajo) en la totalidad del territorio. La estratificaci\u00f3n socioecon\u00f3mica en Colombia se refiere a la clasificaci\u00f3n de los inmuebles residenciales que deben recibir servicios p\u00fablicos.",
+    "provenance": "Direct download",
+    "subject_group": [
+      {
+        "subject_term": "estratos socioeconomicos"
+      },
+      {
+        "subject_term": "Bogota"
+      },
+      {
+        "subject_term": "manzanas"
+      }
+    ],
+    "language": "es",
+    "size_group": [
+      {
+        "size_bytes": "83296464",
+        "size_human_readable": "80M"
+      }
+    ]
+  },
+  "iso_group": {
+    "structure": "vector",
+    "geometry": "multipolygon",
+    "epsg": 4686,
+    "extent": "ENVELOPE(83785.217800,107888.796900,126186.546900,85562.765000)",
+    "lineage": "TBD",
+    "process_step": "#########\n# GDSC ETL is performed in two steps: shell script to ETL data into postgres\n# and then additional transformations with SQL in postGIS (if needed).\n####\n\n#########\n# Step 1 - bash script (pseudo code)\n####\n\n# create directory structure and move into it\nmkdir -p /data/bogota_2019_estratos_manzana_dane/download -p /data/bogota_2019_estratos_manzana_dane/etl\nchmod -R 777 /data/bogota_2019_estratos_manzana_dane\ncd /data/bogota_2019_estratos_manzana_dane\n\n# set update flag based on last update and update frequency\ndo_update=0 if date() < last_update + update_frequency else do_update = 1\n\n# download if update flag is set:\nif do_update == 1 then\nwget --retry-connrefused --waitretry=1 --read-timeout=20 --timeout=15 -t 10 -O download/bogota_2019_estratos_manzana_dane.json 'https://datosabiertos.bogota.gov.co/dataset/55467552-0af4-4524-a390-a2956035744e/resource/29f2d770-bd5d-4450-9e95-8737167ba12f/download/manzanaestratificacion.json' 2>&1\n\n# load into postGIS with:\nogr2ogr -lco GEOMETRY_NAME=geom -f PostgreSQL PG:\"<postgres connection>\" download/bogota_2019_estratos_manzana_dane.json -nlt multipolygon -nln bogota_2019_estratos_manzana_dane\necho success: bogota_2019_estratos_manzana_dane.json loaded with ogr2ogr\n\n\n#########\n# Step 2 - SQL script (pseudo code):\n####\n\n# remove duplicate points and make geometries valid:\nUPDATE bogota_2019_estratos_manzana_dane\n  SET geom=ST_MakeValid(ST_RemoveRepeatedPoints(geom));\n\n# add local geometry column and reproject existing geometries into local EPSG:\nALTER TABLE bogota_2019_estratos_manzana_dane DROP COLUMN IF EXISTS geom_local CASCADE;\nSELECT AddGeometryColumn (\n  'bogota_2019_estratos_manzana_dane',\n  'geom_local', 4686, 'multipolygon', 2\n);\nUPDATE bogota_2019_estratos_manzana_dane\n  SET geom_local=ST_MakeValid(ST_RemoveRepeatedPoints(ST_Transform(ST_Multi(geom),4686)));\nCREATE INDEX bogota_2019_estratos_manzana_dane_geom_local_idx\n  ON bogota_2019_estratos_manzana_dane\n  USING GIST (geom_local);\nNOTIFY pgrst, 'reload schema';\n",
+    "processor": "GDSC automation (see Process Step)",
+    "point_of_contact_group": [
+      {
+        "contact_name": "Timothy B. Norris",
+        "contact_last_name": "Norris",
+        "contact_first_name": "Timothy",
+        "contact_email": "tnorris@miami.edu",
+        "contact_identifier": "https://orcid.org/0000-0002-0898-3027",
+        "contact_identifier_schema": "orcid",
+        "contact_identifier_schema_uri": "https://orcid.org/",
+        "contact_affiliation": "University of Miami Libraries, Frost Institute for Data Science and Computing",
+        "contact_affiliation_identifier": "https://ror.org/02dgjyy92",
+        "contact_affiliation_schema": "ror",
+        "contact_affiliation_schema_uri": "https://ror.org/"
+      }
+    ],
+    "data_level": "observed"
+  },
+  "cartography_group": {
+    "label": "codigo_man",
+    "attributes_group": [
+      {
+        "attribute_name": "fid"
+      },
+      {
+        "attribute_name": "objectid"
+      },
+      {
+        "attribute_name": "codigo_man"
+      },
+      {
+        "attribute_name": "estrato"
+      },
+      {
+        "attribute_name": "codigo_zon"
+      },
+      {
+        "attribute_name": "codigo_cri"
+      },
+      {
+        "attribute_name": "normativa"
+      },
+      {
+        "attribute_name": "acto_admin"
+      },
+      {
+        "attribute_name": "numero_act"
+      },
+      {
+        "attribute_name": "fecha_acto"
+      },
+      {
+        "attribute_name": "escala_cap"
+      },
+      {
+        "attribute_name": "fecha_capt"
+      },
+      {
+        "attribute_name": "responsabl"
+      },
+      {
+        "attribute_name": "shape_area"
+      },
+      {
+        "attribute_name": "shape_len"
+      }
+    ]
+  },
+  "collection_group": {
+    "collections": "bogota-disaster-resilience",
+    "analytic_epsg": 4686,
+    "derivative_url": "/data/bogota_2019_estratos_manzana_dane/"
+  },
+  "etl_group": {
+    "source": "https://datosabiertos.bogota.gov.co/dataset/55467552-0af4-4524-a390-a2956035744e/resource/29f2d770-bd5d-4450-9e95-8737167ba12f/download/manzanaestratificacion.json",
+    "file_name_group": [
+      {
+        "file_name_value": "bogota_2019_estratos_manzana_dane"
+      }
+    ],
+    "extension": "json",
+    "download": "wget",
+    "table_name": "bogota_2019_estratos_manzana_dane",
+    "format": "json",
+    "up": "false",
+    "podid": "gaia-db",
+    "last_updated": "2026-10-17 22:35:28",
+    "update_frequency": "Never",
+    "checksum": "TBD"
+  },
+  "_submission_time": "2026-10-18 11:24:12",
+  "meta": {
+    "instanceID": "1bebecd9-5c7e-4163-839b-89439387107"
+  }
+}

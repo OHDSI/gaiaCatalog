@@ -1,0 +1,20 @@
+{
+  "rights": "Public Domain",
+  "structure": "vector",
+  "geometry": "multipolygon",
+  "epsg": "EPSG:4269",
+  "extent": "ENVELOPE(-87.634896,-79.974306,31.000968,24.396308)",
+  "attributes": ["statefp;State FIPS code;U.S Census Bureau;varchar;;;;", "countyfp;County FIPS code;U.S Census Bureau;varchar;;;;", "tractce;Tract code;U.S Census Bureau;varchar;;;;", "geoid;geographic identifier;Esri;varchar;;;;", "name;Census tract name, this is the census tract code converted to an integer or integer plus two-digit decimal if the last two characters of the code are not both zeros;U.S Census Bureau;varchar;;;;", "namelsad;Census translated legal/statistical area description and the census tract name;U.S Census Bureau;varchar;;;;", "mtfcc;maf/tiger feature class code;U.S Census Bureau;varchar;;;;", "funcstat;Census functional status;U.S Census Bureau;varchar;;;;", "aland;Census land area;U.S Census Bureau;numeric;;;0.00;2409568046.00", "awaterWater tract (2010 and continuing);U.S Census Bureau;integer;", "intplat;Census latitude of the internal point;U.S Census Bureau;string;", "intplon;Census longitude of the internal point;U.S Census Bureau;string;"],
+  "local_epsg": "EPSG:2236",
+  "source": "ftp://ftp2.census.gov/geo/tiger/TIGER2022/TRACT/tl_2022_12_tract.zip",
+  "file": ["fl_2022_tl_tract", "tl_2022_12_tract"],
+  "extension": "zip",
+  "download": "wget",
+  "table": "fl_2022_tl_tract",
+  "format": "shp",
+  "up": "true",
+  "podID": "gaia-db",
+  "last_updated": "2026-10-11T18:10:59Z",
+  "update_frequency": "Never",
+  "checksum": "TBD"
+}

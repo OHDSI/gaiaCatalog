@@ -1,0 +1,225 @@
+{
+  "@context": {
+    "@vocab": "https://schema.org/",
+    "dct": "http://purl.org/dc/terms/",
+    "qudt": "http://qudt.org/schema/qudt/",
+    "quantitykind": "http://qudt.org/vocab/quantitykind/",
+    "unit": "http://qudt.org/vocab/unit/",
+    "xsd": "http://www.w3.org/2001/XMLSchema",
+    "extendedConstraintProperty": "http://codata.org/vocab/extendedConstraintProperty",
+    "sdmx": "https://sdmx.org"
+  },
+  "@type": "Dataset",
+  "@id": "https://gdsc.idsc.miami.edu/detail/hh_rios_ana",
+  "includedInDataCatalog": [
+    {
+      "@type": "DataCatalog",
+      "@id": "https://gdsc.idsc.miami.edu",
+      "name": "Geospatial Digital Special Collections",
+      "url": "https://gdsc.idsc.miami.edu"
+    },
+    {
+      "@type": "DataCatalog",
+      "name": "hh-conservacion",
+      "@id": "https://gdsc.idsc.miami.edu/?collection=hh-conservacion",
+      "url": "https://gdsc.idsc.miami.edu/?collection=hh-conservacion"
+    }
+  ],
+  "name": "R\u00edos Huayhuash",
+  "creator": [
+    {
+      "name": "ANA"
+    }
+  ],
+  "url": "https://geosnirh.ana.gob.pe/server/rest/services/P%C3%BAblico/Rios/MapServer/37",
+  "provider": [
+    {
+      "@type": "Organization",
+      "name": "ANA"
+    }
+  ],
+  "spatialCoverage": [
+    {
+      "@id": "https://www.geonames.org/3932488",
+      "@type": "Place",
+      "name": "Per\u00fa"
+    },
+    {
+      "@type": "Place",
+      "name": "bbox",
+      "geo": {
+        "@type": "GeoShape",
+        "polygon": "-10.7 -77.33 -10.7 -76.55 -9.8 -76.55 -9.8 -77.33 -10.7 -77.33"
+      }
+    }
+  ],
+  "type": "Vector Dataset",
+  "datePublished": "2018-01-30",
+  "description": "Se presenta una red hidrogr\u00e1fica inteligente, bajo un sistema de red ordenado por el sistema de codificaci\u00f3n Pfafstetter, es topol\u00f3gicamente consistente y de aplicaci\u00f3n global.\n\nEl c\u00f3digo del curso de agua te permitir\u00e1 ubicar en red hidrogr\u00e1fica nacional; adem\u00e1s, con la interpretaci\u00f3n de sus c\u00f3digos podr\u00e1s identificar a qu\u00e9 unidad hidrogr\u00e1fica pertenece.",
+  "keywords": [
+    "Huayhuash",
+    "Per\u00fa",
+    "R\u00edos"
+  ],
+  "@language": "es",
+  "measurementTechnique": [
+    {
+      "@type": "DefinedTerm",
+      "description": "GIS Data Structure for Representation",
+      "inDefinedTermSet": {
+        "@type": "DefinedTermSet",
+        "name": "dataRepresentation",
+        "hasDefinedTerm": [
+          {
+            "@type": "DefinedTerm",
+            "termCode": "raster"
+          },
+          {
+            "@type": "DefinedTerm",
+            "termCode": "vector"
+          },
+          {
+            "@type": "DefinedTerm",
+            "termCode": "table"
+          }
+        ]
+      },
+      "termCode": "vector"
+    },
+    {
+      "@type": "DefinedTerm",
+      "description": "GIS Vector Geometery",
+      "inDefinedTermSet": {
+        "@type": "DefinedTermSet",
+        "name": "vectorGeometry",
+        "hasDefinedTerm": [
+          {
+            "@type": "DefinedTerm",
+            "termCode": "point"
+          },
+          {
+            "@type": "DefinedTerm",
+            "termCode": "line"
+          },
+          {
+            "@type": "DefinedTerm",
+            "termCode": "polygon"
+          }
+        ]
+      },
+      "termCode": "multilinestring"
+    }
+  ],
+  "additionalProperty": [
+    {
+      "@type": "PropertyValue",
+      "propertyID": "http://dbpedia.org/resource/Spatial_reference_system",
+      "value": "https://epsg.io/4326"
+    }
+  ],
+  "about": [
+    {
+      "@type": "Event",
+      "description": "ANA",
+      "name": "ETL process for R\u00edos Huayhuash",
+      "potentialAction": {
+        "@type": "Action",
+        "name": "Pseudo Code",
+        "description": "TODO"
+      }
+    },
+    {
+      "@type": "Event",
+      "description": "ANA",
+      "name": "ETL process for R\u00edos Huayhuash",
+      "potentialAction": {
+        "@type": "Action",
+        "name": "esri_recursive_ogr",
+        "description": "ETL process for R\u00edos Huayhuash",
+        "object": {
+          "@type": "Dataset",
+          "name": "ANA",
+          "producer": "ANA",
+          "url": "https://geosnirh.ana.gob.pe/server/rest/services/P%C3%BAblico/Rios/MapServer/37"
+        },
+        "instrument": {
+          "@type": "SoftwareApplication",
+          "@id": "https://github.com/Geospatial-Digital-Special-Collections/tools",
+          "featureList": "esri_recursive_ogr",
+          "downloadUrl": "https://github.com/Geospatial-Digital-Special-Collections/tools.git"
+        },
+        "result": {
+          "@type": "Dataset",
+          "name": "R\u00edos Huayhuash",
+          "description": "Se presenta una red hidrogr\u00e1fica inteligente, bajo un sistema de red ordenado por el sistema de codificaci\u00f3n Pfafstetter, es topol\u00f3gicamente consistente y de aplicaci\u00f3n global.\n\nEl c\u00f3digo del curso de agua te permitir\u00e1 ubicar en red hidrogr\u00e1fica nacional; adem\u00e1s, con la interpretaci\u00f3n de sus c\u00f3digos podr\u00e1s identificar a qu\u00e9 unidad hidrogr\u00e1fica pertenece.",
+          "encodingFormat": "json"
+        }
+      }
+    }
+  ],
+  "variableMeasured": [
+    {
+      "@type": "PropertyValue",
+      "name": "id"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "nro"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "condigo_ca"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "nombre_ca"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "categoria"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "codigo_eca"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "long_km"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "tipo_ca"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "texto_map"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "nombre_uh"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "codigo_uh"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "codigo_aaa"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "nombre_aaa"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "codigo_rh"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "nombre_rh"
+    }
+  ],
+  "distribution": "/data/hh_rios_ana/",
+  "dateModified": "2026-10-17 22:42:39",
+  "version": "2026-10-17"
+}

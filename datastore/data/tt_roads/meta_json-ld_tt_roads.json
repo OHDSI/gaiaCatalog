@@ -50,7 +50,7 @@
       "name": "bbox",
       "geo": {
         "@type": "GeoShape",
-        "polygon": "-61.861942 10.074078 -61.861942 11.3246857 -60.5329641 11.3246857 -60.5329641 10.074078 -61.861942 10.074078"
+        "polygon": "10.074078 -61.861942 10.074078 -60.5329641 11.3246857 -60.5329641 11.3246857 -61.861942 10.074078 -61.861942"
       }
     }
   ],
@@ -64,6 +64,7 @@
     "secondary",
     "transportation"
   ],
+  "@language": "en",
   "measurementTechnique": [
     {
       "@type": "DefinedTerm",
@@ -218,15 +219,7 @@
       "qudt:dataType": "varchar"
     }
   ],
-  "distribution": "TBD",
-  "isBasedOn": [
-    {
-      "@id": "https://gdsc.idsc.miami.edu/details/api",
-      "@type": "Dataset",
-      "name": "api",
-      "url": "https://gdsc.idsc.miami.edu/details/api"
-    }
-  ],
-  "dateModified": "2023-11-30",
-  "version": "2026-09-13"
+  "distribution": "/data/tt_roads/",
+  "dateModified": "2026-02-12 11:05:22",
+  "version": "2026-10-09"
 }

@@ -1,0 +1,227 @@
+{
+  "control_group": {
+    "id": 338
+  },
+  "dublin_core_group": {
+    "title": "2025 Florida Census Tracts - Florida",
+    "creator_group": [
+      {
+        "creator_name": "U.S. Department of Commerce",
+        "creator_type": "organization",
+        "creator_identifier": "https://ror.org/04chq2495",
+        "creator_identifier_schema": "ror",
+        "creator_identifier_schema_uri": "https://ror.org/"
+      },
+      {
+        "creator_name": "U.S. Census Bureau",
+        "creator_type": "organization",
+        "creator_identifier": "https://ror.org/01qn7cs15",
+        "creator_identifier_schema": "ror",
+        "creator_identifier_schema_uri": "https://ror.org/"
+      },
+      {
+        "creator_name": "Geography Division",
+        "creator_type": "organization"
+      },
+      {
+        "creator_name": "Spatial Data Collection and Products Branch",
+        "creator_type": "organization"
+      }
+    ],
+    "url": "https://www.census.gov/geographies/mapping-files/time-series/geo/tiger-line-file.html",
+    "publisher_group": [
+      {
+        "publisher_name": "Department of Commerce"
+      },
+      {
+        "publisher_name": "U.S. Census Bureau"
+      },
+      {
+        "publisher_name": "Geography Division"
+      },
+      {
+        "publisher_name": "Spatial Data Collection and Products Branch"
+      }
+    ],
+    "rights": "Public Domain",
+    "license_text": "This Software was created by U.S. Government employees and therefore is not subject to copyright in the United States (17 U.S.C. \u00a7105). The United States/U.S.Department of Commerce (\u201cCommerce\u201d) reserve all rights to seek and obtain copyright protection in countries other than the United States. The United States/Commerce hereby grant to User a royalty-free, nonexclusive license to use, copy, and create derivative works of the Software outside of the United States.\n\nThe Software is provided to the User and those who may take by, through or under it, \u201cas is,\u201d without any warranty (whether express or implied) or representation whatsoever, including but not limited to any warranty of merchantability. The Software is taken hereunder without any right to support or to any improvements, extensions, or modifications, except as may be agreed to separately, in writing, by Commerce.\n\nUser, on behalf of itself and all others who take by, through or under it, hereby and forever waives, releases, and discharges the United States/Commerce and all its instrumentalities from any and all liabilities and obligations in connection with the use, application, sale or conveyance of the Software. User shall indemnify and hold harmless the United States/Commerce and its instrumentalities from all claims, liabilities, demands, damages, expenses, and losses arising from or in connection with User's use, application, sale or conveyance of the Software, including those who take by, through or under User whether or not User was directly involved. This provision will survive termination of this Agreement and will include any and all claims or liabilities arising under intellectual property rights, such as patents, copyrights, trademarks, and trade secrets. If User of software is an Executive Agency of the United States, this clause is not applicable.\n\nThe construction, validity, performance, and effect of this Agreement for all purposes will be governed by Federal law of the United States.\n\nUser agrees to make a good faith effort to use the Software in a way that does not cause damage, harm, or embarrassment to the United States/Commerce. The United States/Commerce expressly reserve all rights and remedies.",
+    "coverage_group": [
+      {
+        "coverage_name": "United States",
+        "coverage_identifier": "6252001",
+        "coverage_identifier_schema": "geonames",
+        "coverage_identifier_schema_uri": "https://www.geonames.org/"
+      }
+    ],
+    "resource_type": "Vector Dataset",
+    "publication_date": "2025-11-09",
+    "description": "The Census Tracts data provides a stable set of geographic units for the presentation of census data and comparison back to previous decennial censuses.",
+    "provenance": "direct from source",
+    "subject_group": [
+      {
+        "subject_term": "Florida"
+      },
+      {
+        "subject_term": "Census"
+      },
+      {
+        "subject_term": "2025"
+      },
+      {
+        "subject_term": "Tract"
+      },
+      {
+        "subject_term": "Census Tract"
+      },
+      {
+        "subject_term": "Geography"
+      }
+    ],
+    "language": "en",
+    "size_group": [
+      {
+        "size_bytes": "0",
+        "size_human_readable": "0"
+      }
+    ]
+  },
+  "iso_group": {
+    "structure": "vector",
+    "geometry": "multipolygon",
+    "epsg": 4269,
+    "extent": "ENVELOPE(31.000968,-87.634896,-79.974306,24.396308)",
+    "lineage": "TBD",
+    "process_step": "#########\n# GDSC ETL is performed in two steps: shell script to ETL data into postgres\n# and then additional transformations with SQL in postGIS (if needed).\n####\n\n#########\n# Step 1 - bash script (pseudo code)\n####\n\n# create directory structure and move into it\nmkdir -p /data/fl_2025_tl_tract/download -p /data/fl_2025_tl_tract/etl\nchmod -R 777 /data/fl_2025_tl_tract\ncd /data/fl_2025_tl_tract\n\n# set update flag based on last update and update frequency\ndo_update=0 if date() < last_update + update_frequency else do_update = 1\n\n# download if update flag is set:\nif do_update == 1 then\nwget --retry-connrefused --waitretry=1 --read-timeout=20 --timeout=15 -t 10 -O download/fl_2025_tl_tract.zip 'ftp://ftp2.census.gov/geo/tiger/TIGER2024/TRACT/tl_2025_12_tract.zip' 2>&1\n\n# unzip to download directory if update flag is set\nif do_update == 1 then\nunzip -o download/fl_2025_tl_tract.zip -d download && rm download/fl_2025_tl_tract.zip 2>&1\n\n# load into postGIS with:\nogr2ogr -lco GEOMETRY_NAME=geom -f PostgreSQL PG:\"<postgres connection>\" download/tl_2025_12_tract.shp -nlt multipolygon -nln fl_2025_tl_tract\necho success: tl_2025_12_tract.shp loaded with ogr2ogr\n\n\n#########\n# Step 2 - SQL script (pseudo code):\n####\n\n# remove duplicate points and make geometries valid:\nUPDATE fl_2025_tl_tract\n  SET geom=ST_MakeValid(ST_RemoveRepeatedPoints(geom));\n\n# add local geometry column and reproject existing geometries into local EPSG:\nALTER TABLE fl_2025_tl_tract DROP COLUMN IF EXISTS geom_local CASCADE;\nSELECT AddGeometryColumn (\n  'fl_2025_tl_tract',\n  'geom_local', 2236, 'multipolygon', 2\n);\nUPDATE fl_2025_tl_tract\n  SET geom_local=ST_MakeValid(ST_RemoveRepeatedPoints(ST_Transform(ST_Multi(geom),2236)));\nCREATE INDEX fl_2025_tl_tract_geom_local_idx\n  ON fl_2025_tl_tract\n  USING GIST (geom_local);\nNOTIFY pgrst, 'reload schema';\n",
+    "processor": "GDSC automation (see Process Step)",
+    "point_of_contact_group": [
+      {
+        "contact_name": "Timothy B. Norris",
+        "contact_last_name": "Norris",
+        "contact_first_name": "Timothy",
+        "contact_email": "tnorris@miami.edu",
+        "contact_identifier": "https://orcid.org/0000-0002-0898-3027",
+        "contact_identifier_schema": "orcid",
+        "contact_identifier_schema_uri": "https://orcid.org/",
+        "contact_affiliation": "University of Miami Libraries, Frost Institute for Data Science and Computing",
+        "contact_affiliation_identifier": "https://ror.org/02dgjyy92",
+        "contact_affiliation_schema": "ror",
+        "contact_affiliation_schema_uri": "https://ror.org/"
+      }
+    ],
+    "data_level": "derived"
+  },
+  "cartography_group": {
+    "label": "geoid",
+    "attributes_group": [
+      {
+        "attribute_name": "statefp",
+        "attribute_description": "State FIPS code",
+        "attribute_source": "U.S Census Bureau",
+        "attribute_type": "string"
+      },
+      {
+        "attribute_name": "countyfp",
+        "attribute_description": "County FIPS code",
+        "attribute_source": "U.S Census Bureau",
+        "attribute_type": "string"
+      },
+      {
+        "attribute_name": "tractce",
+        "attribute_description": "Tract code",
+        "attribute_source": "U.S Census Bureau",
+        "attribute_type": "string"
+      },
+      {
+        "attribute_name": "geoid",
+        "attribute_description": "geographic identifier",
+        "attribute_source": "Esri",
+        "attribute_type": "string"
+      },
+      {
+        "attribute_name": "name",
+        "attribute_description": "Census tract name, this is the census tract code converted to an integer or integer plus two-digit decimal if the last two characters of the code are not both zeros",
+        "attribute_source": "U.S Census Bureau",
+        "attribute_type": "string"
+      },
+      {
+        "attribute_name": "namelsad",
+        "attribute_description": "Census translated legal/statistical area description and the census tract name",
+        "attribute_source": "U.S Census Bureau",
+        "attribute_type": "string"
+      },
+      {
+        "attribute_name": "mtfcc",
+        "attribute_description": "maf/tiger feature class code",
+        "attribute_source": "U.S Census Bureau",
+        "attribute_type": "string"
+      },
+      {
+        "attribute_name": "funcstat",
+        "attribute_description": "Census functional status",
+        "attribute_source": "U.S Census Bureau",
+        "attribute_type": "string"
+      },
+      {
+        "attribute_name": "aland",
+        "attribute_description": "Census land area",
+        "attribute_source": "U.S Census Bureau",
+        "attribute_type": "integer"
+      },
+      {
+        "attribute_name": "awaterWater tract (2010 and continuing)",
+        "attribute_description": "U.S Census Bureau",
+        "attribute_source": "integer"
+      },
+      {
+        "attribute_name": "intplat",
+        "attribute_description": "Census latitude of the internal point",
+        "attribute_source": "U.S Census Bureau",
+        "attribute_type": "string"
+      },
+      {
+        "attribute_name": "intplon",
+        "attribute_description": "Census longitude of the internal point",
+        "attribute_source": "U.S Census Bureau",
+        "attribute_type": "string"
+      }
+    ]
+  },
+  "collection_group": {
+    "collections": "us-census",
+    "analytic_function": "--",
+    "analytic_epsg": 2236,
+    "derivative_url": "/data/fl_2025_tl_tract/",
+    "sponsor_group": [
+      {
+        "sponsor_name": "IDSC",
+        "sponsor_url": "https://idsc.miami.edu"
+      },
+      {
+        "sponsor_name": "Library",
+        "sponsor_url": "https://www.library.miami.edu"
+      }
+    ]
+  },
+  "etl_group": {
+    "source": "ftp://ftp2.census.gov/geo/tiger/TIGER2024/TRACT/tl_2025_12_tract.zip",
+    "file_name_group": [
+      {
+        "file_name_value": "fl_2025_tl_tract",
+        "file_inside_archive": "tl_2025_12_tract"
+      }
+    ],
+    "extension": "zip",
+    "download": "wget",
+    "table_name": "fl_2025_tl_tract",
+    "format": "shp",
+    "up": "true",
+    "podid": "gaia-db",
+    "last_updated": "2026-10-17 13:32:30",
+    "update_frequency": "Never",
+    "checksum": "TBD"
+  },
+  "_submission_time": "2026-10-17 14:23:26",
+  "meta": {
+    "instanceID": "f411c56b-cb53-4553-a005-86229073771"
+  }
+}

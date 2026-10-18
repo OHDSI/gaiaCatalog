@@ -1,0 +1,47 @@
+#########
+# GDSC ETL is performed in two steps: shell script to ETL data into postgres
+# and then additional transformations with SQL in postGIS (if needed).
+####
+
+#########
+# Step 1 - bash script (pseudo code)
+####
+
+# create directory structure and move into it
+mkdir -p /data/mdc_water_polygons/download -p /data/mdc_water_polygons/etl
+chmod -R 777 /data/mdc_water_polygons
+cd /data/mdc_water_polygons
+
+# set update flag based on last update and update frequency
+do_update=0 if date() < last_update + update_frequency else do_update = 1
+
+# download if update flag is set:
+if do_update == 1 then
+ogr2ogr -nln mdc_water_polygons download/mdc_water_polygons.geojson 'https://services.arcgis.com/8Pc9XBTAsYuxx9Ny/arcgis/rest/services/WaterP_gdb/FeatureServer/0/query?outFields=*&where=1%3D1&outSR=4326&f=geojson 2>&1'
+
+# load into postGIS with:
+ogr2ogr -lco GEOMETRY_NAME=geom -f PostgreSQL PG:"<postgres connection>" download/mdc_water_polygons.geojson -nlt multipolygon -nln mdc_water_polygons
+echo success: mdc_water_polygons.geojson loaded with ogr2ogr
+
+
+#########
+# Step 2 - SQL script (pseudo code):
+####
+
+# remove duplicate points and make geometries valid:
+UPDATE mdc_water_polygons
+  SET geom=ST_MakeValid(ST_RemoveRepeatedPoints(geom));
+
+# add local geometry column and reproject existing geometries into local EPSG:
+ALTER TABLE mdc_water_polygons DROP COLUMN IF EXISTS geom_local CASCADE;
+SELECT AddGeometryColumn (
+  'mdc_water_polygons',
+  'geom_local', 2236, 'multipolygon', 2
+);
+UPDATE mdc_water_polygons
+  SET geom_local=ST_MakeValid(ST_RemoveRepeatedPoints(ST_Transform(ST_Multi(geom),2236)));
+CREATE INDEX mdc_water_polygons_geom_local_idx
+  ON mdc_water_polygons
+  USING GIST (geom_local);
+NOTIFY pgrst, 'reload schema';
+

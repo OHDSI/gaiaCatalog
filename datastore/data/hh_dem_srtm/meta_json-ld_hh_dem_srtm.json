@@ -1,0 +1,170 @@
+{
+  "@context": {
+    "@vocab": "https://schema.org/",
+    "dct": "http://purl.org/dc/terms/",
+    "qudt": "http://qudt.org/schema/qudt/",
+    "quantitykind": "http://qudt.org/vocab/quantitykind/",
+    "unit": "http://qudt.org/vocab/unit/",
+    "xsd": "http://www.w3.org/2001/XMLSchema",
+    "extendedConstraintProperty": "http://codata.org/vocab/extendedConstraintProperty",
+    "sdmx": "https://sdmx.org"
+  },
+  "@type": "Dataset",
+  "@id": "https://gdsc.idsc.miami.edu/detail/hh_dem_srtm",
+  "includedInDataCatalog": [
+    {
+      "@type": "DataCatalog",
+      "@id": "https://gdsc.idsc.miami.edu",
+      "name": "Geospatial Digital Special Collections",
+      "url": "https://gdsc.idsc.miami.edu"
+    },
+    {
+      "@type": "DataCatalog",
+      "name": "hh-conservacion",
+      "@id": "https://gdsc.idsc.miami.edu/?collection=hh-conservacion",
+      "url": "https://gdsc.idsc.miami.edu/?collection=hh-conservacion"
+    }
+  ],
+  "name": "Huayhuash DEM (SRTM)",
+  "creator": [
+    {
+      "name": "NASA JPL"
+    }
+  ],
+  "url": "https://lpdaac.usgs.gov/products/srtmgl1v003/",
+  "provider": [
+    {
+      "@type": "Organization",
+      "name": "NASA EOSDIS Land Processes Distributed Active Archive Center (LPDAAC)"
+    },
+    {
+      "@type": "Organization",
+      "name": "ESA"
+    }
+  ],
+  "spatialCoverage": [
+    {
+      "@id": "https://www.geonames.org/3938961",
+      "@type": "Place",
+      "name": "Cordillera Huayhuash"
+    },
+    {
+      "@type": "Place",
+      "name": "bbox",
+      "geo": {
+        "@type": "GeoShape",
+        "polygon": "-10.699861 -77.329861 -10.699861 -76.550139 -9.800139 -76.550139 -9.800139 -77.329861 -10.699861 -77.329861"
+      }
+    }
+  ],
+  "type": "Raster Dataset",
+  "datePublished": "2013-01-01",
+  "description": "An elevation raster dataset derived from the SRTM GL1 V3 dataset at 1 ARC second resolution (~30 meters). Republished by the European Space Agency (ESA).",
+  "keywords": [
+    "Peru",
+    "Huayhuash",
+    "Elevation",
+    "DEM"
+  ],
+  "@language": "en",
+  "measurementTechnique": [
+    {
+      "@type": "DefinedTerm",
+      "description": "GIS Data Structure for Representation",
+      "inDefinedTermSet": {
+        "@type": "DefinedTermSet",
+        "name": "dataRepresentation",
+        "hasDefinedTerm": [
+          {
+            "@type": "DefinedTerm",
+            "termCode": "raster"
+          },
+          {
+            "@type": "DefinedTerm",
+            "termCode": "vector"
+          },
+          {
+            "@type": "DefinedTerm",
+            "termCode": "table"
+          }
+        ]
+      },
+      "termCode": "raster"
+    }
+  ],
+  "additionalProperty": [
+    {
+      "@type": "PropertyValue",
+      "name": "https://dbpedia.org/resource/Ground_sample_distance",
+      "value": 30.0,
+      "unitText": "meters"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "http://dbpedia.org/resource/Spatial_reference_system",
+      "value": "https://epsg.io/4326"
+    }
+  ],
+  "about": [
+    {
+      "@type": "Event",
+      "description": "Direct from source.",
+      "name": "ETL process for Huayhuash DEM (SRTM)",
+      "potentialAction": {
+        "@type": "Action",
+        "name": "Pseudo Code",
+        "description": "TODO",
+        "result": {
+          "@type": "Dataset",
+          "encodingFormat": "geotiff",
+          "url": "https://gdsc.idsc.miami.edu/download/data/hh_dem_srtm/?file=hh_dem_srtm&format=geotiff"
+        }
+      }
+    },
+    {
+      "@type": "Event",
+      "description": "Direct from source.",
+      "name": "ETL process for Huayhuash DEM (SRTM)",
+      "potentialAction": {
+        "@type": "Action",
+        "name": "srtm_merge_and_crop",
+        "description": "Custom ETL process for Huayhuash DEM (SRTM)",
+        "object": {
+          "@type": "Dataset",
+          "name": "Direct from source.",
+          "producer": "NASA JPL",
+          "url": "https://lpdaac.usgs.gov/products/srtmgl1v003/"
+        },
+        "instrument": {
+          "@type": "SoftwareApplication",
+          "@id": "https://github.com/Geospatial-Digital-Special-Collections/tools",
+          "featureList": "S10W077.SRTMGL1 S10W078.SRTMGL1 S11W077.SRTMGL1 S11W078.SRTMGL1 bbox;-77.33;-10.7;-76.55;-9.8",
+          "downloadUrl": "https://github.com/Geospatial-Digital-Special-Collections/tools.git"
+        },
+        "result": {
+          "@type": "Dataset",
+          "name": "Huayhuash DEM (SRTM)",
+          "description": "An elevation raster dataset derived from the SRTM GL1 V3 dataset at 1 ARC second resolution (~30 meters). Republished by the European Space Agency (ESA).",
+          "encodingFormat": "geotiff",
+          "url": "https://gdsc.idsc.miami.edu/download/data/hh_dem_srtm/?file=hh_dem_srtm&format=geotiff"
+        }
+      }
+    }
+  ],
+  "variableMeasured": [
+    {
+      "@type": "PropertyValue",
+      "name": "elevation",
+      "description": "Mean elevation above sea level",
+      "qudt:dataType": "int16",
+      "unitText": "meters",
+      "minValue": "850",
+      "maxValue": "6477"
+    }
+  ],
+  "distribution": [
+    "https://gdsc.idsc.miami.edu/download/data/hh_dem_srtm/?file=hh_dem_srtm&format=geotiff"
+  ],
+  "dateModified": "2026-10-17 22:44:18",
+  "version": "2026-10-17"
+}

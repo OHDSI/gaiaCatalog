@@ -1,0 +1,271 @@
+{
+  "@context": {
+    "@vocab": "https://schema.org/",
+    "dct": "http://purl.org/dc/terms/",
+    "qudt": "http://qudt.org/schema/qudt/",
+    "quantitykind": "http://qudt.org/vocab/quantitykind/",
+    "unit": "http://qudt.org/vocab/unit/",
+    "xsd": "http://www.w3.org/2001/XMLSchema",
+    "extendedConstraintProperty": "http://codata.org/vocab/extendedConstraintProperty",
+    "sdmx": "https://sdmx.org"
+  },
+  "@type": "Dataset",
+  "@id": "https://gdsc.idsc.miami.edu/detail/mdc_hospitals",
+  "includedInDataCatalog": [
+    {
+      "@type": "DataCatalog",
+      "@id": "https://gdsc.idsc.miami.edu",
+      "name": "Geospatial Digital Special Collections",
+      "url": "https://gdsc.idsc.miami.edu"
+    },
+    {
+      "@type": "DataCatalog",
+      "name": "displacement-vulnerability-mitigation-tool",
+      "@id": "https://gdsc.idsc.miami.edu/?collection=displacement-vulnerability-mitigation-tool",
+      "url": "https://gdsc.idsc.miami.edu/?collection=displacement-vulnerability-mitigation-tool"
+    }
+  ],
+  "name": "Miami-Dade Hospitals",
+  "creator": [
+    {
+      "@type": "Organization",
+      "name": "Miami-Dade County Open Data Hub"
+    },
+    {
+      "@type": "Organization",
+      "name": "Information Technology Department"
+    }
+  ],
+  "url": "https://gis-mdc.opendata.arcgis.com/datasets/MDC::hospital/about",
+  "provider": [
+    {
+      "@type": "Organization",
+      "name": "Miami-Dade County"
+    }
+  ],
+  "spatialCoverage": [
+    {
+      "@id": "https://www.geonames.org/4164238",
+      "@type": "Place",
+      "name": "Miami-Dade County"
+    },
+    {
+      "@type": "Place",
+      "name": "bbox",
+      "geo": {
+        "@type": "GeoShape",
+        "polygon": "25.418943 -80.491432 25.418943 -80.145337 25.970049 -80.145337 25.970049 -80.491432 25.418943 -80.491432"
+      }
+    }
+  ],
+  "type": "Vector Dataset",
+  "datePublished": "2022-03-22",
+  "description": "A point feature class of the hospital facilities within Miami-Dade County.",
+  "keywords": [
+    "Florida",
+    "Miami-Dade County",
+    "MDC",
+    "Health",
+    " Emergency",
+    "Hospital",
+    "Wellness",
+    "\nMedical",
+    "Public-Safety",
+    "Infrastructure"
+  ],
+  "@language": "en",
+  "measurementTechnique": [
+    {
+      "@type": "DefinedTerm",
+      "description": "GIS Data Structure for Representation",
+      "inDefinedTermSet": {
+        "@type": "DefinedTermSet",
+        "name": "dataRepresentation",
+        "hasDefinedTerm": [
+          {
+            "@type": "DefinedTerm",
+            "termCode": "raster"
+          },
+          {
+            "@type": "DefinedTerm",
+            "termCode": "vector"
+          },
+          {
+            "@type": "DefinedTerm",
+            "termCode": "table"
+          }
+        ]
+      },
+      "termCode": "vector"
+    },
+    {
+      "@type": "DefinedTerm",
+      "description": "GIS Vector Geometery",
+      "inDefinedTermSet": {
+        "@type": "DefinedTermSet",
+        "name": "vectorGeometry",
+        "hasDefinedTerm": [
+          {
+            "@type": "DefinedTerm",
+            "termCode": "point"
+          },
+          {
+            "@type": "DefinedTerm",
+            "termCode": "line"
+          },
+          {
+            "@type": "DefinedTerm",
+            "termCode": "polygon"
+          }
+        ]
+      },
+      "termCode": "point"
+    }
+  ],
+  "additionalProperty": [
+    {
+      "@type": "PropertyValue",
+      "propertyID": "http://dbpedia.org/resource/Spatial_reference_system",
+      "value": "https://epsg.io/4326"
+    }
+  ],
+  "about": [
+    {
+      "@type": "Event",
+      "description": "direct from source",
+      "name": "ETL process for Miami-Dade Hospitals",
+      "potentialAction": {
+        "@type": "Action",
+        "name": "Pseudo Code",
+        "description": "TODO",
+        "result": {
+          "@type": "Dataset",
+          "encodingFormat": "sql",
+          "url": "https://gdsc.idsc.miami.edu/download/data/mdc_hospitals/?file=mdc_hospitals&format=sql"
+        }
+      }
+    },
+    {
+      "@type": "Event",
+      "description": "direct from source",
+      "name": "ETL process for Miami-Dade Hospitals",
+      "potentialAction": {
+        "@type": "Action",
+        "name": "wget",
+        "description": "ETL process for Miami-Dade Hospitals",
+        "object": {
+          "@type": "Dataset",
+          "name": "direct from source",
+          "producer": "Miami-Dade County Open Data Hub",
+          "url": "https://gis-mdc.opendata.arcgis.com/datasets/MDC::hospital/about"
+        },
+        "instrument": {
+          "@type": "SoftwareApplication",
+          "@id": "https://github.com/Geospatial-Digital-Special-Collections/tools",
+          "featureList": "wget",
+          "downloadUrl": "https://github.com/Geospatial-Digital-Special-Collections/tools.git"
+        },
+        "result": {
+          "@type": "Dataset",
+          "name": "Miami-Dade Hospitals",
+          "description": "A point feature class of the hospital facilities within Miami-Dade County.",
+          "encodingFormat": "sql",
+          "url": "https://gdsc.idsc.miami.edu/download/data/mdc_hospitals/?file=mdc_hospitals&format=sql"
+        }
+      }
+    }
+  ],
+  "variableMeasured": [
+    {
+      "@type": "PropertyValue",
+      "name": "objectid",
+      "description": "Internal feature number",
+      "qudt:dataType": "int4",
+      "minValue": "1",
+      "maxValue": "28"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "folio",
+      "description": "Folio identifier",
+      "qudt:dataType": "varchar"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "name",
+      "description": "Name of hospital",
+      "qudt:dataType": "varchar"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "address",
+      "description": "Address",
+      "qudt:dataType": "varchar"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "city",
+      "description": "City",
+      "qudt:dataType": "varchar"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "zipcode",
+      "description": "Zipcode",
+      "qudt:dataType": "int4",
+      "minValue": "33012",
+      "maxValue": "33189"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "phone",
+      "description": "Phone number",
+      "qudt:dataType": "varchar"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "bed",
+      "description": "Amount of beds",
+      "qudt:dataType": "int4",
+      "minValue": "22",
+      "maxValue": "1567"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "lat",
+      "description": "Latitude",
+      "qudt:dataType": "float8",
+      "minValue": "25.41894",
+      "maxValue": "25.97004"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "lon",
+      "description": "Longitude",
+      "qudt:dataType": "float8",
+      "minValue": "-80.49143",
+      "maxValue": "-80.14533"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "point_x",
+      "description": "X-coordinate",
+      "qudt:dataType": "float8",
+      "minValue": "824021.246645246",
+      "maxValue": "936959.246818662"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "point_y",
+      "description": "Y-coordinate",
+      "qudt:dataType": "float8",
+      "minValue": "394828.684794404",
+      "maxValue": "595720.107485823"
+    }
+  ],
+  "distribution": [
+    "https://gdsc.idsc.miami.edu/download/data/mdc_hospitals/?file=mdc_hospitals&format=sql"
+  ],
+  "dateModified": "2026-10-17 22:27:55",
+  "version": "2026-10-17"
+}

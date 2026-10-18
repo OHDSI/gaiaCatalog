@@ -1,0 +1,255 @@
+{
+  "@context": {
+    "@vocab": "https://schema.org/",
+    "dct": "http://purl.org/dc/terms/",
+    "qudt": "http://qudt.org/schema/qudt/",
+    "quantitykind": "http://qudt.org/vocab/quantitykind/",
+    "unit": "http://qudt.org/vocab/unit/",
+    "xsd": "http://www.w3.org/2001/XMLSchema",
+    "extendedConstraintProperty": "http://codata.org/vocab/extendedConstraintProperty",
+    "sdmx": "https://sdmx.org"
+  },
+  "@type": "Dataset",
+  "@id": "https://gdsc.idsc.miami.edu/detail/mdc_federally_qualified_health_centers",
+  "includedInDataCatalog": [
+    {
+      "@type": "DataCatalog",
+      "@id": "https://gdsc.idsc.miami.edu",
+      "name": "Geospatial Digital Special Collections",
+      "url": "https://gdsc.idsc.miami.edu"
+    },
+    {
+      "@type": "DataCatalog",
+      "name": "displacement-vulnerability-mitigation-tool",
+      "@id": "https://gdsc.idsc.miami.edu/?collection=displacement-vulnerability-mitigation-tool",
+      "url": "https://gdsc.idsc.miami.edu/?collection=displacement-vulnerability-mitigation-tool"
+    }
+  ],
+  "name": "Miami-Dade Federally Qualified Health Centers",
+  "creator": [
+    {
+      "@type": "Organization",
+      "name": "Miami-Dade County Open Data Hub"
+    },
+    {
+      "@type": "Organization",
+      "name": "Information Technology Department"
+    }
+  ],
+  "url": "https://gis-mdc.opendata.arcgis.com/datasets/MDC::federally-qualified-health-center/about",
+  "provider": [
+    {
+      "@type": "Organization",
+      "name": "Miami-Dade County"
+    }
+  ],
+  "spatialCoverage": [
+    {
+      "@id": "https://www.geonames.org/4164238",
+      "@type": "Place",
+      "name": "Miami-Dade County"
+    },
+    {
+      "@type": "Place",
+      "name": "bbox",
+      "geo": {
+        "@type": "GeoShape",
+        "polygon": "25.419524 -80.502415 25.419524 -80.132022 25.943273 -80.132022 25.943273 -80.502415 25.419524 -80.502415"
+      }
+    }
+  ],
+  "type": "Vector Dataset",
+  "datePublished": "2018-06-05",
+  "description": "A point feature class of Federally Qualified Health Centers within Miami-Dade County.",
+  "keywords": [
+    "Florida",
+    "Miami-Dade County",
+    "MDC",
+    "Health",
+    " Emergency",
+    "Federally Qualified Health Center",
+    "Wellness",
+    "Medical",
+    "\nPublic-Safety",
+    "Infrastructure"
+  ],
+  "@language": "en",
+  "measurementTechnique": [
+    {
+      "@type": "DefinedTerm",
+      "description": "GIS Data Structure for Representation",
+      "inDefinedTermSet": {
+        "@type": "DefinedTermSet",
+        "name": "dataRepresentation",
+        "hasDefinedTerm": [
+          {
+            "@type": "DefinedTerm",
+            "termCode": "raster"
+          },
+          {
+            "@type": "DefinedTerm",
+            "termCode": "vector"
+          },
+          {
+            "@type": "DefinedTerm",
+            "termCode": "table"
+          }
+        ]
+      },
+      "termCode": "vector"
+    },
+    {
+      "@type": "DefinedTerm",
+      "description": "GIS Vector Geometery",
+      "inDefinedTermSet": {
+        "@type": "DefinedTermSet",
+        "name": "vectorGeometry",
+        "hasDefinedTerm": [
+          {
+            "@type": "DefinedTerm",
+            "termCode": "point"
+          },
+          {
+            "@type": "DefinedTerm",
+            "termCode": "line"
+          },
+          {
+            "@type": "DefinedTerm",
+            "termCode": "polygon"
+          }
+        ]
+      },
+      "termCode": "point"
+    }
+  ],
+  "additionalProperty": [
+    {
+      "@type": "PropertyValue",
+      "propertyID": "http://dbpedia.org/resource/Spatial_reference_system",
+      "value": "https://epsg.io/4326"
+    }
+  ],
+  "about": [
+    {
+      "@type": "Event",
+      "description": "direct from source",
+      "name": "ETL process for Miami-Dade Federally Qualified Health Centers",
+      "potentialAction": {
+        "@type": "Action",
+        "name": "Pseudo Code",
+        "description": "TODO",
+        "result": {
+          "@type": "Dataset",
+          "encodingFormat": "sql",
+          "url": "https://gdsc.idsc.miami.edu/download/data/mdc_federally_qualified_health_centers/?file=mdc_federally_qualified_health_centers&format=sql"
+        }
+      }
+    },
+    {
+      "@type": "Event",
+      "description": "direct from source",
+      "name": "ETL process for Miami-Dade Federally Qualified Health Centers",
+      "potentialAction": {
+        "@type": "Action",
+        "name": "wget",
+        "description": "ETL process for Miami-Dade Federally Qualified Health Centers",
+        "object": {
+          "@type": "Dataset",
+          "name": "direct from source",
+          "producer": "Miami-Dade County Open Data Hub",
+          "url": "https://gis-mdc.opendata.arcgis.com/datasets/MDC::federally-qualified-health-center/about"
+        },
+        "instrument": {
+          "@type": "SoftwareApplication",
+          "@id": "https://github.com/Geospatial-Digital-Special-Collections/tools",
+          "featureList": "wget",
+          "downloadUrl": "https://github.com/Geospatial-Digital-Special-Collections/tools.git"
+        },
+        "result": {
+          "@type": "Dataset",
+          "name": "Miami-Dade Federally Qualified Health Centers",
+          "description": "A point feature class of Federally Qualified Health Centers within Miami-Dade County.",
+          "encodingFormat": "sql",
+          "url": "https://gdsc.idsc.miami.edu/download/data/mdc_federally_qualified_health_centers/?file=mdc_federally_qualified_health_centers&format=sql"
+        }
+      }
+    }
+  ],
+  "variableMeasured": [
+    {
+      "@type": "PropertyValue",
+      "name": "objectid",
+      "description": "Internal feature number",
+      "qudt:dataType": "int4",
+      "minValue": "1",
+      "maxValue": "22"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "provider",
+      "description": "Provider of hospital",
+      "qudt:dataType": "varchar"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "address",
+      "description": "Location of health center",
+      "qudt:dataType": "varchar"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "city",
+      "description": "City of health center",
+      "qudt:dataType": "varchar"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "zipcode",
+      "description": "Zipcode of health center",
+      "qudt:dataType": "int4",
+      "minValue": "33010",
+      "maxValue": "33190"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "lat",
+      "description": "Latitude",
+      "qudt:dataType": "float8",
+      "unitText": "decimal degrees",
+      "minValue": "25.41952",
+      "maxValue": "25.94327"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "lon",
+      "description": "Longitude",
+      "qudt:dataType": "float8",
+      "unitText": "decimal degrees",
+      "minValue": "-80.50241",
+      "maxValue": "-80.13202"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "point_x",
+      "description": "X-coordinate",
+      "qudt:dataType": "float8",
+      "unitText": "feet",
+      "minValue": "820395.687295336",
+      "maxValue": "941611.874980588"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "point_y",
+      "description": "Y-coordinate",
+      "qudt:dataType": "float8",
+      "unitText": "feet",
+      "minValue": "395026.125016339",
+      "maxValue": "585844.687604174"
+    }
+  ],
+  "distribution": [
+    "https://gdsc.idsc.miami.edu/download/data/mdc_federally_qualified_health_centers/?file=mdc_federally_qualified_health_centers&format=sql"
+  ],
+  "dateModified": "2026-10-17 22:28:10",
+  "version": "2026-10-17"
+}

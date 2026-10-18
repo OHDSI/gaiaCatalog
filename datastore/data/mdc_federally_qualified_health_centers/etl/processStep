@@ -1,0 +1,61 @@
+#########
+# GDSC ETL is performed in two steps: shell script to ETL data into postgres
+# and then additional transformations with SQL in postGIS (if needed).
+####
+
+#########
+# Step 1 - bash script (pseudo code)
+####
+
+# create directory structure and move into it
+mkdir -p /data/mdc_federally_qualified_health_centers/download -p /data/mdc_federally_qualified_health_centers/etl
+chmod -R 777 /data/mdc_federally_qualified_health_centers
+cd /data/mdc_federally_qualified_health_centers
+
+# set update flag based on last update and update frequency
+do_update=0 if date() < last_update + update_frequency else do_update = 1
+
+# download if update flag is set:
+if do_update == 1 then
+wget --retry-connrefused --waitretry=1 --read-timeout=20 --timeout=15 -t 10 -O download/mdc_federally_qualified_health_centers.json 'https://services.arcgis.com/8Pc9XBTAsYuxx9Ny/arcgis/rest/services/FederallyQualifiedHealthCenter_gdb/FeatureServer/0/query?where=1%3D1&outFields=*&outSR=4326&f=json' 2>&1
+
+# load into postGIS with:
+ogr2ogr -lco GEOMETRY_NAME=geom -f PostgreSQL PG:"<postgres connection>" download/mdc_federally_qualified_health_centers.json -nlt point -nln mdc_federally_qualified_health_centers
+echo success: mdc_federally_qualified_health_centers.json loaded with ogr2ogr
+
+
+#########
+# Step 2 - SQL script (pseudo code):
+####
+
+# remove duplicate points and make geometries valid:
+UPDATE mdc_federally_qualified_health_centers
+  SET geom=ST_MakeValid(ST_RemoveRepeatedPoints(geom));
+
+# add local geometry column and reproject existing geometries into local EPSG:
+ALTER TABLE mdc_federally_qualified_health_centers DROP COLUMN IF EXISTS geom_local CASCADE;
+SELECT AddGeometryColumn (
+  'mdc_federally_qualified_health_centers',
+  'geom_local', 2236, 'point', 2
+);
+UPDATE mdc_federally_qualified_health_centers
+  SET geom_local=ST_MakeValid(ST_RemoveRepeatedPoints(ST_Transform(geom,2236)));
+CREATE INDEX mdc_federally_qualified_health_centers_geom_local_idx
+  ON mdc_federally_qualified_health_centers
+  USING GIST (geom_local);
+NOTIFY pgrst, 'reload schema';
+# Move into corrrect directory and create derivative directory in data package on osgeo
+cd /data/mdc_federally_qualified_health_centers/
+mkdir -p derived
+
+# Move into correct directory
+cd /data/mdc_federally_qualified_health_centers/
+
+# Create pg_dump of table SQL in derivate directory on postgis.
+pg_dump <postgres opts> -h gaia-db -t mdc_federally_qualified_health_centers > derived/mdc_federally_qualified_health_centers.sql
+
+# Create downloadable tarfile of SQL in derivative directory on postgis
+rm -f derived/mdc_federally_qualified_health_centers.sql.tar.gz
+tar -czf derived/mdc_federally_qualified_health_centers.sql.tar.gz meta_dcat_mdc_federally_qualified_health_centers.json -C derived mdc_federally_qualified_health_centers.sql
+
+

@@ -231,6 +231,7 @@ async function loadLayer(table) {
   addProgressMessage(`loading table ${table}.`);
   console.log(`loading table ${table}.`);
   const status_indicator = document.getElementById(`layer-${table}`);
+  if (status_indicator) { status_indicator.className = 'yin-yang yin-yang-small'; }
   startSpinner();
 
   /* load dependencies if any */
@@ -609,8 +610,14 @@ async function renderLanding(entry) {
 
     let content = value;
     if (typeof value === 'string') {
-      content = document.createElement('p');
-      content.textContent = value;
+      if (title != 'dcat:landingPage') {
+        content = document.createElement('p');
+        content.textContent = value;
+      } else {
+        content = document.createElement('a');
+        content.href = value;
+        content.textContent = value;
+      }
     }
     section.appendChild(content);
     
@@ -655,7 +662,7 @@ async function renderLanding(entry) {
   wrapper.appendChild(title);
 
   /* render all filter fields and the description */
-  const fields = [descriptionField, ...filterFields];
+  const fields = ['dcat:landingPage', descriptionField, ...filterFields];
   fields.forEach(field => {
     if (!entry[field]) return;
     const val = normalizeField(entry[field])

@@ -1,0 +1,225 @@
+{
+  "@context": {
+    "@vocab": "https://schema.org/",
+    "dct": "http://purl.org/dc/terms/",
+    "qudt": "http://qudt.org/schema/qudt/",
+    "quantitykind": "http://qudt.org/vocab/quantitykind/",
+    "unit": "http://qudt.org/vocab/unit/",
+    "xsd": "http://www.w3.org/2001/XMLSchema",
+    "extendedConstraintProperty": "http://codata.org/vocab/extendedConstraintProperty",
+    "sdmx": "https://sdmx.org"
+  },
+  "@type": "Dataset",
+  "@id": "https://gdsc.idsc.miami.edu/detail/fl_superfund_waste_cleanup_sites",
+  "includedInDataCatalog": [
+    {
+      "@type": "DataCatalog",
+      "@id": "https://gdsc.idsc.miami.edu",
+      "name": "Geospatial Digital Special Collections",
+      "url": "https://gdsc.idsc.miami.edu"
+    },
+    {
+      "@type": "DataCatalog",
+      "name": "vulnerability",
+      "@id": "https://gdsc.idsc.miami.edu/?collection=vulnerability",
+      "url": "https://gdsc.idsc.miami.edu/?collection=vulnerability"
+    }
+  ],
+  "name": "Florida Superfund Waste Cleanup Sites",
+  "creator": [
+    {
+      "@type": "Organization",
+      "sameAs": "https://ror.org/042v2q176",
+      "@id": "https://ror.org/042v2q176",
+      "identifier": "https://ror.org/042v2q176",
+      "name": "Florida Department of Environmental Protection"
+    },
+    {
+      "@type": "Organization",
+      "sameAs": "https://ror.org/011bwvz55",
+      "@id": "https://ror.org/011bwvz55",
+      "identifier": "https://ror.org/011bwvz55",
+      "name": "Division of Waste Management"
+    }
+  ],
+  "url": "https://geodata.dep.state.fl.us/datasets/FDEP::florida-superfund-waste-cleanup-sites/about",
+  "provider": [
+    {
+      "@type": "Organization",
+      "name": "FDEP Open Data Administrator"
+    }
+  ],
+  "spatialCoverage": [
+    {
+      "@id": "https://www.geonames.org/4155751",
+      "@type": "Place",
+      "name": "Florida"
+    },
+    {
+      "@type": "Place",
+      "name": "bbox",
+      "geo": {
+        "@type": "GeoShape",
+        "polygon": "25.815579 -87.238268 25.815579 -80.073667 30.728050 -80.073667 30.728050 -87.238268 25.815579 -87.238268"
+      }
+    }
+  ],
+  "type": "Vector Dataset",
+  "datePublished": "2001-02-23",
+  "description": "Point feature class of the superfund sites in Florida from the National Priority List (NPL).",
+  "keywords": [
+    "Florida",
+    "Superfund Waste Cleanup Site",
+    "Safety",
+    "Public Health",
+    "Pollution",
+    "Contamination",
+    "Superfund"
+  ],
+  "@language": "en",
+  "measurementTechnique": [
+    {
+      "@type": "DefinedTerm",
+      "description": "GIS Data Structure for Representation",
+      "inDefinedTermSet": {
+        "@type": "DefinedTermSet",
+        "name": "dataRepresentation",
+        "hasDefinedTerm": [
+          {
+            "@type": "DefinedTerm",
+            "termCode": "raster"
+          },
+          {
+            "@type": "DefinedTerm",
+            "termCode": "vector"
+          },
+          {
+            "@type": "DefinedTerm",
+            "termCode": "table"
+          }
+        ]
+      },
+      "termCode": "vector"
+    },
+    {
+      "@type": "DefinedTerm",
+      "description": "GIS Vector Geometery",
+      "inDefinedTermSet": {
+        "@type": "DefinedTermSet",
+        "name": "vectorGeometry",
+        "hasDefinedTerm": [
+          {
+            "@type": "DefinedTerm",
+            "termCode": "point"
+          },
+          {
+            "@type": "DefinedTerm",
+            "termCode": "line"
+          },
+          {
+            "@type": "DefinedTerm",
+            "termCode": "polygon"
+          }
+        ]
+      },
+      "termCode": "point"
+    }
+  ],
+  "additionalProperty": [
+    {
+      "@type": "PropertyValue",
+      "propertyID": "http://dbpedia.org/resource/Spatial_reference_system",
+      "value": "https://epsg.io/4326"
+    }
+  ],
+  "about": [
+    {
+      "@type": "Event",
+      "description": " direct from source",
+      "name": "ETL process for Florida Superfund Waste Cleanup Sites",
+      "potentialAction": {
+        "@type": "Action",
+        "name": "Pseudo Code",
+        "description": "TODO"
+      }
+    },
+    {
+      "@type": "Event",
+      "description": " direct from source",
+      "name": "ETL process for Florida Superfund Waste Cleanup Sites",
+      "potentialAction": {
+        "@type": "Action",
+        "name": "wget",
+        "description": "ETL process for Florida Superfund Waste Cleanup Sites",
+        "object": {
+          "@type": "Dataset",
+          "name": " direct from source",
+          "producer": "Florida Department of Environmental Protection",
+          "url": "https://geodata.dep.state.fl.us/datasets/FDEP::florida-superfund-waste-cleanup-sites/about"
+        },
+        "instrument": {
+          "@type": "SoftwareApplication",
+          "@id": "https://github.com/Geospatial-Digital-Special-Collections/tools",
+          "featureList": "wget",
+          "downloadUrl": "https://github.com/Geospatial-Digital-Special-Collections/tools.git"
+        },
+        "result": {
+          "@type": "Dataset",
+          "name": "Florida Superfund Waste Cleanup Sites",
+          "description": "Point feature class of the superfund sites in Florida from the National Priority List (NPL).",
+          "encodingFormat": "json"
+        }
+      }
+    }
+  ],
+  "variableMeasured": [
+    {
+      "@type": "PropertyValue",
+      "name": "eric_id",
+      "qudt:dataType": "varchar"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "name",
+      "qudt:dataType": "varchar"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "address",
+      "qudt:dataType": "varchar"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "city",
+      "qudt:dataType": "varchar"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "county",
+      "qudt:dataType": "varchar"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "district",
+      "qudt:dataType": "varchar"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "program",
+      "qudt:dataType": "varchar"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "status",
+      "qudt:dataType": "varchar"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "manager",
+      "qudt:dataType": "varchar"
+    }
+  ],
+  "distribution": "/data/fl_superfund_waste_cleanup_sites/",
+  "dateModified": "2026-10-17 22:30:50",
+  "version": "2026-10-17"
+}

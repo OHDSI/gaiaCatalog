@@ -1,0 +1,254 @@
+{
+  "control_group": {
+    "id": 146
+  },
+  "dublin_core_group": {
+    "title": "Miami-Dade 2020 Zip Code Tabulation Areas",
+    "creator_group": [
+      {
+        "creator_name": "U.S. Department of Commerce",
+        "creator_type": "organization",
+        "creator_identifier": "https://ror.org/04chq2495",
+        "creator_identifier_schema": "ror",
+        "creator_identifier_schema_uri": "https://ror.org/"
+      },
+      {
+        "creator_name": "U.S. Census Bureau",
+        "creator_type": "organization",
+        "creator_identifier": "https://ror.org/01qn7cs15",
+        "creator_identifier_schema": "ror",
+        "creator_identifier_schema_uri": "https://ror.org/"
+      },
+      {
+        "creator_name": "Geography Division",
+        "creator_type": "organization"
+      },
+      {
+        "creator_name": "Spatial Data Collection and Products Branch",
+        "creator_type": "organization"
+      }
+    ],
+    "url": "https://www.census.gov/programs-surveys/geography/guidance/geo-areas/zctas.html",
+    "publisher_group": [
+      {
+        "publisher_name": "Census"
+      }
+    ],
+    "rights": "Public Domain",
+    "coverage_group": [
+      {
+        "coverage_name": "Miami-Dade County",
+        "coverage_identifier": "4164238",
+        "coverage_identifier_schema": "geonames",
+        "coverage_identifier_schema_uri": "https://www.geonames.org/"
+      }
+    ],
+    "resource_type": "Vector Dataset",
+    "publication_date": "2024-08-26",
+    "description": "A polygon representation of the Miami-Dade Zip Code Tabulation Areas (ZCTA) boundaries (derived from us_2020_zcta).",
+    "provenance": "Census from the Post Office",
+    "subject_group": [
+      {
+        "subject_term": "Miami-Dade"
+      },
+      {
+        "subject_term": "Zipcode"
+      },
+      {
+        "subject_term": "ZCTA"
+      }
+    ],
+    "language": "en",
+    "size_group": [
+      {
+        "size_bytes": "0",
+        "size_human_readable": "0"
+      }
+    ]
+  },
+  "iso_group": {
+    "structure": "vector",
+    "geometry": "multipolygon",
+    "epsg": 4269,
+    "extent": "ENVELOPE(-81.384489,-80.110192,26.172879,25.034431)",
+    "lineage": "TBD",
+    "process_step": "#########\n# GDSC ETL is performed in two steps: shell script to ETL data into postgres\n# and then additional transformations with SQL in postGIS (if needed).\n####\n\n#########\n# Step 1 - bash script (pseudo code)\n####\n\n# create directory structure and move into it\nmkdir -p /data/mdc_2020_zcta/download -p /data/mdc_2020_zcta/etl\nchmod -R 777 /data/mdc_2020_zcta\ncd /data/mdc_2020_zcta\n\n# set update flag based on last update and update frequency\ndo_update=0 if date() < last_update + update_frequency else do_update = 1\n\n# clip as per custom parameters\npsql -d gaiacore -U postgres -p 5432 -h gaia-db -c \"\nCREATE TABLE mdc_2020_zcta AS\nSELECT us_2020_zcta.ogc_fid, us_2020_zcta.geoid20, us_2020_zcta.zcta5ce20, us_2020_zcta.classfp20, us_2020_zcta.mtfcc20, us_2020_zcta.aland20, us_2020_zcta.awater20, us_2020_zcta.funcstat20, us_2020_zcta.intptlat20, us_2020_zcta.intptlon20, us_2020_zcta.geom\nFROM us_2020_zcta\nJOIN us_2020_county_tl on ST_Intersects(us_2020_zcta.geom, us_2020_county_tl.geom)\nWHERE us_2020_county_tl.geoid = '12086';\nCOMMIT;\"\n\n# add local geometry column and reproject existing geometries into local EPSG:\nALTER TABLE mdc_2020_zcta DROP COLUMN IF EXISTS geom_local CASCADE;\nSELECT AddGeometryColumn (\n  'mdc_2020_zcta',\n  'geom_local', 4269, 'multipolygon', 2\n);\nUPDATE mdc_2020_zcta\n  SET geom_local=ST_MakeValid(ST_RemoveRepeatedPoints(ST_Transform(ST_Multi(geom),4269)));\nCREATE INDEX mdc_2020_zcta_geom_local_idx\n  ON mdc_2020_zcta\n  USING GIST (geom_local);\nNOTIFY pgrst, 'reload schema';\n",
+    "processor": "GDSC automation (see Process Step)",
+    "point_of_contact_group": [
+      {
+        "contact_name": "Timothy B. Norris",
+        "contact_last_name": "Norris",
+        "contact_first_name": "Timothy",
+        "contact_email": "tnorris@miami.edu",
+        "contact_identifier": "https://orcid.org/0000-0002-0898-3027",
+        "contact_identifier_schema": "orcid",
+        "contact_identifier_schema_uri": "https://orcid.org/",
+        "contact_affiliation": "University of Miami Libraries, Frost Institute for Data Science and Computing",
+        "contact_affiliation_identifier": "https://ror.org/02dgjyy92",
+        "contact_affiliation_schema": "ror",
+        "contact_affiliation_schema_uri": "https://ror.org/"
+      }
+    ],
+    "data_level": "derived"
+  },
+  "cartography_group": {
+    "label": "geoid20",
+    "values_group": [
+      {
+        "value_field": "ogc_fid"
+      },
+      {
+        "value_field": "geoid20"
+      },
+      {
+        "value_field": "zcta5ce20"
+      },
+      {
+        "value_field": "classfp20"
+      },
+      {
+        "value_field": "mtfcc20"
+      },
+      {
+        "value_field": "aland20"
+      },
+      {
+        "value_field": "awater20"
+      },
+      {
+        "value_field": "funcstat20"
+      },
+      {
+        "value_field": "intptlat20"
+      },
+      {
+        "value_field": "intptlon20"
+      }
+    ],
+    "attributes_group": [
+      {
+        "attribute_name": "ogc_fid",
+        "attribute_description": "object ID",
+        "attribute_source": "internal",
+        "attribute_type": "int4",
+        "attribute_unit": "id",
+        "attribute_min_value": "117",
+        "attribute_max_value": "24426"
+      },
+      {
+        "attribute_name": "geoid20",
+        "attribute_description": "Zip Code",
+        "attribute_source": "Census",
+        "attribute_type": "varchar",
+        "attribute_unit": "zip code"
+      },
+      {
+        "attribute_name": "zcta5ce20",
+        "attribute_description": "Zip Code",
+        "attribute_source": "Census",
+        "attribute_type": "varchar",
+        "attribute_unit": "zip code"
+      },
+      {
+        "attribute_name": "classfp20",
+        "attribute_description": "The class (CLASSFP) code defines the current class of a geographic entity.",
+        "attribute_source": "Census",
+        "attribute_type": "varchar",
+        "attribute_unit": "code"
+      },
+      {
+        "attribute_name": "mtfcc20",
+        "attribute_description": "5-digit code assigned by the Census Bureau intended to classify and describe geographic objects or features",
+        "attribute_source": "Census",
+        "attribute_type": "varchar",
+        "attribute_unit": "code"
+      },
+      {
+        "attribute_name": "aland20",
+        "attribute_description": "Area of land in square feet",
+        "attribute_source": "Census",
+        "attribute_type": "numeric",
+        "attribute_unit": "Square Feet",
+        "attribute_min_value": "35050.00",
+        "attribute_max_value": "3038252240.00"
+      },
+      {
+        "attribute_name": "awater20",
+        "attribute_description": "Area of water in square feet",
+        "attribute_source": "Census",
+        "attribute_type": "numeric",
+        "attribute_unit": "Square Feet",
+        "attribute_min_value": "0.00",
+        "attribute_max_value": "227532787.00"
+      },
+      {
+        "attribute_name": "funcstat20",
+        "attribute_description": "The functional status (FUNCSTAT) code defines the current functional status of a geographic entity.",
+        "attribute_source": "Census",
+        "attribute_type": "varchar",
+        "attribute_unit": "code"
+      },
+      {
+        "attribute_name": "intptlat20",
+        "attribute_description": "NAD83 Latitude",
+        "attribute_source": "Census",
+        "attribute_type": "varchar",
+        "attribute_unit": "Degrees Latitude"
+      },
+      {
+        "attribute_name": "intptlon20",
+        "attribute_description": "NAD83 Longitude",
+        "attribute_source": "Census",
+        "attribute_type": "varchar",
+        "attribute_unit": "Degrees Longitude"
+      }
+    ]
+  },
+  "collection_group": {
+    "collections": "mdc-health-outcomes mdc-sleep-outcomes",
+    "analytic_function": "gdsc_get_attributes",
+    "analytic_epsg": 4269,
+    "derivative_url": "/data/mdc_2020_zcta/",
+    "sponsor_group": [
+      {
+        "sponsor_name": "IDSC",
+        "sponsor_url": "https://idsc.miami.edu"
+      },
+      {
+        "sponsor_name": "Library",
+        "sponsor_url": "https://www.library.miami.edu"
+      }
+    ],
+    "status": "draft"
+  },
+  "etl_group": {
+    "source": "ftp://ftp2.census.gov/geo/tiger/TIGER2020/ZCTA520/tl_2020_us_zcta520.zip",
+    "file_name_group": [
+      {
+        "file_name_value": "mdc_2020_zcta"
+      }
+    ],
+    "extension": "shp",
+    "table_name": "mdc_2020_zcta",
+    "format": "shp",
+    "dependency_group": [
+      {
+        "dependency_table_name": "us_2020_zcta"
+      },
+      {
+        "dependency_table_name": "us_2020_county_tl"
+      }
+    ],
+    "custom_etl": "clip_vector",
+    "custom_parameters": "geoid = '12086'",
+    "up": "true",
+    "podid": "gaia-db",
+    "last_updated": "2026-10-05 22:47:12",
+    "update_frequency": "Never",
+    "checksum": "TBD"
+  },
+  "_submission_time": "2026-10-10 21:56:09",
+  "meta": {
+    "instanceID": "d914e1e9-166a-4bb8-b842-b9366630965"
+  }
+}

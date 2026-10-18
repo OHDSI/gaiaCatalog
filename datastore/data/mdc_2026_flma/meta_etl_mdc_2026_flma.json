@@ -1,0 +1,21 @@
+{
+  "rights": "Public Domain",
+  "structure": "vector",
+  "geometry": "multipolygon",
+  "epsg": "EPSG:3087",
+  "extent": "ENVELOPE(-80.58986398643734,-80.08940946270674,25.97306254376044,25.242215809574343)",
+  "attributes": ["ma_id;Managed Area ID, designed by NatureServe. Unique identifier for each Managed Area.;FNAI;float8;;;63;3769", "maname;Official name of the Managed Area (conservation land);The managing agency of the Managed Area;varchar;;;;", "majorma;Official name of the Major Managed Area.  Major Managed Area refers to a larger Managed Area that contains the Managed Area in question.;FNAI;varchar;;;;", "matype;Code for the Managed Area by lead managing agency. Each Managed Area has been coded as 1st byte = Managing Agency Category: F=Federal, S=State, L=Local, P=Private, 2nd and 3rd bytes = Managing Agency: (e.g., AF= US Air Force), 4th and 5th bytes = Managed Area Unit Type (e.g., AB= Air Force Base);The Nature Conservancy and FNAI;varchar;;;;", "managing_a;Name of the lead managing agency for the Managed Area.;FNAI;varchar;;;;", "matype2;Code for Managed Area by managing agency category.;FNAI;varchar;;;;", "owner;Name of the main owner of the Managed Area;FNAI;varchar;;;;", "coowners;Name(s) of additional owner(s) of the managed area;FNAI;varchar;;;;", "ownertypes;Owner Types;FNAI;varchar;;;;", "totacres;Total number of acres within the Managed Area;The managing agency of the Managed Area;float8;acres;;0.7;172971.11", "ltf_acres;Number of acres within the Managed Area that are in less-than-fee ownership.;The managing agency of the Managed Area;float8;acres;;0;184.71", "esmt_hold;Easement Holder;FNAI;varchar;;;;", "county;Abbreviation (the first four letters of the county name) for the county;FNAI;varchar;;;;", "prostat;Protection Status as 1, 2, or 3;The Nature Conservancy and FNAI. Synonymous with protection categories I, II, III;double;", "descript;General description of the Managed Area;FNAI;varchar;;;;", "comments;General comments;FNAI;varchar;;;;", "manager;Name and/or official job title of the current manager of the Managed Area.;The managing agency of the Managed Area;varchar;;;;", "mgrinst;Manager Institution;The managing agency of the Managed Area;varchar;;;;", "mgrcity;Manager City.;The managing agency of the Managed Area;varchar;;;;", "mgrphone;Manager Phone;FNAI;varchar;;;;", "ma_website;Managed Area Web Site;FNAI;varchar;;;;", "maname_ab;A shortened (abbreviated) name of the Managed Area;FNAI;varchar;;;;", "digbnd_src;Digital Boundary Source;FNAI;varchar;;;;", "citation;Suggested Citation;FNAI;varchar;;;;", "shape_length;Perimeter in meters.;calculated;float8;meters;;218.777995272167;371136.272304891", "shape_area;Area in square meters.;calculated;float8;square meters;;2814.22698527822;702991929.615823"],
+  "local_epsg": "EPSG:2236",
+  "source": "fl_2026_flma",
+  "file": ["mdc_2026_flma"],
+  "table": "mdc_2026_flma",
+  "format": "shp",
+  "dependency": ["fl_2026_flma"],
+  "custom_etl": "subset",
+  "custom_parameters": "county;=;'Miami-Dade'",
+  "up": "true",
+  "podID": "gaia-db",
+  "last_updated": "2026-10-05T23:29:50Z",
+  "update_frequency": "4 months",
+  "checksum": "TBD"
+}

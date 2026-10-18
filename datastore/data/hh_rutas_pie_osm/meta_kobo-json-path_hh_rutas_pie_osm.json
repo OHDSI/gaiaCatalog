@@ -1,0 +1,152 @@
+{
+  "control_group": {
+    "id": 317
+  },
+  "dublin_core_group": {
+    "title": "OSM Huayhuash Rutas a Pie",
+    "creator_group": [
+      {
+        "creator_name": "OpenStreetMap contributors"
+      }
+    ],
+    "url": "https://www.openstreetmap.org/",
+    "publisher_group": [
+      {
+        "publisher_name": "OpenStreetMap"
+      }
+    ],
+    "rights": "Open Data",
+    "license": "odbl",
+    "license_text": "OpenStreetMap\u00ae is open data, licensed under the [Open Data Commons Open Database License](https://opendatacommons.org/licenses/odbl/) (ODbL) by the [OpenStreetMap Foundation](https://osmfoundation.org/) (OSMF).",
+    "restrictions": "You are free to copy, distribute, transmit and adapt our data, as long as you credit OpenStreetMap and its contributors. If you alter or build upon our data, you may distribute the result only under the same licence.",
+    "coverage_group": [
+      {
+        "coverage_name": "Cordillera Huayhuash",
+        "coverage_identifier": "3938961",
+        "coverage_identifier_schema": "geonames",
+        "coverage_identifier_schema_uri": "https://www.geonames.org/"
+      }
+    ],
+    "resource_type": "Vector Dataset",
+    "publication_date": "2025-04-23",
+    "description": "A line feature set for the walking trails of the Cordillera Huayhuash sourced from OpenStreetMap with a query that includes paths, trails, and apline routes",
+    "provenance": "Direct from source.",
+    "subject_group": [
+      {
+        "subject_term": "Per\u00fa"
+      },
+      {
+        "subject_term": "Huayhuash"
+      },
+      {
+        "subject_term": "Turismo"
+      },
+      {
+        "subject_term": "Transportaci\u00f3n"
+      }
+    ],
+    "language": "es",
+    "size_group": [
+      {
+        "size_bytes": "156",
+        "size_human_readable": "156"
+      }
+    ]
+  },
+  "iso_group": {
+    "structure": "vector",
+    "geometry": "multilinestring",
+    "epsg": 4326,
+    "extent": "ENVELOPE(-77.33,-76.55,-9.8,-10.7)",
+    "lineage": "TBD",
+    "process_step": "#########\n# GDSC ETL is performed in two steps: shell script to ETL data into postgres\n# and then additional transformations with SQL in postGIS (if needed).\n####\n\n#########\n# Step 1 - bash script (pseudo code)\n####\n\n# create directory structure and move into it\nmkdir -p /data/hh_rutas_pie_osm/download -p /data/hh_rutas_pie_osm/etl\nchmod -R 777 /data/hh_rutas_pie_osm\ncd /data/hh_rutas_pie_osm\n\n# set update flag based on last update and update frequency\ndo_update=0 if date() < last_update + update_frequency else do_update = 1\n\n# download if update flag is set:\nif do_update == 1 then\ncurl -o download/hh_rutas_pie_osm.osm 'https://overpass-api.de/api/interpreter?data=%28nwr%5B%22highway%22=%22path%22%5D%28-10.7,-77.33,-9.8,-76.55%29;nwr%5B%22highway%22=%22footway%22%5D%5B%22footway%22=%22trail%22%5D%28-10.7,-77.33,-9.8,-76.55%29;nwr%5B%22route%22=%22hiking%22%5D%28-10.7,-77.33,-9.8,-76.55%29;%29;%28._;>;%29;out;' 2>&1\n\n# load into postGIS with:\nogr2ogr -lco GEOMETRY_NAME=geom -f PostgreSQL PG:\"<postgres connection>\" download/hh_rutas_pie_osm.osm\necho success: hh_rutas_pie_osm.osm loaded with ogr2ogr\n\n\n#########\n# Step 2 - SQL script (pseudo code):\n####\n\n# Select proper geometry into the named table\npsql -d gaiacore -U postgres -p 5432 -h gaia-db -c \"\nSELECT * INTO hh_rutas_pie_osm FROM lines;\nDROP TABLE IF EXISTS lines;\nDROP TABLE IF EXISTS multilinestrings;\nDROP TABLE IF EXISTS multipolygons;\nDROP TABLE IF EXISTS other_relations;\nDROP TABLE IF EXISTS points;\"\n\n# remove duplicate points and make geometries valid:\nUPDATE hh_rutas_pie_osm\n  SET geom=ST_MakeValid(ST_RemoveRepeatedPoints(geom));\n\n# add local geometry column and reproject existing geometries into local EPSG:\nALTER TABLE hh_rutas_pie_osm DROP COLUMN IF EXISTS geom_local CASCADE;\nSELECT AddGeometryColumn (\n  'hh_rutas_pie_osm',\n  'geom_local', 5387, 'multilinestring', 2\n);\nUPDATE hh_rutas_pie_osm\n  SET geom_local=ST_MakeValid(ST_RemoveRepeatedPoints(ST_Transform(ST_Multi(geom),5387)));\nCREATE INDEX hh_rutas_pie_osm_geom_local_idx\n  ON hh_rutas_pie_osm\n  USING GIST (geom_local);\nNOTIFY pgrst, 'reload schema';\n# Move into corrrect directory and create derivative directory in data package on osgeo\ncd /data/hh_rutas_pie_osm/\nmkdir -p derived\n\n# Create shapefile of table in derivate directory on osgeo \nogr2ogr -f \"ESRI Shapefile\" -overwrite derived/hh_rutas_pie_osm.shp PG:\"<postgres connection>\" hh_rutas_pie_osm\n\n# Create downloadable tarfile of shp in derivative directory on osgeo\nrm -f derived/hh_rutas_pie_osm.shp.tar.gz\ntar -czf derived/hh_rutas_pie_osm.shp.tar.gz meta_dcat_hh_rutas_pie_osm.json -C derived hh_rutas_pie_osm.shp hh_rutas_pie_osm.prj hh_rutas_pie_osm.shx hh_rutas_pie_osm.dbf\n\n# Create gpkg of table in derivate directory on osgeo \nrm -f derived/hh_rutas_pie_osm.gpkg\nogr2ogr -f GPKG -overwrite derived/hh_rutas_pie_osm.gpkg PG:\"<postgres connection>\" -select \"osm_id,name,highway,other_tags,geom\" hh_rutas_pie_osm\n\n# Create downloadable tarfile of gpkg in derivative directory on osgeo\nrm -f derived/hh_rutas_pie_osm.gpkg.tar.gz\ntar -czf derived/hh_rutas_pie_osm.gpkg.tar.gz meta_dcat_hh_rutas_pie_osm.json -C derived hh_rutas_pie_osm.gpkg\n\n# Create geojson of table in derivate directory on osgeo \nrm -f derived/hh_rutas_pie_osm.json\nogr2ogr -f GeoJSON -overwrite derived/hh_rutas_pie_osm.json PG:\"<postgres connection>\" -select \"osm_id,name,highway,other_tags,geom\" hh_rutas_pie_osm\n\n# Create downloadable tarfile of geojson in derivative directory on osgeo\nrm -f derived/hh_rutas_pie_osm.geojson.tar.gz\ntar -czf derived/hh_rutas_pie_osm.geojson.tar.gz meta_dcat_hh_rutas_pie_osm.json -C derived hh_rutas_pie_osm.json\n\n# Move into correct directory\ncd /data/hh_rutas_pie_osm/\n\n",
+    "processor": "GDSC automation (see Process Step)",
+    "point_of_contact_group": [
+      {
+        "contact_name": "Timothy B. Norris",
+        "contact_last_name": "Norris",
+        "contact_first_name": "Timothy",
+        "contact_email": "tnorris@miami.edu",
+        "contact_identifier": "https://orcid.org/0000-0002-0898-3027",
+        "contact_identifier_schema": "orcid",
+        "contact_identifier_schema_uri": "https://orcid.org/",
+        "contact_affiliation": "University of Miami Libraries, Frost Institute for Data Science and Computing",
+        "contact_affiliation_identifier": "https://ror.org/02dgjyy92",
+        "contact_affiliation_schema": "ror",
+        "contact_affiliation_schema_uri": "https://ror.org/"
+      }
+    ],
+    "data_level": "observed"
+  },
+  "cartography_group": {
+    "label": "name",
+    "values_group": [
+      {
+        "value_field": "osm_id"
+      },
+      {
+        "value_field": "name"
+      },
+      {
+        "value_field": "highway"
+      },
+      {
+        "value_field": "other_tags"
+      }
+    ],
+    "attributes_group": [
+      {
+        "attribute_name": "osm_id"
+      },
+      {
+        "attribute_name": "name"
+      },
+      {
+        "attribute_name": "highway"
+      },
+      {
+        "attribute_name": "other_tags"
+      }
+    ]
+  },
+  "collection_group": {
+    "collections": "hh-conservacion",
+    "analytic_epsg": 5387,
+    "derivatives": "shp geojson gpkg",
+    "derivative_url": "/data/hh_rutas_pie_osm/",
+    "sponsor_group": [
+      {
+        "sponsor_name": "IDSC",
+        "sponsor_url": "https://idsc.miami.edu"
+      },
+      {
+        "sponsor_name": "Library",
+        "sponsor_url": "https://www.library.miami.edu"
+      }
+    ],
+    "status": "draft",
+    "disclaimer": "The Database is licensed by the Licensor \u201cas is\u201d and without any warranty of any kind, either express, implied, or arising by statute, custom, course of dealing, or trade usage. Licensor specifically disclaims any and all implied warranties or conditions of title, non-infringement, accuracy or completeness, the presence or absence of errors, fitness for a particular purpose, merchantability, or otherwise. Some jurisdictions do not allow the exclusion of implied warranties, so this exclusion may not apply to You.\n\nSubject to any liability that may not be excluded or limited by law, the Licensor is not liable for, and expressly excludes, all liability for loss or damage however and whenever caused to anyone by any use under this License, whether by You or by anyone else, and whether caused by any fault on the part of the Licensor or not. This exclusion of liability includes, but is not limited to, any special, incidental, consequential, punitive, or exemplary damages such as loss of revenue, data, anticipated profits, and lost business. This exclusion applies even if the Licensor has been advised of the possibility of such damages. \n\nIf liability may not be excluded by law, it is limited to actual and direct financial loss to the extent it is caused by proved negligence on the part of the Licensor."
+  },
+  "etl_group": {
+    "source": "https://overpass-api.de/api/interpreter?data=%28nwr%5B%22highway%22=%22path%22%5D%28-10.7,-77.33,-9.8,-76.55%29;nwr%5B%22highway%22=%22footway%22%5D%5B%22footway%22=%22trail%22%5D%28-10.7,-77.33,-9.8,-76.55%29;nwr%5B%22route%22=%22hiking%22%5D%28-10.7,-77.33,-9.8,-76.55%29;%29;%28._;>;%29;out;",
+    "file_name_group": [
+      {
+        "file_name_value": "hh_rutas_pie_osm"
+      }
+    ],
+    "extension": "osm",
+    "download": "curl",
+    "table_name": "hh_rutas_pie_osm",
+    "format": "osm",
+    "etl_parameters": "lines",
+    "up": "true",
+    "podid": "gaia-db",
+    "last_updated": "2026-10-17 22:44:44",
+    "update_frequency": "As Needed",
+    "checksum": "TBD"
+  },
+  "_submission_time": "2026-10-17 22:44:45",
+  "meta": {
+    "instanceID": "017459ee-7d3f-4167-8839-42698161171"
+  }
+}

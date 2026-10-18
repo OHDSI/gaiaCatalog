@@ -43,6 +43,14 @@
       "@id": "https://www.geonames.org/6252001",
       "@type": "Place",
       "name": "United States"
+    },
+    {
+      "@type": "Place",
+      "name": "bbox",
+      "geo": {
+        "@type": "GeoShape",
+        "polygon": "TBD"
+      }
     }
   ],
   "type": "API",
@@ -139,7 +147,7 @@
       "qudt:dataType": "varchar"
     }
   ],
-  "distribution": "TBD",
+  "distribution": "/data/us_2020_census_county_fips/",
   "dateModified": "2026-09-09 15:46:57",
-  "version": "2026-09-13"
+  "version": "2026-10-09"
 }

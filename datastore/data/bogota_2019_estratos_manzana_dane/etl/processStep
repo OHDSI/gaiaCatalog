@@ -1,0 +1,47 @@
+#########
+# GDSC ETL is performed in two steps: shell script to ETL data into postgres
+# and then additional transformations with SQL in postGIS (if needed).
+####
+
+#########
+# Step 1 - bash script (pseudo code)
+####
+
+# create directory structure and move into it
+mkdir -p /data/bogota_2019_estratos_manzana_dane/download -p /data/bogota_2019_estratos_manzana_dane/etl
+chmod -R 777 /data/bogota_2019_estratos_manzana_dane
+cd /data/bogota_2019_estratos_manzana_dane
+
+# set update flag based on last update and update frequency
+do_update=0 if date() < last_update + update_frequency else do_update = 1
+
+# download if update flag is set:
+if do_update == 1 then
+wget --retry-connrefused --waitretry=1 --read-timeout=20 --timeout=15 -t 10 -O download/bogota_2019_estratos_manzana_dane.json 'https://datosabiertos.bogota.gov.co/dataset/55467552-0af4-4524-a390-a2956035744e/resource/29f2d770-bd5d-4450-9e95-8737167ba12f/download/manzanaestratificacion.json' 2>&1
+
+# load into postGIS with:
+ogr2ogr -lco GEOMETRY_NAME=geom -f PostgreSQL PG:"<postgres connection>" download/bogota_2019_estratos_manzana_dane.json -nlt multipolygon -nln bogota_2019_estratos_manzana_dane
+echo success: bogota_2019_estratos_manzana_dane.json loaded with ogr2ogr
+
+
+#########
+# Step 2 - SQL script (pseudo code):
+####
+
+# remove duplicate points and make geometries valid:
+UPDATE bogota_2019_estratos_manzana_dane
+  SET geom=ST_MakeValid(ST_RemoveRepeatedPoints(geom));
+
+# add local geometry column and reproject existing geometries into local EPSG:
+ALTER TABLE bogota_2019_estratos_manzana_dane DROP COLUMN IF EXISTS geom_local CASCADE;
+SELECT AddGeometryColumn (
+  'bogota_2019_estratos_manzana_dane',
+  'geom_local', 4686, 'multipolygon', 2
+);
+UPDATE bogota_2019_estratos_manzana_dane
+  SET geom_local=ST_MakeValid(ST_RemoveRepeatedPoints(ST_Transform(ST_Multi(geom),4686)));
+CREATE INDEX bogota_2019_estratos_manzana_dane_geom_local_idx
+  ON bogota_2019_estratos_manzana_dane
+  USING GIST (geom_local);
+NOTIFY pgrst, 'reload schema';
+

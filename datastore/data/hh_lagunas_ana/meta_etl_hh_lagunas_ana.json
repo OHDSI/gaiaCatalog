@@ -1,0 +1,22 @@
+{
+  "rights": "Public Domain",
+  "structure": "vector",
+  "geometry": "multipolygon",
+  "epsg": "EPSG:4326",
+  "extent": "ENVELOPE(-77.33,-76.55,-9.8,-10.7)",
+  "fields": ["id", "nombreoficial", "ubigeo", "nombrecuerpo", "codala", "ala", "codaaa", "aaa", "coordillera", "fechaimagensatelital", "fuente", "geom", "codigouh", "nombreuh"],
+  "attributes": ["id", "nombreoficial", "ubigeo", "nombrecuerpo", "codala", "ala", "codaaa", "aaa", "coordillera", "fechaimagensatelital", "fuente", "geom", "codigouh", "nombreuh"],
+  "local_epsg": "EPSG:5387",
+  "derive": ["shp", "geojson", "gpkg"],
+  "source": "https://geosnirh.ana.gob.pe/server/rest/services/P%C3%BAblico/Lagunas/MapServer/36/query?where=1%3D1&geometry=%22xmin%22%3A-77.33%2C%22ymin%22%3A-10.7%2C%22xmax%22%3A-76.55%2C%22ymax%22%3A-9.8&geometryType=esriGeometryEnvelope&inSR=4326&spatialRel=esriSpatialRelIntersects&outFields=*&returnGeometry=true&outSR=4326&f=geojson",
+  "file": ["hh_lagunas_ana"],
+  "extension": "json",
+  "download": "esri_recursive_ogr",
+  "table": "hh_lagunas_ana",
+  "format": "json",
+  "up": "true",
+  "podID": "gaia-db",
+  "last_updated": "2026-10-17T22:42:48Z",
+  "update_frequency": "Never",
+  "checksum": "TBD"
+}

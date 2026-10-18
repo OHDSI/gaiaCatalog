@@ -3,10 +3,10 @@
   "structure": "vector",
   "geometry": "multipolygon",
   "epsg": "EPSG:4326",
-  "attributes": ["osm_id;OpenStreetMap (OSM) ID;varchar;varchar;;;;", "\nname;Region name;varchar", "\ntype;Type of boundary;varchar", "\nadmin_level;OSM Administrative level;varchar", "\nboundary;OSM boundary type;varchar", "\nother_tags;Any other OSM tags with values, first one is the ISO3166-2 code for the administrative region;varchar"],
+  "extent": "ENVELOPE(29.594671,40.445394,-0.985481,-11.761254)",
+  "attributes": ["osm_id;OpenStreetMap (OSM) ID;;varchar;;;;", "name;Region name;;varchar;;;;", "type;Type of boundary;;varchar;;;;", "admin_level;OSM Administrative level;;varchar;;;;", "boundary;OSM boundary type;;varchar;;;;", "other_tags;Any other OSM tags with values, first one is the ISO3166-2 code for the administrative region;;varchar;;;;"],
   "local_epsg": "EPSG:4326",
   "derive": ["shp"],
-  "service": ["api"],
   "source": "https://overpass-api.de/api/interpreter?data=rel%5B%22ISO3166-2%22~%22^TZ%22%5D%5Badmin_level=4%5D%5Btype=boundary%5D%5Bboundary=administrative%5D;(._;>;);out;",
   "file": ["tz_regions_osm"],
   "extension": "osm",
@@ -18,6 +18,5 @@
   "podID": "gaia-db",
   "last_updated": "2025-09-07T11:19:11Z",
   "update_frequency": "As Needed",
-  "checksum": "TBD",
-  "extent": "POLYGON((29.5946708 -11.761254,29.5946708 -0.9854812,40.4453945 -0.9854812,40.4453945 -11.761254,29.5946708 -11.761254))"
+  "checksum": "TBD"
 }

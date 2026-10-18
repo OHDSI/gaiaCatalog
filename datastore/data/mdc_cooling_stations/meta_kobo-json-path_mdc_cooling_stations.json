@@ -1,0 +1,179 @@
+{
+  "control_group": {
+    "id": 68
+  },
+  "dublin_core_group": {
+    "title": "Miami-Dade Cooling Stations",
+    "creator_group": [
+      {
+        "creator_name": "Miami-Dade County Open Data Hub",
+        "creator_type": "organization"
+      },
+      {
+        "creator_name": "Information Technology Department",
+        "creator_type": "organization"
+      }
+    ],
+    "url": "https://mdc.maps.arcgis.com/apps/mapviewer/index.html?layers=9a42d1aae6e74cdcb2cbc9d82d58d6bd",
+    "publisher_group": [
+      {
+        "publisher_name": "Miami-Dade County"
+      }
+    ],
+    "rights": "Public Domain",
+    "coverage_group": [
+      {
+        "coverage_name": "Miami-Dade County",
+        "coverage_identifier": "4164238",
+        "coverage_identifier_schema": "geonames",
+        "coverage_identifier_schema_uri": "https://www.geonames.org/"
+      }
+    ],
+    "resource_type": "Vector Dataset",
+    "description": "A point feature class with all of the cooling centers in Miami-Dade County. These sites consist of libraries and certain parks and recreation locations. These sites can be activated in case of a heat emergency. ",
+    "provenance": " direct from source",
+    "subject_group": [
+      {
+        "subject_term": "Florida"
+      },
+      {
+        "subject_term": "Miami-Dade County"
+      },
+      {
+        "subject_term": "MDC"
+      },
+      {
+        "subject_term": "Emergency"
+      },
+      {
+        "subject_term": "Cooling Station"
+      }
+    ],
+    "language": "en",
+    "size_group": [
+      {
+        "size_bytes": "33184",
+        "size_human_readable": "33K"
+      }
+    ]
+  },
+  "iso_group": {
+    "structure": "vector",
+    "geometry": "point",
+    "epsg": 4326,
+    "extent": "ENVELOPE(-80.441642,-80.120714,25.960397,25.506312)",
+    "lineage": "TBD",
+    "process_step": "#########\n# GDSC ETL is performed in two steps: shell script to ETL data into postgres\n# and then additional transformations with SQL in postGIS (if needed).\n####\n\n#########\n# Step 1 - bash script (pseudo code)\n####\n\n# create directory structure and move into it\nmkdir -p /data/mdc_cooling_stations/download -p /data/mdc_cooling_stations/etl\nchmod -R 777 /data/mdc_cooling_stations\ncd /data/mdc_cooling_stations\n\n# set update flag based on last update and update frequency\ndo_update=0 if date() < last_update + update_frequency else do_update = 1\n\n# download if update flag is set:\nif do_update == 1 then\nwget --retry-connrefused --waitretry=1 --read-timeout=20 --timeout=15 -t 10 -O download/mdc_cooling_stations.json 'https://services.arcgis.com/8Pc9XBTAsYuxx9Ny/arcgis/rest/services/Cooling_Centers/FeatureServer/0/query?where=1%3D1&outFields=*&returnGeometry=true&outSR=4326&f=geojson' 2>&1\n\n# load into postGIS with:\nogr2ogr -lco GEOMETRY_NAME=geom -f PostgreSQL PG:\"<postgres connection>\" download/mdc_cooling_stations.json -nlt point -nln mdc_cooling_stations\necho success: mdc_cooling_stations.json loaded with ogr2ogr\n\n\n#########\n# Step 2 - SQL script (pseudo code):\n####\n\n# remove duplicate points and make geometries valid:\nUPDATE mdc_cooling_stations\n  SET geom=ST_MakeValid(ST_RemoveRepeatedPoints(geom));\n\n# add local geometry column and reproject existing geometries into local EPSG:\nALTER TABLE mdc_cooling_stations DROP COLUMN IF EXISTS geom_local CASCADE;\nSELECT AddGeometryColumn (\n  'mdc_cooling_stations',\n  'geom_local', 2236, 'point', 2\n);\nUPDATE mdc_cooling_stations\n  SET geom_local=ST_MakeValid(ST_RemoveRepeatedPoints(ST_Transform(geom,2236)));\nCREATE INDEX mdc_cooling_stations_geom_local_idx\n  ON mdc_cooling_stations\n  USING GIST (geom_local);\nNOTIFY pgrst, 'reload schema';\n",
+    "processor": "GDSC automation (see Process Step)",
+    "point_of_contact_group": [
+      {
+        "contact_name": "Timothy B. Norris",
+        "contact_last_name": "Norris",
+        "contact_first_name": "Timothy",
+        "contact_email": "tnorris@miami.edu",
+        "contact_identifier": "https://orcid.org/0000-0002-0898-3027",
+        "contact_identifier_schema": "orcid",
+        "contact_identifier_schema_uri": "https://orcid.org/",
+        "contact_affiliation": "University of Miami Libraries, Frost Institute for Data Science and Computing",
+        "contact_affiliation_identifier": "https://ror.org/02dgjyy92",
+        "contact_affiliation_schema": "ror",
+        "contact_affiliation_schema_uri": "https://ror.org/"
+      }
+    ],
+    "data_level": "observed"
+  },
+  "cartography_group": {
+    "label": "name",
+    "attributes_group": [
+      {
+        "attribute_name": "name",
+        "attribute_type": "varchar"
+      },
+      {
+        "attribute_name": "street",
+        "attribute_type": "varchar"
+      },
+      {
+        "attribute_name": "city_1",
+        "attribute_type": "varchar"
+      },
+      {
+        "attribute_name": "state_1",
+        "attribute_type": "varchar"
+      },
+      {
+        "attribute_name": "zip_code",
+        "attribute_type": "int4",
+        "attribute_min_value": "33014",
+        "attribute_max_value": "33196"
+      },
+      {
+        "attribute_name": "phonenumbe",
+        "attribute_type": "varchar"
+      },
+      {
+        "attribute_name": "type",
+        "attribute_type": "varchar"
+      },
+      {
+        "attribute_name": "point_x",
+        "attribute_type": "float8",
+        "attribute_min_value": "-8954722.6148",
+        "attribute_max_value": "925548.496346246"
+      },
+      {
+        "attribute_name": "point_y",
+        "attribute_type": "float8",
+        "attribute_min_value": "518714.591877736",
+        "attribute_max_value": "2994176.7496"
+      },
+      {
+        "attribute_name": "operationalhours",
+        "attribute_type": "varchar"
+      },
+      {
+        "attribute_name": "weblink",
+        "attribute_type": "varchar"
+      }
+    ]
+  },
+  "collection_group": {
+    "collections": "climate-and-equity-mapping-program miami-affordability-project",
+    "analytic_function": "gdsc_nearest_neighbor",
+    "analytic_epsg": 2236,
+    "derivative_url": "/data/mdc_cooling_stations/",
+    "sponsor_group": [
+      {
+        "sponsor_name": "IDSC",
+        "sponsor_url": "https://idsc.miami.edu"
+      },
+      {
+        "sponsor_name": "Library",
+        "sponsor_url": "https://www.library.miami.edu"
+      }
+    ],
+    "status": "deprecated",
+    "disclaimer": "Miami-Dade County provides this data for use \"as is\". The areas depicted by this map/data are approximate, and are not accurate to surveying or engineering standards. The maps/data shown here are for illustration purposes only and are not suitable for site-specific decision making. Information found here should not be used for making financial or any other commitments. Miami-Dade County provides this information with the understanding that it is not guaranteed to be accurate, correct or complete and conclusions drawn from such information are the sole responsibility of the user. While every effort has been made to ensure the accuracy, correctness and timeliness of materials presented, Miami-Dade County assumes no responsibility for errors or omissions, even if Miami-Dade County is advised of the possibility of such damage."
+  },
+  "etl_group": {
+    "source": "https://services.arcgis.com/8Pc9XBTAsYuxx9Ny/arcgis/rest/services/Cooling_Centers/FeatureServer/0/query?where=1%3D1&outFields=*&returnGeometry=true&outSR=4326&f=geojson",
+    "file_name_group": [
+      {
+        "file_name_value": "mdc_cooling_stations"
+      }
+    ],
+    "extension": "json",
+    "download": "wget",
+    "table_name": "mdc_cooling_stations",
+    "format": "json",
+    "up": "true",
+    "podid": "gaia-db",
+    "update_frequency": "As Needed",
+    "checksum": "TBD",
+    "last_updated": "2026-10-17 22:32:18"
+  },
+  "_submission_time": "2026-10-17 22:32:19",
+  "meta": {
+    "instanceID": "22573992-4b87-4766-a154-f1978951444"
+  }
+}

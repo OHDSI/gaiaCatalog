@@ -1,0 +1,639 @@
+{
+  "@context": {
+    "@vocab": "https://schema.org/",
+    "dct": "http://purl.org/dc/terms/",
+    "qudt": "http://qudt.org/schema/qudt/",
+    "quantitykind": "http://qudt.org/vocab/quantitykind/",
+    "unit": "http://qudt.org/vocab/unit/",
+    "xsd": "http://www.w3.org/2001/XMLSchema",
+    "extendedConstraintProperty": "http://codata.org/vocab/extendedConstraintProperty",
+    "sdmx": "https://sdmx.org"
+  },
+  "@type": "Dataset",
+  "@id": "https://gdsc.idsc.miami.edu/detail/mdc_2023_acs_5yr_tract_dvmt",
+  "includedInDataCatalog": [
+    {
+      "@type": "DataCatalog",
+      "@id": "https://gdsc.idsc.miami.edu",
+      "name": "Geospatial Digital Special Collections",
+      "url": "https://gdsc.idsc.miami.edu"
+    },
+    {
+      "@type": "DataCatalog",
+      "name": "us-census",
+      "@id": "https://gdsc.idsc.miami.edu/?collection=us-census",
+      "url": "https://gdsc.idsc.miami.edu/?collection=us-census"
+    }
+  ],
+  "name": "2023 Miami-Dade ACS 5 Year Estimates - Tract Level - DVMT",
+  "creator": [
+    {
+      "@type": "Organization",
+      "sameAs": "https://ror.org/04chq2495",
+      "@id": "https://ror.org/04chq2495",
+      "identifier": "https://ror.org/04chq2495",
+      "name": "U.S. Department of Commerce"
+    },
+    {
+      "@type": "Organization",
+      "sameAs": "https://ror.org/01qn7cs15",
+      "@id": "https://ror.org/01qn7cs15",
+      "identifier": "https://ror.org/01qn7cs15",
+      "name": "U.S. Census Bureau"
+    }
+  ],
+  "url": "https://www.census.gov/data/developers/data-sets/acs-5year.html",
+  "provider": [
+    {
+      "@type": "Organization",
+      "name": "Department of Commerce"
+    },
+    {
+      "@type": "Organization",
+      "name": "U.S. Census Bureau"
+    }
+  ],
+  "spatialCoverage": [
+    {
+      "@id": "https://www.geonames.org/4164238",
+      "@type": "Place",
+      "name": "Miami-Dade County"
+    },
+    {
+      "@type": "Place",
+      "name": "bbox",
+      "geo": {
+        "@type": "GeoShape",
+        "polygon": "25.13742 -80.8736 25.13742 -80.06279 25.979434 -80.06279 25.979434 -80.8736 25.13742 -80.8736"
+      }
+    }
+  ],
+  "type": "API",
+  "datePublished": "2024-12-08",
+  "description": "A special collection of aggregated columns from the 2023 5-year ACS variables at the census tract level selected for use with the Displacement Vulnerability Mitigation Tool (DVMT). Please see the column metadata for the description of the columns.",
+  "keywords": [
+    "Miami-Dade County",
+    "Census",
+    "ACS",
+    "2021",
+    "5-Year Estimates",
+    "Tract",
+    "Census Tract",
+    "Demographic",
+    "Housing",
+    "Property",
+    "Population",
+    "DVMT"
+  ],
+  "@language": "en",
+  "measurementTechnique": [
+    {
+      "@type": "DefinedTerm",
+      "description": "GIS Data Structure for Representation",
+      "inDefinedTermSet": {
+        "@type": "DefinedTermSet",
+        "name": "dataRepresentation",
+        "hasDefinedTerm": [
+          {
+            "@type": "DefinedTerm",
+            "termCode": "raster"
+          },
+          {
+            "@type": "DefinedTerm",
+            "termCode": "vector"
+          },
+          {
+            "@type": "DefinedTerm",
+            "termCode": "table"
+          }
+        ]
+      },
+      "termCode": "vector"
+    },
+    {
+      "@type": "DefinedTerm",
+      "description": "GIS Vector Geometery",
+      "inDefinedTermSet": {
+        "@type": "DefinedTermSet",
+        "name": "vectorGeometry",
+        "hasDefinedTerm": [
+          {
+            "@type": "DefinedTerm",
+            "termCode": "point"
+          },
+          {
+            "@type": "DefinedTerm",
+            "termCode": "line"
+          },
+          {
+            "@type": "DefinedTerm",
+            "termCode": "polygon"
+          }
+        ]
+      },
+      "termCode": "multipolygon"
+    }
+  ],
+  "about": [
+    {
+      "@type": "Event",
+      "description": "direct from source and aggregated according to custom specification, see ETL documentation",
+      "name": "ETL process for 2023 Miami-Dade ACS 5 Year Estimates - Tract Level - DVMT",
+      "potentialAction": {
+        "@type": "Action",
+        "name": "Pseudo Code",
+        "description": "TODO",
+        "result": {
+          "@type": "Dataset",
+          "encodingFormat": "sql",
+          "url": "https://gdsc.idsc.miami.edu/download/data/mdc_2023_acs_5yr_tract_dvmt/?file=mdc_2023_acs_5yr_tract_dvmt&format=sql"
+        }
+      }
+    },
+    {
+      "@type": "Event",
+      "description": "direct from source and aggregated according to custom specification, see ETL documentation",
+      "name": "ETL process for 2023 Miami-Dade ACS 5 Year Estimates - Tract Level - DVMT",
+      "potentialAction": {
+        "@type": "Action",
+        "name": "acs_custom_aggregate",
+        "description": "Custom ETL process for 2023 Miami-Dade ACS 5 Year Estimates - Tract Level - DVMT",
+        "object": {
+          "@type": "Dataset",
+          "name": "direct from source and aggregated according to custom specification, see ETL documentation",
+          "producer": "U.S. Department of Commerce",
+          "url": "https://www.census.gov/data/developers/data-sets/acs-5year.html"
+        },
+        "instrument": {
+          "@type": "SoftwareApplication",
+          "@id": "https://github.com/Geospatial-Digital-Special-Collections/tools",
+          "featureList": "for=tract:* in=state:12 in=county:086",
+          "downloadUrl": "https://github.com/Geospatial-Digital-Special-Collections/tools.git"
+        },
+        "result": {
+          "@type": "Dataset",
+          "name": "2023 Miami-Dade ACS 5 Year Estimates - Tract Level - DVMT",
+          "description": "A special collection of aggregated columns from the 2023 5-year ACS variables at the census tract level selected for use with the Displacement Vulnerability Mitigation Tool (DVMT). Please see the column metadata for the description of the columns.",
+          "encodingFormat": "sql",
+          "url": "https://gdsc.idsc.miami.edu/download/data/mdc_2023_acs_5yr_tract_dvmt/?file=mdc_2023_acs_5yr_tract_dvmt&format=sql"
+        }
+      }
+    }
+  ],
+  "variableMeasured": [
+    {
+      "@type": "PropertyValue",
+      "name": "total_population",
+      "description": "Total population in census tract",
+      "qudt:dataType": "int4",
+      "unitText": "people",
+      "minValue": "0",
+      "maxValue": "12936",
+      "startDate": "2023-01-01",
+      "endDate": "2023-12-31"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "persons_4_years_old_and_younger",
+      "description": "Number of people 4 years old and younger",
+      "qudt:dataType": "int4",
+      "unitText": "people",
+      "minValue": "0",
+      "maxValue": "1195",
+      "startDate": "2023-01-01",
+      "endDate": "2023-12-31"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "age_of_5_and_19",
+      "description": "Number of people with age of 5 to 20",
+      "qudt:dataType": "int4",
+      "unitText": "people",
+      "minValue": "0",
+      "maxValue": "4228",
+      "startDate": "2023-01-01",
+      "endDate": "2023-12-31"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "persons_between_the_age_of_20_and_64",
+      "description": "Number of people between the age of 20 and 65",
+      "qudt:dataType": "int4",
+      "unitText": "people",
+      "minValue": "0",
+      "maxValue": "8260",
+      "startDate": "2023-01-01",
+      "endDate": "2023-12-31"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "persons_65_years_old_and_over",
+      "description": "Number of people 65 years old and over",
+      "qudt:dataType": "int4",
+      "unitText": "people",
+      "minValue": "0",
+      "maxValue": "2046",
+      "startDate": "2023-01-01",
+      "endDate": "2023-12-31"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "white_alone",
+      "description": "Number of people who identify as white alone",
+      "qudt:dataType": "int4",
+      "unitText": "people",
+      "minValue": "0",
+      "maxValue": "4735",
+      "startDate": "2023-01-01",
+      "endDate": "2023-12-31"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "black_or_african_american_alone",
+      "description": "Number of people who identify as black or African American alone",
+      "qudt:dataType": "int4",
+      "unitText": "people",
+      "minValue": "0",
+      "maxValue": "5059",
+      "startDate": "2023-01-01",
+      "endDate": "2023-12-31"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "american_indian_and_alaska_native_alone",
+      "description": "Number of people who identify as American Indian and Alaska Native alone",
+      "qudt:dataType": "int4",
+      "unitText": "people",
+      "minValue": "0",
+      "maxValue": "518",
+      "startDate": "2023-01-01",
+      "endDate": "2023-12-31"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "asian_alone",
+      "description": "Number of people who identify as Asian alone",
+      "qudt:dataType": "int4",
+      "unitText": "people",
+      "minValue": "0",
+      "maxValue": "602",
+      "startDate": "2023-01-01",
+      "endDate": "2023-12-31"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "pacific_islander",
+      "description": "Number of people who identify as pacific islander",
+      "qudt:dataType": "int4",
+      "unitText": "people",
+      "minValue": "0",
+      "maxValue": "98",
+      "startDate": "2023-01-01",
+      "endDate": "2023-12-31"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "some_other_race",
+      "description": "Number of people who identify as some other race",
+      "qudt:dataType": "int4",
+      "unitText": "people",
+      "minValue": "0",
+      "maxValue": "2115",
+      "startDate": "2023-01-01",
+      "endDate": "2023-12-31"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "two_or_more_races",
+      "description": "Number of people who identify as two or more races",
+      "qudt:dataType": "int4",
+      "unitText": "people",
+      "minValue": "0",
+      "maxValue": "7360",
+      "startDate": "2023-01-01",
+      "endDate": "2023-12-31"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "hispanic_or_latino__any_race",
+      "description": "Number of people who identify as Hispanic or Latino any race",
+      "qudt:dataType": "int4",
+      "unitText": "people",
+      "minValue": "0",
+      "maxValue": "11421",
+      "startDate": "2023-01-01",
+      "endDate": "2023-12-31"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "white_alone__not_hispanic_or_latino",
+      "description": "Number of people who identify as white alone and not Hispanic or latino",
+      "qudt:dataType": "int4",
+      "unitText": "people",
+      "minValue": "0",
+      "maxValue": "3462",
+      "startDate": "2023-01-01",
+      "endDate": "2023-12-31"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "high_school_degree__ged_or_lower",
+      "description": "Number of people with high school degree, GED, or lower",
+      "qudt:dataType": "int4",
+      "unitText": "people",
+      "minValue": "0",
+      "maxValue": "3484",
+      "startDate": "2023-01-01",
+      "endDate": "2023-12-31"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "some_college__no_degree",
+      "description": "Number of people with some college but no degree",
+      "qudt:dataType": "int4",
+      "unitText": "people",
+      "minValue": "0",
+      "maxValue": "1381",
+      "startDate": "2023-01-01",
+      "endDate": "2023-12-31"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "associates_degree",
+      "description": "Number of people with associates degree",
+      "qudt:dataType": "int4",
+      "unitText": "people",
+      "minValue": "0",
+      "maxValue": "1345",
+      "startDate": "2023-01-01",
+      "endDate": "2023-12-31"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "bachelors_degree",
+      "description": "Number of people with bachelors degree",
+      "qudt:dataType": "int4",
+      "unitText": "people",
+      "minValue": "0",
+      "maxValue": "2682",
+      "startDate": "2023-01-01",
+      "endDate": "2023-12-31"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "graduate_professional_degree",
+      "description": "Number of people with graduate professional degree",
+      "qudt:dataType": "int4",
+      "unitText": "people",
+      "minValue": "0",
+      "maxValue": "1680",
+      "startDate": "2023-01-01",
+      "endDate": "2023-12-31"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "median_income_of_residents",
+      "description": "Median income of residents in US dollars",
+      "qudt:dataType": "int4",
+      "unitText": "usd",
+      "minValue": "9960",
+      "maxValue": "250001",
+      "startDate": "2023-01-01",
+      "endDate": "2023-12-31"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "median_monthly_housing_costs",
+      "description": "Median monthly housing costs in US dollars",
+      "qudt:dataType": "int4",
+      "unitText": "usd",
+      "minValue": "531",
+      "maxValue": "4001",
+      "startDate": "2023-01-01",
+      "endDate": "2023-12-31"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "median_monthly_owner_costs",
+      "description": "Median monthly owner costs in US dollars",
+      "qudt:dataType": "int4",
+      "unitText": "usd",
+      "minValue": "369",
+      "maxValue": "4001",
+      "startDate": "2023-01-01",
+      "endDate": "2023-12-31"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "median_monthly_renter_costs",
+      "description": "Median monthly renter costs in US dollars",
+      "qudt:dataType": "int4",
+      "unitText": "usd",
+      "minValue": "279",
+      "maxValue": "3501",
+      "startDate": "2023-01-01",
+      "endDate": "2023-12-31"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "median_monthly_owner_costs__percent_household_income",
+      "description": "Median monthly owner costs as percent household income",
+      "qudt:dataType": "float4",
+      "unitText": "percent",
+      "minValue": "9",
+      "maxValue": "51",
+      "startDate": "2023-01-01",
+      "endDate": "2023-12-31"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "median_monthly_renter_costs__percent_household_income",
+      "description": "Median monthly renter costs as percent household income",
+      "qudt:dataType": "float4",
+      "unitText": "percent",
+      "minValue": "9",
+      "maxValue": "51",
+      "startDate": "2023-01-01",
+      "endDate": "2023-12-31"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "aggregate_household_income",
+      "description": "Aggregate household income in US dollars",
+      "qudt:dataType": "int4",
+      "unitText": "usd",
+      "minValue": "1454000",
+      "maxValue": "688697300",
+      "startDate": "2023-01-01",
+      "endDate": "2023-12-31"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "households_below_poverty_level",
+      "description": "Number of households below poverty level",
+      "qudt:dataType": "int4",
+      "unitText": "households",
+      "minValue": "0",
+      "maxValue": "3303",
+      "startDate": "2023-01-01",
+      "endDate": "2023-12-31"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "medicare_recipients",
+      "description": "Number of people that are medicare recipients",
+      "qudt:dataType": "int4",
+      "unitText": "people",
+      "minValue": "0",
+      "maxValue": "1816",
+      "startDate": "2023-01-01",
+      "endDate": "2023-12-31"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "total_medicaid_recipients",
+      "description": "Total number of people that are medicaid recipients",
+      "qudt:dataType": "int4",
+      "unitText": "people",
+      "minValue": "0",
+      "maxValue": "3203",
+      "startDate": "2023-01-01",
+      "endDate": "2023-12-31"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "total_snap_recipients",
+      "description": "Total number of people that are snap recipients",
+      "qudt:dataType": "int4",
+      "unitText": "people",
+      "minValue": "0",
+      "maxValue": "1499",
+      "startDate": "2023-01-01",
+      "endDate": "2023-12-31"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "armed_forces_veterans",
+      "description": "Number of people that are armed forces veterans",
+      "qudt:dataType": "int4",
+      "unitText": "people",
+      "minValue": "0",
+      "maxValue": "428",
+      "startDate": "2023-01-01",
+      "endDate": "2023-12-31"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "total_number_of_disabled_residents",
+      "description": "Total number of people that are disabled residents",
+      "qudt:dataType": "int4",
+      "unitText": "people",
+      "minValue": "0",
+      "maxValue": "1640",
+      "startDate": "2023-01-01",
+      "endDate": "2023-12-31"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "total_housing_units",
+      "description": "Total number of housing units",
+      "qudt:dataType": "int4",
+      "unitText": "housing units",
+      "minValue": "0",
+      "maxValue": "4666",
+      "startDate": "2023-01-01",
+      "endDate": "2023-12-31"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "total_single_family_houses",
+      "description": "Total number of single family houses",
+      "qudt:dataType": "int4",
+      "unitText": "houses",
+      "minValue": "0",
+      "maxValue": "2324",
+      "startDate": "2023-01-01",
+      "endDate": "2023-12-31"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "total_duplex_multiple_units__less_than_10_units",
+      "description": "Total number of duplex multiple units with less than 10 units",
+      "qudt:dataType": "int4",
+      "unitText": "structures",
+      "minValue": "0",
+      "maxValue": "1591",
+      "startDate": "2023-01-01",
+      "endDate": "2023-12-31"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "number_of_housing_structures_with_10_19_units",
+      "description": "Number of housing structures with 10 to 19 units",
+      "qudt:dataType": "int4",
+      "unitText": "structures",
+      "minValue": "0",
+      "maxValue": "886",
+      "startDate": "2023-01-01",
+      "endDate": "2023-12-31"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "number_of_housing_structures_with_20_49_units",
+      "description": "Number of housing structures with 20 to 49 units",
+      "qudt:dataType": "int4",
+      "unitText": "structures",
+      "minValue": "0",
+      "maxValue": "988",
+      "startDate": "2023-01-01",
+      "endDate": "2023-12-31"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "number_of_housing_structures_with_50_or_more_units",
+      "description": "Number of housing structures with 50 or more units",
+      "qudt:dataType": "int4",
+      "unitText": "structures",
+      "minValue": "0",
+      "maxValue": "3719",
+      "startDate": "2023-01-01",
+      "endDate": "2023-12-31"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "housing_tenancy__owner_occupied_housing_units",
+      "description": "Number of owner occupied housing units",
+      "qudt:dataType": "int4",
+      "unitText": "housing units",
+      "minValue": "0",
+      "maxValue": "3134",
+      "startDate": "2023-01-01",
+      "endDate": "2023-12-31"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "housing_tenancy__renter_occupied_housing_units",
+      "description": "Number of renter occupied housing units",
+      "qudt:dataType": "int4",
+      "unitText": "housing units",
+      "minValue": "0",
+      "maxValue": "2902",
+      "startDate": "2023-01-01",
+      "endDate": "2023-12-31"
+    }
+  ],
+  "distribution": [
+    "https://gdsc.idsc.miami.edu/download/data/mdc_2023_acs_5yr_tract_dvmt/?file=mdc_2023_acs_5yr_tract_dvmt&format=sql",
+    "https://gdsc.idsc.miami.edu/download/data/mdc_2023_acs_5yr_tract_dvmt/?file=mdc_2023_acs_5yr_tract_dvmt&format=geojson"
+  ],
+  "isBasedOn": [
+    {
+      "@id": "https://gdsc.idsc.miami.edu/details/fl_2023_tl_tract",
+      "@type": "Dataset",
+      "name": "fl_2023_tl_tract",
+      "url": "https://gdsc.idsc.miami.edu/details/fl_2023_tl_tract"
+    }
+  ],
+  "dateModified": "2026-10-17 13:31:32",
+  "version": "2026-10-17"
+}

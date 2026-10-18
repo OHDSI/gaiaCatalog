@@ -1,0 +1,154 @@
+{
+  "control_group": {
+    "id": 88
+  },
+  "dublin_core_group": {
+    "title": "2021 Miami-Dade NLCD Land Cover",
+    "creator_group": [
+      {
+        "creator_name": "Multi-Resolution Land Characteristics Consortium",
+        "creator_type": "organization"
+      }
+    ],
+    "url": "https://www.mrlc.gov/data/nlcd-2021-land-cover-conus",
+    "doi": "https://doi.org/10.5066/P9JZ7AO3",
+    "publisher_group": [
+      {
+        "publisher_name": "University of Miami GDSC"
+      }
+    ],
+    "rights": "Public Domain",
+    "license_text": "These data were collected using funding from the U.S. Government and can be used without additional permissions or fees. If you use these data in a publication, presentation, or other research product please use the following citation:\nUSDA Forest Service. 2023. USFS NLCD Percent Tree Canopy CONUS v2021-4. Sioux Falls, SD.",
+    "coverage_group": [
+      {
+        "coverage_name": "Miami-Dade County",
+        "coverage_identifier": "4164238",
+        "coverage_identifier_schema": "geonames",
+        "coverage_identifier_schema_uri": "https://www.geonames.org/"
+      }
+    ],
+    "relation_group": [
+      {
+        "relation_title": "us_2021_nlcd_tcc_conus_v4"
+      },
+      {
+        "relation_title": "fl_2022_tl_cousub"
+      }
+    ],
+    "resource_type": "Raster Dataset",
+    "publication_date": "2023-06-30",
+    "description": "The U.S. Geological Survey (USGS), in partnership with several federal agencies, has now developed and released seven National Land Cover Database (NLCD) products: NLCD 1992, 2001, 2006, 2011, 2016, 2019, and 2021. Beginning with the 2016 release, land cover products were created for two-to-three-year intervals between 2001 and the most recent year. These products provide spatially explicit and reliable information on the Nation\u2019s land cover and land cover change. NLCD continues to provide innovative, consistent, and robust methodologies for production of a multi-temporal land cover and land cover change database. NLCD 2021 adds an additional year to the map products produced for NLCD 2019, with a streamlined compositing process for assembling and preprocessing Landsat imagery and geospatial ancillary datasets; a temporally, spectrally, and spatially integrated land cover change analysis strategy; a theme-based post-classification protocol for generating land cover and change products; a continuous fields biophysical parameters modeling method; and a scripted operational system. The overall accuracy of the 2019 Level I land cover was 91%. Results from this study confirm the robustness of this comprehensive and highly automated procedure for NLCD 2021 operational mapping (see https://doi.org/10.1080/15481603.2023.2181143 for the latest accuracy assessment publication). Questions about the NLCD 2021 land cover product can be directed to the NLCD 2021 land cover mapping team at USGS EROS, Sioux Falls, SD (605) 594-6151 or mrlc@usgs.gov. See included spatial metadata for more details. ",
+    "provenance": "see process steps in https://www.mrlc.gov/downloads/sciweb1/shared/mrlc/metadata/nlcd_2021_land_cover_l48_20230630.xml",
+    "subject_group": [
+      {
+        "subject_term": "land cover"
+      },
+      {
+        "subject_term": "Landsat"
+      },
+      {
+        "subject_term": "Sentinel-2"
+      },
+      {
+        "subject_term": "CONUS"
+      },
+      {
+        "subject_term": "United States"
+      }
+    ],
+    "language": "en",
+    "size_group": [
+      {
+        "size_bytes": "0",
+        "size_human_readable": "0"
+      }
+    ]
+  },
+  "iso_group": {
+    "structure": "raster",
+    "band_group": [
+      {
+        "band_name": "30-meter classified land cover"
+      }
+    ],
+    "pixel_dimension": 30.0,
+    "dimension_units": "meters",
+    "epsg": 4326,
+    "extent": "ENVELOPE(-130.23282801589895,-73.59459648889016,48.70739591304975,22.07673063066848)",
+    "lineage": "TBD",
+    "process_step": "#########\n# GDSC ETL is performed in two steps: shell script to ETL data into postgres\n# and then additional transformations with SQL in postGIS (if needed).\n####\n\n#########\n# Step 1 - bash script (pseudo code)\n####\n\n# create directory structure and move into it\nmkdir -p /data/mdc_2021_nlcd_land_cover/download -p /data/mdc_2021_nlcd_land_cover/etl\nchmod -R 777 /data/mdc_2021_nlcd_land_cover\ncd /data/mdc_2021_nlcd_land_cover\n\n# set update flag based on last update and update frequency\ndo_update=0 if date() < last_update + update_frequency else do_update = 1\n\n# load us_2021_nlcd_land_cover as dependency (see us_2021_nlcd_land_cover for details).\n\n# clip raster with geometry as:\n  gdalwarp -cutline PG:\"<postgres connection>\" -csql \"SELECT geom FROM fl_2022_tl_cousub WHERE countyfp='086'\" -crop_to_cutline -s_srs '+proj=aea +lat_0=23 +lon_0=-96 +lat_1=29.5 +lat_2=45.5 +x_0=0 +y_0=0 +datum=WGS84 +units=m +no_defs' -t_srs EPSG:4326 /data/us_2021_nlcd_land_cover/download/Annual_NLCD_LndCov_2021_CU_C1V1.tif download/mdc_2021_nlcd_land_cover.tif\n \n#########\n# Step 2 - SQL script (pseudo code):\n####\n\n# load raster into postGIS with:\n    raster2pgsql -s 4326 -d -C -I -t 56x56 mdc_2021_nlcd_land_cover.tif -F mdc_2021_nlcd_land_cover > load_raster.sql\npsql <connection options> < load_raster.sql\nrm load_raster.sql\n\n",
+    "processor": "GDSC automation (see Process Step)",
+    "point_of_contact_group": [
+      {
+        "contact_name": "Timothy B. Norris",
+        "contact_last_name": "Norris",
+        "contact_first_name": "Timothy",
+        "contact_email": "tnorris@miami.edu",
+        "contact_identifier": "https://orcid.org/0000-0002-0898-3027",
+        "contact_identifier_schema": "orcid",
+        "contact_identifier_schema_uri": "https://orcid.org/",
+        "contact_affiliation": "University of Miami Libraries, Frost Institute for Data Science and Computing",
+        "contact_affiliation_identifier": "https://ror.org/02dgjyy92",
+        "contact_affiliation_schema": "ror",
+        "contact_affiliation_schema_uri": "https://ror.org/"
+      }
+    ],
+    "data_level": "derived"
+  },
+  "cartography_group": {
+    "attributes_group": [
+      {
+        "attribute_name": "lc",
+        "attribute_description": "Classified land cover"
+      }
+    ]
+  },
+  "collection_group": {
+    "collections": "mdc-climate-resilience",
+    "analytic_function": "gdsc_zonal_statistics",
+    "analytic_epsg": 2236,
+    "derivative_url": "/data/mdc_2021_nlcd_land_cover/",
+    "sponsor_group": [
+      {
+        "sponsor_name": "IDSC",
+        "sponsor_url": "https://idsc.miami.edu"
+      },
+      {
+        "sponsor_name": "Library",
+        "sponsor_url": "https://www.library.miami.edu"
+      }
+    ],
+    "status": "draft",
+    "disclaimer": "Unless otherwise stated, all data, metadata and related materials are considered to satisfy the quality standards relative to the purpose for which the data were collected. Although these data and associated metadata have been reviewed for accuracy and completeness and approved for release by the U.S. Geological Survey (USGS), no warranty expressed or implied is made regarding the display or utility of the data for other purposes, nor on all computer systems, nor shall the act of distribution constitute any such warranty."
+  },
+  "etl_group": {
+    "source": "https://www.mrlc.gov/downloads/sciweb1/shared/mrlc/data-bundles/Annual_NLCD_LndCov_2021_CU_C1V1.zip",
+    "file_name_group": [
+      {
+        "file_name_value": "mdc_2021_nlcd_land_cover"
+      }
+    ],
+    "table_name": "mdc_2021_nlcd_land_cover",
+    "format": "tif",
+    "dependency_group": [
+      {
+        "dependency_table_name": "us_2021_nlcd_land_cover"
+      },
+      {
+        "dependency_table_name": "fl_2022_tl_cousub"
+      }
+    ],
+    "etl_parameters": "-t 56x56",
+    "custom_etl": "clip_raster",
+    "custom_parameters": "us_2021_nlcd_land_cover|fl_2022_tl_cousub|countyfp='086'|",
+    "up": "true",
+    "podid": "gaia-db",
+    "last_updated": "2026-10-17 22:26:25",
+    "update_frequency": "Never",
+    "checksum": "TBD"
+  },
+  "_submission_time": "2026-10-17 22:26:26",
+  "meta": {
+    "instanceID": "76f77f7d-9f14-4b6d-8905-27999720146"
+  }
+}

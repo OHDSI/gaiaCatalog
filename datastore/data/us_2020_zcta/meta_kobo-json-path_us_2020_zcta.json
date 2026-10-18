@@ -1,0 +1,246 @@
+{
+  "control_group": {
+    "id": 145
+  },
+  "dublin_core_group": {
+    "title": "USA 2020 Zip Code Tabulation Areas",
+    "creator_group": [
+      {
+        "creator_name": "U.S. Department of Commerce",
+        "creator_type": "organization",
+        "creator_identifier": "https://ror.org/04chq2495",
+        "creator_identifier_schema": "ror",
+        "creator_identifier_schema_uri": "https://ror.org/"
+      },
+      {
+        "creator_name": "U.S. Census Bureau",
+        "creator_type": "organization",
+        "creator_identifier": "https://ror.org/01qn7cs15",
+        "creator_identifier_schema": "ror",
+        "creator_identifier_schema_uri": "https://ror.org/"
+      },
+      {
+        "creator_name": "Geography Division",
+        "creator_type": "organization"
+      },
+      {
+        "creator_name": "Spatial Data Collection and Products Branch",
+        "creator_type": "organization"
+      }
+    ],
+    "url": "https://www.census.gov/programs-surveys/geography/guidance/geo-areas/zctas.html",
+    "publisher_group": [
+      {
+        "publisher_name": "Census"
+      }
+    ],
+    "rights": "Public Domain",
+    "coverage_group": [
+      {
+        "coverage_name": "United States",
+        "coverage_identifier": "6252001",
+        "coverage_identifier_schema": "geonames",
+        "coverage_identifier_schema_uri": "https://www.geonames.org/"
+      }
+    ],
+    "resource_type": "Vector Dataset",
+    "publication_date": "2024-08-26",
+    "description": "A polygon representation of the US Zip Code Tabulation Areas (ZCTA) boundaries.",
+    "provenance": "Census from the Post Office",
+    "subject_group": [
+      {
+        "subject_term": "USA"
+      },
+      {
+        "subject_term": "Zipcode"
+      },
+      {
+        "subject_term": "ZCTA"
+      }
+    ],
+    "language": "en",
+    "size_group": [
+      {
+        "size_bytes": "821911979",
+        "size_human_readable": "784M"
+      }
+    ]
+  },
+  "iso_group": {
+    "structure": "vector",
+    "geometry": "multipolygon",
+    "epsg": 4269,
+    "extent": "ENVELOPE(-176.696692,145.830505,71.341324,-14.373776)",
+    "lineage": "TBD",
+    "process_step": "#########\n# GDSC ETL is performed in two steps: shell script to ETL data into postgres\n# and then additional transformations with SQL in postGIS (if needed).\n####\n\n#########\n# Step 1 - bash script (pseudo code)\n####\n\n# create directory structure and move into it\nmkdir -p /data/us_2020_zcta/download -p /data/us_2020_zcta/etl\nchmod -R 777 /data/us_2020_zcta\ncd /data/us_2020_zcta\n\n# set update flag based on last update and update frequency\ndo_update=0 if date() < last_update + update_frequency else do_update = 1\n\n# download if update flag is set:\nif do_update == 1 then\nwget --retry-connrefused --waitretry=1 --read-timeout=20 --timeout=15 -t 10 -O download/us_2020_zcta.zip 'ftp://ftp2.census.gov/geo/tiger/TIGER2020/ZCTA520/tl_2020_us_zcta520.zip' 2>&1\n\n# unzip to download directory if update flag is set\nif do_update == 1 then\nunzip -o download/us_2020_zcta.zip -d download && rm download/us_2020_zcta.zip 2>&1\n\n# load into postGIS with:\nogr2ogr -lco GEOMETRY_NAME=geom -f PostgreSQL PG:\"<postgres connection>\" download/tl_2020_us_zcta520.shp -nlt multipolygon -nln us_2020_zcta\necho success: tl_2020_us_zcta520.shp loaded with ogr2ogr\n\n\n#########\n# Step 2 - SQL script (pseudo code):\n####\n\n# remove duplicate points and make geometries valid:\nUPDATE us_2020_zcta\n  SET geom=ST_MakeValid(ST_RemoveRepeatedPoints(geom));\n\n# add local geometry column and reproject existing geometries into local EPSG:\nALTER TABLE us_2020_zcta DROP COLUMN IF EXISTS geom_local CASCADE;\nSELECT AddGeometryColumn (\n  'us_2020_zcta',\n  'geom_local', 4269, 'multipolygon', 2\n);\nUPDATE us_2020_zcta\n  SET geom_local=ST_MakeValid(ST_RemoveRepeatedPoints(ST_Transform(ST_Multi(geom),4269)));\nCREATE INDEX us_2020_zcta_geom_local_idx\n  ON us_2020_zcta\n  USING GIST (geom_local);\nNOTIFY pgrst, 'reload schema';\n",
+    "processor": "GDSC automation (see Process Step)",
+    "point_of_contact_group": [
+      {
+        "contact_name": "Timothy B. Norris",
+        "contact_last_name": "Norris",
+        "contact_first_name": "Timothy",
+        "contact_email": "tnorris@miami.edu",
+        "contact_identifier": "https://orcid.org/0000-0002-0898-3027",
+        "contact_identifier_schema": "orcid",
+        "contact_identifier_schema_uri": "https://orcid.org/",
+        "contact_affiliation": "University of Miami Libraries, Frost Institute for Data Science and Computing",
+        "contact_affiliation_identifier": "https://ror.org/02dgjyy92",
+        "contact_affiliation_schema": "ror",
+        "contact_affiliation_schema_uri": "https://ror.org/"
+      }
+    ],
+    "data_level": "derived"
+  },
+  "cartography_group": {
+    "label": "geoid20",
+    "values_group": [
+      {
+        "value_field": "ogc_fid"
+      },
+      {
+        "value_field": "geoid20"
+      },
+      {
+        "value_field": "zcta5ce20"
+      },
+      {
+        "value_field": "classfp20"
+      },
+      {
+        "value_field": "mtfcc20"
+      },
+      {
+        "value_field": "aland20"
+      },
+      {
+        "value_field": "awater20"
+      },
+      {
+        "value_field": "funcstat20"
+      },
+      {
+        "value_field": "intptlat20"
+      },
+      {
+        "value_field": "intptlon20"
+      }
+    ],
+    "attributes_group": [
+      {
+        "attribute_name": "ogc_fid",
+        "attribute_description": "object ID",
+        "attribute_source": "internal",
+        "attribute_type": "int4",
+        "attribute_unit": "id",
+        "attribute_min_value": "1",
+        "attribute_max_value": "33791"
+      },
+      {
+        "attribute_name": "geoid20",
+        "attribute_description": "Zip Code",
+        "attribute_source": "Census",
+        "attribute_type": "varchar",
+        "attribute_unit": "zip code"
+      },
+      {
+        "attribute_name": "zcta5ce20",
+        "attribute_description": "Zip Code",
+        "attribute_source": "Census",
+        "attribute_type": "varchar",
+        "attribute_unit": "zip code"
+      },
+      {
+        "attribute_name": "classfp20",
+        "attribute_description": "The class (CLASSFP) code defines the current class of a geographic entity.",
+        "attribute_source": "Census",
+        "attribute_type": "varchar",
+        "attribute_unit": "code"
+      },
+      {
+        "attribute_name": "mtfcc20",
+        "attribute_description": "5-digit code assigned by the Census Bureau intended to classify and describe geographic objects or features",
+        "attribute_source": "Census",
+        "attribute_type": "varchar",
+        "attribute_unit": "code"
+      },
+      {
+        "attribute_name": "aland20",
+        "attribute_description": "Area of land in square feet",
+        "attribute_source": "Census",
+        "attribute_type": "numeric",
+        "attribute_unit": "Square Feet",
+        "attribute_min_value": "3551.00",
+        "attribute_max_value": "35426845132.00"
+      },
+      {
+        "attribute_name": "awater20",
+        "attribute_description": "Area of water in square feet",
+        "attribute_source": "Census",
+        "attribute_type": "numeric",
+        "attribute_unit": "Square Feet",
+        "attribute_min_value": "0.00",
+        "attribute_max_value": "3695341658.00"
+      },
+      {
+        "attribute_name": "funcstat20",
+        "attribute_description": "The functional status (FUNCSTAT) code defines the current functional status of a geographic entity.",
+        "attribute_source": "Census",
+        "attribute_type": "varchar",
+        "attribute_unit": "code"
+      },
+      {
+        "attribute_name": "intptlat20",
+        "attribute_description": "NAD83 Latitude",
+        "attribute_source": "Census",
+        "attribute_type": "varchar",
+        "attribute_unit": "Degrees Latitude"
+      },
+      {
+        "attribute_name": "intptlon20",
+        "attribute_description": "NAD83 Longitude",
+        "attribute_source": "Census",
+        "attribute_type": "varchar",
+        "attribute_unit": "Degrees Longitude"
+      }
+    ]
+  },
+  "collection_group": {
+    "collections": "mdc-health-outcomes",
+    "analytic_function": "gdsc_get_attributes",
+    "analytic_epsg": 4269,
+    "derivative_url": "/data/us_2020_zcta/",
+    "sponsor_group": [
+      {
+        "sponsor_name": "IDSC",
+        "sponsor_url": "https://idsc.miami.edu"
+      },
+      {
+        "sponsor_name": "Library",
+        "sponsor_url": "https://www.library.miami.edu"
+      }
+    ],
+    "status": "draft"
+  },
+  "etl_group": {
+    "source": "ftp://ftp2.census.gov/geo/tiger/TIGER2020/ZCTA520/tl_2020_us_zcta520.zip",
+    "file_name_group": [
+      {
+        "file_name_value": "us_2020_zcta",
+        "file_inside_archive": "tl_2020_us_zcta520"
+      }
+    ],
+    "extension": "zip",
+    "download": "wget",
+    "table_name": "us_2020_zcta",
+    "format": "shp",
+    "up": "true",
+    "podid": "gaia-db",
+    "last_updated": "2026-10-05 22:27:02",
+    "update_frequency": "Never",
+    "checksum": "TBD"
+  },
+  "_submission_time": "2026-10-10 21:56:04",
+  "meta": {
+    "instanceID": "449f2dab-812c-4a7e-8c04-27834420681"
+  }
+}

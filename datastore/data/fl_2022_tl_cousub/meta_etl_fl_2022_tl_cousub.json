@@ -1,0 +1,20 @@
+{
+  "rights": "Public Domain",
+  "structure": "vector",
+  "geometry": "multipolygon",
+  "epsg": "EPSG:4269",
+  "extent": "ENVELOPE(-87.634896,-79.974306,31.000968,24.396308)",
+  "attributes": ["statefp;;;varchar;;;;", "countyfp;;;varchar;;;;", "cousubfp;;;varchar;;;;", "cousubns;;;varchar;;;;", "geoid;;;varchar;;;;", "name;;;varchar;;;;", "namelsad;;;varchar;;;;", "lsad;;;varchar;;;;", "classfp;;;varchar;;;;", "mtfcc;;;varchar;;;;", "cnectafp;;;varchar;;;;", "nectafp;;;varchar;;;;", "nctadvfp;;;varchar;;;;", "funcstat;;;varchar;;;;", "aland;;;numeric;;;5759959.00;2906267461.00", "awater;;;numeric;;;0.00;4197077413.00", "intptlat;;;varchar;;;;", "intptlon;;;varchar;;;;"],
+  "local_epsg": "EPSG:2236",
+  "source": "ftp://ftp2.census.gov/geo/tiger/TIGER2022/COUSUB/tl_2022_12_cousub.zip",
+  "file": ["fl_2022_tl_cousub", "tl_2022_12_cousub"],
+  "extension": "zip",
+  "download": "wget",
+  "table": "fl_2022_tl_cousub",
+  "format": "shp",
+  "up": "true",
+  "podID": "gaia-db",
+  "last_updated": "2026-10-05T22:48:11Z",
+  "update_frequency": "Never",
+  "checksum": "TBD"
+}

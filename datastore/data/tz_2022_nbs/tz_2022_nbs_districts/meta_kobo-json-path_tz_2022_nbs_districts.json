@@ -15,7 +15,7 @@
         "publisher_name": "Tanzania National Bureau of Statistics"
       }
     ],
-    "rights": "public_domain",
+    "rights": "Public Domain",
     "coverage_group": [
       {
         "coverage_name": "Tanzania",
@@ -26,7 +26,7 @@
     ],
     "time_period_start": "2020-01-01",
     "time_period_end": "2022-12-31",
-    "resource_type": "vector_dataset",
+    "resource_type": "Vector Dataset",
     "publication_date": "2024-01-01",
     "description": "Shapefile for Tanzania Districts from the 2022 Census",
     "provenance": "Direct from source",
@@ -44,17 +44,18 @@
     "language": "en",
     "size_group": [
       {
-        "size_bytes": "0",
-        "size_human_readable": "0"
+        "size_bytes": "326187400",
+        "size_human_readable": "312M"
       }
     ]
   },
   "iso_group": {
     "structure": "vector",
-    "geometry": "polygon",
+    "geometry": "multipolygon",
     "epsg": 4326,
+    "extent": "ENVELOPE(29.594677,40.446140,-0.984775,-11.760241)",
     "lineage": "TBD",
-    "process_step": "#########\n# GDSC ETL is performed in two steps: shell script to ETL data into postgres\n# and then additional transformations with SQL in postGIS (if needed).\n####\n\n#########\n# Step 1 - bash script (pseudo code)\n####\n\n# create directory structure and move into it\nmkdir -p /data/tz_2022_nbs/download -p /data/tz_2022_nbs/tz_2022_nbs_districts/etl\nchmod 777 /data/tz_2022_nbs/download\ncd /data/tz_2022_nbs\n\n# set update flag based on last update and update frequency\ndo_update=0 if date() < last_update + update_frequency else do_update = 1\n\n# download if update flag is set:\nif do_update == 1 then\nwget -O download/tz_2022_nbs.zip 'https://microdata.nbs.go.tz/index.php/catalog/49/download/317'\n\n# unzip to download directory if update flag is set\nif do_update == 1 then\nunzip -d download download/tz_2022_nbs.zip && rm download/tz_2022_nbs.zip\n\n# extract mpkx to download directory\n7z x download/TANZANIA_2022_POST_PHC_GEODATABASE.mpkx -o'download/TANZANIA_2022_POST_PHC_GEODATABASE'\n\n# load into postGIS with:\n  ogr2ogr -lco GEOMETRY_NAME=geom -f PostgreSQL PG:\"<postgres connection>\" download/TANZANIA_2022_POST_PHC_GEODATABASE/commondata/tanzania_2022phc_geodatabase.gdb Districts -nlt multipolygon -nln tz_2022_nbs_districts\n\n#########\n# Step 2 - SQL script (pseudo code):\n####\n\n# remove duplicate points and make geometries valid:\nUPDATE tz_2022_nbs_districts\n  SET geom=ST_MakeValid(ST_RemoveRepeatedPoints(geom));\n\n# add local geometry column and reproject existing geometries into local EPSG:\nSELECT AddGeometryColumn (\n  'tz_2022_nbs_districts',\n  'geom_local', 4326, 'multipolygon', 2\n);\nUPDATE tz_2022_nbs_districts\n  SET geom_local=ST_MakeValid(ST_RemoveRepeatedPoints(ST_Transform(ST_Multi(geom),4326)));\nCREATE INDEX tz_2022_nbs_districts_geom_local_idx\n  ON tz_2022_nbs_districts\n  USING GIST (geom_local);\nNOTIFY pgrst, 'reload schema';\n# Move into corrrect directory and create derivative directory in data package on osgeo\ncd /data/tz_2022_nbs/tz_2022_nbs_districts/\nmkdir -p derived\n\n# Create shapefile of table in derivate directory on osgeo \nogr2ogr -f \"ESRI Shapefile\" -overwrite derived/tz_2022_nbs_districts.shp PG:\"<postgres connection>\" tz_2022_nbs_districts\n\n# Create downloadable tarfile of shp in derivative directory on osgeo\nrm -f derived/tz_2022_nbs_districts.shp.tar.gz\ntar -czf derived/tz_2022_nbs_districts.shp.tar.gz meta_dcat_tz_2022_nbs_districts.json -C derived tz_2022_nbs_districts.shp tz_2022_nbs_districts.prj tz_2022_nbs_districts.shx tz_2022_nbs_districts.dbf\n\n# Move into correct directory\ncd /data/tz_2022_nbs/tz_2022_nbs_districts/\n\n",
+    "process_step": "#########\n# GDSC ETL is performed in two steps: shell script to ETL data into postgres\n# and then additional transformations with SQL in postGIS (if needed).\n####\n\n#########\n# Step 1 - bash script (pseudo code)\n####\n\n# create directory structure and move into it\nmkdir -p /data/tz_2022_nbs/download -p /data/tz_2022_nbs/tz_2022_nbs_districts/etl\nchmod -R 777 /data/tz_2022_nbs\ncd /data/tz_2022_nbs\n\n# set update flag based on last update and update frequency\ndo_update=0 if date() < last_update + update_frequency else do_update = 1\n\n# download if update flag is set:\nif do_update == 1 then\nwget --retry-connrefused --waitretry=1 --read-timeout=20 --timeout=15 -t 10 -O download/tz_2022_nbs.zip 'https://microdata.nbs.go.tz/index.php/catalog/49/download/317' 2>&1\n\n# unzip to download directory if update flag is set\nif do_update == 1 then\nunzip -o download/tz_2022_nbs.zip -d download && rm download/tz_2022_nbs.zip 2>&1\n\n# extract mpkx to download directory\n7z x download/TANZANIA_2022_POST_PHC_GEODATABASE.mpkx -o'download/TANZANIA_2022_POST_PHC_GEODATABASE' 2>&1\n\n# load into postGIS with:\nogr2ogr -lco GEOMETRY_NAME=geom -f PostgreSQL PG:\"<postgres connection>\" download/TANZANIA_2022_POST_PHC_GEODATABASE/commondata/tanzania_2022phc_geodatabase.gdb Districts -nlt multipolygon -nln tz_2022_nbs_districts\necho success: TANZANIA_2022_POST_PHC_GEODATABASE/commondata/tanzania_2022phc_geodatabase.gdb loaded with ogr2ogr\n\n\n#########\n# Step 2 - SQL script (pseudo code):\n####\n\n# remove duplicate points and make geometries valid:\nUPDATE tz_2022_nbs_districts\n  SET geom=ST_MakeValid(ST_RemoveRepeatedPoints(geom));\n\n# add local geometry column and reproject existing geometries into local EPSG:\nALTER TABLE tz_2022_nbs_districts DROP COLUMN IF EXISTS geom_local CASCADE;\nSELECT AddGeometryColumn (\n  'tz_2022_nbs_districts',\n  'geom_local', 4326, 'multipolygon', 2\n);\nUPDATE tz_2022_nbs_districts\n  SET geom_local=ST_MakeValid(ST_RemoveRepeatedPoints(ST_Transform(ST_Multi(geom),4326)));\nCREATE INDEX tz_2022_nbs_districts_geom_local_idx\n  ON tz_2022_nbs_districts\n  USING GIST (geom_local);\nNOTIFY pgrst, 'reload schema';\n# Move into corrrect directory and create derivative directory in data package on osgeo\ncd /data/tz_2022_nbs/tz_2022_nbs_districts/\nmkdir -p derived\n\n# Create shapefile of table in derivate directory on osgeo \nogr2ogr -f \"ESRI Shapefile\" -overwrite derived/tz_2022_nbs_districts.shp PG:\"<postgres connection>\" tz_2022_nbs_districts\n\n# Create downloadable tarfile of shp in derivative directory on osgeo\nrm -f derived/tz_2022_nbs_districts.shp.tar.gz\ntar -czf derived/tz_2022_nbs_districts.shp.tar.gz meta_dcat_tz_2022_nbs_districts.json -C derived tz_2022_nbs_districts.shp tz_2022_nbs_districts.prj tz_2022_nbs_districts.shx tz_2022_nbs_districts.dbf\n\n# Move into correct directory\ncd /data/tz_2022_nbs/tz_2022_nbs_districts/\n\n",
     "processor": "GDSC automation (see Process Step)",
     "point_of_contact_group": [
       {
@@ -146,12 +147,12 @@
     "etl_parameters": "Districts",
     "up": "false",
     "podid": "gaia-db",
-    "last_updated": "not known",
-    "update_frequency": "as_needed",
+    "last_updated": "2026-09-12 13:38:46",
+    "update_frequency": "As Needed",
     "checksum": "TBD"
   },
-  "_submission_time": "2026-08-23 15:57:19",
+  "_submission_time": "2026-10-09 23:53:11",
   "meta": {
-    "instanceID": "017a3309-82c7-4db9-9140-f3468241129"
+    "instanceID": "d94be7eb-03bb-429c-b260-a65746472"
   }
 }

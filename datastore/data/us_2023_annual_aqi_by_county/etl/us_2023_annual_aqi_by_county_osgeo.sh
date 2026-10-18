@@ -6,7 +6,7 @@
 # Data source: https://aqs.epa.gov/aqsweb/airdata/annual_aqi_by_county_2023.zip
 # Destination postGIS table: us_2023_annual_aqi_by_county
 #
-# Created by etl() on 2026-09-13 15:23:37
+# Created by etl() on 2026-10-09 22:54:07
 # Do not edit directly
 
 # set credentials from postgres defaults and secret files
@@ -37,7 +37,7 @@ if [[ $exists ]]; then
   if [[ ! $no_update ]]; then
     last_update=$(date -d "$(cat datestamp)" '+%s')
     check_date="$(date -d '-'"$update_frequency" '+%s')"
-    if [[ "$check_date -ge $last_update" ]]; then do_update=1; fi
+    if [[ "$check_date" -ge "$last_update" ]]; then do_update=1; fi
   fi
 
 # does not exist
@@ -48,7 +48,7 @@ if [[ $do_update = 1 ]]; then
   # fail after 3 attempts
   attempts=0
   until (
-    OPENSSL_CONF=/openssl/openssl.conf curl -o download/us_2023_annual_aqi_by_county.zip 'https://aqs.epa.gov/aqsweb/airdata/annual_aqi_by_county_2023.zip' 2>&1
+    curl -o download/us_2023_annual_aqi_by_county.zip 'https://aqs.epa.gov/aqsweb/airdata/annual_aqi_by_county_2023.zip' 2>&1
   ); do
     ((attempts++))
     if (( attempts > 3 )); then echo $?; break; fi

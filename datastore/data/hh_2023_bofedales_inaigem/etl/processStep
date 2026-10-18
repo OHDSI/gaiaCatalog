@@ -1,0 +1,77 @@
+#########
+# GDSC ETL is performed in two steps: shell script to ETL data into postgres
+# and then additional transformations with SQL in postGIS (if needed).
+####
+
+#########
+# Step 1 - bash script (pseudo code)
+####
+
+# create directory structure and move into it
+mkdir -p /data/hh_2023_bofedales_inaigem/download -p /data/hh_2023_bofedales_inaigem/etl
+chmod -R 777 /data/hh_2023_bofedales_inaigem
+cd /data/hh_2023_bofedales_inaigem
+
+# set update flag based on last update and update frequency
+do_update=0 if date() < last_update + update_frequency else do_update = 1
+
+# download if update flag is set:
+if do_update == 1 then
+curl -o download/hh_2023_bofedales_inaigem.json 'https://datacochageoespacial.inaigem.gob.pe/geoserver/inventario_bofedales/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=inventario_bofedales%3Ainventario_bofedales_2023&outputFormat=application/json&bbox=-77.33,-10.7,-76.55,-9.8,EPSG:4326' 2>&1
+
+# load into postGIS with:
+ogr2ogr -lco GEOMETRY_NAME=geom -f PostgreSQL PG:"<postgres connection>" download/hh_2023_bofedales_inaigem.json -nlt multipolygon -nln hh_2023_bofedales_inaigem
+echo success: hh_2023_bofedales_inaigem.json loaded with ogr2ogr
+
+
+#########
+# Step 2 - SQL script (pseudo code):
+####
+
+# remove duplicate points and make geometries valid:
+UPDATE hh_2023_bofedales_inaigem
+  SET geom=ST_MakeValid(ST_RemoveRepeatedPoints(geom));
+
+# add local geometry column and reproject existing geometries into local EPSG:
+ALTER TABLE hh_2023_bofedales_inaigem DROP COLUMN IF EXISTS geom_local CASCADE;
+SELECT AddGeometryColumn (
+  'hh_2023_bofedales_inaigem',
+  'geom_local', 5387, 'multipolygon', 2
+);
+UPDATE hh_2023_bofedales_inaigem
+  SET geom_local=ST_MakeValid(ST_RemoveRepeatedPoints(ST_Transform(ST_Multi(geom),5387)));
+CREATE INDEX hh_2023_bofedales_inaigem_geom_local_idx
+  ON hh_2023_bofedales_inaigem
+  USING GIST (geom_local);
+NOTIFY pgrst, 'reload schema';
+# Move into corrrect directory and create derivative directory in data package on osgeo
+cd /data/hh_2023_bofedales_inaigem/
+mkdir -p derived
+
+# Create shapefile of table in derivate directory on osgeo 
+ogr2ogr -f "ESRI Shapefile" -overwrite derived/hh_2023_bofedales_inaigem.shp PG:"<postgres connection>" hh_2023_bofedales_inaigem
+
+# Create downloadable tarfile of shp in derivative directory on osgeo
+rm -f derived/hh_2023_bofedales_inaigem.shp.tar.gz
+tar -czf derived/hh_2023_bofedales_inaigem.shp.tar.gz meta_dcat_hh_2023_bofedales_inaigem.json -C derived hh_2023_bofedales_inaigem.shp hh_2023_bofedales_inaigem.prj hh_2023_bofedales_inaigem.shx hh_2023_bofedales_inaigem.dbf
+
+# Create gpkg of table in derivate directory on osgeo 
+rm -f derived/hh_2023_bofedales_inaigem.gpkg
+ogr2ogr -f GPKG -overwrite derived/hh_2023_bofedales_inaigem.gpkg PG:"<postgres connection>" -select "objectid,fid_invent,desc_cober,zona_utm,macrozona,vertiente,ubig_dep,nomb_dep,ubig_prov,nomb_prov,ubig_dist,nomb_dist,nomb_capdi,cod_uh,nomb_uh,area_ha,geom" hh_2023_bofedales_inaigem
+
+# Create downloadable tarfile of gpkg in derivative directory on osgeo
+rm -f derived/hh_2023_bofedales_inaigem.gpkg.tar.gz
+tar -czf derived/hh_2023_bofedales_inaigem.gpkg.tar.gz meta_dcat_hh_2023_bofedales_inaigem.json -C derived hh_2023_bofedales_inaigem.gpkg
+
+# Create geojson of table in derivate directory on osgeo 
+rm -f derived/hh_2023_bofedales_inaigem.json
+ogr2ogr -f GeoJSON -overwrite derived/hh_2023_bofedales_inaigem.json PG:"<postgres connection>" -select "objectid,fid_invent,desc_cober,zona_utm,macrozona,vertiente,ubig_dep,nomb_dep,ubig_prov,nomb_prov,ubig_dist,nomb_dist,nomb_capdi,cod_uh,nomb_uh,area_ha,geom" hh_2023_bofedales_inaigem
+
+# Create downloadable tarfile of geojson in derivative directory on osgeo
+rm -f derived/hh_2023_bofedales_inaigem.geojson.tar.gz
+tar -czf derived/hh_2023_bofedales_inaigem.geojson.tar.gz meta_dcat_hh_2023_bofedales_inaigem.json -C derived hh_2023_bofedales_inaigem.json
+
+# Move into correct directory
+cd /data/hh_2023_bofedales_inaigem/
+
+

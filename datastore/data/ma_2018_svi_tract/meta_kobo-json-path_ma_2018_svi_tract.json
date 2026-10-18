@@ -1,12 +1,6 @@
 {
   "control_group": {
-    "id": 138,
-    "external_id_group": [
-      {
-        "external_id_type": "ohdsi",
-        "external_id_value": "311"
-      }
-    ]
+    "id": 138
   },
   "dublin_core_group": {
     "title": "2018 Massachusetts CDC Social Vulnerability Index (tracts)",
@@ -25,7 +19,7 @@
         "publisher_name": "CDC"
       }
     ],
-    "rights": "public_domain",
+    "rights": "Public Domain",
     "coverage_group": [
       {
         "coverage_name": "Massachusetts",
@@ -39,7 +33,7 @@
         "relation_title": "tl_2018_25_tract"
       }
     ],
-    "resource_type": "vector_dataset",
+    "resource_type": "Vector Dataset",
     "publication_date": "2020-10-22",
     "description": "Social vulnerability refers to the potential negative effects on communities caused by external stresses on human health. Such stresses include natural or human-caused disasters, or disease outbreaks. Reducing social vulnerability can decrease both human suffering and economic loss.\n\nThe CDC/ATSDR Social Vulnerability Index (CDC/ATSDR SVI) uses 16 U.S. census variables to help local officials identify communities that may need support before, during, or after disasters.",
     "provenance": " direct from source",
@@ -73,10 +67,11 @@
   },
   "iso_group": {
     "structure": "vector",
-    "geometry": "polygon",
+    "geometry": "multipolygon",
     "epsg": 4269,
+    "extent": "ENVELOPE(-73.508142,-69.928393,42.886589,41.237964)",
     "lineage": "TBD",
-    "process_step": "#########\n# GDSC ETL is performed in two steps: shell script to ETL data into postgres\n# and then additional transformations with SQL in postGIS (if needed).\n####\n\n#########\n# Step 1 - bash script (pseudo code)\n####\n\n# create directory structure and move into it\nmkdir -p /data/ma_2018_svi_tract/download -p /data/ma_2018_svi_tract/etl\nchmod 777 /data/ma_2018_svi_tract/download\ncd /data/ma_2018_svi_tract\n\n# set update flag based on last update and update frequency\ndo_update=0 if date() < last_update + update_frequency else do_update = 1\n\n# download if update flag is set:\nif do_update == 1 then\nwget -O download/ma_2018_svi_tract.zip 'https://svi.cdc.gov/Documents/Data/2018/db/states/Massachusetts.zip'\n\n# unzip to download directory if update flag is set\nif do_update == 1 then\nunzip -d download download/ma_2018_svi_tract.zip && rm download/ma_2018_svi_tract.zip\n\n# load into postGIS with:\n  ogr2ogr -lco GEOMETRY_NAME=geom -f PostgreSQL PG:\"<postgres connection>\" download/SVI2018_MASSACHUSETTS_tract.gdb -nlt multipolygon -nln ma_2018_svi_tract\n\n#########\n# Step 2 - SQL script (pseudo code):\n####\n\n# remove duplicate points and make geometries valid:\nUPDATE ma_2018_svi_tract\n  SET geom=ST_MakeValid(ST_RemoveRepeatedPoints(geom));\n\n# add local geometry column and reproject existing geometries into local EPSG:\nSELECT AddGeometryColumn (\n  'ma_2018_svi_tract',\n  'geom_local', 26986, 'multipolygon', 2\n);\nUPDATE ma_2018_svi_tract\n  SET geom_local=ST_MakeValid(ST_RemoveRepeatedPoints(ST_Transform(ST_Multi(geom),26986)));\nCREATE INDEX ma_2018_svi_tract_geom_local_idx\n  ON ma_2018_svi_tract\n  USING GIST (geom_local);\nNOTIFY pgrst, 'reload schema';\n# Move into corrrect directory and create derivative directory in data package on osgeo\ncd /data/ma_2018_svi_tract/\nmkdir -p derived\n\n# Move into correct directory\ncd /data/ma_2018_svi_tract/\n\n# Create pg_dump of table SQL in derivate directory on postgis.\npg_dump <postgres opts> -h gaia-db -t ma_2018_svi_tract > derived/ma_2018_svi_tract.sql\n\n# Create downloadable tarfile of SQL in derivative directory on postgis\nrm -f derived/ma_2018_svi_tract.sql.tar.gz\ntar -czf derived/ma_2018_svi_tract.sql.tar.gz meta_dcat_ma_2018_svi_tract.json -C derived ma_2018_svi_tract.sql\n\n",
+    "process_step": "#########\n# GDSC ETL is performed in two steps: shell script to ETL data into postgres\n# and then additional transformations with SQL in postGIS (if needed).\n####\n\n#########\n# Step 1 - bash script (pseudo code)\n####\n\n# create directory structure and move into it\nmkdir -p /data/ma_2018_svi_tract/download -p /data/ma_2018_svi_tract/etl\nchmod -R 777 /data/ma_2018_svi_tract\ncd /data/ma_2018_svi_tract\n\n# set update flag based on last update and update frequency\ndo_update=0 if date() < last_update + update_frequency else do_update = 1\n\n# download if update flag is set:\nif do_update == 1 then\nwget --retry-connrefused --waitretry=1 --read-timeout=20 --timeout=15 -t 10 -O download/ma_2018_svi_tract.zip 'https://svi.cdc.gov/Documents/Data/2018/db/states/Massachusetts.zip' 2>&1\n\n# unzip to download directory if update flag is set\nif do_update == 1 then\nunzip -o download/ma_2018_svi_tract.zip -d download && rm download/ma_2018_svi_tract.zip 2>&1\n\n# load into postGIS with:\nogr2ogr -lco GEOMETRY_NAME=geom -f PostgreSQL PG:\"<postgres connection>\" download/SVI2018_MASSACHUSETTS_tract.gdb -nlt multipolygon -nln ma_2018_svi_tract\necho success: SVI2018_MASSACHUSETTS_tract.gdb loaded with ogr2ogr\n\n\n#########\n# Step 2 - SQL script (pseudo code):\n####\n\n# remove duplicate points and make geometries valid:\nUPDATE ma_2018_svi_tract\n  SET geom=ST_MakeValid(ST_RemoveRepeatedPoints(geom));\n\n# add local geometry column and reproject existing geometries into local EPSG:\nALTER TABLE ma_2018_svi_tract DROP COLUMN IF EXISTS geom_local CASCADE;\nSELECT AddGeometryColumn (\n  'ma_2018_svi_tract',\n  'geom_local', 26986, 'multipolygon', 2\n);\nUPDATE ma_2018_svi_tract\n  SET geom_local=ST_MakeValid(ST_RemoveRepeatedPoints(ST_Transform(ST_Multi(geom),26986)));\nCREATE INDEX ma_2018_svi_tract_geom_local_idx\n  ON ma_2018_svi_tract\n  USING GIST (geom_local);\nNOTIFY pgrst, 'reload schema';\n# Move into corrrect directory and create derivative directory in data package on osgeo\ncd /data/ma_2018_svi_tract/\nmkdir -p derived\n\n# Move into correct directory\ncd /data/ma_2018_svi_tract/\n\n# Create pg_dump of table SQL in derivate directory on postgis.\npg_dump <postgres opts> -h gaia-db -t ma_2018_svi_tract > derived/ma_2018_svi_tract.sql\n\n# Create downloadable tarfile of SQL in derivative directory on postgis\nrm -f derived/ma_2018_svi_tract.sql.tar.gz\ntar -czf derived/ma_2018_svi_tract.sql.tar.gz meta_dcat_ma_2018_svi_tract.json -C derived ma_2018_svi_tract.sql\n\n",
     "processor": "GDSC automation (see Process Step)",
     "point_of_contact_group": [
       {
@@ -93,8 +88,7 @@
         "contact_affiliation_schema_uri": "https://ror.org/"
       }
     ],
-    "data_level": "derived",
-    "extent": "POLYGON((-73.508142 41.237964, -69.928393 41.237964, -69.928393 42.886589, -73.508142 42.886589, -73.508142 41.237964))"
+    "data_level": "derived"
   },
   "cartography_group": {
     "label": "location",
@@ -141,7 +135,6 @@
       {
         "value_field": "e_munit"
       },
-      null,
       {
         "value_field": "e_nohsdp"
       },
@@ -481,7 +474,7 @@
         "attribute_type": "float8",
         "attribute_unit": "square miles",
         "attribute_min_value": "0",
-        "attribute_max_value": "194",
+        "attribute_max_value": "194.451590410428",
         "attribute_concept_id": "2052497175",
         "attribute_external_id": "gaia-132"
       },
@@ -756,7 +749,7 @@
         "attribute_type": "float8",
         "attribute_unit": "percentage",
         "attribute_min_value": "0",
-        "attribute_max_value": "65",
+        "attribute_max_value": "65.4",
         "attribute_start_date": "1/1/18",
         "attribute_end_date": "12/31/18",
         "attribute_concept_id": "2052498380"
@@ -768,7 +761,7 @@
         "attribute_type": "float8",
         "attribute_unit": "percentage",
         "attribute_min_value": "0",
-        "attribute_max_value": "21",
+        "attribute_max_value": "20.8",
         "attribute_start_date": "1/1/18",
         "attribute_end_date": "12/31/18",
         "attribute_concept_id": "2052498400"
@@ -780,7 +773,7 @@
         "attribute_type": "float8",
         "attribute_unit": "percentage",
         "attribute_min_value": "0",
-        "attribute_max_value": "74",
+        "attribute_max_value": "73.7",
         "attribute_start_date": "1/1/18",
         "attribute_end_date": "12/31/18",
         "attribute_concept_id": "2052498558"
@@ -804,7 +797,7 @@
         "attribute_type": "float8",
         "attribute_unit": "percentage",
         "attribute_min_value": "0",
-        "attribute_max_value": "43",
+        "attribute_max_value": "43.2",
         "attribute_start_date": "1/1/18",
         "attribute_end_date": "12/31/18",
         "attribute_concept_id": "2052498385"
@@ -828,7 +821,7 @@
         "attribute_type": "float8",
         "attribute_unit": "percentage",
         "attribute_min_value": "0",
-        "attribute_max_value": "37",
+        "attribute_max_value": "37.1",
         "attribute_start_date": "1/1/18",
         "attribute_end_date": "12/31/18",
         "attribute_concept_id": "2052498422"
@@ -852,7 +845,7 @@
         "attribute_type": "float8",
         "attribute_unit": "percentage",
         "attribute_min_value": "0",
-        "attribute_max_value": "68",
+        "attribute_max_value": "67.5",
         "attribute_start_date": "1/1/18",
         "attribute_end_date": "12/31/18",
         "attribute_concept_id": "2052498369"
@@ -864,7 +857,7 @@
         "attribute_type": "float8",
         "attribute_unit": "percentage",
         "attribute_min_value": "0",
-        "attribute_max_value": "79",
+        "attribute_max_value": "78.8",
         "attribute_start_date": "1/1/18",
         "attribute_end_date": "12/31/18",
         "attribute_concept_id": "2052498477"
@@ -873,7 +866,7 @@
         "attribute_name": "ep_pci",
         "attribute_description": "Per capita income estimate, 2014-2018 ACS",
         "attribute_source": "Census ACS",
-        "attribute_type": "int4",
+        "attribute_type": "float8",
         "attribute_unit": "US dollars",
         "attribute_min_value": "3272",
         "attribute_max_value": "153108",
@@ -887,7 +880,7 @@
         "attribute_type": "float8",
         "attribute_unit": "percentage",
         "attribute_min_value": "0",
-        "attribute_max_value": "81",
+        "attribute_max_value": "80.6",
         "attribute_start_date": "1/1/18",
         "attribute_end_date": "12/31/18",
         "attribute_concept_id": "2052498378"
@@ -899,7 +892,7 @@
         "attribute_type": "float8",
         "attribute_unit": "percentage",
         "attribute_min_value": "0",
-        "attribute_max_value": "57",
+        "attribute_max_value": "56.5",
         "attribute_start_date": "1/1/18",
         "attribute_end_date": "12/31/18",
         "attribute_concept_id": "2052498249"
@@ -911,7 +904,7 @@
         "attribute_type": "float8",
         "attribute_unit": "percentage",
         "attribute_min_value": "0",
-        "attribute_max_value": "61",
+        "attribute_max_value": "60.6",
         "attribute_start_date": "1/1/18",
         "attribute_end_date": "12/31/18",
         "attribute_concept_id": "2052497153"
@@ -923,7 +916,7 @@
         "attribute_type": "float8",
         "attribute_unit": "percentage",
         "attribute_min_value": "0",
-        "attribute_max_value": "24",
+        "attribute_max_value": "23.5",
         "attribute_start_date": "1/1/18",
         "attribute_end_date": "12/31/18",
         "attribute_concept_id": "2052498200"
@@ -983,7 +976,7 @@
         "attribute_type": "float8",
         "attribute_unit": "percentile",
         "attribute_min_value": "0",
-        "attribute_max_value": "1",
+        "attribute_max_value": "0.9973",
         "attribute_start_date": "1/1/18",
         "attribute_end_date": "12/31/18",
         "attribute_concept_id": "2052498180"
@@ -1112,7 +1105,9 @@
         "attribute_name": "f_age17",
         "attribute_description": "Flag - the percentage of persons aged 17 and younger is in the 90th percentile (1 = yes, 0 = no)",
         "attribute_source": "Census ACS",
-        "attribute_type": "boolean",
+        "attribute_type": "int2",
+        "attribute_min_value": "0",
+        "attribute_max_value": "1",
         "attribute_start_date": "1/1/18",
         "attribute_end_date": "12/31/18",
         "attribute_concept_id": "2052499366"
@@ -1121,7 +1116,9 @@
         "attribute_name": "f_age65",
         "attribute_description": "Flag - the percentage of persons aged 65 and older is in the 90th percentile (1 = yes, 0 = no)",
         "attribute_source": "Census ACS",
-        "attribute_type": "boolean",
+        "attribute_type": "int2",
+        "attribute_min_value": "0",
+        "attribute_max_value": "1",
         "attribute_start_date": "1/1/18",
         "attribute_end_date": "12/31/18",
         "attribute_concept_id": "2052499365"
@@ -1130,7 +1127,9 @@
         "attribute_name": "f_crowd",
         "attribute_description": "Flag - the percentage of crowded households is in the 90th percentile (1 = yes, 0 = no)",
         "attribute_source": "Census ACS",
-        "attribute_type": "boolean",
+        "attribute_type": "int2",
+        "attribute_min_value": "0",
+        "attribute_max_value": "1",
         "attribute_start_date": "1/1/18",
         "attribute_end_date": "12/31/18",
         "attribute_concept_id": "2052499372"
@@ -1139,7 +1138,9 @@
         "attribute_name": "f_disabl",
         "attribute_description": "Flag - the percentage of persons with a disability is in the 90th percentile (1 = yes, 0 = no)",
         "attribute_source": "Census ACS",
-        "attribute_type": "boolean",
+        "attribute_type": "int2",
+        "attribute_min_value": "0",
+        "attribute_max_value": "1",
         "attribute_start_date": "1/1/18",
         "attribute_end_date": "12/31/18",
         "attribute_concept_id": "2052499362"
@@ -1148,7 +1149,9 @@
         "attribute_name": "f_groupq",
         "attribute_description": "Flag - the percentage of persons in institutionalized group quarters is in the 90th percentile (1 = yes, 0 = no)",
         "attribute_source": "Census ACS",
-        "attribute_type": "boolean",
+        "attribute_type": "int2",
+        "attribute_min_value": "0",
+        "attribute_max_value": "1",
         "attribute_start_date": "1/1/18",
         "attribute_end_date": "12/31/18",
         "attribute_concept_id": "2052499363"
@@ -1157,7 +1160,9 @@
         "attribute_name": "f_limeng",
         "attribute_description": "Flag - the percentage those with limited English is in the 90th percentile (1 = yes, 0 = no)",
         "attribute_source": "Census ACS",
-        "attribute_type": "boolean",
+        "attribute_type": "int2",
+        "attribute_min_value": "0",
+        "attribute_max_value": "1",
         "attribute_start_date": "1/1/18",
         "attribute_end_date": "12/31/18",
         "attribute_concept_id": "2052499358"
@@ -1166,7 +1171,9 @@
         "attribute_name": "f_minrty",
         "attribute_description": "Flag - the percentage of minority is in the 90th percentile (1 = yes, 0 = no)",
         "attribute_source": "Census ACS",
-        "attribute_type": "boolean",
+        "attribute_type": "int2",
+        "attribute_min_value": "0",
+        "attribute_max_value": "1",
         "attribute_start_date": "1/1/18",
         "attribute_end_date": "12/31/18",
         "attribute_concept_id": "2052499368"
@@ -1175,7 +1182,9 @@
         "attribute_name": "f_mobile",
         "attribute_description": "Flag - the percentage of mobile homes is in the 90th percentile (1 = yes, 0 = no)",
         "attribute_source": "Census ACS",
-        "attribute_type": "boolean",
+        "attribute_type": "int2",
+        "attribute_min_value": "0",
+        "attribute_max_value": "1",
         "attribute_start_date": "1/1/18",
         "attribute_end_date": "12/31/18",
         "attribute_concept_id": "2052499367"
@@ -1184,7 +1193,9 @@
         "attribute_name": "f_munit",
         "attribute_description": "Flag - the percentage of households in multi-unit housing is in the 90th percentile (1 = yes, 0 = no)",
         "attribute_source": "Census ACS",
-        "attribute_type": "boolean",
+        "attribute_type": "int2",
+        "attribute_min_value": "0",
+        "attribute_max_value": "1",
         "attribute_start_date": "1/1/18",
         "attribute_end_date": "12/31/18",
         "attribute_concept_id": "2052499371"
@@ -1193,7 +1204,9 @@
         "attribute_name": "f_nohsdp",
         "attribute_description": "Flag - the percentage of persons with no high school diploma is in the 90th percentile (1 = yes, 0 = no)",
         "attribute_source": "Census ACS",
-        "attribute_type": "boolean",
+        "attribute_type": "int2",
+        "attribute_min_value": "0",
+        "attribute_max_value": "1",
         "attribute_start_date": "1/1/18",
         "attribute_end_date": "12/31/18",
         "attribute_concept_id": "2052499361"
@@ -1202,7 +1215,9 @@
         "attribute_name": "f_noveh",
         "attribute_description": "Flag - the percentage of households with no vehicles is in the 90th percentile (1 = yes, 0 = no)",
         "attribute_source": "Census ACS",
-        "attribute_type": "boolean",
+        "attribute_type": "int2",
+        "attribute_min_value": "0",
+        "attribute_max_value": "1",
         "attribute_start_date": "1/1/18",
         "attribute_end_date": "12/31/18",
         "attribute_concept_id": "2052499370"
@@ -1211,7 +1226,9 @@
         "attribute_name": "f_pci",
         "attribute_description": "Flag - per capita income is in the 90th percentile (1 = yes, 0 = no)",
         "attribute_source": "Census ACS",
-        "attribute_type": "boolean",
+        "attribute_type": "int2",
+        "attribute_min_value": "0",
+        "attribute_max_value": "1",
         "attribute_start_date": "1/1/18",
         "attribute_end_date": "12/31/18"
       },
@@ -1219,7 +1236,9 @@
         "attribute_name": "f_pov",
         "attribute_description": "Flag - the percentage of persons in poverty is in the 90th percentile (1 = yes, 0 = no)",
         "attribute_source": "Census ACS",
-        "attribute_type": "boolean",
+        "attribute_type": "int2",
+        "attribute_min_value": "0",
+        "attribute_max_value": "1",
         "attribute_start_date": "1/1/18",
         "attribute_end_date": "12/31/18",
         "attribute_concept_id": "2052499364"
@@ -1228,7 +1247,9 @@
         "attribute_name": "f_sngpnt",
         "attribute_description": "Flag - the percentage of single parent households is in the 90th percentile (1 = yes, 0 = no)",
         "attribute_source": "Census ACS",
-        "attribute_type": "boolean",
+        "attribute_type": "int2",
+        "attribute_min_value": "0",
+        "attribute_max_value": "1",
         "attribute_start_date": "1/1/18",
         "attribute_end_date": "12/31/18",
         "attribute_concept_id": "2052499360"
@@ -1237,7 +1258,7 @@
         "attribute_name": "f_theme1",
         "attribute_description": "Sum of flags for Socioeconomic Status theme",
         "attribute_source": "Census ACS",
-        "attribute_type": "int4",
+        "attribute_type": "int2",
         "attribute_min_value": "0",
         "attribute_max_value": "4",
         "attribute_start_date": "1/1/18",
@@ -1248,7 +1269,7 @@
         "attribute_name": "f_theme2",
         "attribute_description": "Sum of flags for Household Composition theme",
         "attribute_source": "Census ACS",
-        "attribute_type": "int4",
+        "attribute_type": "int2",
         "attribute_min_value": "0",
         "attribute_max_value": "3",
         "attribute_start_date": "1/1/18",
@@ -1259,7 +1280,7 @@
         "attribute_name": "f_theme3",
         "attribute_description": "Sum of flags for Minority Status/Language theme",
         "attribute_source": "Census ACS",
-        "attribute_type": "int4",
+        "attribute_type": "int2",
         "attribute_min_value": "0",
         "attribute_max_value": "2",
         "attribute_start_date": "1/1/18",
@@ -1270,7 +1291,7 @@
         "attribute_name": "f_theme4",
         "attribute_description": "Sum of flags for Housing Type/ Transportation theme",
         "attribute_source": "Census ACS",
-        "attribute_type": "int4",
+        "attribute_type": "int2",
         "attribute_min_value": "0",
         "attribute_max_value": "4",
         "attribute_start_date": "1/1/18",
@@ -1281,7 +1302,7 @@
         "attribute_name": "f_total",
         "attribute_description": "Sum of flags for the four themes",
         "attribute_source": "Census ACS",
-        "attribute_type": "int4",
+        "attribute_type": "int2",
         "attribute_min_value": "0",
         "attribute_max_value": "12",
         "attribute_start_date": "1/1/18",
@@ -1292,7 +1313,9 @@
         "attribute_name": "f_unemp",
         "attribute_description": "Flag - the percentage of civilian unemployed is in the 90th percentile (1 = yes, 0 = no)",
         "attribute_source": "Census ACS",
-        "attribute_type": "boolean",
+        "attribute_type": "int2",
+        "attribute_min_value": "0",
+        "attribute_max_value": "1",
         "attribute_start_date": "1/1/18",
         "attribute_end_date": "12/31/18",
         "attribute_concept_id": "2052499373"
@@ -1546,8 +1569,8 @@
         "attribute_source": "Census ACS",
         "attribute_type": "float8",
         "attribute_unit": "percentage",
-        "attribute_min_value": "0",
-        "attribute_max_value": "31",
+        "attribute_min_value": "0.1",
+        "attribute_max_value": "31.3",
         "attribute_start_date": "1/1/18",
         "attribute_end_date": "12/31/18",
         "attribute_concept_id": "2052498381"
@@ -1558,8 +1581,8 @@
         "attribute_source": "Census ACS",
         "attribute_type": "float8",
         "attribute_unit": "percentage",
-        "attribute_min_value": "0",
-        "attribute_max_value": "44",
+        "attribute_min_value": "0.1",
+        "attribute_max_value": "44.4",
         "attribute_start_date": "1/1/18",
         "attribute_end_date": "12/31/18",
         "attribute_concept_id": "2052498379"
@@ -1570,8 +1593,8 @@
         "attribute_source": "Census ACS",
         "attribute_type": "float8",
         "attribute_unit": "percentage",
-        "attribute_min_value": "1",
-        "attribute_max_value": "567",
+        "attribute_min_value": "0.6",
+        "attribute_max_value": "566.7",
         "attribute_start_date": "1/1/18",
         "attribute_end_date": "12/31/18",
         "attribute_concept_id": "2052498399"
@@ -1582,7 +1605,7 @@
         "attribute_source": "Census ACS",
         "attribute_type": "float8",
         "attribute_unit": "percentage",
-        "attribute_min_value": "1",
+        "attribute_min_value": "0.7",
         "attribute_max_value": "100",
         "attribute_start_date": "1/1/18",
         "attribute_end_date": "12/31/18",
@@ -1595,7 +1618,7 @@
         "attribute_type": "float8",
         "attribute_unit": "percentage",
         "attribute_min_value": "0",
-        "attribute_max_value": "46",
+        "attribute_max_value": "46.2",
         "attribute_start_date": "1/1/18",
         "attribute_end_date": "12/31/18",
         "attribute_concept_id": "2052498375"
@@ -1606,8 +1629,8 @@
         "attribute_source": "Census ACS",
         "attribute_type": "float8",
         "attribute_unit": "percentage",
-        "attribute_min_value": "1",
-        "attribute_max_value": "229",
+        "attribute_min_value": "0.6",
+        "attribute_max_value": "228.6",
         "attribute_start_date": "1/1/18",
         "attribute_end_date": "12/31/18",
         "attribute_concept_id": "2052498383"
@@ -1618,8 +1641,8 @@
         "attribute_source": "Census ACS",
         "attribute_type": "float8",
         "attribute_unit": "percentage",
-        "attribute_min_value": "1",
-        "attribute_max_value": "104",
+        "attribute_min_value": "1.2",
+        "attribute_max_value": "103.5",
         "attribute_start_date": "1/1/18",
         "attribute_end_date": "12/31/18",
         "attribute_concept_id": "2052498609"
@@ -1630,7 +1653,7 @@
         "attribute_source": "Census ACS",
         "attribute_type": "float8",
         "attribute_unit": "percentage",
-        "attribute_min_value": "0",
+        "attribute_min_value": "0.2",
         "attribute_max_value": "100",
         "attribute_start_date": "1/1/18",
         "attribute_end_date": "12/31/18",
@@ -1642,8 +1665,8 @@
         "attribute_source": "Census ACS",
         "attribute_type": "float8",
         "attribute_unit": "percentage",
-        "attribute_min_value": "0",
-        "attribute_max_value": "567",
+        "attribute_min_value": "0.4",
+        "attribute_max_value": "566.7",
         "attribute_start_date": "1/1/18",
         "attribute_end_date": "12/31/18",
         "attribute_concept_id": "2052498460"
@@ -1654,7 +1677,7 @@
         "attribute_source": "Census ACS",
         "attribute_type": "float8",
         "attribute_unit": "percentage",
-        "attribute_min_value": "0",
+        "attribute_min_value": "0.1",
         "attribute_max_value": "100",
         "attribute_start_date": "1/1/18",
         "attribute_end_date": "12/31/18",
@@ -1666,7 +1689,7 @@
         "attribute_source": "Census ACS",
         "attribute_type": "float8",
         "attribute_unit": "percentage",
-        "attribute_min_value": "0",
+        "attribute_min_value": "0.4",
         "attribute_max_value": "100",
         "attribute_start_date": "1/1/18",
         "attribute_end_date": "12/31/18",
@@ -1676,7 +1699,7 @@
         "attribute_name": "mp_pci",
         "attribute_description": "Per capita income estimate MOE, 2014-2018 ACS",
         "attribute_source": "Census ACS",
-        "attribute_type": "int4",
+        "attribute_type": "float8",
         "attribute_unit": "US dollars",
         "attribute_min_value": "391",
         "attribute_max_value": "98137",
@@ -1689,7 +1712,7 @@
         "attribute_source": "Census ACS",
         "attribute_type": "float8",
         "attribute_unit": "percentage",
-        "attribute_min_value": "0",
+        "attribute_min_value": "0.1",
         "attribute_max_value": "100",
         "attribute_start_date": "1/1/18",
         "attribute_end_date": "12/31/18",
@@ -1701,8 +1724,8 @@
         "attribute_source": "Census ACS",
         "attribute_type": "float8",
         "attribute_unit": "percentage",
-        "attribute_min_value": "1",
-        "attribute_max_value": "567",
+        "attribute_min_value": "0.6",
+        "attribute_max_value": "566.7",
         "attribute_start_date": "1/1/18",
         "attribute_end_date": "12/31/18",
         "attribute_concept_id": "2052498248"
@@ -1713,8 +1736,8 @@
         "attribute_source": "Census ACS",
         "attribute_type": "float8",
         "attribute_unit": "percentage",
-        "attribute_min_value": "0",
-        "attribute_max_value": "54",
+        "attribute_min_value": "0.2",
+        "attribute_max_value": "53.6",
         "attribute_start_date": "1/1/18",
         "attribute_end_date": "12/31/18",
         "attribute_concept_id": "2052497152"
@@ -1725,7 +1748,7 @@
         "attribute_source": "Census ACS",
         "attribute_type": "float8",
         "attribute_unit": "percentage",
-        "attribute_min_value": "0",
+        "attribute_min_value": "0.1",
         "attribute_max_value": "100",
         "attribute_start_date": "1/1/18",
         "attribute_end_date": "12/31/18",
@@ -1797,8 +1820,8 @@
         "attribute_source": "Census ACS",
         "attribute_type": "float8",
         "attribute_unit": "svi index",
-        "attribute_min_value": "0",
-        "attribute_max_value": "4",
+        "attribute_min_value": "0.0815",
+        "attribute_max_value": "3.9857",
         "attribute_start_date": "1/1/18",
         "attribute_end_date": "12/31/18",
         "attribute_concept_id": "2052497697"
@@ -1810,7 +1833,7 @@
         "attribute_type": "float8",
         "attribute_unit": "svi index",
         "attribute_min_value": "0",
-        "attribute_max_value": "4",
+        "attribute_max_value": "3.5619",
         "attribute_start_date": "1/1/18",
         "attribute_end_date": "12/31/18",
         "attribute_concept_id": "2052497700"
@@ -1821,8 +1844,8 @@
         "attribute_source": "Census ACS",
         "attribute_type": "float8",
         "attribute_unit": "svi index",
-        "attribute_min_value": "0",
-        "attribute_max_value": "2",
+        "attribute_min_value": "0.0014",
+        "attribute_max_value": "1.9904",
         "attribute_start_date": "1/1/18",
         "attribute_end_date": "12/31/18",
         "attribute_concept_id": "2052497698"
@@ -1834,7 +1857,7 @@
         "attribute_type": "float8",
         "attribute_unit": "svi index",
         "attribute_min_value": "0",
-        "attribute_max_value": "5",
+        "attribute_max_value": "4.6218",
         "attribute_start_date": "1/1/18",
         "attribute_end_date": "12/31/18",
         "attribute_concept_id": "2052497699"
@@ -1845,8 +1868,8 @@
         "attribute_source": "Census ACS",
         "attribute_type": "float8",
         "attribute_unit": "svi index",
-        "attribute_min_value": "2",
-        "attribute_max_value": "13",
+        "attribute_min_value": "1.9351",
+        "attribute_max_value": "12.5931",
         "attribute_start_date": "1/1/18",
         "attribute_end_date": "12/31/18"
       },
@@ -1919,14 +1942,14 @@
     "download": "wget",
     "table_name": "ma_2018_svi_tract",
     "format": "gdb",
-    "up": "false",
+    "up": "true",
     "podid": "gaia-db",
     "last_updated": "2026-05-25 17:23:49",
-    "update_frequency": "never",
+    "update_frequency": "Never",
     "checksum": "TBD"
   },
-  "_submission_time": "2026-08-23 15:56:21",
+  "_submission_time": "2026-10-09 23:51:28",
   "meta": {
-    "instanceID": "e534a765-1561-43f9-92ee-42635283473"
+    "instanceID": "a7cee93c-eae4-4685-808d-44451085091"
   }
 }

@@ -1,0 +1,51 @@
+#########
+# GDSC ETL is performed in two steps: shell script to ETL data into postgres
+# and then additional transformations with SQL in postGIS (if needed).
+####
+
+#########
+# Step 1 - bash script (pseudo code)
+####
+
+# create directory structure and move into it
+mkdir -p /data/mdc_2026_flma/download -p /data/mdc_2026_flma/etl
+chmod -R 777 /data/mdc_2026_flma
+cd /data/mdc_2026_flma
+
+# set update flag based on last update and update frequency
+do_update=0 if date() < last_update + update_frequency else do_update = 1
+
+# Create copy of geom dependency
+pg_dump -d $POSTGRES_DB -U $POSTGRES_USER -p $POSTGRES_PORT -h gaia-db -t fl_2026_flma | sed 's/fl_2026_flma/mdc_2026_flma/g' | psql -d $POSTGRES_DB -U $POSTGRES_USER -p $POSTGRES_PORT -h gaia-db 
+
+# drop geom_local and subset as per custom parameters
+psql -d $POSTGRES_DB -U $POSTGRES_USER -p $POSTGRES_PORT -h gaia-db -c "
+ALTER TABLE mdc_2026_flma DROP COLUMN IF EXISTS geom_local;
+DELETE FROM mdc_2026_flma
+  WHERE NOT (county = 'Miami-Dade');
+COMMIT;"
+# add local geometry column and reproject existing geometries into local EPSG:
+ALTER TABLE mdc_2026_flma DROP COLUMN IF EXISTS geom_local CASCADE;
+SELECT AddGeometryColumn (
+  'mdc_2026_flma',
+  'geom_local', 2236, 'multipolygon', 2
+);
+UPDATE mdc_2026_flma
+  SET geom_local=ST_MakeValid(ST_RemoveRepeatedPoints(ST_Transform(ST_Multi(geom),2236)));
+CREATE INDEX mdc_2026_flma_geom_local_idx
+  ON mdc_2026_flma
+  USING GIST (geom_local);
+NOTIFY pgrst, 'reload schema';
+# add local geometry column and reproject existing geometries into local EPSG:
+ALTER TABLE mdc_2026_flma DROP COLUMN IF EXISTS geom_local CASCADE;
+SELECT AddGeometryColumn (
+  'mdc_2026_flma',
+  'geom_local', 2236, 'multipolygon', 2
+);
+UPDATE mdc_2026_flma
+  SET geom_local=ST_MakeValid(ST_RemoveRepeatedPoints(ST_Transform(ST_Multi(geom),2236)));
+CREATE INDEX mdc_2026_flma_geom_local_idx
+  ON mdc_2026_flma
+  USING GIST (geom_local);
+NOTIFY pgrst, 'reload schema';
+

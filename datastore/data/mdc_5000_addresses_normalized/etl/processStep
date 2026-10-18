@@ -1,0 +1,48 @@
+#########
+# GDSC ETL is performed in two steps: shell script to ETL data into postgres
+# and then additional transformations with SQL in postGIS (if needed).
+####
+
+#########
+# Step 1 - bash script (pseudo code)
+####
+
+# create directory structure and move into it
+mkdir -p /data/mdc_5000_addresses_normalized/download -p /data/mdc_5000_addresses_normalized/etl
+chmod -R 777 /data/mdc_5000_addresses_normalized
+cd /data/mdc_5000_addresses_normalized
+
+# set update flag based on last update and update frequency
+do_update=0 if date() < last_update + update_frequency else do_update = 1
+
+# remove spaces, periods, and leading numerical digits in column headers (if needed)
+  if (head -n 1 download/mdc_5000_addresses_normalized.csv | grep -qE '\s|\.|\"[0-9]'); then
+    sed -i '1s/ /_/g; 1s/\.//g; 1s/\"\([0-9]\)/\"n\1/g' download/mdc_5000_addresses_normalized.csv 2>&1
+  fi
+
+# load into postGIS with:
+ogr2ogr -lco GEOMETRY_NAME=geom -f PostgreSQL PG:"<postgres connection>" download/mdc_5000_addresses_normalized.csv -oo X_POSSIBLE_NAMES=x_coord -oo Y_POSSIBLE_NAMES=y_coord -s_srs EPSG:2236 -t_srs EPSG:4326 -nlt point -nln mdc_5000_addresses_normalized
+echo success: mdc_5000_addresses_normalized.csv loaded with ogr2ogr
+
+
+#########
+# Step 2 - SQL script (pseudo code):
+####
+
+# remove duplicate points and make geometries valid:
+UPDATE mdc_5000_addresses_normalized
+  SET geom=ST_MakeValid(ST_RemoveRepeatedPoints(geom));
+
+# add local geometry column and reproject existing geometries into local EPSG:
+ALTER TABLE mdc_5000_addresses_normalized DROP COLUMN IF EXISTS geom_local CASCADE;
+SELECT AddGeometryColumn (
+  'mdc_5000_addresses_normalized',
+  'geom_local', 2236, 'point', 2
+);
+UPDATE mdc_5000_addresses_normalized
+  SET geom_local=ST_MakeValid(ST_RemoveRepeatedPoints(ST_Transform(geom,2236)));
+CREATE INDEX mdc_5000_addresses_normalized_geom_local_idx
+  ON mdc_5000_addresses_normalized
+  USING GIST (geom_local);
+NOTIFY pgrst, 'reload schema';
+

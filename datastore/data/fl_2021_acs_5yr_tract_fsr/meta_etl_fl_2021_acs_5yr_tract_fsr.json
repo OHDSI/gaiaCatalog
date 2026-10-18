@@ -1,0 +1,22 @@
+{
+  "rights": "Public Domain",
+  "structure": "vector",
+  "geometry": "multipolygon",
+  "extent": "ENVELOPE(-87.634896,-79.974306,31.000968,24.396308)",
+  "attributes": ["total_population;Total population in census tract;B01001_001E;int4;people;;0;22085", "hispanic_population;Number of people who identify as Hispanic or Latino any race;B01001I_001E;int4;people;;0;9345", "creole_speaking;Number of Creole speaking people in the tract;C16001_008E;int4;people;;0;2356", "latin_america_born;Number of people who migrated from Latin America and the Caribbean;B05007_048E+B05007_045E+B05007_051E+B05007_042E;int4;people;;0;4944", "persons_4_years_old_and_younger;Number of people 4 years old and younger;B01001_003E+B01001_027E;int4;people;;0;1652", "age_of_5_and_19;Number of people with age of 5 to 20;(B01001_004E:B01001_007E)+(B01001_028E:B01001_031E);int4;people;;0;9221", "persons_between_the_age_of_20_and_64;Number of people between the age of 20 and 65;(B01001_008E:B01001_019E)+(B01001_032E:B01001_043E);int4;people;;0;11870", "persons_65_years_old_and_over;Number of people 65 years old and over;(B01001_020E:B01001_025E)+(B01001_044E:B01001_049E);int4;people;;0;8868", "born_in_haiti;Number of people born in Haiti;B05006_138E;int4;people;;0;2770", "born_in_venezuela;Number of people born in Venezuela;B05006_164E;int4;people;;0;3054"],
+  "nodata": ["numeric", "-666666666"],
+  "local_epsg": "EPSG:2236",
+  "source": "https://api.census.gov/data/2021/acs/acs5/",
+  "file": ["fl_2021_acs_5yr_tract_fsr"],
+  "extension": "json",
+  "table": "fl_2021_acs_5yr_tract_fsr",
+  "format": "json",
+  "dependency": ["fl_2021_tl_tract"],
+  "custom_etl": "acs_custom_aggregate",
+  "custom_parameters": "for=tract:*|in=state:12",
+  "up": "true",
+  "podID": "gaia-db",
+  "last_updated": "2026-10-17T22:34:37Z",
+  "update_frequency": "Never",
+  "checksum": "TBD"
+}

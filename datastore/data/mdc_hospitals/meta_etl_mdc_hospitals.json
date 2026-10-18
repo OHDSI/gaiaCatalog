@@ -1,0 +1,21 @@
+{
+  "rights": "Public Domain",
+  "structure": "vector",
+  "geometry": "point",
+  "epsg": "EPSG:4326",
+  "extent": "ENVELOPE(-80.491432,-80.145337,25.970049,25.418943)",
+  "attributes": ["objectid;Internal feature number;Esri;int4;;;1;28", "folio;Folio identifier;MDC;varchar;;;;", "name;Name of hospital;MDC;varchar;;;;", "address;Address;MDC;varchar;;;;", "city;City;MDC;varchar;;;;", "zipcode;Zipcode;MDC;int4;;;33012;33189", "phone;Phone number;MDC;varchar;;;;", "bed;Amount of beds;MDC;int4;;;22;1567", "lat;Latitude;MDC;float8;;;25.41894;25.97004", "lon;Longitude;MDC;float8;;;-80.49143;-80.14533", "point_x;X-coordinate;MDC;float8;;;824021.246645246;936959.246818662", "point_y;Y-coordinate;MDC;float8;;;394828.684794404;595720.107485823"],
+  "local_epsg": "EPSG:2236",
+  "derive": ["sql"],
+  "source": "https://services.arcgis.com/8Pc9XBTAsYuxx9Ny/arcgis/rest/services/Hospital_gdb/FeatureServer/0/query?where=1%3D1&outFields=*&outSR=4326&f=json",
+  "file": ["mdc_hospitals"],
+  "extension": "json",
+  "download": "wget",
+  "table": "mdc_hospitals",
+  "format": "json",
+  "up": "true",
+  "podID": "gaia-db",
+  "last_updated": "2026-10-17T22:27:55Z",
+  "update_frequency": "As Needed",
+  "checksum": "TBD"
+}

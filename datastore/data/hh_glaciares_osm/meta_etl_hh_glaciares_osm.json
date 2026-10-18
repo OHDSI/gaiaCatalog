@@ -1,0 +1,23 @@
+{
+  "rights": "Open Data",
+  "structure": "vector",
+  "geometry": "multipolygon",
+  "epsg": "EPSG:4326",
+  "extent": "ENVELOPE(-77.33,-76.55,-9.8,-10.7)",
+  "fields": ["osm_id", "name", "highway", "other_tags"],
+  "attributes": ["osm_id", "name", "highway", "other_tags"],
+  "local_epsg": "EPSG:5387",
+  "derive": ["shp", "geojson", "gpkg"],
+  "source": "https://overpass-api.de/api/interpreter?data=%28nwr%5B%22natural%22=%22glacier%22%5D%28-10.7,-77.33,-9.8,-76.55%29;%29;%28._;%3E;%29;out;",
+  "file": ["hh_glaciares_osm"],
+  "extension": "osm",
+  "download": "curl",
+  "table": "hh_glaciares_osm",
+  "format": "osm",
+  "etl_parameters": "multipolygons",
+  "up": "true",
+  "podID": "gaia-db",
+  "last_updated": "2026-10-17T22:44:34Z",
+  "update_frequency": "As Needed",
+  "checksum": "TBD"
+}

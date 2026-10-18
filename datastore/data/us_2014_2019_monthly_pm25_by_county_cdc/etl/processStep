@@ -15,6 +15,8 @@ cd /data/us_2014_2019_monthly_pm25_by_county_cdc
 # set update flag based on last update and update frequency
 do_update=0 if date() < last_update + update_frequency else do_update = 1
 
+# load us_2019_county_tl as dependency (see us_2019_county_tl for details).
+
 # download if update flag is set:
 if do_update == 1 then
 wget --retry-connrefused --waitretry=1 --read-timeout=20 --timeout=15 -t 10 -O download/us_2014_2019_monthly_pm25_by_county_cdc.csv 'https://data.cdc.gov/api/v3/views/53mz-4zqd/query.csv?query=SELECT%0A%20%20%60year%60%2C%0A%20%20%60date%60%2C%0A%20%20%60statefips%60%2C%0A%20%20%60countyfips%60%2C%0A%20%20%60pm25_max_pred%60%2C%0A%20%20%60pm25_med_pred%60%2C%0A%20%20%60pm25_mean_pred%60%2C%0A%20%20%60pm25_pop_pred%60%0AWHERE%0A%20%20caseless_one_of(%60year%60%2C%20%222014%22%2C%20%222015%22%2C%20%222016%22%2C%20%222017%22%2C%20%222018%22%2C%20%222019%22)&app_token='"$CDC_APP_TOKEN"'' 2>&1
@@ -57,10 +59,10 @@ ALTER TABLE us_2014_2019_monthly_pm25_by_county_cdc
   ADD COLUMN IF NOT EXISTS pm25_pop_pred jsonb;
 UPDATE us_2014_2019_monthly_pm25_by_county_cdc 
 SET
-  pm25_max_pred = temp.pm25_max_pred,
-  pm25_med_pred = temp.pm25_med_pred,
-  pm25_mean_pred = temp.pm25_mean_pred,
-  pm25_pop_pred = temp.pm25_pop_pred
+  pm25_max_pred = temp.pm25_max_pred::jsonb,
+  pm25_med_pred = temp.pm25_med_pred::jsonb,
+  pm25_mean_pred = temp.pm25_mean_pred::jsonb,
+  pm25_pop_pred = temp.pm25_pop_pred::jsonb
 FROM temp
 WHERE us_2014_2019_monthly_pm25_by_county_cdc.geoid = temp.geoid;
 

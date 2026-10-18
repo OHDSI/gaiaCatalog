@@ -1,0 +1,169 @@
+{
+  "@context": {
+    "@vocab": "https://schema.org/",
+    "dct": "http://purl.org/dc/terms/",
+    "qudt": "http://qudt.org/schema/qudt/",
+    "quantitykind": "http://qudt.org/vocab/quantitykind/",
+    "unit": "http://qudt.org/vocab/unit/",
+    "xsd": "http://www.w3.org/2001/XMLSchema",
+    "extendedConstraintProperty": "http://codata.org/vocab/extendedConstraintProperty",
+    "sdmx": "https://sdmx.org"
+  },
+  "@type": "Dataset",
+  "@id": "https://gdsc.idsc.miami.edu/detail/mdc_2021_nlcd_land_cover",
+  "includedInDataCatalog": [
+    {
+      "@type": "DataCatalog",
+      "@id": "https://gdsc.idsc.miami.edu",
+      "name": "Geospatial Digital Special Collections",
+      "url": "https://gdsc.idsc.miami.edu"
+    },
+    {
+      "@type": "DataCatalog",
+      "name": "mdc-climate-resilience",
+      "@id": "https://gdsc.idsc.miami.edu/?collection=mdc-climate-resilience",
+      "url": "https://gdsc.idsc.miami.edu/?collection=mdc-climate-resilience"
+    }
+  ],
+  "name": "2021 Miami-Dade NLCD Land Cover",
+  "creator": [
+    {
+      "@type": "Organization",
+      "name": "Multi-Resolution Land Characteristics Consortium"
+    }
+  ],
+  "url": "https://www.mrlc.gov/data/nlcd-2021-land-cover-conus",
+  "provider": [
+    {
+      "@type": "Organization",
+      "name": "University of Miami GDSC"
+    }
+  ],
+  "spatialCoverage": [
+    {
+      "@id": "https://www.geonames.org/4164238",
+      "@type": "Place",
+      "name": "Miami-Dade County"
+    },
+    {
+      "@type": "Place",
+      "name": "bbox",
+      "geo": {
+        "@type": "GeoShape",
+        "polygon": "22.07673063066848 -130.23282801589895 22.07673063066848 -73.59459648889016 48.70739591304975 -73.59459648889016 48.70739591304975 -130.23282801589895 22.07673063066848 -130.23282801589895"
+      }
+    }
+  ],
+  "type": "Raster Dataset",
+  "datePublished": "2023-06-30",
+  "description": "The U.S. Geological Survey (USGS), in partnership with several federal agencies, has now developed and released seven National Land Cover Database (NLCD) products: NLCD 1992, 2001, 2006, 2011, 2016, 2019, and 2021. Beginning with the 2016 release, land cover products were created for two-to-three-year intervals between 2001 and the most recent year. These products provide spatially explicit and reliable information on the Nation\u2019s land cover and land cover change. NLCD continues to provide innovative, consistent, and robust methodologies for production of a multi-temporal land cover and land cover change database. NLCD 2021 adds an additional year to the map products produced for NLCD 2019, with a streamlined compositing process for assembling and preprocessing Landsat imagery and geospatial ancillary datasets; a temporally, spectrally, and spatially integrated land cover change analysis strategy; a theme-based post-classification protocol for generating land cover and change products; a continuous fields biophysical parameters modeling method; and a scripted operational system. The overall accuracy of the 2019 Level I land cover was 91%. Results from this study confirm the robustness of this comprehensive and highly automated procedure for NLCD 2021 operational mapping (see https://doi.org/10.1080/15481603.2023.2181143 for the latest accuracy assessment publication). Questions about the NLCD 2021 land cover product can be directed to the NLCD 2021 land cover mapping team at USGS EROS, Sioux Falls, SD (605) 594-6151 or mrlc@usgs.gov. See included spatial metadata for more details. ",
+  "keywords": [
+    "land cover",
+    "Landsat",
+    "Sentinel-2",
+    "CONUS",
+    "United States"
+  ],
+  "@language": "en",
+  "measurementTechnique": [
+    {
+      "@type": "DefinedTerm",
+      "description": "GIS Data Structure for Representation",
+      "inDefinedTermSet": {
+        "@type": "DefinedTermSet",
+        "name": "dataRepresentation",
+        "hasDefinedTerm": [
+          {
+            "@type": "DefinedTerm",
+            "termCode": "raster"
+          },
+          {
+            "@type": "DefinedTerm",
+            "termCode": "vector"
+          },
+          {
+            "@type": "DefinedTerm",
+            "termCode": "table"
+          }
+        ]
+      },
+      "termCode": "raster"
+    }
+  ],
+  "additionalProperty": [
+    {
+      "@type": "PropertyValue",
+      "name": "https://dbpedia.org/resource/Ground_sample_distance",
+      "value": 30.0,
+      "unitText": "meters"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "http://dbpedia.org/resource/Spatial_reference_system",
+      "value": "https://epsg.io/4326"
+    }
+  ],
+  "about": [
+    {
+      "@type": "Event",
+      "description": "see process steps in https://www.mrlc.gov/downloads/sciweb1/shared/mrlc/metadata/nlcd_2021_land_cover_l48_20230630.xml",
+      "name": "ETL process for 2021 Miami-Dade NLCD Land Cover",
+      "potentialAction": {
+        "@type": "Action",
+        "name": "Pseudo Code",
+        "description": "TODO"
+      }
+    },
+    {
+      "@type": "Event",
+      "description": "see process steps in https://www.mrlc.gov/downloads/sciweb1/shared/mrlc/metadata/nlcd_2021_land_cover_l48_20230630.xml",
+      "name": "ETL process for 2021 Miami-Dade NLCD Land Cover",
+      "potentialAction": {
+        "@type": "Action",
+        "name": "clip_raster",
+        "description": "Custom ETL process for 2021 Miami-Dade NLCD Land Cover",
+        "object": {
+          "@type": "Dataset",
+          "name": "see process steps in https://www.mrlc.gov/downloads/sciweb1/shared/mrlc/metadata/nlcd_2021_land_cover_l48_20230630.xml",
+          "producer": "Multi-Resolution Land Characteristics Consortium",
+          "url": "https://www.mrlc.gov/data/nlcd-2021-land-cover-conus"
+        },
+        "instrument": {
+          "@type": "SoftwareApplication",
+          "@id": "https://github.com/Geospatial-Digital-Special-Collections/tools",
+          "featureList": "us_2021_nlcd_land_cover fl_2022_tl_cousub countyfp='086' ",
+          "downloadUrl": "https://github.com/Geospatial-Digital-Special-Collections/tools.git"
+        },
+        "result": {
+          "@type": "Dataset",
+          "name": "2021 Miami-Dade NLCD Land Cover",
+          "description": "The U.S. Geological Survey (USGS), in partnership with several federal agencies, has now developed and released seven National Land Cover Database (NLCD) products: NLCD 1992, 2001, 2006, 2011, 2016, 2019, and 2021. Beginning with the 2016 release, land cover products were created for two-to-three-year intervals between 2001 and the most recent year. These products provide spatially explicit and reliable information on the Nation\u2019s land cover and land cover change. NLCD continues to provide innovative, consistent, and robust methodologies for production of a multi-temporal land cover and land cover change database. NLCD 2021 adds an additional year to the map products produced for NLCD 2019, with a streamlined compositing process for assembling and preprocessing Landsat imagery and geospatial ancillary datasets; a temporally, spectrally, and spatially integrated land cover change analysis strategy; a theme-based post-classification protocol for generating land cover and change products; a continuous fields biophysical parameters modeling method; and a scripted operational system. The overall accuracy of the 2019 Level I land cover was 91%. Results from this study confirm the robustness of this comprehensive and highly automated procedure for NLCD 2021 operational mapping (see https://doi.org/10.1080/15481603.2023.2181143 for the latest accuracy assessment publication). Questions about the NLCD 2021 land cover product can be directed to the NLCD 2021 land cover mapping team at USGS EROS, Sioux Falls, SD (605) 594-6151 or mrlc@usgs.gov. See included spatial metadata for more details. "
+        }
+      }
+    }
+  ],
+  "variableMeasured": [
+    {
+      "@type": "PropertyValue",
+      "name": "lc",
+      "description": "Classified land cover"
+    }
+  ],
+  "distribution": "/data/mdc_2021_nlcd_land_cover/",
+  "isBasedOn": [
+    {
+      "@id": "https://gdsc.idsc.miami.edu/details/us_2021_nlcd_land_cover",
+      "@type": "Dataset",
+      "name": "us_2021_nlcd_land_cover",
+      "url": "https://gdsc.idsc.miami.edu/details/us_2021_nlcd_land_cover"
+    },
+    {
+      "@id": "https://gdsc.idsc.miami.edu/details/fl_2022_tl_cousub",
+      "@type": "Dataset",
+      "name": "fl_2022_tl_cousub",
+      "url": "https://gdsc.idsc.miami.edu/details/fl_2022_tl_cousub"
+    }
+  ],
+  "dateModified": "2026-10-17 22:26:25",
+  "version": "2026-10-17"
+}

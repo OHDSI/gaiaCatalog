@@ -1,0 +1,273 @@
+{
+  "control_group": {
+    "id": 15
+  },
+  "dublin_core_group": {
+    "title": "2021 Miami-Dade NDVI",
+    "creator_group": [
+      {
+        "creator_name": "Tyler Harrison",
+        "creator_type": "person",
+        "creator_last_name": "Harrison",
+        "creator_first_name": "Tyler",
+        "creator_identifier": "https://orcid.org/0000-0002-0635-5967",
+        "creator_identifier_schema": "orcid",
+        "creator_identifier_schema_uri": "https://orcid.org/",
+        "creator_affiliation": "School of Communication, University of Miami",
+        "creator_affiliation_identifier": "https://ror.org/02dgjyy92",
+        "creator_affiliation_schema": "ror",
+        "creator_affiliation_schema_uri": "https://ror.org/"
+      },
+      {
+        "creator_name": "Amy C Clement",
+        "creator_type": "person",
+        "creator_last_name": "Clement",
+        "creator_first_name": "Amy C",
+        "creator_identifier": "https://orcid.org/0000-0002-0105-0961",
+        "creator_identifier_schema": "orcid",
+        "creator_identifier_schema_uri": "https://orcid.org/",
+        "creator_affiliation": "Atmospheric Sciences, Rosenstiel School, University of Miami",
+        "creator_affiliation_identifier": "https://ror.org/02dgjyy92",
+        "creator_affiliation_schema": "ror",
+        "creator_affiliation_schema_uri": "https://ror.org/"
+      },
+      {
+        "creator_name": "Gina L. Maranto",
+        "creator_type": "person",
+        "creator_last_name": "Maranto",
+        "creator_first_name": "Gina L."
+      },
+      {
+        "creator_name": "Sam Purkis",
+        "creator_type": "person",
+        "creator_last_name": "Purkis",
+        "creator_first_name": "Sam"
+      },
+      {
+        "creator_name": "Joanna L. Lombard",
+        "creator_type": "person",
+        "creator_last_name": "Lombard",
+        "creator_first_name": "Joanna L."
+      },
+      {
+        "creator_name": "Angela C. Clark-Hughes",
+        "creator_type": "person",
+        "creator_last_name": "Clark-Hughes",
+        "creator_first_name": "Angela C",
+        "creator_identifier": "https://orcid.org/0000-0003-0445-5830",
+        "creator_identifier_schema": "orcid",
+        "creator_identifier_schema_uri": "https://orcid.org/",
+        "creator_affiliation": "Rosenstiel School Library, University of Miami",
+        "creator_affiliation_identifier": "https://ror.org/02dgjyy92",
+        "creator_affiliation_schema": "ror",
+        "creator_affiliation_schema_uri": "https://ror.org/"
+      },
+      {
+        "creator_name": "Abraham K Parrish",
+        "creator_type": "person",
+        "creator_last_name": "Parrish",
+        "creator_first_name": "Abraham K"
+      },
+      {
+        "creator_name": "Marcus B. Reamer",
+        "creator_type": "person",
+        "creator_last_name": "Reamer",
+        "creator_first_name": "Marcus B."
+      },
+      {
+        "creator_name": "Olivia Collins",
+        "creator_type": "person",
+        "creator_last_name": "Collins",
+        "creator_first_name": "Olivia"
+      },
+      {
+        "creator_name": "Caroline Lewis",
+        "creator_type": "person",
+        "creator_last_name": "Lewis",
+        "creator_first_name": "Caroline"
+      },
+      {
+        "creator_name": "Mayra Cruz",
+        "creator_type": "person",
+        "creator_last_name": "Cruz",
+        "creator_first_name": "Mayra"
+      },
+      {
+        "creator_name": "Anaruth Solace",
+        "creator_type": "person",
+        "creator_last_name": "Solace",
+        "creator_first_name": "Anaruth"
+      }
+    ],
+    "url": "https://scholarship.miami.edu/esploro/outputs/991031655220702976",
+    "doi": "https://doi.org/10.17604/p318-6n41",
+    "publisher_group": [
+      {
+        "publisher_name": "University of Miami"
+      },
+      {
+        "publisher_name": "Otto G. Richter Library"
+      }
+    ],
+    "rights": "Public Domain",
+    "license": "odc_by",
+    "license_text": "All data are made available under the Open Data Commons Attribution License: http://opendatacommons.org/licenses/by/1.0/ with the exception of the PhotoVoice photos in the Hylo_Photovoice_Data.pdf file which are for viewing and analysis only. They may not be altered or reproduced in any way.",
+    "coverage_group": [
+      {
+        "coverage_name": "Miami-Dade County",
+        "coverage_identifier": "4164238",
+        "coverage_identifier_schema": "geonames",
+        "coverage_identifier_schema_uri": "https://www.geonames.org/"
+      }
+    ],
+    "resource_type": "Raster Dataset",
+    "publication_date": "2021-11-07",
+    "description": "Greenness measured as a recentered NDVI (Normalized Difference Vegetation Index) moved from -1:1 to 1-100.",
+    "provenance": "Miami Dade County NDVI raster derived from USDA NAIP (National Agriculture Imagery Program). Export NAIP NDVI downsampled to 30 meter resolution from ESRI Living Atlas.",
+    "subject_group": [
+      {
+        "subject_term": "Florida"
+      },
+      {
+        "subject_term": "Miami-Dade County"
+      },
+      {
+        "subject_term": "MDC"
+      },
+      {
+        "subject_term": "Miami-Dade County"
+      },
+      {
+        "subject_term": "Environment"
+      },
+      {
+        "subject_term": "NDVI"
+      },
+      {
+        "subject_term": "Hylo"
+      },
+      {
+        "subject_term": "Homestead"
+      },
+      {
+        "subject_term": "Little River"
+      },
+      {
+        "subject_term": "Public-Safety"
+      }
+    ],
+    "language": "en",
+    "size_group": [
+      {
+        "size_bytes": "533777933",
+        "size_human_readable": "510M"
+      }
+    ]
+  },
+  "iso_group": {
+    "structure": "raster",
+    "band_group": [
+      {
+        "band_name": "30-meter Derived NDVI"
+      }
+    ],
+    "pixel_dimension": 30.0,
+    "dimension_units": "meters",
+    "epsg": 3857,
+    "extent": "ENVELOPE(-80.873813,-80.117611,25.979615,25.137447)",
+    "lineage": "TBD",
+    "process_step": "#########\n# GDSC ETL is performed in two steps: shell script to ETL data into postgres\n# and then additional transformations with SQL in postGIS (if needed).\n####\n\n#########\n# Step 1 - bash script (pseudo code)\n####\n\n# create directory structure and move into it\nmkdir -p /data/mdc_2021_hylo/download -p /data/mdc_2021_hylo/mdc_2021_ndvi_greenness_30m/etl\nchmod -R 777 /data/mdc_2021_hylo\ncd /data/mdc_2021_hylo\n\n# set update flag based on last update and update frequency\ndo_update=0 if date() < last_update + update_frequency else do_update = 1\n\n# download if update flag is set:\nif do_update == 1 then\nwget --retry-connrefused --waitretry=1 --read-timeout=20 --timeout=15 -t 10 -O download/mdc_2021_hylo.zip 'https://scholarship.miami.edu/view/fileRedirect?instCode=01UOML_INST&filePid=13395678880002976&download=true' 2>&1\n\n# unzip to download directory if update flag is set\nif do_update == 1 then\nunzip -o download/mdc_2021_hylo.zip -d download && rm download/mdc_2021_hylo.zip 2>&1\n\n# load raster into postGIS with:\n    raster2pgsql -s 3857 -d -C -I -t 48x48 GeoTIFF_Rasters/Greenness_30m_MDC.tif -F mdc_2021_ndvi_greenness_30m > load_raster.sql\npsql <connection options> < load_raster.sql\nrm load_raster.sql\n\n# create color raster\nmkdir -p /tiles/raster/mdc_2021_ndvi_greenness_30m\nmkdir -p /data/mdc_2021_hylo/mdc_2021_ndvi_greenness_30m/derived\ncd /data/mdc_2021_hylo\ncat > /data/mdc_2021_hylo/mdc_2021_ndvi_greenness_30m/derived/mdc_2021_ndvi_greenness_30m_color_ramp.txt <<_EOF\nnv 0 0 0 0\n178 0 68 27 255\n160.2 0 109 44 255\n142.4 29 134 65 255\n124.6 53 159 84 255\n106.8 85 181 103 255\n89 123 199 124 255\n71.2 158 215 152 255\n53.4 187 228 181 255\n35.6 213 239 207 255\n17.8 233 247 229 255\n1 247 252 245 255\n0 0 0 0 0\n_EOF\ngdaldem color-relief download/GeoTIFF_Rasters/Greenness_30m_MDC.tif /data/mdc_2021_hylo/mdc_2021_ndvi_greenness_30m/derived/mdc_2021_ndvi_greenness_30m_color_ramp.txt /data/mdc_2021_hylo/mdc_2021_ndvi_greenness_30m/derived/mdc_2021_ndvi_greenness_30m_color.tif -alpha\n# create color raster and render raster tiles \nmkdir -p /data/mdc_2021_hylo/mdc_2021_ndvi_greenness_30m/derived\nmkdir -p /tiles/raster/mdc_2021_ndvi_greenness_30m\ncd /data/mdc_2021_hylo\necho \"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\" | base64 -d > /data/mdc_2021_hylo/mdc_2021_ndvi_greenness_30m/derived/mdc_2021_ndvi_greenness_30m_legend.png\ncp /data/mdc_2021_hylo/mdc_2021_ndvi_greenness_30m/derived/mdc_2021_ndvi_greenness_30m_legend.png /tiles/raster/mdc_2021_ndvi_greenness_30m/\n# render raster tiles \ncd /data/mdc_2021_hylo/mdc_2021_ndvi_greenness_30m/\ngdal2tiles.py -ex --xyz -z 8-16 /data/mdc_2021_hylo/mdc_2021_ndvi_greenness_30m/derived/mdc_2021_ndvi_greenness_30m_color.tif /tiles/raster/mdc_2021_ndvi_greenness_30m\n",
+    "processor": "GDSC automation (see Process Step)",
+    "point_of_contact_group": [
+      {
+        "contact_name": "Timothy B. Norris",
+        "contact_last_name": "Norris",
+        "contact_first_name": "Timothy",
+        "contact_email": "tnorris@miami.edu",
+        "contact_identifier": "https://orcid.org/0000-0002-0898-3027",
+        "contact_identifier_schema": "orcid",
+        "contact_identifier_schema_uri": "https://orcid.org/",
+        "contact_affiliation": "University of Miami Libraries, Frost Institute for Data Science and Computing",
+        "contact_affiliation_identifier": "https://ror.org/02dgjyy92",
+        "contact_affiliation_schema": "ror",
+        "contact_affiliation_schema_uri": "https://ror.org/"
+      }
+    ],
+    "data_level": "derived"
+  },
+  "cartography_group": {
+    "attributes_group": [
+      {
+        "attribute_name": "NDVI",
+        "attribute_description": "Normalized Difference Vegetation Index recentered from -1:1 to 1-200",
+        "attribute_source": "derived from LandSat",
+        "attribute_type": "int8",
+        "attribute_unit": "-1:1 ~ 0-200",
+        "attribute_unit_concept_id": "0",
+        "attribute_min_value": "0",
+        "attribute_max_value": "184",
+        "attribute_start_date": "2023"
+      }
+    ],
+    "tile_url_group": [
+      {
+        "tile_base_url": "https://gdsc.idsc.miami.edu/rastertiles/mdc_2021_ndvi_greenness_30m/"
+      },
+      {
+        "tile_base_url": "{z}/{x}/{y}.png"
+      },
+      {
+        "tile_base_url": "leaflet.html"
+      }
+    ],
+    "color_ramp": "nv 0 0 0 0\n178 0 68 27 255\n160.2 0 109 44 255\n142.4 29 134 65 255\n124.6 53 159 84 255\n106.8 85 181 103 255\n89 123 199 124 255\n71.2 158 215 152 255\n53.4 187 228 181 255\n35.6 213 239 207 255\n17.8 233 247 229 255\n1 247 252 245 255\n0 0 0 0 0",
+    "legend": "TBD",
+    "tile_zoom_group": [
+      {
+        "tile_min_zoom": "8"
+      },
+      {
+        "tile_min_zoom": "16"
+      }
+    ]
+  },
+  "collection_group": {
+    "collections": "climate-change vulnerability climate-and-equity-mapping-program miami-affordability-project mdc-sleep-outcomes",
+    "analytic_function": "gdsc_zonal_statistics",
+    "analytic_epsg": 2236,
+    "derivative_url": "/data/mdc_2021_hylo/mdc_2021_ndvi_greenness_30m/",
+    "sponsor_group": [
+      {
+        "sponsor_name": "IDSC",
+        "sponsor_url": "https://idsc.miami.edu"
+      },
+      {
+        "sponsor_name": "Library",
+        "sponsor_url": "https://www.library.miami.edu"
+      }
+    ]
+  },
+  "etl_group": {
+    "source": "https://scholarship.miami.edu/view/fileRedirect?instCode=01UOML_INST&filePid=13395678880002976&download=true",
+    "file_name_group": [
+      {
+        "file_name_value": "mdc_2021_hylo",
+        "file_inside_archive": "GeoTIFF_Rasters/Greenness_30m_MDC"
+      }
+    ],
+    "extension": "zip",
+    "download": "wget",
+    "table_name": "mdc_2021_ndvi_greenness_30m",
+    "format": "tif",
+    "etl_parameters": "-t 48x48",
+    "up": "true",
+    "podid": "gaia-db",
+    "last_updated": "2026-10-05 21:40:39",
+    "update_frequency": "Never",
+    "checksum": "TBD"
+  },
+  "_submission_time": "2026-10-09 23:52:02",
+  "meta": {
+    "instanceID": "788aab9b-bad3-444b-a9b6-74707617903"
+  }
+}

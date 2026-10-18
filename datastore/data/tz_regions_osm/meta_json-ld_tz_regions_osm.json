@@ -50,7 +50,7 @@
       "name": "bbox",
       "geo": {
         "@type": "GeoShape",
-        "polygon": "29.5946708 -11.761254 29.5946708 -0.9854812 40.4453945 -0.9854812 40.4453945 -11.761254 29.5946708 -11.761254"
+        "polygon": "-11.761254 29.594671 -11.761254 40.445394 -0.985481 40.445394 -0.985481 29.594671 -11.761254 29.594671"
       }
     }
   ],
@@ -62,6 +62,7 @@
     "Regions",
     "Administrative Boundaries"
   ],
+  "@language": "en",
   "measurementTechnique": [
     {
       "@type": "DefinedTerm",
@@ -172,41 +173,38 @@
     },
     {
       "@type": "PropertyValue",
-      "name": "\nname",
-      "description": "Region name"
+      "name": "name",
+      "description": "Region name",
+      "qudt:dataType": "varchar"
     },
     {
       "@type": "PropertyValue",
-      "name": "\ntype",
-      "description": "Type of boundary"
+      "name": "type",
+      "description": "Type of boundary",
+      "qudt:dataType": "varchar"
     },
     {
       "@type": "PropertyValue",
-      "name": "\nadmin_level",
-      "description": "OSM Administrative level"
+      "name": "admin_level",
+      "description": "OSM Administrative level",
+      "qudt:dataType": "varchar"
     },
     {
       "@type": "PropertyValue",
-      "name": "\nboundary",
-      "description": "OSM boundary type"
+      "name": "boundary",
+      "description": "OSM boundary type",
+      "qudt:dataType": "varchar"
     },
     {
       "@type": "PropertyValue",
-      "name": "\nother_tags",
-      "description": "Any other OSM tags with values, first one is the ISO3166-2 code for the administrative region"
+      "name": "other_tags",
+      "description": "Any other OSM tags with values, first one is the ISO3166-2 code for the administrative region",
+      "qudt:dataType": "varchar"
     }
   ],
   "distribution": [
     "https://gdsc.idsc.miami.edu/download/data/tz_regions_osm/?file=tz_regions_osm&format=shp"
   ],
-  "isBasedOn": [
-    {
-      "@id": "https://gdsc.idsc.miami.edu/details/api",
-      "@type": "Dataset",
-      "name": "api",
-      "url": "https://gdsc.idsc.miami.edu/details/api"
-    }
-  ],
-  "dateModified": "2025-02-24",
-  "version": "2026-09-13"
+  "dateModified": "2025-09-07 11:19:11",
+  "version": "2026-10-09"
 }

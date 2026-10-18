@@ -1,0 +1,232 @@
+/* ************************************************************************** */
+/*  style.css                                                                 */
+/*  For the GDSC catalog browser                                              */
+/*  Tim Norris <tnorris@miami.edu>                                            */
+/*  contributions by claude code running gpt-oss:20b with ollama              */
+/* ************************************************************************** */
+
+/* -------------------------------------------------------------------------- */
+/*  Root variables                                                            */
+/* -------------------------------------------------------------------------- */
+
+:root {
+  --primary: #0066cc;
+  --primary-dark: #005bb5;
+  --bg: #f9f9f9;
+  --card-bg: #fff;
+  --card-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  --font-base: 16px;
+  --spacing: 0.5rem;
+  --small-circle: 10px;
+  --large-circle: 23px; 
+  --bs-modal-width: 800px;
+}
+
+/* -------------------------------------------------------------------------- */
+/*  Global styles                                                             */
+/* -------------------------------------------------------------------------- */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  font-family: system-ui, sans-serif;
+  font-size: var(--font-base);
+  line-height: 1.5;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: #333;
+}
+
+#content {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  padding: 1em; /* var(--spacing); */
+  /* margin: 1em; */
+}
+
+.highlight-term {
+  background-color: #ffc;
+}
+.wrapScroll {
+  white-space: nowrap;
+  overflow-x: auto;
+  border: 1px solid grey;
+  border-radius: 4px;
+}
+
+.gdsc-header, .gdsc-content, .gdsc-footer {
+  background: var(--bs-white);
+}
+
+/* -------------------------------------------------------------------------- */
+/*  progress modal                                                            */
+/* -------------------------------------------------------------------------- */
+
+.progress-dialog {
+  width: 90%;
+  max-width: 800px;
+}
+.progress-content {
+  max-width: 800px;
+  height: 80%;
+  max-height: 500px;
+  width: 90%;
+}
+.progress-steps {
+  max-height: 80%;
+  overflow-y: auto; 
+  margin-bottom: 1em;
+}
+.progress-steps pre {
+  overflow: unset;
+}
+.modal-content h2 {
+  margin-top: 0;
+}
+.modal-content form {
+  display: flex;
+  flex-direction: column;
+}
+.modal-content label {
+  margin-bottom: 0.5rem;
+}
+.modal-content input[type="url"] {
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-bottom: 1rem;
+}
+.modal-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.5rem;
+}
+.progress-content {
+  font-size: 1rem; 
+}
+.progress-success {
+  font-weight: 800;
+  font-size: 1.1em;
+  color: #007700;
+}
+.progress-fail {
+  color: #770000;
+}
+
+/* -------------------------------------------------------------------------- */
+/*  Interface response for loading and searching                              */
+/* -------------------------------------------------------------------------- */
+
+.highlight-term {
+  background-color: #ffc;
+}
+.circle {
+  position: relative;
+  border-radius: 100%;
+  display: inline-block;
+}
+.small-circle {
+  width: 10px;
+  height: 10px;
+  border-radius: 5px 5px 5px 5px;
+  margin-left: 5px;
+  margin-top: 5px;
+}
+.large-circle {
+  width: 24px;
+  height: 24px;
+  border-radius: 12px 12px 12px 12px;
+  margin-left: 12px;
+  margin-top: 12px;
+}
+.green-fill {
+  background: green;
+}
+.red-fill {                                          
+  background: red;
+  cursor: pointer;
+}
+
+/* -------------------------------------------------------------------------- */
+/*  yin-yang spinner                                                          */
+/* -------------------------------------------------------------------------- */
+
+.yin-yang {
+  box-sizing: border-box;
+  position:relative;
+  border-style:solid;
+  background:#fff;
+  border-radius: 100%;
+  -webkit-animation:spin 4s linear infinite;
+  -moz-animation:spin 4s linear infinite;
+  animation:spin 4s linear infinite;
+}
+.yin-yang:before,
+.yin-yang:after {
+  content:"";
+  position:absolute;
+  top:50%;
+  border-radius: 100%;
+  box-sizing: content-box;
+}
+.yin-yang:before {
+  background:white;
+  left:0;
+}
+.yin-yang:after {
+  left:50%;
+}
+
+.yin-yang-large {
+  border-color:rgb(152, 152, 152);
+  margin-right: 42px;
+  width:42px;
+  height:42px;
+  border-width:2px 2px 22px 2px;
+}
+.yin-yang-large:before,
+.yin-yang-large:after {
+  width:5px;
+  height:5px;
+}
+.yin-yang-large:before {
+  border:7px solid rgb(152, 152, 152);
+}
+.yin-yang-large:after {
+  background:rgb(152, 152, 152);
+  border:7px solid white;
+}
+
+.yin-yang-small {
+  border-color:rgb(255, 0, 0);
+  margin-top: 5px;
+  margin-left: 5px;
+  display: inline-block;
+  width:10px;
+  height:10px;
+  border-width:1px 1px 4px 1px;
+}
+.yin-yang-small:before,
+.yin-yang-small:after {
+  width: 1.25px;
+  height:1.25px;
+}
+.yin-yang-small:before {
+  border:1.35px solid rgb(255, 0, 0);
+}
+.yin-yang-small:after {
+  background:rgb(255, 0, 0);
+  border:1.35px solid white;
+}
+
+@-moz-keyframes spin { 100% { -moz-transform: rotate(360deg); } }
+@-webkit-keyframes spin { 100% { -webkit-transform: rotate(360deg); } }
+@keyframes spin { 100% { -webkit-transform: rotate(360deg); transform:rotate(360deg); } }

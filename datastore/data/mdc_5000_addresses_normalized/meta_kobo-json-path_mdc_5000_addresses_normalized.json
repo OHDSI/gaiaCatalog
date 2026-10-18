@@ -1,0 +1,116 @@
+{
+  "control_group": {
+    "id": 121
+  },
+  "dublin_core_group": {
+    "title": "Miami-Dade County 5000 Addresses Normalized (Random)",
+    "creator_group": [
+      {
+        "creator_name": "Fake Researcher"
+      }
+    ],
+    "publisher_group": [
+      {
+        "publisher_name": "University of Miami GDSC"
+      }
+    ],
+    "rights": "Restricted",
+    "restrictions": "Not for use outside of some research group",
+    "coverage_group": [
+      {
+        "coverage_name": "Miami-Dade County",
+        "coverage_identifier": "4164238",
+        "coverage_identifier_schema": "geonames",
+        "coverage_identifier_schema_uri": "https://www.geonames.org/"
+      }
+    ],
+    "resource_type": "Vector Dataset",
+    "publication_date": "2024-06-24",
+    "description": "A set of 5000 random addresses in Miami-Dade County.",
+    "provenance": "Randomly drawn from Miami-Dade Property Point View (from Miami-Dade county open data portal)",
+    "subject_group": [
+      {
+        "subject_term": "Miami-Dade"
+      }
+    ],
+    "language": "en",
+    "size_group": [
+      {
+        "size_bytes": "0",
+        "size_human_readable": "0"
+      }
+    ]
+  },
+  "iso_group": {
+    "structure": "vector",
+    "geometry": "point",
+    "epsg": 4326,
+    "extent": "TBD",
+    "lineage": "TBD",
+    "process_step": "#########\n# GDSC ETL is performed in two steps: shell script to ETL data into postgres\n# and then additional transformations with SQL in postGIS (if needed).\n####\n\n#########\n# Step 1 - bash script (pseudo code)\n####\n\n# create directory structure and move into it\nmkdir -p /data/mdc_5000_addresses_normalized/download -p /data/mdc_5000_addresses_normalized/etl\nchmod -R 777 /data/mdc_5000_addresses_normalized\ncd /data/mdc_5000_addresses_normalized\n\n# set update flag based on last update and update frequency\ndo_update=0 if date() < last_update + update_frequency else do_update = 1\n\n# remove spaces, periods, and leading numerical digits in column headers (if needed)\n  if (head -n 1 download/mdc_5000_addresses_normalized.csv | grep -qE '\s|\.|\\"[0-9]'); then\n    sed -i '1s/ /_/g; 1s/\.//g; 1s/\\"\([0-9]\)/\\"n\1/g' download/mdc_5000_addresses_normalized.csv 2>&1\n  fi\n\n# load into postGIS with:\nogr2ogr -lco GEOMETRY_NAME=geom -f PostgreSQL PG:\"<postgres connection>\" download/mdc_5000_addresses_normalized.csv -oo X_POSSIBLE_NAMES=x_coord -oo Y_POSSIBLE_NAMES=y_coord -s_srs EPSG:2236 -t_srs EPSG:4326 -nlt point -nln mdc_5000_addresses_normalized\necho success: mdc_5000_addresses_normalized.csv loaded with ogr2ogr\n\n\n#########\n# Step 2 - SQL script (pseudo code):\n####\n\n# remove duplicate points and make geometries valid:\nUPDATE mdc_5000_addresses_normalized\n  SET geom=ST_MakeValid(ST_RemoveRepeatedPoints(geom));\n\n# add local geometry column and reproject existing geometries into local EPSG:\nALTER TABLE mdc_5000_addresses_normalized DROP COLUMN IF EXISTS geom_local CASCADE;\nSELECT AddGeometryColumn (\n  'mdc_5000_addresses_normalized',\n  'geom_local', 2236, 'point', 2\n);\nUPDATE mdc_5000_addresses_normalized\n  SET geom_local=ST_MakeValid(ST_RemoveRepeatedPoints(ST_Transform(geom,2236)));\nCREATE INDEX mdc_5000_addresses_normalized_geom_local_idx\n  ON mdc_5000_addresses_normalized\n  USING GIST (geom_local);\nNOTIFY pgrst, 'reload schema';\n",
+    "processor": "GDSC automation (see Process Step)",
+    "point_of_contact_group": [
+      {
+        "contact_name": "Timothy B. Norris",
+        "contact_last_name": "Norris",
+        "contact_first_name": "Timothy",
+        "contact_email": "tnorris@miami.edu",
+        "contact_identifier": "https://orcid.org/0000-0002-0898-3027",
+        "contact_identifier_schema": "orcid",
+        "contact_identifier_schema_uri": "https://orcid.org/",
+        "contact_affiliation": "University of Miami Libraries, Frost Institute for Data Science and Computing",
+        "contact_affiliation_identifier": "https://ror.org/02dgjyy92",
+        "contact_affiliation_schema": "ror",
+        "contact_affiliation_schema_uri": "https://ror.org/"
+      }
+    ],
+    "data_level": "observed"
+  },
+  "cartography_group": {
+    "label": "folio",
+    "attributes_group": [
+      {
+        "attribute_name": "folio"
+      }
+    ]
+  },
+  "collection_group": {
+    "collections": "mdc-health-outcomes",
+    "analytic_function": "gdsc_nearest_neighbor",
+    "analytic_epsg": 2236,
+    "derivative_url": "/data/mdc_5000_addresses_normalized/",
+    "sponsor_group": [
+      {
+        "sponsor_name": "IDSC",
+        "sponsor_url": "https://idsc.miami.edu"
+      },
+      {
+        "sponsor_name": "Library",
+        "sponsor_url": "https://www.library.miami.edu"
+      }
+    ],
+    "status": "draft"
+  },
+  "etl_group": {
+    "source": "file:///data/mdc_5000_addresses_normalized/download/mdc_5000_addresses_normalized",
+    "file_name_group": [
+      {
+        "file_name_value": "mdc_5000_addresses_normalized"
+      }
+    ],
+    "extension": "csv",
+    "download": "local",
+    "table_name": "mdc_5000_addresses_normalized",
+    "format": "csv",
+    "etl_parameters": "-oo X_POSSIBLE_NAMES=x_coord -oo Y_POSSIBLE_NAMES=y_coord -s_srs EPSG:2236 -t_srs EPSG:4326",
+    "up": "true",
+    "podid": "gaia-db",
+    "last_updated": "2026-10-17 22:39:09",
+    "update_frequency": "As Needed",
+    "checksum": "TBD"
+  },
+  "_submission_time": "2026-10-17 22:39:10",
+  "meta": {
+    "instanceID": "635c9ca1-72a6-4a03-88ec-68833262070"
+  }
+}

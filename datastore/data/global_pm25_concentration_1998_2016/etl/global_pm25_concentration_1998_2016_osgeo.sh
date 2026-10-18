@@ -6,7 +6,7 @@
 # Data source: https://sedac.ciesin.columbia.edu/downloads/data/sdei/sdei-annual-pm2-5-concentrations-countries-urban-areas-v1-1998-2016/sdei-annual-pm2-5-concentrations-countries-urban-areas-v1-1998-2016-urban-areas-shp.zip
 # Destination postGIS table: global_pm25_concentration_1998_2016
 #
-# Created by etl() on 2026-09-13 15:22:49
+# Created by etl() on 2026-10-09 22:41:53
 # Do not edit directly
 
 # set credentials from postgres defaults and secret files
@@ -37,7 +37,7 @@ if [[ $exists ]]; then
   if [[ ! $no_update ]]; then
     last_update=$(date -d "$(cat datestamp)" '+%s')
     check_date="$(date -d '-'"$update_frequency" '+%s')"
-    if [[ "$check_date -ge $last_update" ]]; then do_update=1; fi
+    if [[ "$check_date" -ge "$last_update" ]]; then do_update=1; fi
   fi
 
 # does not exist

@@ -1,0 +1,20 @@
+{
+  "rights": "Public Domain",
+  "structure": "vector",
+  "geometry": "multipolygon",
+  "epsg": "EPSG:4686",
+  "extent": "ENVELOPE(83785.217800,107888.796900,126186.546900,85562.765000)",
+  "attributes": ["fid", "objectid", "codigo_man", "estrato", "codigo_zon", "codigo_cri", "normativa", "acto_admin", "numero_act", "fecha_acto", "escala_cap", "fecha_capt", "responsabl", "shape_area", "shape_len"],
+  "local_epsg": "EPSG:4686",
+  "source": "https://datosabiertos.bogota.gov.co/dataset/55467552-0af4-4524-a390-a2956035744e/resource/29f2d770-bd5d-4450-9e95-8737167ba12f/download/manzanaestratificacion.json",
+  "file": ["bogota_2019_estratos_manzana_dane"],
+  "extension": "json",
+  "download": "wget",
+  "table": "bogota_2019_estratos_manzana_dane",
+  "format": "json",
+  "up": "false",
+  "podID": "gaia-db",
+  "last_updated": "2026-10-17T22:35:28Z",
+  "update_frequency": "Never",
+  "checksum": "TBD"
+}

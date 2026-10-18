@@ -1,0 +1,479 @@
+#!/bin/bash
+
+# mdc_2020_2024_acs_5yr_trends_tract_dvmt_postgis.sh
+# Finish ETL into postGIS from postgis_postgis container
+#
+# Data source: https://api.census.gov/data/
+# Destination postGIS table: mdc_2020_2024_acs_5yr_trends_tract_dvmt
+#
+# Created by etl() on 2026-10-17 22:32:32
+# Do not edit directly
+
+# set credentials from postgres defaults and secret files
+export POSTGRES_PASSWORD=$(cat $PG_PASSWORD_FILE)
+export CDC_APP_TOKEN=$(cat $CDC_APP_TOKEN_FILE)
+export AIRNOW_API_KEY=$(cat $AIRNOW_API_KEY_FILE)
+export USGS_USER=$(cat $USGS_USER_FILE)
+export USGS_PASSWORD=$(cat $USGS_PASSWORD_FILE)
+export CENSUS_API_KEY=$(cat $CENSUS_API_KEY_FILE)
+
+# Create copy of first dependency
+pg_dump -d $POSTGRES_DB -U $POSTGRES_USER -p $POSTGRES_PORT -h gaia-db -t mdc_2024_acs_5yr_tract_dvmt | sed 's/mdc_2024_acs_5yr_tract_dvmt/mdc_2020_2024_acs_5yr_trends_tract_dvmt/g' | psql -d $POSTGRES_DB -U $POSTGRES_USER -p $POSTGRES_PORT -h gaia-db
+
+psql -d $POSTGRES_DB -U $POSTGRES_USER -p $POSTGRES_PORT -h gaia-db -c "
+-- change column to jsonb
+ALTER TABLE mdc_2020_2024_acs_5yr_trends_tract_dvmt
+ALTER COLUMN total_population TYPE jsonb USING to_jsonb(total_population);
+-- update column total_population in mdc_2020_2024_acs_5yr_trends_tract_dvmt
+UPDATE mdc_2020_2024_acs_5yr_trends_tract_dvmt
+SET total_population = jsonb_build_object('2024-01-01/2024-12-31',mdc_2020_2024_acs_5yr_trends_tract_dvmt.total_population,'2023-01-01/2023-12-31',mdc_2023_acs_5yr_tract_dvmt.total_population,'2022-01-01/2022-12-31',mdc_2022_acs_5yr_tract_dvmt.total_population,'2021-01-01/2021-12-31',mdc_2021_acs_5yr_tract_dvmt.total_population,'2020-01-01/2020-12-31',mdc_2020_acs_5yr_tract_dvmt.total_population)
+FROM mdc_2023_acs_5yr_tract_dvmt,mdc_2022_acs_5yr_tract_dvmt,mdc_2021_acs_5yr_tract_dvmt,mdc_2020_acs_5yr_tract_dvmt
+WHERE mdc_2020_2024_acs_5yr_trends_tract_dvmt.geoid = mdc_2023_acs_5yr_tract_dvmt.geoid
+  AND mdc_2020_2024_acs_5yr_trends_tract_dvmt.geoid = mdc_2022_acs_5yr_tract_dvmt.geoid
+  AND mdc_2020_2024_acs_5yr_trends_tract_dvmt.geoid = mdc_2021_acs_5yr_tract_dvmt.geoid
+  AND mdc_2020_2024_acs_5yr_trends_tract_dvmt.geoid = mdc_2020_acs_5yr_tract_dvmt.geoid;
+-- change column to jsonb
+ALTER TABLE mdc_2020_2024_acs_5yr_trends_tract_dvmt
+ALTER COLUMN persons_4_years_old_and_younger TYPE jsonb USING to_jsonb(persons_4_years_old_and_younger);
+-- update column persons_4_years_old_and_younger in mdc_2020_2024_acs_5yr_trends_tract_dvmt
+UPDATE mdc_2020_2024_acs_5yr_trends_tract_dvmt
+SET persons_4_years_old_and_younger = jsonb_build_object('2024-01-01/2024-12-31',mdc_2020_2024_acs_5yr_trends_tract_dvmt.persons_4_years_old_and_younger,'2023-01-01/2023-12-31',mdc_2023_acs_5yr_tract_dvmt.persons_4_years_old_and_younger,'2022-01-01/2022-12-31',mdc_2022_acs_5yr_tract_dvmt.persons_4_years_old_and_younger,'2021-01-01/2021-12-31',mdc_2021_acs_5yr_tract_dvmt.persons_4_years_old_and_younger,'2020-01-01/2020-12-31',mdc_2020_acs_5yr_tract_dvmt.persons_4_years_old_and_younger)
+FROM mdc_2023_acs_5yr_tract_dvmt,mdc_2022_acs_5yr_tract_dvmt,mdc_2021_acs_5yr_tract_dvmt,mdc_2020_acs_5yr_tract_dvmt
+WHERE mdc_2020_2024_acs_5yr_trends_tract_dvmt.geoid = mdc_2023_acs_5yr_tract_dvmt.geoid
+  AND mdc_2020_2024_acs_5yr_trends_tract_dvmt.geoid = mdc_2022_acs_5yr_tract_dvmt.geoid
+  AND mdc_2020_2024_acs_5yr_trends_tract_dvmt.geoid = mdc_2021_acs_5yr_tract_dvmt.geoid
+  AND mdc_2020_2024_acs_5yr_trends_tract_dvmt.geoid = mdc_2020_acs_5yr_tract_dvmt.geoid;
+-- change column to jsonb
+ALTER TABLE mdc_2020_2024_acs_5yr_trends_tract_dvmt
+ALTER COLUMN age_of_5_and_19 TYPE jsonb USING to_jsonb(age_of_5_and_19);
+-- update column age_of_5_and_19 in mdc_2020_2024_acs_5yr_trends_tract_dvmt
+UPDATE mdc_2020_2024_acs_5yr_trends_tract_dvmt
+SET age_of_5_and_19 = jsonb_build_object('2024-01-01/2024-12-31',mdc_2020_2024_acs_5yr_trends_tract_dvmt.age_of_5_and_19,'2023-01-01/2023-12-31',mdc_2023_acs_5yr_tract_dvmt.age_of_5_and_19,'2022-01-01/2022-12-31',mdc_2022_acs_5yr_tract_dvmt.age_of_5_and_19,'2021-01-01/2021-12-31',mdc_2021_acs_5yr_tract_dvmt.age_of_5_and_19,'2020-01-01/2020-12-31',mdc_2020_acs_5yr_tract_dvmt.age_of_5_and_19)
+FROM mdc_2023_acs_5yr_tract_dvmt,mdc_2022_acs_5yr_tract_dvmt,mdc_2021_acs_5yr_tract_dvmt,mdc_2020_acs_5yr_tract_dvmt
+WHERE mdc_2020_2024_acs_5yr_trends_tract_dvmt.geoid = mdc_2023_acs_5yr_tract_dvmt.geoid
+  AND mdc_2020_2024_acs_5yr_trends_tract_dvmt.geoid = mdc_2022_acs_5yr_tract_dvmt.geoid
+  AND mdc_2020_2024_acs_5yr_trends_tract_dvmt.geoid = mdc_2021_acs_5yr_tract_dvmt.geoid
+  AND mdc_2020_2024_acs_5yr_trends_tract_dvmt.geoid = mdc_2020_acs_5yr_tract_dvmt.geoid;
+-- change column to jsonb
+ALTER TABLE mdc_2020_2024_acs_5yr_trends_tract_dvmt
+ALTER COLUMN persons_between_the_age_of_20_and_64 TYPE jsonb USING to_jsonb(persons_between_the_age_of_20_and_64);
+-- update column persons_between_the_age_of_20_and_64 in mdc_2020_2024_acs_5yr_trends_tract_dvmt
+UPDATE mdc_2020_2024_acs_5yr_trends_tract_dvmt
+SET persons_between_the_age_of_20_and_64 = jsonb_build_object('2024-01-01/2024-12-31',mdc_2020_2024_acs_5yr_trends_tract_dvmt.persons_between_the_age_of_20_and_64,'2023-01-01/2023-12-31',mdc_2023_acs_5yr_tract_dvmt.persons_between_the_age_of_20_and_64,'2022-01-01/2022-12-31',mdc_2022_acs_5yr_tract_dvmt.persons_between_the_age_of_20_and_64,'2021-01-01/2021-12-31',mdc_2021_acs_5yr_tract_dvmt.persons_between_the_age_of_20_and_64,'2020-01-01/2020-12-31',mdc_2020_acs_5yr_tract_dvmt.persons_between_the_age_of_20_and_64)
+FROM mdc_2023_acs_5yr_tract_dvmt,mdc_2022_acs_5yr_tract_dvmt,mdc_2021_acs_5yr_tract_dvmt,mdc_2020_acs_5yr_tract_dvmt
+WHERE mdc_2020_2024_acs_5yr_trends_tract_dvmt.geoid = mdc_2023_acs_5yr_tract_dvmt.geoid
+  AND mdc_2020_2024_acs_5yr_trends_tract_dvmt.geoid = mdc_2022_acs_5yr_tract_dvmt.geoid
+  AND mdc_2020_2024_acs_5yr_trends_tract_dvmt.geoid = mdc_2021_acs_5yr_tract_dvmt.geoid
+  AND mdc_2020_2024_acs_5yr_trends_tract_dvmt.geoid = mdc_2020_acs_5yr_tract_dvmt.geoid;
+-- change column to jsonb
+ALTER TABLE mdc_2020_2024_acs_5yr_trends_tract_dvmt
+ALTER COLUMN persons_65_years_old_and_over TYPE jsonb USING to_jsonb(persons_65_years_old_and_over);
+-- update column persons_65_years_old_and_over in mdc_2020_2024_acs_5yr_trends_tract_dvmt
+UPDATE mdc_2020_2024_acs_5yr_trends_tract_dvmt
+SET persons_65_years_old_and_over = jsonb_build_object('2024-01-01/2024-12-31',mdc_2020_2024_acs_5yr_trends_tract_dvmt.persons_65_years_old_and_over,'2023-01-01/2023-12-31',mdc_2023_acs_5yr_tract_dvmt.persons_65_years_old_and_over,'2022-01-01/2022-12-31',mdc_2022_acs_5yr_tract_dvmt.persons_65_years_old_and_over,'2021-01-01/2021-12-31',mdc_2021_acs_5yr_tract_dvmt.persons_65_years_old_and_over,'2020-01-01/2020-12-31',mdc_2020_acs_5yr_tract_dvmt.persons_65_years_old_and_over)
+FROM mdc_2023_acs_5yr_tract_dvmt,mdc_2022_acs_5yr_tract_dvmt,mdc_2021_acs_5yr_tract_dvmt,mdc_2020_acs_5yr_tract_dvmt
+WHERE mdc_2020_2024_acs_5yr_trends_tract_dvmt.geoid = mdc_2023_acs_5yr_tract_dvmt.geoid
+  AND mdc_2020_2024_acs_5yr_trends_tract_dvmt.geoid = mdc_2022_acs_5yr_tract_dvmt.geoid
+  AND mdc_2020_2024_acs_5yr_trends_tract_dvmt.geoid = mdc_2021_acs_5yr_tract_dvmt.geoid
+  AND mdc_2020_2024_acs_5yr_trends_tract_dvmt.geoid = mdc_2020_acs_5yr_tract_dvmt.geoid;
+-- change column to jsonb
+ALTER TABLE mdc_2020_2024_acs_5yr_trends_tract_dvmt
+ALTER COLUMN white_alone TYPE jsonb USING to_jsonb(white_alone);
+-- update column white_alone in mdc_2020_2024_acs_5yr_trends_tract_dvmt
+UPDATE mdc_2020_2024_acs_5yr_trends_tract_dvmt
+SET white_alone = jsonb_build_object('2024-01-01/2024-12-31',mdc_2020_2024_acs_5yr_trends_tract_dvmt.white_alone,'2023-01-01/2023-12-31',mdc_2023_acs_5yr_tract_dvmt.white_alone,'2022-01-01/2022-12-31',mdc_2022_acs_5yr_tract_dvmt.white_alone,'2021-01-01/2021-12-31',mdc_2021_acs_5yr_tract_dvmt.white_alone,'2020-01-01/2020-12-31',mdc_2020_acs_5yr_tract_dvmt.white_alone)
+FROM mdc_2023_acs_5yr_tract_dvmt,mdc_2022_acs_5yr_tract_dvmt,mdc_2021_acs_5yr_tract_dvmt,mdc_2020_acs_5yr_tract_dvmt
+WHERE mdc_2020_2024_acs_5yr_trends_tract_dvmt.geoid = mdc_2023_acs_5yr_tract_dvmt.geoid
+  AND mdc_2020_2024_acs_5yr_trends_tract_dvmt.geoid = mdc_2022_acs_5yr_tract_dvmt.geoid
+  AND mdc_2020_2024_acs_5yr_trends_tract_dvmt.geoid = mdc_2021_acs_5yr_tract_dvmt.geoid
+  AND mdc_2020_2024_acs_5yr_trends_tract_dvmt.geoid = mdc_2020_acs_5yr_tract_dvmt.geoid;
+-- change column to jsonb
+ALTER TABLE mdc_2020_2024_acs_5yr_trends_tract_dvmt
+ALTER COLUMN black_or_african_american_alone TYPE jsonb USING to_jsonb(black_or_african_american_alone);
+-- update column black_or_african_american_alone in mdc_2020_2024_acs_5yr_trends_tract_dvmt
+UPDATE mdc_2020_2024_acs_5yr_trends_tract_dvmt
+SET black_or_african_american_alone = jsonb_build_object('2024-01-01/2024-12-31',mdc_2020_2024_acs_5yr_trends_tract_dvmt.black_or_african_american_alone,'2023-01-01/2023-12-31',mdc_2023_acs_5yr_tract_dvmt.black_or_african_american_alone,'2022-01-01/2022-12-31',mdc_2022_acs_5yr_tract_dvmt.black_or_african_american_alone,'2021-01-01/2021-12-31',mdc_2021_acs_5yr_tract_dvmt.black_or_african_american_alone,'2020-01-01/2020-12-31',mdc_2020_acs_5yr_tract_dvmt.black_or_african_american_alone)
+FROM mdc_2023_acs_5yr_tract_dvmt,mdc_2022_acs_5yr_tract_dvmt,mdc_2021_acs_5yr_tract_dvmt,mdc_2020_acs_5yr_tract_dvmt
+WHERE mdc_2020_2024_acs_5yr_trends_tract_dvmt.geoid = mdc_2023_acs_5yr_tract_dvmt.geoid
+  AND mdc_2020_2024_acs_5yr_trends_tract_dvmt.geoid = mdc_2022_acs_5yr_tract_dvmt.geoid
+  AND mdc_2020_2024_acs_5yr_trends_tract_dvmt.geoid = mdc_2021_acs_5yr_tract_dvmt.geoid
+  AND mdc_2020_2024_acs_5yr_trends_tract_dvmt.geoid = mdc_2020_acs_5yr_tract_dvmt.geoid;
+-- change column to jsonb
+ALTER TABLE mdc_2020_2024_acs_5yr_trends_tract_dvmt
+ALTER COLUMN american_indian_and_alaska_native_alone TYPE jsonb USING to_jsonb(american_indian_and_alaska_native_alone);
+-- update column american_indian_and_alaska_native_alone in mdc_2020_2024_acs_5yr_trends_tract_dvmt
+UPDATE mdc_2020_2024_acs_5yr_trends_tract_dvmt
+SET american_indian_and_alaska_native_alone = jsonb_build_object('2024-01-01/2024-12-31',mdc_2020_2024_acs_5yr_trends_tract_dvmt.american_indian_and_alaska_native_alone,'2023-01-01/2023-12-31',mdc_2023_acs_5yr_tract_dvmt.american_indian_and_alaska_native_alone,'2022-01-01/2022-12-31',mdc_2022_acs_5yr_tract_dvmt.american_indian_and_alaska_native_alone,'2021-01-01/2021-12-31',mdc_2021_acs_5yr_tract_dvmt.american_indian_and_alaska_native_alone,'2020-01-01/2020-12-31',mdc_2020_acs_5yr_tract_dvmt.american_indian_and_alaska_native_alone)
+FROM mdc_2023_acs_5yr_tract_dvmt,mdc_2022_acs_5yr_tract_dvmt,mdc_2021_acs_5yr_tract_dvmt,mdc_2020_acs_5yr_tract_dvmt
+WHERE mdc_2020_2024_acs_5yr_trends_tract_dvmt.geoid = mdc_2023_acs_5yr_tract_dvmt.geoid
+  AND mdc_2020_2024_acs_5yr_trends_tract_dvmt.geoid = mdc_2022_acs_5yr_tract_dvmt.geoid
+  AND mdc_2020_2024_acs_5yr_trends_tract_dvmt.geoid = mdc_2021_acs_5yr_tract_dvmt.geoid
+  AND mdc_2020_2024_acs_5yr_trends_tract_dvmt.geoid = mdc_2020_acs_5yr_tract_dvmt.geoid;
+-- change column to jsonb
+ALTER TABLE mdc_2020_2024_acs_5yr_trends_tract_dvmt
+ALTER COLUMN asian_alone TYPE jsonb USING to_jsonb(asian_alone);
+-- update column asian_alone in mdc_2020_2024_acs_5yr_trends_tract_dvmt
+UPDATE mdc_2020_2024_acs_5yr_trends_tract_dvmt
+SET asian_alone = jsonb_build_object('2024-01-01/2024-12-31',mdc_2020_2024_acs_5yr_trends_tract_dvmt.asian_alone,'2023-01-01/2023-12-31',mdc_2023_acs_5yr_tract_dvmt.asian_alone,'2022-01-01/2022-12-31',mdc_2022_acs_5yr_tract_dvmt.asian_alone,'2021-01-01/2021-12-31',mdc_2021_acs_5yr_tract_dvmt.asian_alone,'2020-01-01/2020-12-31',mdc_2020_acs_5yr_tract_dvmt.asian_alone)
+FROM mdc_2023_acs_5yr_tract_dvmt,mdc_2022_acs_5yr_tract_dvmt,mdc_2021_acs_5yr_tract_dvmt,mdc_2020_acs_5yr_tract_dvmt
+WHERE mdc_2020_2024_acs_5yr_trends_tract_dvmt.geoid = mdc_2023_acs_5yr_tract_dvmt.geoid
+  AND mdc_2020_2024_acs_5yr_trends_tract_dvmt.geoid = mdc_2022_acs_5yr_tract_dvmt.geoid
+  AND mdc_2020_2024_acs_5yr_trends_tract_dvmt.geoid = mdc_2021_acs_5yr_tract_dvmt.geoid
+  AND mdc_2020_2024_acs_5yr_trends_tract_dvmt.geoid = mdc_2020_acs_5yr_tract_dvmt.geoid;
+-- change column to jsonb
+ALTER TABLE mdc_2020_2024_acs_5yr_trends_tract_dvmt
+ALTER COLUMN pacific_islander TYPE jsonb USING to_jsonb(pacific_islander);
+-- update column pacific_islander in mdc_2020_2024_acs_5yr_trends_tract_dvmt
+UPDATE mdc_2020_2024_acs_5yr_trends_tract_dvmt
+SET pacific_islander = jsonb_build_object('2024-01-01/2024-12-31',mdc_2020_2024_acs_5yr_trends_tract_dvmt.pacific_islander,'2023-01-01/2023-12-31',mdc_2023_acs_5yr_tract_dvmt.pacific_islander,'2022-01-01/2022-12-31',mdc_2022_acs_5yr_tract_dvmt.pacific_islander,'2021-01-01/2021-12-31',mdc_2021_acs_5yr_tract_dvmt.pacific_islander,'2020-01-01/2020-12-31',mdc_2020_acs_5yr_tract_dvmt.pacific_islander)
+FROM mdc_2023_acs_5yr_tract_dvmt,mdc_2022_acs_5yr_tract_dvmt,mdc_2021_acs_5yr_tract_dvmt,mdc_2020_acs_5yr_tract_dvmt
+WHERE mdc_2020_2024_acs_5yr_trends_tract_dvmt.geoid = mdc_2023_acs_5yr_tract_dvmt.geoid
+  AND mdc_2020_2024_acs_5yr_trends_tract_dvmt.geoid = mdc_2022_acs_5yr_tract_dvmt.geoid
+  AND mdc_2020_2024_acs_5yr_trends_tract_dvmt.geoid = mdc_2021_acs_5yr_tract_dvmt.geoid
+  AND mdc_2020_2024_acs_5yr_trends_tract_dvmt.geoid = mdc_2020_acs_5yr_tract_dvmt.geoid;
+-- change column to jsonb
+ALTER TABLE mdc_2020_2024_acs_5yr_trends_tract_dvmt
+ALTER COLUMN some_other_race TYPE jsonb USING to_jsonb(some_other_race);
+-- update column some_other_race in mdc_2020_2024_acs_5yr_trends_tract_dvmt
+UPDATE mdc_2020_2024_acs_5yr_trends_tract_dvmt
+SET some_other_race = jsonb_build_object('2024-01-01/2024-12-31',mdc_2020_2024_acs_5yr_trends_tract_dvmt.some_other_race,'2023-01-01/2023-12-31',mdc_2023_acs_5yr_tract_dvmt.some_other_race,'2022-01-01/2022-12-31',mdc_2022_acs_5yr_tract_dvmt.some_other_race,'2021-01-01/2021-12-31',mdc_2021_acs_5yr_tract_dvmt.some_other_race,'2020-01-01/2020-12-31',mdc_2020_acs_5yr_tract_dvmt.some_other_race)
+FROM mdc_2023_acs_5yr_tract_dvmt,mdc_2022_acs_5yr_tract_dvmt,mdc_2021_acs_5yr_tract_dvmt,mdc_2020_acs_5yr_tract_dvmt
+WHERE mdc_2020_2024_acs_5yr_trends_tract_dvmt.geoid = mdc_2023_acs_5yr_tract_dvmt.geoid
+  AND mdc_2020_2024_acs_5yr_trends_tract_dvmt.geoid = mdc_2022_acs_5yr_tract_dvmt.geoid
+  AND mdc_2020_2024_acs_5yr_trends_tract_dvmt.geoid = mdc_2021_acs_5yr_tract_dvmt.geoid
+  AND mdc_2020_2024_acs_5yr_trends_tract_dvmt.geoid = mdc_2020_acs_5yr_tract_dvmt.geoid;
+-- change column to jsonb
+ALTER TABLE mdc_2020_2024_acs_5yr_trends_tract_dvmt
+ALTER COLUMN two_or_more_races TYPE jsonb USING to_jsonb(two_or_more_races);
+-- update column two_or_more_races in mdc_2020_2024_acs_5yr_trends_tract_dvmt
+UPDATE mdc_2020_2024_acs_5yr_trends_tract_dvmt
+SET two_or_more_races = jsonb_build_object('2024-01-01/2024-12-31',mdc_2020_2024_acs_5yr_trends_tract_dvmt.two_or_more_races,'2023-01-01/2023-12-31',mdc_2023_acs_5yr_tract_dvmt.two_or_more_races,'2022-01-01/2022-12-31',mdc_2022_acs_5yr_tract_dvmt.two_or_more_races,'2021-01-01/2021-12-31',mdc_2021_acs_5yr_tract_dvmt.two_or_more_races,'2020-01-01/2020-12-31',mdc_2020_acs_5yr_tract_dvmt.two_or_more_races)
+FROM mdc_2023_acs_5yr_tract_dvmt,mdc_2022_acs_5yr_tract_dvmt,mdc_2021_acs_5yr_tract_dvmt,mdc_2020_acs_5yr_tract_dvmt
+WHERE mdc_2020_2024_acs_5yr_trends_tract_dvmt.geoid = mdc_2023_acs_5yr_tract_dvmt.geoid
+  AND mdc_2020_2024_acs_5yr_trends_tract_dvmt.geoid = mdc_2022_acs_5yr_tract_dvmt.geoid
+  AND mdc_2020_2024_acs_5yr_trends_tract_dvmt.geoid = mdc_2021_acs_5yr_tract_dvmt.geoid
+  AND mdc_2020_2024_acs_5yr_trends_tract_dvmt.geoid = mdc_2020_acs_5yr_tract_dvmt.geoid;
+-- change column to jsonb
+ALTER TABLE mdc_2020_2024_acs_5yr_trends_tract_dvmt
+ALTER COLUMN hispanic_or_latino__any_race TYPE jsonb USING to_jsonb(hispanic_or_latino__any_race);
+-- update column hispanic_or_latino__any_race in mdc_2020_2024_acs_5yr_trends_tract_dvmt
+UPDATE mdc_2020_2024_acs_5yr_trends_tract_dvmt
+SET hispanic_or_latino__any_race = jsonb_build_object('2024-01-01/2024-12-31',mdc_2020_2024_acs_5yr_trends_tract_dvmt.hispanic_or_latino__any_race,'2023-01-01/2023-12-31',mdc_2023_acs_5yr_tract_dvmt.hispanic_or_latino__any_race,'2022-01-01/2022-12-31',mdc_2022_acs_5yr_tract_dvmt.hispanic_or_latino__any_race,'2021-01-01/2021-12-31',mdc_2021_acs_5yr_tract_dvmt.hispanic_or_latino__any_race,'2020-01-01/2020-12-31',mdc_2020_acs_5yr_tract_dvmt.hispanic_or_latino__any_race)
+FROM mdc_2023_acs_5yr_tract_dvmt,mdc_2022_acs_5yr_tract_dvmt,mdc_2021_acs_5yr_tract_dvmt,mdc_2020_acs_5yr_tract_dvmt
+WHERE mdc_2020_2024_acs_5yr_trends_tract_dvmt.geoid = mdc_2023_acs_5yr_tract_dvmt.geoid
+  AND mdc_2020_2024_acs_5yr_trends_tract_dvmt.geoid = mdc_2022_acs_5yr_tract_dvmt.geoid
+  AND mdc_2020_2024_acs_5yr_trends_tract_dvmt.geoid = mdc_2021_acs_5yr_tract_dvmt.geoid
+  AND mdc_2020_2024_acs_5yr_trends_tract_dvmt.geoid = mdc_2020_acs_5yr_tract_dvmt.geoid;
+-- change column to jsonb
+ALTER TABLE mdc_2020_2024_acs_5yr_trends_tract_dvmt
+ALTER COLUMN white_alone__not_hispanic_or_latino TYPE jsonb USING to_jsonb(white_alone__not_hispanic_or_latino);
+-- update column white_alone__not_hispanic_or_latino in mdc_2020_2024_acs_5yr_trends_tract_dvmt
+UPDATE mdc_2020_2024_acs_5yr_trends_tract_dvmt
+SET white_alone__not_hispanic_or_latino = jsonb_build_object('2024-01-01/2024-12-31',mdc_2020_2024_acs_5yr_trends_tract_dvmt.white_alone__not_hispanic_or_latino,'2023-01-01/2023-12-31',mdc_2023_acs_5yr_tract_dvmt.white_alone__not_hispanic_or_latino,'2022-01-01/2022-12-31',mdc_2022_acs_5yr_tract_dvmt.white_alone__not_hispanic_or_latino,'2021-01-01/2021-12-31',mdc_2021_acs_5yr_tract_dvmt.white_alone__not_hispanic_or_latino,'2020-01-01/2020-12-31',mdc_2020_acs_5yr_tract_dvmt.white_alone__not_hispanic_or_latino)
+FROM mdc_2023_acs_5yr_tract_dvmt,mdc_2022_acs_5yr_tract_dvmt,mdc_2021_acs_5yr_tract_dvmt,mdc_2020_acs_5yr_tract_dvmt
+WHERE mdc_2020_2024_acs_5yr_trends_tract_dvmt.geoid = mdc_2023_acs_5yr_tract_dvmt.geoid
+  AND mdc_2020_2024_acs_5yr_trends_tract_dvmt.geoid = mdc_2022_acs_5yr_tract_dvmt.geoid
+  AND mdc_2020_2024_acs_5yr_trends_tract_dvmt.geoid = mdc_2021_acs_5yr_tract_dvmt.geoid
+  AND mdc_2020_2024_acs_5yr_trends_tract_dvmt.geoid = mdc_2020_acs_5yr_tract_dvmt.geoid;
+-- change column to jsonb
+ALTER TABLE mdc_2020_2024_acs_5yr_trends_tract_dvmt
+ALTER COLUMN high_school_degree__ged_or_lower TYPE jsonb USING to_jsonb(high_school_degree__ged_or_lower);
+-- update column high_school_degree__ged_or_lower in mdc_2020_2024_acs_5yr_trends_tract_dvmt
+UPDATE mdc_2020_2024_acs_5yr_trends_tract_dvmt
+SET high_school_degree__ged_or_lower = jsonb_build_object('2024-01-01/2024-12-31',mdc_2020_2024_acs_5yr_trends_tract_dvmt.high_school_degree__ged_or_lower,'2023-01-01/2023-12-31',mdc_2023_acs_5yr_tract_dvmt.high_school_degree__ged_or_lower,'2022-01-01/2022-12-31',mdc_2022_acs_5yr_tract_dvmt.high_school_degree__ged_or_lower,'2021-01-01/2021-12-31',mdc_2021_acs_5yr_tract_dvmt.high_school_degree__ged_or_lower,'2020-01-01/2020-12-31',mdc_2020_acs_5yr_tract_dvmt.high_school_degree__ged_or_lower)
+FROM mdc_2023_acs_5yr_tract_dvmt,mdc_2022_acs_5yr_tract_dvmt,mdc_2021_acs_5yr_tract_dvmt,mdc_2020_acs_5yr_tract_dvmt
+WHERE mdc_2020_2024_acs_5yr_trends_tract_dvmt.geoid = mdc_2023_acs_5yr_tract_dvmt.geoid
+  AND mdc_2020_2024_acs_5yr_trends_tract_dvmt.geoid = mdc_2022_acs_5yr_tract_dvmt.geoid
+  AND mdc_2020_2024_acs_5yr_trends_tract_dvmt.geoid = mdc_2021_acs_5yr_tract_dvmt.geoid
+  AND mdc_2020_2024_acs_5yr_trends_tract_dvmt.geoid = mdc_2020_acs_5yr_tract_dvmt.geoid;
+-- change column to jsonb
+ALTER TABLE mdc_2020_2024_acs_5yr_trends_tract_dvmt
+ALTER COLUMN some_college__no_degree TYPE jsonb USING to_jsonb(some_college__no_degree);
+-- update column some_college__no_degree in mdc_2020_2024_acs_5yr_trends_tract_dvmt
+UPDATE mdc_2020_2024_acs_5yr_trends_tract_dvmt
+SET some_college__no_degree = jsonb_build_object('2024-01-01/2024-12-31',mdc_2020_2024_acs_5yr_trends_tract_dvmt.some_college__no_degree,'2023-01-01/2023-12-31',mdc_2023_acs_5yr_tract_dvmt.some_college__no_degree,'2022-01-01/2022-12-31',mdc_2022_acs_5yr_tract_dvmt.some_college__no_degree,'2021-01-01/2021-12-31',mdc_2021_acs_5yr_tract_dvmt.some_college__no_degree,'2020-01-01/2020-12-31',mdc_2020_acs_5yr_tract_dvmt.some_college__no_degree)
+FROM mdc_2023_acs_5yr_tract_dvmt,mdc_2022_acs_5yr_tract_dvmt,mdc_2021_acs_5yr_tract_dvmt,mdc_2020_acs_5yr_tract_dvmt
+WHERE mdc_2020_2024_acs_5yr_trends_tract_dvmt.geoid = mdc_2023_acs_5yr_tract_dvmt.geoid
+  AND mdc_2020_2024_acs_5yr_trends_tract_dvmt.geoid = mdc_2022_acs_5yr_tract_dvmt.geoid
+  AND mdc_2020_2024_acs_5yr_trends_tract_dvmt.geoid = mdc_2021_acs_5yr_tract_dvmt.geoid
+  AND mdc_2020_2024_acs_5yr_trends_tract_dvmt.geoid = mdc_2020_acs_5yr_tract_dvmt.geoid;
+-- change column to jsonb
+ALTER TABLE mdc_2020_2024_acs_5yr_trends_tract_dvmt
+ALTER COLUMN associates_degree TYPE jsonb USING to_jsonb(associates_degree);
+-- update column associates_degree in mdc_2020_2024_acs_5yr_trends_tract_dvmt
+UPDATE mdc_2020_2024_acs_5yr_trends_tract_dvmt
+SET associates_degree = jsonb_build_object('2024-01-01/2024-12-31',mdc_2020_2024_acs_5yr_trends_tract_dvmt.associates_degree,'2023-01-01/2023-12-31',mdc_2023_acs_5yr_tract_dvmt.associates_degree,'2022-01-01/2022-12-31',mdc_2022_acs_5yr_tract_dvmt.associates_degree,'2021-01-01/2021-12-31',mdc_2021_acs_5yr_tract_dvmt.associates_degree,'2020-01-01/2020-12-31',mdc_2020_acs_5yr_tract_dvmt.associates_degree)
+FROM mdc_2023_acs_5yr_tract_dvmt,mdc_2022_acs_5yr_tract_dvmt,mdc_2021_acs_5yr_tract_dvmt,mdc_2020_acs_5yr_tract_dvmt
+WHERE mdc_2020_2024_acs_5yr_trends_tract_dvmt.geoid = mdc_2023_acs_5yr_tract_dvmt.geoid
+  AND mdc_2020_2024_acs_5yr_trends_tract_dvmt.geoid = mdc_2022_acs_5yr_tract_dvmt.geoid
+  AND mdc_2020_2024_acs_5yr_trends_tract_dvmt.geoid = mdc_2021_acs_5yr_tract_dvmt.geoid
+  AND mdc_2020_2024_acs_5yr_trends_tract_dvmt.geoid = mdc_2020_acs_5yr_tract_dvmt.geoid;
+-- change column to jsonb
+ALTER TABLE mdc_2020_2024_acs_5yr_trends_tract_dvmt
+ALTER COLUMN bachelors_degree TYPE jsonb USING to_jsonb(bachelors_degree);
+-- update column bachelors_degree in mdc_2020_2024_acs_5yr_trends_tract_dvmt
+UPDATE mdc_2020_2024_acs_5yr_trends_tract_dvmt
+SET bachelors_degree = jsonb_build_object('2024-01-01/2024-12-31',mdc_2020_2024_acs_5yr_trends_tract_dvmt.bachelors_degree,'2023-01-01/2023-12-31',mdc_2023_acs_5yr_tract_dvmt.bachelors_degree,'2022-01-01/2022-12-31',mdc_2022_acs_5yr_tract_dvmt.bachelors_degree,'2021-01-01/2021-12-31',mdc_2021_acs_5yr_tract_dvmt.bachelors_degree,'2020-01-01/2020-12-31',mdc_2020_acs_5yr_tract_dvmt.bachelors_degree)
+FROM mdc_2023_acs_5yr_tract_dvmt,mdc_2022_acs_5yr_tract_dvmt,mdc_2021_acs_5yr_tract_dvmt,mdc_2020_acs_5yr_tract_dvmt
+WHERE mdc_2020_2024_acs_5yr_trends_tract_dvmt.geoid = mdc_2023_acs_5yr_tract_dvmt.geoid
+  AND mdc_2020_2024_acs_5yr_trends_tract_dvmt.geoid = mdc_2022_acs_5yr_tract_dvmt.geoid
+  AND mdc_2020_2024_acs_5yr_trends_tract_dvmt.geoid = mdc_2021_acs_5yr_tract_dvmt.geoid
+  AND mdc_2020_2024_acs_5yr_trends_tract_dvmt.geoid = mdc_2020_acs_5yr_tract_dvmt.geoid;
+-- change column to jsonb
+ALTER TABLE mdc_2020_2024_acs_5yr_trends_tract_dvmt
+ALTER COLUMN graduate_professional_degree TYPE jsonb USING to_jsonb(graduate_professional_degree);
+-- update column graduate_professional_degree in mdc_2020_2024_acs_5yr_trends_tract_dvmt
+UPDATE mdc_2020_2024_acs_5yr_trends_tract_dvmt
+SET graduate_professional_degree = jsonb_build_object('2024-01-01/2024-12-31',mdc_2020_2024_acs_5yr_trends_tract_dvmt.graduate_professional_degree,'2023-01-01/2023-12-31',mdc_2023_acs_5yr_tract_dvmt.graduate_professional_degree,'2022-01-01/2022-12-31',mdc_2022_acs_5yr_tract_dvmt.graduate_professional_degree,'2021-01-01/2021-12-31',mdc_2021_acs_5yr_tract_dvmt.graduate_professional_degree,'2020-01-01/2020-12-31',mdc_2020_acs_5yr_tract_dvmt.graduate_professional_degree)
+FROM mdc_2023_acs_5yr_tract_dvmt,mdc_2022_acs_5yr_tract_dvmt,mdc_2021_acs_5yr_tract_dvmt,mdc_2020_acs_5yr_tract_dvmt
+WHERE mdc_2020_2024_acs_5yr_trends_tract_dvmt.geoid = mdc_2023_acs_5yr_tract_dvmt.geoid
+  AND mdc_2020_2024_acs_5yr_trends_tract_dvmt.geoid = mdc_2022_acs_5yr_tract_dvmt.geoid
+  AND mdc_2020_2024_acs_5yr_trends_tract_dvmt.geoid = mdc_2021_acs_5yr_tract_dvmt.geoid
+  AND mdc_2020_2024_acs_5yr_trends_tract_dvmt.geoid = mdc_2020_acs_5yr_tract_dvmt.geoid;
+-- change column to jsonb
+ALTER TABLE mdc_2020_2024_acs_5yr_trends_tract_dvmt
+ALTER COLUMN median_income_of_residents TYPE jsonb USING to_jsonb(median_income_of_residents);
+-- update column median_income_of_residents in mdc_2020_2024_acs_5yr_trends_tract_dvmt
+UPDATE mdc_2020_2024_acs_5yr_trends_tract_dvmt
+SET median_income_of_residents = jsonb_build_object('2024-01-01/2024-12-31',mdc_2020_2024_acs_5yr_trends_tract_dvmt.median_income_of_residents,'2023-01-01/2023-12-31',mdc_2023_acs_5yr_tract_dvmt.median_income_of_residents,'2022-01-01/2022-12-31',mdc_2022_acs_5yr_tract_dvmt.median_income_of_residents,'2021-01-01/2021-12-31',mdc_2021_acs_5yr_tract_dvmt.median_income_of_residents,'2020-01-01/2020-12-31',mdc_2020_acs_5yr_tract_dvmt.median_income_of_residents)
+FROM mdc_2023_acs_5yr_tract_dvmt,mdc_2022_acs_5yr_tract_dvmt,mdc_2021_acs_5yr_tract_dvmt,mdc_2020_acs_5yr_tract_dvmt
+WHERE mdc_2020_2024_acs_5yr_trends_tract_dvmt.geoid = mdc_2023_acs_5yr_tract_dvmt.geoid
+  AND mdc_2020_2024_acs_5yr_trends_tract_dvmt.geoid = mdc_2022_acs_5yr_tract_dvmt.geoid
+  AND mdc_2020_2024_acs_5yr_trends_tract_dvmt.geoid = mdc_2021_acs_5yr_tract_dvmt.geoid
+  AND mdc_2020_2024_acs_5yr_trends_tract_dvmt.geoid = mdc_2020_acs_5yr_tract_dvmt.geoid;
+-- change column to jsonb
+ALTER TABLE mdc_2020_2024_acs_5yr_trends_tract_dvmt
+ALTER COLUMN median_monthly_housing_costs TYPE jsonb USING to_jsonb(median_monthly_housing_costs);
+-- update column median_monthly_housing_costs in mdc_2020_2024_acs_5yr_trends_tract_dvmt
+UPDATE mdc_2020_2024_acs_5yr_trends_tract_dvmt
+SET median_monthly_housing_costs = jsonb_build_object('2024-01-01/2024-12-31',mdc_2020_2024_acs_5yr_trends_tract_dvmt.median_monthly_housing_costs,'2023-01-01/2023-12-31',mdc_2023_acs_5yr_tract_dvmt.median_monthly_housing_costs,'2022-01-01/2022-12-31',mdc_2022_acs_5yr_tract_dvmt.median_monthly_housing_costs,'2021-01-01/2021-12-31',mdc_2021_acs_5yr_tract_dvmt.median_monthly_housing_costs,'2020-01-01/2020-12-31',mdc_2020_acs_5yr_tract_dvmt.median_monthly_housing_costs)
+FROM mdc_2023_acs_5yr_tract_dvmt,mdc_2022_acs_5yr_tract_dvmt,mdc_2021_acs_5yr_tract_dvmt,mdc_2020_acs_5yr_tract_dvmt
+WHERE mdc_2020_2024_acs_5yr_trends_tract_dvmt.geoid = mdc_2023_acs_5yr_tract_dvmt.geoid
+  AND mdc_2020_2024_acs_5yr_trends_tract_dvmt.geoid = mdc_2022_acs_5yr_tract_dvmt.geoid
+  AND mdc_2020_2024_acs_5yr_trends_tract_dvmt.geoid = mdc_2021_acs_5yr_tract_dvmt.geoid
+  AND mdc_2020_2024_acs_5yr_trends_tract_dvmt.geoid = mdc_2020_acs_5yr_tract_dvmt.geoid;
+-- change column to jsonb
+ALTER TABLE mdc_2020_2024_acs_5yr_trends_tract_dvmt
+ALTER COLUMN median_monthly_owner_costs TYPE jsonb USING to_jsonb(median_monthly_owner_costs);
+-- update column median_monthly_owner_costs in mdc_2020_2024_acs_5yr_trends_tract_dvmt
+UPDATE mdc_2020_2024_acs_5yr_trends_tract_dvmt
+SET median_monthly_owner_costs = jsonb_build_object('2024-01-01/2024-12-31',mdc_2020_2024_acs_5yr_trends_tract_dvmt.median_monthly_owner_costs,'2023-01-01/2023-12-31',mdc_2023_acs_5yr_tract_dvmt.median_monthly_owner_costs,'2022-01-01/2022-12-31',mdc_2022_acs_5yr_tract_dvmt.median_monthly_owner_costs,'2021-01-01/2021-12-31',mdc_2021_acs_5yr_tract_dvmt.median_monthly_owner_costs,'2020-01-01/2020-12-31',mdc_2020_acs_5yr_tract_dvmt.median_monthly_owner_costs)
+FROM mdc_2023_acs_5yr_tract_dvmt,mdc_2022_acs_5yr_tract_dvmt,mdc_2021_acs_5yr_tract_dvmt,mdc_2020_acs_5yr_tract_dvmt
+WHERE mdc_2020_2024_acs_5yr_trends_tract_dvmt.geoid = mdc_2023_acs_5yr_tract_dvmt.geoid
+  AND mdc_2020_2024_acs_5yr_trends_tract_dvmt.geoid = mdc_2022_acs_5yr_tract_dvmt.geoid
+  AND mdc_2020_2024_acs_5yr_trends_tract_dvmt.geoid = mdc_2021_acs_5yr_tract_dvmt.geoid
+  AND mdc_2020_2024_acs_5yr_trends_tract_dvmt.geoid = mdc_2020_acs_5yr_tract_dvmt.geoid;
+-- change column to jsonb
+ALTER TABLE mdc_2020_2024_acs_5yr_trends_tract_dvmt
+ALTER COLUMN median_monthly_renter_costs TYPE jsonb USING to_jsonb(median_monthly_renter_costs);
+-- update column median_monthly_renter_costs in mdc_2020_2024_acs_5yr_trends_tract_dvmt
+UPDATE mdc_2020_2024_acs_5yr_trends_tract_dvmt
+SET median_monthly_renter_costs = jsonb_build_object('2024-01-01/2024-12-31',mdc_2020_2024_acs_5yr_trends_tract_dvmt.median_monthly_renter_costs,'2023-01-01/2023-12-31',mdc_2023_acs_5yr_tract_dvmt.median_monthly_renter_costs,'2022-01-01/2022-12-31',mdc_2022_acs_5yr_tract_dvmt.median_monthly_renter_costs,'2021-01-01/2021-12-31',mdc_2021_acs_5yr_tract_dvmt.median_monthly_renter_costs,'2020-01-01/2020-12-31',mdc_2020_acs_5yr_tract_dvmt.median_monthly_renter_costs)
+FROM mdc_2023_acs_5yr_tract_dvmt,mdc_2022_acs_5yr_tract_dvmt,mdc_2021_acs_5yr_tract_dvmt,mdc_2020_acs_5yr_tract_dvmt
+WHERE mdc_2020_2024_acs_5yr_trends_tract_dvmt.geoid = mdc_2023_acs_5yr_tract_dvmt.geoid
+  AND mdc_2020_2024_acs_5yr_trends_tract_dvmt.geoid = mdc_2022_acs_5yr_tract_dvmt.geoid
+  AND mdc_2020_2024_acs_5yr_trends_tract_dvmt.geoid = mdc_2021_acs_5yr_tract_dvmt.geoid
+  AND mdc_2020_2024_acs_5yr_trends_tract_dvmt.geoid = mdc_2020_acs_5yr_tract_dvmt.geoid;
+-- change column to jsonb
+ALTER TABLE mdc_2020_2024_acs_5yr_trends_tract_dvmt
+ALTER COLUMN median_monthly_owner_costs__percent_household_income TYPE jsonb USING to_jsonb(median_monthly_owner_costs__percent_household_income);
+-- update column median_monthly_owner_costs__percent_household_income in mdc_2020_2024_acs_5yr_trends_tract_dvmt
+UPDATE mdc_2020_2024_acs_5yr_trends_tract_dvmt
+SET median_monthly_owner_costs__percent_household_income = jsonb_build_object('2024-01-01/2024-12-31',mdc_2020_2024_acs_5yr_trends_tract_dvmt.median_monthly_owner_costs__percent_household_income,'2023-01-01/2023-12-31',mdc_2023_acs_5yr_tract_dvmt.median_monthly_owner_costs__percent_household_income,'2022-01-01/2022-12-31',mdc_2022_acs_5yr_tract_dvmt.median_monthly_owner_costs__percent_household_income,'2021-01-01/2021-12-31',mdc_2021_acs_5yr_tract_dvmt.median_monthly_owner_costs__percent_household_income,'2020-01-01/2020-12-31',mdc_2020_acs_5yr_tract_dvmt.median_monthly_owner_costs__percent_household_income)
+FROM mdc_2023_acs_5yr_tract_dvmt,mdc_2022_acs_5yr_tract_dvmt,mdc_2021_acs_5yr_tract_dvmt,mdc_2020_acs_5yr_tract_dvmt
+WHERE mdc_2020_2024_acs_5yr_trends_tract_dvmt.geoid = mdc_2023_acs_5yr_tract_dvmt.geoid
+  AND mdc_2020_2024_acs_5yr_trends_tract_dvmt.geoid = mdc_2022_acs_5yr_tract_dvmt.geoid
+  AND mdc_2020_2024_acs_5yr_trends_tract_dvmt.geoid = mdc_2021_acs_5yr_tract_dvmt.geoid
+  AND mdc_2020_2024_acs_5yr_trends_tract_dvmt.geoid = mdc_2020_acs_5yr_tract_dvmt.geoid;
+-- change column to jsonb
+ALTER TABLE mdc_2020_2024_acs_5yr_trends_tract_dvmt
+ALTER COLUMN median_monthly_renter_costs__percent_household_income TYPE jsonb USING to_jsonb(median_monthly_renter_costs__percent_household_income);
+-- update column median_monthly_renter_costs__percent_household_income in mdc_2020_2024_acs_5yr_trends_tract_dvmt
+UPDATE mdc_2020_2024_acs_5yr_trends_tract_dvmt
+SET median_monthly_renter_costs__percent_household_income = jsonb_build_object('2024-01-01/2024-12-31',mdc_2020_2024_acs_5yr_trends_tract_dvmt.median_monthly_renter_costs__percent_household_income,'2023-01-01/2023-12-31',mdc_2023_acs_5yr_tract_dvmt.median_monthly_renter_costs__percent_household_income,'2022-01-01/2022-12-31',mdc_2022_acs_5yr_tract_dvmt.median_monthly_renter_costs__percent_household_income,'2021-01-01/2021-12-31',mdc_2021_acs_5yr_tract_dvmt.median_monthly_renter_costs__percent_household_income,'2020-01-01/2020-12-31',mdc_2020_acs_5yr_tract_dvmt.median_monthly_renter_costs__percent_household_income)
+FROM mdc_2023_acs_5yr_tract_dvmt,mdc_2022_acs_5yr_tract_dvmt,mdc_2021_acs_5yr_tract_dvmt,mdc_2020_acs_5yr_tract_dvmt
+WHERE mdc_2020_2024_acs_5yr_trends_tract_dvmt.geoid = mdc_2023_acs_5yr_tract_dvmt.geoid
+  AND mdc_2020_2024_acs_5yr_trends_tract_dvmt.geoid = mdc_2022_acs_5yr_tract_dvmt.geoid
+  AND mdc_2020_2024_acs_5yr_trends_tract_dvmt.geoid = mdc_2021_acs_5yr_tract_dvmt.geoid
+  AND mdc_2020_2024_acs_5yr_trends_tract_dvmt.geoid = mdc_2020_acs_5yr_tract_dvmt.geoid;
+-- change column to jsonb
+ALTER TABLE mdc_2020_2024_acs_5yr_trends_tract_dvmt
+ALTER COLUMN aggregate_household_income TYPE jsonb USING to_jsonb(aggregate_household_income);
+-- update column aggregate_household_income in mdc_2020_2024_acs_5yr_trends_tract_dvmt
+UPDATE mdc_2020_2024_acs_5yr_trends_tract_dvmt
+SET aggregate_household_income = jsonb_build_object('2024-01-01/2024-12-31',mdc_2020_2024_acs_5yr_trends_tract_dvmt.aggregate_household_income,'2023-01-01/2023-12-31',mdc_2023_acs_5yr_tract_dvmt.aggregate_household_income,'2022-01-01/2022-12-31',mdc_2022_acs_5yr_tract_dvmt.aggregate_household_income,'2021-01-01/2021-12-31',mdc_2021_acs_5yr_tract_dvmt.aggregate_household_income,'2020-01-01/2020-12-31',mdc_2020_acs_5yr_tract_dvmt.aggregate_household_income)
+FROM mdc_2023_acs_5yr_tract_dvmt,mdc_2022_acs_5yr_tract_dvmt,mdc_2021_acs_5yr_tract_dvmt,mdc_2020_acs_5yr_tract_dvmt
+WHERE mdc_2020_2024_acs_5yr_trends_tract_dvmt.geoid = mdc_2023_acs_5yr_tract_dvmt.geoid
+  AND mdc_2020_2024_acs_5yr_trends_tract_dvmt.geoid = mdc_2022_acs_5yr_tract_dvmt.geoid
+  AND mdc_2020_2024_acs_5yr_trends_tract_dvmt.geoid = mdc_2021_acs_5yr_tract_dvmt.geoid
+  AND mdc_2020_2024_acs_5yr_trends_tract_dvmt.geoid = mdc_2020_acs_5yr_tract_dvmt.geoid;
+-- change column to jsonb
+ALTER TABLE mdc_2020_2024_acs_5yr_trends_tract_dvmt
+ALTER COLUMN households_below_poverty_level TYPE jsonb USING to_jsonb(households_below_poverty_level);
+-- update column households_below_poverty_level in mdc_2020_2024_acs_5yr_trends_tract_dvmt
+UPDATE mdc_2020_2024_acs_5yr_trends_tract_dvmt
+SET households_below_poverty_level = jsonb_build_object('2024-01-01/2024-12-31',mdc_2020_2024_acs_5yr_trends_tract_dvmt.households_below_poverty_level,'2023-01-01/2023-12-31',mdc_2023_acs_5yr_tract_dvmt.households_below_poverty_level,'2022-01-01/2022-12-31',mdc_2022_acs_5yr_tract_dvmt.households_below_poverty_level,'2021-01-01/2021-12-31',mdc_2021_acs_5yr_tract_dvmt.households_below_poverty_level,'2020-01-01/2020-12-31',mdc_2020_acs_5yr_tract_dvmt.households_below_poverty_level)
+FROM mdc_2023_acs_5yr_tract_dvmt,mdc_2022_acs_5yr_tract_dvmt,mdc_2021_acs_5yr_tract_dvmt,mdc_2020_acs_5yr_tract_dvmt
+WHERE mdc_2020_2024_acs_5yr_trends_tract_dvmt.geoid = mdc_2023_acs_5yr_tract_dvmt.geoid
+  AND mdc_2020_2024_acs_5yr_trends_tract_dvmt.geoid = mdc_2022_acs_5yr_tract_dvmt.geoid
+  AND mdc_2020_2024_acs_5yr_trends_tract_dvmt.geoid = mdc_2021_acs_5yr_tract_dvmt.geoid
+  AND mdc_2020_2024_acs_5yr_trends_tract_dvmt.geoid = mdc_2020_acs_5yr_tract_dvmt.geoid;
+-- change column to jsonb
+ALTER TABLE mdc_2020_2024_acs_5yr_trends_tract_dvmt
+ALTER COLUMN medicare_recipients TYPE jsonb USING to_jsonb(medicare_recipients);
+-- update column medicare_recipients in mdc_2020_2024_acs_5yr_trends_tract_dvmt
+UPDATE mdc_2020_2024_acs_5yr_trends_tract_dvmt
+SET medicare_recipients = jsonb_build_object('2024-01-01/2024-12-31',mdc_2020_2024_acs_5yr_trends_tract_dvmt.medicare_recipients,'2023-01-01/2023-12-31',mdc_2023_acs_5yr_tract_dvmt.medicare_recipients,'2022-01-01/2022-12-31',mdc_2022_acs_5yr_tract_dvmt.medicare_recipients,'2021-01-01/2021-12-31',mdc_2021_acs_5yr_tract_dvmt.medicare_recipients,'2020-01-01/2020-12-31',mdc_2020_acs_5yr_tract_dvmt.medicare_recipients)
+FROM mdc_2023_acs_5yr_tract_dvmt,mdc_2022_acs_5yr_tract_dvmt,mdc_2021_acs_5yr_tract_dvmt,mdc_2020_acs_5yr_tract_dvmt
+WHERE mdc_2020_2024_acs_5yr_trends_tract_dvmt.geoid = mdc_2023_acs_5yr_tract_dvmt.geoid
+  AND mdc_2020_2024_acs_5yr_trends_tract_dvmt.geoid = mdc_2022_acs_5yr_tract_dvmt.geoid
+  AND mdc_2020_2024_acs_5yr_trends_tract_dvmt.geoid = mdc_2021_acs_5yr_tract_dvmt.geoid
+  AND mdc_2020_2024_acs_5yr_trends_tract_dvmt.geoid = mdc_2020_acs_5yr_tract_dvmt.geoid;
+-- change column to jsonb
+ALTER TABLE mdc_2020_2024_acs_5yr_trends_tract_dvmt
+ALTER COLUMN total_medicaid_recipients TYPE jsonb USING to_jsonb(total_medicaid_recipients);
+-- update column total_medicaid_recipients in mdc_2020_2024_acs_5yr_trends_tract_dvmt
+UPDATE mdc_2020_2024_acs_5yr_trends_tract_dvmt
+SET total_medicaid_recipients = jsonb_build_object('2024-01-01/2024-12-31',mdc_2020_2024_acs_5yr_trends_tract_dvmt.total_medicaid_recipients,'2023-01-01/2023-12-31',mdc_2023_acs_5yr_tract_dvmt.total_medicaid_recipients,'2022-01-01/2022-12-31',mdc_2022_acs_5yr_tract_dvmt.total_medicaid_recipients,'2021-01-01/2021-12-31',mdc_2021_acs_5yr_tract_dvmt.total_medicaid_recipients,'2020-01-01/2020-12-31',mdc_2020_acs_5yr_tract_dvmt.total_medicaid_recipients)
+FROM mdc_2023_acs_5yr_tract_dvmt,mdc_2022_acs_5yr_tract_dvmt,mdc_2021_acs_5yr_tract_dvmt,mdc_2020_acs_5yr_tract_dvmt
+WHERE mdc_2020_2024_acs_5yr_trends_tract_dvmt.geoid = mdc_2023_acs_5yr_tract_dvmt.geoid
+  AND mdc_2020_2024_acs_5yr_trends_tract_dvmt.geoid = mdc_2022_acs_5yr_tract_dvmt.geoid
+  AND mdc_2020_2024_acs_5yr_trends_tract_dvmt.geoid = mdc_2021_acs_5yr_tract_dvmt.geoid
+  AND mdc_2020_2024_acs_5yr_trends_tract_dvmt.geoid = mdc_2020_acs_5yr_tract_dvmt.geoid;
+-- change column to jsonb
+ALTER TABLE mdc_2020_2024_acs_5yr_trends_tract_dvmt
+ALTER COLUMN total_snap_recipients TYPE jsonb USING to_jsonb(total_snap_recipients);
+-- update column total_snap_recipients in mdc_2020_2024_acs_5yr_trends_tract_dvmt
+UPDATE mdc_2020_2024_acs_5yr_trends_tract_dvmt
+SET total_snap_recipients = jsonb_build_object('2024-01-01/2024-12-31',mdc_2020_2024_acs_5yr_trends_tract_dvmt.total_snap_recipients,'2023-01-01/2023-12-31',mdc_2023_acs_5yr_tract_dvmt.total_snap_recipients,'2022-01-01/2022-12-31',mdc_2022_acs_5yr_tract_dvmt.total_snap_recipients,'2021-01-01/2021-12-31',mdc_2021_acs_5yr_tract_dvmt.total_snap_recipients,'2020-01-01/2020-12-31',mdc_2020_acs_5yr_tract_dvmt.total_snap_recipients)
+FROM mdc_2023_acs_5yr_tract_dvmt,mdc_2022_acs_5yr_tract_dvmt,mdc_2021_acs_5yr_tract_dvmt,mdc_2020_acs_5yr_tract_dvmt
+WHERE mdc_2020_2024_acs_5yr_trends_tract_dvmt.geoid = mdc_2023_acs_5yr_tract_dvmt.geoid
+  AND mdc_2020_2024_acs_5yr_trends_tract_dvmt.geoid = mdc_2022_acs_5yr_tract_dvmt.geoid
+  AND mdc_2020_2024_acs_5yr_trends_tract_dvmt.geoid = mdc_2021_acs_5yr_tract_dvmt.geoid
+  AND mdc_2020_2024_acs_5yr_trends_tract_dvmt.geoid = mdc_2020_acs_5yr_tract_dvmt.geoid;
+-- change column to jsonb
+ALTER TABLE mdc_2020_2024_acs_5yr_trends_tract_dvmt
+ALTER COLUMN armed_forces_veterans TYPE jsonb USING to_jsonb(armed_forces_veterans);
+-- update column armed_forces_veterans in mdc_2020_2024_acs_5yr_trends_tract_dvmt
+UPDATE mdc_2020_2024_acs_5yr_trends_tract_dvmt
+SET armed_forces_veterans = jsonb_build_object('2024-01-01/2024-12-31',mdc_2020_2024_acs_5yr_trends_tract_dvmt.armed_forces_veterans,'2023-01-01/2023-12-31',mdc_2023_acs_5yr_tract_dvmt.armed_forces_veterans,'2022-01-01/2022-12-31',mdc_2022_acs_5yr_tract_dvmt.armed_forces_veterans,'2021-01-01/2021-12-31',mdc_2021_acs_5yr_tract_dvmt.armed_forces_veterans,'2020-01-01/2020-12-31',mdc_2020_acs_5yr_tract_dvmt.armed_forces_veterans)
+FROM mdc_2023_acs_5yr_tract_dvmt,mdc_2022_acs_5yr_tract_dvmt,mdc_2021_acs_5yr_tract_dvmt,mdc_2020_acs_5yr_tract_dvmt
+WHERE mdc_2020_2024_acs_5yr_trends_tract_dvmt.geoid = mdc_2023_acs_5yr_tract_dvmt.geoid
+  AND mdc_2020_2024_acs_5yr_trends_tract_dvmt.geoid = mdc_2022_acs_5yr_tract_dvmt.geoid
+  AND mdc_2020_2024_acs_5yr_trends_tract_dvmt.geoid = mdc_2021_acs_5yr_tract_dvmt.geoid
+  AND mdc_2020_2024_acs_5yr_trends_tract_dvmt.geoid = mdc_2020_acs_5yr_tract_dvmt.geoid;
+-- change column to jsonb
+ALTER TABLE mdc_2020_2024_acs_5yr_trends_tract_dvmt
+ALTER COLUMN total_number_of_disabled_residents TYPE jsonb USING to_jsonb(total_number_of_disabled_residents);
+-- update column total_number_of_disabled_residents in mdc_2020_2024_acs_5yr_trends_tract_dvmt
+UPDATE mdc_2020_2024_acs_5yr_trends_tract_dvmt
+SET total_number_of_disabled_residents = jsonb_build_object('2024-01-01/2024-12-31',mdc_2020_2024_acs_5yr_trends_tract_dvmt.total_number_of_disabled_residents,'2023-01-01/2023-12-31',mdc_2023_acs_5yr_tract_dvmt.total_number_of_disabled_residents,'2022-01-01/2022-12-31',mdc_2022_acs_5yr_tract_dvmt.total_number_of_disabled_residents,'2021-01-01/2021-12-31',mdc_2021_acs_5yr_tract_dvmt.total_number_of_disabled_residents,'2020-01-01/2020-12-31',mdc_2020_acs_5yr_tract_dvmt.total_number_of_disabled_residents)
+FROM mdc_2023_acs_5yr_tract_dvmt,mdc_2022_acs_5yr_tract_dvmt,mdc_2021_acs_5yr_tract_dvmt,mdc_2020_acs_5yr_tract_dvmt
+WHERE mdc_2020_2024_acs_5yr_trends_tract_dvmt.geoid = mdc_2023_acs_5yr_tract_dvmt.geoid
+  AND mdc_2020_2024_acs_5yr_trends_tract_dvmt.geoid = mdc_2022_acs_5yr_tract_dvmt.geoid
+  AND mdc_2020_2024_acs_5yr_trends_tract_dvmt.geoid = mdc_2021_acs_5yr_tract_dvmt.geoid
+  AND mdc_2020_2024_acs_5yr_trends_tract_dvmt.geoid = mdc_2020_acs_5yr_tract_dvmt.geoid;
+-- change column to jsonb
+ALTER TABLE mdc_2020_2024_acs_5yr_trends_tract_dvmt
+ALTER COLUMN total_housing_units TYPE jsonb USING to_jsonb(total_housing_units);
+-- update column total_housing_units in mdc_2020_2024_acs_5yr_trends_tract_dvmt
+UPDATE mdc_2020_2024_acs_5yr_trends_tract_dvmt
+SET total_housing_units = jsonb_build_object('2024-01-01/2024-12-31',mdc_2020_2024_acs_5yr_trends_tract_dvmt.total_housing_units,'2023-01-01/2023-12-31',mdc_2023_acs_5yr_tract_dvmt.total_housing_units,'2022-01-01/2022-12-31',mdc_2022_acs_5yr_tract_dvmt.total_housing_units,'2021-01-01/2021-12-31',mdc_2021_acs_5yr_tract_dvmt.total_housing_units,'2020-01-01/2020-12-31',mdc_2020_acs_5yr_tract_dvmt.total_housing_units)
+FROM mdc_2023_acs_5yr_tract_dvmt,mdc_2022_acs_5yr_tract_dvmt,mdc_2021_acs_5yr_tract_dvmt,mdc_2020_acs_5yr_tract_dvmt
+WHERE mdc_2020_2024_acs_5yr_trends_tract_dvmt.geoid = mdc_2023_acs_5yr_tract_dvmt.geoid
+  AND mdc_2020_2024_acs_5yr_trends_tract_dvmt.geoid = mdc_2022_acs_5yr_tract_dvmt.geoid
+  AND mdc_2020_2024_acs_5yr_trends_tract_dvmt.geoid = mdc_2021_acs_5yr_tract_dvmt.geoid
+  AND mdc_2020_2024_acs_5yr_trends_tract_dvmt.geoid = mdc_2020_acs_5yr_tract_dvmt.geoid;
+-- change column to jsonb
+ALTER TABLE mdc_2020_2024_acs_5yr_trends_tract_dvmt
+ALTER COLUMN total_single_family_houses TYPE jsonb USING to_jsonb(total_single_family_houses);
+-- update column total_single_family_houses in mdc_2020_2024_acs_5yr_trends_tract_dvmt
+UPDATE mdc_2020_2024_acs_5yr_trends_tract_dvmt
+SET total_single_family_houses = jsonb_build_object('2024-01-01/2024-12-31',mdc_2020_2024_acs_5yr_trends_tract_dvmt.total_single_family_houses,'2023-01-01/2023-12-31',mdc_2023_acs_5yr_tract_dvmt.total_single_family_houses,'2022-01-01/2022-12-31',mdc_2022_acs_5yr_tract_dvmt.total_single_family_houses,'2021-01-01/2021-12-31',mdc_2021_acs_5yr_tract_dvmt.total_single_family_houses,'2020-01-01/2020-12-31',mdc_2020_acs_5yr_tract_dvmt.total_single_family_houses)
+FROM mdc_2023_acs_5yr_tract_dvmt,mdc_2022_acs_5yr_tract_dvmt,mdc_2021_acs_5yr_tract_dvmt,mdc_2020_acs_5yr_tract_dvmt
+WHERE mdc_2020_2024_acs_5yr_trends_tract_dvmt.geoid = mdc_2023_acs_5yr_tract_dvmt.geoid
+  AND mdc_2020_2024_acs_5yr_trends_tract_dvmt.geoid = mdc_2022_acs_5yr_tract_dvmt.geoid
+  AND mdc_2020_2024_acs_5yr_trends_tract_dvmt.geoid = mdc_2021_acs_5yr_tract_dvmt.geoid
+  AND mdc_2020_2024_acs_5yr_trends_tract_dvmt.geoid = mdc_2020_acs_5yr_tract_dvmt.geoid;
+-- change column to jsonb
+ALTER TABLE mdc_2020_2024_acs_5yr_trends_tract_dvmt
+ALTER COLUMN total_duplex_multiple_units__less_than_10_units TYPE jsonb USING to_jsonb(total_duplex_multiple_units__less_than_10_units);
+-- update column total_duplex_multiple_units__less_than_10_units in mdc_2020_2024_acs_5yr_trends_tract_dvmt
+UPDATE mdc_2020_2024_acs_5yr_trends_tract_dvmt
+SET total_duplex_multiple_units__less_than_10_units = jsonb_build_object('2024-01-01/2024-12-31',mdc_2020_2024_acs_5yr_trends_tract_dvmt.total_duplex_multiple_units__less_than_10_units,'2023-01-01/2023-12-31',mdc_2023_acs_5yr_tract_dvmt.total_duplex_multiple_units__less_than_10_units,'2022-01-01/2022-12-31',mdc_2022_acs_5yr_tract_dvmt.total_duplex_multiple_units__less_than_10_units,'2021-01-01/2021-12-31',mdc_2021_acs_5yr_tract_dvmt.total_duplex_multiple_units__less_than_10_units,'2020-01-01/2020-12-31',mdc_2020_acs_5yr_tract_dvmt.total_duplex_multiple_units__less_than_10_units)
+FROM mdc_2023_acs_5yr_tract_dvmt,mdc_2022_acs_5yr_tract_dvmt,mdc_2021_acs_5yr_tract_dvmt,mdc_2020_acs_5yr_tract_dvmt
+WHERE mdc_2020_2024_acs_5yr_trends_tract_dvmt.geoid = mdc_2023_acs_5yr_tract_dvmt.geoid
+  AND mdc_2020_2024_acs_5yr_trends_tract_dvmt.geoid = mdc_2022_acs_5yr_tract_dvmt.geoid
+  AND mdc_2020_2024_acs_5yr_trends_tract_dvmt.geoid = mdc_2021_acs_5yr_tract_dvmt.geoid
+  AND mdc_2020_2024_acs_5yr_trends_tract_dvmt.geoid = mdc_2020_acs_5yr_tract_dvmt.geoid;
+-- change column to jsonb
+ALTER TABLE mdc_2020_2024_acs_5yr_trends_tract_dvmt
+ALTER COLUMN number_of_housing_structures_with_10_19_units TYPE jsonb USING to_jsonb(number_of_housing_structures_with_10_19_units);
+-- update column number_of_housing_structures_with_10_19_units in mdc_2020_2024_acs_5yr_trends_tract_dvmt
+UPDATE mdc_2020_2024_acs_5yr_trends_tract_dvmt
+SET number_of_housing_structures_with_10_19_units = jsonb_build_object('2024-01-01/2024-12-31',mdc_2020_2024_acs_5yr_trends_tract_dvmt.number_of_housing_structures_with_10_19_units,'2023-01-01/2023-12-31',mdc_2023_acs_5yr_tract_dvmt.number_of_housing_structures_with_10_19_units,'2022-01-01/2022-12-31',mdc_2022_acs_5yr_tract_dvmt.number_of_housing_structures_with_10_19_units,'2021-01-01/2021-12-31',mdc_2021_acs_5yr_tract_dvmt.number_of_housing_structures_with_10_19_units,'2020-01-01/2020-12-31',mdc_2020_acs_5yr_tract_dvmt.number_of_housing_structures_with_10_19_units)
+FROM mdc_2023_acs_5yr_tract_dvmt,mdc_2022_acs_5yr_tract_dvmt,mdc_2021_acs_5yr_tract_dvmt,mdc_2020_acs_5yr_tract_dvmt
+WHERE mdc_2020_2024_acs_5yr_trends_tract_dvmt.geoid = mdc_2023_acs_5yr_tract_dvmt.geoid
+  AND mdc_2020_2024_acs_5yr_trends_tract_dvmt.geoid = mdc_2022_acs_5yr_tract_dvmt.geoid
+  AND mdc_2020_2024_acs_5yr_trends_tract_dvmt.geoid = mdc_2021_acs_5yr_tract_dvmt.geoid
+  AND mdc_2020_2024_acs_5yr_trends_tract_dvmt.geoid = mdc_2020_acs_5yr_tract_dvmt.geoid;
+-- change column to jsonb
+ALTER TABLE mdc_2020_2024_acs_5yr_trends_tract_dvmt
+ALTER COLUMN number_of_housing_structures_with_20_49_units TYPE jsonb USING to_jsonb(number_of_housing_structures_with_20_49_units);
+-- update column number_of_housing_structures_with_20_49_units in mdc_2020_2024_acs_5yr_trends_tract_dvmt
+UPDATE mdc_2020_2024_acs_5yr_trends_tract_dvmt
+SET number_of_housing_structures_with_20_49_units = jsonb_build_object('2024-01-01/2024-12-31',mdc_2020_2024_acs_5yr_trends_tract_dvmt.number_of_housing_structures_with_20_49_units,'2023-01-01/2023-12-31',mdc_2023_acs_5yr_tract_dvmt.number_of_housing_structures_with_20_49_units,'2022-01-01/2022-12-31',mdc_2022_acs_5yr_tract_dvmt.number_of_housing_structures_with_20_49_units,'2021-01-01/2021-12-31',mdc_2021_acs_5yr_tract_dvmt.number_of_housing_structures_with_20_49_units,'2020-01-01/2020-12-31',mdc_2020_acs_5yr_tract_dvmt.number_of_housing_structures_with_20_49_units)
+FROM mdc_2023_acs_5yr_tract_dvmt,mdc_2022_acs_5yr_tract_dvmt,mdc_2021_acs_5yr_tract_dvmt,mdc_2020_acs_5yr_tract_dvmt
+WHERE mdc_2020_2024_acs_5yr_trends_tract_dvmt.geoid = mdc_2023_acs_5yr_tract_dvmt.geoid
+  AND mdc_2020_2024_acs_5yr_trends_tract_dvmt.geoid = mdc_2022_acs_5yr_tract_dvmt.geoid
+  AND mdc_2020_2024_acs_5yr_trends_tract_dvmt.geoid = mdc_2021_acs_5yr_tract_dvmt.geoid
+  AND mdc_2020_2024_acs_5yr_trends_tract_dvmt.geoid = mdc_2020_acs_5yr_tract_dvmt.geoid;
+-- change column to jsonb
+ALTER TABLE mdc_2020_2024_acs_5yr_trends_tract_dvmt
+ALTER COLUMN number_of_housing_structures_with_50_or_more_units TYPE jsonb USING to_jsonb(number_of_housing_structures_with_50_or_more_units);
+-- update column number_of_housing_structures_with_50_or_more_units in mdc_2020_2024_acs_5yr_trends_tract_dvmt
+UPDATE mdc_2020_2024_acs_5yr_trends_tract_dvmt
+SET number_of_housing_structures_with_50_or_more_units = jsonb_build_object('2024-01-01/2024-12-31',mdc_2020_2024_acs_5yr_trends_tract_dvmt.number_of_housing_structures_with_50_or_more_units,'2023-01-01/2023-12-31',mdc_2023_acs_5yr_tract_dvmt.number_of_housing_structures_with_50_or_more_units,'2022-01-01/2022-12-31',mdc_2022_acs_5yr_tract_dvmt.number_of_housing_structures_with_50_or_more_units,'2021-01-01/2021-12-31',mdc_2021_acs_5yr_tract_dvmt.number_of_housing_structures_with_50_or_more_units,'2020-01-01/2020-12-31',mdc_2020_acs_5yr_tract_dvmt.number_of_housing_structures_with_50_or_more_units)
+FROM mdc_2023_acs_5yr_tract_dvmt,mdc_2022_acs_5yr_tract_dvmt,mdc_2021_acs_5yr_tract_dvmt,mdc_2020_acs_5yr_tract_dvmt
+WHERE mdc_2020_2024_acs_5yr_trends_tract_dvmt.geoid = mdc_2023_acs_5yr_tract_dvmt.geoid
+  AND mdc_2020_2024_acs_5yr_trends_tract_dvmt.geoid = mdc_2022_acs_5yr_tract_dvmt.geoid
+  AND mdc_2020_2024_acs_5yr_trends_tract_dvmt.geoid = mdc_2021_acs_5yr_tract_dvmt.geoid
+  AND mdc_2020_2024_acs_5yr_trends_tract_dvmt.geoid = mdc_2020_acs_5yr_tract_dvmt.geoid;
+-- change column to jsonb
+ALTER TABLE mdc_2020_2024_acs_5yr_trends_tract_dvmt
+ALTER COLUMN housing_tenancy__owner_occupied_housing_units TYPE jsonb USING to_jsonb(housing_tenancy__owner_occupied_housing_units);
+-- update column housing_tenancy__owner_occupied_housing_units in mdc_2020_2024_acs_5yr_trends_tract_dvmt
+UPDATE mdc_2020_2024_acs_5yr_trends_tract_dvmt
+SET housing_tenancy__owner_occupied_housing_units = jsonb_build_object('2024-01-01/2024-12-31',mdc_2020_2024_acs_5yr_trends_tract_dvmt.housing_tenancy__owner_occupied_housing_units,'2023-01-01/2023-12-31',mdc_2023_acs_5yr_tract_dvmt.housing_tenancy__owner_occupied_housing_units,'2022-01-01/2022-12-31',mdc_2022_acs_5yr_tract_dvmt.housing_tenancy__owner_occupied_housing_units,'2021-01-01/2021-12-31',mdc_2021_acs_5yr_tract_dvmt.housing_tenancy__owner_occupied_housing_units,'2020-01-01/2020-12-31',mdc_2020_acs_5yr_tract_dvmt.housing_tenancy__owner_occupied_housing_units)
+FROM mdc_2023_acs_5yr_tract_dvmt,mdc_2022_acs_5yr_tract_dvmt,mdc_2021_acs_5yr_tract_dvmt,mdc_2020_acs_5yr_tract_dvmt
+WHERE mdc_2020_2024_acs_5yr_trends_tract_dvmt.geoid = mdc_2023_acs_5yr_tract_dvmt.geoid
+  AND mdc_2020_2024_acs_5yr_trends_tract_dvmt.geoid = mdc_2022_acs_5yr_tract_dvmt.geoid
+  AND mdc_2020_2024_acs_5yr_trends_tract_dvmt.geoid = mdc_2021_acs_5yr_tract_dvmt.geoid
+  AND mdc_2020_2024_acs_5yr_trends_tract_dvmt.geoid = mdc_2020_acs_5yr_tract_dvmt.geoid;
+-- change column to jsonb
+ALTER TABLE mdc_2020_2024_acs_5yr_trends_tract_dvmt
+ALTER COLUMN housing_tenancy__renter_occupied_housing_units TYPE jsonb USING to_jsonb(housing_tenancy__renter_occupied_housing_units);
+-- update column housing_tenancy__renter_occupied_housing_units in mdc_2020_2024_acs_5yr_trends_tract_dvmt
+UPDATE mdc_2020_2024_acs_5yr_trends_tract_dvmt
+SET housing_tenancy__renter_occupied_housing_units = jsonb_build_object('2024-01-01/2024-12-31',mdc_2020_2024_acs_5yr_trends_tract_dvmt.housing_tenancy__renter_occupied_housing_units,'2023-01-01/2023-12-31',mdc_2023_acs_5yr_tract_dvmt.housing_tenancy__renter_occupied_housing_units,'2022-01-01/2022-12-31',mdc_2022_acs_5yr_tract_dvmt.housing_tenancy__renter_occupied_housing_units,'2021-01-01/2021-12-31',mdc_2021_acs_5yr_tract_dvmt.housing_tenancy__renter_occupied_housing_units,'2020-01-01/2020-12-31',mdc_2020_acs_5yr_tract_dvmt.housing_tenancy__renter_occupied_housing_units)
+FROM mdc_2023_acs_5yr_tract_dvmt,mdc_2022_acs_5yr_tract_dvmt,mdc_2021_acs_5yr_tract_dvmt,mdc_2020_acs_5yr_tract_dvmt
+WHERE mdc_2020_2024_acs_5yr_trends_tract_dvmt.geoid = mdc_2023_acs_5yr_tract_dvmt.geoid
+  AND mdc_2020_2024_acs_5yr_trends_tract_dvmt.geoid = mdc_2022_acs_5yr_tract_dvmt.geoid
+  AND mdc_2020_2024_acs_5yr_trends_tract_dvmt.geoid = mdc_2021_acs_5yr_tract_dvmt.geoid
+  AND mdc_2020_2024_acs_5yr_trends_tract_dvmt.geoid = mdc_2020_acs_5yr_tract_dvmt.geoid;
+"
+
+# add local geometry column and reproject existing geometries into local EPSG:
+psql -d $POSTGRES_DB -U $POSTGRES_USER -p $POSTGRES_PORT -h gaia-db -c "
+ALTER TABLE mdc_2020_2024_acs_5yr_trends_tract_dvmt DROP COLUMN IF EXISTS geom_local CASCADE;
+SELECT AddGeometryColumn (
+  'mdc_2020_2024_acs_5yr_trends_tract_dvmt',
+  'geom_local', 2236, 'multipolygon', 2
+);
+UPDATE mdc_2020_2024_acs_5yr_trends_tract_dvmt
+  SET geom_local=ST_MakeValid(ST_RemoveRepeatedPoints(ST_Transform(ST_Multi(geom),2236)));
+CREATE INDEX mdc_2020_2024_acs_5yr_trends_tract_dvmt_geom_local_idx
+  ON mdc_2020_2024_acs_5yr_trends_tract_dvmt
+  USING GIST (geom_local);
+NOTIFY pgrst, 'reload schema';
+"

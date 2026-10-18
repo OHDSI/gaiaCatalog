@@ -44,6 +44,14 @@
       "@id": "https://www.geonames.org/6252001",
       "@type": "Place",
       "name": "United States"
+    },
+    {
+      "@type": "Place",
+      "name": "bbox",
+      "geo": {
+        "@type": "GeoShape",
+        "polygon": "TBD"
+      }
     }
   ],
   "temporalCoverage": "2022-01-01/2022-12-31",
@@ -357,7 +365,7 @@
       "endDate": "2022-12-31"
     }
   ],
-  "distribution": "TBD",
+  "distribution": "/data/us_2022_annual_aqi_by_county/",
   "isBasedOn": [
     {
       "@id": "https://gdsc.idsc.miami.edu/details/us_2020_census_county_fips",
@@ -372,6 +380,6 @@
       "url": "https://gdsc.idsc.miami.edu/details/us_2022_county_tl"
     }
   ],
-  "dateModified": "2022-07-31",
-  "version": "2026-09-13"
+  "dateModified": "2026-09-09 16:18:04",
+  "version": "2026-10-09"
 }

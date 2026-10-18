@@ -15,7 +15,7 @@
         "publisher_name": "OpenStreetMap"
       }
     ],
-    "rights": "open_data",
+    "rights": "Open Data",
     "license": "odbl",
     "license_text": "OpenStreetMap\u00ae is open data, licensed under the [Open Data Commons Open Database License](https://opendatacommons.org/licenses/odbl/) (ODbL) by the [OpenStreetMap Foundation](https://osmfoundation.org/) (OSMF).",
     "restrictions": "You are free to copy, distribute, transmit and adapt our data, as long as you credit OpenStreetMap and its contributors. If you alter or build upon our data, you may distribute the result only under the same licence.",
@@ -27,7 +27,7 @@
         "coverage_identifier_schema_uri": "https://www.geonames.org/"
       }
     ],
-    "resource_type": "vector_dataset",
+    "resource_type": "Vector Dataset",
     "publication_date": "2025-02-24",
     "description": "A point feature set for the populated places in Tanzania sourced from OpenStreetMap with a query that includes Cities, Towns, Villages, and Hamlets.",
     "provenance": "Direct from source.",
@@ -51,6 +51,7 @@
         "subject_term": "Hamlets"
       }
     ],
+    "language": "en",
     "size_group": [
       {
         "size_bytes": "2914659",
@@ -62,8 +63,9 @@
     "structure": "vector",
     "geometry": "point",
     "epsg": 4326,
+    "extent": "TBD",
     "lineage": "TBD",
-    "process_step": "#########\n# GDSC ETL is performed in two steps: shell script to ETL data into postgres\n# and then additional transformations with SQL in postGIS (if needed).\n####\n\n#########\n# Step 1 - bash script (pseudo code)\n####\n\n# create directory structure and move into it\nmkdir -p /data/tz_populated_places_osm/download -p /data/tz_populated_places_osm/etl\nchmod 777 /data/tz_populated_places_osm/download\ncd /data/tz_populated_places_osm\n\n# set update flag based on last update and update frequency\ndo_update=0 if date() < last_update + update_frequency else do_update = 1\n\n# download if update flag is set:\nif do_update == 1 then\ncurl -o download/tz_populated_places_osm.osm 'https://overpass-api.de/api/interpreter?data=area%28id:3600195270%29-%3E.searchArea;node%5B%22place%22~%22city|town|village|hamlet%22%5D%28area.searchArea%29;%28._;%3E;%29;out;'\n\n# load into postGIS with:\n  ogr2ogr -lco GEOMETRY_NAME=geom -f PostgreSQL PG:\"<postgres connection>\" download/tz_populated_places_osm.osm\n\n#########\n# Step 2 - SQL script (pseudo code):\n####\n\n# Select proper geometry into the named table\npsql -d gaiacore -U postgres -p 5432 -h gaia-db -c \"\nSELECT * INTO tz_populated_places_osm FROM points;\nDROP TABLE IF EXISTS lines;\nDROP TABLE IF EXISTS multilinestrings;\nDROP TABLE IF EXISTS multipolygons;\nDROP TABLE IF EXISTS other_relations;\nDROP TABLE IF EXISTS points;\"\n\n# remove duplicate points and make geometries valid:\nUPDATE tz_populated_places_osm\n  SET geom=ST_MakeValid(ST_RemoveRepeatedPoints(geom));\n\n# add local geometry column and reproject existing geometries into local EPSG:\nSELECT AddGeometryColumn (\n  'tz_populated_places_osm',\n  'geom_local', 4326, 'point', 2\n);\nUPDATE tz_populated_places_osm\n  SET geom_local=ST_MakeValid(ST_RemoveRepeatedPoints(ST_Transform(geom,4326)));\nCREATE INDEX tz_populated_places_osm_geom_local_idx\n  ON tz_populated_places_osm\n  USING GIST (geom_local);\nNOTIFY pgrst, 'reload schema';\n# Move into corrrect directory and create derivative directory in data package on osgeo\ncd /data/tz_populated_places_osm/\nmkdir -p derived\n\n# Create shapefile of table in derivate directory on osgeo \nogr2ogr -f \"ESRI Shapefile\" -overwrite derived/tz_populated_places_osm.shp PG:\"<postgres connection>\" tz_populated_places_osm\n\n# Create downloadable tarfile of shp in derivative directory on osgeo\nrm -f derived/tz_populated_places_osm.shp.tar.gz\ntar -czf derived/tz_populated_places_osm.shp.tar.gz meta_dcat_tz_populated_places_osm.json -C derived tz_populated_places_osm.shp tz_populated_places_osm.prj tz_populated_places_osm.shx tz_populated_places_osm.dbf\n\n# Move into correct directory\ncd /data/tz_populated_places_osm/\n\n",
+    "process_step": "#########\n# GDSC ETL is performed in two steps: shell script to ETL data into postgres\n# and then additional transformations with SQL in postGIS (if needed).\n####\n\n#########\n# Step 1 - bash script (pseudo code)\n####\n\n# create directory structure and move into it\nmkdir -p /data/tz_populated_places_osm/download -p /data/tz_populated_places_osm/etl\nchmod -R 777 /data/tz_populated_places_osm\ncd /data/tz_populated_places_osm\n\n# set update flag based on last update and update frequency\ndo_update=0 if date() < last_update + update_frequency else do_update = 1\n\n# download if update flag is set:\nif do_update == 1 then\ncurl -o download/tz_populated_places_osm.osm 'https://overpass-api.de/api/interpreter?data=area%28id:3600195270%29-%3E.searchArea;node%5B%22place%22~%22city|town|village|hamlet%22%5D%28area.searchArea%29;%28._;%3E;%29;out;' 2>&1\n\n# load into postGIS with:\nogr2ogr -lco GEOMETRY_NAME=geom -f PostgreSQL PG:\"<postgres connection>\" download/tz_populated_places_osm.osm\necho success: tz_populated_places_osm.osm loaded with ogr2ogr\n\n\n#########\n# Step 2 - SQL script (pseudo code):\n####\n\n# Select proper geometry into the named table\npsql -d gaiacore -U postgres -p 5432 -h gaia-db -c \"\nSELECT * INTO tz_populated_places_osm FROM points;\nDROP TABLE IF EXISTS lines;\nDROP TABLE IF EXISTS multilinestrings;\nDROP TABLE IF EXISTS multipolygons;\nDROP TABLE IF EXISTS other_relations;\nDROP TABLE IF EXISTS points;\"\n\n# remove duplicate points and make geometries valid:\nUPDATE tz_populated_places_osm\n  SET geom=ST_MakeValid(ST_RemoveRepeatedPoints(geom));\n\n# add local geometry column and reproject existing geometries into local EPSG:\nALTER TABLE tz_populated_places_osm DROP COLUMN IF EXISTS geom_local CASCADE;\nSELECT AddGeometryColumn (\n  'tz_populated_places_osm',\n  'geom_local', 4326, 'point', 2\n);\nUPDATE tz_populated_places_osm\n  SET geom_local=ST_MakeValid(ST_RemoveRepeatedPoints(ST_Transform(geom,4326)));\nCREATE INDEX tz_populated_places_osm_geom_local_idx\n  ON tz_populated_places_osm\n  USING GIST (geom_local);\nNOTIFY pgrst, 'reload schema';\n# Move into corrrect directory and create derivative directory in data package on osgeo\ncd /data/tz_populated_places_osm/\nmkdir -p derived\n\n# Create shapefile of table in derivate directory on osgeo \nogr2ogr -f \"ESRI Shapefile\" -overwrite derived/tz_populated_places_osm.shp PG:\"<postgres connection>\" tz_populated_places_osm\n\n# Create downloadable tarfile of shp in derivative directory on osgeo\nrm -f derived/tz_populated_places_osm.shp.tar.gz\ntar -czf derived/tz_populated_places_osm.shp.tar.gz meta_dcat_tz_populated_places_osm.json -C derived tz_populated_places_osm.shp tz_populated_places_osm.prj tz_populated_places_osm.shx tz_populated_places_osm.dbf\n\n# Move into correct directory\ncd /data/tz_populated_places_osm/\n\n",
     "processor": "GDSC automation (see Process Step)",
     "point_of_contact_group": [
       {
@@ -105,17 +107,17 @@
         "attribute_type": "varchar"
       },
       {
-        "attribute_name": "\nname",
+        "attribute_name": "name",
         "attribute_description": "Place/settlement name",
         "attribute_source": "varchar"
       },
       {
-        "attribute_name": "\nplace",
+        "attribute_name": "place",
         "attribute_description": "Kind of settlement as City, Town, Village, Hamlet, City Block, or other",
         "attribute_source": "varchar"
       },
       {
-        "attribute_name": "\nother_tags",
+        "attribute_name": "other_tags",
         "attribute_description": "Any other OSM tags with values",
         "attribute_source": "varchar"
       }
@@ -138,8 +140,7 @@
       }
     ],
     "status": "published",
-    "disclaimer": "The Database is licensed by the Licensor \u201cas is\u201d and without any warranty of any kind, either express, implied, or arising by statute, custom, course of dealing, or trade usage. Licensor specifically disclaims any and all implied warranties or conditions of title, non-infringement, accuracy or completeness, the presence or absence of errors, fitness for a particular purpose, merchantability, or otherwise. Some jurisdictions do not allow the exclusion of implied warranties, so this exclusion may not apply to You.\n\nSubject to any liability that may not be excluded or limited by law, the Licensor is not liable for, and expressly excludes, all liability for loss or damage however and whenever caused to anyone by any use under this License, whether by You or by anyone else, and whether caused by any fault on the part of the Licensor or not. This exclusion of liability includes, but is not limited to, any special, incidental, consequential, punitive, or exemplary damages such as loss of revenue, data, anticipated profits, and lost business. This exclusion applies even if the Licensor has been advised of the possibility of such damages. \n\nIf liability may not be excluded by law, it is limited to actual and direct financial loss to the extent it is caused by proved negligence on the part of the Licensor.",
-    "service_definition": "api"
+    "disclaimer": "The Database is licensed by the Licensor \u201cas is\u201d and without any warranty of any kind, either express, implied, or arising by statute, custom, course of dealing, or trade usage. Licensor specifically disclaims any and all implied warranties or conditions of title, non-infringement, accuracy or completeness, the presence or absence of errors, fitness for a particular purpose, merchantability, or otherwise. Some jurisdictions do not allow the exclusion of implied warranties, so this exclusion may not apply to You.\n\nSubject to any liability that may not be excluded or limited by law, the Licensor is not liable for, and expressly excludes, all liability for loss or damage however and whenever caused to anyone by any use under this License, whether by You or by anyone else, and whether caused by any fault on the part of the Licensor or not. This exclusion of liability includes, but is not limited to, any special, incidental, consequential, punitive, or exemplary damages such as loss of revenue, data, anticipated profits, and lost business. This exclusion applies even if the Licensor has been advised of the possibility of such damages. \n\nIf liability may not be excluded by law, it is limited to actual and direct financial loss to the extent it is caused by proved negligence on the part of the Licensor."
   },
   "etl_group": {
     "source": "https://overpass-api.de/api/interpreter?data=area%28id:3600195270%29-%3E.searchArea;node%5B%22place%22~%22city|town|village|hamlet%22%5D%28area.searchArea%29;%28._;%3E;%29;out;",
@@ -156,11 +157,11 @@
     "up": "false",
     "podid": "gaia-db",
     "last_updated": "2025-09-07 11:08:15",
-    "update_frequency": "as_needed",
+    "update_frequency": "As Needed",
     "checksum": "TBD"
   },
-  "_submission_time": "2026-08-23 15:57:22",
+  "_submission_time": "2026-10-09 23:53:20",
   "meta": {
-    "instanceID": "84b0ee5f-3695-4554-a594-51896909653"
+    "instanceID": "70a1bb27-0963-417c-88fa-06725509543"
   }
 }

@@ -1,0 +1,272 @@
+{
+  "@context": {
+    "@vocab": "https://schema.org/",
+    "dct": "http://purl.org/dc/terms/",
+    "qudt": "http://qudt.org/schema/qudt/",
+    "quantitykind": "http://qudt.org/vocab/quantitykind/",
+    "unit": "http://qudt.org/vocab/unit/",
+    "xsd": "http://www.w3.org/2001/XMLSchema",
+    "extendedConstraintProperty": "http://codata.org/vocab/extendedConstraintProperty",
+    "sdmx": "https://sdmx.org"
+  },
+  "@type": "Dataset",
+  "@id": "https://gdsc.idsc.miami.edu/detail/fl_2021_tl_tract",
+  "includedInDataCatalog": [
+    {
+      "@type": "DataCatalog",
+      "@id": "https://gdsc.idsc.miami.edu",
+      "name": "Geospatial Digital Special Collections",
+      "url": "https://gdsc.idsc.miami.edu"
+    },
+    {
+      "@type": "DataCatalog",
+      "name": "us-census",
+      "@id": "https://gdsc.idsc.miami.edu/?collection=us-census",
+      "url": "https://gdsc.idsc.miami.edu/?collection=us-census"
+    }
+  ],
+  "name": "2021 Florida Census Tracts - Florida",
+  "creator": [
+    {
+      "@type": "Organization",
+      "sameAs": "https://ror.org/04chq2495",
+      "@id": "https://ror.org/04chq2495",
+      "identifier": "https://ror.org/04chq2495",
+      "name": "U.S. Department of Commerce"
+    },
+    {
+      "@type": "Organization",
+      "sameAs": "https://ror.org/01qn7cs15",
+      "@id": "https://ror.org/01qn7cs15",
+      "identifier": "https://ror.org/01qn7cs15",
+      "name": "U.S. Census Bureau"
+    },
+    {
+      "@type": "Organization",
+      "name": "Geography Division"
+    },
+    {
+      "@type": "Organization",
+      "name": "Spatial Data Collection and Products Branch"
+    }
+  ],
+  "url": "https://www.census.gov/geographies/mapping-files/time-series/geo/tiger-line-file.html",
+  "provider": [
+    {
+      "@type": "Organization",
+      "name": "Department of Commerce"
+    },
+    {
+      "@type": "Organization",
+      "name": "U.S. Census Bureau"
+    },
+    {
+      "@type": "Organization",
+      "name": "Geography Division"
+    },
+    {
+      "@type": "Organization",
+      "name": "Spatial Data Collection and Products Branch"
+    }
+  ],
+  "spatialCoverage": [
+    {
+      "@id": "https://www.geonames.org/4155751",
+      "@type": "Place",
+      "name": "Florida"
+    },
+    {
+      "@type": "Place",
+      "name": "bbox",
+      "geo": {
+        "@type": "GeoShape",
+        "polygon": "24.396308 -87.634896 24.396308 -79.974306 31.000968 -79.974306 31.000968 -87.634896 24.396308 -87.634896"
+      }
+    }
+  ],
+  "type": "Vector Dataset",
+  "datePublished": "2021-10-07",
+  "description": "The Census Tracts data provides a stable set of geographic units for the presentation of census data and comparison back to previous decennial censuses.",
+  "keywords": [
+    "Florida",
+    "Census",
+    "2021",
+    "Tract",
+    "Census Tract",
+    "Geography"
+  ],
+  "@language": "en",
+  "measurementTechnique": [
+    {
+      "@type": "DefinedTerm",
+      "description": "GIS Data Structure for Representation",
+      "inDefinedTermSet": {
+        "@type": "DefinedTermSet",
+        "name": "dataRepresentation",
+        "hasDefinedTerm": [
+          {
+            "@type": "DefinedTerm",
+            "termCode": "raster"
+          },
+          {
+            "@type": "DefinedTerm",
+            "termCode": "vector"
+          },
+          {
+            "@type": "DefinedTerm",
+            "termCode": "table"
+          }
+        ]
+      },
+      "termCode": "vector"
+    },
+    {
+      "@type": "DefinedTerm",
+      "description": "GIS Vector Geometery",
+      "inDefinedTermSet": {
+        "@type": "DefinedTermSet",
+        "name": "vectorGeometry",
+        "hasDefinedTerm": [
+          {
+            "@type": "DefinedTerm",
+            "termCode": "point"
+          },
+          {
+            "@type": "DefinedTerm",
+            "termCode": "line"
+          },
+          {
+            "@type": "DefinedTerm",
+            "termCode": "polygon"
+          }
+        ]
+      },
+      "termCode": "multipolygon"
+    }
+  ],
+  "additionalProperty": [
+    {
+      "@type": "PropertyValue",
+      "propertyID": "http://dbpedia.org/resource/Spatial_reference_system",
+      "value": "https://epsg.io/4269"
+    }
+  ],
+  "about": [
+    {
+      "@type": "Event",
+      "description": "direct from source",
+      "name": "ETL process for 2021 Florida Census Tracts - Florida",
+      "potentialAction": {
+        "@type": "Action",
+        "name": "Pseudo Code",
+        "description": "TODO"
+      }
+    },
+    {
+      "@type": "Event",
+      "description": "direct from source",
+      "name": "ETL process for 2021 Florida Census Tracts - Florida",
+      "potentialAction": {
+        "@type": "Action",
+        "name": "wget",
+        "description": "ETL process for 2021 Florida Census Tracts - Florida",
+        "object": {
+          "@type": "Dataset",
+          "name": "direct from source",
+          "producer": "U.S. Department of Commerce",
+          "url": "https://www.census.gov/geographies/mapping-files/time-series/geo/tiger-line-file.html"
+        },
+        "instrument": {
+          "@type": "SoftwareApplication",
+          "@id": "https://github.com/Geospatial-Digital-Special-Collections/tools",
+          "featureList": "wget",
+          "downloadUrl": "https://github.com/Geospatial-Digital-Special-Collections/tools.git"
+        },
+        "result": {
+          "@type": "Dataset",
+          "name": "2021 Florida Census Tracts - Florida",
+          "description": "The Census Tracts data provides a stable set of geographic units for the presentation of census data and comparison back to previous decennial censuses.",
+          "encodingFormat": "shp"
+        }
+      }
+    }
+  ],
+  "variableMeasured": [
+    {
+      "@type": "PropertyValue",
+      "name": "statefp",
+      "description": "State FIPS code",
+      "qudt:dataType": "varchar"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "countyfp",
+      "description": "County FIPS code",
+      "qudt:dataType": "varchar"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "tractce",
+      "description": "Tract code",
+      "qudt:dataType": "varchar"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "geoid",
+      "description": "geographic identifier",
+      "qudt:dataType": "varchar"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "name",
+      "description": "Census tract name, this is the census tract code converted to an integer or integer plus two-digit decimal if the last two characters of the code are not both zeros",
+      "qudt:dataType": "varchar"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "namelsad",
+      "description": "Census translated legal/statistical area description and the census tract name",
+      "qudt:dataType": "varchar"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "mtfcc",
+      "description": "maf/tiger feature class code",
+      "qudt:dataType": "varchar"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "funcstat",
+      "description": "Census functional status",
+      "qudt:dataType": "varchar"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "aland",
+      "description": "Census land area",
+      "qudt:dataType": "numeric",
+      "minValue": "0.00",
+      "maxValue": "2409568046.00"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "awaterWater tract (2010 and continuing)",
+      "description": "U.S Census Bureau"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "intplat",
+      "description": "Census latitude of the internal point",
+      "qudt:dataType": "string"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "intplon",
+      "description": "Census longitude of the internal point",
+      "qudt:dataType": "string"
+    }
+  ],
+  "distribution": "/data/fl_2021_tl_tract/",
+  "dateModified": "2026-10-11 18:13:22",
+  "version": "2026-10-17"
+}

@@ -1,0 +1,309 @@
+{
+  "@context": {
+    "@vocab": "https://schema.org/",
+    "dct": "http://purl.org/dc/terms/",
+    "qudt": "http://qudt.org/schema/qudt/",
+    "quantitykind": "http://qudt.org/vocab/quantitykind/",
+    "unit": "http://qudt.org/vocab/unit/",
+    "xsd": "http://www.w3.org/2001/XMLSchema",
+    "extendedConstraintProperty": "http://codata.org/vocab/extendedConstraintProperty",
+    "sdmx": "https://sdmx.org"
+  },
+  "@type": "Dataset",
+  "@id": "https://gdsc.idsc.miami.edu/detail/mdc_county_park_boundaries",
+  "includedInDataCatalog": [
+    {
+      "@type": "DataCatalog",
+      "@id": "https://gdsc.idsc.miami.edu",
+      "name": "Geospatial Digital Special Collections",
+      "url": "https://gdsc.idsc.miami.edu"
+    },
+    {
+      "@type": "DataCatalog",
+      "name": "mdc-health-outcomes",
+      "@id": "https://gdsc.idsc.miami.edu/?collection=mdc-health-outcomes",
+      "url": "https://gdsc.idsc.miami.edu/?collection=mdc-health-outcomes"
+    }
+  ],
+  "name": "Miami-Dade County Park Boundaries",
+  "creator": [
+    {
+      "@type": "Organization",
+      "name": "Miami-Dade County Open Data Hub"
+    },
+    {
+      "@type": "Organization",
+      "name": "Information Technology Department"
+    }
+  ],
+  "url": "https://gis-mdc.opendata.arcgis.com/datasets/MDC::county-park-boundary-view/about",
+  "provider": [
+    {
+      "@type": "Organization",
+      "name": "Miami-Dade County"
+    }
+  ],
+  "spatialCoverage": [
+    {
+      "@id": "https://www.geonames.org/4164238",
+      "@type": "Place",
+      "name": "Miami-Dade County"
+    },
+    {
+      "@type": "Place",
+      "name": "bbox",
+      "geo": {
+        "@type": "GeoShape",
+        "polygon": "25.411217 -80.536021 25.411217 -80.116539 25.973779 -80.116539 25.973779 -80.536021 25.411217 -80.536021"
+      }
+    }
+  ],
+  "type": "Vector Dataset",
+  "datePublished": "2023-04-18",
+  "description": "A polygon feature class of parks and recreational locations maintained by Miami-Dade County.",
+  "keywords": [
+    "Miami-Dade County"
+  ],
+  "@language": "en",
+  "measurementTechnique": [
+    {
+      "@type": "DefinedTerm",
+      "description": "GIS Data Structure for Representation",
+      "inDefinedTermSet": {
+        "@type": "DefinedTermSet",
+        "name": "dataRepresentation",
+        "hasDefinedTerm": [
+          {
+            "@type": "DefinedTerm",
+            "termCode": "raster"
+          },
+          {
+            "@type": "DefinedTerm",
+            "termCode": "vector"
+          },
+          {
+            "@type": "DefinedTerm",
+            "termCode": "table"
+          }
+        ]
+      },
+      "termCode": "vector"
+    },
+    {
+      "@type": "DefinedTerm",
+      "description": "GIS Vector Geometery",
+      "inDefinedTermSet": {
+        "@type": "DefinedTermSet",
+        "name": "vectorGeometry",
+        "hasDefinedTerm": [
+          {
+            "@type": "DefinedTerm",
+            "termCode": "point"
+          },
+          {
+            "@type": "DefinedTerm",
+            "termCode": "line"
+          },
+          {
+            "@type": "DefinedTerm",
+            "termCode": "polygon"
+          }
+        ]
+      },
+      "termCode": "multipolygon"
+    }
+  ],
+  "additionalProperty": [
+    {
+      "@type": "PropertyValue",
+      "propertyID": "http://dbpedia.org/resource/Spatial_reference_system",
+      "value": "https://epsg.io/4326"
+    }
+  ],
+  "about": [
+    {
+      "@type": "Event",
+      "description": "nan",
+      "name": "ETL process for Miami-Dade County Park Boundaries",
+      "potentialAction": {
+        "@type": "Action",
+        "name": "Pseudo Code",
+        "description": "TODO"
+      }
+    },
+    {
+      "@type": "Event",
+      "description": "nan",
+      "name": "ETL process for Miami-Dade County Park Boundaries",
+      "potentialAction": {
+        "@type": "Action",
+        "name": "wget",
+        "description": "ETL process for Miami-Dade County Park Boundaries",
+        "object": {
+          "@type": "Dataset",
+          "producer": "Miami-Dade County Open Data Hub",
+          "url": "https://gis-mdc.opendata.arcgis.com/datasets/MDC::county-park-boundary-view/about"
+        },
+        "instrument": {
+          "@type": "SoftwareApplication",
+          "@id": "https://github.com/Geospatial-Digital-Special-Collections/tools",
+          "featureList": "wget",
+          "downloadUrl": "https://github.com/Geospatial-Digital-Special-Collections/tools.git"
+        },
+        "result": {
+          "@type": "Dataset",
+          "name": "Miami-Dade County Park Boundaries",
+          "description": "A polygon feature class of parks and recreational locations maintained by Miami-Dade County.",
+          "encodingFormat": "geojson"
+        }
+      }
+    }
+  ],
+  "variableMeasured": [
+    {
+      "@type": "PropertyValue",
+      "name": "objectid",
+      "description": "Unique object identifer",
+      "qudt:dataType": "int4",
+      "minValue": "1",
+      "maxValue": "310",
+      "startDate": "2025-02-01",
+      "endDate": "2025-06-30"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "folio",
+      "description": "Folio identifier",
+      "qudt:dataType": "varchar",
+      "startDate": "2025-02-01",
+      "endDate": "2025-06-30"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "id",
+      "description": "Unique identifier",
+      "qudt:dataType": "varchar",
+      "startDate": "2025-02-01",
+      "endDate": "2025-06-30"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "name",
+      "description": "Name of park facility",
+      "qudt:dataType": "varchar",
+      "startDate": "2025-02-01",
+      "endDate": "2025-06-30"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "address",
+      "description": "Address of facility",
+      "qudt:dataType": "varchar",
+      "startDate": "2025-02-01",
+      "endDate": "2025-06-30"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "city",
+      "description": "City of park facility",
+      "qudt:dataType": "varchar",
+      "startDate": "2025-02-01",
+      "endDate": "2025-06-30"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "zipcode",
+      "description": "Zipcode of park facility",
+      "qudt:dataType": "int4",
+      "minValue": "33013",
+      "maxValue": "33196",
+      "startDate": "2025-02-01",
+      "endDate": "2025-06-30"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "phone",
+      "description": "Phone number of facility",
+      "qudt:dataType": "varchar",
+      "maxValue": "2025-02-01",
+      "startDate": "2025-06-30"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "class",
+      "description": "classification of facility",
+      "qudt:dataType": "varchar",
+      "startDate": "2025-02-01",
+      "endDate": "2025-06-30"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "totacre",
+      "description": "Total acres",
+      "qudt:dataType": "float8",
+      "minValue": "0.109999999403954",
+      "maxValue": "903.9",
+      "startDate": "2025-02-01",
+      "endDate": "2025-06-30"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "type",
+      "description": "type of facility",
+      "qudt:dataType": "varchar",
+      "startDate": "2025-02-01",
+      "endDate": "2025-06-30"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "develop",
+      "description": "Developed or not",
+      "qudt:dataType": "varchar",
+      "startDate": "2025-02-01",
+      "endDate": "2025-06-30"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "natarea",
+      "description": "Natural area",
+      "qudt:dataType": "varchar",
+      "startDate": "2025-02-01",
+      "endDate": "2025-06-30"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "pkschool",
+      "description": "Whether or not facility is within a preschool",
+      "qudt:dataType": "varchar",
+      "startDate": "2025-02-01",
+      "endDate": "2025-06-30"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "wifi",
+      "description": "Whether or not facility has wifi",
+      "qudt:dataType": "varchar",
+      "startDate": "2025-02-01",
+      "endDate": "2025-06-30"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "shape_area",
+      "description": "County park boundary",
+      "qudt:dataType": "numeric",
+      "startDate": "2025-02-01",
+      "endDate": "2025-06-30"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "shape_length",
+      "description": "County park boundary length",
+      "qudt:dataType": "numeric",
+      "startDate": "2025-02-01",
+      "endDate": "2025-06-30"
+    }
+  ],
+  "distribution": "/data/mdc_county_park_boundaries/",
+  "dateModified": "2026-10-05 22:05:50",
+  "version": "2026-10-09"
+}

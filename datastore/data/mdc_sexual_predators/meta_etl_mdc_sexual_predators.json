@@ -1,0 +1,21 @@
+{
+  "rights": "Public Domain",
+  "structure": "vector",
+  "geometry": "point",
+  "epsg": "EPSG:4326",
+  "extent": "ENVELOPE(-8967461.2087,-8918899.7884,2995663.4198,2925418.2566)",
+  "attributes": ["address;Location of offender;MDC;string;", "fname;First name of offender;MDC;string;", "mname;Middle name of offender;MDC;string;", "lname;Last name of offender;MDC;string;", "sname;Suffix of offender;MDC;string;", "status;Offender's status;MDC;string;", "sub_typd;Status resulting from conviction;MDC;string;", "race_typd;Race;MDC;string;", "sex;Sex;MDC;string;", "eye_typd;Eye type;MDC;string;", "hair_typd;Hair type;MDC;string;", "height;Height;MDC;string;", "addr_typd;Address type;MDC;string;", "weight;", "dob;Date of birth;MDC;string;", "doc_nbr;Document number;MDC;string;", "address2;Related address extra information;MDC;string;", "city;City;MDC;string;", "tran_date;Transfer state;MDC;string;", "tran_addr1;Transfer address 1;MDC;string;", "tran_addr2;Transfer address 2;MDC;string;", "tran_city;Transfer city;MDC;string;", "tran_state;Transfer state;MDC;string;", "tran_zip5;Transfer zipcode;MDC;string;", "tran_zip4;Transfer zipcode (4 char);MDC;string;", "tran_cnty;Transfer city;MDC;string;", "image_id; Image ID;MDC;string;", "zip;Zipcode;MDC;string;", "zip4;Zipcode (4 char);MDC;string;", "x_coord;X-coordinate;MDC;string;", "y_coord;Y-coordinate;MDC;string;"],
+  "local_epsg": "EPSG:2236",
+  "derive": ["sql"],
+  "source": "https://services.arcgis.com/8Pc9XBTAsYuxx9Ny/arcgis/rest/services/SEXPRED_gdb/FeatureServer/0/query?outFields=*&where=1%3D1&outSR=4326&f=geojson",
+  "file": ["mdc_sexual_predators"],
+  "extension": "json",
+  "download": "esri_recursive_ogr",
+  "table": "mdc_sexual_predators",
+  "format": "json",
+  "up": "true",
+  "podID": "gaia-db",
+  "last_updated": "2026-10-17T22:31:26Z",
+  "update_frequency": "1 day",
+  "checksum": "TBD"
+}

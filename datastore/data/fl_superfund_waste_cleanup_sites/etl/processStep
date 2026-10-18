@@ -1,0 +1,47 @@
+#########
+# GDSC ETL is performed in two steps: shell script to ETL data into postgres
+# and then additional transformations with SQL in postGIS (if needed).
+####
+
+#########
+# Step 1 - bash script (pseudo code)
+####
+
+# create directory structure and move into it
+mkdir -p /data/fl_superfund_waste_cleanup_sites/download -p /data/fl_superfund_waste_cleanup_sites/etl
+chmod -R 777 /data/fl_superfund_waste_cleanup_sites
+cd /data/fl_superfund_waste_cleanup_sites
+
+# set update flag based on last update and update frequency
+do_update=0 if date() < last_update + update_frequency else do_update = 1
+
+# download if update flag is set:
+if do_update == 1 then
+wget --retry-connrefused --waitretry=1 --read-timeout=20 --timeout=15 -t 10 -O download/fl_superfund_waste_cleanup_sites.json 'https://ca.dep.state.fl.us/arcgis/rest/services/OpenData/CLEANUP_SP/MapServer/1/query?where=1%3D1&outFields=*&outSR=4326&f=json' 2>&1
+
+# load into postGIS with:
+ogr2ogr -lco GEOMETRY_NAME=geom -f PostgreSQL PG:"<postgres connection>" download/fl_superfund_waste_cleanup_sites.json -nlt point -nln fl_superfund_waste_cleanup_sites
+echo success: fl_superfund_waste_cleanup_sites.json loaded with ogr2ogr
+
+
+#########
+# Step 2 - SQL script (pseudo code):
+####
+
+# remove duplicate points and make geometries valid:
+UPDATE fl_superfund_waste_cleanup_sites
+  SET geom=ST_MakeValid(ST_RemoveRepeatedPoints(geom));
+
+# add local geometry column and reproject existing geometries into local EPSG:
+ALTER TABLE fl_superfund_waste_cleanup_sites DROP COLUMN IF EXISTS geom_local CASCADE;
+SELECT AddGeometryColumn (
+  'fl_superfund_waste_cleanup_sites',
+  'geom_local', 2236, 'point', 2
+);
+UPDATE fl_superfund_waste_cleanup_sites
+  SET geom_local=ST_MakeValid(ST_RemoveRepeatedPoints(ST_Transform(geom,2236)));
+CREATE INDEX fl_superfund_waste_cleanup_sites_geom_local_idx
+  ON fl_superfund_waste_cleanup_sites
+  USING GIST (geom_local);
+NOTIFY pgrst, 'reload schema';
+

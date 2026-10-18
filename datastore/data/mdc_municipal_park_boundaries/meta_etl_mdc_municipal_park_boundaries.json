@@ -1,0 +1,20 @@
+{
+  "rights": "Public Domain",
+  "structure": "vector",
+  "geometry": "multipolygon",
+  "epsg": "EPSG:4326",
+  "extent": "ENVELOPE(-80.494577,-80.118706,25.974518,25.440561)",
+  "attributes": ["objectid;Unique object identifer;Esri;int4;;;1;563;2018-06-01;2025-06-30", "folio;Folio identifier;MDC;varchar;;;;;2018-06-01;2025-06-30", "id;Unique identifier;MDC;varchar;;;;;2018-06-01;2025-06-30", "name;Name of park facility;MDC;varchar;;;;;2018-06-01;2025-06-30", "address;Address of facility;MDC;varchar;;;;;2018-06-01;2025-06-30", "city;City of park facility;MDC;varchar;;;;;2018-06-01;2025-06-30", "zipcode;Zipcode of park facility;MDC;int4;;;33010;33189;2018-06-01;2025-06-30", "phone;Phone number of facility;numeric;varchar;;;;2018-06-01;2025-06-30", "contact;Official contact of facility;MDC;varchar;;;;;2018-06-01;2025-06-30", "class;classification of facility;MDC;varchar;;;;;2018-06-01;2025-06-30", "totacre;Total acres;MDC;float8;;;0.03441150887;646.19840651663;2018-06-01;2025-06-30", "type;type of facility;MDC;varchar;;;;;2018-06-01;2025-06-30", "develop;Developed or not;MDC;varchar;;;;;2018-06-01;2025-06-30", "mngtagcy;Managing agency;MDC;varchar;;;;;2018-06-01;2025-06-30", "shape_area;Municipal park boundary;Esri;double;;;;;2018-06-01;2025-06-30", "shape_length;Municipal park boundary length;Esri;double;;;;;2018-06-01;2025-06-30"],
+  "local_epsg": "EPSG:2236",
+  "source": "https://opendata.arcgis.com/api/v3/datasets/16fe02a1defa45b28bf14a29fb5f0428_0/downloads/data?format=geojson&spatialRefId=4326&where=1%3D1",
+  "file": ["mdc_municipal_park_boundaries"],
+  "extension": "geojson",
+  "download": "wget",
+  "table": "mdc_municipal_park_boundaries",
+  "format": "geojson",
+  "up": "true",
+  "podID": "gaia-db",
+  "last_updated": "2026-10-05T22:06:17Z",
+  "update_frequency": "6 months",
+  "checksum": "TBD"
+}

@@ -1,0 +1,300 @@
+{
+  "control_group": {
+    "id": 260
+  },
+  "dublin_core_group": {
+    "title": "2026 MDC FLMA Managed Areas",
+    "creator_group": [
+      {
+        "creator_name": "Florida Natural Areas Inventory"
+      }
+    ],
+    "url": "https://www.fnai.org/publications/gis-data",
+    "publisher_group": [
+      {
+        "publisher_name": "University of Miami GDSC"
+      }
+    ],
+    "rights": "Public Domain",
+    "license_text": "Use of this data should be accompanied by proper citation of FNAI. Available for free download at: http://www.fnai.org/gis_data.cfm",
+    "coverage_group": [
+      {
+        "coverage_name": "Miami-Dade County",
+        "coverage_identifier": "4164238",
+        "coverage_identifier_schema": "geonames",
+        "coverage_identifier_schema_uri": "https://www.geonames.org/"
+      }
+    ],
+    "resource_type": "Vector Dataset",
+    "publication_date": "2026-03-01",
+    "description": "The State Parks are derived as a subset from The Florida Natural Areas Inventory. The Florida Natural Areas Inventory is the primary source for information on Florida's conservation lands. FNAI's database includes boundaries and statistics for more than 2,900 federal, state, local, and private managed areas, all provided directly by the managing agencies. National parks, state forests, wildlife management areas, local and private preserves are examples of the managed areas included. The shapefile is called FLMA for Florida Managed Areas; updated versions are published quarterly.\n\nFLORIDA CONSERVATION LANDS (layer name FLMA): This is a polygon data layer for public (and some private) lands that the Florida Natural Areas Inventory (FNAI) has identified as having natural resource value and that are being managed at least partially for conservation purposes. The term \"Managed Area\" refers to a managed conservation land.\n",
+    "subject_group": [
+      {
+        "subject_term": "Miami-Dade County"
+      },
+      {
+        "subject_term": "FNAI"
+      },
+      {
+        "subject_term": "Conservation Lands"
+      },
+      {
+        "subject_term": "FLMA"
+      },
+      {
+        "subject_term": "State Parks"
+      }
+    ],
+    "language": "en",
+    "size_group": [
+      {
+        "size_bytes": "0",
+        "size_human_readable": "0"
+      }
+    ]
+  },
+  "iso_group": {
+    "structure": "vector",
+    "geometry": "multipolygon",
+    "epsg": 3087,
+    "extent": "ENVELOPE(-80.58986398643734,-80.08940946270674,25.97306254376044,25.242215809574343)",
+    "lineage": "TBD",
+    "process_step": "#########\n# GDSC ETL is performed in two steps: shell script to ETL data into postgres\n# and then additional transformations with SQL in postGIS (if needed).\n####\n\n#########\n# Step 1 - bash script (pseudo code)\n####\n\n# create directory structure and move into it\nmkdir -p /data/mdc_2026_flma/download -p /data/mdc_2026_flma/etl\nchmod -R 777 /data/mdc_2026_flma\ncd /data/mdc_2026_flma\n\n# set update flag based on last update and update frequency\ndo_update=0 if date() < last_update + update_frequency else do_update = 1\n\n# Create copy of geom dependency\npg_dump -d gaiacore -U postgres -p 5432 -h gaia-db -t fl_2026_flma | sed 's/fl_2026_flma/mdc_2026_flma/g' | psql -d gaiacore -U postgres -p 5432 -h gaia-db \n\n# drop geom_local and subset as per custom parameters\npsql -d gaiacore -U postgres -p 5432 -h gaia-db -c \"\nALTER TABLE mdc_2026_flma DROP COLUMN IF EXISTS geom_local;\nDELETE FROM mdc_2026_flma\n  WHERE NOT (county = 'Miami-Dade');\nCOMMIT;\"\n# add local geometry column and reproject existing geometries into local EPSG:\nALTER TABLE mdc_2026_flma DROP COLUMN IF EXISTS geom_local CASCADE;\nSELECT AddGeometryColumn (\n  'mdc_2026_flma',\n  'geom_local', 2236, 'multipolygon', 2\n);\nUPDATE mdc_2026_flma\n  SET geom_local=ST_MakeValid(ST_RemoveRepeatedPoints(ST_Transform(ST_Multi(geom),2236)));\nCREATE INDEX mdc_2026_flma_geom_local_idx\n  ON mdc_2026_flma\n  USING GIST (geom_local);\nNOTIFY pgrst, 'reload schema';\n# add local geometry column and reproject existing geometries into local EPSG:\nALTER TABLE mdc_2026_flma DROP COLUMN IF EXISTS geom_local CASCADE;\nSELECT AddGeometryColumn (\n  'mdc_2026_flma',\n  'geom_local', 2236, 'multipolygon', 2\n);\nUPDATE mdc_2026_flma\n  SET geom_local=ST_MakeValid(ST_RemoveRepeatedPoints(ST_Transform(ST_Multi(geom),2236)));\nCREATE INDEX mdc_2026_flma_geom_local_idx\n  ON mdc_2026_flma\n  USING GIST (geom_local);\nNOTIFY pgrst, 'reload schema';\n",
+    "processor": "GDSC automation (see Process Step)",
+    "point_of_contact_group": [
+      {
+        "contact_name": "Timothy B. Norris",
+        "contact_last_name": "Norris",
+        "contact_first_name": "Timothy",
+        "contact_email": "tnorris@miami.edu",
+        "contact_identifier": "https://orcid.org/0000-0002-0898-3027",
+        "contact_identifier_schema": "orcid",
+        "contact_identifier_schema_uri": "https://orcid.org/",
+        "contact_affiliation": "University of Miami Libraries, Frost Institute for Data Science and Computing",
+        "contact_affiliation_identifier": "https://ror.org/02dgjyy92",
+        "contact_affiliation_schema": "ror",
+        "contact_affiliation_schema_uri": "https://ror.org/"
+      }
+    ],
+    "data_level": "derived"
+  },
+  "cartography_group": {
+    "label": "ma_id",
+    "attributes_group": [
+      {
+        "attribute_name": "ma_id",
+        "attribute_description": "Managed Area ID, designed by NatureServe. Unique identifier for each Managed Area.",
+        "attribute_source": "FNAI",
+        "attribute_type": "float8",
+        "attribute_min_value": "63",
+        "attribute_max_value": "3769"
+      },
+      {
+        "attribute_name": "maname",
+        "attribute_description": "Official name of the Managed Area (conservation land)",
+        "attribute_source": "The managing agency of the Managed Area",
+        "attribute_type": "varchar"
+      },
+      {
+        "attribute_name": "majorma",
+        "attribute_description": "Official name of the Major Managed Area.  Major Managed Area refers to a larger Managed Area that contains the Managed Area in question.",
+        "attribute_source": "FNAI",
+        "attribute_type": "varchar"
+      },
+      {
+        "attribute_name": "matype",
+        "attribute_description": "Code for the Managed Area by lead managing agency. Each Managed Area has been coded as 1st byte = Managing Agency Category: F=Federal, S=State, L=Local, P=Private, 2nd and 3rd bytes = Managing Agency: (e.g., AF= US Air Force), 4th and 5th bytes = Managed Area Unit Type (e.g., AB= Air Force Base)",
+        "attribute_source": "The Nature Conservancy and FNAI",
+        "attribute_type": "varchar"
+      },
+      {
+        "attribute_name": "managing_a",
+        "attribute_description": "Name of the lead managing agency for the Managed Area.",
+        "attribute_source": "FNAI",
+        "attribute_type": "varchar"
+      },
+      {
+        "attribute_name": "matype2",
+        "attribute_description": "Code for Managed Area by managing agency category.",
+        "attribute_source": "FNAI",
+        "attribute_type": "varchar"
+      },
+      {
+        "attribute_name": "owner",
+        "attribute_description": "Name of the main owner of the Managed Area",
+        "attribute_source": "FNAI",
+        "attribute_type": "varchar"
+      },
+      {
+        "attribute_name": "coowners",
+        "attribute_description": "Name(s) of additional owner(s) of the managed area",
+        "attribute_source": "FNAI",
+        "attribute_type": "varchar"
+      },
+      {
+        "attribute_name": "ownertypes",
+        "attribute_description": "Owner Types",
+        "attribute_source": "FNAI",
+        "attribute_type": "varchar"
+      },
+      {
+        "attribute_name": "totacres",
+        "attribute_description": "Total number of acres within the Managed Area",
+        "attribute_source": "The managing agency of the Managed Area",
+        "attribute_type": "float8",
+        "attribute_unit": "acres",
+        "attribute_min_value": "0.7",
+        "attribute_max_value": "172971.11"
+      },
+      {
+        "attribute_name": "ltf_acres",
+        "attribute_description": "Number of acres within the Managed Area that are in less-than-fee ownership.",
+        "attribute_source": "The managing agency of the Managed Area",
+        "attribute_type": "float8",
+        "attribute_unit": "acres",
+        "attribute_min_value": "0",
+        "attribute_max_value": "184.71"
+      },
+      {
+        "attribute_name": "esmt_hold",
+        "attribute_description": "Easement Holder",
+        "attribute_source": "FNAI",
+        "attribute_type": "varchar"
+      },
+      {
+        "attribute_name": "county",
+        "attribute_description": "Abbreviation (the first four letters of the county name) for the county",
+        "attribute_source": "FNAI",
+        "attribute_type": "varchar"
+      },
+      {
+        "attribute_name": "prostat",
+        "attribute_description": "Protection Status as 1, 2, or 3",
+        "attribute_source": "The Nature Conservancy and FNAI. Synonymous with protection categories I, II, III",
+        "attribute_type": "double"
+      },
+      {
+        "attribute_name": "descript",
+        "attribute_description": "General description of the Managed Area",
+        "attribute_source": "FNAI",
+        "attribute_type": "varchar"
+      },
+      {
+        "attribute_name": "comments",
+        "attribute_description": "General comments",
+        "attribute_source": "FNAI",
+        "attribute_type": "varchar"
+      },
+      {
+        "attribute_name": "manager",
+        "attribute_description": "Name and/or official job title of the current manager of the Managed Area.",
+        "attribute_source": "The managing agency of the Managed Area",
+        "attribute_type": "varchar"
+      },
+      {
+        "attribute_name": "mgrinst",
+        "attribute_description": "Manager Institution",
+        "attribute_source": "The managing agency of the Managed Area",
+        "attribute_type": "varchar"
+      },
+      {
+        "attribute_name": "mgrcity",
+        "attribute_description": "Manager City.",
+        "attribute_source": "The managing agency of the Managed Area",
+        "attribute_type": "varchar"
+      },
+      {
+        "attribute_name": "mgrphone",
+        "attribute_description": "Manager Phone",
+        "attribute_source": "FNAI",
+        "attribute_type": "varchar"
+      },
+      {
+        "attribute_name": "ma_website",
+        "attribute_description": "Managed Area Web Site",
+        "attribute_source": "FNAI",
+        "attribute_type": "varchar"
+      },
+      {
+        "attribute_name": "maname_ab",
+        "attribute_description": "A shortened (abbreviated) name of the Managed Area",
+        "attribute_source": "FNAI",
+        "attribute_type": "varchar"
+      },
+      {
+        "attribute_name": "digbnd_src",
+        "attribute_description": "Digital Boundary Source",
+        "attribute_source": "FNAI",
+        "attribute_type": "varchar"
+      },
+      {
+        "attribute_name": "citation",
+        "attribute_description": "Suggested Citation",
+        "attribute_source": "FNAI",
+        "attribute_type": "varchar"
+      },
+      {
+        "attribute_name": "shape_length",
+        "attribute_description": "Perimeter in meters.",
+        "attribute_source": "calculated",
+        "attribute_type": "float8",
+        "attribute_unit": "meters",
+        "attribute_min_value": "218.777995272167",
+        "attribute_max_value": "371136.272304891"
+      },
+      {
+        "attribute_name": "shape_area",
+        "attribute_description": "Area in square meters.",
+        "attribute_source": "calculated",
+        "attribute_type": "float8",
+        "attribute_unit": "square meters",
+        "attribute_min_value": "2814.22698527822",
+        "attribute_max_value": "702991929.615823"
+      }
+    ]
+  },
+  "collection_group": {
+    "collections": "climate-and-equity-mapping-program miami-affordability-project mdc-climate-resilience mdc-sleep-outcomes mdc-health-outcomes",
+    "analytic_function": "gdsc_get_attributes gdsc_nearest_neighbor",
+    "analytic_epsg": 2236,
+    "derivative_url": "/data/mdc_2026_flma/",
+    "sponsor_group": [
+      {
+        "sponsor_name": "IDSC",
+        "sponsor_url": "https://idsc.miami.edu"
+      },
+      {
+        "sponsor_name": "Library",
+        "sponsor_url": "https://www.library.miami.edu"
+      }
+    ],
+    "status": "draft",
+    "disclaimer": "Use of this data should be accompanied by proper citation of FNAI. Available for free download at: http://www.fnai.org/gis_data.cfm"
+  },
+  "etl_group": {
+    "source": "fl_2026_flma",
+    "file_name_group": [
+      {
+        "file_name_value": "mdc_2026_flma"
+      }
+    ],
+    "table_name": "mdc_2026_flma",
+    "format": "shp",
+    "dependency_group": [
+      {
+        "dependency_table_name": "fl_2026_flma"
+      }
+    ],
+    "custom_etl": "subset",
+    "custom_parameters": "county;=;'Miami-Dade'",
+    "up": "true",
+    "podid": "gaia-db",
+    "last_updated": "2026-10-05 23:29:50",
+    "update_frequency": "4 months",
+    "checksum": "TBD"
+  },
+  "_submission_time": "2026-10-09 23:52:46",
+  "meta": {
+    "instanceID": "1b397598-9ce0-4553-a750-e1235074790"
+  }
+}

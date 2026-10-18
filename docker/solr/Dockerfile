@@ -8,7 +8,8 @@ COPY ./docker/solr/metadata/ /var/solr/data
 RUN chown -R solr:solr /var/solr/data
 
 # copy the catalog entries
-COPY ./datastore/ /catalog
+# this is now a mounted volume through docker compose
+# COPY ./datastore/ /catalog
 
 # copy the init script
 COPY --chown=solr --chmod=0500 ./docker/solr/init.sh /docker-entrypoint-initdb.d/init.sh

@@ -1,0 +1,273 @@
+{
+  "@context": {
+    "@vocab": "https://schema.org/",
+    "dct": "http://purl.org/dc/terms/",
+    "qudt": "http://qudt.org/schema/qudt/",
+    "quantitykind": "http://qudt.org/vocab/quantitykind/",
+    "unit": "http://qudt.org/vocab/unit/",
+    "xsd": "http://www.w3.org/2001/XMLSchema",
+    "extendedConstraintProperty": "http://codata.org/vocab/extendedConstraintProperty",
+    "sdmx": "https://sdmx.org"
+  },
+  "@type": "Dataset",
+  "@id": "https://gdsc.idsc.miami.edu/detail/mdc_2020_zcta",
+  "includedInDataCatalog": [
+    {
+      "@type": "DataCatalog",
+      "@id": "https://gdsc.idsc.miami.edu",
+      "name": "Geospatial Digital Special Collections",
+      "url": "https://gdsc.idsc.miami.edu"
+    },
+    {
+      "@type": "DataCatalog",
+      "name": "mdc-health-outcomes",
+      "@id": "https://gdsc.idsc.miami.edu/?collection=mdc-health-outcomes",
+      "url": "https://gdsc.idsc.miami.edu/?collection=mdc-health-outcomes"
+    }
+  ],
+  "name": "Miami-Dade 2020 Zip Code Tabulation Areas",
+  "creator": [
+    {
+      "@type": "Organization",
+      "sameAs": "https://ror.org/04chq2495",
+      "@id": "https://ror.org/04chq2495",
+      "identifier": "https://ror.org/04chq2495",
+      "name": "U.S. Department of Commerce"
+    },
+    {
+      "@type": "Organization",
+      "sameAs": "https://ror.org/01qn7cs15",
+      "@id": "https://ror.org/01qn7cs15",
+      "identifier": "https://ror.org/01qn7cs15",
+      "name": "U.S. Census Bureau"
+    },
+    {
+      "@type": "Organization",
+      "name": "Geography Division"
+    },
+    {
+      "@type": "Organization",
+      "name": "Spatial Data Collection and Products Branch"
+    }
+  ],
+  "url": "https://www.census.gov/programs-surveys/geography/guidance/geo-areas/zctas.html",
+  "provider": [
+    {
+      "@type": "Organization",
+      "name": "Census"
+    }
+  ],
+  "spatialCoverage": [
+    {
+      "@id": "https://www.geonames.org/4164238",
+      "@type": "Place",
+      "name": "Miami-Dade County"
+    },
+    {
+      "@type": "Place",
+      "name": "bbox",
+      "geo": {
+        "@type": "GeoShape",
+        "polygon": "25.034431 -81.384489 25.034431 -80.110192 26.172879 -80.110192 26.172879 -81.384489 25.034431 -81.384489"
+      }
+    }
+  ],
+  "type": "Vector Dataset",
+  "datePublished": "2024-08-26",
+  "description": "A polygon representation of the Miami-Dade Zip Code Tabulation Areas (ZCTA) boundaries (derived from us_2020_zcta).",
+  "keywords": [
+    "Miami-Dade",
+    "Zipcode",
+    "ZCTA"
+  ],
+  "@language": "en",
+  "measurementTechnique": [
+    {
+      "@type": "DefinedTerm",
+      "description": "GIS Data Structure for Representation",
+      "inDefinedTermSet": {
+        "@type": "DefinedTermSet",
+        "name": "dataRepresentation",
+        "hasDefinedTerm": [
+          {
+            "@type": "DefinedTerm",
+            "termCode": "raster"
+          },
+          {
+            "@type": "DefinedTerm",
+            "termCode": "vector"
+          },
+          {
+            "@type": "DefinedTerm",
+            "termCode": "table"
+          }
+        ]
+      },
+      "termCode": "vector"
+    },
+    {
+      "@type": "DefinedTerm",
+      "description": "GIS Vector Geometery",
+      "inDefinedTermSet": {
+        "@type": "DefinedTermSet",
+        "name": "vectorGeometry",
+        "hasDefinedTerm": [
+          {
+            "@type": "DefinedTerm",
+            "termCode": "point"
+          },
+          {
+            "@type": "DefinedTerm",
+            "termCode": "line"
+          },
+          {
+            "@type": "DefinedTerm",
+            "termCode": "polygon"
+          }
+        ]
+      },
+      "termCode": "multipolygon"
+    }
+  ],
+  "additionalProperty": [
+    {
+      "@type": "PropertyValue",
+      "propertyID": "http://dbpedia.org/resource/Spatial_reference_system",
+      "value": "https://epsg.io/4269"
+    }
+  ],
+  "about": [
+    {
+      "@type": "Event",
+      "description": "Census from the Post Office",
+      "name": "ETL process for Miami-Dade 2020 Zip Code Tabulation Areas",
+      "potentialAction": {
+        "@type": "Action",
+        "name": "Pseudo Code",
+        "description": "TODO"
+      }
+    },
+    {
+      "@type": "Event",
+      "description": "Census from the Post Office",
+      "name": "ETL process for Miami-Dade 2020 Zip Code Tabulation Areas",
+      "potentialAction": {
+        "@type": "Action",
+        "name": "clip_vector",
+        "description": "Custom ETL process for Miami-Dade 2020 Zip Code Tabulation Areas",
+        "object": {
+          "@type": "Dataset",
+          "name": "Census from the Post Office",
+          "producer": "U.S. Department of Commerce",
+          "url": "https://www.census.gov/programs-surveys/geography/guidance/geo-areas/zctas.html"
+        },
+        "instrument": {
+          "@type": "SoftwareApplication",
+          "@id": "https://github.com/Geospatial-Digital-Special-Collections/tools",
+          "featureList": "geoid = '12086'",
+          "downloadUrl": "https://github.com/Geospatial-Digital-Special-Collections/tools.git"
+        },
+        "result": {
+          "@type": "Dataset",
+          "name": "Miami-Dade 2020 Zip Code Tabulation Areas",
+          "description": "A polygon representation of the Miami-Dade Zip Code Tabulation Areas (ZCTA) boundaries (derived from us_2020_zcta)."
+        }
+      }
+    }
+  ],
+  "variableMeasured": [
+    {
+      "@type": "PropertyValue",
+      "name": "ogc_fid",
+      "description": "object ID",
+      "qudt:dataType": "int4",
+      "unitText": "id",
+      "minValue": "117",
+      "maxValue": "24426"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "geoid20",
+      "description": "Zip Code",
+      "qudt:dataType": "varchar",
+      "unitText": "zip code"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "zcta5ce20",
+      "description": "Zip Code",
+      "qudt:dataType": "varchar",
+      "unitText": "zip code"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "classfp20",
+      "description": "The class (CLASSFP) code defines the current class of a geographic entity.",
+      "qudt:dataType": "varchar",
+      "unitText": "code"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "mtfcc20",
+      "description": "5-digit code assigned by the Census Bureau intended to classify and describe geographic objects or features",
+      "qudt:dataType": "varchar",
+      "unitText": "code"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "aland20",
+      "description": "Area of land in square feet",
+      "qudt:dataType": "numeric",
+      "unitText": "Square Feet",
+      "minValue": "35050.00",
+      "maxValue": "3038252240.00"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "awater20",
+      "description": "Area of water in square feet",
+      "qudt:dataType": "numeric",
+      "unitText": "Square Feet",
+      "minValue": "0.00",
+      "maxValue": "227532787.00"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "funcstat20",
+      "description": "The functional status (FUNCSTAT) code defines the current functional status of a geographic entity.",
+      "qudt:dataType": "varchar",
+      "unitText": "code"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "intptlat20",
+      "description": "NAD83 Latitude",
+      "qudt:dataType": "varchar",
+      "unitText": "Degrees Latitude"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "intptlon20",
+      "description": "NAD83 Longitude",
+      "qudt:dataType": "varchar",
+      "unitText": "Degrees Longitude"
+    }
+  ],
+  "distribution": "/data/mdc_2020_zcta/",
+  "isBasedOn": [
+    {
+      "@id": "https://gdsc.idsc.miami.edu/details/us_2020_zcta",
+      "@type": "Dataset",
+      "name": "us_2020_zcta",
+      "url": "https://gdsc.idsc.miami.edu/details/us_2020_zcta"
+    },
+    {
+      "@id": "https://gdsc.idsc.miami.edu/details/us_2020_county_tl",
+      "@type": "Dataset",
+      "name": "us_2020_county_tl",
+      "url": "https://gdsc.idsc.miami.edu/details/us_2020_county_tl"
+    }
+  ],
+  "dateModified": "2026-10-05 22:47:12",
+  "version": "2026-10-10"
+}

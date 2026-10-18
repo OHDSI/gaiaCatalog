@@ -1,0 +1,21 @@
+{
+  "rights": "Public Domain",
+  "structure": "vector",
+  "geometry": "point",
+  "epsg": "EPSG:4326",
+  "extent": "ENVELOPE(-80.502415,-80.132022,25.943273,25.419524)",
+  "attributes": ["objectid;Internal feature number;Esri;int4;;;1;22", "provider;Provider of hospital;MDC;varchar;;;;", "address;Location of health center;MDC;varchar;;;;", "city;City of health center;MDC;varchar;;;;", "zipcode;Zipcode of health center;integer;int4;;;33010;33190", "lat;Latitude;MDC;float8;decimal degrees;;25.41952;25.94327", "lon;Longitude;MDC;float8;decimal degrees;;-80.50241;-80.13202", "point_x;X-coordinate;MDC;float8;feet;;820395.687295336;941611.874980588", "point_y;Y-coordinate;MDC;float8;feet;;395026.125016339;585844.687604174"],
+  "local_epsg": "EPSG:2236",
+  "derive": ["sql"],
+  "source": "https://services.arcgis.com/8Pc9XBTAsYuxx9Ny/arcgis/rest/services/FederallyQualifiedHealthCenter_gdb/FeatureServer/0/query?where=1%3D1&outFields=*&outSR=4326&f=json",
+  "file": ["mdc_federally_qualified_health_centers"],
+  "extension": "json",
+  "download": "wget",
+  "table": "mdc_federally_qualified_health_centers",
+  "format": "json",
+  "up": "true",
+  "podID": "gaia-db",
+  "last_updated": "2026-10-17T22:28:10Z",
+  "update_frequency": "As Needed",
+  "checksum": "TBD"
+}

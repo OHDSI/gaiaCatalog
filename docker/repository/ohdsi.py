@@ -49,12 +49,12 @@ FILTER_SPECS = {
         "field": "adms_representationTechnique_str",
         "facet_name": "possible_representations",
         "frontend_name": "Representation"
+    },
+    "right": {
+        "field": "dct_rights_str",
+        "facet_name": "possible_rights",
+        "frontend_name": "Rights"
     }#,
-#    "right": {
-#        "field": "dct_rights_str",
-#        "facet_name": "possible_rights",
-#        "frontend_name": "Rights"
-#    },
 #    "active": {
 #        "field": "gdsc_up",
 #        "facet_name": "possible_activity",
@@ -639,65 +639,22 @@ def detail(name_id: str) -> str:
     )
 
 
-@app.route('/loadlayer/<layer_id>', methods=["POST"])
-def loadlayer(layer_id: str) -> dict:
+@app.route('/load/<layer_id>', methods=["POST"])
+@app.route('/load/<layer_id>/<variable_id>', methods=["POST"])
+def loadlayer(layer_id: str, variable_id: str = None) -> Response:
     """
-    py:function:: loadlayer(layer_id)
+    py:function:: load(layer_id, variable_id)
 
-    Load a layer given a layer_id_id. 
+    Load a layer given a layer_id and a variable from the layer if variable_id is included. 
 
     :param str layer_id: the ID for the layer
-    :return: the response body as dict from the postgres API
-    :rtype: dict
-    """
-
-    # check if layer is already loaded
-    # loaded_tables = get_loaded_list("gdsc_get_schema_tables",{"schema_name": "public"})
-    loaded_tables = call_etl_api("postgis","gdsc_get_schema_tables",{"schema_name": "public"})
-    #if GAIA_CATALOG_FLAVOR == "gdsc-api": loaded_tables = loaded_tables.split()[2:-2]
-    if layer_id in loaded_tables: return {'already loaded': layer_id}
-
-    # check for dependencies and load recursively if needed
-    response = call_etl_api("postgis","gdsc_path_and_dependencies",{"table_id": layer_id})
-    response = response.split(" ") if GAIA_CATALOG_FLAVOR == "gdsc-api" else response.split("\n")
-    for layer in response[1:]: loadlayer(layer)
-    data_path = response[0]
-
-    # prepare response and get the ETL scripts
-    response = {'load': layer_id}
-    scripts = os.listdir(f'{data_path}/etl/')
-    scripts = [x.split('_')[-1][:-3] for x in scripts if x not in ['processStep','.DS_Store'] and 'derivative' not in x]
-
-    # run the ETL scripts
-    for api in api_call_order:
-        if api in scripts:
-            try:
-                response[api] = call_etl_api(api,"gdsc_exec",{"shell": apis[api]['shell'], "script": f"{data_path}/etl/{layer_id}_{api}"})
-            except error.HTTPError as e:
-                e = loads(e.read().decode('utf-8'))
-                if e['code'] == "XX000": response[api] = e['message']
-                else: raise
-            except Exception as err:
-                print(f"Other error occurred: {err}")
-
-    return response
-
-
-@app.route('/load/<layer_id>/<variable_id>', methods=["POST"])
-def load(layer_id: str, variable_id: str) -> dict:
-    """
-    py:function:: load(layer_id,variable_id)
-
-    Load one variable given a layer_id and a variable_id. 
-
-    :param str layer_id: the ID for the layer for the variable
-    :param str variable_id: the ID for the variable to be loaded
-    :return: the response body as dict from the postgres API
-    :rtype: dict
+    :param str variable_id: the ID for the variable
+    :return: a streamed Flask Response 
+    :rtype: Response
     """
 
     def make_iso_date(date_string):
-        """
+        """s
         validates if a time string matches the expected format pattern.
         """
         if date_string == "Null": return ""
@@ -708,39 +665,88 @@ def load(layer_id: str, variable_id: str) -> dict:
             # assumes it is already iso
             return datetime.strptime(date_string,"%Y-%m-%d").strftime("%Y-%m-%d")
 
-    # make sure the source layer is loaded
-    load_layer = loadlayer(layer_id)
+    def load(local_layer_id):
+        """The generator function for the stream"""
 
-    # get the layer and variable metadata from SOLR
-    document = get_layer_meta(layer_id)
-    variable = [attr for attr in document['gdsc_attributes'] if variable_id in attr][0].split(";")  
-    variable = [var if var !='' else 'Null' for var in variable]
-    variable.extend(['Null' for i in range(len(variable),11)])
+        yield f"loading table {local_layer_id}."
 
-    # construct and make request
-    parameters = {
-        "params": {
-            "table_id": layer_id,
-            "table_description": document['dct_description'][0].strip('"').replace("\n", "\\n"),
-            "geom_type": document['locn_geometry'][0],
-            "geom_label": document['gdsc_label'][0],
-            "variable_nodata": "" if 'gdsc_nodata' not in document else document['gdsc_nodata'][1],
-            "variable_id": variable[0],
-            "description": variable[1].strip('"'),
-            "source": variable[2],
-            "type": variable[3],
-            "unit": variable[4],
-            "unit_concept_id": "" if variable[5] == "Null" else int(variable[5]),
-            "min_val": "" if variable[6] == "Null" else float(variable[6]),
-            "max_val": "" if variable[7] == "Null" else float(variable[7]),
-            "start_date": make_iso_date(variable[8]),
-            "end_date": make_iso_date(variable[9]),
-            "concept_id": "" if variable[10] == "Null" else int(variable[10])
-        }
-    }
-    response = call_etl_api("postgis","gdsc_load_variable",parameters)
+        # check if layer is already loaded
+        # loaded_tables = get_loaded_list("gdsc_get_schema_tables",{"schema_name": "public"})
+        loaded_tables = call_etl_api("postgis","gdsc_get_schema_tables",{"schema_name": "public"})
+        #if GAIA_CATALOG_FLAVOR == "gdsc-api": loaded_tables = loaded_tables.split()[2:-2]
 
-    return response
+        if local_layer_id in loaded_tables: 
+
+            yield f"{local_layer_id} already loaded."
+
+        else:
+
+            # check for dependencies and load recursively if needed
+            response = call_etl_api("postgis","gdsc_path_and_dependencies",{"table_id": local_layer_id})
+            response = response.split(" ") if GAIA_CATALOG_FLAVOR == "gdsc-api" else response.split("\n")
+            if len(response) > 1:
+                yield f"{local_layer_id} has these dependencies:\n{response[1:]}"
+            for layer in response[1:]: yield from load(layer)
+            data_path = response[0]
+
+            # prepare response and get the ETL scripts for the layer
+            response = {'load': local_layer_id}
+            scripts = os.listdir(f'{data_path}/etl/')
+            scripts = [x.split('_')[-1][:-3] for x in scripts if x not in ['processStep','.DS_Store'] and 'derivative' not in x]
+
+            # run the ETL scripts for the layer
+            for api in api_call_order:
+                if api in scripts:
+                    yield f"running {api} script for {local_layer_id}."
+                    try:
+                        response[api] = call_etl_api(api,"gdsc_exec",{"shell": apis[api]['shell'], "script": f"{data_path}/etl/{local_layer_id}_{api}"})
+                        yield f"{response[api]}\n"
+                    except error.HTTPError as e:
+                        e = loads(e.read().decode('utf-8'))
+                        if e['code'] == "XX000": 
+                            response[api] = e['message']
+                            yield f"{response[api]}"
+                        else: raise
+                    except Exception as err:
+                        print(f"Other error occurred: {err}")
+                        yield f"{api} script for {local_layer_id} failed: {err}"
+
+        if variable_id:
+
+            # get the layer and variable metadata from SOLR
+            yield f"loading variable {variable_id} for {local_layer_id}."
+            document = get_layer_meta(layer_id)
+            variable = [attr for attr in document['gdsc_attributes'] if variable_id in attr][0].split(";")  
+            variable = [var if var !='' else 'Null' for var in variable]
+            variable.extend(['Null' for i in range(len(variable),11)])
+
+            # construct and make request to load the variable
+            parameters = {
+                "params": {
+                    "table_id": layer_id,
+                    "table_description": document['dct_description'][0].strip('"').replace("\n", "\\n"),
+                    "geom_type": document['locn_geometry'][0],
+                    "geom_label": document['gdsc_label'][0],
+                    "variable_nodata": "" if 'gdsc_nodata' not in document else document['gdsc_nodata'][1],
+                    "variable_id": variable[0],
+                    "description": variable[1].strip('"'),
+                    "source": variable[2],
+                    "type": variable[3],
+                    "unit": variable[4],
+                    "unit_concept_id": "" if variable[5] == "Null" else int(variable[5]),
+                    "min_val": "" if variable[6] == "Null" else float(variable[6]),
+                    "max_val": "" if variable[7] == "Null" else float(variable[7]),
+                    "start_date": make_iso_date(variable[8]),
+                    "end_date": make_iso_date(variable[9]),
+                    "concept_id": "" if variable[10] == "Null" else int(variable[10])
+                }
+            }
+            yield f"{json.dumps(parameters['params'])}"
+            response = call_etl_api("postgis","gdsc_load_variable",parameters)
+            yield f"{response}"
+
+    return Response(load(layer_id), mimetype='text/event-stream')
+
 
 @app.route('/bibliography/<collection>/<fmt>', methods=["GET"])
 @app.route('/cite/<table_id>/<fmt>', methods=["GET"])
