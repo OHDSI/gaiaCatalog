@@ -487,7 +487,7 @@
       },
       {
         "attribute_name": "e_age17",
-        "attribute_description": "Persons aged 17 and younger estimate, 2014-2018 ACS",
+        "attribute_description": "Persons aged 17 and younger estimate, 2018 ACS",
         "attribute_source": "Census ACS",
         "attribute_type": "int4",
         "attribute_unit": "persons",
@@ -500,7 +500,7 @@
       },
       {
         "attribute_name": "e_age65",
-        "attribute_description": "Persons aged 65 and older estimate, 2014-2018 ACS",
+        "attribute_description": "Persons aged 65 and older estimate, 2018 ACS",
         "attribute_source": "Census ACS",
         "attribute_type": "int4",
         "attribute_unit": "persons",
@@ -513,7 +513,7 @@
       },
       {
         "attribute_name": "e_crowd",
-        "attribute_description": "At household level (occupied housing units), more people than rooms estimate, 2014-2018 ACS",
+        "attribute_description": "At household level (occupied housing units), more people than rooms estimate, 2018 ACS",
         "attribute_source": "Census ACS",
         "attribute_type": "int4",
         "attribute_unit": "households",
@@ -538,7 +538,7 @@
       },
       {
         "attribute_name": "e_disabl",
-        "attribute_description": "Civilian non-institutionalized population with a disability estimate, 2014-2018 ACS",
+        "attribute_description": "Civilian non-institutionalized population with a disability estimate, 2018 ACS",
         "attribute_source": "Census ACS",
         "attribute_type": "int4",
         "attribute_unit": "persons",
@@ -551,7 +551,7 @@
       },
       {
         "attribute_name": "e_groupq",
-        "attribute_description": "Persons in group quarters estimate, 2014-2018 ACS",
+        "attribute_description": "Persons in group quarters estimate, 2018 ACS",
         "attribute_source": "Census ACS",
         "attribute_type": "int4",
         "attribute_unit": "persons",
@@ -564,7 +564,7 @@
       },
       {
         "attribute_name": "e_hh",
-        "attribute_description": "Households estimate, 2014-2018 ACS",
+        "attribute_description": "Households estimate, 2018 ACS",
         "attribute_source": "Census ACS",
         "attribute_type": "int4",
         "attribute_unit": "households",
@@ -576,7 +576,7 @@
       },
       {
         "attribute_name": "e_hu",
-        "attribute_description": "Housing units estimate, 2014-2018 ACS",
+        "attribute_description": "Housing units estimate, 2018 ACS",
         "attribute_source": "Census ACS",
         "attribute_type": "int4",
         "attribute_unit": "housing units",
@@ -588,7 +588,7 @@
       },
       {
         "attribute_name": "e_limeng",
-        "attribute_description": "Persons (age 5+) who speak English \"\"less than well\"\" estimate, 2014-2018 ACS",
+        "attribute_description": "Persons (age 5+) who speak English \"\"less than well\"\" estimate, 2018 ACS",
         "attribute_source": "Census ACS",
         "attribute_type": "int4",
         "attribute_unit": "persons",
@@ -600,7 +600,7 @@
       },
       {
         "attribute_name": "e_minrty",
-        "attribute_description": "Minority (all persons except white, non-Hispanic) estimate, 2014-2018 ACS",
+        "attribute_description": "Minority (all persons except white, non-Hispanic) estimate, 2018 ACS",
         "attribute_source": "Census ACS",
         "attribute_type": "int4",
         "attribute_unit": "persons",
@@ -612,7 +612,7 @@
       },
       {
         "attribute_name": "e_mobile",
-        "attribute_description": "Mobile homes estimate, 2014-2018 ACS",
+        "attribute_description": "Mobile homes estimate, 2018 ACS",
         "attribute_source": "Census ACS",
         "attribute_type": "int4",
         "attribute_unit": "mobile homes",
@@ -624,7 +624,7 @@
       },
       {
         "attribute_name": "e_munit",
-        "attribute_description": "Housing in structures with 10 or more units estimate, 2014-2018 ACS",
+        "attribute_description": "Housing in structures with 10 or more units estimate, 2018 ACS",
         "attribute_source": "Census ACS",
         "attribute_type": "int4",
         "attribute_unit": "structures",
@@ -636,7 +636,7 @@
       },
       {
         "attribute_name": "e_nohsdp",
-        "attribute_description": "Persons (age 25+) with no high school diploma estimate, 2014-2018 ACS",
+        "attribute_description": "Persons (age 25+) with no high school diploma estimate, 2018 ACS",
         "attribute_source": "Census ACS",
         "attribute_type": "int4",
         "attribute_unit": "persons",
@@ -648,7 +648,7 @@
       },
       {
         "attribute_name": "e_noveh",
-        "attribute_description": "Households with no vehicle available estimate, 2014-2018 ACS",
+        "attribute_description": "Households with no vehicle available estimate, 2018 ACS",
         "attribute_source": "Census ACS",
         "attribute_type": "int4",
         "attribute_unit": "households",
@@ -660,7 +660,7 @@
       },
       {
         "attribute_name": "e_pci",
-        "attribute_description": "Per capita income estimate, 2014-2018 ACS",
+        "attribute_description": "Per capita income estimate, 2018 ACS",
         "attribute_source": "Census ACS",
         "attribute_type": "int4",
         "attribute_unit": "US dollars",
@@ -672,7 +672,7 @@
       },
       {
         "attribute_name": "e_pov",
-        "attribute_description": "Persons below poverty estimate, 2014-2018 ACS",
+        "attribute_description": "Persons below poverty estimate, 2018 ACS",
         "attribute_source": "Census ACS",
         "attribute_type": "int4",
         "attribute_unit": "persons",
@@ -684,7 +684,7 @@
       },
       {
         "attribute_name": "e_sngpnt",
-        "attribute_description": "Single parent household with children under 18 estimate, 2014-2018 ACS",
+        "attribute_description": "Single parent household with children under 18 estimate, 2018 ACS",
         "attribute_source": "Census ACS",
         "attribute_type": "int4",
         "attribute_unit": "households",
@@ -696,7 +696,7 @@
       },
       {
         "attribute_name": "e_totpop",
-        "attribute_description": "Population estimate, 2014-2018 ACS",
+        "attribute_description": "Population estimate, 2018 ACS",
         "attribute_source": "Census ACS",
         "attribute_type": "int4",
         "attribute_unit": "persons",
@@ -708,7 +708,7 @@
       },
       {
         "attribute_name": "e_unemp",
-        "attribute_description": "Civilian (age 16+) unemployed estimate, 2014-2018 ACS",
+        "attribute_description": "Civilian (age 16+) unemployed estimate, 2018 ACS",
         "attribute_source": "Census ACS",
         "attribute_type": "int4",
         "attribute_unit": "persons",
@@ -720,7 +720,7 @@
       },
       {
         "attribute_name": "e_uninsur",
-        "attribute_description": "Adjunct variable - Uninsured in the total civilian non-institutionalized population estimate, 2014-2018 ACS",
+        "attribute_description": "Adjunct variable - Uninsured in the total civilian non-institutionalized population estimate, 2018 ACS",
         "attribute_source": "Census ACS",
         "attribute_type": "int4",
         "attribute_unit": "persons",
@@ -732,7 +732,7 @@
       },
       {
         "attribute_name": "ep_age17",
-        "attribute_description": "Percentage of persons aged 17 and younger estimate, 2014-2018 ACS",
+        "attribute_description": "Percentage of persons aged 17 and younger estimate, 2018 ACS",
         "attribute_source": "Census ACS",
         "attribute_type": "float8",
         "attribute_unit": "percentage",
@@ -744,7 +744,7 @@
       },
       {
         "attribute_name": "ep_age65",
-        "attribute_description": "Percentage of persons aged 65 and older estimate, 2014-2018 ACS",
+        "attribute_description": "Percentage of persons aged 65 and older estimate, 2018 ACS",
         "attribute_source": "Census ACS",
         "attribute_type": "float8",
         "attribute_unit": "percentage",
@@ -768,7 +768,7 @@
       },
       {
         "attribute_name": "ep_disabl",
-        "attribute_description": "Percentage of civilian non-institutionalized population with a disability estimate, 2014-2018 ACS",
+        "attribute_description": "Percentage of civilian non-institutionalized population with a disability estimate, 2018 ACS",
         "attribute_source": "Census ACS",
         "attribute_type": "float8",
         "attribute_unit": "percentage",
@@ -780,7 +780,7 @@
       },
       {
         "attribute_name": "ep_groupq",
-        "attribute_description": "Percentage of persons in group quarters estimate, 2014-2018 ACS",
+        "attribute_description": "Percentage of persons in group quarters estimate, 2018 ACS",
         "attribute_source": "Census ACS",
         "attribute_type": "float8",
         "attribute_unit": "percentage",
@@ -792,7 +792,7 @@
       },
       {
         "attribute_name": "ep_limeng",
-        "attribute_description": "Percentage of persons (age 5+) who speak English \"\"less than well\"\" estimate, 2014-2018 ACS",
+        "attribute_description": "Percentage of persons (age 5+) who speak English \"\"less than well\"\" estimate, 2018 ACS",
         "attribute_source": "Census ACS",
         "attribute_type": "float8",
         "attribute_unit": "percentage",
@@ -804,7 +804,7 @@
       },
       {
         "attribute_name": "ep_minrty",
-        "attribute_description": "Percentage minority (all persons except white, non-Hispanic) estimate, 2014-2018 ACS",
+        "attribute_description": "Percentage minority (all persons except white, non-Hispanic) estimate, 2018 ACS",
         "attribute_source": "Census ACS",
         "attribute_type": "float8",
         "attribute_unit": "percentage",
@@ -864,7 +864,7 @@
       },
       {
         "attribute_name": "ep_pci",
-        "attribute_description": "Per capita income estimate, 2014-2018 ACS",
+        "attribute_description": "Per capita income estimate, 2018 ACS",
         "attribute_source": "Census ACS",
         "attribute_type": "float8",
         "attribute_unit": "US dollars",
@@ -887,7 +887,7 @@
       },
       {
         "attribute_name": "ep_sngpnt",
-        "attribute_description": "Percentage of single parent households with children under 18 estimate, 2014-2018 ACS",
+        "attribute_description": "Percentage of single parent households with children under 18 estimate, 2018 ACS",
         "attribute_source": "Census ACS",
         "attribute_type": "float8",
         "attribute_unit": "percentage",
@@ -911,7 +911,7 @@
       },
       {
         "attribute_name": "ep_uninsur",
-        "attribute_description": "Adjunct variable - Percentage uninsured in the total civilian non-institutionalized population estimate, 2014-2018 ACS",
+        "attribute_description": "Adjunct variable - Percentage uninsured in the total civilian non-institutionalized population estimate, 2018 ACS",
         "attribute_source": "Census ACS",
         "attribute_type": "float8",
         "attribute_unit": "percentage",
@@ -1339,7 +1339,7 @@
       },
       {
         "attribute_name": "m_age17",
-        "attribute_description": "Persons aged 17 and younger estimate MOE, 2014-2018 ACS",
+        "attribute_description": "Persons aged 17 and younger estimate MOE, 2018 ACS",
         "attribute_source": "Census ACS",
         "attribute_type": "int4",
         "attribute_unit": "persons",
@@ -1351,7 +1351,7 @@
       },
       {
         "attribute_name": "m_age65",
-        "attribute_description": "Persons aged 65 and older estimate MOE, 2014-2018 ACS",
+        "attribute_description": "Persons aged 65 and older estimate MOE, 2018 ACS",
         "attribute_source": "Census ACS",
         "attribute_type": "int4",
         "attribute_unit": "persons",
@@ -1363,7 +1363,7 @@
       },
       {
         "attribute_name": "m_crowd",
-        "attribute_description": "At household level (occupied housing units), more people than rooms estimate MOE, 2014-2018 ACS",
+        "attribute_description": "At household level (occupied housing units), more people than rooms estimate MOE, 2018 ACS",
         "attribute_source": "Census ACS",
         "attribute_type": "int4",
         "attribute_unit": "housing units",
@@ -1375,7 +1375,7 @@
       },
       {
         "attribute_name": "m_disabl",
-        "attribute_description": "Civilian non-institutionalized population with a disability estimate MOE, 2014-2018 ACS",
+        "attribute_description": "Civilian non-institutionalized population with a disability estimate MOE, 2018 ACS",
         "attribute_source": "Census ACS",
         "attribute_type": "int4",
         "attribute_unit": "persons",
@@ -1387,7 +1387,7 @@
       },
       {
         "attribute_name": "m_groupq",
-        "attribute_description": "Persons in group quarters estimate MOE, 2014-2018 ACS",
+        "attribute_description": "Persons in group quarters estimate MOE, 2018 ACS",
         "attribute_source": "Census ACS",
         "attribute_type": "int4",
         "attribute_unit": "persons",
@@ -1399,7 +1399,7 @@
       },
       {
         "attribute_name": "m_hh",
-        "attribute_description": "Households estimate MOE, 2014-2018 ACS",
+        "attribute_description": "Households estimate MOE, 2018 ACS",
         "attribute_source": "Census ACS",
         "attribute_type": "int4",
         "attribute_unit": "households",
@@ -1411,7 +1411,7 @@
       },
       {
         "attribute_name": "m_hu",
-        "attribute_description": "Housing units estimate MOE, 2014-2018 ACS",
+        "attribute_description": "Housing units estimate MOE, 2018 ACS",
         "attribute_source": "Census ACS",
         "attribute_type": "int4",
         "attribute_unit": "housing units",
@@ -1423,7 +1423,7 @@
       },
       {
         "attribute_name": "m_limeng",
-        "attribute_description": "Persons (age 5+) who speak English \"\"less than well\"\" estimate MOE, 2014-2018 ACS",
+        "attribute_description": "Persons (age 5+) who speak English \"\"less than well\"\" estimate MOE, 2018 ACS",
         "attribute_source": "Census ACS",
         "attribute_type": "int4",
         "attribute_unit": "persons",
@@ -1435,7 +1435,7 @@
       },
       {
         "attribute_name": "m_minrty",
-        "attribute_description": "Minority (all persons except white, non-Hispanic) estimate MOE, 2014-2018 ACS",
+        "attribute_description": "Minority (all persons except white, non-Hispanic) estimate MOE, 2018 ACS",
         "attribute_source": "Census ACS",
         "attribute_type": "int4",
         "attribute_unit": "persons",
@@ -1446,7 +1446,7 @@
       },
       {
         "attribute_name": "m_mobile",
-        "attribute_description": "Mobile homes estimate MOE, 2014-2018 ACS",
+        "attribute_description": "Mobile homes estimate MOE, 2018 ACS",
         "attribute_source": "Census ACS",
         "attribute_type": "int4",
         "attribute_unit": "mobile homes",
@@ -1458,7 +1458,7 @@
       },
       {
         "attribute_name": "m_munit",
-        "attribute_description": "Housing in structures with 10 or more units estimate MOE, 2014- 2018 ACS",
+        "attribute_description": "Housing in structures with 10 or more units estimate MOE, 2018 ACS",
         "attribute_source": "Census ACS",
         "attribute_type": "int4",
         "attribute_unit": "housing units",
@@ -1470,7 +1470,7 @@
       },
       {
         "attribute_name": "m_nohsdp",
-        "attribute_description": "Persons (age 25+) with no high school diploma estimate MOE, 2014-2018 ACS",
+        "attribute_description": "Persons (age 25+) with no high school diploma estimate MOE, 2018 ACS",
         "attribute_source": "Census ACS",
         "attribute_type": "int4",
         "attribute_unit": "persons",
@@ -1482,7 +1482,7 @@
       },
       {
         "attribute_name": "m_noveh",
-        "attribute_description": "Households with no vehicle available estimate MOE, 2014-2018 ACS",
+        "attribute_description": "Households with no vehicle available estimate MOE, 2018 ACS",
         "attribute_source": "Census ACS",
         "attribute_type": "int4",
         "attribute_unit": "households",
@@ -1494,7 +1494,7 @@
       },
       {
         "attribute_name": "m_pci",
-        "attribute_description": "Per capita income estimate MOE, 2014-2018 ACS",
+        "attribute_description": "Per capita income estimate MOE, 2018 ACS",
         "attribute_source": "Census ACS",
         "attribute_type": "int4",
         "attribute_unit": "US dollars",
@@ -1505,7 +1505,7 @@
       },
       {
         "attribute_name": "m_pov",
-        "attribute_description": "Persons below poverty estimate MOE, 2014-2018 ACS",
+        "attribute_description": "Persons below poverty estimate MOE, 2018 ACS",
         "attribute_source": "Census ACS",
         "attribute_type": "int4",
         "attribute_unit": "persons",
@@ -1517,7 +1517,7 @@
       },
       {
         "attribute_name": "m_sngpnt",
-        "attribute_description": "Single parent household with children under 18 estimate MOE, 2014-2018 ACS",
+        "attribute_description": "Single parent household with children under 18 estimate MOE, 2018 ACS",
         "attribute_source": "Census ACS",
         "attribute_type": "int4",
         "attribute_unit": "households",
@@ -1529,7 +1529,7 @@
       },
       {
         "attribute_name": "m_totpop",
-        "attribute_description": "Population estimate MOE, 2014-2018 ACS",
+        "attribute_description": "Population estimate MOE, 2018 ACS",
         "attribute_source": "Census ACS",
         "attribute_type": "int4",
         "attribute_unit": "persons",
@@ -1541,7 +1541,7 @@
       },
       {
         "attribute_name": "m_unemp",
-        "attribute_description": "Civilian (age 16+) unemployed estimate MOE, 2014-2018 ACS",
+        "attribute_description": "Civilian (age 16+) unemployed estimate MOE, 2018 ACS",
         "attribute_source": "Census ACS",
         "attribute_type": "int4",
         "attribute_unit": "persons",
@@ -1553,7 +1553,7 @@
       },
       {
         "attribute_name": "m_uninsur",
-        "attribute_description": "Adjunct variable - Uninsured in the total civilian non-institutionalized population estimate MOE, 2014-2018 ACS",
+        "attribute_description": "Adjunct variable - Uninsured in the total civilian non-institutionalized population estimate MOE, 2018 ACS",
         "attribute_source": "Census ACS",
         "attribute_type": "int4",
         "attribute_unit": "persons",
@@ -1565,7 +1565,7 @@
       },
       {
         "attribute_name": "mp_age17",
-        "attribute_description": "Percentage of persons aged 17 and younger estimate MOE, 2014-2018 ACS",
+        "attribute_description": "Percentage of persons aged 17 and younger estimate MOE, 2018 ACS",
         "attribute_source": "Census ACS",
         "attribute_type": "float8",
         "attribute_unit": "percentage",
@@ -1577,7 +1577,7 @@
       },
       {
         "attribute_name": "mp_age65",
-        "attribute_description": "Percentage of persons aged 65 and older estimate MOE, 2014-2018 ACS",
+        "attribute_description": "Percentage of persons aged 65 and older estimate MOE, 2018 ACS",
         "attribute_source": "Census ACS",
         "attribute_type": "float8",
         "attribute_unit": "percentage",
@@ -1601,7 +1601,7 @@
       },
       {
         "attribute_name": "mp_disabl",
-        "attribute_description": "Percentage of civilian non-institutionalized population with a disability estimate MOE, 2014-2018 ACS",
+        "attribute_description": "Percentage of civilian non-institutionalized population with a disability estimate MOE, 2018 ACS",
         "attribute_source": "Census ACS",
         "attribute_type": "float8",
         "attribute_unit": "percentage",
@@ -1613,7 +1613,7 @@
       },
       {
         "attribute_name": "mp_groupq",
-        "attribute_description": "Percentage of persons in group quarters estimate MOE, 2014-2018 ACS",
+        "attribute_description": "Percentage of persons in group quarters estimate MOE, 2018 ACS",
         "attribute_source": "Census ACS",
         "attribute_type": "float8",
         "attribute_unit": "percentage",
@@ -1625,7 +1625,7 @@
       },
       {
         "attribute_name": "mp_limeng",
-        "attribute_description": "Percentage of persons (age 5+) who speak English \"\"less than well\"\" estimate MOE, 2014-2018 ACS",
+        "attribute_description": "Percentage of persons (age 5+) who speak English \"\"less than well\"\" estimate MOE, 2018 ACS",
         "attribute_source": "Census ACS",
         "attribute_type": "float8",
         "attribute_unit": "percentage",
@@ -1637,7 +1637,7 @@
       },
       {
         "attribute_name": "mp_minrty",
-        "attribute_description": "Percentage minority (all persons except white, non-Hispanic) estimate MOE, 2014-2018 ACS",
+        "attribute_description": "Percentage minority (all persons except white, non-Hispanic) estimate MOE, 2018 ACS",
         "attribute_source": "Census ACS",
         "attribute_type": "float8",
         "attribute_unit": "percentage",
@@ -1697,7 +1697,7 @@
       },
       {
         "attribute_name": "mp_pci",
-        "attribute_description": "Per capita income estimate MOE, 2014-2018 ACS",
+        "attribute_description": "Per capita income estimate MOE, 2018 ACS",
         "attribute_source": "Census ACS",
         "attribute_type": "float8",
         "attribute_unit": "US dollars",
@@ -1720,7 +1720,7 @@
       },
       {
         "attribute_name": "mp_sngpnt",
-        "attribute_description": "Percentage of single parent households with children under 18 estimate MOE, 2014-2018 ACS",
+        "attribute_description": "Percentage of single parent households with children under 18 estimate MOE, 2018 ACS",
         "attribute_source": "Census ACS",
         "attribute_type": "float8",
         "attribute_unit": "percentage",
@@ -1744,7 +1744,7 @@
       },
       {
         "attribute_name": "mp_uninsur",
-        "attribute_description": "Adjunct variable - Percentage uninsured in the total civilian non-institutionalized population estimate MOE, 2014-2018 ACS",
+        "attribute_description": "Adjunct variable - Percentage uninsured in the total civilian non-institutionalized population estimate MOE, 2018 ACS",
         "attribute_source": "Census ACS",
         "attribute_type": "float8",
         "attribute_unit": "percentage",
@@ -1904,7 +1904,7 @@
     ],
     "no_data_group": [
       {
-        "no_data_type": "int4",
+        "no_data_type": "integer",
         "no_data_value": "-999"
       }
     ]
@@ -1948,7 +1948,7 @@
     "update_frequency": "Never",
     "checksum": "TBD"
   },
-  "_submission_time": "2026-10-09 23:51:28",
+  "_submission_time": "2026-10-19 09:18:03",
   "meta": {
     "instanceID": "a7cee93c-eae4-4685-808d-44451085091"
   }
