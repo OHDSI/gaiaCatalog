@@ -1,211 +1,269 @@
 {
   "@context": {
     "@vocab": "https://schema.org/",
-    "dct": "http://purl.org/dc/terms/",
-    "qudt": "http://qudt.org/schema/qudt/",
-    "quantitykind": "http://qudt.org/vocab/quantitykind/",
-    "unit": "http://qudt.org/vocab/unit/",
-    "xsd": "http://www.w3.org/2001/XMLSchema",
-    "extendedConstraintProperty": "http://codata.org/vocab/extendedConstraintProperty",
-    "sdmx": "https://sdmx.org"
+    "schema": "https://schema.org/",
+    "@language": "en",
+    "dct": "http://purl.org/dc/terms/"
   },
-  "@type": "Dataset",
-  "@id": "https://gdsc.idsc.miami.edu/detail/tz_2022_nbs_magu_district",
-  "includedInDataCatalog": [
+  "@graph": [
     {
-      "@type": "DataCatalog",
-      "@id": "https://gdsc.idsc.miami.edu",
-      "name": "Geospatial Digital Special Collections",
-      "url": "https://gdsc.idsc.miami.edu"
-    },
-    {
-      "@type": "DataCatalog",
-      "name": "tz-climate-change",
-      "@id": "https://gdsc.idsc.miami.edu/?collection=tz-climate-change",
-      "url": "https://gdsc.idsc.miami.edu/?collection=tz-climate-change"
-    }
-  ],
-  "name": "Tanzania 2022 Magu District (NBS)",
-  "creator": [
-    {
-      "name": "Tanzania National Bureau of Statistics"
-    }
-  ],
-  "url": "https://microdata.nbs.go.tz/index.php/catalog/49/related-materials",
-  "provider": [
-    {
-      "@type": "Organization",
-      "name": "Tanzania National Bureau of Statistics"
-    }
-  ],
-  "spatialCoverage": [
-    {
-      "@id": "https://www.geonames.org/155313",
-      "@type": "Place",
-      "name": "Magu District"
-    },
-    {
-      "@id": "https://www.geonames.org/149590",
-      "@type": "Place",
-      "name": "Tanzania"
-    },
-    {
-      "@type": "Place",
-      "name": "bbox",
-      "geo": {
-        "@type": "GeoShape",
-        "polygon": "-11.760241 29.594677 -11.760241 40.446140 -0.984775 40.446140 -0.984775 29.594677 -11.760241 29.594677"
-      }
-    }
-  ],
-  "temporalCoverage": "2020-01-01/2022-12-31",
-  "type": "Vector Dataset",
-  "datePublished": "2024-01-01",
-  "description": "Shapefile of the Magu District in Tanzania derived from the Tanzania Districts from the 2022 Census",
-  "keywords": [
-    "Tanania",
-    "Districs",
-    "Census"
-  ],
-  "@language": "en",
-  "measurementTechnique": [
-    {
-      "@type": "DefinedTerm",
-      "description": "GIS Data Structure for Representation",
-      "inDefinedTermSet": {
-        "@type": "DefinedTermSet",
-        "name": "dataRepresentation",
-        "hasDefinedTerm": [
+      "@type": "schema:Dataset",
+      "@id": "https://gdsc.idsc.miami.edu/detail/tz_2022_nbs_magu_district",
+      "name": "Tanzania 2022 Magu District (NBS)",
+      "description": "Shapefile of the Magu District in Tanzania derived from the Tanzania Districts from the 2022 Census",
+      "url": "https://microdata.nbs.go.tz/index.php/catalog/49/related-materials",
+      "inLanguage": "en",
+      "datePublished": "2024-01-01",
+      "dateModified": "2026-10-19 21:28:15",
+      "creator": [
+        {
+          "@type": "Role",
+          "roleName": "creator",
+          "creator": {
+            "@type": "Organization",
+            "name": "Tanzania National Bureau of Statistics"
+          }
+        }
+      ],
+      "provider": {
+        "@type": "Organization",
+        "name": "Tanzania National Bureau of Statistics"
+      },
+      "spatialCoverage": {
+        "additionalProperty": [
           {
-            "@type": "DefinedTerm",
-            "termCode": "raster"
+            "@type": "PropertyValue",
+            "name": "Spatial Reference System",
+            "value": "http://www.opengis.net/def/crs/EPSG/0/4326"
           },
           {
-            "@type": "DefinedTerm",
-            "termCode": "vector"
-          },
-          {
-            "@type": "DefinedTerm",
-            "termCode": "table"
+            "@type": "PropertyValue",
+            "name": "extent",
+            "value": "ENVELOPE(33.01235115700007,33.790629651000074,-2.383387099999936,-2.838643495999975)"
           }
         ]
       },
-      "termCode": "vector"
-    },
-    {
-      "@type": "DefinedTerm",
-      "description": "GIS Vector Geometery",
-      "inDefinedTermSet": {
-        "@type": "DefinedTermSet",
-        "name": "vectorGeometry",
-        "hasDefinedTerm": [
-          {
-            "@type": "DefinedTerm",
-            "termCode": "point"
-          },
-          {
-            "@type": "DefinedTerm",
-            "termCode": "line"
-          },
-          {
-            "@type": "DefinedTerm",
-            "termCode": "polygon"
+      "keywords": [
+        "Tanania",
+        "Districs",
+        "Census"
+      ],
+      "includedInDataCatalog": [
+        {
+          "@type": "DataCatalog",
+          "@id": "https://gdsc.idsc.miami.edu",
+          "name": "Geospatial Digital Special Collections",
+          "url": "https://gdsc.idsc.miami.edu"
+        },
+        {
+          "@type": "DataCatalog",
+          "name": "tz-climate-change",
+          "@id": "https://gdsc.idsc.miami.edu/?collection=tz-climate-change",
+          "url": "https://gdsc.idsc.miami.edu/?collection=tz-climate-change"
+        },
+        {
+          "@type": "DataCatalog",
+          "name": "tz-health-outcomes",
+          "@id": "https://gdsc.idsc.miami.edu/?collection=tz-health-outcomes",
+          "url": "https://gdsc.idsc.miami.edu/?collection=tz-health-outcomes"
+        }
+      ],
+      "measurementTechnique": [
+        {
+          "@type": "DefinedTerm",
+          "name": "GIS Data Structure",
+          "termCode": "vector",
+          "inDefinedTermSet": {
+            "@type": "DefinedTermSet",
+            "name": "dataRepresentation",
+            "url": "https://gdsc.idsc.miami.edu/vocab/dataRepresentation"
           }
-        ]
-      },
-      "termCode": "multipolygon"
-    }
-  ],
-  "additionalProperty": [
-    {
-      "@type": "PropertyValue",
-      "propertyID": "http://dbpedia.org/resource/Spatial_reference_system",
-      "value": "https://epsg.io/4326"
-    }
-  ],
-  "about": [
-    {
-      "@type": "Event",
-      "description": "Direct from source",
-      "name": "ETL process for Tanzania 2022 Magu District (NBS)",
-      "potentialAction": {
-        "@type": "Action",
-        "name": "Pseudo Code",
-        "description": "TODO",
-        "result": {
-          "@type": "Dataset",
-          "encodingFormat": "shp",
-          "url": "https://gdsc.idsc.miami.edu/download/data/tz_2022_nbs_magu_district/?file=tz_2022_nbs_magu_district&format=shp"
-        }
-      }
-    },
-    {
-      "@type": "Event",
-      "description": "Direct from source",
-      "name": "ETL process for Tanzania 2022 Magu District (NBS)",
-      "potentialAction": {
-        "@type": "Action",
-        "name": "subset",
-        "description": "Custom ETL process for Tanzania 2022 Magu District (NBS)",
-        "object": {
-          "@type": "Dataset",
-          "name": "Direct from source",
-          "producer": "Tanzania National Bureau of Statistics",
-          "url": "https://microdata.nbs.go.tz/index.php/catalog/49/related-materials"
         },
-        "instrument": {
-          "@type": "SoftwareApplication",
-          "@id": "https://github.com/Geospatial-Digital-Special-Collections/tools",
-          "featureList": "reg_code;=;'19';AND dist_code;=;'02'",
-          "downloadUrl": "https://github.com/Geospatial-Digital-Special-Collections/tools.git"
+        {
+          "@type": "DefinedTerm",
+          "name": "GIS Vector Geometry",
+          "termCode": "multipolygon",
+          "inDefinedTermSet": {
+            "@type": "DefinedTermSet",
+            "name": "vectorGeometry",
+            "url": "https://gdsc.idsc.miami.edu/vocab/vectorGeometry"
+          }
         },
-        "result": {
-          "@type": "Dataset",
-          "name": "Tanzania 2022 Magu District (NBS)",
-          "description": "Shapefile of the Magu District in Tanzania derived from the Tanzania Districts from the 2022 Census",
-          "encodingFormat": "shp",
-          "url": "https://gdsc.idsc.miami.edu/download/data/tz_2022_nbs_magu_district/?file=tz_2022_nbs_magu_district&format=shp"
+        {
+          "@type": "DefinedTerm",
+          "name": "Data Processing Level",
+          "termCode": "derived",
+          "inDefinedTermSet": {
+            "@type": "DefinedTermSet",
+            "name": "dataProcessingLevel",
+            "url": "https://gdsc.idsc.miami.edu/vocab/dataProcessingLevel"
+          }
         }
-      }
+      ],
+      "distribution": [
+        {
+          "@type": "DataDownload",
+          "name": "Source distribution",
+          "contentUrl": "tz_2022_nbs_districts",
+          "encodingFormat": "gdb"
+        }
+      ],
+      "additionalProperty": [
+        {
+          "@type": "PropertyValue",
+          "name": "postgis_table",
+          "value": "tz_2022_nbs_magu_district"
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "kobo_record_id",
+          "value": "236"
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "process_step",
+          "value": "#########\n  # GDSC ETL is performed in two steps: shell script to ETL data into postgres\n  # and then additional transformations with SQL in postGIS (if needed).\n  ####\n  \n  #########\n  # Step 1 - bash script (pseudo code)\n  ####\n  \n  # create directory structure and move into it\n  mkdir -p /data/tz_2022_nbs_magu_district/download -p /data/tz_2022_nbs_magu_district/etl\n  chmod -R 777 /data/tz_2022_nbs_magu_district\n  cd /data/tz_2022_nbs_magu_district\n  \n  # set update flag based on last update and update frequency\n  do_update=0 if date() < last_update + update_frequency else do_update = 1\n  \n  # Create copy of geom dependency\n  pg_dump -d $POSTGRES_DB -U $POSTGRES_USER -p $POSTGRES_PORT -h gdsc-postgis-node-gbgfnjdj5fgdbpfo -t tz_2022_nbs_districts | sed 's/tz_2022_nbs_districts/tz_2022_nbs_magu_district/g' | psql -d $POSTGRES_DB -U $POSTGRES_USER -p $POSTGRES_PORT -h gdsc-postgis-node-m96qnbkrvci2q0n7 \n  \n  # drop geom_local and subset as per custom parameters\n  psql -d $POSTGRES_DB -U $POSTGRES_USER -p $POSTGRES_PORT -h gdsc-postgis-node-m96qnbkrvci2q0n7 -c \"\n  ALTER TABLE tz_2022_nbs_magu_district DROP COLUMN IF EXISTS geom_local;\n  DELETE FROM tz_2022_nbs_magu_district\n    WHERE NOT (reg_code = '19' AND dist_code = '02');\n  COMMIT;\"\n  # add local geometry column and reproject existing geometries into local EPSG:\n  ALTER TABLE tz_2022_nbs_magu_district DROP COLUMN IF EXISTS geom_local CASCADE;\n  SELECT AddGeometryColumn (\n    'tz_2022_nbs_magu_district',\n    'geom_local', 4326, 'multipolygon', 2\n  );\n  UPDATE tz_2022_nbs_magu_district\n    SET geom_local=ST_MakeValid(ST_RemoveRepeatedPoints(ST_Transform(ST_Multi(geom),4326)));\n  CREATE INDEX tz_2022_nbs_magu_district_geom_local_idx\n    ON tz_2022_nbs_magu_district\n    USING GIST (geom_local);\n  NOTIFY pgrst, 'reload schema';\n  # add local geometry column and reproject existing geometries into local EPSG:\n  ALTER TABLE tz_2022_nbs_magu_district DROP COLUMN IF EXISTS geom_local CASCADE;\n  SELECT AddGeometryColumn (\n    'tz_2022_nbs_magu_district',\n    'geom_local', 4326, 'multipolygon', 2\n  );\n  UPDATE tz_2022_nbs_magu_district\n    SET geom_local=ST_MakeValid(ST_RemoveRepeatedPoints(ST_Transform(ST_Multi(geom),4326)));\n  CREATE INDEX tz_2022_nbs_magu_district_geom_local_idx\n    ON tz_2022_nbs_magu_district\n    USING GIST (geom_local);\n  NOTIFY pgrst, 'reload schema';\n  # Move into corrrect directory and create derivative directory in data package on osgeo\n  cd /data/tz_2022_nbs_magu_district/\n  mkdir -p derived\n  \n  # Create shapefile of table in derivate directory on osgeo \n  ogr2ogr -f \"ESRI Shapefile\" -overwrite derived/tz_2022_nbs_magu_district.shp PG:\"<postgres connection>\" tz_2022_nbs_magu_district\n  \n  # Create downloadable tarfile of shp in derivative directory on osgeo\n  rm -f derived/tz_2022_nbs_magu_district.shp.tar.gz\n  tar -czf derived/tz_2022_nbs_magu_district.shp.tar.gz meta_dcat_tz_2022_nbs_magu_district.json -C derived tz_2022_nbs_magu_district.shp tz_2022_nbs_magu_district.prj tz_2022_nbs_magu_district.shx tz_2022_nbs_magu_district.dbf\n  \n  # Move into correct directory\n  cd /data/tz_2022_nbs_magu_district/"
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "processor",
+          "value": "GDSC automation (see Process Step)"
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "cartography_label_field",
+          "value": "dist_name"
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "cartography_value_field",
+          "value": "dist_code"
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "analytic_function",
+          "value": "gdsc_get_attributes"
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "Spatial Reference System",
+          "value": "http://www.opengis.net/def/crs/EPSG/0/4326"
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "derivatives",
+          "value": "shp"
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "source_file",
+          "value": "{'etl_group/file_name_group/file_name_value': 'tz_2022_nbs_magu_district'}"
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "timePeriodStart",
+          "value": "2020-01-01"
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "timePeriodEnd",
+          "value": "2022-12-31"
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "podid",
+          "value": "gdsc-postgis-node-m96qnbkrvci2q0n7"
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "up",
+          "value": "true"
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "customParameters",
+          "value": "reg_code;=;'19';AND|dist_code;=;'02'"
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "derivativeUrl",
+          "value": "/data/tz_2022_nbs_magu_district/"
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "customEtl",
+          "value": "subset"
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "dependencyTable",
+          "value": "{'etl_group/dependency_group/dependency_table_name': 'tz_2022_nbs_districts'}"
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "pointOfContact",
+          "value": "{'iso_group/point_of_contact_group/contact_affiliation': 'University of Miami Libraries, Frost Institute for Data Science and Computing', 'iso_group/point_of_contact_group/contact_affiliation_identifier': 'https://ror.org/02dgjyy92', 'iso_group/point_of_contact_group/contact_affiliation_schema': 'ror', 'iso_group/point_of_contact_group/contact_affiliation_schema_uri': 'https://ror.org/', 'iso_group/point_of_contact_group/contact_email': 'tnorris@miami.edu', 'iso_group/point_of_contact_group/contact_first_name': 'Timothy', 'iso_group/point_of_contact_group/contact_identifier': 'https://orcid.org/0000-0002-0898-3027', 'iso_group/point_of_contact_group/contact_identifier_schema': 'orcid', 'iso_group/point_of_contact_group/contact_identifier_schema_uri': 'https://orcid.org/', 'iso_group/point_of_contact_group/contact_last_name': 'Norris', 'iso_group/point_of_contact_group/contact_name': 'Timothy B. Norris'}"
+        }
+      ],
+      "dct:accrualPeriodicity": "As Needed",
+      "variableMeasured": [
+        {
+          "@type": "PropertyValue",
+          "name": "dist_code",
+          "description": "Unique district code",
+          "qudt:dataType": "xsd:varchar",
+          "sourceOrganization": {
+            "@type": "Organization",
+            "name": "Tanzania National Bureau of Statistics"
+          }
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "\n    dist_name",
+          "description": " District names",
+          "qudt:dataType": "xsd:string",
+          "sourceOrganization": {
+            "@type": "Organization",
+            "name": "Tanzania National Bureau of Statistics"
+          }
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "\n    reg_code",
+          "description": " unique code",
+          "qudt:dataType": "xsd:float",
+          "sourceOrganization": {
+            "@type": "Organization",
+            "name": "Tanzania National Bureau of Statistics"
+          }
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "\n    reg_name",
+          "description": " name",
+          "qudt:dataType": "xsd:varchar",
+          "sourceOrganization": {
+            "@type": "Organization",
+            "name": "Tanzania National Bureau of Statistics"
+          }
+        }
+      ],
+      "isAccessibleForFree": false,
+      "dct:provenance": "Direct from source",
+      "additionalType": "Vector Dataset",
+      "funder": [
+        {
+          "@type": "Organization",
+          "name": "IDSC",
+          "url": "https://idsc.miami.edu"
+        },
+        {
+          "@type": "Organization",
+          "name": "Library",
+          "url": "https://www.library.miami.edu"
+        }
+      ],
+      "creativeWorkStatus": "published"
     }
-  ],
-  "variableMeasured": [
-    {
-      "@type": "PropertyValue",
-      "name": "dist_code",
-      "description": "Unique district code",
-      "qudt:dataType": "numeric"
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "\ndist_name",
-      "description": " District names",
-      "qudt:dataType": "string"
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "\nreg_code",
-      "description": " unique code",
-      "qudt:dataType": "numeric"
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "\nreg_name",
-      "description": " name",
-      "qudt:dataType": "varchar"
-    }
-  ],
-  "distribution": [
-    "https://gdsc.idsc.miami.edu/download/data/tz_2022_nbs_magu_district/?file=tz_2022_nbs_magu_district&format=shp"
-  ],
-  "isBasedOn": [
-    {
-      "@id": "https://gdsc.idsc.miami.edu/details/tz_2022_nbs_districts",
-      "@type": "Dataset",
-      "name": "tz_2022_nbs_districts",
-      "url": "https://gdsc.idsc.miami.edu/details/tz_2022_nbs_districts"
-    }
-  ],
-  "dateModified": "2026-09-09 15:35:35",
-  "version": "2026-10-09"
+  ]
 }

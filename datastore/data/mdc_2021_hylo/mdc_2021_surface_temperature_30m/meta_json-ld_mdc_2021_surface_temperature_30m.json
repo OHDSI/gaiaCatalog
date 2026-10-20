@@ -1,0 +1,274 @@
+{
+  "@context": {
+    "@vocab": "https://schema.org/",
+    "dct": "http://purl.org/dc/terms/",
+    "qudt": "http://qudt.org/schema/qudt/",
+    "quantitykind": "http://qudt.org/vocab/quantitykind/",
+    "unit": "http://qudt.org/vocab/unit/",
+    "xsd": "http://www.w3.org/2001/XMLSchema",
+    "extendedConstraintProperty": "http://codata.org/vocab/extendedConstraintProperty",
+    "sdmx": "https://sdmx.org"
+  },
+  "@type": "Dataset",
+  "@id": "https://gdsc.idsc.miami.edu/detail/mdc_2021_surface_temperature_30m",
+  "includedInDataCatalog": [
+    {
+      "@type": "DataCatalog",
+      "@id": "https://gdsc.idsc.miami.edu",
+      "name": "Geospatial Digital Special Collections",
+      "url": "https://gdsc.idsc.miami.edu"
+    },
+    {
+      "@type": "DataCatalog",
+      "name": "climate-change",
+      "@id": "https://gdsc.idsc.miami.edu/?collection=climate-change",
+      "url": "https://gdsc.idsc.miami.edu/?collection=climate-change"
+    }
+  ],
+  "name": "Miami-Dade Surface Temperature (degrees Fahrenheit)",
+  "creator": [
+    {
+      "@type": "Person",
+      "givenName": "Tyler",
+      "familyName": "Harrison",
+      "affiliation": {
+        "@type": "Organization",
+        "@id": "https://ror.org/02dgjyy92",
+        "identifier": "https://ror.org/02dgjyy92",
+        "name": "School of Communication, University of Miami"
+      },
+      "sameAs": "https://orcid.org/0000-0002-0635-5967",
+      "@id": "https://orcid.org/0000-0002-0635-5967",
+      "identifier": "https://orcid.org/0000-0002-0635-5967",
+      "name": "Tyler Harrison"
+    },
+    {
+      "@type": "Person",
+      "givenName": "Amy C",
+      "familyName": "Clement",
+      "affiliation": {
+        "@type": "Organization",
+        "@id": "https://ror.org/02dgjyy92",
+        "identifier": "https://ror.org/02dgjyy92",
+        "name": "Atmospheric Sciences, Rosenstiel School, University of Miami"
+      },
+      "sameAs": "https://orcid.org/0000-0002-0105-0961",
+      "@id": "https://orcid.org/0000-0002-0105-0961",
+      "identifier": "https://orcid.org/0000-0002-0105-0961",
+      "name": "Amy C Clement"
+    },
+    {
+      "@type": "Person",
+      "givenName": "Gina L.",
+      "familyName": "Maranto",
+      "name": "Gina L. Maranto"
+    },
+    {
+      "@type": "Person",
+      "givenName": "Sam",
+      "familyName": "Purkis",
+      "name": "Sam Purkis"
+    },
+    {
+      "@type": "Person",
+      "givenName": "Joanna L.",
+      "familyName": "Lombard",
+      "name": "Joanna L. Lombard"
+    },
+    {
+      "@type": "Person",
+      "givenName": "Angela C",
+      "familyName": "Clark-Hughes",
+      "affiliation": {
+        "@type": "Organization",
+        "@id": "https://ror.org/02dgjyy92",
+        "identifier": "https://ror.org/02dgjyy92",
+        "name": "Rosenstiel School Library, University of Miami"
+      },
+      "sameAs": "https://orcid.org/0000-0003-0445-5830",
+      "@id": "https://orcid.org/0000-0003-0445-5830",
+      "identifier": "https://orcid.org/0000-0003-0445-5830",
+      "name": "Angela C. Clark-Hughes"
+    },
+    {
+      "@type": "Person",
+      "givenName": "Abraham K",
+      "familyName": "Parrish",
+      "name": "Abraham K Parrish"
+    },
+    {
+      "@type": "Person",
+      "givenName": "Marcus B.",
+      "familyName": "Reamer",
+      "name": "Marcus B. Reamer"
+    },
+    {
+      "@type": "Person",
+      "givenName": "Olivia",
+      "familyName": "Collins",
+      "name": "Olivia Collins"
+    },
+    {
+      "@type": "Person",
+      "givenName": "Caroline",
+      "familyName": "Lewis",
+      "name": "Caroline Lewis"
+    },
+    {
+      "@type": "Person",
+      "givenName": "Mayra",
+      "familyName": "Cruz",
+      "name": "Mayra Cruz"
+    },
+    {
+      "@type": "Person",
+      "givenName": "Anaruth",
+      "familyName": "Solace",
+      "name": "Anaruth Solace"
+    }
+  ],
+  "url": "https://scholarship.miami.edu/esploro/outputs/991031655220702976",
+  "provider": [
+    {
+      "@type": "Organization",
+      "name": "University of Miami"
+    },
+    {
+      "@type": "Organization",
+      "name": "Otto G. Richter Library"
+    }
+  ],
+  "license": "odc_by",
+  "spatialCoverage": [
+    {
+      "@id": "https://www.geonames.org/4164238",
+      "@type": "Place",
+      "name": "Miami-Dade County"
+    },
+    {
+      "@type": "Place",
+      "name": "bbox",
+      "geo": {
+        "@type": "GeoShape",
+        "polygon": "25.134763 -80.874622 25.134763 -80.117611 25.979615 -80.117611 25.979615 -80.874622 25.134763 -80.874622"
+      }
+    }
+  ],
+  "type": "Raster Dataset",
+  "datePublished": "2021-11-07",
+  "description": "Max Landsat 8 ARD (Analysis Ready Data) Surface Temperature from 7 different images ranging from 2011-2020.",
+  "keywords": [
+    "Florida",
+    "Miami-Dade County",
+    "MDC",
+    "Miami-Dade County",
+    "Environment",
+    "Surface Temperature",
+    "Climate",
+    "Atmospheric Science",
+    "Hylo",
+    "Homestead",
+    "Little River",
+    "Public-Safety"
+  ],
+  "@language": "en",
+  "measurementTechnique": [
+    {
+      "@type": "DefinedTerm",
+      "description": "GIS Data Structure for Representation",
+      "inDefinedTermSet": {
+        "@type": "DefinedTermSet",
+        "name": "dataRepresentation",
+        "hasDefinedTerm": [
+          {
+            "@type": "DefinedTerm",
+            "termCode": "raster"
+          },
+          {
+            "@type": "DefinedTerm",
+            "termCode": "vector"
+          },
+          {
+            "@type": "DefinedTerm",
+            "termCode": "table"
+          }
+        ]
+      },
+      "termCode": "raster"
+    }
+  ],
+  "additionalProperty": [
+    {
+      "@type": "PropertyValue",
+      "name": "https://dbpedia.org/resource/Ground_sample_distance",
+      "value": 30.0,
+      "unitText": "meters"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "http://dbpedia.org/resource/Spatial_reference_system",
+      "value": "https://epsg.io/3857"
+    }
+  ],
+  "about": [
+    {
+      "@type": "Event",
+      "description": "Max Landsat 8 ARD (Analysis Ready Data) Surface Temperature from 7 different images ranging from 2011-2020.  Images: LE07_CU_027019_20170830_20181130_C01_V01_ST, LE07_CU_027019_20170814_20181130_C01_V01_ST, LE07_CU_027019_20120731_20190507_C01_V01_ST, LE07_CU_027019_20110915_20181212_C01_V01_ST, LE07_CU_027019_20110713_20181213_C01_V01_ST, LC08_CU_027019_20200814_20200825_C01_V01_ST, and LC08_CU_027019_20160904_20190430_C01_V01_ST  ",
+      "name": "ETL process for Miami-Dade Surface Temperature (degrees Fahrenheit)",
+      "potentialAction": {
+        "@type": "Action",
+        "name": "Pseudo Code",
+        "description": "TODO",
+        "result": {
+          "@type": "Dataset",
+          "encodingFormat": "sql",
+          "url": "https://gdsc.idsc.miami.edu/download/data/mdc_2021_surface_temperature_30m/?file=mdc_2021_surface_temperature_30m&format=sql"
+        }
+      }
+    },
+    {
+      "@type": "Event",
+      "description": "Max Landsat 8 ARD (Analysis Ready Data) Surface Temperature from 7 different images ranging from 2011-2020.  Images: LE07_CU_027019_20170830_20181130_C01_V01_ST, LE07_CU_027019_20170814_20181130_C01_V01_ST, LE07_CU_027019_20120731_20190507_C01_V01_ST, LE07_CU_027019_20110915_20181212_C01_V01_ST, LE07_CU_027019_20110713_20181213_C01_V01_ST, LC08_CU_027019_20200814_20200825_C01_V01_ST, and LC08_CU_027019_20160904_20190430_C01_V01_ST  ",
+      "name": "ETL process for Miami-Dade Surface Temperature (degrees Fahrenheit)",
+      "potentialAction": {
+        "@type": "Action",
+        "name": "wget",
+        "description": "ETL process for Miami-Dade Surface Temperature (degrees Fahrenheit)",
+        "object": {
+          "@type": "Dataset",
+          "name": "Max Landsat 8 ARD (Analysis Ready Data) Surface Temperature from 7 different images ranging from 2011-2020.  Images: LE07_CU_027019_20170830_20181130_C01_V01_ST, LE07_CU_027019_20170814_20181130_C01_V01_ST, LE07_CU_027019_20120731_20190507_C01_V01_ST, LE07_CU_027019_20110915_20181212_C01_V01_ST, LE07_CU_027019_20110713_20181213_C01_V01_ST, LC08_CU_027019_20200814_20200825_C01_V01_ST, and LC08_CU_027019_20160904_20190430_C01_V01_ST  ",
+          "producer": "Tyler Harrison",
+          "url": "https://scholarship.miami.edu/esploro/outputs/991031655220702976"
+        },
+        "instrument": {
+          "@type": "SoftwareApplication",
+          "@id": "https://github.com/Geospatial-Digital-Special-Collections/tools",
+          "featureList": "wget",
+          "downloadUrl": "https://github.com/Geospatial-Digital-Special-Collections/tools.git"
+        },
+        "result": {
+          "@type": "Dataset",
+          "name": "Miami-Dade Surface Temperature (degrees Fahrenheit)",
+          "description": "Max Landsat 8 ARD (Analysis Ready Data) Surface Temperature from 7 different images ranging from 2011-2020.",
+          "encodingFormat": "sql",
+          "url": "https://gdsc.idsc.miami.edu/download/data/mdc_2021_surface_temperature_30m/?file=mdc_2021_surface_temperature_30m&format=sql"
+        }
+      }
+    }
+  ],
+  "variableMeasured": [
+    {
+      "@type": "PropertyValue",
+      "name": "lst",
+      "description": "Land surface temperature",
+      "qudt:dataType": "int8",
+      "minValue": "0",
+      "maxValue": "160"
+    }
+  ],
+  "distribution": [
+    "https://gdsc.idsc.miami.edu/download/data/mdc_2021_surface_temperature_30m/?file=mdc_2021_surface_temperature_30m&format=sql"
+  ],
+  "dateModified": "2026-10-05 21:40:39",
+  "version": "2026-10-20"
+}

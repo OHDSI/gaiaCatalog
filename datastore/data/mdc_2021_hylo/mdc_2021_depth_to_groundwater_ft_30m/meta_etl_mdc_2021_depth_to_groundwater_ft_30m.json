@@ -1,0 +1,23 @@
+{
+  "rights": "Public Domain",
+  "structure": "raster",
+  "bands": ["30-meter interpolated feet"],
+  "pixel_size": 30.0,
+  "pixel_dimension": "meters",
+  "epsg": "EPSG:3857",
+  "extent": "ENVELOPE(-80.605666,-80.117611,25.979857,25.222319)",
+  "attributes": ["depth;Depth to groundwater;;float32;;;-21.56599998474121;202.37100219726562"],
+  "local_epsg": "EPSG:2236",
+  "source": "https://scholarship.miami.edu/view/fileRedirect?instCode=01UOML_INST&filePid=13395678880002976&download=true",
+  "file": ["mdc_2021_hylo", "GeoTIFF_Rasters/Depth_to_Groundwater_ft_MDC_30m"],
+  "extension": "zip",
+  "download": "wget",
+  "table": "mdc_2021_depth_to_groundwater_ft_30m",
+  "format": "tif",
+  "etl_parameters": "-t 48x48",
+  "up": "true",
+  "podID": "gaia-db",
+  "last_updated": "2026-10-05T21:40:39Z",
+  "update_frequency": "Never",
+  "checksum": "TBD"
+}

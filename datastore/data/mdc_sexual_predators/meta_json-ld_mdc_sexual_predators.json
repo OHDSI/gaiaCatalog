@@ -1,367 +1,536 @@
 {
   "@context": {
     "@vocab": "https://schema.org/",
-    "dct": "http://purl.org/dc/terms/",
-    "qudt": "http://qudt.org/schema/qudt/",
-    "quantitykind": "http://qudt.org/vocab/quantitykind/",
-    "unit": "http://qudt.org/vocab/unit/",
-    "xsd": "http://www.w3.org/2001/XMLSchema",
-    "extendedConstraintProperty": "http://codata.org/vocab/extendedConstraintProperty",
-    "sdmx": "https://sdmx.org"
+    "schema": "https://schema.org/",
+    "@language": "en",
+    "dct": "http://purl.org/dc/terms/"
   },
-  "@type": "Dataset",
-  "@id": "https://gdsc.idsc.miami.edu/detail/mdc_sexual_predators",
-  "includedInDataCatalog": [
+  "@graph": [
     {
-      "@type": "DataCatalog",
-      "@id": "https://gdsc.idsc.miami.edu",
-      "name": "Geospatial Digital Special Collections",
-      "url": "https://gdsc.idsc.miami.edu"
-    },
-    {
-      "@type": "DataCatalog",
-      "name": "displacement-vulnerability-mitigation-tool",
-      "@id": "https://gdsc.idsc.miami.edu/?collection=displacement-vulnerability-mitigation-tool",
-      "url": "https://gdsc.idsc.miami.edu/?collection=displacement-vulnerability-mitigation-tool"
-    }
-  ],
-  "name": "Miami-Dade Sex Offenders",
-  "creator": [
-    {
-      "@type": "Organization",
-      "name": "Miami-Dade County Open Data Hub"
-    },
-    {
-      "@type": "Organization",
-      "name": "Information Technology Department"
-    }
-  ],
-  "url": "https://gis-mdc.opendata.arcgis.com/datasets/MDC::sexual-predator/about",
-  "provider": [
-    {
-      "@type": "Organization",
-      "name": "Miami Dade County"
-    }
-  ],
-  "spatialCoverage": [
-    {
-      "@id": "https://www.geonames.org/4164238",
-      "@type": "Place",
-      "name": "Miami-Dade County"
-    },
-    {
-      "@type": "Place",
-      "name": "bbox",
-      "geo": {
-        "@type": "GeoShape",
-        "polygon": "2925418.2566 -8967461.2087 2925418.2566 -8918899.7884 2995663.4198 -8918899.7884 2995663.4198 -8967461.2087 2925418.2566 -8967461.2087"
-      }
-    }
-  ],
-  "type": "Vector Dataset",
-  "datePublished": "2018-06-05",
-  "description": "A point feature class of Sexual Offenders and Predators within Miami-Dade County that is used by the Sexual Offender/Predator Residence Search Internet application.\n",
-  "keywords": [
-    "Florida",
-    "Miami-Dade County",
-    "MDC",
-    "Public-Safety",
-    "Sex Offenders",
-    "Crime",
-    "Police",
-    "Population"
-  ],
-  "@language": "en",
-  "measurementTechnique": [
-    {
-      "@type": "DefinedTerm",
-      "description": "GIS Data Structure for Representation",
-      "inDefinedTermSet": {
-        "@type": "DefinedTermSet",
-        "name": "dataRepresentation",
-        "hasDefinedTerm": [
+      "@type": "schema:Dataset",
+      "@id": "https://gdsc.idsc.miami.edu/detail/mdc_sexual_predators",
+      "name": "Miami-Dade Sex Offenders",
+      "description": "A point feature class of Sexual Offenders and Predators within Miami-Dade County that is used by the Sexual Offender/Predator Residence Search Internet application.\n  ",
+      "url": "https://gis-mdc.opendata.arcgis.com/datasets/MDC::sexual-predator/about",
+      "inLanguage": "en",
+      "datePublished": "2018-06-05",
+      "dateModified": "2026-10-17 22:31:26",
+      "creator": [
+        {
+          "@type": "Role",
+          "roleName": "creator",
+          "creator": {
+            "@type": "Organization",
+            "name": "Miami-Dade County Open Data Hub"
+          }
+        },
+        {
+          "@type": "Role",
+          "roleName": "creator",
+          "creator": {
+            "@type": "Organization",
+            "name": "Information Technology Department"
+          }
+        }
+      ],
+      "provider": {
+        "@type": "Organization",
+        "name": "Miami Dade County"
+      },
+      "spatialCoverage": {
+        "@type": "Place",
+        "name": "Miami-Dade County",
+        "additionalProperty": [
           {
-            "@type": "DefinedTerm",
-            "termCode": "raster"
+            "@type": "PropertyValue",
+            "name": "geonames",
+            "value": "4164238",
+            "url": "https://www.geonames.org/4164238"
           },
           {
-            "@type": "DefinedTerm",
-            "termCode": "vector"
+            "@type": "PropertyValue",
+            "name": "Spatial Reference System",
+            "value": "http://www.opengis.net/def/crs/EPSG/0/4326"
           },
           {
-            "@type": "DefinedTerm",
-            "termCode": "table"
+            "@type": "PropertyValue",
+            "name": "extent",
+            "value": "ENVELOPE(-8967461.2087,-8918899.7884,2995663.4198,2925418.2566)"
           }
         ]
       },
-      "termCode": "vector"
-    },
-    {
-      "@type": "DefinedTerm",
-      "description": "GIS Vector Geometery",
-      "inDefinedTermSet": {
-        "@type": "DefinedTermSet",
-        "name": "vectorGeometry",
-        "hasDefinedTerm": [
-          {
-            "@type": "DefinedTerm",
-            "termCode": "point"
-          },
-          {
-            "@type": "DefinedTerm",
-            "termCode": "line"
-          },
-          {
-            "@type": "DefinedTerm",
-            "termCode": "polygon"
+      "keywords": [
+        "Florida",
+        "Miami-Dade County",
+        "MDC",
+        "Public-Safety",
+        "Sex Offenders",
+        "Crime",
+        "Police",
+        "Population"
+      ],
+      "includedInDataCatalog": [
+        {
+          "@type": "DataCatalog",
+          "@id": "https://gdsc.idsc.miami.edu",
+          "name": "Geospatial Digital Special Collections",
+          "url": "https://gdsc.idsc.miami.edu"
+        },
+        {
+          "@type": "DataCatalog",
+          "name": "displacement-vulnerability-mitigation-tool",
+          "@id": "https://gdsc.idsc.miami.edu/?collection=displacement-vulnerability-mitigation-tool",
+          "url": "https://gdsc.idsc.miami.edu/?collection=displacement-vulnerability-mitigation-tool"
+        },
+        {
+          "@type": "DataCatalog",
+          "name": "vulnerability",
+          "@id": "https://gdsc.idsc.miami.edu/?collection=vulnerability",
+          "url": "https://gdsc.idsc.miami.edu/?collection=vulnerability"
+        }
+      ],
+      "measurementTechnique": [
+        {
+          "@type": "DefinedTerm",
+          "name": "GIS Data Structure",
+          "termCode": "vector",
+          "inDefinedTermSet": {
+            "@type": "DefinedTermSet",
+            "name": "dataRepresentation",
+            "url": "https://gdsc.idsc.miami.edu/vocab/dataRepresentation"
           }
-        ]
-      },
-      "termCode": "point"
-    }
-  ],
-  "additionalProperty": [
-    {
-      "@type": "PropertyValue",
-      "propertyID": "http://dbpedia.org/resource/Spatial_reference_system",
-      "value": "https://epsg.io/4326"
-    }
-  ],
-  "about": [
-    {
-      "@type": "Event",
-      "description": " direct from source",
-      "name": "ETL process for Miami-Dade Sex Offenders",
-      "potentialAction": {
-        "@type": "Action",
-        "name": "Pseudo Code",
-        "description": "TODO",
-        "result": {
-          "@type": "Dataset",
-          "encodingFormat": "sql",
-          "url": "https://gdsc.idsc.miami.edu/download/data/mdc_sexual_predators/?file=mdc_sexual_predators&format=sql"
-        }
-      }
-    },
-    {
-      "@type": "Event",
-      "description": " direct from source",
-      "name": "ETL process for Miami-Dade Sex Offenders",
-      "potentialAction": {
-        "@type": "Action",
-        "name": "esri_recursive_ogr",
-        "description": "ETL process for Miami-Dade Sex Offenders",
-        "object": {
-          "@type": "Dataset",
-          "name": " direct from source",
-          "producer": "Miami-Dade County Open Data Hub",
-          "url": "https://gis-mdc.opendata.arcgis.com/datasets/MDC::sexual-predator/about"
         },
-        "instrument": {
-          "@type": "SoftwareApplication",
-          "@id": "https://github.com/Geospatial-Digital-Special-Collections/tools",
-          "featureList": "esri_recursive_ogr",
-          "downloadUrl": "https://github.com/Geospatial-Digital-Special-Collections/tools.git"
+        {
+          "@type": "DefinedTerm",
+          "name": "GIS Vector Geometry",
+          "termCode": "point",
+          "inDefinedTermSet": {
+            "@type": "DefinedTermSet",
+            "name": "vectorGeometry",
+            "url": "https://gdsc.idsc.miami.edu/vocab/vectorGeometry"
+          }
         },
-        "result": {
-          "@type": "Dataset",
-          "name": "Miami-Dade Sex Offenders",
-          "description": "A point feature class of Sexual Offenders and Predators within Miami-Dade County that is used by the Sexual Offender/Predator Residence Search Internet application.\n",
-          "encodingFormat": "sql",
-          "url": "https://gdsc.idsc.miami.edu/download/data/mdc_sexual_predators/?file=mdc_sexual_predators&format=sql"
+        {
+          "@type": "DefinedTerm",
+          "name": "Data Processing Level",
+          "termCode": "observed",
+          "inDefinedTermSet": {
+            "@type": "DefinedTermSet",
+            "name": "dataProcessingLevel",
+            "url": "https://gdsc.idsc.miami.edu/vocab/dataProcessingLevel"
+          }
         }
-      }
+      ],
+      "distribution": [
+        {
+          "@type": "DataDownload",
+          "name": "Source distribution",
+          "contentUrl": "https://services.arcgis.com/8Pc9XBTAsYuxx9Ny/arcgis/rest/services/SEXPRED_gdb/FeatureServer/0/query?outFields=*&where=1%3D1&outSR=4326&f=geojson",
+          "encodingFormat": "application/json"
+        }
+      ],
+      "additionalProperty": [
+        {
+          "@type": "PropertyValue",
+          "name": "postgis_table",
+          "value": "mdc_sexual_predators"
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "kobo_record_id",
+          "value": "65"
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "creator_type",
+          "value": "organization"
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "process_step",
+          "value": "#########\n  # GDSC ETL is performed in two steps: shell script to ETL data into postgres\n  # and then additional transformations with SQL in postGIS (if needed).\n  ####\n  \n  #########\n  # Step 1 - bash script (pseudo code)\n  ####\n  \n  # create directory structure and move into it\n  mkdir -p /data/mdc_sexual_predators/download -p /data/mdc_sexual_predators/etl\n  chmod -R 777 /data/mdc_sexual_predators\n  cd /data/mdc_sexual_predators\n  \n  # set update flag based on last update and update frequency\n  do_update=0 if date() < last_update + update_frequency else do_update = 1\n  \n  # download if update flag is set:\n  if do_update == 1 then\n  ogr2ogr -nln mdc_sexual_predators download/mdc_sexual_predators.json 'https://services.arcgis.com/8Pc9XBTAsYuxx9Ny/arcgis/rest/services/SEXPRED_gdb/FeatureServer/0/query?outFields=*&where=1%3D1&outSR=4326&f=geojson 2>&1'\n  \n  # load into postGIS with:\n  ogr2ogr -lco GEOMETRY_NAME=geom -f PostgreSQL PG:\"<postgres connection>\" download/mdc_sexual_predators.json -nlt point -nln mdc_sexual_predators\n  echo success: mdc_sexual_predators.json loaded with ogr2ogr\n  \n  \n  #########\n  # Step 2 - SQL script (pseudo code):\n  ####\n  \n  # remove duplicate points and make geometries valid:\n  UPDATE mdc_sexual_predators\n    SET geom=ST_MakeValid(ST_RemoveRepeatedPoints(geom));\n  \n  # add local geometry column and reproject existing geometries into local EPSG:\n  ALTER TABLE mdc_sexual_predators DROP COLUMN IF EXISTS geom_local CASCADE;\n  SELECT AddGeometryColumn (\n    'mdc_sexual_predators',\n    'geom_local', 2236, 'point', 2\n  );\n  UPDATE mdc_sexual_predators\n    SET geom_local=ST_MakeValid(ST_RemoveRepeatedPoints(ST_Transform(geom,2236)));\n  CREATE INDEX mdc_sexual_predators_geom_local_idx\n    ON mdc_sexual_predators\n    USING GIST (geom_local);\n  NOTIFY pgrst, 'reload schema';\n  # Move into corrrect directory and create derivative directory in data package on osgeo\n  cd /data/mdc_sexual_predators/\n  mkdir -p derived\n  \n  # Move into correct directory\n  cd /data/mdc_sexual_predators/\n  \n  # Create pg_dump of table SQL in derivate directory on postgis.\n  pg_dump <postgres opts> -h gaia-db -t mdc_sexual_predators > derived/mdc_sexual_predators.sql\n  \n  # Create downloadable tarfile of SQL in derivative directory on postgis\n  rm -f derived/mdc_sexual_predators.sql.tar.gz\n  tar -czf derived/mdc_sexual_predators.sql.tar.gz meta_dcat_mdc_sexual_predators.json -C derived mdc_sexual_predators.sql"
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "processor",
+          "value": "GDSC automation (see Process Step)"
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "analytic_function",
+          "value": "gdsc_count_within"
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "Spatial Reference System",
+          "value": "http://www.opengis.net/def/crs/EPSG/0/2236"
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "derivatives",
+          "value": "sql"
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "download_method",
+          "value": "esri_recursive_ogr"
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "source_file",
+          "value": "{'etl_group/file_name_group/file_name_value': 'mdc_sexual_predators'}"
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "podid",
+          "value": "gaia-db"
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "up",
+          "value": "true"
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "serviceDefinition",
+          "value": "mdc_sexual_predators.sd"
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "derivativeUrl",
+          "value": "/data/mdc_sexual_predators/"
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "pointOfContact",
+          "value": "{'iso_group/point_of_contact_group/contact_affiliation': 'University of Miami Libraries, Frost Institute for Data Science and Computing', 'iso_group/point_of_contact_group/contact_affiliation_identifier': 'https://ror.org/02dgjyy92', 'iso_group/point_of_contact_group/contact_affiliation_schema': 'ror', 'iso_group/point_of_contact_group/contact_affiliation_schema_uri': 'https://ror.org/', 'iso_group/point_of_contact_group/contact_email': 'tnorris@miami.edu', 'iso_group/point_of_contact_group/contact_first_name': 'Timothy', 'iso_group/point_of_contact_group/contact_identifier': 'https://orcid.org/0000-0002-0898-3027', 'iso_group/point_of_contact_group/contact_identifier_schema': 'orcid', 'iso_group/point_of_contact_group/contact_identifier_schema_uri': 'https://orcid.org/', 'iso_group/point_of_contact_group/contact_last_name': 'Norris', 'iso_group/point_of_contact_group/contact_name': 'Timothy B. Norris'}"
+        }
+      ],
+      "dct:accrualPeriodicity": "1 day",
+      "variableMeasured": [
+        {
+          "@type": "PropertyValue",
+          "name": "address",
+          "description": "Location of offender",
+          "qudt:dataType": "xsd:string",
+          "sourceOrganization": {
+            "@type": "Organization",
+            "name": "MDC"
+          }
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "fname",
+          "description": "First name of offender",
+          "qudt:dataType": "xsd:string",
+          "sourceOrganization": {
+            "@type": "Organization",
+            "name": "MDC"
+          }
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "mname",
+          "description": "Middle name of offender",
+          "qudt:dataType": "xsd:string",
+          "sourceOrganization": {
+            "@type": "Organization",
+            "name": "MDC"
+          }
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "lname",
+          "description": "Last name of offender",
+          "qudt:dataType": "xsd:string",
+          "sourceOrganization": {
+            "@type": "Organization",
+            "name": "MDC"
+          }
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "sname",
+          "description": "Suffix of offender",
+          "qudt:dataType": "xsd:string",
+          "sourceOrganization": {
+            "@type": "Organization",
+            "name": "MDC"
+          }
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "status",
+          "description": "Offender's status",
+          "qudt:dataType": "xsd:string",
+          "sourceOrganization": {
+            "@type": "Organization",
+            "name": "MDC"
+          }
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "sub_typd",
+          "description": "Status resulting from conviction",
+          "qudt:dataType": "xsd:string",
+          "sourceOrganization": {
+            "@type": "Organization",
+            "name": "MDC"
+          }
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "race_typd",
+          "description": "Race",
+          "qudt:dataType": "xsd:string",
+          "sourceOrganization": {
+            "@type": "Organization",
+            "name": "MDC"
+          }
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "sex",
+          "description": "Sex",
+          "qudt:dataType": "xsd:string",
+          "sourceOrganization": {
+            "@type": "Organization",
+            "name": "MDC"
+          }
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "eye_typd",
+          "description": "Eye type",
+          "qudt:dataType": "xsd:string",
+          "sourceOrganization": {
+            "@type": "Organization",
+            "name": "MDC"
+          }
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "hair_typd",
+          "description": "Hair type",
+          "qudt:dataType": "xsd:string",
+          "sourceOrganization": {
+            "@type": "Organization",
+            "name": "MDC"
+          }
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "height",
+          "description": "Height",
+          "qudt:dataType": "xsd:string",
+          "sourceOrganization": {
+            "@type": "Organization",
+            "name": "MDC"
+          }
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "addr_typd",
+          "description": "Address type",
+          "qudt:dataType": "xsd:string",
+          "sourceOrganization": {
+            "@type": "Organization",
+            "name": "MDC"
+          }
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "weight",
+          "description": ""
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "dob",
+          "description": "Date of birth",
+          "qudt:dataType": "xsd:string",
+          "sourceOrganization": {
+            "@type": "Organization",
+            "name": "MDC"
+          }
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "doc_nbr",
+          "description": "Document number",
+          "qudt:dataType": "xsd:string",
+          "sourceOrganization": {
+            "@type": "Organization",
+            "name": "MDC"
+          }
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "address2",
+          "description": "Related address extra information",
+          "qudt:dataType": "xsd:string",
+          "sourceOrganization": {
+            "@type": "Organization",
+            "name": "MDC"
+          }
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "city",
+          "description": "City",
+          "qudt:dataType": "xsd:string",
+          "sourceOrganization": {
+            "@type": "Organization",
+            "name": "MDC"
+          }
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "tran_date",
+          "description": "Transfer state",
+          "qudt:dataType": "xsd:string",
+          "sourceOrganization": {
+            "@type": "Organization",
+            "name": "MDC"
+          }
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "tran_addr1",
+          "description": "Transfer address 1",
+          "qudt:dataType": "xsd:string",
+          "sourceOrganization": {
+            "@type": "Organization",
+            "name": "MDC"
+          }
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "tran_addr2",
+          "description": "Transfer address 2",
+          "qudt:dataType": "xsd:string",
+          "sourceOrganization": {
+            "@type": "Organization",
+            "name": "MDC"
+          }
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "tran_city",
+          "description": "Transfer city",
+          "qudt:dataType": "xsd:string",
+          "sourceOrganization": {
+            "@type": "Organization",
+            "name": "MDC"
+          }
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "tran_state",
+          "description": "Transfer state",
+          "qudt:dataType": "xsd:string",
+          "sourceOrganization": {
+            "@type": "Organization",
+            "name": "MDC"
+          }
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "tran_zip5",
+          "description": "Transfer zipcode",
+          "qudt:dataType": "xsd:string",
+          "sourceOrganization": {
+            "@type": "Organization",
+            "name": "MDC"
+          }
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "tran_zip4",
+          "description": "Transfer zipcode (4 char)",
+          "qudt:dataType": "xsd:string",
+          "sourceOrganization": {
+            "@type": "Organization",
+            "name": "MDC"
+          }
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "tran_cnty",
+          "description": "Transfer city",
+          "qudt:dataType": "xsd:string",
+          "sourceOrganization": {
+            "@type": "Organization",
+            "name": "MDC"
+          }
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "image_id",
+          "description": " Image ID",
+          "qudt:dataType": "xsd:string",
+          "sourceOrganization": {
+            "@type": "Organization",
+            "name": "MDC"
+          }
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "zip",
+          "description": "Zipcode",
+          "qudt:dataType": "xsd:string",
+          "sourceOrganization": {
+            "@type": "Organization",
+            "name": "MDC"
+          }
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "zip4",
+          "description": "Zipcode (4 char)",
+          "qudt:dataType": "xsd:string",
+          "sourceOrganization": {
+            "@type": "Organization",
+            "name": "MDC"
+          }
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "x_coord",
+          "description": "X-coordinate",
+          "qudt:dataType": "xsd:string",
+          "sourceOrganization": {
+            "@type": "Organization",
+            "name": "MDC"
+          }
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "y_coord",
+          "description": "Y-coordinate",
+          "qudt:dataType": "xsd:string",
+          "sourceOrganization": {
+            "@type": "Organization",
+            "name": "MDC"
+          }
+        }
+      ],
+      "isAccessibleForFree": false,
+      "dct:provenance": " direct from source",
+      "additionalType": "Vector Dataset",
+      "funder": [
+        {
+          "@type": "Organization",
+          "name": "IDSC",
+          "url": "https://idsc.miami.edu"
+        },
+        {
+          "@type": "Organization",
+          "name": "Library",
+          "url": "https://www.library.miami.edu"
+        }
+      ],
+      "disambiguatingDescription": "Miami-Dade County provides this data for use \"as is\". The areas depicted by this map/data are approximate, and are not accurate to surveying or engineering standards. The maps/data shown here are for illustration purposes only and are not suitable for site-specific decision making. Information found here should not be used for making financial or any other commitments. Miami-Dade County provides this information with the understanding that it is not guaranteed to be accurate, correct or complete and conclusions drawn from such information are the sole responsibility of the user. While every effort has been made to ensure the accuracy, correctness and timeliness of materials presented, Miami-Dade County assumes no responsibility for errors or omissions, even if Miami-Dade County is advised of the possibility of such damage.",
+      "image": "published"
     }
-  ],
-  "variableMeasured": [
-    {
-      "@type": "PropertyValue",
-      "name": "address",
-      "description": "Location of offender",
-      "qudt:dataType": "string"
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "fname",
-      "description": "First name of offender",
-      "qudt:dataType": "string"
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "mname",
-      "description": "Middle name of offender",
-      "qudt:dataType": "string"
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "lname",
-      "description": "Last name of offender",
-      "qudt:dataType": "string"
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "sname",
-      "description": "Suffix of offender",
-      "qudt:dataType": "string"
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "status",
-      "description": "Offender's status",
-      "qudt:dataType": "string"
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "sub_typd",
-      "description": "Status resulting from conviction",
-      "qudt:dataType": "string"
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "race_typd",
-      "description": "Race",
-      "qudt:dataType": "string"
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "sex",
-      "description": "Sex",
-      "qudt:dataType": "string"
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "eye_typd",
-      "description": "Eye type",
-      "qudt:dataType": "string"
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "hair_typd",
-      "description": "Hair type",
-      "qudt:dataType": "string"
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "height",
-      "description": "Height",
-      "qudt:dataType": "string"
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "addr_typd",
-      "description": "Address type",
-      "qudt:dataType": "string"
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "weight"
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "dob",
-      "description": "Date of birth",
-      "qudt:dataType": "string"
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "doc_nbr",
-      "description": "Document number",
-      "qudt:dataType": "string"
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "address2",
-      "description": "Related address extra information",
-      "qudt:dataType": "string"
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "city",
-      "description": "City",
-      "qudt:dataType": "string"
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "tran_date",
-      "description": "Transfer state",
-      "qudt:dataType": "string"
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "tran_addr1",
-      "description": "Transfer address 1",
-      "qudt:dataType": "string"
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "tran_addr2",
-      "description": "Transfer address 2",
-      "qudt:dataType": "string"
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "tran_city",
-      "description": "Transfer city",
-      "qudt:dataType": "string"
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "tran_state",
-      "description": "Transfer state",
-      "qudt:dataType": "string"
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "tran_zip5",
-      "description": "Transfer zipcode",
-      "qudt:dataType": "string"
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "tran_zip4",
-      "description": "Transfer zipcode (4 char)",
-      "qudt:dataType": "string"
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "tran_cnty",
-      "description": "Transfer city",
-      "qudt:dataType": "string"
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "image_id",
-      "description": " Image ID",
-      "qudt:dataType": "string"
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "zip",
-      "description": "Zipcode",
-      "qudt:dataType": "string"
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "zip4",
-      "description": "Zipcode (4 char)",
-      "qudt:dataType": "string"
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "x_coord",
-      "description": "X-coordinate",
-      "qudt:dataType": "string"
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "y_coord",
-      "description": "Y-coordinate",
-      "qudt:dataType": "string"
-    }
-  ],
-  "distribution": [
-    "https://gdsc.idsc.miami.edu/download/data/mdc_sexual_predators/?file=mdc_sexual_predators&format=sql"
-  ],
-  "dateModified": "2026-10-17 22:31:26",
-  "version": "2026-10-17"
+  ]
 }

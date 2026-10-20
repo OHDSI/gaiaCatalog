@@ -1,172 +1,260 @@
 {
   "@context": {
     "@vocab": "https://schema.org/",
-    "dct": "http://purl.org/dc/terms/",
-    "qudt": "http://qudt.org/schema/qudt/",
-    "quantitykind": "http://qudt.org/vocab/quantitykind/",
-    "unit": "http://qudt.org/vocab/unit/",
-    "xsd": "http://www.w3.org/2001/XMLSchema",
-    "extendedConstraintProperty": "http://codata.org/vocab/extendedConstraintProperty",
-    "sdmx": "https://sdmx.org"
+    "schema": "https://schema.org/",
+    "@language": "en",
+    "dct": "http://purl.org/dc/terms/"
   },
-  "@type": "Dataset",
-  "@id": "https://gdsc.idsc.miami.edu/detail/mdc_2014_viirs_vnp46a4",
-  "includedInDataCatalog": [
+  "@graph": [
     {
-      "@type": "DataCatalog",
-      "@id": "https://gdsc.idsc.miami.edu",
-      "name": "Geospatial Digital Special Collections",
-      "url": "https://gdsc.idsc.miami.edu"
-    },
-    {
-      "@type": "DataCatalog",
-      "name": "mdc-health-outcomes",
-      "@id": "https://gdsc.idsc.miami.edu/?collection=mdc-health-outcomes",
-      "url": "https://gdsc.idsc.miami.edu/?collection=mdc-health-outcomes"
-    }
-  ],
-  "name": "2014 Miami-Dade VIIRS Nighttime Lights",
-  "creator": [
-    {
-      "name": "Level-1 and Atmosphere Archive & Distribution System Distributed Active Archive Center (LAADS DAAC)"
-    },
-    {
-      "name": "NASA"
-    }
-  ],
-  "url": "https://ladsweb.modaps.eosdis.nasa.gov/missions-and-measurements/products/VNP46A4/",
-  "provider": [
-    {
-      "@type": "Organization",
-      "name": "LAADS/NASA"
-    }
-  ],
-  "spatialCoverage": [
-    {
-      "@id": "https://www.geonames.org/4164238",
-      "@type": "Place",
-      "name": "Miami-Dade County"
-    },
-    {
-      "@type": "Place",
-      "name": "bbox",
-      "geo": {
-        "@type": "GeoShape",
-        "polygon": "TBD"
-      }
-    }
-  ],
-  "type": "Raster Dataset",
-  "datePublished": "2024-01-20",
-  "description": "VNP46A4 - VIIRS/NPP Lunar BRDF-Adjusted Nighttime Lights Yearly L3 Global 15 arc second Linear Lat Lon Grid\n\nThe Suomi National Polar-orbiting Partnership (SNPP) Visible Infrared Imaging Radiometer Suite (VIIRS) supports a Day-Night Band (DNB) sensor that provides global daily measurements of nocturnal visible and near-infrared (NIR) light that are suitable for Earth system science and applications. The VIIRS DNB's ultra-sensitivity in lowlight conditions enable us to generate a new set of science-quality nighttime products that manifest substantial improvements in sensor resolution and calibration when compared to the previous era of Defense Meteorological Satellite Program/Operational Linescan System's (DMSP/OLS) nighttime lights image products. Such improvements allow the VIIRS DNB products to better monitor both the magnitude and signature of nighttime phenomena, and anthropogenic sources of light emissions.\n\nVNP46A4 is the short-name for the fourth nighttime lights (NTL) product in the Black Marble suite, which provides yearly composites generated from daily atmospherically- and lunar-BRDF-corrected NTL radiance to remove the influence of extraneous artifacts and biases. Known by its long-name, VIIRS/NPP Lunar BRDF-Adjusted Nighttime Lights Yearly L3 Global 15 arc-second Linear Lat Lon Grid, this product contains 28 layers. They provide information on the NTL composite, the number of observations, quality, and standard deviation for multi-view zenith angle categories (near-nadir, off-nadir, and all angles), their snow-covered and snow-free statuses besides land-water mask, latitude and longitude coordinate information. They also include detailed information and description of the quality flags. This SNPP VIIRS collection-1 product record, identified by its version-ID 001 in its file name, starts from January 1st 2012.",
-  "keywords": [
-    "Miami-Dade",
-    "Nighttime lights"
-  ],
-  "@language": "en",
-  "measurementTechnique": [
-    {
-      "@type": "DefinedTerm",
-      "description": "GIS Data Structure for Representation",
-      "inDefinedTermSet": {
-        "@type": "DefinedTermSet",
-        "name": "dataRepresentation",
-        "hasDefinedTerm": [
+      "@type": "schema:Dataset",
+      "@id": "https://gdsc.idsc.miami.edu/detail/mdc_2014_viirs_vnp46a4",
+      "name": "2014 Miami-Dade VIIRS Nighttime Lights",
+      "description": "VNP46A4 - VIIRS/NPP Lunar BRDF-Adjusted Nighttime Lights Yearly L3 Global 15 arc second Linear Lat Lon Grid\n  \n  The Suomi National Polar-orbiting Partnership (SNPP) Visible Infrared Imaging Radiometer Suite (VIIRS) supports a Day-Night Band (DNB) sensor that provides global daily measurements of nocturnal visible and near-infrared (NIR) light that are suitable for Earth system science and applications. The VIIRS DNB's ultra-sensitivity in lowlight conditions enable us to generate a new set of science-quality nighttime products that manifest substantial improvements in sensor resolution and calibration when compared to the previous era of Defense Meteorological Satellite Program/Operational Linescan System's (DMSP/OLS) nighttime lights image products. Such improvements allow the VIIRS DNB products to better monitor both the magnitude and signature of nighttime phenomena, and anthropogenic sources of light emissions.\n  \n  VNP46A4 is the short-name for the fourth nighttime lights (NTL) product in the Black Marble suite, which provides yearly composites generated from daily atmospherically- and lunar-BRDF-corrected NTL radiance to remove the influence of extraneous artifacts and biases. Known by its long-name, VIIRS/NPP Lunar BRDF-Adjusted Nighttime Lights Yearly L3 Global 15 arc-second Linear Lat Lon Grid, this product contains 28 layers. They provide information on the NTL composite, the number of observations, quality, and standard deviation for multi-view zenith angle categories (near-nadir, off-nadir, and all angles), their snow-covered and snow-free statuses besides land-water mask, latitude and longitude coordinate information. They also include detailed information and description of the quality flags. This SNPP VIIRS collection-1 product record, identified by its version-ID 001 in its file name, starts from January 1st 2012.",
+      "identifier": {
+        "@type": "PropertyValue",
+        "propertyID": "https://registry.identifiers.org/registry/doi",
+        "value": "doi:10.5067/VIIRS/VNP46A4.001",
+        "url": "https://doi.org/10.5067/VIIRS/VNP46A4.001"
+      },
+      "url": "https://ladsweb.modaps.eosdis.nasa.gov/missions-and-measurements/products/VNP46A4/",
+      "inLanguage": "en",
+      "datePublished": "2024-01-20",
+      "dateModified": "2026-10-17 22:53:48",
+      "creator": [
+        {
+          "@type": "Role",
+          "roleName": "creator",
+          "creator": {
+            "@type": "Organization",
+            "name": "Level-1 and Atmosphere Archive & Distribution System Distributed Active Archive Center (LAADS DAAC)"
+          }
+        },
+        {
+          "@type": "Role",
+          "roleName": "creator",
+          "creator": {
+            "@type": "Organization",
+            "name": "NASA"
+          }
+        }
+      ],
+      "provider": {
+        "@type": "Organization",
+        "name": "LAADS/NASA"
+      },
+      "spatialCoverage": {
+        "@type": "Place",
+        "name": "Miami-Dade County",
+        "additionalProperty": [
           {
-            "@type": "DefinedTerm",
-            "termCode": "raster"
+            "@type": "PropertyValue",
+            "name": "geonames",
+            "value": "4164238",
+            "url": "https://www.geonames.org/4164238"
           },
           {
-            "@type": "DefinedTerm",
-            "termCode": "vector"
+            "@type": "PropertyValue",
+            "name": "Spatial Reference System",
+            "value": "http://www.opengis.net/def/crs/EPSG/0/4326"
           },
           {
-            "@type": "DefinedTerm",
-            "termCode": "table"
+            "@type": "PropertyValue",
+            "name": "extent",
+            "value": "TBD"
           }
         ]
       },
-      "termCode": "raster"
-    }
-  ],
-  "additionalProperty": [
-    {
-      "@type": "PropertyValue",
-      "name": "https://dbpedia.org/resource/Ground_sample_distance",
-      "value": 0.00416666666666666,
-      "unitText": "decimal degrees"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "http://dbpedia.org/resource/Spatial_reference_system",
-      "value": "https://epsg.io/4326"
-    }
-  ],
-  "about": [
-    {
-      "@type": "Event",
-      "description": "Direct From Source, then extracted, clipped, and reprojected",
-      "name": "ETL process for 2014 Miami-Dade VIIRS Nighttime Lights",
-      "potentialAction": {
-        "@type": "Action",
-        "name": "Pseudo Code",
-        "description": "TODO"
-      }
-    },
-    {
-      "@type": "Event",
-      "description": "Direct From Source, then extracted, clipped, and reprojected",
-      "name": "ETL process for 2014 Miami-Dade VIIRS Nighttime Lights",
-      "potentialAction": {
-        "@type": "Action",
-        "name": "clip_raster",
-        "description": "Custom ETL process for 2014 Miami-Dade VIIRS Nighttime Lights",
-        "object": {
-          "@type": "Dataset",
-          "name": "Direct From Source, then extracted, clipped, and reprojected",
-          "producer": "Level-1 and Atmosphere Archive & Distribution System Distributed Active Archive Center (LAADS DAAC)",
-          "url": "https://ladsweb.modaps.eosdis.nasa.gov/missions-and-measurements/products/VNP46A4/"
+      "keywords": [
+        "Miami-Dade",
+        "Nighttime lights"
+      ],
+      "includedInDataCatalog": [
+        {
+          "@type": "DataCatalog",
+          "@id": "https://gdsc.idsc.miami.edu",
+          "name": "Geospatial Digital Special Collections",
+          "url": "https://gdsc.idsc.miami.edu"
         },
-        "instrument": {
-          "@type": "SoftwareApplication",
-          "@id": "https://github.com/Geospatial-Digital-Special-Collections/tools",
-          "featureList": "egom_2014_viirs_vnp46a4 fl_2022_tl_cousub countyfp='086' -srcnodata 65535 -dstnodata 65535 ",
-          "downloadUrl": "https://github.com/Geospatial-Digital-Special-Collections/tools.git"
+        {
+          "@type": "DataCatalog",
+          "name": "mdc-health-outcomes",
+          "@id": "https://gdsc.idsc.miami.edu/?collection=mdc-health-outcomes",
+          "url": "https://gdsc.idsc.miami.edu/?collection=mdc-health-outcomes"
         },
-        "result": {
-          "@type": "Dataset",
-          "name": "2014 Miami-Dade VIIRS Nighttime Lights",
-          "description": "VNP46A4 - VIIRS/NPP Lunar BRDF-Adjusted Nighttime Lights Yearly L3 Global 15 arc second Linear Lat Lon Grid\n\nThe Suomi National Polar-orbiting Partnership (SNPP) Visible Infrared Imaging Radiometer Suite (VIIRS) supports a Day-Night Band (DNB) sensor that provides global daily measurements of nocturnal visible and near-infrared (NIR) light that are suitable for Earth system science and applications. The VIIRS DNB's ultra-sensitivity in lowlight conditions enable us to generate a new set of science-quality nighttime products that manifest substantial improvements in sensor resolution and calibration when compared to the previous era of Defense Meteorological Satellite Program/Operational Linescan System's (DMSP/OLS) nighttime lights image products. Such improvements allow the VIIRS DNB products to better monitor both the magnitude and signature of nighttime phenomena, and anthropogenic sources of light emissions.\n\nVNP46A4 is the short-name for the fourth nighttime lights (NTL) product in the Black Marble suite, which provides yearly composites generated from daily atmospherically- and lunar-BRDF-corrected NTL radiance to remove the influence of extraneous artifacts and biases. Known by its long-name, VIIRS/NPP Lunar BRDF-Adjusted Nighttime Lights Yearly L3 Global 15 arc-second Linear Lat Lon Grid, this product contains 28 layers. They provide information on the NTL composite, the number of observations, quality, and standard deviation for multi-view zenith angle categories (near-nadir, off-nadir, and all angles), their snow-covered and snow-free statuses besides land-water mask, latitude and longitude coordinate information. They also include detailed information and description of the quality flags. This SNPP VIIRS collection-1 product record, identified by its version-ID 001 in its file name, starts from January 1st 2012."
+        {
+          "@type": "DataCatalog",
+          "name": "mdc-sleep-outcomes",
+          "@id": "https://gdsc.idsc.miami.edu/?collection=mdc-sleep-outcomes",
+          "url": "https://gdsc.idsc.miami.edu/?collection=mdc-sleep-outcomes"
         }
-      }
+      ],
+      "measurementTechnique": [
+        {
+          "@type": "DefinedTerm",
+          "name": "GIS Data Structure",
+          "termCode": "raster",
+          "inDefinedTermSet": {
+            "@type": "DefinedTermSet",
+            "name": "dataRepresentation",
+            "url": "https://gdsc.idsc.miami.edu/vocab/dataRepresentation"
+          }
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "Data Processing Level",
+          "termCode": "observed",
+          "inDefinedTermSet": {
+            "@type": "DefinedTermSet",
+            "name": "dataProcessingLevel",
+            "url": "https://gdsc.idsc.miami.edu/vocab/dataProcessingLevel"
+          }
+        }
+      ],
+      "distribution": [
+        {
+          "@type": "DataDownload",
+          "name": "Source distribution",
+          "contentUrl": "https://ladsweb.modaps.eosdis.nasa.gov/api/v2/content/archives/VNP46A4.A2014001.h09v06.002.2025091141033.h5",
+          "encodingFormat": "tif"
+        }
+      ],
+      "additionalProperty": [
+        {
+          "@type": "PropertyValue",
+          "name": "postgis_table",
+          "value": "mdc_2014_viirs_vnp46a4"
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "kobo_record_id",
+          "value": "197"
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "process_step",
+          "value": "#########\n  # GDSC ETL is performed in two steps: shell script to ETL data into postgres\n  # and then additional transformations with SQL in postGIS (if needed).\n  ####\n  \n  #########\n  # Step 1 - bash script (pseudo code)\n  ####\n  \n  # create directory structure and move into it\n  mkdir -p /data/mdc_2014_viirs_vnp46a4/download -p /data/mdc_2014_viirs_vnp46a4/etl\n  chmod -R 777 /data/mdc_2014_viirs_vnp46a4\n  cd /data/mdc_2014_viirs_vnp46a4\n  \n  # set update flag based on last update and update frequency\n  do_update=0 if date() < last_update + update_frequency else do_update = 1\n  \n  # load egom_2014_viirs_vnp46a4 as dependency (see egom_2014_viirs_vnp46a4 for details).\n  \n  # clip raster with geometry as:\n    gdalwarp -cutline PG:\"<postgres connection>\" -csql \"SELECT geom FROM fl_2022_tl_cousub WHERE countyfp='086'\" -crop_to_cutline -s_srs EPSG:4326 -t_srs EPSG:4326 -srcnodata 65535 -dstnodata 65535 /data/egom_2014_viirs_vnp46a4/download/VNP46A4.A2014001.h09v06.002.2025091141033.h5.tif download/VNP46A4.A2014001.h09v06.002.2025091141033.tif\n   \n  #########\n  # Step 2 - SQL script (pseudo code):\n  ####\n  \n  # load raster into postGIS with:\n      raster2pgsql -s 4326 -d -C -I -t auto VNP46A4.A2014001.h09v06.002.2025091141033.tif -F mdc_2014_viirs_vnp46a4 > load_raster.sql\n  psql <connection options> < load_raster.sql\n  rm load_raster.sql\n  \n  # create color raster\n  mkdir -p /tiles/raster/mdc_2014_viirs_vnp46a4\n  mkdir -p /data/mdc_2014_viirs_vnp46a4/derived\n  cd /data/mdc_2014_viirs_vnp46a4\n  cat > /data/mdc_2014_viirs_vnp46a4/derived/mdc_2014_viirs_vnp46a4_color_ramp.txt <<_EOF\n  nv 0 0 0 0\n  1500 252 255 164 255\n  1333 247 208 60 255\n  1166 251 154 7 255\n  1000 237 105 37 255\n  833 206 68 70 255\n  666 165 45 96 255\n  500 120 28 109 255\n  333 76 12 107 255\n  166 27 12 65 255\n  0 0 0 4 255\n  _EOF\n  gdaldem color-relief download/VNP46A4.A2014001.h09v06.002.2025091141033.tif /data/mdc_2014_viirs_vnp46a4/derived/mdc_2014_viirs_vnp46a4_color_ramp.txt /data/mdc_2014_viirs_vnp46a4/derived/mdc_2014_viirs_vnp46a4_color.tif -alpha\n  # create color raster and render raster tiles \n  mkdir -p /data/mdc_2014_viirs_vnp46a4/derived\n  mkdir -p /tiles/raster/mdc_2014_viirs_vnp46a4\n  cd /data/mdc_2014_viirs_vnp46a4\n  echo \"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\" | base64 -d > /data/mdc_2014_viirs_vnp46a4/derived/mdc_2014_viirs_vnp46a4_legend.png\n  cp /data/mdc_2014_viirs_vnp46a4/derived/mdc_2014_viirs_vnp46a4_legend.png /tiles/raster/mdc_2014_viirs_vnp46a4/\n  # render raster tiles \n  cd /data/mdc_2014_viirs_vnp46a4/\n  gdal2tiles.py -ex --xyz -z 8-12 /data/mdc_2014_viirs_vnp46a4/derived/mdc_2014_viirs_vnp46a4_color.tif /tiles/raster/mdc_2014_viirs_vnp46a4"
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "processor",
+          "value": "GDSC automation (see Process Step)"
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "analytic_function",
+          "value": "gdsc_zonal_statistics"
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "Spatial Reference System",
+          "value": "http://www.opengis.net/def/crs/EPSG/0/2236"
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "source_file",
+          "value": "{'etl_group/file_name_group/file_inside_archive': 'VNP46A4.A2014001.h09v06.002.2025091141033', 'etl_group/file_name_group/file_name_value': 'mdc_2014_viirs_vnp46a4'}"
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "band",
+          "value": "{'iso_group/band_group/band_name': 'SUBDATASET_15_NAME=HDF5:\"VNP46A4.A2014001.h09v06.002.2025091141033.h5\"://HDFEOS/GRIDS/VIIRS_Grid_DNB_2d/Data_Fields/NearNadir_Composite_Snow_Free\\n      SUBDATASET_15_DESC=[2400x2400] //HDFEOS/GRIDS/VIIRS_Grid_DNB_2d/Data_Fields/NearNadir_Composite_Snow_Free (16-bit unsigned integer)'}"
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "pixelDimension",
+          "value": "0.00416666666666666"
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "dimensionUnits",
+          "value": "decimal_degrees"
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "podid",
+          "value": "gaia-db"
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "up",
+          "value": "true"
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "customParameters",
+          "value": "egom_2014_viirs_vnp46a4|fl_2022_tl_cousub|countyfp='086'|-srcnodata 65535 -dstnodata 65535"
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "colorRamp",
+          "value": "nv 0 0 0 0\n  1500 252 255 164 255\n  1333 247 208 60 255\n  1166 251 154 7 255\n  1000 237 105 37 255\n  833 206 68 70 255\n  666 165 45 96 255\n  500 120 28 109 255\n  333 76 12 107 255\n  166 27 12 65 255\n  0 0 0 4 255"
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "tileBaseUrl",
+          "value": "{'cartography_group/tile_url_group/tile_base_url': 'https://gdsc.idsc.miami.edu/rastertiles/mdc_2014_viirs_vnp46a4/'}"
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "tileMinZoom",
+          "value": "{'cartography_group/tile_zoom_group/tile_min_zoom': '8'}"
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "derivativeUrl",
+          "value": "/data/mdc_2014_viirs_vnp46a4/"
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "customEtl",
+          "value": "clip_raster"
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "dependencyTable",
+          "value": "{'etl_group/dependency_group/dependency_table_name': 'egom_2014_viirs_vnp46a4'}"
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "pointOfContact",
+          "value": "{'iso_group/point_of_contact_group/contact_affiliation': 'University of Miami Libraries, Frost Institute for Data Science and Computing', 'iso_group/point_of_contact_group/contact_affiliation_identifier': 'https://ror.org/02dgjyy92', 'iso_group/point_of_contact_group/contact_affiliation_schema': 'ror', 'iso_group/point_of_contact_group/contact_affiliation_schema_uri': 'https://ror.org/', 'iso_group/point_of_contact_group/contact_email': 'tnorris@miami.edu', 'iso_group/point_of_contact_group/contact_first_name': 'Timothy', 'iso_group/point_of_contact_group/contact_identifier': 'https://orcid.org/0000-0002-0898-3027', 'iso_group/point_of_contact_group/contact_identifier_schema': 'orcid', 'iso_group/point_of_contact_group/contact_identifier_schema_uri': 'https://orcid.org/', 'iso_group/point_of_contact_group/contact_last_name': 'Norris', 'iso_group/point_of_contact_group/contact_name': 'Timothy B. Norris'}"
+        }
+      ],
+      "dct:accrualPeriodicity": "Never",
+      "variableMeasured": [
+        {
+          "@type": "PropertyValue",
+          "name": "Radiance",
+          "description": "Radiance as bidirectional reflectance distribution function (BRDF) in nanoWatts per square centimeter per steradian",
+          "qudt:dataType": "xsd:float",
+          "unitText": "nW/cm^2/sr",
+          "sourceOrganization": {
+            "@type": "Organization",
+            "name": "VIIRS"
+          }
+        }
+      ],
+      "isAccessibleForFree": false,
+      "usageInfo": [
+        "All NASA Terra and Aqua MODIS, Suomi NPP VIIRS, and other Collections comply with NASA\u2019s Data and Information policy, which promotes the full and open sharing of all data with research and applications communities, private industry, academia, and the public. The term data includes observation data, images, metadata, products, and documentation. All data products acquired through the Level-1 and Atmosphere Archive & Distribution System (LAADS) Distributed Active Archive Center (DAAC) are provided without any monetary charge and have no restrictions on subsequent use or redistribution.",
+        "All data products acquired through the Level-1 and Atmosphere Archive & Distribution System (LAADS) Distributed Active Archive Center (DAAC) are provided without any monetary charge and have no restrictions on subsequent use or redistribution."
+      ],
+      "dct:provenance": "Direct From Source, then extracted, clipped, and reprojected",
+      "additionalType": "Raster Dataset",
+      "funder": [
+        {
+          "@type": "Organization",
+          "name": "IDSC",
+          "url": "https://idsc.miami.edu"
+        },
+        {
+          "@type": "Organization",
+          "name": "Library",
+          "url": "https://www.library.miami.edu"
+        }
+      ],
+      "creativeWorkStatus": "draft"
     }
-  ],
-  "variableMeasured": [
-    {
-      "@type": "PropertyValue",
-      "name": "Radiance",
-      "description": "Radiance as bidirectional reflectance distribution function (BRDF) in nanoWatts per square centimeter per steradian",
-      "qudt:dataType": "float",
-      "unitText": "nW/cm^2/sr",
-      "minValue": "0",
-      "maxValue": "5086"
-    }
-  ],
-  "distribution": "/data/mdc_2014_viirs_vnp46a4/",
-  "isBasedOn": [
-    {
-      "@id": "https://gdsc.idsc.miami.edu/details/egom_2014_viirs_vnp46a4",
-      "@type": "Dataset",
-      "name": "egom_2014_viirs_vnp46a4",
-      "url": "https://gdsc.idsc.miami.edu/details/egom_2014_viirs_vnp46a4"
-    },
-    {
-      "@id": "https://gdsc.idsc.miami.edu/details/fl_2022_tl_cousub",
-      "@type": "Dataset",
-      "name": "fl_2022_tl_cousub",
-      "url": "https://gdsc.idsc.miami.edu/details/fl_2022_tl_cousub"
-    }
-  ],
-  "dateModified": "2026-10-17 22:53:48",
-  "version": "2026-10-17"
+  ]
 }

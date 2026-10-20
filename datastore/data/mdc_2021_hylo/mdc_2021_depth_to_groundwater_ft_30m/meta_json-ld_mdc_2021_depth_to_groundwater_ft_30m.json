@@ -1,0 +1,213 @@
+{
+  "@context": {
+    "@vocab": "https://schema.org/",
+    "dct": "http://purl.org/dc/terms/",
+    "qudt": "http://qudt.org/schema/qudt/",
+    "quantitykind": "http://qudt.org/vocab/quantitykind/",
+    "unit": "http://qudt.org/vocab/unit/",
+    "xsd": "http://www.w3.org/2001/XMLSchema",
+    "extendedConstraintProperty": "http://codata.org/vocab/extendedConstraintProperty",
+    "sdmx": "https://sdmx.org"
+  },
+  "@type": "Dataset",
+  "@id": "https://gdsc.idsc.miami.edu/detail/mdc_2021_depth_to_groundwater_ft_30m",
+  "includedInDataCatalog": [
+    {
+      "@type": "DataCatalog",
+      "@id": "https://gdsc.idsc.miami.edu",
+      "name": "Geospatial Digital Special Collections",
+      "url": "https://gdsc.idsc.miami.edu"
+    },
+    {
+      "@type": "DataCatalog",
+      "name": "climate-change",
+      "@id": "https://gdsc.idsc.miami.edu/?collection=climate-change",
+      "url": "https://gdsc.idsc.miami.edu/?collection=climate-change"
+    }
+  ],
+  "name": "Miami-Dade Depth to Groundwater (feet)",
+  "creator": [
+    {
+      "@type": "Person",
+      "name": "Tyler Harrison"
+    },
+    {
+      "@type": "Person",
+      "name": "Amy C Clement"
+    },
+    {
+      "@type": "Person",
+      "name": "Gina L. Maranto"
+    },
+    {
+      "@type": "Person",
+      "name": "Sam Purkis"
+    },
+    {
+      "@type": "Person",
+      "name": "Joanna L. Lombard"
+    },
+    {
+      "@type": "Person",
+      "name": "Angela C. Clark-Hughes"
+    },
+    {
+      "@type": "Person",
+      "name": "Abraham K Parrish"
+    },
+    {
+      "@type": "Person",
+      "name": "Marcus B Reamer"
+    },
+    {
+      "@type": "Person",
+      "name": "Olivia Collins"
+    },
+    {
+      "@type": "Person",
+      "name": "Caroline Lewis"
+    },
+    {
+      "@type": "Person",
+      "name": "Mayra Cruz"
+    },
+    {
+      "@type": "Person",
+      "name": "Anaruth Solace"
+    }
+  ],
+  "url": "https://scholarship.miami.edu/esploro/outputs/dataset/Data-for-Hyperlocalism-Transforming-the-Paradigm/991031655220702976?institution=01UOML_INST",
+  "provider": [
+    {
+      "@type": "Organization",
+      "name": "University of Miami"
+    },
+    {
+      "@type": "Organization",
+      "name": "Otto G. Richter Library"
+    }
+  ],
+  "license": "odc_by",
+  "spatialCoverage": [
+    {
+      "@id": "https://www.geonames.org/4164238",
+      "@type": "Place",
+      "name": "Miami-Dade County"
+    },
+    {
+      "@type": "Place",
+      "name": "bbox",
+      "geo": {
+        "@type": "GeoShape",
+        "polygon": "25.222319 -80.605666 25.222319 -80.117611 25.979857 -80.117611 25.979857 -80.605666 25.222319 -80.605666"
+      }
+    }
+  ],
+  "type": "Raster Dataset",
+  "datePublished": "2021-11-07",
+  "description": "Depth to groundwater (depth from ground surface to top of water table)",
+  "keywords": [
+    "Florida",
+    "Miami-Dade County",
+    "MDC",
+    "Miami-Dade County",
+    "Environment",
+    "Depth to Groundwater",
+    "Water",
+    "Hylo",
+    "Homestead",
+    "Little River"
+  ],
+  "@language": "en",
+  "measurementTechnique": [
+    {
+      "@type": "DefinedTerm",
+      "description": "GIS Data Structure for Representation",
+      "inDefinedTermSet": {
+        "@type": "DefinedTermSet",
+        "name": "dataRepresentation",
+        "hasDefinedTerm": [
+          {
+            "@type": "DefinedTerm",
+            "termCode": "raster"
+          },
+          {
+            "@type": "DefinedTerm",
+            "termCode": "vector"
+          },
+          {
+            "@type": "DefinedTerm",
+            "termCode": "table"
+          }
+        ]
+      },
+      "termCode": "raster"
+    }
+  ],
+  "additionalProperty": [
+    {
+      "@type": "PropertyValue",
+      "name": "https://dbpedia.org/resource/Ground_sample_distance",
+      "value": 30.0,
+      "unitText": "meters"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "http://dbpedia.org/resource/Spatial_reference_system",
+      "value": "https://epsg.io/3857"
+    }
+  ],
+  "about": [
+    {
+      "@type": "Event",
+      "description": " Derived from groundwater levels in feet (NAVD88 vertical datum) 500 meter resolution raster from Miami Dade County Water and Sewer and Miami Dade County Office of Resilience 2018 LiDAR DEM;  difference of DEM and groundwater.",
+      "name": "ETL process for Miami-Dade Depth to Groundwater (feet)",
+      "potentialAction": {
+        "@type": "Action",
+        "name": "Pseudo Code",
+        "description": "TODO"
+      }
+    },
+    {
+      "@type": "Event",
+      "description": " Derived from groundwater levels in feet (NAVD88 vertical datum) 500 meter resolution raster from Miami Dade County Water and Sewer and Miami Dade County Office of Resilience 2018 LiDAR DEM;  difference of DEM and groundwater.",
+      "name": "ETL process for Miami-Dade Depth to Groundwater (feet)",
+      "potentialAction": {
+        "@type": "Action",
+        "name": "wget",
+        "description": "ETL process for Miami-Dade Depth to Groundwater (feet)",
+        "object": {
+          "@type": "Dataset",
+          "name": " Derived from groundwater levels in feet (NAVD88 vertical datum) 500 meter resolution raster from Miami Dade County Water and Sewer and Miami Dade County Office of Resilience 2018 LiDAR DEM;  difference of DEM and groundwater.",
+          "producer": "Tyler Harrison",
+          "url": "https://scholarship.miami.edu/esploro/outputs/dataset/Data-for-Hyperlocalism-Transforming-the-Paradigm/991031655220702976?institution=01UOML_INST"
+        },
+        "instrument": {
+          "@type": "SoftwareApplication",
+          "@id": "https://github.com/Geospatial-Digital-Special-Collections/tools",
+          "featureList": "wget",
+          "downloadUrl": "https://github.com/Geospatial-Digital-Special-Collections/tools.git"
+        },
+        "result": {
+          "@type": "Dataset",
+          "name": "Miami-Dade Depth to Groundwater (feet)",
+          "description": "Depth to groundwater (depth from ground surface to top of water table)",
+          "encodingFormat": "tif"
+        }
+      }
+    }
+  ],
+  "variableMeasured": [
+    {
+      "@type": "PropertyValue",
+      "name": "depth",
+      "description": "Depth to groundwater",
+      "qudt:dataType": "float32",
+      "minValue": "-21.56599998474121",
+      "maxValue": "202.37100219726562"
+    }
+  ],
+  "distribution": "/data/mdc_2021_hylo/mdc_2021_depth_to_groundwater_ft_30m/",
+  "dateModified": "2026-10-05 21:40:39",
+  "version": "2026-10-20"
+}

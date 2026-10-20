@@ -1,226 +1,264 @@
 {
   "@context": {
     "@vocab": "https://schema.org/",
-    "dct": "http://purl.org/dc/terms/",
-    "qudt": "http://qudt.org/schema/qudt/",
-    "quantitykind": "http://qudt.org/vocab/quantitykind/",
-    "unit": "http://qudt.org/vocab/unit/",
-    "xsd": "http://www.w3.org/2001/XMLSchema",
-    "extendedConstraintProperty": "http://codata.org/vocab/extendedConstraintProperty",
-    "sdmx": "https://sdmx.org"
+    "schema": "https://schema.org/",
+    "@language": "en",
+    "dct": "http://purl.org/dc/terms/"
   },
-  "@type": "Dataset",
-  "@id": "https://gdsc.idsc.miami.edu/detail/bogota_2019_estratos_manzana_dane",
-  "includedInDataCatalog": [
+  "@graph": [
     {
-      "@type": "DataCatalog",
-      "@id": "https://gdsc.idsc.miami.edu",
-      "name": "Geospatial Digital Special Collections",
-      "url": "https://gdsc.idsc.miami.edu"
-    },
-    {
-      "@type": "DataCatalog",
-      "name": "bogota-disaster-resilience",
-      "@id": "https://gdsc.idsc.miami.edu/?collection=bogota-disaster-resilience",
-      "url": "https://gdsc.idsc.miami.edu/?collection=bogota-disaster-resilience"
-    }
-  ],
-  "name": "Estratos Socioecon\u00f3micos de Bogot\u00e1 Seg\u00fan Manzanas",
-  "creator": [
-    {
-      "@type": "Organization",
-      "name": "Departamento Administrativo Nacional de Estadistica (DANE)"
-    }
-  ],
-  "url": "https://datosabiertos.bogota.gov.co/dataset/estratificacion-para-bogota",
-  "provider": [
-    {
-      "@type": "Organization",
-      "name": "Departamento Administrativo Nacional de Estadistica (DANE)"
-    }
-  ],
-  "license": "cc_by",
-  "spatialCoverage": [
-    {
-      "@id": "https://www.geonames.org/3688689",
-      "@type": "Place",
-      "name": "Bogota"
-    },
-    {
-      "@type": "Place",
-      "name": "bbox",
-      "geo": {
-        "@type": "GeoShape",
-        "polygon": "85562.765000 83785.217800 85562.765000 107888.796900 126186.546900 107888.796900 126186.546900 83785.217800 85562.765000 83785.217800"
-      }
-    }
-  ],
-  "datePublished": "2019-09-12",
-  "description": "Base gr\u00e1fica que determina las \u00e1reas que conforman la clasificaci\u00f3n del estrato socioecon\u00f3mico por manzana y localidad, en que se divide el Distrito Capital (Alto, Medio, Bajo) en la totalidad del territorio. La estratificaci\u00f3n socioecon\u00f3mica en Colombia se refiere a la clasificaci\u00f3n de los inmuebles residenciales que deben recibir servicios p\u00fablicos.",
-  "keywords": [
-    "estratos socioeconomicos",
-    "Bogota",
-    "manzanas"
-  ],
-  "@language": "es",
-  "measurementTechnique": [
-    {
-      "@type": "DefinedTerm",
-      "description": "GIS Data Structure for Representation",
-      "inDefinedTermSet": {
-        "@type": "DefinedTermSet",
-        "name": "dataRepresentation",
-        "hasDefinedTerm": [
-          {
-            "@type": "DefinedTerm",
-            "termCode": "raster"
-          },
-          {
-            "@type": "DefinedTerm",
-            "termCode": "vector"
-          },
-          {
-            "@type": "DefinedTerm",
-            "termCode": "table"
+      "@type": "schema:Dataset",
+      "@id": "https://gdsc.idsc.miami.edu/detail/bogota_2019_estratos_manzana_dane",
+      "name": "Estratos Socioecon\u00f3micos de Bogot\u00e1 Seg\u00fan Manzanas",
+      "description": "Base gr\u00e1fica que determina las \u00e1reas que conforman la clasificaci\u00f3n del estrato socioecon\u00f3mico por manzana y localidad, en que se divide el Distrito Capital (Alto, Medio, Bajo) en la totalidad del territorio. La estratificaci\u00f3n socioecon\u00f3mica en Colombia se refiere a la clasificaci\u00f3n de los inmuebles residenciales que deben recibir servicios p\u00fablicos.",
+      "url": "https://datosabiertos.bogota.gov.co/dataset/estratificacion-para-bogota",
+      "license": "https://creativecommons.org/licenses/by/4.0/",
+      "inLanguage": "es",
+      "datePublished": "2019-09-12",
+      "dateModified": "2026-10-17 22:35:28",
+      "creator": [
+        {
+          "@type": "Role",
+          "roleName": "creator",
+          "creator": {
+            "@type": "Organization",
+            "name": "Departamento Administrativo Nacional de Estadistica (DANE)"
           }
-        ]
-      },
-      "termCode": "vector"
-    },
-    {
-      "@type": "DefinedTerm",
-      "description": "GIS Vector Geometery",
-      "inDefinedTermSet": {
-        "@type": "DefinedTermSet",
-        "name": "vectorGeometry",
-        "hasDefinedTerm": [
-          {
-            "@type": "DefinedTerm",
-            "termCode": "point"
-          },
-          {
-            "@type": "DefinedTerm",
-            "termCode": "line"
-          },
-          {
-            "@type": "DefinedTerm",
-            "termCode": "polygon"
-          }
-        ]
-      },
-      "termCode": "multipolygon"
-    }
-  ],
-  "additionalProperty": [
-    {
-      "@type": "PropertyValue",
-      "propertyID": "http://dbpedia.org/resource/Spatial_reference_system",
-      "value": "https://epsg.io/4686"
-    }
-  ],
-  "about": [
-    {
-      "@type": "Event",
-      "description": "Direct download",
-      "name": "ETL process for Estratos Socioecon\u00f3micos de Bogot\u00e1 Seg\u00fan Manzanas",
-      "potentialAction": {
-        "@type": "Action",
-        "name": "Pseudo Code",
-        "description": "TODO"
-      }
-    },
-    {
-      "@type": "Event",
-      "description": "Direct download",
-      "name": "ETL process for Estratos Socioecon\u00f3micos de Bogot\u00e1 Seg\u00fan Manzanas",
-      "potentialAction": {
-        "@type": "Action",
-        "name": "wget",
-        "description": "ETL process for Estratos Socioecon\u00f3micos de Bogot\u00e1 Seg\u00fan Manzanas",
-        "object": {
-          "@type": "Dataset",
-          "name": "Direct download",
-          "producer": "Departamento Administrativo Nacional de Estadistica (DANE)",
-          "url": "https://datosabiertos.bogota.gov.co/dataset/estratificacion-para-bogota"
-        },
-        "instrument": {
-          "@type": "SoftwareApplication",
-          "@id": "https://github.com/Geospatial-Digital-Special-Collections/tools",
-          "featureList": "wget",
-          "downloadUrl": "https://github.com/Geospatial-Digital-Special-Collections/tools.git"
-        },
-        "result": {
-          "@type": "Dataset",
-          "name": "Estratos Socioecon\u00f3micos de Bogot\u00e1 Seg\u00fan Manzanas",
-          "description": "Base gr\u00e1fica que determina las \u00e1reas que conforman la clasificaci\u00f3n del estrato socioecon\u00f3mico por manzana y localidad, en que se divide el Distrito Capital (Alto, Medio, Bajo) en la totalidad del territorio. La estratificaci\u00f3n socioecon\u00f3mica en Colombia se refiere a la clasificaci\u00f3n de los inmuebles residenciales que deben recibir servicios p\u00fablicos.",
-          "encodingFormat": "json"
         }
-      }
+      ],
+      "provider": {
+        "@type": "Organization",
+        "name": "Departamento Administrativo Nacional de Estadistica (DANE)"
+      },
+      "spatialCoverage": {
+        "@type": "Place",
+        "name": "Bogota",
+        "additionalProperty": [
+          {
+            "@type": "PropertyValue",
+            "name": "geonames",
+            "value": "3688689",
+            "url": "https://www.geonames.org/3688689"
+          },
+          {
+            "@type": "PropertyValue",
+            "name": "Spatial Reference System",
+            "value": "http://www.opengis.net/def/crs/EPSG/0/4686"
+          },
+          {
+            "@type": "PropertyValue",
+            "name": "extent",
+            "value": "ENVELOPE(83785.217800,107888.796900,126186.546900,85562.765000)"
+          }
+        ]
+      },
+      "keywords": [
+        "estratos socioeconomicos",
+        "Bogota",
+        "manzanas"
+      ],
+      "includedInDataCatalog": [
+        {
+          "@type": "DataCatalog",
+          "@id": "https://gdsc.idsc.miami.edu",
+          "name": "Geospatial Digital Special Collections",
+          "url": "https://gdsc.idsc.miami.edu"
+        },
+        {
+          "@type": "DataCatalog",
+          "name": "bogota-disaster-resilience",
+          "@id": "https://gdsc.idsc.miami.edu/?collection=bogota-disaster-resilience",
+          "url": "https://gdsc.idsc.miami.edu/?collection=bogota-disaster-resilience"
+        }
+      ],
+      "measurementTechnique": [
+        {
+          "@type": "DefinedTerm",
+          "name": "GIS Data Structure",
+          "termCode": "vector",
+          "inDefinedTermSet": {
+            "@type": "DefinedTermSet",
+            "name": "dataRepresentation",
+            "url": "https://gdsc.idsc.miami.edu/vocab/dataRepresentation"
+          }
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "GIS Vector Geometry",
+          "termCode": "multipolygon",
+          "inDefinedTermSet": {
+            "@type": "DefinedTermSet",
+            "name": "vectorGeometry",
+            "url": "https://gdsc.idsc.miami.edu/vocab/vectorGeometry"
+          }
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "Data Processing Level",
+          "termCode": "observed",
+          "inDefinedTermSet": {
+            "@type": "DefinedTermSet",
+            "name": "dataProcessingLevel",
+            "url": "https://gdsc.idsc.miami.edu/vocab/dataProcessingLevel"
+          }
+        }
+      ],
+      "distribution": [
+        {
+          "@type": "DataDownload",
+          "name": "Source distribution",
+          "contentUrl": "https://datosabiertos.bogota.gov.co/dataset/55467552-0af4-4524-a390-a2956035744e/resource/29f2d770-bd5d-4450-9e95-8737167ba12f/download/manzanaestratificacion.json",
+          "encodingFormat": "application/json"
+        }
+      ],
+      "additionalProperty": [
+        {
+          "@type": "PropertyValue",
+          "name": "postgis_table",
+          "value": "bogota_2019_estratos_manzana_dane"
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "kobo_record_id",
+          "value": "86"
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "creator_type",
+          "value": "organization"
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "process_step",
+          "value": "#########\n  # GDSC ETL is performed in two steps: shell script to ETL data into postgres\n  # and then additional transformations with SQL in postGIS (if needed).\n  ####\n  \n  #########\n  # Step 1 - bash script (pseudo code)\n  ####\n  \n  # create directory structure and move into it\n  mkdir -p /data/bogota_2019_estratos_manzana_dane/download -p /data/bogota_2019_estratos_manzana_dane/etl\n  chmod -R 777 /data/bogota_2019_estratos_manzana_dane\n  cd /data/bogota_2019_estratos_manzana_dane\n  \n  # set update flag based on last update and update frequency\n  do_update=0 if date() < last_update + update_frequency else do_update = 1\n  \n  # download if update flag is set:\n  if do_update == 1 then\n  wget --retry-connrefused --waitretry=1 --read-timeout=20 --timeout=15 -t 10 -O download/bogota_2019_estratos_manzana_dane.json 'https://datosabiertos.bogota.gov.co/dataset/55467552-0af4-4524-a390-a2956035744e/resource/29f2d770-bd5d-4450-9e95-8737167ba12f/download/manzanaestratificacion.json' 2>&1\n  \n  # load into postGIS with:\n  ogr2ogr -lco GEOMETRY_NAME=geom -f PostgreSQL PG:\"<postgres connection>\" download/bogota_2019_estratos_manzana_dane.json -nlt multipolygon -nln bogota_2019_estratos_manzana_dane\n  echo success: bogota_2019_estratos_manzana_dane.json loaded with ogr2ogr\n  \n  \n  #########\n  # Step 2 - SQL script (pseudo code):\n  ####\n  \n  # remove duplicate points and make geometries valid:\n  UPDATE bogota_2019_estratos_manzana_dane\n    SET geom=ST_MakeValid(ST_RemoveRepeatedPoints(geom));\n  \n  # add local geometry column and reproject existing geometries into local EPSG:\n  ALTER TABLE bogota_2019_estratos_manzana_dane DROP COLUMN IF EXISTS geom_local CASCADE;\n  SELECT AddGeometryColumn (\n    'bogota_2019_estratos_manzana_dane',\n    'geom_local', 4686, 'multipolygon', 2\n  );\n  UPDATE bogota_2019_estratos_manzana_dane\n    SET geom_local=ST_MakeValid(ST_RemoveRepeatedPoints(ST_Transform(ST_Multi(geom),4686)));\n  CREATE INDEX bogota_2019_estratos_manzana_dane_geom_local_idx\n    ON bogota_2019_estratos_manzana_dane\n    USING GIST (geom_local);\n  NOTIFY pgrst, 'reload schema';"
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "processor",
+          "value": "GDSC automation (see Process Step)"
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "cartography_label_field",
+          "value": "codigo_man"
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "Spatial Reference System",
+          "value": "http://www.opengis.net/def/crs/EPSG/0/4686"
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "download_method",
+          "value": "wget"
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "source_file",
+          "value": "{'etl_group/file_name_group/file_name_value': 'bogota_2019_estratos_manzana_dane'}"
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "podid",
+          "value": "gaia-db"
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "up",
+          "value": "false"
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "derivativeUrl",
+          "value": "/data/bogota_2019_estratos_manzana_dane/"
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "pointOfContact",
+          "value": "{'iso_group/point_of_contact_group/contact_affiliation': 'University of Miami Libraries, Frost Institute for Data Science and Computing', 'iso_group/point_of_contact_group/contact_affiliation_identifier': 'https://ror.org/02dgjyy92', 'iso_group/point_of_contact_group/contact_affiliation_schema': 'ror', 'iso_group/point_of_contact_group/contact_affiliation_schema_uri': 'https://ror.org/', 'iso_group/point_of_contact_group/contact_email': 'tnorris@miami.edu', 'iso_group/point_of_contact_group/contact_first_name': 'Timothy', 'iso_group/point_of_contact_group/contact_identifier': 'https://orcid.org/0000-0002-0898-3027', 'iso_group/point_of_contact_group/contact_identifier_schema': 'orcid', 'iso_group/point_of_contact_group/contact_identifier_schema_uri': 'https://orcid.org/', 'iso_group/point_of_contact_group/contact_last_name': 'Norris', 'iso_group/point_of_contact_group/contact_name': 'Timothy B. Norris'}"
+        }
+      ],
+      "dct:accrualPeriodicity": "Never",
+      "variableMeasured": [
+        {
+          "@type": "PropertyValue",
+          "name": "fid",
+          "description": ""
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "objectid",
+          "description": ""
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "codigo_man",
+          "description": ""
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "estrato",
+          "description": ""
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "codigo_zon",
+          "description": ""
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "codigo_cri",
+          "description": ""
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "normativa",
+          "description": ""
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "acto_admin",
+          "description": ""
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "numero_act",
+          "description": ""
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "fecha_acto",
+          "description": ""
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "escala_cap",
+          "description": ""
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "fecha_capt",
+          "description": ""
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "responsabl",
+          "description": ""
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "shape_area",
+          "description": ""
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "shape_len",
+          "description": ""
+        }
+      ],
+      "isAccessibleForFree": false,
+      "usageInfo": "El DANE ofrece la descarga y uso de informaci\u00f3n georreferenciada producida por la entidad bajo una licencia Creative Commons, reservando el derecho de autor sobre la obra. Este tipo de licencias ofrecen algunos derechos a terceras personas bajo ciertas condiciones que se describen en (Creative Commons Internacional, 2019). https://geoportal.dane.gov.co/acerca-del-geoportal/licencia-y-condiciones-de-uso/#gsc.tab=0.",
+      "dct:provenance": "Direct download"
     }
-  ],
-  "variableMeasured": [
-    {
-      "@type": "PropertyValue",
-      "name": "fid"
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "objectid"
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "codigo_man"
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "estrato"
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "codigo_zon"
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "codigo_cri"
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "normativa"
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "acto_admin"
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "numero_act"
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "fecha_acto"
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "escala_cap"
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "fecha_capt"
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "responsabl"
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "shape_area"
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "shape_len"
-    }
-  ],
-  "distribution": "/data/bogota_2019_estratos_manzana_dane/",
-  "dateModified": "2026-10-17 22:35:28",
-  "version": "2026-10-18"
+  ]
 }

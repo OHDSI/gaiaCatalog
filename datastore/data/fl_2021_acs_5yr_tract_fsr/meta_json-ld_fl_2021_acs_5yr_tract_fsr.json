@@ -1,285 +1,371 @@
 {
   "@context": {
     "@vocab": "https://schema.org/",
-    "dct": "http://purl.org/dc/terms/",
-    "qudt": "http://qudt.org/schema/qudt/",
-    "quantitykind": "http://qudt.org/vocab/quantitykind/",
-    "unit": "http://qudt.org/vocab/unit/",
-    "xsd": "http://www.w3.org/2001/XMLSchema",
-    "extendedConstraintProperty": "http://codata.org/vocab/extendedConstraintProperty",
-    "sdmx": "https://sdmx.org"
+    "schema": "https://schema.org/",
+    "@language": "en",
+    "dct": "http://purl.org/dc/terms/"
   },
-  "@type": "Dataset",
-  "@id": "https://gdsc.idsc.miami.edu/detail/fl_2021_acs_5yr_tract_fsr",
-  "includedInDataCatalog": [
+  "@graph": [
     {
-      "@type": "DataCatalog",
-      "@id": "https://gdsc.idsc.miami.edu",
-      "name": "Geospatial Digital Special Collections",
-      "url": "https://gdsc.idsc.miami.edu"
-    },
-    {
-      "@type": "DataCatalog",
-      "name": "us-census",
-      "@id": "https://gdsc.idsc.miami.edu/?collection=us-census",
-      "url": "https://gdsc.idsc.miami.edu/?collection=us-census"
-    }
-  ],
-  "name": "2021 Florida ACS 5 Year Estimates - Tract Level - FSR",
-  "creator": [
-    {
-      "@type": "Organization",
-      "sameAs": "https://ror.org/04chq2495",
-      "@id": "https://ror.org/04chq2495",
-      "identifier": "https://ror.org/04chq2495",
-      "name": "U.S. Department of Commerce"
-    },
-    {
-      "@type": "Organization",
-      "sameAs": "https://ror.org/01qn7cs15",
-      "@id": "https://ror.org/01qn7cs15",
-      "identifier": "https://ror.org/01qn7cs15",
-      "name": "U.S. Census Bureau"
-    },
-    {
-      "@type": "Organization",
-      "name": "Geography Division"
-    },
-    {
-      "@type": "Organization",
-      "name": "Spatial Data Collection and Products Branch"
-    }
-  ],
-  "url": "https://www.census.gov/data/developers/data-sets/acs-5year.html",
-  "provider": [
-    {
-      "@type": "Organization",
-      "name": "Department of Commerce"
-    },
-    {
-      "@type": "Organization",
-      "name": "U.S. Census Bureau"
-    }
-  ],
-  "spatialCoverage": [
-    {
-      "@id": "https://www.geonames.org/4155751",
-      "@type": "Place",
-      "name": "Florida"
-    },
-    {
-      "@type": "Place",
-      "name": "bbox",
-      "geo": {
-        "@type": "GeoShape",
-        "polygon": "24.396308 -87.634896 24.396308 -79.974306 31.000968 -79.974306 31.000968 -87.634896 24.396308 -87.634896"
-      }
-    }
-  ],
-  "type": "API",
-  "datePublished": "2022-12-08",
-  "description": "A special collection of aggregated columns from the 2021 5-year ACS variables at the census tract level selected for use with the Florida Stroke Registry. Please see the column metadata for the description of the columns.",
-  "keywords": [
-    "Florida",
-    "Census",
-    "ACS 2021",
-    "2021",
-    "5-Year Estimates",
-    "Tract",
-    "Census Tract",
-    "Demographic",
-    "Population",
-    "FSR"
-  ],
-  "@language": "en",
-  "measurementTechnique": [
-    {
-      "@type": "DefinedTerm",
-      "description": "GIS Data Structure for Representation",
-      "inDefinedTermSet": {
-        "@type": "DefinedTermSet",
-        "name": "dataRepresentation",
-        "hasDefinedTerm": [
-          {
-            "@type": "DefinedTerm",
-            "termCode": "raster"
-          },
-          {
-            "@type": "DefinedTerm",
-            "termCode": "vector"
-          },
-          {
-            "@type": "DefinedTerm",
-            "termCode": "table"
+      "@type": "schema:Dataset",
+      "@id": "https://gdsc.idsc.miami.edu/detail/fl_2021_acs_5yr_tract_fsr",
+      "name": "2021 Florida ACS 5 Year Estimates - Tract Level - FSR",
+      "description": "A special collection of aggregated columns from the 2021 5-year ACS variables at the census tract level selected for use with the Florida Stroke Registry. Please see the column metadata for the description of the columns.",
+      "url": "https://www.census.gov/data/developers/data-sets/acs-5year.html",
+      "inLanguage": "en",
+      "datePublished": "2022-12-08",
+      "dateModified": "2026-10-17 22:34:37",
+      "creator": [
+        {
+          "@type": "Role",
+          "roleName": "creator",
+          "creator": {
+            "@type": "Organization",
+            "name": "U.S. Department of Commerce"
           }
-        ]
-      },
-      "termCode": "vector"
-    },
-    {
-      "@type": "DefinedTerm",
-      "description": "GIS Vector Geometery",
-      "inDefinedTermSet": {
-        "@type": "DefinedTermSet",
-        "name": "vectorGeometry",
-        "hasDefinedTerm": [
-          {
-            "@type": "DefinedTerm",
-            "termCode": "point"
-          },
-          {
-            "@type": "DefinedTerm",
-            "termCode": "line"
-          },
-          {
-            "@type": "DefinedTerm",
-            "termCode": "polygon"
+        },
+        {
+          "@type": "Role",
+          "roleName": "creator",
+          "creator": {
+            "@type": "Organization",
+            "name": "U.S. Census Bureau"
           }
-        ]
-      },
-      "termCode": "multipolygon"
-    }
-  ],
-  "about": [
-    {
-      "@type": "Event",
-      "description": "direct from source and aggregated according to custom specification, see ETL documentation",
-      "name": "ETL process for 2021 Florida ACS 5 Year Estimates - Tract Level - FSR",
-      "potentialAction": {
-        "@type": "Action",
-        "name": "Pseudo Code",
-        "description": "TODO"
-      }
-    },
-    {
-      "@type": "Event",
-      "description": "direct from source and aggregated according to custom specification, see ETL documentation",
-      "name": "ETL process for 2021 Florida ACS 5 Year Estimates - Tract Level - FSR",
-      "potentialAction": {
-        "@type": "Action",
-        "name": "acs_custom_aggregate",
-        "description": "Custom ETL process for 2021 Florida ACS 5 Year Estimates - Tract Level - FSR",
-        "object": {
-          "@type": "Dataset",
-          "name": "direct from source and aggregated according to custom specification, see ETL documentation",
-          "producer": "U.S. Department of Commerce",
-          "url": "https://www.census.gov/data/developers/data-sets/acs-5year.html"
         },
-        "instrument": {
-          "@type": "SoftwareApplication",
-          "@id": "https://github.com/Geospatial-Digital-Special-Collections/tools",
-          "featureList": "for=tract:* in=state:12",
-          "downloadUrl": "https://github.com/Geospatial-Digital-Special-Collections/tools.git"
+        {
+          "@type": "Role",
+          "roleName": "creator",
+          "creator": {
+            "@type": "Organization",
+            "name": "Geography Division"
+          }
         },
-        "result": {
-          "@type": "Dataset",
-          "name": "2021 Florida ACS 5 Year Estimates - Tract Level - FSR",
-          "description": "A special collection of aggregated columns from the 2021 5-year ACS variables at the census tract level selected for use with the Florida Stroke Registry. Please see the column metadata for the description of the columns."
+        {
+          "@type": "Role",
+          "roleName": "creator",
+          "creator": {
+            "@type": "Organization",
+            "name": "Spatial Data Collection and Products Branch"
+          }
         }
-      }
+      ],
+      "provider": [
+        {
+          "@type": "Organization",
+          "name": "Department of Commerce"
+        },
+        {
+          "@type": "Organization",
+          "name": "U.S. Census Bureau"
+        }
+      ],
+      "spatialCoverage": {
+        "@type": "Place",
+        "name": "Florida",
+        "additionalProperty": [
+          {
+            "@type": "PropertyValue",
+            "name": "geonames",
+            "value": "4155751",
+            "url": "https://www.geonames.org/4155751"
+          },
+          {
+            "@type": "PropertyValue",
+            "name": "extent",
+            "value": "ENVELOPE(-87.634896,-79.974306,31.000968,24.396308)"
+          }
+        ]
+      },
+      "keywords": [
+        "Florida",
+        "Census",
+        "ACS 2021",
+        "2021",
+        "5-Year Estimates",
+        "Tract",
+        "Census Tract",
+        "Demographic",
+        "Population",
+        "FSR"
+      ],
+      "includedInDataCatalog": [
+        {
+          "@type": "DataCatalog",
+          "@id": "https://gdsc.idsc.miami.edu",
+          "name": "Geospatial Digital Special Collections",
+          "url": "https://gdsc.idsc.miami.edu"
+        },
+        {
+          "@type": "DataCatalog",
+          "name": "us-census",
+          "@id": "https://gdsc.idsc.miami.edu/?collection=us-census",
+          "url": "https://gdsc.idsc.miami.edu/?collection=us-census"
+        },
+        {
+          "@type": "DataCatalog",
+          "name": "fl-stroke-registry",
+          "@id": "https://gdsc.idsc.miami.edu/?collection=fl-stroke-registry",
+          "url": "https://gdsc.idsc.miami.edu/?collection=fl-stroke-registry"
+        }
+      ],
+      "measurementTechnique": [
+        {
+          "@type": "DefinedTerm",
+          "name": "GIS Data Structure",
+          "termCode": "vector",
+          "inDefinedTermSet": {
+            "@type": "DefinedTermSet",
+            "name": "dataRepresentation",
+            "url": "https://gdsc.idsc.miami.edu/vocab/dataRepresentation"
+          }
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "GIS Vector Geometry",
+          "termCode": "multipolygon",
+          "inDefinedTermSet": {
+            "@type": "DefinedTermSet",
+            "name": "vectorGeometry",
+            "url": "https://gdsc.idsc.miami.edu/vocab/vectorGeometry"
+          }
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "Data Processing Level",
+          "termCode": "derived",
+          "inDefinedTermSet": {
+            "@type": "DefinedTermSet",
+            "name": "dataProcessingLevel",
+            "url": "https://gdsc.idsc.miami.edu/vocab/dataProcessingLevel"
+          }
+        }
+      ],
+      "distribution": [
+        {
+          "@type": "DataDownload",
+          "name": "Source distribution",
+          "contentUrl": "https://api.census.gov/data/2021/acs/acs5/",
+          "encodingFormat": "application/json"
+        }
+      ],
+      "additionalProperty": [
+        {
+          "@type": "PropertyValue",
+          "name": "postgis_table",
+          "value": "fl_2021_acs_5yr_tract_fsr"
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "kobo_record_id",
+          "value": "81"
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "creator_type",
+          "value": "organization"
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "process_step",
+          "value": "#########\n  # GDSC ETL is performed in two steps: shell script to ETL data into postgres\n  # and then additional transformations with SQL in postGIS (if needed).\n  ####\n  \n  #########\n  # Step 1 - bash script (pseudo code)\n  ####\n  \n  # create directory structure and move into it\n  mkdir -p /data/fl_2021_acs_5yr_tract_fsr/download -p /data/fl_2021_acs_5yr_tract_fsr/etl\n  chmod -R 777 /data/fl_2021_acs_5yr_tract_fsr\n  cd /data/fl_2021_acs_5yr_tract_fsr\n  \n  # set update flag based on last update and update frequency\n  do_update=0 if date() < last_update + update_frequency else do_update = 1\n  \n  # load fl_2021_tl_tract as dependency (see fl_2021_tl_tract for details).\n  \n  # download specific variables from the census API, reformat census json to csv,\n  # and load as individual tables into postGIS with ogr2ogr.\n  if do_update = 1 then\n    wget -O download/total_population.json\" https://api.census.gov/data/2021/acs/acs5?get=B01001_001E&key=%24CENSUS_API_KEY&for=tract%3A%2A&in=state%3A12\"\n  awk '{gsub(/\\[|\\]|.$/,\"\"); print;}' download/total_population.json | awk '{ for(i=1; i<=1; i++) sub(\"\\\",\\\"\", \"\\\"|\\\"\") } 1' |\n    sed -e \"s/\\\",\\\"//g\" -e \"s/\\\"state.*\\\"/\\\"geoid\\\"/1\" -e \"s/\\\"|\\\"/\\\",\\\"/g\" | awk '!/null/' | \n    ogr2ogr -f PostgreSQL PG:\"<postgres_connection>\" csv:/vsistdin/ -nln total_population\n  \n  if do_update = 1 then\n    wget -O download/hispanic_population.json\" https://api.census.gov/data/2021/acs/acs5?get=B01001I_001E&key=%24CENSUS_API_KEY&for=tract%3A%2A&in=state%3A12\"\n  awk '{gsub(/\\[|\\]|.$/,\"\"); print;}' download/hispanic_population.json | awk '{ for(i=1; i<=1; i++) sub(\"\\\",\\\"\", \"\\\"|\\\"\") } 1' |\n    sed -e \"s/\\\",\\\"//g\" -e \"s/\\\"state.*\\\"/\\\"geoid\\\"/1\" -e \"s/\\\"|\\\"/\\\",\\\"/g\" | awk '!/null/' | \n    ogr2ogr -f PostgreSQL PG:\"<postgres_connection>\" csv:/vsistdin/ -nln hispanic_population\n  \n  if do_update = 1 then\n    wget -O download/creole_speaking.json\" https://api.census.gov/data/2021/acs/acs5?get=C16001_008E&key=%24CENSUS_API_KEY&for=tract%3A%2A&in=state%3A12\"\n  awk '{gsub(/\\[|\\]|.$/,\"\"); print;}' download/creole_speaking.json | awk '{ for(i=1; i<=1; i++) sub(\"\\\",\\\"\", \"\\\"|\\\"\") } 1' |\n    sed -e \"s/\\\",\\\"//g\" -e \"s/\\\"state.*\\\"/\\\"geoid\\\"/1\" -e \"s/\\\"|\\\"/\\\",\\\"/g\" | awk '!/null/' | \n    ogr2ogr -f PostgreSQL PG:\"<postgres_connection>\" csv:/vsistdin/ -nln creole_speaking\n  \n  if do_update = 1 then\n    wget -O download/latin_america_born.json\" https://api.census.gov/data/2021/acs/acs5?get=B05007_048E%2CB05007_045E%2CB05007_051E%2CB05007_042E&key=%24CENSUS_API_KEY&for=tract%3A%2A&in=state%3A12\"\n  awk '{gsub(/\\[|\\]|.$/,\"\"); print;}' download/latin_america_born.json | awk '{ for(i=1; i<=4; i++) sub(\"\\\",\\\"\", \"\\\"|\\\"\") } 1' |\n    sed -e \"s/\\\",\\\"//g\" -e \"s/\\\"state.*\\\"/\\\"geoid\\\"/1\" -e \"s/\\\"|\\\"/\\\",\\\"/g\" | awk '!/null/' | \n    ogr2ogr -f PostgreSQL PG:\"<postgres_connection>\" csv:/vsistdin/ -nln latin_america_born\n  \n  if do_update = 1 then\n    wget -O download/persons_4_years_old_and_younger.json\" https://api.census.gov/data/2021/acs/acs5?get=B01001_003E%2CB01001_027E&key=%24CENSUS_API_KEY&for=tract%3A%2A&in=state%3A12\"\n  awk '{gsub(/\\[|\\]|.$/,\"\"); print;}' download/persons_4_years_old_and_younger.json | awk '{ for(i=1; i<=2; i++) sub(\"\\\",\\\"\", \"\\\"|\\\"\") } 1' |\n    sed -e \"s/\\\",\\\"//g\" -e \"s/\\\"state.*\\\"/\\\"geoid\\\"/1\" -e \"s/\\\"|\\\"/\\\",\\\"/g\" | awk '!/null/' | \n    ogr2ogr -f PostgreSQL PG:\"<postgres_connection>\" csv:/vsistdin/ -nln persons_4_years_old_and_younger\n  \n  if do_update = 1 then\n    wget -O download/age_of_5_and_19.json\" https://api.census.gov/data/2021/acs/acs5?get=B01001_004E%2CB01001_005E%2CB01001_006E%2CB01001_007E%2CB01001_028E%2CB01001_029E%2CB01001_030E%2CB01001_031E&key=%24CENSUS_API_KEY&for=tract%3A%2A&in=state%3A12\"\n  awk '{gsub(/\\[|\\]|.$/,\"\"); print;}' download/age_of_5_and_19.json | awk '{ for(i=1; i<=8; i++) sub(\"\\\",\\\"\", \"\\\"|\\\"\") } 1' |\n    sed -e \"s/\\\",\\\"//g\" -e \"s/\\\"state.*\\\"/\\\"geoid\\\"/1\" -e \"s/\\\"|\\\"/\\\",\\\"/g\" | awk '!/null/' | \n    ogr2ogr -f PostgreSQL PG:\"<postgres_connection>\" csv:/vsistdin/ -nln age_of_5_and_19\n  \n  if do_update = 1 then\n    wget -O download/persons_between_the_age_of_20_and_64.json\" https://api.census.gov/data/2021/acs/acs5?get=B01001_008E%2CB01001_009E%2CB01001_010E%2CB01001_011E%2CB01001_012E%2CB01001_013E%2CB01001_014E%2CB01001_015E%2CB01001_016E%2CB01001_017E%2CB01001_018E%2CB01001_019E%2CB01001_032E%2CB01001_033E%2CB01001_034E%2CB01001_035E%2CB01001_036E%2CB01001_037E%2CB01001_038E%2CB01001_039E%2CB01001_040E%2CB01001_041E%2CB01001_042E%2CB01001_043E&key=%24CENSUS_API_KEY&for=tract%3A%2A&in=state%3A12\"\n  awk '{gsub(/\\[|\\]|.$/,\"\"); print;}' download/persons_between_the_age_of_20_and_64.json | awk '{ for(i=1; i<=24; i++) sub(\"\\\",\\\"\", \"\\\"|\\\"\") } 1' |\n    sed -e \"s/\\\",\\\"//g\" -e \"s/\\\"state.*\\\"/\\\"geoid\\\"/1\" -e \"s/\\\"|\\\"/\\\",\\\"/g\" | awk '!/null/' | \n    ogr2ogr -f PostgreSQL PG:\"<postgres_connection>\" csv:/vsistdin/ -nln persons_between_the_age_of_20_and_64\n  \n  if do_update = 1 then\n    wget -O download/persons_65_years_old_and_over.json\" https://api.census.gov/data/2021/acs/acs5?get=B01001_020E%2CB01001_021E%2CB01001_022E%2CB01001_023E%2CB01001_024E%2CB01001_025E%2CB01001_044E%2CB01001_045E%2CB01001_046E%2CB01001_047E%2CB01001_048E%2CB01001_049E&key=%24CENSUS_API_KEY&for=tract%3A%2A&in=state%3A12\"\n  awk '{gsub(/\\[|\\]|.$/,\"\"); print;}' download/persons_65_years_old_and_over.json | awk '{ for(i=1; i<=12; i++) sub(\"\\\",\\\"\", \"\\\"|\\\"\") } 1' |\n    sed -e \"s/\\\",\\\"//g\" -e \"s/\\\"state.*\\\"/\\\"geoid\\\"/1\" -e \"s/\\\"|\\\"/\\\",\\\"/g\" | awk '!/null/' | \n    ogr2ogr -f PostgreSQL PG:\"<postgres_connection>\" csv:/vsistdin/ -nln persons_65_years_old_and_over\n  \n  if do_update = 1 then\n    wget -O download/born_in_haiti.json\" https://api.census.gov/data/2021/acs/acs5?get=B05006_138E&key=%24CENSUS_API_KEY&for=tract%3A%2A&in=state%3A12\"\n  awk '{gsub(/\\[|\\]|.$/,\"\"); print;}' download/born_in_haiti.json | awk '{ for(i=1; i<=1; i++) sub(\"\\\",\\\"\", \"\\\"|\\\"\") } 1' |\n    sed -e \"s/\\\",\\\"//g\" -e \"s/\\\"state.*\\\"/\\\"geoid\\\"/1\" -e \"s/\\\"|\\\"/\\\",\\\"/g\" | awk '!/null/' | \n    ogr2ogr -f PostgreSQL PG:\"<postgres_connection>\" csv:/vsistdin/ -nln born_in_haiti\n  \n  if do_update = 1 then\n    wget -O download/born_in_venezuela.json\" https://api.census.gov/data/2021/acs/acs5?get=B05006_164E&key=%24CENSUS_API_KEY&for=tract%3A%2A&in=state%3A12\"\n  awk '{gsub(/\\[|\\]|.$/,\"\"); print;}' download/born_in_venezuela.json | awk '{ for(i=1; i<=1; i++) sub(\"\\\",\\\"\", \"\\\"|\\\"\") } 1' |\n    sed -e \"s/\\\",\\\"//g\" -e \"s/\\\"state.*\\\"/\\\"geoid\\\"/1\" -e \"s/\\\"|\\\"/\\\",\\\"/g\" | awk '!/null/' | \n    ogr2ogr -f PostgreSQL PG:\"<postgres_connection>\" csv:/vsistdin/ -nln born_in_venezuela\n  \n  # Set datestamp as needed\n  if do_update == 1 then echo $date > datestamp\n  \n  \n  #########\n  # Step 2 - SQL script (pseudo code):\n  ####\n  \n  # create variable columns in geometry table and join individual variables to\n  # the geometries using geoid as the primary key.\n  -- join total_population to fl_2021_acs_5yr_tract_fsr\n  ALTER TABLE fl_2021_acs_5yr_tract_fsr ADD COLUMN total_population integer;\n  UPDATE fl_2021_acs_5yr_tract_fsr\n    SET total_population = st.agg\n    FROM (\n      SELECT geoid, (b01001_001e::integer) AS agg\n      FROM total_population\n      WHERE ABS(b01001_001e::numeric-(-666666666))>0.01\n    ) st\n    WHERE fl_2021_acs_5yr_tract_fsr.geoid = st.geoid;\n  COMMENT ON COLUMN fl_2021_acs_5yr_tract_fsr.total_population IS 'b01001_001e';\n  DROP TABLE total_population;\n  \n  -- join hispanic_population to fl_2021_acs_5yr_tract_fsr\n  ALTER TABLE fl_2021_acs_5yr_tract_fsr ADD COLUMN hispanic_population integer;\n  UPDATE fl_2021_acs_5yr_tract_fsr\n    SET hispanic_population = st.agg\n    FROM (\n      SELECT geoid, (b01001i_001e::integer) AS agg\n      FROM hispanic_population\n      WHERE ABS(b01001i_001e::numeric-(-666666666))>0.01\n    ) st\n    WHERE fl_2021_acs_5yr_tract_fsr.geoid = st.geoid;\n  COMMENT ON COLUMN fl_2021_acs_5yr_tract_fsr.hispanic_population IS 'b01001i_001e';\n  DROP TABLE hispanic_population;\n  \n  -- join creole_speaking to fl_2021_acs_5yr_tract_fsr\n  ALTER TABLE fl_2021_acs_5yr_tract_fsr ADD COLUMN creole_speaking int4;\n  UPDATE fl_2021_acs_5yr_tract_fsr\n    SET creole_speaking = st.agg\n    FROM (\n      SELECT geoid, (c16001_008e::int4) AS agg\n      FROM creole_speaking\n      WHERE ABS(c16001_008e::numeric-(-666666666))>0.01\n    ) st\n    WHERE fl_2021_acs_5yr_tract_fsr.geoid = st.geoid;\n  COMMENT ON COLUMN fl_2021_acs_5yr_tract_fsr.creole_speaking IS 'c16001_008e';\n  DROP TABLE creole_speaking;\n  \n  -- join latin_america_born to fl_2021_acs_5yr_tract_fsr\n  ALTER TABLE fl_2021_acs_5yr_tract_fsr ADD COLUMN latin_america_born int4;\n  UPDATE fl_2021_acs_5yr_tract_fsr\n    SET latin_america_born = st.agg\n    FROM (\n      SELECT geoid, (b05007_048e::int4+b05007_045e::int4+b05007_051e::int4+b05007_042e::int4) AS agg\n      FROM latin_america_born\n      WHERE ABS(b05007_048e::numeric-(-666666666))>0.01 AND ABS(b05007_045e::numeric-(-666666666))>0.01 AND ABS(b05007_051e::numeric-(-666666666))>0.01 AND ABS(b05007_042e::numeric-(-666666666))>0.01\n    ) st\n    WHERE fl_2021_acs_5yr_tract_fsr.geoid = st.geoid;\n  COMMENT ON COLUMN fl_2021_acs_5yr_tract_fsr.latin_america_born IS 'b05007_048e+b05007_045e+b05007_051e+b05007_042e';\n  DROP TABLE latin_america_born;\n  \n  -- join persons_4_years_old_and_younger to fl_2021_acs_5yr_tract_fsr\n  ALTER TABLE fl_2021_acs_5yr_tract_fsr ADD COLUMN persons_4_years_old_and_younger integer;\n  UPDATE fl_2021_acs_5yr_tract_fsr\n    SET persons_4_years_old_and_younger = st.agg\n    FROM (\n      SELECT geoid, (b01001_003e::integer+b01001_027e::integer) AS agg\n      FROM persons_4_years_old_and_younger\n      WHERE ABS(b01001_003e::numeric-(-666666666))>0.01 AND ABS(b01001_027e::numeric-(-666666666))>0.01\n    ) st\n    WHERE fl_2021_acs_5yr_tract_fsr.geoid = st.geoid;\n  COMMENT ON COLUMN fl_2021_acs_5yr_tract_fsr.persons_4_years_old_and_younger IS 'b01001_003e+b01001_027e';\n  DROP TABLE persons_4_years_old_and_younger;\n  \n  -- join age_of_5_and_19 to fl_2021_acs_5yr_tract_fsr\n  ALTER TABLE fl_2021_acs_5yr_tract_fsr ADD COLUMN age_of_5_and_19 integer;\n  UPDATE fl_2021_acs_5yr_tract_fsr\n    SET age_of_5_and_19 = st.agg\n    FROM (\n      SELECT geoid, (b01001_004e::integer+b01001_005e::integer+b01001_006e::integer+b01001_007e::integer+b01001_028e::integer+b01001_029e::integer+b01001_030e::integer+b01001_031e::integer) AS agg\n      FROM age_of_5_and_19\n      WHERE ABS(b01001_004e::numeric-(-666666666))>0.01 AND ABS(b01001_005e::numeric-(-666666666))>0.01 AND ABS(b01001_006e::numeric-(-666666666))>0.01 AND ABS(b01001_007e::numeric-(-666666666))>0.01 AND ABS(b01001_028e::numeric-(-666666666))>0.01 AND ABS(b01001_029e::numeric-(-666666666))>0.01 AND ABS(b01001_030e::numeric-(-666666666))>0.01 AND ABS(b01001_031e::numeric-(-666666666))>0.01\n    ) st\n    WHERE fl_2021_acs_5yr_tract_fsr.geoid = st.geoid;\n  COMMENT ON COLUMN fl_2021_acs_5yr_tract_fsr.age_of_5_and_19 IS 'b01001_004e+b01001_005e+b01001_006e+b01001_007e+b01001_028e+b01001_029e+b01001_030e+b01001_031e';\n  DROP TABLE age_of_5_and_19;\n  \n  -- join persons_between_the_age_of_20_and_64 to fl_2021_acs_5yr_tract_fsr\n  ALTER TABLE fl_2021_acs_5yr_tract_fsr ADD COLUMN persons_between_the_age_of_20_and_64 integer;\n  UPDATE fl_2021_acs_5yr_tract_fsr\n    SET persons_between_the_age_of_20_and_64 = st.agg\n    FROM (\n      SELECT geoid, (b01001_008e::integer+b01001_009e::integer+b01001_010e::integer+b01001_011e::integer+b01001_012e::integer+b01001_013e::integer+b01001_014e::integer+b01001_015e::integer+b01001_016e::integer+b01001_017e::integer+b01001_018e::integer+b01001_019e::integer+b01001_032e::integer+b01001_033e::integer+b01001_034e::integer+b01001_035e::integer+b01001_036e::integer+b01001_037e::integer+b01001_038e::integer+b01001_039e::integer+b01001_040e::integer+b01001_041e::integer+b01001_042e::integer+b01001_043e::integer) AS agg\n      FROM persons_between_the_age_of_20_and_64\n      WHERE ABS(b01001_008e::numeric-(-666666666))>0.01 AND ABS(b01001_009e::numeric-(-666666666))>0.01 AND ABS(b01001_010e::numeric-(-666666666))>0.01 AND ABS(b01001_011e::numeric-(-666666666))>0.01 AND ABS(b01001_012e::numeric-(-666666666))>0.01 AND ABS(b01001_013e::numeric-(-666666666))>0.01 AND ABS(b01001_014e::numeric-(-666666666))>0.01 AND ABS(b01001_015e::numeric-(-666666666))>0.01 AND ABS(b01001_016e::numeric-(-666666666))>0.01 AND ABS(b01001_017e::numeric-(-666666666))>0.01 AND ABS(b01001_018e::numeric-(-666666666))>0.01 AND ABS(b01001_019e::numeric-(-666666666))>0.01 AND ABS(b01001_032e::numeric-(-666666666))>0.01 AND ABS(b01001_033e::numeric-(-666666666))>0.01 AND ABS(b01001_034e::numeric-(-666666666))>0.01 AND ABS(b01001_035e::numeric-(-666666666))>0.01 AND ABS(b01001_036e::numeric-(-666666666))>0.01 AND ABS(b01001_037e::numeric-(-666666666))>0.01 AND ABS(b01001_038e::numeric-(-666666666))>0.01 AND ABS(b01001_039e::numeric-(-666666666))>0.01 AND ABS(b01001_040e::numeric-(-666666666))>0.01 AND ABS(b01001_041e::numeric-(-666666666))>0.01 AND ABS(b01001_042e::numeric-(-666666666))>0.01 AND ABS(b01001_043e::numeric-(-666666666))>0.01\n    ) st\n    WHERE fl_2021_acs_5yr_tract_fsr.geoid = st.geoid;\n  COMMENT ON COLUMN fl_2021_acs_5yr_tract_fsr.persons_between_the_age_of_20_and_64 IS 'b01001_008e+b01001_009e+b01001_010e+b01001_011e+b01001_012e+b01001_013e+b01001_014e+b01001_015e+b01001_016e+b01001_017e+b01001_018e+b01001_019e+b01001_032e+b01001_033e+b01001_034e+b01001_035e+b01001_036e+b01001_037e+b01001_038e+b01001_039e+b01001_040e+b01001_041e+b01001_042e+b01001_043e';\n  DROP TABLE persons_between_the_age_of_20_and_64;\n  \n  -- join persons_65_years_old_and_over to fl_2021_acs_5yr_tract_fsr\n  ALTER TABLE fl_2021_acs_5yr_tract_fsr ADD COLUMN persons_65_years_old_and_over integer;\n  UPDATE fl_2021_acs_5yr_tract_fsr\n    SET persons_65_years_old_and_over = st.agg\n    FROM (\n      SELECT geoid, (b01001_020e::integer+b01001_021e::integer+b01001_022e::integer+b01001_023e::integer+b01001_024e::integer+b01001_025e::integer+b01001_044e::integer+b01001_045e::integer+b01001_046e::integer+b01001_047e::integer+b01001_048e::integer+b01001_049e::integer) AS agg\n      FROM persons_65_years_old_and_over\n      WHERE ABS(b01001_020e::numeric-(-666666666))>0.01 AND ABS(b01001_021e::numeric-(-666666666))>0.01 AND ABS(b01001_022e::numeric-(-666666666))>0.01 AND ABS(b01001_023e::numeric-(-666666666))>0.01 AND ABS(b01001_024e::numeric-(-666666666))>0.01 AND ABS(b01001_025e::numeric-(-666666666))>0.01 AND ABS(b01001_044e::numeric-(-666666666))>0.01 AND ABS(b01001_045e::numeric-(-666666666))>0.01 AND ABS(b01001_046e::numeric-(-666666666))>0.01 AND ABS(b01001_047e::numeric-(-666666666))>0.01 AND ABS(b01001_048e::numeric-(-666666666))>0.01 AND ABS(b01001_049e::numeric-(-666666666))>0.01\n    ) st\n    WHERE fl_2021_acs_5yr_tract_fsr.geoid = st.geoid;\n  COMMENT ON COLUMN fl_2021_acs_5yr_tract_fsr.persons_65_years_old_and_over IS 'b01001_020e+b01001_021e+b01001_022e+b01001_023e+b01001_024e+b01001_025e+b01001_044e+b01001_045e+b01001_046e+b01001_047e+b01001_048e+b01001_049e';\n  DROP TABLE persons_65_years_old_and_over;\n  \n  -- join born_in_haiti to fl_2021_acs_5yr_tract_fsr\n  ALTER TABLE fl_2021_acs_5yr_tract_fsr ADD COLUMN born_in_haiti integer;\n  UPDATE fl_2021_acs_5yr_tract_fsr\n    SET born_in_haiti = st.agg\n    FROM (\n      SELECT geoid, (b05006_138e::integer) AS agg\n      FROM born_in_haiti\n      WHERE ABS(b05006_138e::numeric-(-666666666))>0.01\n    ) st\n    WHERE fl_2021_acs_5yr_tract_fsr.geoid = st.geoid;\n  COMMENT ON COLUMN fl_2021_acs_5yr_tract_fsr.born_in_haiti IS 'b05006_138e';\n  DROP TABLE born_in_haiti;\n  \n  -- join born_in_venezuela to fl_2021_acs_5yr_tract_fsr\n  ALTER TABLE fl_2021_acs_5yr_tract_fsr ADD COLUMN born_in_venezuela integer;\n  UPDATE fl_2021_acs_5yr_tract_fsr\n    SET born_in_venezuela = st.agg\n    FROM (\n      SELECT geoid, (b05006_164e::integer) AS agg\n      FROM born_in_venezuela\n      WHERE ABS(b05006_164e::numeric-(-666666666))>0.01\n    ) st\n    WHERE fl_2021_acs_5yr_tract_fsr.geoid = st.geoid;\n  COMMENT ON COLUMN fl_2021_acs_5yr_tract_fsr.born_in_venezuela IS 'b05006_164e';\n  DROP TABLE born_in_venezuela;\n  \n  DELETE FROM fl_2021_acs_5yr_tract_fsr WHERE total_population is Null;\n  # add local geometry column and reproject existing geometries into local EPSG:\n  ALTER TABLE fl_2021_acs_5yr_tract_fsr DROP COLUMN IF EXISTS geom_local CASCADE;\n  SELECT AddGeometryColumn (\n    'fl_2021_acs_5yr_tract_fsr',\n    'geom_local', 2236, 'multipolygon', 2\n  );\n  UPDATE fl_2021_acs_5yr_tract_fsr\n    SET geom_local=ST_MakeValid(ST_RemoveRepeatedPoints(ST_Transform(ST_Multi(geom),2236)));\n  CREATE INDEX fl_2021_acs_5yr_tract_fsr_geom_local_idx\n    ON fl_2021_acs_5yr_tract_fsr\n    USING GIST (geom_local);\n  NOTIFY pgrst, 'reload schema';"
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "processor",
+          "value": "GDSC automation (see Process Step)"
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "cartography_label_field",
+          "value": "geoid"
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "no_data",
+          "value": "{'cartography_group/no_data_group/no_data_type': 'numeric', 'cartography_group/no_data_group/no_data_value': '-666666666'}"
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "analytic_function",
+          "value": "gdsc_get_attributes"
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "Spatial Reference System",
+          "value": "http://www.opengis.net/def/crs/EPSG/0/2236"
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "source_file",
+          "value": "{'etl_group/file_name_group/file_name_value': 'fl_2021_acs_5yr_tract_fsr'}"
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "podid",
+          "value": "gaia-db"
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "up",
+          "value": "false"
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "customParameters",
+          "value": "for=tract:*|in=state:12"
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "derivativeUrl",
+          "value": "/data/fl_2021_acs_5yr_tract_fsr/"
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "customEtl",
+          "value": "acs_custom_aggregate"
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "dependencyTable",
+          "value": "{'etl_group/dependency_group/dependency_table_name': 'fl_2021_tl_tract'}"
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "pointOfContact",
+          "value": "{'iso_group/point_of_contact_group/contact_affiliation': 'University of Miami Libraries, Frost Institute for Data Science and Computing', 'iso_group/point_of_contact_group/contact_affiliation_identifier': 'https://ror.org/02dgjyy92', 'iso_group/point_of_contact_group/contact_affiliation_schema': 'ror', 'iso_group/point_of_contact_group/contact_affiliation_schema_uri': 'https://ror.org/', 'iso_group/point_of_contact_group/contact_email': 'tnorris@miami.edu', 'iso_group/point_of_contact_group/contact_first_name': 'Timothy', 'iso_group/point_of_contact_group/contact_identifier': 'https://orcid.org/0000-0002-0898-3027', 'iso_group/point_of_contact_group/contact_identifier_schema': 'orcid', 'iso_group/point_of_contact_group/contact_identifier_schema_uri': 'https://orcid.org/', 'iso_group/point_of_contact_group/contact_last_name': 'Norris', 'iso_group/point_of_contact_group/contact_name': 'Timothy B. Norris'}"
+        }
+      ],
+      "dct:accrualPeriodicity": "Never",
+      "variableMeasured": [
+        {
+          "@type": "PropertyValue",
+          "name": "total_population",
+          "description": "Total population in census tract",
+          "qudt:dataType": "xsd:integer",
+          "unitText": "people",
+          "sourceOrganization": {
+            "@type": "Organization",
+            "name": "B01001_001E"
+          }
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "hispanic_population",
+          "description": "Number of people who identify as Hispanic or Latino any race",
+          "qudt:dataType": "xsd:integer",
+          "unitText": "people",
+          "sourceOrganization": {
+            "@type": "Organization",
+            "name": "B01001I_001E"
+          }
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "creole_speaking",
+          "description": "Number of Creole speaking people in the tract",
+          "qudt:dataType": "xsd:int4",
+          "unitText": "people",
+          "sourceOrganization": {
+            "@type": "Organization",
+            "name": "C16001_008E"
+          }
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "latin_america_born",
+          "description": "Number of people who migrated from Latin America and the Caribbean",
+          "qudt:dataType": "xsd:int4",
+          "unitText": "people",
+          "sourceOrganization": {
+            "@type": "Organization",
+            "name": "B05007_048E+B05007_045E+B05007_051E+B05007_042E"
+          }
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "persons_4_years_old_and_younger",
+          "description": "Number of people 4 years old and younger",
+          "qudt:dataType": "xsd:integer",
+          "unitText": "people",
+          "sourceOrganization": {
+            "@type": "Organization",
+            "name": "B01001_003E+B01001_027E"
+          }
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "age_of_5_and_19",
+          "description": "Number of people with age of 5 to 20",
+          "qudt:dataType": "xsd:integer",
+          "unitText": "people",
+          "sourceOrganization": {
+            "@type": "Organization",
+            "name": "(B01001_004E:B01001_007E)+(B01001_028E:B01001_031E)"
+          }
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "persons_between_the_age_of_20_and_64",
+          "description": "Number of people between the age of 20 and 65",
+          "qudt:dataType": "xsd:integer",
+          "unitText": "people",
+          "sourceOrganization": {
+            "@type": "Organization",
+            "name": "(B01001_008E:B01001_019E)+(B01001_032E:B01001_043E)"
+          }
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "persons_65_years_old_and_over",
+          "description": "Number of people 65 years old and over",
+          "qudt:dataType": "xsd:integer",
+          "unitText": "people",
+          "sourceOrganization": {
+            "@type": "Organization",
+            "name": "(B01001_020E:B01001_025E)+(B01001_044E:B01001_049E)"
+          }
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "born_in_haiti",
+          "description": "Number of people born in Haiti",
+          "qudt:dataType": "xsd:integer",
+          "unitText": "people",
+          "sourceOrganization": {
+            "@type": "Organization",
+            "name": "B05006_138E"
+          }
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "born_in_venezuela",
+          "description": "Number of people born in Venezuela",
+          "qudt:dataType": "xsd:integer",
+          "unitText": "people",
+          "sourceOrganization": {
+            "@type": "Organization",
+            "name": "B05006_164E"
+          }
+        }
+      ],
+      "isAccessibleForFree": false,
+      "usageInfo": "This Software was created by U.S. Government employees and therefore is not subject to copyright in the United States (17 U.S.C. \u00a7105). The United States/U.S.Department of Commerce (\u201cCommerce\u201d) reserve all rights to seek and obtain copyright protection in countries other than the United States. The United States/Commerce hereby grant to User a royalty-free, nonexclusive license to use, copy, and create derivative works of the Software outside of the United States.\n  \n  The Software is provided to the User and those who may take by, through or under it, \u201cas is,\u201d without any warranty (whether express or implied) or representation whatsoever, including but not limited to any warranty of merchantability. The Software is taken hereunder without any right to support or to any improvements, extensions, or modifications, except as may be agreed to separately, in writing, by Commerce.\n  \n  User, on behalf of itself and all others who take by, through or under it, hereby and forever waives, releases, and discharges the United States/Commerce and all its instrumentalities from any and all liabilities and obligations in connection with the use, application, sale or conveyance of the Software. User shall indemnify and hold harmless the United States/Commerce and its instrumentalities from all claims, liabilities, demands, damages, expenses, and losses arising from or in connection with User's use, application, sale or conveyance of the Software, including those who take by, through or under User whether or not User was directly involved. This provision will survive termination of this Agreement and will include any and all claims or liabilities arising under intellectual property rights, such as patents, copyrights, trademarks, and trade secrets. If User of software is an Executive Agency of the United States, this clause is not applicable.\n  \n  The construction, validity, performance, and effect of this Agreement for all purposes will be governed by Federal law of the United States.\n  \n  User agrees to make a good faith effort to use the Software in a way that does not cause damage, harm, or embarrassment to the United States/Commerce. The United States/Commerce expressly reserve all rights and remedies.",
+      "dct:provenance": "direct from source and aggregated according to custom specification, see ETL documentation",
+      "additionalType": "API",
+      "isRelatedTo": "tl_2021_12_tract",
+      "funder": [
+        {
+          "@type": "Organization",
+          "name": "IDSC",
+          "url": "https://idsc.miami.edu"
+        },
+        {
+          "@type": "Organization",
+          "name": "Library",
+          "url": "https://www.library.miami.edu"
+        }
+      ],
+      "disambiguatingDescription": "The Software is provided to the User and those who may take by, through or under it, \u201cas is,\u201d without any warranty (whether express or implied) or representation whatsoever, including but not limited to any warranty of merchantability. The Software is taken hereunder without any right to support or to any improvements, extensions, or modifications, except as may be agreed to separately, in writing, by Commerce.\n  \n  User, on behalf of itself and all others who take by, through or under it, hereby and forever waives, releases, and discharges the United States/Commerce and all its instrumentalities from any and all liabilities and obligations in connection with the use, application, sale or conveyance of the Software. User shall indemnify and hold harmless the United States/Commerce and its instrumentalities from all claims, liabilities, demands, damages, expenses, and losses arising from or in connection with User's use, application, sale or conveyance of the Software, including those who take by, through or under User whether or not User was directly involved. This provision will survive termination of this Agreement and will include any and all claims or liabilities arising under intellectual property rights, such as patents, copyrights, trademarks, and trade secrets. If User of software is an Executive Agency of the United States, this clause is not applicable.\n  \n  The construction, validity, performance, and effect of this Agreement for all purposes will be governed by Federal law of the United States.\n  \n  User agrees to make a good faith effort to use the Software in a way that does not cause damage, harm, or embarrassment to the United States/Commerce. The United States/Commerce expressly reserve all rights and remedies."
     }
-  ],
-  "variableMeasured": [
-    {
-      "@type": "PropertyValue",
-      "name": "total_population",
-      "description": "Total population in census tract",
-      "qudt:dataType": "int4",
-      "unitText": "people",
-      "minValue": "0",
-      "maxValue": "22085"
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "hispanic_population",
-      "description": "Number of people who identify as Hispanic or Latino any race",
-      "qudt:dataType": "int4",
-      "unitText": "people",
-      "minValue": "0",
-      "maxValue": "9345"
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "creole_speaking",
-      "description": "Number of Creole speaking people in the tract",
-      "qudt:dataType": "int4",
-      "unitText": "people",
-      "minValue": "0",
-      "maxValue": "2356"
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "latin_america_born",
-      "description": "Number of people who migrated from Latin America and the Caribbean",
-      "qudt:dataType": "int4",
-      "unitText": "people",
-      "minValue": "0",
-      "maxValue": "4944"
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "persons_4_years_old_and_younger",
-      "description": "Number of people 4 years old and younger",
-      "qudt:dataType": "int4",
-      "unitText": "people",
-      "minValue": "0",
-      "maxValue": "1652"
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "age_of_5_and_19",
-      "description": "Number of people with age of 5 to 20",
-      "qudt:dataType": "int4",
-      "unitText": "people",
-      "minValue": "0",
-      "maxValue": "9221"
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "persons_between_the_age_of_20_and_64",
-      "description": "Number of people between the age of 20 and 65",
-      "qudt:dataType": "int4",
-      "unitText": "people",
-      "minValue": "0",
-      "maxValue": "11870"
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "persons_65_years_old_and_over",
-      "description": "Number of people 65 years old and over",
-      "qudt:dataType": "int4",
-      "unitText": "people",
-      "minValue": "0",
-      "maxValue": "8868"
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "born_in_haiti",
-      "description": "Number of people born in Haiti",
-      "qudt:dataType": "int4",
-      "unitText": "people",
-      "minValue": "0",
-      "maxValue": "2770"
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "born_in_venezuela",
-      "description": "Number of people born in Venezuela",
-      "qudt:dataType": "int4",
-      "unitText": "people",
-      "minValue": "0",
-      "maxValue": "3054"
-    }
-  ],
-  "distribution": "/data/fl_2021_acs_5yr_tract_fsr/",
-  "isBasedOn": [
-    {
-      "@id": "https://gdsc.idsc.miami.edu/details/fl_2021_tl_tract",
-      "@type": "Dataset",
-      "name": "fl_2021_tl_tract",
-      "url": "https://gdsc.idsc.miami.edu/details/fl_2021_tl_tract"
-    }
-  ],
-  "dateModified": "2026-10-17 22:34:37",
-  "version": "2026-10-17"
+  ]
 }

@@ -1,485 +1,804 @@
 {
   "@context": {
     "@vocab": "https://schema.org/",
-    "dct": "http://purl.org/dc/terms/",
-    "qudt": "http://qudt.org/schema/qudt/",
-    "quantitykind": "http://qudt.org/vocab/quantitykind/",
-    "unit": "http://qudt.org/vocab/unit/",
-    "xsd": "http://www.w3.org/2001/XMLSchema",
-    "extendedConstraintProperty": "http://codata.org/vocab/extendedConstraintProperty",
-    "sdmx": "https://sdmx.org"
+    "schema": "https://schema.org/",
+    "@language": "en",
+    "dct": "http://purl.org/dc/terms/"
   },
-  "@type": "Dataset",
-  "@id": "https://gdsc.idsc.miami.edu/detail/global_pm25_concentration_1998_2016",
-  "includedInDataCatalog": [
+  "@graph": [
     {
-      "@type": "DataCatalog",
-      "@id": "https://gdsc.idsc.miami.edu",
-      "name": "Geospatial Digital Special Collections",
-      "url": "https://gdsc.idsc.miami.edu"
-    },
-    {
-      "@type": "DataCatalog",
-      "name": "mdc-health-outcomes",
-      "@id": "https://gdsc.idsc.miami.edu/?collection=mdc-health-outcomes",
-      "url": "https://gdsc.idsc.miami.edu/?collection=mdc-health-outcomes"
-    }
-  ],
-  "name": "Annual PM2.5 Concentrations for Countries and Urban Areas, v1 (1998\u200a\u2013\u200a2016)",
-  "creator": [
-    {
-      "name": "CIESIN - Center for International Earth Science Information Network"
-    },
-    {
-      "name": "Columbia University"
-    }
-  ],
-  "url": "https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/RHIFKL",
-  "provider": [
-    {
-      "@type": "Organization",
-      "name": "University of Miami GDSC"
-    }
-  ],
-  "spatialCoverage": [
-    {
-      "@id": "https://www.geonames.org/6295630",
-      "@type": "Place",
-      "name": "Earth"
-    },
-    {
-      "@type": "Place",
-      "name": "bbox",
-      "geo": {
-        "@type": "GeoShape",
-        "polygon": "-54.858002 -176.733337 -54.858002 179.458313 78.274611 179.458313 78.274611 -176.733337 -54.858002 -176.733337"
-      }
-    }
-  ],
-  "type": "Vector Dataset",
-  "datePublished": "2021-04-06",
-  "description": "The Annual PM2.5 Concentrations for Countries and Urban Areas, 1998-2016, consists of mean concentrations of particulate matter (PM2.5) for countries and urban areas. The PM2.5 data are from the Global Annual PM2.5 Grids from MODIS, MISR and SeaWiFS Aerosol Optical Depth (AOD) with GWR, 1998-2016. The urban areas are from the Global Rural-Urban Mapping Project, Version 1 (GRUMPv1): Urban Extent Polygons, Revision 02, and its time series runs from 1998 to 2016. The country averages are population-weighted such that concentrations in populated areas count more toward the country average than concentrations in less populated areas, and its time series runs from 2008 to 2015",
-  "keywords": [
-    "Global",
-    "PM 2.5",
-    "Air Quality"
-  ],
-  "@language": "en",
-  "measurementTechnique": [
-    {
-      "@type": "DefinedTerm",
-      "description": "GIS Data Structure for Representation",
-      "inDefinedTermSet": {
-        "@type": "DefinedTermSet",
-        "name": "dataRepresentation",
-        "hasDefinedTerm": [
+      "@type": "schema:Dataset",
+      "@id": "https://gdsc.idsc.miami.edu/detail/global_pm25_concentration_1998_2016",
+      "name": "Annual PM2.5 Concentrations for Countries and Urban Areas, v1 (1998\u200a\u2013\u200a2016)",
+      "description": "The Annual PM2.5 Concentrations for Countries and Urban Areas, 1998-2016, consists of mean concentrations of particulate matter (PM2.5) for countries and urban areas. The PM2.5 data are from the Global Annual PM2.5 Grids from MODIS, MISR and SeaWiFS Aerosol Optical Depth (AOD) with GWR, 1998-2016. The urban areas are from the Global Rural-Urban Mapping Project, Version 1 (GRUMPv1): Urban Extent Polygons, Revision 02, and its time series runs from 1998 to 2016. The country averages are population-weighted such that concentrations in populated areas count more toward the country average than concentrations in less populated areas, and its time series runs from 2008 to 2015",
+      "identifier": {
+        "@type": "PropertyValue",
+        "propertyID": "https://registry.identifiers.org/registry/doi",
+        "value": "doi:10.7910/DVN/RHIFKL",
+        "url": "https://doi.org/10.7910/DVN/RHIFKL"
+      },
+      "url": "https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/RHIFKL",
+      "inLanguage": "en",
+      "datePublished": "2021-04-06",
+      "dateModified": "2026-10-19 21:07:40",
+      "creator": [
+        {
+          "@type": "Role",
+          "roleName": "creator",
+          "creator": {
+            "@type": "Organization",
+            "name": "CIESIN - Center for International Earth Science Information Network"
+          }
+        },
+        {
+          "@type": "Role",
+          "roleName": "creator",
+          "creator": {
+            "@type": "Organization",
+            "name": "Columbia University"
+          }
+        }
+      ],
+      "provider": {
+        "@type": "Organization",
+        "name": "University of Miami GDSC",
+        "@id": "https://ror.org/02y3ad647"
+      },
+      "spatialCoverage": {
+        "@type": "Place",
+        "name": "Earth",
+        "additionalProperty": [
           {
-            "@type": "DefinedTerm",
-            "termCode": "raster"
+            "@type": "PropertyValue",
+            "name": "geonames",
+            "value": "6295630",
+            "url": "https://www.geonames.org/6295630"
           },
           {
-            "@type": "DefinedTerm",
-            "termCode": "vector"
+            "@type": "PropertyValue",
+            "name": "Spatial Reference System",
+            "value": "http://www.opengis.net/def/crs/EPSG/0/4326"
           },
           {
-            "@type": "DefinedTerm",
-            "termCode": "table"
+            "@type": "PropertyValue",
+            "name": "extent",
+            "value": "TBD"
           }
         ]
       },
-      "termCode": "vector"
-    },
-    {
-      "@type": "DefinedTerm",
-      "description": "GIS Vector Geometery",
-      "inDefinedTermSet": {
-        "@type": "DefinedTermSet",
-        "name": "vectorGeometry",
-        "hasDefinedTerm": [
-          {
-            "@type": "DefinedTerm",
-            "termCode": "point"
-          },
-          {
-            "@type": "DefinedTerm",
-            "termCode": "line"
-          },
-          {
-            "@type": "DefinedTerm",
-            "termCode": "polygon"
+      "keywords": [
+        "Global",
+        "PM 2.5",
+        "Air Quality"
+      ],
+      "includedInDataCatalog": [
+        {
+          "@type": "DataCatalog",
+          "@id": "https://gdsc.idsc.miami.edu",
+          "name": "Geospatial Digital Special Collections",
+          "url": "https://gdsc.idsc.miami.edu"
+        },
+        {
+          "@type": "DataCatalog",
+          "name": "mdc-health-outcomes",
+          "@id": "https://gdsc.idsc.miami.edu/?collection=mdc-health-outcomes",
+          "url": "https://gdsc.idsc.miami.edu/?collection=mdc-health-outcomes"
+        },
+        {
+          "@type": "DataCatalog",
+          "name": "ohdsi-gaia",
+          "@id": "https://gdsc.idsc.miami.edu/?collection=ohdsi-gaia",
+          "url": "https://gdsc.idsc.miami.edu/?collection=ohdsi-gaia"
+        }
+      ],
+      "measurementTechnique": [
+        {
+          "@type": "DefinedTerm",
+          "name": "GIS Data Structure",
+          "termCode": "vector",
+          "inDefinedTermSet": {
+            "@type": "DefinedTermSet",
+            "name": "dataRepresentation",
+            "url": "https://gdsc.idsc.miami.edu/vocab/dataRepresentation"
           }
-        ]
-      },
-      "termCode": "multipolygon"
-    }
-  ],
-  "additionalProperty": [
-    {
-      "@type": "PropertyValue",
-      "propertyID": "http://dbpedia.org/resource/Spatial_reference_system",
-      "value": "https://epsg.io/4326"
-    }
-  ],
-  "about": [
-    {
-      "@type": "Event",
-      "description": "Direct from source",
-      "name": "ETL process for Annual PM2.5 Concentrations for Countries and Urban Areas, v1 (1998\u200a\u2013\u200a2016)",
-      "potentialAction": {
-        "@type": "Action",
-        "name": "Pseudo Code",
-        "description": "TODO",
-        "result": {
-          "@type": "Dataset",
-          "encodingFormat": "sql",
-          "url": "https://gdsc.idsc.miami.edu/download/data/global_pm25_concentration_1998_2016/?file=global_pm25_concentration_1998_2016&format=sql"
-        }
-      }
-    },
-    {
-      "@type": "Event",
-      "description": "Direct from source",
-      "name": "ETL process for Annual PM2.5 Concentrations for Countries and Urban Areas, v1 (1998\u200a\u2013\u200a2016)",
-      "potentialAction": {
-        "@type": "Action",
-        "name": "wget",
-        "description": "ETL process for Annual PM2.5 Concentrations for Countries and Urban Areas, v1 (1998\u200a\u2013\u200a2016)",
-        "object": {
-          "@type": "Dataset",
-          "name": "Direct from source",
-          "producer": "CIESIN - Center for International Earth Science Information Network",
-          "url": "https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/RHIFKL"
         },
-        "instrument": {
-          "@type": "SoftwareApplication",
-          "@id": "https://github.com/Geospatial-Digital-Special-Collections/tools",
-          "featureList": "wget",
-          "downloadUrl": "https://github.com/Geospatial-Digital-Special-Collections/tools.git"
+        {
+          "@type": "DefinedTerm",
+          "name": "GIS Vector Geometry",
+          "termCode": "multipolygon",
+          "inDefinedTermSet": {
+            "@type": "DefinedTermSet",
+            "name": "vectorGeometry",
+            "url": "https://gdsc.idsc.miami.edu/vocab/vectorGeometry"
+          }
         },
-        "result": {
-          "@type": "Dataset",
-          "name": "Annual PM2.5 Concentrations for Countries and Urban Areas, v1 (1998\u200a\u2013\u200a2016)",
-          "description": "The Annual PM2.5 Concentrations for Countries and Urban Areas, 1998-2016, consists of mean concentrations of particulate matter (PM2.5) for countries and urban areas. The PM2.5 data are from the Global Annual PM2.5 Grids from MODIS, MISR and SeaWiFS Aerosol Optical Depth (AOD) with GWR, 1998-2016. The urban areas are from the Global Rural-Urban Mapping Project, Version 1 (GRUMPv1): Urban Extent Polygons, Revision 02, and its time series runs from 1998 to 2016. The country averages are population-weighted such that concentrations in populated areas count more toward the country average than concentrations in less populated areas, and its time series runs from 2008 to 2015",
-          "encodingFormat": "sql",
-          "url": "https://gdsc.idsc.miami.edu/download/data/global_pm25_concentration_1998_2016/?file=global_pm25_concentration_1998_2016&format=sql"
+        {
+          "@type": "DefinedTerm",
+          "name": "Data Processing Level",
+          "termCode": "derived",
+          "inDefinedTermSet": {
+            "@type": "DefinedTermSet",
+            "name": "dataProcessingLevel",
+            "url": "https://gdsc.idsc.miami.edu/vocab/dataProcessingLevel"
+          }
         }
-      }
+      ],
+      "distribution": [
+        {
+          "@type": "DataDownload",
+          "name": "Source distribution",
+          "contentUrl": "https://sedac.ciesin.columbia.edu/downloads/data/sdei/sdei-annual-pm2-5-concentrations-countries-urban-areas-v1-1998-2016/sdei-annual-pm2-5-concentrations-countries-urban-areas-v1-1998-2016-urban-areas-shp.zip",
+          "encodingFormat": "application/x-shapefile"
+        }
+      ],
+      "additionalProperty": [
+        {
+          "@type": "PropertyValue",
+          "name": "postgis_table",
+          "value": "global_pm25_concentration_1998_2016"
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "kobo_record_id",
+          "value": "136"
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "process_step",
+          "value": "#########\n  # GDSC ETL is performed in two steps: shell script to ETL data into postgres\n  # and then additional transformations with SQL in postGIS (if needed).\n  ####\n  \n  #########\n  # Step 1 - bash script (pseudo code)\n  ####\n  \n  # create directory structure and move into it\n  mkdir -p /data/global_pm25_concentration_1998_2016/download -p /data/global_pm25_concentration_1998_2016/etl\n  chmod -R 777 /data/global_pm25_concentration_1998_2016\n  cd /data/global_pm25_concentration_1998_2016\n  \n  # set update flag based on last update and update frequency\n  do_update=0 if date() < last_update + update_frequency else do_update = 1\n  \n  # download if update flag is set:\n  if do_update == 1 then\n  wget --retry-connrefused --waitretry=1 --read-timeout=20 --timeout=15 -t 10 -O download/global_pm25_concentration_1998_2016.zip 'https://sedac.ciesin.columbia.edu/downloads/data/sdei/sdei-annual-pm2-5-concentrations-countries-urban-areas-v1-1998-2016/sdei-annual-pm2-5-concentrations-countries-urban-areas-v1-1998-2016-urban-areas-shp.zip' 2>&1\n  \n  # unzip to download directory if update flag is set\n  if do_update == 1 then\n  unzip -o download/global_pm25_concentration_1998_2016.zip -d download && rm download/global_pm25_concentration_1998_2016.zip 2>&1\n  \n  # load into postGIS with:\n  ogr2ogr -lco GEOMETRY_NAME=geom -f PostgreSQL PG:\"<postgres connection>\" download/sdei-annual-pm2-5-concentrations-countries-urban-areas-v1-1998-2016-urban-areas.shp -nlt multipolygon -nln global_pm25_concentration_1998_2016\n  echo success: sdei-annual-pm2-5-concentrations-countries-urban-areas-v1-1998-2016-urban-areas.shp loaded with ogr2ogr\n  \n  \n  #########\n  # Step 2 - SQL script (pseudo code):\n  ####\n  \n  # remove duplicate points and make geometries valid:\n  UPDATE global_pm25_concentration_1998_2016\n    SET geom=ST_MakeValid(ST_RemoveRepeatedPoints(geom));\n  \n  # add local geometry column and reproject existing geometries into local EPSG:\n  ALTER TABLE global_pm25_concentration_1998_2016 DROP COLUMN IF EXISTS geom_local CASCADE;\n  SELECT AddGeometryColumn (\n    'global_pm25_concentration_1998_2016',\n    'geom_local', 3857, 'multipolygon', 2\n  );\n  UPDATE global_pm25_concentration_1998_2016\n    SET geom_local=ST_MakeValid(ST_RemoveRepeatedPoints(ST_Transform(ST_Multi(geom),3857)));\n  CREATE INDEX global_pm25_concentration_1998_2016_geom_local_idx\n    ON global_pm25_concentration_1998_2016\n    USING GIST (geom_local);\n  NOTIFY pgrst, 'reload schema';\n  # Move into corrrect directory and create derivative directory in data package on osgeo\n  cd /data/global_pm25_concentration_1998_2016/\n  mkdir -p derived\n  \n  # Create shapefile of table in derivate directory on osgeo \n  ogr2ogr -f \"ESRI Shapefile\" -overwrite derived/global_pm25_concentration_1998_2016.shp PG:\"<postgres connection>\" global_pm25_concentration_1998_2016\n  \n  # Create downloadable tarfile of shp in derivative directory on osgeo\n  rm -f derived/global_pm25_concentration_1998_2016.shp.tar.gz\n  tar -czf derived/global_pm25_concentration_1998_2016.shp.tar.gz meta_dcat_global_pm25_concentration_1998_2016.json -C derived global_pm25_concentration_1998_2016.shp global_pm25_concentration_1998_2016.prj global_pm25_concentration_1998_2016.shx global_pm25_concentration_1998_2016.dbf\n  \n  # Move into correct directory\n  cd /data/global_pm25_concentration_1998_2016/\n  \n  # Create pg_dump of table SQL in derivate directory on postgis.\n  pg_dump <postgres opts> -h gdsc-postgis-node-sgcj6splkxtjwq40 -t global_pm25_concentration_1998_2016 > derived/global_pm25_concentration_1998_2016.sql\n  \n  # Create downloadable tarfile of SQL in derivative directory on postgis\n  rm -f derived/global_pm25_concentration_1998_2016.sql.tar.gz\n  tar -czf derived/global_pm25_concentration_1998_2016.sql.tar.gz meta_dcat_global_pm25_concentration_1998_2016.json -C derived global_pm25_concentration_1998_2016.sql"
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "processor",
+          "value": "GDSC automation (see Process Step)"
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "cartography_label_field",
+          "value": "name"
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "no_data",
+          "value": "{'cartography_group/no_data_group/no_data_type': 'integer', 'cartography_group/no_data_group/no_data_value': '-9999'}"
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "analytic_function",
+          "value": "gdsc_get_attributes"
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "Spatial Reference System",
+          "value": "http://www.opengis.net/def/crs/EPSG/0/3857"
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "derivatives",
+          "value": "sql shp"
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "download_method",
+          "value": "wget"
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "source_file",
+          "value": "{'etl_group/file_name_group/file_inside_archive': 'sdei-annual-pm2-5-concentrations-countries-urban-areas-v1-1998-2016-urban-areas', 'etl_group/file_name_group/file_name_value': 'global_pm25_concentration_1998_2016'}"
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "podid",
+          "value": "gdsc-postgis-node-sgcj6splkxtjwq40"
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "up",
+          "value": "false"
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "derivativeUrl",
+          "value": "/data/global_pm25_concentration_1998_2016/"
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "pointOfContact",
+          "value": "{'iso_group/point_of_contact_group/contact_affiliation': 'University of Miami Libraries, Frost Institute for Data Science and Computing', 'iso_group/point_of_contact_group/contact_affiliation_identifier': 'https://ror.org/02dgjyy92', 'iso_group/point_of_contact_group/contact_affiliation_schema': 'ror', 'iso_group/point_of_contact_group/contact_affiliation_schema_uri': 'https://ror.org/', 'iso_group/point_of_contact_group/contact_email': 'tnorris@miami.edu', 'iso_group/point_of_contact_group/contact_first_name': 'Timothy', 'iso_group/point_of_contact_group/contact_identifier': 'https://orcid.org/0000-0002-0898-3027', 'iso_group/point_of_contact_group/contact_identifier_schema': 'orcid', 'iso_group/point_of_contact_group/contact_identifier_schema_uri': 'https://orcid.org/', 'iso_group/point_of_contact_group/contact_last_name': 'Norris', 'iso_group/point_of_contact_group/contact_name': 'Timothy B. Norris'}"
+        }
+      ],
+      "dct:accrualPeriodicity": "As Needed",
+      "variableMeasured": [
+        {
+          "@type": "PropertyValue",
+          "name": "urbid",
+          "description": "Code of the urban extent polygons (not unique)",
+          "qudt:dataType": "xsd:int4",
+          "sourceOrganization": {
+            "@type": "Organization",
+            "name": "SEDAC"
+          }
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "stndrdname",
+          "description": "Name of the Urban Extent, caps and concatenated. If the urban extents polygons include more than one settlement, the name of the urban extent is the name of the settlement with the highest population",
+          "qudt:dataType": "xsd:string",
+          "sourceOrganization": {
+            "@type": "Organization",
+            "name": "SEDAC"
+          }
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "name",
+          "description": "Name of the Urban Extent. If the urban extents polygons include more than one settlement, the name of the urban extent is the name of the settlement with the highest population",
+          "qudt:dataType": "xsd:string",
+          "sourceOrganization": {
+            "@type": "Organization",
+            "name": "SEDAC"
+          }
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "isourbid",
+          "description": "Unique code of the urban extent polygons. It is created by concatenation of country ISO code and URBID",
+          "qudt:dataType": "xsd:string",
+          "sourceOrganization": {
+            "@type": "Organization",
+            "name": "SEDAC"
+          }
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "sqkm",
+          "description": "Area of the urban extent polygon",
+          "qudt:dataType": "xsd:int4",
+          "unitText": "square kilometers",
+          "sourceOrganization": {
+            "@type": "Organization",
+            "name": "SEDAC"
+          }
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "iso3",
+          "description": "3 letter country code",
+          "qudt:dataType": "xsd:string",
+          "sourceOrganization": {
+            "@type": "Organization",
+            "name": "SEDAC"
+          }
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "unsdcode",
+          "description": "UNSD country numerical code",
+          "qudt:dataType": "xsd:int4",
+          "sourceOrganization": {
+            "@type": "Organization",
+            "name": "SEDAC"
+          }
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "countryeng",
+          "description": "Country name",
+          "qudt:dataType": "xsd:string",
+          "sourceOrganization": {
+            "@type": "Organization",
+            "name": "SEDAC"
+          }
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "continent",
+          "description": "Continent Name",
+          "qudt:dataType": "xsd:string",
+          "sourceOrganization": {
+            "@type": "Organization",
+            "name": "SEDAC"
+          }
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "avpmu_1998",
+          "description": "PM2.5 Exposure for named urban areas from GRUMPv1: Urban Extent Polygons, Revision 02, from 1998. It is measured in micrograms per cubic meter, and is the average annual concentration of PM2.5 to which the typical citizen of each urban area is exposed. Blanks (-9999) represent missing data.",
+          "qudt:dataType": "xsd:float",
+          "unitText": "micrograms/cubic meter",
+          "unitCode": "32964",
+          "alternateName": "2052499839",
+          "sourceOrganization": {
+            "@type": "Organization",
+            "name": "SEDAC"
+          },
+          "identifier": {
+            "@type": "PropertyValue",
+            "propertyID": "https://gdsc.idsc.miami.edu/terms/gaia-attribute-id",
+            "value": "gaia-407"
+          },
+          "additionalProperty": [
+            {
+              "@type": "PropertyValue",
+              "name": "temporal_interval",
+              "value": "1998-01-01/1998-12-31"
+            }
+          ]
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "avpmu_1999",
+          "description": "PM2.5 Exposure for named urban areas from GRUMPv1: Urban Extent Polygons, Revision 02, from 1999. It is measured in micrograms per cubic meter, and is the average annual concentration of PM2.5 to which the typical citizen of each urban area is exposed. Blanks (-9999) represent missing data.",
+          "qudt:dataType": "xsd:float",
+          "unitText": "micrograms/cubic meter",
+          "unitCode": "32964",
+          "alternateName": "2052499839",
+          "sourceOrganization": {
+            "@type": "Organization",
+            "name": "SEDAC"
+          },
+          "identifier": {
+            "@type": "PropertyValue",
+            "propertyID": "https://gdsc.idsc.miami.edu/terms/gaia-attribute-id",
+            "value": "gaia-408"
+          },
+          "additionalProperty": [
+            {
+              "@type": "PropertyValue",
+              "name": "temporal_interval",
+              "value": "1999-01-01/1999-12-31"
+            }
+          ]
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "avpmu_2000",
+          "description": "PM2.5 Exposure for named urban areas from GRUMPv1: Urban Extent Polygons, Revision 02, from 2000. It is measured in micrograms per cubic meter, and is the average annual concentration of PM2.5 to which the typical citizen of each urban area is exposed. Blanks (-9999) represent missing data.",
+          "qudt:dataType": "xsd:float",
+          "unitText": "micrograms/cubic meter",
+          "unitCode": "32964",
+          "alternateName": "2052499839",
+          "sourceOrganization": {
+            "@type": "Organization",
+            "name": "SEDAC"
+          },
+          "identifier": {
+            "@type": "PropertyValue",
+            "propertyID": "https://gdsc.idsc.miami.edu/terms/gaia-attribute-id",
+            "value": "gaia-409"
+          },
+          "additionalProperty": [
+            {
+              "@type": "PropertyValue",
+              "name": "temporal_interval",
+              "value": "2000-01-01/2000-12-31"
+            }
+          ]
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "avpmu_2001",
+          "description": "PM2.5 Exposure for named urban areas from GRUMPv1: Urban Extent Polygons, Revision 02, from 2001. It is measured in micrograms per cubic meter, and is the average annual concentration of PM2.5 to which the typical citizen of each urban area is exposed. Blanks (-9999) represent missing data.",
+          "qudt:dataType": "xsd:float",
+          "unitText": "micrograms/cubic meter",
+          "unitCode": "32964",
+          "alternateName": "2052499839",
+          "sourceOrganization": {
+            "@type": "Organization",
+            "name": "SEDAC"
+          },
+          "identifier": {
+            "@type": "PropertyValue",
+            "propertyID": "https://gdsc.idsc.miami.edu/terms/gaia-attribute-id",
+            "value": "gaia-410"
+          },
+          "additionalProperty": [
+            {
+              "@type": "PropertyValue",
+              "name": "temporal_interval",
+              "value": "2001-01-01/2001-12-31"
+            }
+          ]
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "avpmu_2002",
+          "description": "PM2.5 Exposure for named urban areas from GRUMPv1: Urban Extent Polygons, Revision 02, from 2002. It is measured in micrograms per cubic meter, and is the average annual concentration of PM2.5 to which the typical citizen of each urban area is exposed. Blanks (-9999) represent missing data.",
+          "qudt:dataType": "xsd:float",
+          "unitText": "micrograms/cubic meter",
+          "unitCode": "32964",
+          "alternateName": "2052499839",
+          "sourceOrganization": {
+            "@type": "Organization",
+            "name": "SEDAC"
+          },
+          "identifier": {
+            "@type": "PropertyValue",
+            "propertyID": "https://gdsc.idsc.miami.edu/terms/gaia-attribute-id",
+            "value": "gaia-411"
+          },
+          "additionalProperty": [
+            {
+              "@type": "PropertyValue",
+              "name": "temporal_interval",
+              "value": "2002-01-01/2002-12-31"
+            }
+          ]
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "avpmu_2003",
+          "description": "PM2.5 Exposure for named urban areas from GRUMPv1: Urban Extent Polygons, Revision 02, from 2003. It is measured in micrograms per cubic meter, and is the average annual concentration of PM2.5 to which the typical citizen of each urban area is exposed. Blanks (-9999) represent missing data.",
+          "qudt:dataType": "xsd:float",
+          "unitText": "micrograms/cubic meter",
+          "unitCode": "32964",
+          "alternateName": "2052499839",
+          "sourceOrganization": {
+            "@type": "Organization",
+            "name": "SEDAC"
+          },
+          "identifier": {
+            "@type": "PropertyValue",
+            "propertyID": "https://gdsc.idsc.miami.edu/terms/gaia-attribute-id",
+            "value": "gaia-412"
+          },
+          "additionalProperty": [
+            {
+              "@type": "PropertyValue",
+              "name": "temporal_interval",
+              "value": "2003-01-01/2003-12-31"
+            }
+          ]
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "avpmu_2004",
+          "description": "PM2.5 Exposure for named urban areas from GRUMPv1: Urban Extent Polygons, Revision 02, from 2004. It is measured in micrograms per cubic meter, and is the average annual concentration of PM2.5 to which the typical citizen of each urban area is exposed. Blanks (-9999) represent missing data.",
+          "qudt:dataType": "xsd:float",
+          "unitText": "micrograms/cubic meter",
+          "unitCode": "32964",
+          "alternateName": "2052499839",
+          "sourceOrganization": {
+            "@type": "Organization",
+            "name": "SEDAC"
+          },
+          "identifier": {
+            "@type": "PropertyValue",
+            "propertyID": "https://gdsc.idsc.miami.edu/terms/gaia-attribute-id",
+            "value": "gaia-413"
+          },
+          "additionalProperty": [
+            {
+              "@type": "PropertyValue",
+              "name": "temporal_interval",
+              "value": "2004-01-01/2004-12-31"
+            }
+          ]
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "avpmu_2005",
+          "description": "PM2.5 Exposure for named urban areas from GRUMPv1: Urban Extent Polygons, Revision 02, from 2005. It is measured in micrograms per cubic meter, and is the average annual concentration of PM2.5 to which the typical citizen of each urban area is exposed. Blanks (-9999) represent missing data.",
+          "qudt:dataType": "xsd:float",
+          "unitText": "micrograms/cubic meter",
+          "unitCode": "32964",
+          "alternateName": "2052499839",
+          "sourceOrganization": {
+            "@type": "Organization",
+            "name": "SEDAC"
+          },
+          "identifier": {
+            "@type": "PropertyValue",
+            "propertyID": "https://gdsc.idsc.miami.edu/terms/gaia-attribute-id",
+            "value": "gaia-414"
+          },
+          "additionalProperty": [
+            {
+              "@type": "PropertyValue",
+              "name": "temporal_interval",
+              "value": "2005-01-01/2005-12-31"
+            }
+          ]
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "avpmu_2006",
+          "description": "PM2.5 Exposure for named urban areas from GRUMPv1: Urban Extent Polygons, Revision 02, from 2006. It is measured in micrograms per cubic meter, and is the average annual concentration of PM2.5 to which the typical citizen of each urban area is exposed. Blanks (-9999) represent missing data.",
+          "qudt:dataType": "xsd:float",
+          "unitText": "micrograms/cubic meter",
+          "unitCode": "32964",
+          "alternateName": "2052499839",
+          "sourceOrganization": {
+            "@type": "Organization",
+            "name": "SEDAC"
+          },
+          "identifier": {
+            "@type": "PropertyValue",
+            "propertyID": "https://gdsc.idsc.miami.edu/terms/gaia-attribute-id",
+            "value": "gaia-415"
+          },
+          "additionalProperty": [
+            {
+              "@type": "PropertyValue",
+              "name": "temporal_interval",
+              "value": "2006-01-01/2006-12-31"
+            }
+          ]
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "avpmu_2007",
+          "description": "PM2.5 Exposure for named urban areas from GRUMPv1: Urban Extent Polygons, Revision 02, from 2007. It is measured in micrograms per cubic meter, and is the average annual concentration of PM2.5 to which the typical citizen of each urban area is exposed. Blanks (-9999) represent missing data.",
+          "qudt:dataType": "xsd:float",
+          "unitText": "micrograms/cubic meter",
+          "unitCode": "32964",
+          "alternateName": "2052499839",
+          "sourceOrganization": {
+            "@type": "Organization",
+            "name": "SEDAC"
+          },
+          "identifier": {
+            "@type": "PropertyValue",
+            "propertyID": "https://gdsc.idsc.miami.edu/terms/gaia-attribute-id",
+            "value": "gaia-416"
+          },
+          "additionalProperty": [
+            {
+              "@type": "PropertyValue",
+              "name": "temporal_interval",
+              "value": "2007-01-01/2007-12-31"
+            }
+          ]
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "avpmu_2008",
+          "description": "PM2.5 Exposure for named urban areas from GRUMPv1: Urban Extent Polygons, Revision 02, from 2008. It is measured in micrograms per cubic meter, and is the average annual concentration of PM2.5 to which the typical citizen of each urban area is exposed. Blanks (-9999) represent missing data.",
+          "qudt:dataType": "xsd:float",
+          "unitText": "micrograms/cubic meter",
+          "unitCode": "32964",
+          "alternateName": "2052499839",
+          "sourceOrganization": {
+            "@type": "Organization",
+            "name": "SEDAC"
+          },
+          "identifier": {
+            "@type": "PropertyValue",
+            "propertyID": "https://gdsc.idsc.miami.edu/terms/gaia-attribute-id",
+            "value": "gaia-417"
+          },
+          "additionalProperty": [
+            {
+              "@type": "PropertyValue",
+              "name": "temporal_interval",
+              "value": "2008-01-01/2008-12-31"
+            }
+          ]
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "avpmu_2009",
+          "description": "PM2.5 Exposure for named urban areas from GRUMPv1: Urban Extent Polygons, Revision 02, from 2009. It is measured in micrograms per cubic meter, and is the average annual concentration of PM2.5 to which the typical citizen of each urban area is exposed. Blanks (-9999) represent missing data.",
+          "qudt:dataType": "xsd:float",
+          "unitText": "micrograms/cubic meter",
+          "unitCode": "32964",
+          "alternateName": "2052499839",
+          "sourceOrganization": {
+            "@type": "Organization",
+            "name": "SEDAC"
+          },
+          "identifier": {
+            "@type": "PropertyValue",
+            "propertyID": "https://gdsc.idsc.miami.edu/terms/gaia-attribute-id",
+            "value": "gaia-418"
+          },
+          "additionalProperty": [
+            {
+              "@type": "PropertyValue",
+              "name": "temporal_interval",
+              "value": "2009-01-01/2009-12-31"
+            }
+          ]
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "avpmu_2010",
+          "description": "PM2.5 Exposure for named urban areas from GRUMPv1: Urban Extent Polygons, Revision 02, from 2010. It is measured in micrograms per cubic meter, and is the average annual concentration of PM2.5 to which the typical citizen of each urban area is exposed. Blanks (-9999) represent missing data.",
+          "qudt:dataType": "xsd:float",
+          "unitText": "micrograms/cubic meter",
+          "unitCode": "32964",
+          "alternateName": "2052499839",
+          "sourceOrganization": {
+            "@type": "Organization",
+            "name": "SEDAC"
+          },
+          "identifier": {
+            "@type": "PropertyValue",
+            "propertyID": "https://gdsc.idsc.miami.edu/terms/gaia-attribute-id",
+            "value": "gaia-419"
+          },
+          "additionalProperty": [
+            {
+              "@type": "PropertyValue",
+              "name": "temporal_interval",
+              "value": "2010-01-01/2010-12-31"
+            }
+          ]
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "avpmu_2011",
+          "description": "PM2.5 Exposure for named urban areas from GRUMPv1: Urban Extent Polygons, Revision 02, from 2011. It is measured in micrograms per cubic meter, and is the average annual concentration of PM2.5 to which the typical citizen of each urban area is exposed. Blanks (-9999) represent missing data.",
+          "qudt:dataType": "xsd:float",
+          "unitText": "micrograms/cubic meter",
+          "unitCode": "32964",
+          "alternateName": "2052499839",
+          "sourceOrganization": {
+            "@type": "Organization",
+            "name": "SEDAC"
+          },
+          "identifier": {
+            "@type": "PropertyValue",
+            "propertyID": "https://gdsc.idsc.miami.edu/terms/gaia-attribute-id",
+            "value": "gaia-420"
+          },
+          "additionalProperty": [
+            {
+              "@type": "PropertyValue",
+              "name": "temporal_interval",
+              "value": "2011-01-01/2011-12-31"
+            }
+          ]
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "avpmu_2012",
+          "description": "PM2.5 Exposure for named urban areas from GRUMPv1: Urban Extent Polygons, Revision 02, from 2012. It is measured in micrograms per cubic meter, and is the average annual concentration of PM2.5 to which the typical citizen of each urban area is exposed. Blanks (-9999) represent missing data.",
+          "qudt:dataType": "xsd:float",
+          "unitText": "micrograms/cubic meter",
+          "unitCode": "32964",
+          "alternateName": "2052499839",
+          "sourceOrganization": {
+            "@type": "Organization",
+            "name": "SEDAC"
+          },
+          "identifier": {
+            "@type": "PropertyValue",
+            "propertyID": "https://gdsc.idsc.miami.edu/terms/gaia-attribute-id",
+            "value": "gaia-421"
+          },
+          "additionalProperty": [
+            {
+              "@type": "PropertyValue",
+              "name": "temporal_interval",
+              "value": "2012-01-01/2012-12-31"
+            }
+          ]
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "avpmu_2013",
+          "description": "PM2.5 Exposure for named urban areas from GRUMPv1: Urban Extent Polygons, Revision 02, from 2013. It is measured in micrograms per cubic meter, and is the average annual concentration of PM2.5 to which the typical citizen of each urban area is exposed. Blanks (-9999) represent missing data.",
+          "qudt:dataType": "xsd:float",
+          "unitText": "micrograms/cubic meter",
+          "unitCode": "32964",
+          "alternateName": "2052499839",
+          "sourceOrganization": {
+            "@type": "Organization",
+            "name": "SEDAC"
+          },
+          "identifier": {
+            "@type": "PropertyValue",
+            "propertyID": "https://gdsc.idsc.miami.edu/terms/gaia-attribute-id",
+            "value": "gaia-422"
+          },
+          "additionalProperty": [
+            {
+              "@type": "PropertyValue",
+              "name": "temporal_interval",
+              "value": "2013-01-01/2013-12-31"
+            }
+          ]
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "avpmu_2014",
+          "description": "PM2.5 Exposure for named urban areas from GRUMPv1: Urban Extent Polygons, Revision 02, from 2014. It is measured in micrograms per cubic meter, and is the average annual concentration of PM2.5 to which the typical citizen of each urban area is exposed. Blanks (-9999) represent missing data.",
+          "qudt:dataType": "xsd:float",
+          "unitText": "micrograms/cubic meter",
+          "unitCode": "32964",
+          "alternateName": "2052499839",
+          "sourceOrganization": {
+            "@type": "Organization",
+            "name": "SEDAC"
+          },
+          "identifier": {
+            "@type": "PropertyValue",
+            "propertyID": "https://gdsc.idsc.miami.edu/terms/gaia-attribute-id",
+            "value": "gaia-423"
+          },
+          "additionalProperty": [
+            {
+              "@type": "PropertyValue",
+              "name": "temporal_interval",
+              "value": "2014-01-01/2014-12-31"
+            }
+          ]
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "avpmu_2015",
+          "description": "PM2.5 Exposure for named urban areas from GRUMPv1: Urban Extent Polygons, Revision 02, from 2015. It is measured in micrograms per cubic meter, and is the average annual concentration of PM2.5 to which the typical citizen of each urban area is exposed. Blanks (-9999) represent missing data.",
+          "qudt:dataType": "xsd:float",
+          "unitText": "micrograms/cubic meter",
+          "unitCode": "32964",
+          "alternateName": "2052499839",
+          "sourceOrganization": {
+            "@type": "Organization",
+            "name": "SEDAC"
+          },
+          "identifier": {
+            "@type": "PropertyValue",
+            "propertyID": "https://gdsc.idsc.miami.edu/terms/gaia-attribute-id",
+            "value": "gaia-424"
+          },
+          "additionalProperty": [
+            {
+              "@type": "PropertyValue",
+              "name": "temporal_interval",
+              "value": "2015-01-01/2015-12-31"
+            }
+          ]
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "avpmu_2016",
+          "description": "PM2.5 Exposure for named urban areas from GRUMPv1: Urban Extent Polygons, Revision 02, from 2016. It is measured in micrograms per cubic meter, and is the average annual concentration of PM2.5 to which the typical citizen of each urban area is exposed. Blanks (-9999) represent missing data.",
+          "qudt:dataType": "xsd:float",
+          "unitText": "micrograms/cubic meter",
+          "unitCode": "32964",
+          "alternateName": "2052499839",
+          "sourceOrganization": {
+            "@type": "Organization",
+            "name": "SEDAC"
+          },
+          "identifier": {
+            "@type": "PropertyValue",
+            "propertyID": "https://gdsc.idsc.miami.edu/terms/gaia-attribute-id",
+            "value": "gaia-425"
+          },
+          "additionalProperty": [
+            {
+              "@type": "PropertyValue",
+              "name": "temporal_interval",
+              "value": "2016-01-01/2016-12-31"
+            }
+          ]
+        }
+      ],
+      "temporalCoverage": "1998-01-01/2016-12-31",
+      "isAccessibleForFree": false,
+      "dct:provenance": "Direct from source",
+      "additionalType": "Vector Dataset",
+      "funder": [
+        {
+          "@type": "Organization",
+          "name": "TuftsCTSI",
+          "url": "https://www.tuftsctsi.org/"
+        },
+        {
+          "@type": "Organization",
+          "name": "IDSC",
+          "url": "https://idsc.miami.edu"
+        },
+        {
+          "@type": "Organization",
+          "name": "Library",
+          "url": "https://www.library.miami.edu"
+        }
+      ],
+      "creativeWorkStatus": "draft"
     }
-  ],
-  "variableMeasured": [
-    {
-      "@type": "PropertyValue",
-      "name": "urbid",
-      "description": "Code of the urban extent polygons (not unique)",
-      "qudt:dataType": "int4",
-      "minValue": "8",
-      "maxValue": "94650"
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "stndrdname",
-      "description": "\"Name of the Urban Extent, caps and concatenated. If the urban extents polygons include more than one settlement, the name of the urban extent is the name of the settlement with the highest population\"",
-      "qudt:dataType": "string"
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "name",
-      "description": "\"Name of the Urban Extent. If the urban extents polygons include more than one settlement, the name of the urban extent is the name of the settlement with the highest population\"",
-      "qudt:dataType": "string"
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "isourbid",
-      "description": "Unique code of the urban extent polygons. It is created by concatenation of country ISO code and URBID",
-      "qudt:dataType": "string"
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "sqkm",
-      "description": "Area of the urban extent polygon",
-      "qudt:dataType": "int4",
-      "unitText": "square kilometers",
-      "minValue": "0",
-      "maxValue": "43606"
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "iso3",
-      "description": "3 letter country code",
-      "qudt:dataType": "string"
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "unsdcode",
-      "description": "UNSD country numerical code",
-      "qudt:dataType": "int4",
-      "minValue": "4",
-      "maxValue": "1015"
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "countryeng",
-      "description": "Country name",
-      "qudt:dataType": "string"
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "continent",
-      "description": "Continent Name",
-      "qudt:dataType": "string"
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "avpmu_1998",
-      "description": "\"PM2.5 Exposure for named urban areas from GRUMPv1: Urban Extent Polygons, Revision 02, from 1998. It is measured in micrograms per cubic meter, and is the average annual concentration of PM2.5 to which the typical citizen of each urban area is exposed. Blanks (-9999) represent missing data.\"",
-      "propertyID": "2052499839",
-      "qudt:dataType": "double",
-      "unitCode": "32964",
-      "unitText": "micrograms/cubic meter",
-      "minValue": "0",
-      "maxValue": "83",
-      "startDate": "1998-01-01",
-      "endDate": "1998-12-31"
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "avpmu_1999",
-      "description": "\"PM2.5 Exposure for named urban areas from GRUMPv1: Urban Extent Polygons, Revision 02, from 1999. It is measured in micrograms per cubic meter, and is the average annual concentration of PM2.5 to which the typical citizen of each urban area is exposed. Blanks (-9999) represent missing data.\"",
-      "propertyID": "2052499839",
-      "qudt:dataType": "double",
-      "unitCode": "32964",
-      "unitText": "micrograms/cubic meter",
-      "minValue": "0",
-      "maxValue": "77",
-      "startDate": "1999-01-01",
-      "endDate": "1999-12-31"
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "avpmu_2000",
-      "description": "\"PM2.5 Exposure for named urban areas from GRUMPv1: Urban Extent Polygons, Revision 02, from 2000. It is measured in micrograms per cubic meter, and is the average annual concentration of PM2.5 to which the typical citizen of each urban area is exposed. Blanks (-9999) represent missing data.\"",
-      "propertyID": "2052499839",
-      "qudt:dataType": "double",
-      "unitCode": "32964",
-      "unitText": "micrograms/cubic meter",
-      "minValue": "0",
-      "maxValue": "82",
-      "startDate": "2000-01-01",
-      "endDate": "2000-12-31"
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "avpmu_2001",
-      "description": "\"PM2.5 Exposure for named urban areas from GRUMPv1: Urban Extent Polygons, Revision 02, from 2001. It is measured in micrograms per cubic meter, and is the average annual concentration of PM2.5 to which the typical citizen of each urban area is exposed. Blanks (-9999) represent missing data.\"",
-      "propertyID": "2052499839",
-      "qudt:dataType": "double",
-      "unitCode": "32964",
-      "unitText": "micrograms/cubic meter",
-      "minValue": "0",
-      "maxValue": "96",
-      "startDate": "2001-01-01",
-      "endDate": "2001-12-31"
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "avpmu_2002",
-      "description": "\"PM2.5 Exposure for named urban areas from GRUMPv1: Urban Extent Polygons, Revision 02, from 2002. It is measured in micrograms per cubic meter, and is the average annual concentration of PM2.5 to which the typical citizen of each urban area is exposed. Blanks (-9999) represent missing data.\"",
-      "propertyID": "2052499839",
-      "qudt:dataType": "double",
-      "unitCode": "32964",
-      "unitText": "micrograms/cubic meter",
-      "minValue": "0",
-      "maxValue": "89",
-      "startDate": "2002-01-01",
-      "endDate": "2002-12-31"
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "avpmu_2003",
-      "description": "\"PM2.5 Exposure for named urban areas from GRUMPv1: Urban Extent Polygons, Revision 02, from 2003. It is measured in micrograms per cubic meter, and is the average annual concentration of PM2.5 to which the typical citizen of each urban area is exposed. Blanks (-9999) represent missing data.\"",
-      "propertyID": "2052499839",
-      "qudt:dataType": "double",
-      "unitCode": "32964",
-      "unitText": "micrograms/cubic meter",
-      "minValue": "0",
-      "maxValue": "103",
-      "startDate": "2003-01-01",
-      "endDate": "2003-12-31"
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "avpmu_2004",
-      "description": "\"PM2.5 Exposure for named urban areas from GRUMPv1: Urban Extent Polygons, Revision 02, from 2004. It is measured in micrograms per cubic meter, and is the average annual concentration of PM2.5 to which the typical citizen of each urban area is exposed. Blanks (-9999) represent missing data.\"",
-      "propertyID": "2052499839",
-      "qudt:dataType": "double",
-      "unitCode": "32964",
-      "unitText": "micrograms/cubic meter",
-      "minValue": "0",
-      "maxValue": "100",
-      "startDate": "2004-01-01",
-      "endDate": "2004-12-31"
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "avpmu_2005",
-      "description": "\"PM2.5 Exposure for named urban areas from GRUMPv1: Urban Extent Polygons, Revision 02, from 2005. It is measured in micrograms per cubic meter, and is the average annual concentration of PM2.5 to which the typical citizen of each urban area is exposed. Blanks (-9999) represent missing data.\"",
-      "propertyID": "2052499839",
-      "qudt:dataType": "double",
-      "unitCode": "32964",
-      "unitText": "micrograms/cubic meter",
-      "minValue": "0",
-      "maxValue": "101",
-      "startDate": "2005-01-01",
-      "endDate": "2005-12-31"
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "avpmu_2006",
-      "description": "\"PM2.5 Exposure for named urban areas from GRUMPv1: Urban Extent Polygons, Revision 02, from 2006. It is measured in micrograms per cubic meter, and is the average annual concentration of PM2.5 to which the typical citizen of each urban area is exposed. Blanks (-9999) represent missing data.\"",
-      "propertyID": "2052499839",
-      "qudt:dataType": "double",
-      "unitCode": "32964",
-      "unitText": "micrograms/cubic meter",
-      "minValue": "0",
-      "maxValue": "103",
-      "startDate": "2006-01-01",
-      "endDate": "2006-12-31"
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "avpmu_2007",
-      "description": "\"PM2.5 Exposure for named urban areas from GRUMPv1: Urban Extent Polygons, Revision 02, from 2007. It is measured in micrograms per cubic meter, and is the average annual concentration of PM2.5 to which the typical citizen of each urban area is exposed. Blanks (-9999) represent missing data.\"",
-      "propertyID": "2052499839",
-      "qudt:dataType": "double",
-      "unitCode": "32964",
-      "unitText": "micrograms/cubic meter",
-      "minValue": "0",
-      "maxValue": "104",
-      "startDate": "2007-01-01",
-      "endDate": "2007-12-31"
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "avpmu_2008",
-      "description": "\"PM2.5 Exposure for named urban areas from GRUMPv1: Urban Extent Polygons, Revision 02, from 2008. It is measured in micrograms per cubic meter, and is the average annual concentration of PM2.5 to which the typical citizen of each urban area is exposed. Blanks (-9999) represent missing data.\"",
-      "propertyID": "2052499839",
-      "qudt:dataType": "double",
-      "unitCode": "32964",
-      "unitText": "micrograms/cubic meter",
-      "minValue": "0",
-      "maxValue": "125",
-      "startDate": "2008-01-01",
-      "endDate": "2008-12-31"
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "avpmu_2009",
-      "description": "\"PM2.5 Exposure for named urban areas from GRUMPv1: Urban Extent Polygons, Revision 02, from 2009. It is measured in micrograms per cubic meter, and is the average annual concentration of PM2.5 to which the typical citizen of each urban area is exposed. Blanks (-9999) represent missing data.\"",
-      "propertyID": "2052499839",
-      "qudt:dataType": "double",
-      "unitCode": "32964",
-      "unitText": "micrograms/cubic meter",
-      "minValue": "0",
-      "maxValue": "110",
-      "startDate": "2009-01-01",
-      "endDate": "2009-12-31"
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "avpmu_2010",
-      "description": "\"PM2.5 Exposure for named urban areas from GRUMPv1: Urban Extent Polygons, Revision 02, from 2010. It is measured in micrograms per cubic meter, and is the average annual concentration of PM2.5 to which the typical citizen of each urban area is exposed. Blanks (-9999) represent missing data.\"",
-      "propertyID": "2052499839",
-      "qudt:dataType": "double",
-      "unitCode": "32964",
-      "unitText": "micrograms/cubic meter",
-      "minValue": "0",
-      "maxValue": "105",
-      "startDate": "2010-01-01",
-      "endDate": "2010-12-31"
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "avpmu_2011",
-      "description": "\"PM2.5 Exposure for named urban areas from GRUMPv1: Urban Extent Polygons, Revision 02, from 2011. It is measured in micrograms per cubic meter, and is the average annual concentration of PM2.5 to which the typical citizen of each urban area is exposed. Blanks (-9999) represent missing data.\"",
-      "propertyID": "2052499839",
-      "qudt:dataType": "double",
-      "unitCode": "32964",
-      "unitText": "micrograms/cubic meter",
-      "minValue": "0",
-      "maxValue": "102",
-      "startDate": "2011-01-01",
-      "endDate": "2011-12-31"
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "avpmu_2012",
-      "description": "\"PM2.5 Exposure for named urban areas from GRUMPv1: Urban Extent Polygons, Revision 02, from 2012. It is measured in micrograms per cubic meter, and is the average annual concentration of PM2.5 to which the typical citizen of each urban area is exposed. Blanks (-9999) represent missing data.\"",
-      "propertyID": "2052499839",
-      "qudt:dataType": "double",
-      "unitCode": "32964",
-      "unitText": "micrograms/cubic meter",
-      "minValue": "0",
-      "maxValue": "84",
-      "startDate": "2012-01-01",
-      "endDate": "2012-12-31"
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "avpmu_2013",
-      "description": "\"PM2.5 Exposure for named urban areas from GRUMPv1: Urban Extent Polygons, Revision 02, from 2013. It is measured in micrograms per cubic meter, and is the average annual concentration of PM2.5 to which the typical citizen of each urban area is exposed. Blanks (-9999) represent missing data.\"",
-      "propertyID": "2052499839",
-      "qudt:dataType": "double",
-      "unitCode": "32964",
-      "unitText": "micrograms/cubic meter",
-      "minValue": "0",
-      "maxValue": "100",
-      "startDate": "2013-01-01",
-      "endDate": "2013-12-31"
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "avpmu_2014",
-      "description": "\"PM2.5 Exposure for named urban areas from GRUMPv1: Urban Extent Polygons, Revision 02, from 2014. It is measured in micrograms per cubic meter, and is the average annual concentration of PM2.5 to which the typical citizen of each urban area is exposed. Blanks (-9999) represent missing data.\"",
-      "propertyID": "2052499839",
-      "qudt:dataType": "double",
-      "unitCode": "32964",
-      "unitText": "micrograms/cubic meter",
-      "minValue": "0",
-      "maxValue": "98",
-      "startDate": "2014-01-01",
-      "endDate": "2014-12-31"
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "avpmu_2015",
-      "description": "\"PM2.5 Exposure for named urban areas from GRUMPv1: Urban Extent Polygons, Revision 02, from 2015. It is measured in micrograms per cubic meter, and is the average annual concentration of PM2.5 to which the typical citizen of each urban area is exposed. Blanks (-9999) represent missing data.\"",
-      "propertyID": "2052499839",
-      "qudt:dataType": "double",
-      "unitCode": "32964",
-      "unitText": "micrograms/cubic meter",
-      "minValue": "0",
-      "maxValue": "104",
-      "startDate": "2015-01-01",
-      "endDate": "2015-12-31"
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "avpmu_2016",
-      "description": "\"PM2.5 Exposure for named urban areas from GRUMPv1: Urban Extent Polygons, Revision 02, from 2016. It is measured in micrograms per cubic meter, and is the average annual concentration of PM2.5 to which the typical citizen of each urban area is exposed. Blanks (-9999) represent missing data.\"",
-      "propertyID": "2052499839",
-      "qudt:dataType": "double",
-      "unitCode": "32964",
-      "unitText": "micrograms/cubic meter",
-      "minValue": "-1",
-      "maxValue": "127",
-      "startDate": "2016-01-01",
-      "endDate": "2016-12-31"
-    }
-  ],
-  "distribution": [
-    "https://gdsc.idsc.miami.edu/download/data/global_pm25_concentration_1998_2016/?file=global_pm25_concentration_1998_2016&format=sql",
-    "https://gdsc.idsc.miami.edu/download/data/global_pm25_concentration_1998_2016/?file=global_pm25_concentration_1998_2016&format=shp"
-  ],
-  "dateModified": "2025-05-23 08:47:15",
-  "version": "2026-10-09"
+  ]
 }

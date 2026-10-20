@@ -1,0 +1,203 @@
+{
+  "control_group": {
+    "id": 18
+  },
+  "dublin_core_group": {
+    "title": "Miami-Dade Depth to Groundwater (feet)",
+    "creator_group": [
+      {
+        "creator_name": "Tyler Harrison",
+        "creator_type": "person"
+      },
+      {
+        "creator_name": "Amy C Clement",
+        "creator_type": "person"
+      },
+      {
+        "creator_name": "Gina L. Maranto",
+        "creator_type": "person"
+      },
+      {
+        "creator_name": "Sam Purkis",
+        "creator_type": "person"
+      },
+      {
+        "creator_name": "Joanna L. Lombard",
+        "creator_type": "person"
+      },
+      {
+        "creator_name": "Angela C. Clark-Hughes",
+        "creator_type": "person"
+      },
+      {
+        "creator_name": "Abraham K Parrish",
+        "creator_type": "person"
+      },
+      {
+        "creator_name": "Marcus B Reamer",
+        "creator_type": "person"
+      },
+      {
+        "creator_name": "Olivia Collins",
+        "creator_type": "person"
+      },
+      {
+        "creator_name": "Caroline Lewis",
+        "creator_type": "person"
+      },
+      {
+        "creator_name": "Mayra Cruz",
+        "creator_type": "person"
+      },
+      {
+        "creator_name": "Anaruth Solace",
+        "creator_type": "person"
+      }
+    ],
+    "url": "https://scholarship.miami.edu/esploro/outputs/dataset/Data-for-Hyperlocalism-Transforming-the-Paradigm/991031655220702976?institution=01UOML_INST",
+    "doi": "https://doi.org/10.17604/p318-6n41",
+    "publisher_group": [
+      {
+        "publisher_name": "University of Miami"
+      },
+      {
+        "publisher_name": "Otto G. Richter Library"
+      }
+    ],
+    "rights": "Public Domain",
+    "license": "odc_by",
+    "license_text": "All data are made available under the Open Data Commons Attribution License: http://opendatacommons.org/licenses/by/1.0/ with the exception of the PhotoVoice photos in the Hylo_Photovoice_Data.pdf file which are for viewing and analysis only. They may not be altered or reproduced in any way.",
+    "coverage_group": [
+      {
+        "coverage_name": "Miami-Dade County",
+        "coverage_identifier": "4164238",
+        "coverage_identifier_schema": "geonames",
+        "coverage_identifier_schema_uri": "https://www.geonames.org/"
+      }
+    ],
+    "resource_type": "Raster Dataset",
+    "publication_date": "2021-11-07",
+    "description": "Depth to groundwater (depth from ground surface to top of water table)",
+    "provenance": " Derived from groundwater levels in feet (NAVD88 vertical datum) 500 meter resolution raster from Miami Dade County Water and Sewer and Miami Dade County Office of Resilience 2018 LiDAR DEM;  difference of DEM and groundwater.",
+    "subject_group": [
+      {
+        "subject_term": "Florida"
+      },
+      {
+        "subject_term": "Miami-Dade County"
+      },
+      {
+        "subject_term": "MDC"
+      },
+      {
+        "subject_term": "Miami-Dade County"
+      },
+      {
+        "subject_term": "Environment"
+      },
+      {
+        "subject_term": "Depth to Groundwater"
+      },
+      {
+        "subject_term": "Water"
+      },
+      {
+        "subject_term": "Hylo"
+      },
+      {
+        "subject_term": "Homestead"
+      },
+      {
+        "subject_term": "Little River"
+      }
+    ],
+    "language": "en",
+    "size_group": [
+      {
+        "size_bytes": "533784081",
+        "size_human_readable": "510M"
+      }
+    ]
+  },
+  "iso_group": {
+    "structure": "raster",
+    "band_group": [
+      {
+        "band_name": "30-meter interpolated feet"
+      }
+    ],
+    "pixel_dimension": 30.0,
+    "dimension_units": "meters",
+    "epsg": 3857,
+    "extent": "ENVELOPE(-80.605666,-80.117611,25.979857,25.222319)",
+    "lineage": "TBD",
+    "process_step": "#########\n# GDSC ETL is performed in two steps: shell script to ETL data into postgres\n# and then additional transformations with SQL in postGIS (if needed).\n####\n\n#########\n# Step 1 - bash script (pseudo code)\n####\n\n# create directory structure and move into it\nmkdir -p /data/mdc_2021_hylo/download -p /data/mdc_2021_hylo/mdc_2021_depth_to_groundwater_ft_30m/etl\nchmod -R 777 /data/mdc_2021_hylo\ncd /data/mdc_2021_hylo\n\n# set update flag based on last update and update frequency\ndo_update=0 if date() < last_update + update_frequency else do_update = 1\n\n# download if update flag is set:\nif do_update == 1 then\nwget --retry-connrefused --waitretry=1 --read-timeout=20 --timeout=15 -t 10 -O download/mdc_2021_hylo.zip 'https://scholarship.miami.edu/view/fileRedirect?instCode=01UOML_INST&filePid=13395678880002976&download=true' 2>&1\n\n# unzip to download directory if update flag is set\nif do_update == 1 then\nunzip -o download/mdc_2021_hylo.zip -d download && rm download/mdc_2021_hylo.zip 2>&1\n\n# load raster into postGIS with:\n    raster2pgsql -s 3857 -d -C -I -t 48x48 GeoTIFF_Rasters/Depth_to_Groundwater_ft_MDC_30m.tif -F mdc_2021_depth_to_groundwater_ft_30m > load_raster.sql\npsql <connection options> < load_raster.sql\nrm load_raster.sql\n\n",
+    "processor": "GDSC automation (see Process Step)",
+    "point_of_contact_group": [
+      {
+        "contact_name": "Timothy B. Norris",
+        "contact_last_name": "Norris",
+        "contact_first_name": "Timothy",
+        "contact_email": "tnorris@miami.edu",
+        "contact_identifier": "https://orcid.org/0000-0002-0898-3027",
+        "contact_identifier_schema": "orcid",
+        "contact_identifier_schema_uri": "https://orcid.org/",
+        "contact_affiliation": "University of Miami Libraries, Frost Institute for Data Science and Computing",
+        "contact_affiliation_identifier": "https://ror.org/02dgjyy92",
+        "contact_affiliation_schema": "ror",
+        "contact_affiliation_schema_uri": "https://ror.org/"
+      }
+    ],
+    "data_level": "derived"
+  },
+  "cartography_group": {
+    "attributes_group": [
+      {
+        "attribute_name": "depth",
+        "attribute_description": "Depth to groundwater",
+        "attribute_type": "float32",
+        "attribute_min_value": "-21.56599998474121",
+        "attribute_max_value": "202.37100219726562"
+      }
+    ]
+  },
+  "collection_group": {
+    "collections": "climate-change vulnerability climate-and-equity-mapping-program miami-affordability-project",
+    "analytic_function": "gdsc_zonal_statistics",
+    "analytic_epsg": 2236,
+    "derivative_url": "/data/mdc_2021_hylo/mdc_2021_depth_to_groundwater_ft_30m/",
+    "sponsor_group": [
+      {
+        "sponsor_name": "IDSC",
+        "sponsor_url": "https://idsc.miami.edu"
+      },
+      {
+        "sponsor_name": "Library",
+        "sponsor_url": "https://www.library.miami.edu"
+      }
+    ]
+  },
+  "etl_group": {
+    "source": "https://scholarship.miami.edu/view/fileRedirect?instCode=01UOML_INST&filePid=13395678880002976&download=true",
+    "file_name_group": [
+      {
+        "file_name_value": "mdc_2021_hylo",
+        "file_inside_archive": "GeoTIFF_Rasters/Depth_to_Groundwater_ft_MDC_30m"
+      }
+    ],
+    "extension": "zip",
+    "download": "wget",
+    "table_name": "mdc_2021_depth_to_groundwater_ft_30m",
+    "format": "tif",
+    "etl_parameters": "-t 48x48",
+    "up": "true",
+    "podid": "gaia-db",
+    "last_updated": "2026-10-05 21:40:39",
+    "update_frequency": "Never",
+    "checksum": "TBD"
+  },
+  "_submission_time": "2026-10-20 11:45:15",
+  "meta": {
+    "instanceID": "5b3edfeb-522a-4dd4-8110-c461205330"
+  }
+}

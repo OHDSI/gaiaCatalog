@@ -1,0 +1,31 @@
+#########
+# GDSC ETL is performed in two steps: shell script to ETL data into postgres
+# and then additional transformations with SQL in postGIS (if needed).
+####
+
+#########
+# Step 1 - bash script (pseudo code)
+####
+
+# create directory structure and move into it
+mkdir -p /data/mdc_2021_hylo/download -p /data/mdc_2021_hylo/mdc_2021_depth_to_groundwater_ft_30m/etl
+chmod -R 777 /data/mdc_2021_hylo
+cd /data/mdc_2021_hylo
+
+# set update flag based on last update and update frequency
+do_update=0 if date() < last_update + update_frequency else do_update = 1
+
+# download if update flag is set:
+if do_update == 1 then
+wget --retry-connrefused --waitretry=1 --read-timeout=20 --timeout=15 -t 10 -O download/mdc_2021_hylo.zip 'https://scholarship.miami.edu/view/fileRedirect?instCode=01UOML_INST&filePid=13395678880002976&download=true' 2>&1
+
+# unzip to download directory if update flag is set
+if do_update == 1 then
+unzip -o download/mdc_2021_hylo.zip -d download && rm download/mdc_2021_hylo.zip 2>&1
+
+# load raster into postGIS with:
+    raster2pgsql -s 3857 -d -C -I -t 48x48 GeoTIFF_Rasters/Depth_to_Groundwater_ft_MDC_30m.tif -F mdc_2021_depth_to_groundwater_ft_30m > load_raster.sql
+psql <connection options> < load_raster.sql
+rm load_raster.sql
+
+
