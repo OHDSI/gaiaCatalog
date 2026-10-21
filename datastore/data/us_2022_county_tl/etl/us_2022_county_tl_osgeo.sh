@@ -6,7 +6,7 @@
 # Data source: ftp://ftp2.census.gov/geo/tiger/TIGER2022/COUNTY/tl_2022_us_county.zip
 # Destination postGIS table: us_2022_county_tl
 #
-# Created by etl() on 2026-10-19 08:25:19
+# Created by etl() on 2026-10-09 22:54:01
 # Do not edit directly
 
 # set credentials from postgres defaults and secret files

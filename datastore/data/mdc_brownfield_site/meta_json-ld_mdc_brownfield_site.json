@@ -1,274 +1,213 @@
 {
   "@context": {
     "@vocab": "https://schema.org/",
-    "schema": "https://schema.org/",
-    "@language": "en",
-    "dct": "http://purl.org/dc/terms/"
+    "dct": "http://purl.org/dc/terms/",
+    "qudt": "http://qudt.org/schema/qudt/",
+    "quantitykind": "http://qudt.org/vocab/quantitykind/",
+    "unit": "http://qudt.org/vocab/unit/",
+    "xsd": "http://www.w3.org/2001/XMLSchema",
+    "extendedConstraintProperty": "http://codata.org/vocab/extendedConstraintProperty",
+    "sdmx": "https://sdmx.org"
   },
-  "@graph": [
+  "@type": "Dataset",
+  "@id": "https://gdsc.idsc.miami.edu/detail/mdc_brownfield_site",
+  "includedInDataCatalog": [
     {
-      "@type": "schema:Dataset",
-      "@id": "https://gdsc.idsc.miami.edu/detail/mdc_brownfield_site",
-      "name": "Miami-Dade Brownfield Sites",
-      "description": "A polygon feature class of the brownfield areas within Miami-Dade County",
-      "url": "https://gis-mdc.opendata.arcgis.com/datasets/MDC::brownfield/about",
-      "inLanguage": "en",
-      "datePublished": "2018-06-05",
-      "dateModified": "2026-10-17 22:31:05",
-      "creator": [
-        {
-          "@type": "Role",
-          "roleName": "creator",
-          "creator": {
-            "@type": "Organization",
-            "name": "Miami-Dade County-DERM"
-          }
-        }
-      ],
-      "provider": {
-        "@type": "Organization",
-        "name": "Miami-Dade County"
-      },
-      "spatialCoverage": {
-        "@type": "Place",
-        "name": "Miami-Dade County",
-        "additionalProperty": [
+      "@type": "DataCatalog",
+      "@id": "https://gdsc.idsc.miami.edu",
+      "name": "Geospatial Digital Special Collections",
+      "url": "https://gdsc.idsc.miami.edu"
+    },
+    {
+      "@type": "DataCatalog",
+      "name": "vulnerability",
+      "@id": "https://gdsc.idsc.miami.edu/?collection=vulnerability",
+      "url": "https://gdsc.idsc.miami.edu/?collection=vulnerability"
+    }
+  ],
+  "name": "Miami-Dade Brownfield Sites",
+  "creator": [
+    {
+      "@type": "Organization",
+      "name": "Miami-Dade County-DERM"
+    }
+  ],
+  "url": "https://gis-mdc.opendata.arcgis.com/datasets/MDC::brownfield/about",
+  "provider": [
+    {
+      "@type": "Organization",
+      "name": "Miami-Dade County"
+    }
+  ],
+  "spatialCoverage": [
+    {
+      "@id": "https://www.geonames.org/4164238",
+      "@type": "Place",
+      "name": "Miami-Dade County"
+    },
+    {
+      "@type": "Place",
+      "name": "bbox",
+      "geo": {
+        "@type": "GeoShape",
+        "polygon": "25.433153 -80.501554 25.433153 -80.129116 25.972097 -80.129116 25.972097 -80.501554 25.433153 -80.501554"
+      }
+    }
+  ],
+  "type": "Vector Dataset",
+  "datePublished": "2018-06-05",
+  "description": "A polygon feature class of the brownfield areas within Miami-Dade County",
+  "keywords": [
+    "Florida",
+    "Miami-Dade County",
+    "MDC",
+    "Environment",
+    "Health",
+    "Safety",
+    "Pollution",
+    "Contamination",
+    "Clean-Up Site",
+    "Brownfield",
+    "Brownfield Site",
+    "Hazard",
+    "Public-Safety"
+  ],
+  "@language": "en",
+  "measurementTechnique": [
+    {
+      "@type": "DefinedTerm",
+      "description": "GIS Data Structure for Representation",
+      "inDefinedTermSet": {
+        "@type": "DefinedTermSet",
+        "name": "dataRepresentation",
+        "hasDefinedTerm": [
           {
-            "@type": "PropertyValue",
-            "name": "geonames",
-            "value": "4164238",
-            "url": "https://www.geonames.org/4164238"
+            "@type": "DefinedTerm",
+            "termCode": "raster"
           },
           {
-            "@type": "PropertyValue",
-            "name": "Spatial Reference System",
-            "value": "http://www.opengis.net/def/crs/EPSG/0/4326"
+            "@type": "DefinedTerm",
+            "termCode": "vector"
           },
           {
-            "@type": "PropertyValue",
-            "name": "extent",
-            "value": "ENVELOPE(-80.501554,-80.129116,25.972097,25.433153)"
+            "@type": "DefinedTerm",
+            "termCode": "table"
           }
         ]
       },
-      "keywords": [
-        "Florida",
-        "Miami-Dade County",
-        "MDC",
-        "Environment",
-        "Health",
-        "Safety",
-        "Pollution",
-        "Contamination",
-        "Clean-Up Site",
-        "Brownfield",
-        "Brownfield Site",
-        "Hazard",
-        "Public-Safety"
-      ],
-      "includedInDataCatalog": [
-        {
-          "@type": "DataCatalog",
-          "@id": "https://gdsc.idsc.miami.edu",
-          "name": "Geospatial Digital Special Collections",
-          "url": "https://gdsc.idsc.miami.edu"
-        },
-        {
-          "@type": "DataCatalog",
-          "name": "vulnerability",
-          "@id": "https://gdsc.idsc.miami.edu/?collection=vulnerability",
-          "url": "https://gdsc.idsc.miami.edu/?collection=vulnerability"
-        },
-        {
-          "@type": "DataCatalog",
-          "name": "mdc-health-outcomes",
-          "@id": "https://gdsc.idsc.miami.edu/?collection=mdc-health-outcomes",
-          "url": "https://gdsc.idsc.miami.edu/?collection=mdc-health-outcomes"
-        }
-      ],
-      "measurementTechnique": [
-        {
-          "@type": "DefinedTerm",
-          "name": "GIS Data Structure",
-          "termCode": "vector",
-          "inDefinedTermSet": {
-            "@type": "DefinedTermSet",
-            "name": "dataRepresentation",
-            "url": "https://gdsc.idsc.miami.edu/vocab/dataRepresentation"
+      "termCode": "vector"
+    },
+    {
+      "@type": "DefinedTerm",
+      "description": "GIS Vector Geometery",
+      "inDefinedTermSet": {
+        "@type": "DefinedTermSet",
+        "name": "vectorGeometry",
+        "hasDefinedTerm": [
+          {
+            "@type": "DefinedTerm",
+            "termCode": "point"
+          },
+          {
+            "@type": "DefinedTerm",
+            "termCode": "line"
+          },
+          {
+            "@type": "DefinedTerm",
+            "termCode": "polygon"
           }
-        },
-        {
-          "@type": "DefinedTerm",
-          "name": "GIS Vector Geometry",
-          "termCode": "multipolygon",
-          "inDefinedTermSet": {
-            "@type": "DefinedTermSet",
-            "name": "vectorGeometry",
-            "url": "https://gdsc.idsc.miami.edu/vocab/vectorGeometry"
-          }
-        },
-        {
-          "@type": "DefinedTerm",
-          "name": "Data Processing Level",
-          "termCode": "observed",
-          "inDefinedTermSet": {
-            "@type": "DefinedTermSet",
-            "name": "dataProcessingLevel",
-            "url": "https://gdsc.idsc.miami.edu/vocab/dataProcessingLevel"
-          }
-        }
-      ],
-      "distribution": [
-        {
-          "@type": "DataDownload",
-          "name": "Source distribution",
-          "contentUrl": "https://services.arcgis.com/8Pc9XBTAsYuxx9Ny/arcgis/rest/services/Brownfield_gdb/FeatureServer/0/query?where=1%3D1&outFields=*&outSR=4326&f=json",
-          "encodingFormat": "application/json"
-        }
-      ],
-      "additionalProperty": [
-        {
-          "@type": "PropertyValue",
-          "name": "postgis_table",
-          "value": "mdc_brownfield_site"
-        },
-        {
-          "@type": "PropertyValue",
-          "name": "kobo_record_id",
-          "value": "52"
-        },
-        {
-          "@type": "PropertyValue",
-          "name": "creator_type",
-          "value": "organization"
-        },
-        {
-          "@type": "PropertyValue",
-          "name": "process_step",
-          "value": "#########\n  # GDSC ETL is performed in two steps: shell script to ETL data into postgres\n  # and then additional transformations with SQL in postGIS (if needed).\n  ####\n  \n  #########\n  # Step 1 - bash script (pseudo code)\n  ####\n  \n  # create directory structure and move into it\n  mkdir -p /data/mdc_brownfield_site/download -p /data/mdc_brownfield_site/etl\n  chmod -R 777 /data/mdc_brownfield_site\n  cd /data/mdc_brownfield_site\n  \n  # set update flag based on last update and update frequency\n  do_update=0 if date() < last_update + update_frequency else do_update = 1\n  \n  # download if update flag is set:\n  if do_update == 1 then\n  wget --retry-connrefused --waitretry=1 --read-timeout=20 --timeout=15 -t 10 -O download/mdc_brownfield_site.json 'https://services.arcgis.com/8Pc9XBTAsYuxx9Ny/arcgis/rest/services/Brownfield_gdb/FeatureServer/0/query?where=1%3D1&outFields=*&outSR=4326&f=json' 2>&1\n  \n  # load into postGIS with:\n  ogr2ogr -lco GEOMETRY_NAME=geom -f PostgreSQL PG:\"<postgres connection>\" download/mdc_brownfield_site.json -nlt multipolygon -nln mdc_brownfield_site\n  echo success: mdc_brownfield_site.json loaded with ogr2ogr\n  \n  \n  #########\n  # Step 2 - SQL script (pseudo code):\n  ####\n  \n  # remove duplicate points and make geometries valid:\n  UPDATE mdc_brownfield_site\n    SET geom=ST_MakeValid(ST_RemoveRepeatedPoints(geom));\n  \n  # add local geometry column and reproject existing geometries into local EPSG:\n  ALTER TABLE mdc_brownfield_site DROP COLUMN IF EXISTS geom_local CASCADE;\n  SELECT AddGeometryColumn (\n    'mdc_brownfield_site',\n    'geom_local', 2236, 'multipolygon', 2\n  );\n  UPDATE mdc_brownfield_site\n    SET geom_local=ST_MakeValid(ST_RemoveRepeatedPoints(ST_Transform(ST_Multi(geom),2236)));\n  CREATE INDEX mdc_brownfield_site_geom_local_idx\n    ON mdc_brownfield_site\n    USING GIST (geom_local);\n  NOTIFY pgrst, 'reload schema';"
-        },
-        {
-          "@type": "PropertyValue",
-          "name": "processor",
-          "value": "GDSC automation (see Process Step)"
-        },
-        {
-          "@type": "PropertyValue",
-          "name": "cartography_label_field",
-          "value": "name"
-        },
-        {
-          "@type": "PropertyValue",
-          "name": "cartography_value_field",
-          "value": "sitename"
-        },
-        {
-          "@type": "PropertyValue",
-          "name": "analytic_function",
-          "value": "gdsc_get_attributes gdsc_nearest_neighbor"
-        },
-        {
-          "@type": "PropertyValue",
-          "name": "Spatial Reference System",
-          "value": "http://www.opengis.net/def/crs/EPSG/0/2236"
-        },
-        {
-          "@type": "PropertyValue",
-          "name": "download_method",
-          "value": "wget"
-        },
-        {
-          "@type": "PropertyValue",
-          "name": "source_file",
-          "value": "{'etl_group/file_name_group/file_name_value': 'mdc_brownfield_site'}"
-        },
-        {
-          "@type": "PropertyValue",
-          "name": "podid",
-          "value": "gaia-db"
-        },
-        {
-          "@type": "PropertyValue",
-          "name": "up",
-          "value": "true"
-        },
-        {
-          "@type": "PropertyValue",
-          "name": "serviceDefinition",
-          "value": "mdc_brownfield_sites.sd"
-        },
-        {
-          "@type": "PropertyValue",
-          "name": "derivativeUrl",
-          "value": "/data/mdc_brownfield_site/"
-        },
-        {
-          "@type": "PropertyValue",
-          "name": "pointOfContact",
-          "value": "{'iso_group/point_of_contact_group/contact_affiliation': 'University of Miami Libraries, Frost Institute for Data Science and Computing', 'iso_group/point_of_contact_group/contact_affiliation_identifier': 'https://ror.org/02dgjyy92', 'iso_group/point_of_contact_group/contact_affiliation_schema': 'ror', 'iso_group/point_of_contact_group/contact_affiliation_schema_uri': 'https://ror.org/', 'iso_group/point_of_contact_group/contact_email': 'tnorris@miami.edu', 'iso_group/point_of_contact_group/contact_first_name': 'Timothy', 'iso_group/point_of_contact_group/contact_identifier': 'https://orcid.org/0000-0002-0898-3027', 'iso_group/point_of_contact_group/contact_identifier_schema': 'orcid', 'iso_group/point_of_contact_group/contact_identifier_schema_uri': 'https://orcid.org/', 'iso_group/point_of_contact_group/contact_last_name': 'Norris', 'iso_group/point_of_contact_group/contact_name': 'Timothy B. Norris'}"
-        }
-      ],
-      "dct:accrualPeriodicity": "As Needed",
-      "variableMeasured": [
-        {
-          "@type": "PropertyValue",
-          "name": "name",
-          "description": "",
-          "qudt:dataType": "xsd:varchar"
-        },
-        {
-          "@type": "PropertyValue",
-          "name": "areaid",
-          "description": "",
-          "qudt:dataType": "xsd:varchar"
-        },
-        {
-          "@type": "PropertyValue",
-          "name": "siteid",
-          "description": "",
-          "qudt:dataType": "xsd:varchar"
-        },
-        {
-          "@type": "PropertyValue",
-          "name": "sitename",
-          "description": "",
-          "qudt:dataType": "xsd:varchar"
-        },
-        {
-          "@type": "PropertyValue",
-          "name": "jurisdtn",
-          "description": "",
-          "qudt:dataType": "xsd:varchar"
-        },
-        {
-          "@type": "PropertyValue",
-          "name": "acre",
-          "description": "",
-          "qudt:dataType": "xsd:float8"
-        },
-        {
-          "@type": "PropertyValue",
-          "name": "maplegion",
-          "description": "",
-          "qudt:dataType": "xsd:varchar"
-        }
-      ],
-      "isAccessibleForFree": false,
-      "dct:provenance": " direct from source",
-      "additionalType": "Vector Dataset",
-      "funder": [
-        {
-          "@type": "Organization",
-          "name": "IDSC",
-          "url": "https://idsc.miami.edu"
-        },
-        {
-          "@type": "Organization",
-          "name": "Library",
-          "url": "https://www.library.miami.edu"
-        }
-      ],
-      "disambiguatingDescription": "Miami-Dade County provides this data for use \"as is\". The areas depicted by this map/data are approximate, and are not accurate to surveying or engineering standards. The maps/data shown here are for illustration purposes only and are not suitable for site-specific decision making. Information found here should not be used for making financial or any other commitments. Miami-Dade County provides this information with the understanding that it is not guaranteed to be accurate, correct or complete and conclusions drawn from such information are the sole responsibility of the user. While every effort has been made to ensure the accuracy, correctness and timeliness of materials presented, Miami-Dade County assumes no responsibility for errors or omissions, even if Miami-Dade County is advised of the possibility of such damage."
+        ]
+      },
+      "termCode": "multipolygon"
     }
-  ]
+  ],
+  "additionalProperty": [
+    {
+      "@type": "PropertyValue",
+      "propertyID": "http://dbpedia.org/resource/Spatial_reference_system",
+      "value": "https://epsg.io/4326"
+    }
+  ],
+  "about": [
+    {
+      "@type": "Event",
+      "description": " direct from source",
+      "name": "ETL process for Miami-Dade Brownfield Sites",
+      "potentialAction": {
+        "@type": "Action",
+        "name": "Pseudo Code",
+        "description": "TODO"
+      }
+    },
+    {
+      "@type": "Event",
+      "description": " direct from source",
+      "name": "ETL process for Miami-Dade Brownfield Sites",
+      "potentialAction": {
+        "@type": "Action",
+        "name": "wget",
+        "description": "ETL process for Miami-Dade Brownfield Sites",
+        "object": {
+          "@type": "Dataset",
+          "name": " direct from source",
+          "producer": "Miami-Dade County-DERM",
+          "url": "https://gis-mdc.opendata.arcgis.com/datasets/MDC::brownfield/about"
+        },
+        "instrument": {
+          "@type": "SoftwareApplication",
+          "@id": "https://github.com/Geospatial-Digital-Special-Collections/tools",
+          "featureList": "wget",
+          "downloadUrl": "https://github.com/Geospatial-Digital-Special-Collections/tools.git"
+        },
+        "result": {
+          "@type": "Dataset",
+          "name": "Miami-Dade Brownfield Sites",
+          "description": "A polygon feature class of the brownfield areas within Miami-Dade County",
+          "encodingFormat": "json"
+        }
+      }
+    }
+  ],
+  "variableMeasured": [
+    {
+      "@type": "PropertyValue",
+      "name": "name",
+      "qudt:dataType": "varchar"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "areaid",
+      "qudt:dataType": "varchar"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "siteid",
+      "qudt:dataType": "varchar"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "sitename",
+      "qudt:dataType": "varchar"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "jurisdtn",
+      "qudt:dataType": "varchar"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "acre",
+      "qudt:dataType": "float8",
+      "minValue": "0",
+      "maxValue": "9708.3"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "maplegion",
+      "qudt:dataType": "varchar"
+    }
+  ],
+  "distribution": "/data/mdc_brownfield_site/",
+  "dateModified": "2026-10-17 22:31:05",
+  "version": "2026-10-17"
 }

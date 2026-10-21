@@ -1,242 +1,170 @@
 {
   "@context": {
     "@vocab": "https://schema.org/",
-    "schema": "https://schema.org/",
-    "@language": "en",
-    "dct": "http://purl.org/dc/terms/"
+    "dct": "http://purl.org/dc/terms/",
+    "qudt": "http://qudt.org/schema/qudt/",
+    "quantitykind": "http://qudt.org/vocab/quantitykind/",
+    "unit": "http://qudt.org/vocab/unit/",
+    "xsd": "http://www.w3.org/2001/XMLSchema",
+    "extendedConstraintProperty": "http://codata.org/vocab/extendedConstraintProperty",
+    "sdmx": "https://sdmx.org"
   },
-  "@graph": [
+  "@type": "Dataset",
+  "@id": "https://gdsc.idsc.miami.edu/detail/hh_dem_srtm",
+  "includedInDataCatalog": [
     {
-      "@type": "schema:Dataset",
-      "@id": "https://gdsc.idsc.miami.edu/detail/hh_dem_srtm",
-      "name": "Huayhuash DEM (SRTM)",
-      "description": "An elevation raster dataset derived from the SRTM GL1 V3 dataset at 1 ARC second resolution (~30 meters). Republished by the European Space Agency (ESA).",
-      "url": "https://lpdaac.usgs.gov/products/srtmgl1v003/",
-      "inLanguage": "en",
-      "datePublished": "2013-01-01",
-      "dateModified": "2026-10-17 22:44:18",
-      "creator": [
-        {
-          "@type": "Role",
-          "roleName": "creator",
-          "creator": {
-            "@type": "Organization",
-            "name": "NASA JPL"
-          }
-        }
-      ],
-      "provider": [
-        {
-          "@type": "Organization",
-          "name": "NASA EOSDIS Land Processes Distributed Active Archive Center (LPDAAC)"
-        },
-        {
-          "@type": "Organization",
-          "name": "ESA"
-        }
-      ],
-      "spatialCoverage": {
-        "@type": "Place",
-        "name": "Cordillera Huayhuash",
-        "additionalProperty": [
+      "@type": "DataCatalog",
+      "@id": "https://gdsc.idsc.miami.edu",
+      "name": "Geospatial Digital Special Collections",
+      "url": "https://gdsc.idsc.miami.edu"
+    },
+    {
+      "@type": "DataCatalog",
+      "name": "hh-conservacion",
+      "@id": "https://gdsc.idsc.miami.edu/?collection=hh-conservacion",
+      "url": "https://gdsc.idsc.miami.edu/?collection=hh-conservacion"
+    }
+  ],
+  "name": "Huayhuash DEM (SRTM)",
+  "creator": [
+    {
+      "name": "NASA JPL"
+    }
+  ],
+  "url": "https://lpdaac.usgs.gov/products/srtmgl1v003/",
+  "provider": [
+    {
+      "@type": "Organization",
+      "name": "NASA EOSDIS Land Processes Distributed Active Archive Center (LPDAAC)"
+    },
+    {
+      "@type": "Organization",
+      "name": "ESA"
+    }
+  ],
+  "spatialCoverage": [
+    {
+      "@id": "https://www.geonames.org/3938961",
+      "@type": "Place",
+      "name": "Cordillera Huayhuash"
+    },
+    {
+      "@type": "Place",
+      "name": "bbox",
+      "geo": {
+        "@type": "GeoShape",
+        "polygon": "-10.699861 -77.329861 -10.699861 -76.550139 -9.800139 -76.550139 -9.800139 -77.329861 -10.699861 -77.329861"
+      }
+    }
+  ],
+  "type": "Raster Dataset",
+  "datePublished": "2013-01-01",
+  "description": "An elevation raster dataset derived from the SRTM GL1 V3 dataset at 1 ARC second resolution (~30 meters). Republished by the European Space Agency (ESA).",
+  "keywords": [
+    "Peru",
+    "Huayhuash",
+    "Elevation",
+    "DEM"
+  ],
+  "@language": "en",
+  "measurementTechnique": [
+    {
+      "@type": "DefinedTerm",
+      "description": "GIS Data Structure for Representation",
+      "inDefinedTermSet": {
+        "@type": "DefinedTermSet",
+        "name": "dataRepresentation",
+        "hasDefinedTerm": [
           {
-            "@type": "PropertyValue",
-            "name": "geonames",
-            "value": "3938961",
-            "url": "https://www.geonames.org/3938961"
+            "@type": "DefinedTerm",
+            "termCode": "raster"
           },
           {
-            "@type": "PropertyValue",
-            "name": "Spatial Reference System",
-            "value": "http://www.opengis.net/def/crs/EPSG/0/4326"
+            "@type": "DefinedTerm",
+            "termCode": "vector"
           },
           {
-            "@type": "PropertyValue",
-            "name": "extent",
-            "value": "ENVELOPE(-77.329861,-76.550139,-9.800139,-10.699861)"
+            "@type": "DefinedTerm",
+            "termCode": "table"
           }
         ]
       },
-      "keywords": [
-        "Peru",
-        "Huayhuash",
-        "Elevation",
-        "DEM"
-      ],
-      "includedInDataCatalog": [
-        {
-          "@type": "DataCatalog",
-          "@id": "https://gdsc.idsc.miami.edu",
-          "name": "Geospatial Digital Special Collections",
-          "url": "https://gdsc.idsc.miami.edu"
-        },
-        {
-          "@type": "DataCatalog",
-          "name": "hh-conservacion",
-          "@id": "https://gdsc.idsc.miami.edu/?collection=hh-conservacion",
-          "url": "https://gdsc.idsc.miami.edu/?collection=hh-conservacion"
-        }
-      ],
-      "measurementTechnique": [
-        {
-          "@type": "DefinedTerm",
-          "name": "GIS Data Structure",
-          "termCode": "raster",
-          "inDefinedTermSet": {
-            "@type": "DefinedTermSet",
-            "name": "dataRepresentation",
-            "url": "https://gdsc.idsc.miami.edu/vocab/dataRepresentation"
-          }
-        },
-        {
-          "@type": "DefinedTerm",
-          "name": "Data Processing Level",
-          "termCode": "derived",
-          "inDefinedTermSet": {
-            "@type": "DefinedTermSet",
-            "name": "dataProcessingLevel",
-            "url": "https://gdsc.idsc.miami.edu/vocab/dataProcessingLevel"
-          }
-        }
-      ],
-      "distribution": [
-        {
-          "@type": "DataDownload",
-          "name": "Source distribution",
-          "contentUrl": "https://step.esa.int/auxdata/dem/SRTMGL1/",
-          "encodingFormat": "tif"
-        }
-      ],
-      "additionalProperty": [
-        {
-          "@type": "PropertyValue",
-          "name": "postgis_table",
-          "value": "hh_dem_srtm"
-        },
-        {
-          "@type": "PropertyValue",
-          "name": "kobo_record_id",
-          "value": "188"
-        },
-        {
-          "@type": "PropertyValue",
-          "name": "process_step",
-          "value": "#########\n  # GDSC ETL is performed in two steps: shell script to ETL data into postgres\n  # and then additional transformations with SQL in postGIS (if needed).\n  ####\n  \n  #########\n  # Step 1 - bash script (pseudo code)\n  ####\n  \n  # create directory structure and move into it\n  mkdir -p /data/hh_dem_srtm/download -p /data/hh_dem_srtm/etl\n  chmod -R 777 /data/hh_dem_srtm\n  cd /data/hh_dem_srtm\n  \n  # set update flag based on last update and update frequency\n  do_update=0 if date() < last_update + update_frequency else do_update = 1\n  \n  # load raster into postGIS with:\n      raster2pgsql -s 4326 -d -C -I -t auto hh_dem_srtm.tif -F hh_dem_srtm > load_raster.sql\n  psql <connection options> < load_raster.sql\n  rm load_raster.sql\n  \n  # render raster tiles \n  cd /data/hh_dem_srtm/\n  gdal2tiles.py -ex --xyz -z 14-18 /data/hh_dem_srtm/download/hh_dem_srtm.tif /tiles/raster/hh_dem_srtm\n  # Move into corrrect directory and create derivative directory in data package on osgeo\n  cd /data/hh_dem_srtm/\n  mkdir -p derived\n  \n  # Create downloadable zip of download/geotiff in derivate directory \n  rm -f derived/hh_dem_srtm.tif.tar.gz\n  tar -czf derived/hh_dem_srtm.tif.tar.gz meta_dcat_hh_dem_srtm.json -C download hh_dem_srtm.tif\n  \n  # Move into correct directory\n  cd /data/hh_dem_srtm/"
-        },
-        {
-          "@type": "PropertyValue",
-          "name": "processor",
-          "value": "GDSC automation (see Process Step)"
-        },
-        {
-          "@type": "PropertyValue",
-          "name": "analytic_function",
-          "value": "gdsc_zonal_statistics"
-        },
-        {
-          "@type": "PropertyValue",
-          "name": "Spatial Reference System",
-          "value": "http://www.opengis.net/def/crs/EPSG/0/5387"
-        },
-        {
-          "@type": "PropertyValue",
-          "name": "derivatives",
-          "value": "geotiff"
-        },
-        {
-          "@type": "PropertyValue",
-          "name": "source_file",
-          "value": "{'etl_group/file_name_group/file_name_value': 'hh_dem_srtm'}"
-        },
-        {
-          "@type": "PropertyValue",
-          "name": "band",
-          "value": "{'iso_group/band_group/band_name': 'Single Band Elevation'}"
-        },
-        {
-          "@type": "PropertyValue",
-          "name": "pixelDimension",
-          "value": "30.0"
-        },
-        {
-          "@type": "PropertyValue",
-          "name": "dimensionUnits",
-          "value": "meters"
-        },
-        {
-          "@type": "PropertyValue",
-          "name": "podid",
-          "value": "gaia-db"
-        },
-        {
-          "@type": "PropertyValue",
-          "name": "up",
-          "value": "true"
-        },
-        {
-          "@type": "PropertyValue",
-          "name": "customParameters",
-          "value": "S10W077.SRTMGL1|S10W078.SRTMGL1|S11W077.SRTMGL1|S11W078.SRTMGL1|bbox;-77.33;-10.7;-76.55;-9.8"
-        },
-        {
-          "@type": "PropertyValue",
-          "name": "tileMinZoom",
-          "value": "{'cartography_group/tile_zoom_group/tile_min_zoom': '14'}"
-        },
-        {
-          "@type": "PropertyValue",
-          "name": "derivativeUrl",
-          "value": "/data/hh_dem_srtm/"
-        },
-        {
-          "@type": "PropertyValue",
-          "name": "rightsStatement",
-          "value": "This data is open to the public and browse images are freely available without\n  restriction."
-        },
-        {
-          "@type": "PropertyValue",
-          "name": "customEtl",
-          "value": "srtm_merge_and_crop"
-        },
-        {
-          "@type": "PropertyValue",
-          "name": "pointOfContact",
-          "value": "{'iso_group/point_of_contact_group/contact_affiliation': 'University of Miami Libraries, Frost Institute for Data Science and Computing', 'iso_group/point_of_contact_group/contact_affiliation_identifier': 'https://ror.org/02dgjyy92', 'iso_group/point_of_contact_group/contact_affiliation_schema': 'ror', 'iso_group/point_of_contact_group/contact_affiliation_schema_uri': 'https://ror.org/', 'iso_group/point_of_contact_group/contact_email': 'tnorris@miami.edu', 'iso_group/point_of_contact_group/contact_first_name': 'Timothy', 'iso_group/point_of_contact_group/contact_identifier': 'https://orcid.org/0000-0002-0898-3027', 'iso_group/point_of_contact_group/contact_identifier_schema': 'orcid', 'iso_group/point_of_contact_group/contact_identifier_schema_uri': 'https://orcid.org/', 'iso_group/point_of_contact_group/contact_last_name': 'Norris', 'iso_group/point_of_contact_group/contact_name': 'Timothy B. Norris'}"
-        }
-      ],
-      "dct:accrualPeriodicity": "As Needed",
-      "variableMeasured": [
-        {
-          "@type": "PropertyValue",
-          "name": "elevation",
-          "description": "Mean elevation above sea level",
-          "qudt:dataType": "xsd:int16",
-          "unitText": "meters",
-          "sourceOrganization": {
-            "@type": "Organization",
-            "name": "NASA JPL"
-          }
-        }
-      ],
-      "isAccessibleForFree": false,
-      "usageInfo": [
-        "This data is open to the public and browse images are freely available without restriction.",
-        "This data is open to the public and browse images are freely available without\n  restriction."
-      ],
-      "dct:provenance": "Direct from source.",
-      "additionalType": "Raster Dataset",
-      "funder": [
-        {
-          "@type": "Organization",
-          "name": "IDSC",
-          "url": "https://idsc.miami.edu"
-        },
-        {
-          "@type": "Organization",
-          "name": "Library",
-          "url": "https://www.library.miami.edu"
-        }
-      ]
+      "termCode": "raster"
     }
-  ]
+  ],
+  "additionalProperty": [
+    {
+      "@type": "PropertyValue",
+      "name": "https://dbpedia.org/resource/Ground_sample_distance",
+      "value": 30.0,
+      "unitText": "meters"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "http://dbpedia.org/resource/Spatial_reference_system",
+      "value": "https://epsg.io/4326"
+    }
+  ],
+  "about": [
+    {
+      "@type": "Event",
+      "description": "Direct from source.",
+      "name": "ETL process for Huayhuash DEM (SRTM)",
+      "potentialAction": {
+        "@type": "Action",
+        "name": "Pseudo Code",
+        "description": "TODO",
+        "result": {
+          "@type": "Dataset",
+          "encodingFormat": "geotiff",
+          "url": "https://gdsc.idsc.miami.edu/download/data/hh_dem_srtm/?file=hh_dem_srtm&format=geotiff"
+        }
+      }
+    },
+    {
+      "@type": "Event",
+      "description": "Direct from source.",
+      "name": "ETL process for Huayhuash DEM (SRTM)",
+      "potentialAction": {
+        "@type": "Action",
+        "name": "srtm_merge_and_crop",
+        "description": "Custom ETL process for Huayhuash DEM (SRTM)",
+        "object": {
+          "@type": "Dataset",
+          "name": "Direct from source.",
+          "producer": "NASA JPL",
+          "url": "https://lpdaac.usgs.gov/products/srtmgl1v003/"
+        },
+        "instrument": {
+          "@type": "SoftwareApplication",
+          "@id": "https://github.com/Geospatial-Digital-Special-Collections/tools",
+          "featureList": "S10W077.SRTMGL1 S10W078.SRTMGL1 S11W077.SRTMGL1 S11W078.SRTMGL1 bbox;-77.33;-10.7;-76.55;-9.8",
+          "downloadUrl": "https://github.com/Geospatial-Digital-Special-Collections/tools.git"
+        },
+        "result": {
+          "@type": "Dataset",
+          "name": "Huayhuash DEM (SRTM)",
+          "description": "An elevation raster dataset derived from the SRTM GL1 V3 dataset at 1 ARC second resolution (~30 meters). Republished by the European Space Agency (ESA).",
+          "encodingFormat": "geotiff",
+          "url": "https://gdsc.idsc.miami.edu/download/data/hh_dem_srtm/?file=hh_dem_srtm&format=geotiff"
+        }
+      }
+    }
+  ],
+  "variableMeasured": [
+    {
+      "@type": "PropertyValue",
+      "name": "elevation",
+      "description": "Mean elevation above sea level",
+      "qudt:dataType": "int16",
+      "unitText": "meters",
+      "minValue": "850",
+      "maxValue": "6477"
+    }
+  ],
+  "distribution": [
+    "https://gdsc.idsc.miami.edu/download/data/hh_dem_srtm/?file=hh_dem_srtm&format=geotiff"
+  ],
+  "dateModified": "2026-10-17 22:44:18",
+  "version": "2026-10-17"
 }

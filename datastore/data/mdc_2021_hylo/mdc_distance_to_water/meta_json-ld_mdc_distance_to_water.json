@@ -1,350 +1,257 @@
 {
   "@context": {
     "@vocab": "https://schema.org/",
-    "schema": "https://schema.org/",
-    "@language": "en",
-    "dct": "http://purl.org/dc/terms/"
+    "dct": "http://purl.org/dc/terms/",
+    "qudt": "http://qudt.org/schema/qudt/",
+    "quantitykind": "http://qudt.org/vocab/quantitykind/",
+    "unit": "http://qudt.org/vocab/unit/",
+    "xsd": "http://www.w3.org/2001/XMLSchema",
+    "extendedConstraintProperty": "http://codata.org/vocab/extendedConstraintProperty",
+    "sdmx": "https://sdmx.org"
   },
-  "@graph": [
+  "@type": "Dataset",
+  "@id": "https://gdsc.idsc.miami.edu/detail/mdc_distance_to_water",
+  "includedInDataCatalog": [
     {
-      "@type": "schema:Dataset",
-      "@id": "https://gdsc.idsc.miami.edu/detail/mdc_distance_to_water",
-      "name": "Miami-Dade County Distance to Water",
-      "description": "A raster of the euclidean distance from bodies of water within Miami-Dade County.",
-      "identifier": {
-        "@type": "PropertyValue",
-        "propertyID": "https://registry.identifiers.org/registry/doi",
-        "value": "doi:10.17604/p318-6n41",
-        "url": "https://doi.org/10.17604/p318-6n41"
+      "@type": "DataCatalog",
+      "@id": "https://gdsc.idsc.miami.edu",
+      "name": "Geospatial Digital Special Collections",
+      "url": "https://gdsc.idsc.miami.edu"
+    },
+    {
+      "@type": "DataCatalog",
+      "name": "mdc-health-outcomes",
+      "@id": "https://gdsc.idsc.miami.edu/?collection=mdc-health-outcomes",
+      "url": "https://gdsc.idsc.miami.edu/?collection=mdc-health-outcomes"
+    }
+  ],
+  "name": "Miami-Dade County Distance to Water",
+  "creator": [
+    {
+      "@type": "Person",
+      "givenName": "Tyler",
+      "familyName": "Harrison",
+      "affiliation": {
+        "@type": "Organization",
+        "@id": "https://ror.org/02dgjyy92",
+        "identifier": "https://ror.org/02dgjyy92",
+        "name": "School of Communication, University of Miami"
       },
-      "url": "https://scholarship.miami.edu/esploro/outputs/991031655220702976",
-      "license": "odc_by",
-      "inLanguage": "en",
-      "datePublished": "2021-11-07",
-      "dateModified": "2026-10-05 21:40:39",
-      "creator": [
-        {
-          "@type": "Role",
-          "roleName": "creator",
-          "creator": {
-            "@type": "Organization",
-            "name": "Tyler Harrison",
-            "description": "School of Communication, University of Miami"
-          }
-        },
-        {
-          "@type": "Role",
-          "roleName": "creator",
-          "creator": {
-            "@type": "Organization",
-            "name": "Amy C Clement",
-            "description": "Atmospheric Sciences, Rosenstiel School, University of Miami"
-          }
-        },
-        {
-          "@type": "Role",
-          "roleName": "creator",
-          "creator": {
-            "@type": "Organization",
-            "name": "Gina L. Maranto"
-          }
-        },
-        {
-          "@type": "Role",
-          "roleName": "creator",
-          "creator": {
-            "@type": "Organization",
-            "name": "Sam Purkis"
-          }
-        },
-        {
-          "@type": "Role",
-          "roleName": "creator",
-          "creator": {
-            "@type": "Organization",
-            "name": "Joanna L. Lombard"
-          }
-        },
-        {
-          "@type": "Role",
-          "roleName": "creator",
-          "creator": {
-            "@type": "Organization",
-            "name": "Angela C. Clark-Hughes",
-            "description": "Rosenstiel School Library, University of Miami"
-          }
-        },
-        {
-          "@type": "Role",
-          "roleName": "creator",
-          "creator": {
-            "@type": "Organization",
-            "name": "Abraham K Parrish"
-          }
-        },
-        {
-          "@type": "Role",
-          "roleName": "creator",
-          "creator": {
-            "@type": "Organization",
-            "name": "Marcus B. Reamer"
-          }
-        },
-        {
-          "@type": "Role",
-          "roleName": "creator",
-          "creator": {
-            "@type": "Organization",
-            "name": "Olivia Collins"
-          }
-        },
-        {
-          "@type": "Role",
-          "roleName": "creator",
-          "creator": {
-            "@type": "Organization",
-            "name": "Caroline Lewis"
-          }
-        },
-        {
-          "@type": "Role",
-          "roleName": "creator",
-          "creator": {
-            "@type": "Organization",
-            "name": "Mayra Cruz"
-          }
-        },
-        {
-          "@type": "Role",
-          "roleName": "creator",
-          "creator": {
-            "@type": "Organization",
-            "name": "Anaruth Solace"
-          }
-        }
-      ],
-      "provider": [
-        {
-          "@type": "Organization",
-          "name": "University of Miami"
-        },
-        {
-          "@type": "Organization",
-          "name": "Otto G. Richter Library"
-        }
-      ],
-      "spatialCoverage": {
-        "@type": "Place",
-        "name": "Miami-Dade County",
-        "additionalProperty": [
+      "sameAs": "https://orcid.org/0000-0002-0635-5967",
+      "@id": "https://orcid.org/0000-0002-0635-5967",
+      "identifier": "https://orcid.org/0000-0002-0635-5967",
+      "name": "Tyler Harrison"
+    },
+    {
+      "@type": "Person",
+      "givenName": "Amy C",
+      "familyName": "Clement",
+      "affiliation": {
+        "@type": "Organization",
+        "@id": "https://ror.org/02dgjyy92",
+        "identifier": "https://ror.org/02dgjyy92",
+        "name": "Atmospheric Sciences, Rosenstiel School, University of Miami"
+      },
+      "sameAs": "https://orcid.org/0000-0002-0105-0961",
+      "@id": "https://orcid.org/0000-0002-0105-0961",
+      "identifier": "https://orcid.org/0000-0002-0105-0961",
+      "name": "Amy C Clement"
+    },
+    {
+      "@type": "Person",
+      "givenName": "Gina L.",
+      "familyName": "Maranto",
+      "name": "Gina L. Maranto"
+    },
+    {
+      "@type": "Person",
+      "givenName": "Sam",
+      "familyName": "Purkis",
+      "name": "Sam Purkis"
+    },
+    {
+      "@type": "Person",
+      "givenName": "Joanna L.",
+      "familyName": "Lombard",
+      "name": "Joanna L. Lombard"
+    },
+    {
+      "@type": "Person",
+      "givenName": "Angela C",
+      "familyName": "Clark-Hughes",
+      "affiliation": {
+        "@type": "Organization",
+        "@id": "https://ror.org/02dgjyy92",
+        "identifier": "https://ror.org/02dgjyy92",
+        "name": "Rosenstiel School Library, University of Miami"
+      },
+      "sameAs": "https://orcid.org/0000-0003-0445-5830",
+      "@id": "https://orcid.org/0000-0003-0445-5830",
+      "identifier": "https://orcid.org/0000-0003-0445-5830",
+      "name": "Angela C. Clark-Hughes"
+    },
+    {
+      "@type": "Person",
+      "givenName": "Abraham K",
+      "familyName": "Parrish",
+      "name": "Abraham K Parrish"
+    },
+    {
+      "@type": "Person",
+      "givenName": "Marcus B.",
+      "familyName": "Reamer",
+      "name": "Marcus B. Reamer"
+    },
+    {
+      "@type": "Person",
+      "givenName": "Olivia",
+      "familyName": "Collins",
+      "name": "Olivia Collins"
+    },
+    {
+      "@type": "Person",
+      "givenName": "Caroline",
+      "familyName": "Lewis",
+      "name": "Caroline Lewis"
+    },
+    {
+      "@type": "Person",
+      "givenName": "Mayra",
+      "familyName": "Cruz",
+      "name": "Mayra Cruz"
+    },
+    {
+      "@type": "Person",
+      "givenName": "Anaruth",
+      "familyName": "Solace",
+      "name": "Anaruth Solace"
+    }
+  ],
+  "url": "https://scholarship.miami.edu/esploro/outputs/991031655220702976",
+  "provider": [
+    {
+      "@type": "Organization",
+      "name": "University of Miami"
+    },
+    {
+      "@type": "Organization",
+      "name": "Otto G. Richter Library"
+    }
+  ],
+  "license": "odc_by",
+  "spatialCoverage": [
+    {
+      "@id": "https://www.geonames.org/4164238",
+      "@type": "Place",
+      "name": "Miami-Dade County"
+    },
+    {
+      "@type": "Place",
+      "name": "bbox",
+      "geo": {
+        "@type": "GeoShape",
+        "polygon": "25.137447 -80.873813 25.137447 -80.117611 25.979615 -80.117611 25.979615 -80.873813 25.137447 -80.873813"
+      }
+    }
+  ],
+  "type": "Raster Dataset",
+  "datePublished": "2021-11-07",
+  "description": "A raster of the euclidean distance from bodies of water within Miami-Dade County.",
+  "keywords": [
+    "Miami-Dade County"
+  ],
+  "@language": "en",
+  "measurementTechnique": [
+    {
+      "@type": "DefinedTerm",
+      "description": "GIS Data Structure for Representation",
+      "inDefinedTermSet": {
+        "@type": "DefinedTermSet",
+        "name": "dataRepresentation",
+        "hasDefinedTerm": [
           {
-            "@type": "PropertyValue",
-            "name": "geonames",
-            "value": "4164238",
-            "url": "https://www.geonames.org/4164238"
+            "@type": "DefinedTerm",
+            "termCode": "raster"
           },
           {
-            "@type": "PropertyValue",
-            "name": "Spatial Reference System",
-            "value": "http://www.opengis.net/def/crs/EPSG/0/3857"
+            "@type": "DefinedTerm",
+            "termCode": "vector"
           },
           {
-            "@type": "PropertyValue",
-            "name": "extent",
-            "value": "ENVELOPE(-80.873813,-80.117611,25.979615,25.137447)"
+            "@type": "DefinedTerm",
+            "termCode": "table"
           }
         ]
       },
-      "keywords": "Miami-Dade County",
-      "includedInDataCatalog": [
-        {
-          "@type": "DataCatalog",
-          "@id": "https://gdsc.idsc.miami.edu",
-          "name": "Geospatial Digital Special Collections",
-          "url": "https://gdsc.idsc.miami.edu"
+      "termCode": "raster"
+    }
+  ],
+  "additionalProperty": [
+    {
+      "@type": "PropertyValue",
+      "name": "https://dbpedia.org/resource/Ground_sample_distance",
+      "value": 30.0,
+      "unitText": "meters"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "http://dbpedia.org/resource/Spatial_reference_system",
+      "value": "https://epsg.io/3857"
+    }
+  ],
+  "about": [
+    {
+      "@type": "Event",
+      "description": "Direct from source",
+      "name": "ETL process for Miami-Dade County Distance to Water",
+      "potentialAction": {
+        "@type": "Action",
+        "name": "Pseudo Code",
+        "description": "TODO"
+      }
+    },
+    {
+      "@type": "Event",
+      "description": "Direct from source",
+      "name": "ETL process for Miami-Dade County Distance to Water",
+      "potentialAction": {
+        "@type": "Action",
+        "name": "wget",
+        "description": "ETL process for Miami-Dade County Distance to Water",
+        "object": {
+          "@type": "Dataset",
+          "name": "Direct from source",
+          "producer": "Tyler Harrison",
+          "url": "https://scholarship.miami.edu/esploro/outputs/991031655220702976"
         },
-        {
-          "@type": "DataCatalog",
-          "name": "mdc-health-outcomes",
-          "@id": "https://gdsc.idsc.miami.edu/?collection=mdc-health-outcomes",
-          "url": "https://gdsc.idsc.miami.edu/?collection=mdc-health-outcomes"
+        "instrument": {
+          "@type": "SoftwareApplication",
+          "@id": "https://github.com/Geospatial-Digital-Special-Collections/tools",
+          "featureList": "wget",
+          "downloadUrl": "https://github.com/Geospatial-Digital-Special-Collections/tools.git"
         },
-        {
-          "@type": "DataCatalog",
-          "name": "vulnerability",
-          "@id": "https://gdsc.idsc.miami.edu/?collection=vulnerability",
-          "url": "https://gdsc.idsc.miami.edu/?collection=vulnerability"
-        },
-        {
-          "@type": "DataCatalog",
-          "name": "mdc-sleep-outcomes",
-          "@id": "https://gdsc.idsc.miami.edu/?collection=mdc-sleep-outcomes",
-          "url": "https://gdsc.idsc.miami.edu/?collection=mdc-sleep-outcomes"
-        }
-      ],
-      "measurementTechnique": [
-        {
-          "@type": "DefinedTerm",
-          "name": "GIS Data Structure",
-          "termCode": "raster",
-          "inDefinedTermSet": {
-            "@type": "DefinedTermSet",
-            "name": "dataRepresentation",
-            "url": "https://gdsc.idsc.miami.edu/vocab/dataRepresentation"
-          }
-        },
-        {
-          "@type": "DefinedTerm",
-          "name": "Data Processing Level",
-          "termCode": "derived",
-          "inDefinedTermSet": {
-            "@type": "DefinedTermSet",
-            "name": "dataProcessingLevel",
-            "url": "https://gdsc.idsc.miami.edu/vocab/dataProcessingLevel"
-          }
-        }
-      ],
-      "distribution": [
-        {
-          "@type": "DataDownload",
-          "name": "Source distribution",
-          "contentUrl": "https://scholarship.miami.edu/view/fileRedirect?instCode=01UOML_INST&filePid=13395678880002976&download=true",
+        "result": {
+          "@type": "Dataset",
+          "name": "Miami-Dade County Distance to Water",
+          "description": "A raster of the euclidean distance from bodies of water within Miami-Dade County.",
           "encodingFormat": "tif"
         }
-      ],
-      "additionalProperty": [
-        {
-          "@type": "PropertyValue",
-          "name": "postgis_table",
-          "value": "mdc_distance_to_water"
-        },
-        {
-          "@type": "PropertyValue",
-          "name": "kobo_record_id",
-          "value": "129"
-        },
-        {
-          "@type": "PropertyValue",
-          "name": "creator_type",
-          "value": "person"
-        },
-        {
-          "@type": "PropertyValue",
-          "name": "process_step",
-          "value": "#########\n  # GDSC ETL is performed in two steps: shell script to ETL data into postgres\n  # and then additional transformations with SQL in postGIS (if needed).\n  ####\n  \n  #########\n  # Step 1 - bash script (pseudo code)\n  ####\n  \n  # create directory structure and move into it\n  mkdir -p /data/mdc_2021_hylo/download -p /data/mdc_2021_hylo/mdc_distance_to_water/etl\n  chmod -R 777 /data/mdc_2021_hylo\n  cd /data/mdc_2021_hylo\n  \n  # set update flag based on last update and update frequency\n  do_update=0 if date() < last_update + update_frequency else do_update = 1\n  \n  # download if update flag is set:\n  if do_update == 1 then\n  wget --retry-connrefused --waitretry=1 --read-timeout=20 --timeout=15 -t 10 -O download/mdc_2021_hylo.zip 'https://scholarship.miami.edu/view/fileRedirect?instCode=01UOML_INST&filePid=13395678880002976&download=true' 2>&1\n  \n  # unzip to download directory if update flag is set\n  if do_update == 1 then\n  unzip -o download/mdc_2021_hylo.zip -d download && rm download/mdc_2021_hylo.zip 2>&1\n  \n  # load raster into postGIS with:\n      raster2pgsql -s 3857 -d -C -I -t 48x48 GeoTIFF_Rasters/Water_Euclid_Dist_30m_MDC.tif -F mdc_distance_to_water > load_raster.sql\n  psql <connection options> < load_raster.sql\n  rm load_raster.sql\n  \n  # create color raster\n  mkdir -p /tiles/raster/mdc_distance_to_water\n  mkdir -p /data/mdc_2021_hylo/mdc_distance_to_water/derived\n  cd /data/mdc_2021_hylo\n  cat > /data/mdc_2021_hylo/mdc_distance_to_water/derived/mdc_distance_to_water_color_ramp.txt <<_EOF\n  0 171 198 230 255\n  150 171 198 230 230\n  330 171 198 230 199\n  525 171 198 230 166\n  720 171 198 230 133\n  915 171 198 230 99\n  1110 171 198 230 66\n  1305 171 198 230 33\n  1500 171 198 230 0\n  _EOF\n  gdaldem color-relief download/GeoTIFF_Rasters/Water_Euclid_Dist_30m_MDC.tif /data/mdc_2021_hylo/mdc_distance_to_water/derived/mdc_distance_to_water_color_ramp.txt /data/mdc_2021_hylo/mdc_distance_to_water/derived/mdc_distance_to_water_color.tif -alpha\n  # create color raster and render raster tiles \n  mkdir -p /data/mdc_2021_hylo/mdc_distance_to_water/derived\n  mkdir -p /tiles/raster/mdc_distance_to_water\n  cd /data/mdc_2021_hylo\n  echo \"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\" | base64 -d > /data/mdc_2021_hylo/mdc_distance_to_water/derived/mdc_distance_to_water_legend.png\n  cp /data/mdc_2021_hylo/mdc_distance_to_water/derived/mdc_distance_to_water_legend.png /tiles/raster/mdc_distance_to_water/\n  # render raster tiles \n  cd /data/mdc_2021_hylo/mdc_distance_to_water/\n  gdal2tiles.py -ex --xyz -z 8-16 /data/mdc_2021_hylo/mdc_distance_to_water/derived/mdc_distance_to_water_color.tif /tiles/raster/mdc_distance_to_water"
-        },
-        {
-          "@type": "PropertyValue",
-          "name": "processor",
-          "value": "GDSC automation (see Process Step)"
-        },
-        {
-          "@type": "PropertyValue",
-          "name": "analytic_function",
-          "value": "gdsc_zonal_statistics"
-        },
-        {
-          "@type": "PropertyValue",
-          "name": "Spatial Reference System",
-          "value": "http://www.opengis.net/def/crs/EPSG/0/2236"
-        },
-        {
-          "@type": "PropertyValue",
-          "name": "download_method",
-          "value": "wget"
-        },
-        {
-          "@type": "PropertyValue",
-          "name": "source_file",
-          "value": "{'etl_group/file_name_group/file_inside_archive': 'GeoTIFF_Rasters/Water_Euclid_Dist_30m_MDC', 'etl_group/file_name_group/file_name_value': 'mdc_2021_hylo'}"
-        },
-        {
-          "@type": "PropertyValue",
-          "name": "band",
-          "value": "{'iso_group/band_group/band_name': '30 meter ft'}"
-        },
-        {
-          "@type": "PropertyValue",
-          "name": "pixelDimension",
-          "value": "30.0"
-        },
-        {
-          "@type": "PropertyValue",
-          "name": "dimensionUnits",
-          "value": "meters"
-        },
-        {
-          "@type": "PropertyValue",
-          "name": "podid",
-          "value": "gaia-db"
-        },
-        {
-          "@type": "PropertyValue",
-          "name": "up",
-          "value": "true"
-        },
-        {
-          "@type": "PropertyValue",
-          "name": "colorRamp",
-          "value": "0 171 198 230 255\n  150 171 198 230 230\n  330 171 198 230 199\n  525 171 198 230 166\n  720 171 198 230 133\n  915 171 198 230 99\n  1110 171 198 230 66\n  1305 171 198 230 33\n  1500 171 198 230 0"
-        },
-        {
-          "@type": "PropertyValue",
-          "name": "tileBaseUrl",
-          "value": "{'cartography_group/tile_url_group/tile_base_url': 'https://gdsc.idsc.miami.edu/rastertiles/mdc_distance_to_water/'}"
-        },
-        {
-          "@type": "PropertyValue",
-          "name": "tileMinZoom",
-          "value": "{'cartography_group/tile_zoom_group/tile_min_zoom': '8'}"
-        },
-        {
-          "@type": "PropertyValue",
-          "name": "derivativeUrl",
-          "value": "/data/mdc_2021_hylo/mdc_distance_to_water/"
-        },
-        {
-          "@type": "PropertyValue",
-          "name": "etlParameters",
-          "value": "-t 48x48"
-        },
-        {
-          "@type": "PropertyValue",
-          "name": "pointOfContact",
-          "value": "{'iso_group/point_of_contact_group/contact_affiliation': 'University of Miami Libraries, Frost Institute for Data Science and Computing', 'iso_group/point_of_contact_group/contact_affiliation_identifier': 'https://ror.org/02dgjyy92', 'iso_group/point_of_contact_group/contact_affiliation_schema': 'ror', 'iso_group/point_of_contact_group/contact_affiliation_schema_uri': 'https://ror.org/', 'iso_group/point_of_contact_group/contact_email': 'tnorris@miami.edu', 'iso_group/point_of_contact_group/contact_first_name': 'Timothy', 'iso_group/point_of_contact_group/contact_identifier': 'https://orcid.org/0000-0002-0898-3027', 'iso_group/point_of_contact_group/contact_identifier_schema': 'orcid', 'iso_group/point_of_contact_group/contact_identifier_schema_uri': 'https://orcid.org/', 'iso_group/point_of_contact_group/contact_last_name': 'Norris', 'iso_group/point_of_contact_group/contact_name': 'Timothy B. Norris'}"
-        }
-      ],
-      "dct:accrualPeriodicity": "Never",
-      "variableMeasured": [
-        {
-          "@type": "PropertyValue",
-          "name": "Distance",
-          "description": "Distance to water in feet",
-          "qudt:dataType": "xsd:float32",
-          "unitText": "feet",
-          "sourceOrganization": {
-            "@type": "Organization",
-            "name": "Derived from WaterP from MDC Open Hub"
-          }
-        }
-      ],
-      "isAccessibleForFree": false,
-      "usageInfo": "All data are made available under the Open Data Commons Attribution License: http://opendatacommons.org/licenses/by/1.0/ with the exception of the PhotoVoice photos in the Hylo_Photovoice_Data.pdf file which are for viewing and analysis only. They may not be altered or reproduced in any way.",
-      "dct:provenance": "Direct from source",
-      "additionalType": "Raster Dataset",
-      "funder": [
-        {
-          "@type": "Organization",
-          "name": "IDSC",
-          "url": "https://idsc.miami.edu"
-        },
-        {
-          "@type": "Organization",
-          "name": "Library",
-          "url": "https://www.library.miami.edu"
-        }
-      ],
-      "creativeWorkStatus": "draft"
+      }
     }
-  ]
+  ],
+  "variableMeasured": [
+    {
+      "@type": "PropertyValue",
+      "name": "Distance",
+      "description": "Distance to water in feet",
+      "qudt:dataType": "float32",
+      "unitText": "feet",
+      "minValue": "0",
+      "maxValue": "15080.185546875",
+      "endDate": "2023"
+    }
+  ],
+  "distribution": "/data/mdc_2021_hylo/mdc_distance_to_water/",
+  "dateModified": "2026-10-05 21:40:39",
+  "version": "2026-10-09"
 }

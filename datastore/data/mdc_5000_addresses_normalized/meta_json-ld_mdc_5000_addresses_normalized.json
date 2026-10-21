@@ -1,208 +1,165 @@
 {
   "@context": {
     "@vocab": "https://schema.org/",
-    "schema": "https://schema.org/",
-    "@language": "en",
-    "dct": "http://purl.org/dc/terms/"
+    "dct": "http://purl.org/dc/terms/",
+    "qudt": "http://qudt.org/schema/qudt/",
+    "quantitykind": "http://qudt.org/vocab/quantitykind/",
+    "unit": "http://qudt.org/vocab/unit/",
+    "xsd": "http://www.w3.org/2001/XMLSchema",
+    "extendedConstraintProperty": "http://codata.org/vocab/extendedConstraintProperty",
+    "sdmx": "https://sdmx.org"
   },
-  "@graph": [
+  "@type": "Dataset",
+  "@id": "https://gdsc.idsc.miami.edu/detail/mdc_5000_addresses_normalized",
+  "includedInDataCatalog": [
     {
-      "@type": "schema:Dataset",
-      "@id": "https://gdsc.idsc.miami.edu/detail/mdc_5000_addresses_normalized",
-      "name": "Miami-Dade County 5000 Addresses Normalized (Random)",
-      "description": "A set of 5000 random addresses in Miami-Dade County.",
-      "inLanguage": "en",
-      "datePublished": "2024-06-24",
-      "dateModified": "2026-10-17 22:39:09",
-      "creator": [
-        {
-          "@type": "Role",
-          "roleName": "creator",
-          "creator": {
-            "@type": "Organization",
-            "name": "Fake Researcher"
-          }
-        }
-      ],
-      "provider": {
-        "@type": "Organization",
-        "name": "University of Miami GDSC",
-        "@id": "https://ror.org/02y3ad647"
-      },
-      "spatialCoverage": {
-        "@type": "Place",
-        "name": "Miami-Dade County",
-        "additionalProperty": [
+      "@type": "DataCatalog",
+      "@id": "https://gdsc.idsc.miami.edu",
+      "name": "Geospatial Digital Special Collections",
+      "url": "https://gdsc.idsc.miami.edu"
+    },
+    {
+      "@type": "DataCatalog",
+      "name": "mdc-health-outcomes",
+      "@id": "https://gdsc.idsc.miami.edu/?collection=mdc-health-outcomes",
+      "url": "https://gdsc.idsc.miami.edu/?collection=mdc-health-outcomes"
+    }
+  ],
+  "name": "Miami-Dade County 5000 Addresses Normalized (Random)",
+  "creator": [
+    {
+      "name": "Fake Researcher"
+    }
+  ],
+  "provider": [
+    {
+      "@type": "Organization",
+      "name": "University of Miami GDSC"
+    }
+  ],
+  "spatialCoverage": [
+    {
+      "@id": "https://www.geonames.org/4164238",
+      "@type": "Place",
+      "name": "Miami-Dade County"
+    },
+    {
+      "@type": "Place",
+      "name": "bbox",
+      "geo": {
+        "@type": "GeoShape",
+        "polygon": "TBD"
+      }
+    }
+  ],
+  "type": "Vector Dataset",
+  "datePublished": "2024-06-24",
+  "description": "A set of 5000 random addresses in Miami-Dade County.",
+  "keywords": [
+    "Miami-Dade"
+  ],
+  "@language": "en",
+  "measurementTechnique": [
+    {
+      "@type": "DefinedTerm",
+      "description": "GIS Data Structure for Representation",
+      "inDefinedTermSet": {
+        "@type": "DefinedTermSet",
+        "name": "dataRepresentation",
+        "hasDefinedTerm": [
           {
-            "@type": "PropertyValue",
-            "name": "geonames",
-            "value": "4164238",
-            "url": "https://www.geonames.org/4164238"
+            "@type": "DefinedTerm",
+            "termCode": "raster"
           },
           {
-            "@type": "PropertyValue",
-            "name": "Spatial Reference System",
-            "value": "http://www.opengis.net/def/crs/EPSG/0/4326"
+            "@type": "DefinedTerm",
+            "termCode": "vector"
           },
           {
-            "@type": "PropertyValue",
-            "name": "extent",
-            "value": "TBD"
+            "@type": "DefinedTerm",
+            "termCode": "table"
           }
         ]
       },
-      "keywords": "Miami-Dade",
-      "includedInDataCatalog": [
-        {
-          "@type": "DataCatalog",
-          "@id": "https://gdsc.idsc.miami.edu",
-          "name": "Geospatial Digital Special Collections",
-          "url": "https://gdsc.idsc.miami.edu"
-        },
-        {
-          "@type": "DataCatalog",
-          "name": "mdc-health-outcomes",
-          "@id": "https://gdsc.idsc.miami.edu/?collection=mdc-health-outcomes",
-          "url": "https://gdsc.idsc.miami.edu/?collection=mdc-health-outcomes"
-        }
-      ],
-      "measurementTechnique": [
-        {
-          "@type": "DefinedTerm",
-          "name": "GIS Data Structure",
-          "termCode": "vector",
-          "inDefinedTermSet": {
-            "@type": "DefinedTermSet",
-            "name": "dataRepresentation",
-            "url": "https://gdsc.idsc.miami.edu/vocab/dataRepresentation"
+      "termCode": "vector"
+    },
+    {
+      "@type": "DefinedTerm",
+      "description": "GIS Vector Geometery",
+      "inDefinedTermSet": {
+        "@type": "DefinedTermSet",
+        "name": "vectorGeometry",
+        "hasDefinedTerm": [
+          {
+            "@type": "DefinedTerm",
+            "termCode": "point"
+          },
+          {
+            "@type": "DefinedTerm",
+            "termCode": "line"
+          },
+          {
+            "@type": "DefinedTerm",
+            "termCode": "polygon"
           }
-        },
-        {
-          "@type": "DefinedTerm",
-          "name": "GIS Vector Geometry",
-          "termCode": "point",
-          "inDefinedTermSet": {
-            "@type": "DefinedTermSet",
-            "name": "vectorGeometry",
-            "url": "https://gdsc.idsc.miami.edu/vocab/vectorGeometry"
-          }
-        },
-        {
-          "@type": "DefinedTerm",
-          "name": "Data Processing Level",
-          "termCode": "observed",
-          "inDefinedTermSet": {
-            "@type": "DefinedTermSet",
-            "name": "dataProcessingLevel",
-            "url": "https://gdsc.idsc.miami.edu/vocab/dataProcessingLevel"
-          }
-        }
-      ],
-      "distribution": [
-        {
-          "@type": "DataDownload",
-          "name": "Source distribution",
-          "contentUrl": "file:///data/mdc_5000_addresses_normalized/download/mdc_5000_addresses_normalized",
-          "encodingFormat": "text/csv"
-        }
-      ],
-      "additionalProperty": [
-        {
-          "@type": "PropertyValue",
-          "name": "postgis_table",
-          "value": "mdc_5000_addresses_normalized"
-        },
-        {
-          "@type": "PropertyValue",
-          "name": "kobo_record_id",
-          "value": "121"
-        },
-        {
-          "@type": "PropertyValue",
-          "name": "process_step",
-          "value": "#########\n  # GDSC ETL is performed in two steps: shell script to ETL data into postgres\n  # and then additional transformations with SQL in postGIS (if needed).\n  ####\n  \n  #########\n  # Step 1 - bash script (pseudo code)\n  ####\n  \n  # create directory structure and move into it\n  mkdir -p /data/mdc_5000_addresses_normalized/download -p /data/mdc_5000_addresses_normalized/etl\n  chmod -R 777 /data/mdc_5000_addresses_normalized\n  cd /data/mdc_5000_addresses_normalized\n  \n  # set update flag based on last update and update frequency\n  do_update=0 if date() < last_update + update_frequency else do_update = 1\n  \n  # remove spaces, periods, and leading numerical digits in column headers (if needed)\n    if (head -n 1 download/mdc_5000_addresses_normalized.csv | grep -qE '\\s|\\.|\\\"[0-9]'); then\n      sed -i '1s/ /_/g; 1s/\\.//g; 1s/\\\"\\([0-9]\\)/\\\"n\\1/g' download/mdc_5000_addresses_normalized.csv 2>&1\n    fi\n  \n  # load into postGIS with:\n  ogr2ogr -lco GEOMETRY_NAME=geom -f PostgreSQL PG:\"<postgres connection>\" download/mdc_5000_addresses_normalized.csv -oo X_POSSIBLE_NAMES=x_coord -oo Y_POSSIBLE_NAMES=y_coord -s_srs EPSG:2236 -t_srs EPSG:4326 -nlt point -nln mdc_5000_addresses_normalized\n  echo success: mdc_5000_addresses_normalized.csv loaded with ogr2ogr\n  \n  \n  #########\n  # Step 2 - SQL script (pseudo code):\n  ####\n  \n  # remove duplicate points and make geometries valid:\n  UPDATE mdc_5000_addresses_normalized\n    SET geom=ST_MakeValid(ST_RemoveRepeatedPoints(geom));\n  \n  # add local geometry column and reproject existing geometries into local EPSG:\n  ALTER TABLE mdc_5000_addresses_normalized DROP COLUMN IF EXISTS geom_local CASCADE;\n  SELECT AddGeometryColumn (\n    'mdc_5000_addresses_normalized',\n    'geom_local', 2236, 'point', 2\n  );\n  UPDATE mdc_5000_addresses_normalized\n    SET geom_local=ST_MakeValid(ST_RemoveRepeatedPoints(ST_Transform(geom,2236)));\n  CREATE INDEX mdc_5000_addresses_normalized_geom_local_idx\n    ON mdc_5000_addresses_normalized\n    USING GIST (geom_local);\n  NOTIFY pgrst, 'reload schema';"
-        },
-        {
-          "@type": "PropertyValue",
-          "name": "processor",
-          "value": "GDSC automation (see Process Step)"
-        },
-        {
-          "@type": "PropertyValue",
-          "name": "cartography_label_field",
-          "value": "folio"
-        },
-        {
-          "@type": "PropertyValue",
-          "name": "analytic_function",
-          "value": "gdsc_nearest_neighbor"
-        },
-        {
-          "@type": "PropertyValue",
-          "name": "Spatial Reference System",
-          "value": "http://www.opengis.net/def/crs/EPSG/0/2236"
-        },
-        {
-          "@type": "PropertyValue",
-          "name": "download_method",
-          "value": "local"
-        },
-        {
-          "@type": "PropertyValue",
-          "name": "source_file",
-          "value": "{'etl_group/file_name_group/file_name_value': 'mdc_5000_addresses_normalized'}"
-        },
-        {
-          "@type": "PropertyValue",
-          "name": "podid",
-          "value": "gaia-db"
-        },
-        {
-          "@type": "PropertyValue",
-          "name": "up",
-          "value": "true"
-        },
-        {
-          "@type": "PropertyValue",
-          "name": "derivativeUrl",
-          "value": "/data/mdc_5000_addresses_normalized/"
-        },
-        {
-          "@type": "PropertyValue",
-          "name": "etlParameters",
-          "value": "-oo X_POSSIBLE_NAMES=x_coord -oo Y_POSSIBLE_NAMES=y_coord -s_srs EPSG:2236 -t_srs EPSG:4326"
-        },
-        {
-          "@type": "PropertyValue",
-          "name": "pointOfContact",
-          "value": "{'iso_group/point_of_contact_group/contact_affiliation': 'University of Miami Libraries, Frost Institute for Data Science and Computing', 'iso_group/point_of_contact_group/contact_affiliation_identifier': 'https://ror.org/02dgjyy92', 'iso_group/point_of_contact_group/contact_affiliation_schema': 'ror', 'iso_group/point_of_contact_group/contact_affiliation_schema_uri': 'https://ror.org/', 'iso_group/point_of_contact_group/contact_email': 'tnorris@miami.edu', 'iso_group/point_of_contact_group/contact_first_name': 'Timothy', 'iso_group/point_of_contact_group/contact_identifier': 'https://orcid.org/0000-0002-0898-3027', 'iso_group/point_of_contact_group/contact_identifier_schema': 'orcid', 'iso_group/point_of_contact_group/contact_identifier_schema_uri': 'https://orcid.org/', 'iso_group/point_of_contact_group/contact_last_name': 'Norris', 'iso_group/point_of_contact_group/contact_name': 'Timothy B. Norris'}"
-        }
-      ],
-      "dct:accrualPeriodicity": "As Needed",
-      "variableMeasured": [
-        {
-          "@type": "PropertyValue",
-          "name": "folio",
-          "description": ""
-        }
-      ],
-      "isAccessibleForFree": false,
-      "usageInfo": "Not for use outside of some research group",
-      "dct:provenance": "Randomly drawn from Miami-Dade Property Point View (from Miami-Dade county open data portal)",
-      "additionalType": "Vector Dataset",
-      "funder": [
-        {
-          "@type": "Organization",
-          "name": "IDSC",
-          "url": "https://idsc.miami.edu"
-        },
-        {
-          "@type": "Organization",
-          "name": "Library",
-          "url": "https://www.library.miami.edu"
-        }
-      ],
-      "creativeWorkStatus": "draft"
+        ]
+      },
+      "termCode": "point"
     }
-  ]
+  ],
+  "additionalProperty": [
+    {
+      "@type": "PropertyValue",
+      "propertyID": "http://dbpedia.org/resource/Spatial_reference_system",
+      "value": "https://epsg.io/4326"
+    }
+  ],
+  "about": [
+    {
+      "@type": "Event",
+      "description": "Randomly drawn from Miami-Dade Property Point View (from Miami-Dade county open data portal)",
+      "name": "ETL process for Miami-Dade County 5000 Addresses Normalized (Random)",
+      "potentialAction": {
+        "@type": "Action",
+        "name": "Pseudo Code",
+        "description": "TODO"
+      }
+    },
+    {
+      "@type": "Event",
+      "description": "Randomly drawn from Miami-Dade Property Point View (from Miami-Dade county open data portal)",
+      "name": "ETL process for Miami-Dade County 5000 Addresses Normalized (Random)",
+      "potentialAction": {
+        "@type": "Action",
+        "name": "local",
+        "description": "ETL process for Miami-Dade County 5000 Addresses Normalized (Random)",
+        "object": {
+          "@type": "Dataset",
+          "name": "Randomly drawn from Miami-Dade Property Point View (from Miami-Dade county open data portal)",
+          "producer": "Fake Researcher"
+        },
+        "instrument": {
+          "@type": "SoftwareApplication",
+          "@id": "https://github.com/Geospatial-Digital-Special-Collections/tools",
+          "featureList": "local",
+          "downloadUrl": "https://github.com/Geospatial-Digital-Special-Collections/tools.git"
+        },
+        "result": {
+          "@type": "Dataset",
+          "name": "Miami-Dade County 5000 Addresses Normalized (Random)",
+          "description": "A set of 5000 random addresses in Miami-Dade County.",
+          "encodingFormat": "csv"
+        }
+      }
+    }
+  ],
+  "variableMeasured": [
+    {
+      "@type": "PropertyValue",
+      "name": "folio"
+    }
+  ],
+  "distribution": "/data/mdc_5000_addresses_normalized/",
+  "dateModified": "2026-10-17 22:39:09",
+  "version": "2026-10-17"
 }

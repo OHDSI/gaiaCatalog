@@ -6,7 +6,7 @@
 # Data source: https://services.arcgis.com/8Pc9XBTAsYuxx9Ny/arcgis/rest/services/WaterP_gdb/FeatureServer/0/query?outFields=*&where=1%3D1&outSR=4326&f=geojson
 # Destination postGIS table: mdc_water_polygons
 #
-# Created by etl() on 2026-10-20 10:30:17
+# Created by etl() on 2026-10-17 21:37:16
 # Do not edit directly
 
 # set credentials from postgres defaults and secret files

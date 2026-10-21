@@ -1,369 +1,276 @@
 {
   "@context": {
     "@vocab": "https://schema.org/",
-    "schema": "https://schema.org/",
-    "@language": "en",
-    "dct": "http://purl.org/dc/terms/"
+    "dct": "http://purl.org/dc/terms/",
+    "qudt": "http://qudt.org/schema/qudt/",
+    "quantitykind": "http://qudt.org/vocab/quantitykind/",
+    "unit": "http://qudt.org/vocab/unit/",
+    "xsd": "http://www.w3.org/2001/XMLSchema",
+    "extendedConstraintProperty": "http://codata.org/vocab/extendedConstraintProperty",
+    "sdmx": "https://sdmx.org"
   },
-  "@graph": [
+  "@type": "Dataset",
+  "@id": "https://gdsc.idsc.miami.edu/detail/fl_2019_tl_tract",
+  "includedInDataCatalog": [
     {
-      "@type": "schema:Dataset",
-      "@id": "https://gdsc.idsc.miami.edu/detail/fl_2019_tl_tract",
-      "name": "2019 Florida Census Tracts",
-      "description": "The Census Tracts data provides a stable set of geographic units for the presentation of census data and comparison back to previous decennial censuses.",
-      "url": "https://www.census.gov/geographies/mapping-files/time-series/geo/tiger-line-file.html",
-      "license": "The Software is provided to the User and those who may take by, through or under it, \u201cas is,\u201d without any warranty (whether express or implied) or representation whatsoever, including but not limited to any warranty of merchantability. The Software is taken hereunder without any right to support or to any improvements, extensions, or modifications, except as may be agreed to separately, in writing, by Commerce.\n  \n  User, on behalf of itself and all others who take by, through or under it, hereby and forever waives, releases, and discharges the United States/Commerce and all its instrumentalities from any and all liabilities and obligations in connection with the use, application, sale or conveyance of the Software. User shall indemnify and hold harmless the United States/Commerce and its instrumentalities from all claims, liabilities, demands, damages, expenses, and losses arising from or in connection with User's use, application, sale or conveyance of the Software, including those who take by, through or under User whether or not User was directly involved. This provision will survive termination of this Agreement and will include any and all claims or liabilities arising under intellectual property rights, such as patents, copyrights, trademarks, and trade secrets. If User of software is an Executive Agency of the United States, this clause is not applicable.\n  \n  The construction, validity, performance, and effect of this Agreement for all purposes will be governed by Federal law of the United States.\n  \n  User agrees to make a good faith effort to use the Software in a way that does not cause damage, harm, or embarrassment to the United States/Commerce. The United States/Commerce expressly reserve all rights and remedies.",
-      "inLanguage": "en",
-      "datePublished": "2019-08-09",
-      "dateModified": "2026-10-17 13:24:48",
-      "creator": [
-        {
-          "@type": "Role",
-          "roleName": "creator",
-          "creator": {
-            "@type": "Organization",
-            "name": "U.S. Department of Commerce"
-          }
-        },
-        {
-          "@type": "Role",
-          "roleName": "creator",
-          "creator": {
-            "@type": "Organization",
-            "name": "U.S. Census Bureau"
-          }
-        },
-        {
-          "@type": "Role",
-          "roleName": "creator",
-          "creator": {
-            "@type": "Organization",
-            "name": "Geography Division"
-          }
-        },
-        {
-          "@type": "Role",
-          "roleName": "creator",
-          "creator": {
-            "@type": "Organization",
-            "name": "Spatial Data Collection and Products Branch"
-          }
-        }
-      ],
-      "provider": [
-        {
-          "@type": "Organization",
-          "name": "Department of Commerce"
-        },
-        {
-          "@type": "Organization",
-          "name": "U.S. Census Bureau"
-        },
-        {
-          "@type": "Organization",
-          "name": "Geography Division"
-        },
-        {
-          "@type": "Organization",
-          "name": "Spatial Data Collection and Products Branch"
-        }
-      ],
-      "spatialCoverage": {
-        "@type": "Place",
-        "name": "Florida",
-        "additionalProperty": [
+      "@type": "DataCatalog",
+      "@id": "https://gdsc.idsc.miami.edu",
+      "name": "Geospatial Digital Special Collections",
+      "url": "https://gdsc.idsc.miami.edu"
+    },
+    {
+      "@type": "DataCatalog",
+      "name": "us-census",
+      "@id": "https://gdsc.idsc.miami.edu/?collection=us-census",
+      "url": "https://gdsc.idsc.miami.edu/?collection=us-census"
+    }
+  ],
+  "name": "2019 Florida Census Tracts",
+  "creator": [
+    {
+      "@type": "Organization",
+      "sameAs": "https://ror.org/04chq2495",
+      "@id": "https://ror.org/04chq2495",
+      "identifier": "https://ror.org/04chq2495",
+      "name": "U.S. Department of Commerce"
+    },
+    {
+      "@type": "Organization",
+      "sameAs": "https://ror.org/01qn7cs15",
+      "@id": "https://ror.org/01qn7cs15",
+      "identifier": "https://ror.org/01qn7cs15",
+      "name": "U.S. Census Bureau"
+    },
+    {
+      "@type": "Organization",
+      "name": "Geography Division"
+    },
+    {
+      "@type": "Organization",
+      "name": "Spatial Data Collection and Products Branch"
+    }
+  ],
+  "url": "https://www.census.gov/geographies/mapping-files/time-series/geo/tiger-line-file.html",
+  "provider": [
+    {
+      "@type": "Organization",
+      "name": "Department of Commerce"
+    },
+    {
+      "@type": "Organization",
+      "name": "U.S. Census Bureau"
+    },
+    {
+      "@type": "Organization",
+      "name": "Geography Division"
+    },
+    {
+      "@type": "Organization",
+      "name": "Spatial Data Collection and Products Branch"
+    }
+  ],
+  "license": "\n\nThe Software is provided to the User and those who may take by, through or under it, \u201cas is,\u201d without any warranty (whether express or implied) or representation whatsoever, including but not limited to any warranty of merchantability. The Software is taken hereunder without any right to support or to any improvements, extensions, or modifications, except as may be agreed to separately, in writing, by Commerce.\n\nUser, on behalf of itself and all others who take by, through or under it, hereby and forever waives, releases, and discharges the United States/Commerce and all its instrumentalities from any and all liabilities and obligations in connection with the use, application, sale or conveyance of the Software. User shall indemnify and hold harmless the United States/Commerce and its instrumentalities from all claims, liabilities, demands, damages, expenses, and losses arising from or in connection with User's use, application, sale or conveyance of the Software, including those who take by, through or under User whether or not User was directly involved. This provision will survive termination of this Agreement and will include any and all claims or liabilities arising under intellectual property rights, such as patents, copyrights, trademarks, and trade secrets. If User of software is an Executive Agency of the United States, this clause is not applicable.\n\nThe construction, validity, performance, and effect of this Agreement for all purposes will be governed by Federal law of the United States.\n\nUser agrees to make a good faith effort to use the Software in a way that does not cause damage, harm, or embarrassment to the United States/Commerce. The United States/Commerce expressly reserve all rights and remedies.",
+  "spatialCoverage": [
+    {
+      "@id": "https://www.geonames.org/4155751",
+      "@type": "Place",
+      "name": "Florida"
+    },
+    {
+      "@type": "Place",
+      "name": "bbox",
+      "geo": {
+        "@type": "GeoShape",
+        "polygon": "24.396308 -87.634896 24.396308 -79.974306 31.000968 -79.974306 31.000968 -87.634896 24.396308 -87.634896"
+      }
+    }
+  ],
+  "type": "Vector Dataset",
+  "datePublished": "2019-08-09",
+  "description": "The Census Tracts data provides a stable set of geographic units for the presentation of census data and comparison back to previous decennial censuses.",
+  "keywords": [
+    "Florida",
+    "Census",
+    "2019",
+    "Tract",
+    "Census Tract",
+    "Geography"
+  ],
+  "@language": "en",
+  "measurementTechnique": [
+    {
+      "@type": "DefinedTerm",
+      "description": "GIS Data Structure for Representation",
+      "inDefinedTermSet": {
+        "@type": "DefinedTermSet",
+        "name": "dataRepresentation",
+        "hasDefinedTerm": [
           {
-            "@type": "PropertyValue",
-            "name": "geonames",
-            "value": "4155751",
-            "url": "https://www.geonames.org/4155751"
+            "@type": "DefinedTerm",
+            "termCode": "raster"
           },
           {
-            "@type": "PropertyValue",
-            "name": "Spatial Reference System",
-            "value": "http://www.opengis.net/def/crs/EPSG/0/4269"
+            "@type": "DefinedTerm",
+            "termCode": "vector"
           },
           {
-            "@type": "PropertyValue",
-            "name": "extent",
-            "value": "ENVELOPE(-87.634896,-79.974306,31.000968,24.396308)"
+            "@type": "DefinedTerm",
+            "termCode": "table"
           }
         ]
       },
-      "keywords": [
-        "Florida",
-        "Census",
-        "2019",
-        "Tract",
-        "Census Tract",
-        "Geography"
-      ],
-      "includedInDataCatalog": [
-        {
-          "@type": "DataCatalog",
-          "@id": "https://gdsc.idsc.miami.edu",
-          "name": "Geospatial Digital Special Collections",
-          "url": "https://gdsc.idsc.miami.edu"
-        },
-        {
-          "@type": "DataCatalog",
-          "name": "us-census",
-          "@id": "https://gdsc.idsc.miami.edu/?collection=us-census",
-          "url": "https://gdsc.idsc.miami.edu/?collection=us-census"
-        }
-      ],
-      "measurementTechnique": [
-        {
-          "@type": "DefinedTerm",
-          "name": "GIS Data Structure",
-          "termCode": "vector",
-          "inDefinedTermSet": {
-            "@type": "DefinedTermSet",
-            "name": "dataRepresentation",
-            "url": "https://gdsc.idsc.miami.edu/vocab/dataRepresentation"
+      "termCode": "vector"
+    },
+    {
+      "@type": "DefinedTerm",
+      "description": "GIS Vector Geometery",
+      "inDefinedTermSet": {
+        "@type": "DefinedTermSet",
+        "name": "vectorGeometry",
+        "hasDefinedTerm": [
+          {
+            "@type": "DefinedTerm",
+            "termCode": "point"
+          },
+          {
+            "@type": "DefinedTerm",
+            "termCode": "line"
+          },
+          {
+            "@type": "DefinedTerm",
+            "termCode": "polygon"
           }
-        },
-        {
-          "@type": "DefinedTerm",
-          "name": "GIS Vector Geometry",
-          "termCode": "multipolygon",
-          "inDefinedTermSet": {
-            "@type": "DefinedTermSet",
-            "name": "vectorGeometry",
-            "url": "https://gdsc.idsc.miami.edu/vocab/vectorGeometry"
-          }
-        },
-        {
-          "@type": "DefinedTerm",
-          "name": "Data Processing Level",
-          "termCode": "derived",
-          "inDefinedTermSet": {
-            "@type": "DefinedTermSet",
-            "name": "dataProcessingLevel",
-            "url": "https://gdsc.idsc.miami.edu/vocab/dataProcessingLevel"
-          }
-        }
-      ],
-      "distribution": [
-        {
-          "@type": "DataDownload",
-          "name": "Source distribution",
-          "contentUrl": "ftp://ftp2.census.gov/geo/tiger/TIGER2019/TRACT/tl_2019_12_tract.zip",
-          "encodingFormat": "application/x-shapefile"
-        }
-      ],
-      "additionalProperty": [
-        {
-          "@type": "PropertyValue",
-          "name": "postgis_table",
-          "value": "fl_2019_tl_tract"
-        },
-        {
-          "@type": "PropertyValue",
-          "name": "kobo_record_id",
-          "value": "2"
-        },
-        {
-          "@type": "PropertyValue",
-          "name": "creator_type",
-          "value": "organization"
-        },
-        {
-          "@type": "PropertyValue",
-          "name": "process_step",
-          "value": "#########\n  # GDSC ETL is performed in two steps: shell script to ETL data into postgres\n  # and then additional transformations with SQL in postGIS (if needed).\n  ####\n  \n  #########\n  # Step 1 - bash script (pseudo code)\n  ####\n  \n  # create directory structure and move into it\n  mkdir -p /data/fl_2019_tl_tract/download -p /data/fl_2019_tl_tract/etl\n  chmod -R 777 /data/fl_2019_tl_tract\n  cd /data/fl_2019_tl_tract\n  \n  # set update flag based on last update and update frequency\n  do_update=0 if date() < last_update + update_frequency else do_update = 1\n  \n  # download if update flag is set:\n  if do_update == 1 then\n  wget --retry-connrefused --waitretry=1 --read-timeout=20 --timeout=15 -t 10 -O download/fl_2019_tl_tract.zip 'ftp://ftp2.census.gov/geo/tiger/TIGER2019/TRACT/tl_2019_12_tract.zip' 2>&1\n  \n  # unzip to download directory if update flag is set\n  if do_update == 1 then\n  unzip -o download/fl_2019_tl_tract.zip -d download && rm download/fl_2019_tl_tract.zip 2>&1\n  \n  # load into postGIS with:\n  ogr2ogr -lco GEOMETRY_NAME=geom -f PostgreSQL PG:\"<postgres connection>\" download/tl_2019_12_tract.shp -nlt multipolygon -nln fl_2019_tl_tract\n  echo success: tl_2019_12_tract.shp loaded with ogr2ogr\n  \n  \n  #########\n  # Step 2 - SQL script (pseudo code):\n  ####\n  \n  # remove duplicate points and make geometries valid:\n  UPDATE fl_2019_tl_tract\n    SET geom=ST_MakeValid(ST_RemoveRepeatedPoints(geom));\n  \n  # add local geometry column and reproject existing geometries into local EPSG:\n  ALTER TABLE fl_2019_tl_tract DROP COLUMN IF EXISTS geom_local CASCADE;\n  SELECT AddGeometryColumn (\n    'fl_2019_tl_tract',\n    'geom_local', 2236, 'multipolygon', 2\n  );\n  UPDATE fl_2019_tl_tract\n    SET geom_local=ST_MakeValid(ST_RemoveRepeatedPoints(ST_Transform(ST_Multi(geom),2236)));\n  CREATE INDEX fl_2019_tl_tract_geom_local_idx\n    ON fl_2019_tl_tract\n    USING GIST (geom_local);\n  NOTIFY pgrst, 'reload schema';"
-        },
-        {
-          "@type": "PropertyValue",
-          "name": "processor",
-          "value": "GDSC automation (see Process Step)"
-        },
-        {
-          "@type": "PropertyValue",
-          "name": "cartography_label_field",
-          "value": "geoid"
-        },
-        {
-          "@type": "PropertyValue",
-          "name": "analytic_function",
-          "value": "--"
-        },
-        {
-          "@type": "PropertyValue",
-          "name": "Spatial Reference System",
-          "value": "http://www.opengis.net/def/crs/EPSG/0/2236"
-        },
-        {
-          "@type": "PropertyValue",
-          "name": "download_method",
-          "value": "wget"
-        },
-        {
-          "@type": "PropertyValue",
-          "name": "source_file",
-          "value": "{'etl_group/file_name_group/file_inside_archive': 'tl_2019_12_tract', 'etl_group/file_name_group/file_name_value': 'fl_2019_tl_tract'}"
-        },
-        {
-          "@type": "PropertyValue",
-          "name": "podid",
-          "value": "gaia-db"
-        },
-        {
-          "@type": "PropertyValue",
-          "name": "up",
-          "value": "false"
-        },
-        {
-          "@type": "PropertyValue",
-          "name": "derivativeUrl",
-          "value": "/data/fl_2019_tl_tract/"
-        },
-        {
-          "@type": "PropertyValue",
-          "name": "pointOfContact",
-          "value": "{'iso_group/point_of_contact_group/contact_affiliation': 'University of Miami Libraries, Frost Institute for Data Science and Computing', 'iso_group/point_of_contact_group/contact_affiliation_identifier': 'https://ror.org/02dgjyy92', 'iso_group/point_of_contact_group/contact_affiliation_schema': 'ror', 'iso_group/point_of_contact_group/contact_affiliation_schema_uri': 'https://ror.org/', 'iso_group/point_of_contact_group/contact_email': 'tnorris@miami.edu', 'iso_group/point_of_contact_group/contact_first_name': 'Timothy', 'iso_group/point_of_contact_group/contact_identifier': 'https://orcid.org/0000-0002-0898-3027', 'iso_group/point_of_contact_group/contact_identifier_schema': 'orcid', 'iso_group/point_of_contact_group/contact_identifier_schema_uri': 'https://orcid.org/', 'iso_group/point_of_contact_group/contact_last_name': 'Norris', 'iso_group/point_of_contact_group/contact_name': 'Timothy B. Norris'}"
-        }
-      ],
-      "dct:accrualPeriodicity": "Never",
-      "variableMeasured": [
-        {
-          "@type": "PropertyValue",
-          "name": "statefp",
-          "description": "State FIPS code",
-          "qudt:dataType": "xsd:string",
-          "sourceOrganization": {
-            "@type": "Organization",
-            "name": "U.S Census Bureau"
-          }
-        },
-        {
-          "@type": "PropertyValue",
-          "name": "countyfp",
-          "description": "County FIPS code",
-          "qudt:dataType": "xsd:string",
-          "sourceOrganization": {
-            "@type": "Organization",
-            "name": "U.S Census Bureau"
-          }
-        },
-        {
-          "@type": "PropertyValue",
-          "name": "tractce",
-          "description": "Tract code",
-          "qudt:dataType": "xsd:string",
-          "sourceOrganization": {
-            "@type": "Organization",
-            "name": "U.S Census Bureau"
-          }
-        },
-        {
-          "@type": "PropertyValue",
-          "name": "geoid",
-          "description": "geographic identifier",
-          "qudt:dataType": "xsd:string",
-          "sourceOrganization": {
-            "@type": "Organization",
-            "name": "Esri"
-          }
-        },
-        {
-          "@type": "PropertyValue",
-          "name": "name",
-          "description": "Census tract name, this is the census tract code converted to an integer or integer plus two-digit decimal if the last two characters of the code are not both zeros",
-          "qudt:dataType": "xsd:string",
-          "sourceOrganization": {
-            "@type": "Organization",
-            "name": "U.S Census Bureau"
-          }
-        },
-        {
-          "@type": "PropertyValue",
-          "name": "namelsad",
-          "description": "Census translated legal/statistical area description and the census tract name",
-          "qudt:dataType": "xsd:string",
-          "sourceOrganization": {
-            "@type": "Organization",
-            "name": "U.S Census Bureau"
-          }
-        },
-        {
-          "@type": "PropertyValue",
-          "name": "mtfcc",
-          "description": "maf/tiger feature class code",
-          "qudt:dataType": "xsd:string",
-          "sourceOrganization": {
-            "@type": "Organization",
-            "name": "U.S Census Bureau"
-          }
-        },
-        {
-          "@type": "PropertyValue",
-          "name": "funcstat",
-          "description": "Census functional status",
-          "qudt:dataType": "xsd:string",
-          "sourceOrganization": {
-            "@type": "Organization",
-            "name": "U.S Census Bureau"
-          }
-        },
-        {
-          "@type": "PropertyValue",
-          "name": "aland",
-          "description": "Census land area",
-          "qudt:dataType": "xsd:integer",
-          "sourceOrganization": {
-            "@type": "Organization",
-            "name": "U.S Census Bureau"
-          }
-        },
-        {
-          "@type": "PropertyValue",
-          "name": "awater",
-          "description": "Census water area",
-          "qudt:dataType": "xsd:integer",
-          "sourceOrganization": {
-            "@type": "Organization",
-            "name": "U.S Census Bureau"
-          }
-        },
-        {
-          "@type": "PropertyValue",
-          "name": "intplat",
-          "description": "Census latitude of the internal point",
-          "qudt:dataType": "xsd:string",
-          "sourceOrganization": {
-            "@type": "Organization",
-            "name": "U.S Census Bureau"
-          }
-        },
-        {
-          "@type": "PropertyValue",
-          "name": "intplon",
-          "description": "Census longitude of the internal point",
-          "qudt:dataType": "xsd:string",
-          "sourceOrganization": {
-            "@type": "Organization",
-            "name": "U.S Census Bureau"
-          }
-        }
-      ],
-      "isAccessibleForFree": false,
-      "usageInfo": "This Software was created by U.S. Government employees and therefore is not subject to copyright in the United States (17 U.S.C. \u00a7105). The United States/U.S.Department of Commerce (\u201cCommerce\u201d) reserve all rights to seek and obtain copyright protection in countries other than the United States. The United States/Commerce hereby grant to User a royalty-free, nonexclusive license to use, copy, and create derivative works of the Software outside of the United States.\n  \n  The Software is provided to the User and those who may take by, through or under it, \u201cas is,\u201d without any warranty (whether express or implied) or representation whatsoever, including but not limited to any warranty of merchantability. The Software is taken hereunder without any right to support or to any improvements, extensions, or modifications, except as may be agreed to separately, in writing, by Commerce.\n  \n  User, on behalf of itself and all others who take by, through or under it, hereby and forever waives, releases, and discharges the United States/Commerce and all its instrumentalities from any and all liabilities and obligations in connection with the use, application, sale or conveyance of the Software. User shall indemnify and hold harmless the United States/Commerce and its instrumentalities from all claims, liabilities, demands, damages, expenses, and losses arising from or in connection with User's use, application, sale or conveyance of the Software, including those who take by, through or under User whether or not User was directly involved. This provision will survive termination of this Agreement and will include any and all claims or liabilities arising under intellectual property rights, such as patents, copyrights, trademarks, and trade secrets. If User of software is an Executive Agency of the United States, this clause is not applicable.\n  \n  The construction, validity, performance, and effect of this Agreement for all purposes will be governed by Federal law of the United States.\n  \n  User agrees to make a good faith effort to use the Software in a way that does not cause damage, harm, or embarrassment to the United States/Commerce. The United States/Commerce expressly reserve all rights and remedies.",
-      "dct:provenance": "direct from source",
-      "additionalType": "Vector Dataset",
-      "funder": [
-        {
-          "@type": "Organization",
-          "name": "IDSC",
-          "url": "https://idsc.miami.edu"
-        },
-        {
-          "@type": "Organization",
-          "name": "Library",
-          "url": "https://www.library.miami.edu"
-        }
-      ],
-      "disambiguatingDescription": "The Software is provided to the User and those who may take by, through or under it, \u201cas is,\u201d without any warranty (whether express or implied) or representation whatsoever, including but not limited to any warranty of merchantability. The Software is taken hereunder without any right to support or to any improvements, extensions, or modifications, except as may be agreed to separately, in writing, by Commerce.\n  \n  User, on behalf of itself and all others who take by, through or under it, hereby and forever waives, releases, and discharges the United States/Commerce and all its instrumentalities from any and all liabilities and obligations in connection with the use, application, sale or conveyance of the Software. User shall indemnify and hold harmless the United States/Commerce and its instrumentalities from all claims, liabilities, demands, damages, expenses, and losses arising from or in connection with User's use, application, sale or conveyance of the Software, including those who take by, through or under User whether or not User was directly involved. This provision will survive termination of this Agreement and will include any and all claims or liabilities arising under intellectual property rights, such as patents, copyrights, trademarks, and trade secrets. If User of software is an Executive Agency of the United States, this clause is not applicable.\n  \n  The construction, validity, performance, and effect of this Agreement for all purposes will be governed by Federal law of the United States.\n  \n  User agrees to make a good faith effort to use the Software in a way that does not cause damage, harm, or embarrassment to the United States/Commerce. The United States/Commerce expressly reserve all rights and remedies."
+        ]
+      },
+      "termCode": "multipolygon"
     }
-  ]
+  ],
+  "additionalProperty": [
+    {
+      "@type": "PropertyValue",
+      "propertyID": "http://dbpedia.org/resource/Spatial_reference_system",
+      "value": "https://epsg.io/4269"
+    }
+  ],
+  "about": [
+    {
+      "@type": "Event",
+      "description": "direct from source",
+      "name": "ETL process for 2019 Florida Census Tracts",
+      "potentialAction": {
+        "@type": "Action",
+        "name": "Pseudo Code",
+        "description": "TODO"
+      }
+    },
+    {
+      "@type": "Event",
+      "description": "direct from source",
+      "name": "ETL process for 2019 Florida Census Tracts",
+      "potentialAction": {
+        "@type": "Action",
+        "name": "wget",
+        "description": "ETL process for 2019 Florida Census Tracts",
+        "object": {
+          "@type": "Dataset",
+          "name": "direct from source",
+          "producer": "U.S. Department of Commerce",
+          "url": "https://www.census.gov/geographies/mapping-files/time-series/geo/tiger-line-file.html"
+        },
+        "instrument": {
+          "@type": "SoftwareApplication",
+          "@id": "https://github.com/Geospatial-Digital-Special-Collections/tools",
+          "featureList": "wget",
+          "downloadUrl": "https://github.com/Geospatial-Digital-Special-Collections/tools.git"
+        },
+        "result": {
+          "@type": "Dataset",
+          "name": "2019 Florida Census Tracts",
+          "description": "The Census Tracts data provides a stable set of geographic units for the presentation of census data and comparison back to previous decennial censuses.",
+          "encodingFormat": "shp"
+        }
+      }
+    }
+  ],
+  "variableMeasured": [
+    {
+      "@type": "PropertyValue",
+      "name": "statefp",
+      "description": "State FIPS code",
+      "qudt:dataType": "varchar"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "countyfp",
+      "description": "County FIPS code",
+      "qudt:dataType": "varchar"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "tractce",
+      "description": "Tract code",
+      "qudt:dataType": "varchar"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "geoid",
+      "description": "geographic identifier",
+      "qudt:dataType": "varchar"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "name",
+      "description": "Census tract name, this is the census tract code converted to an integer or integer plus two-digit decimal if the last two characters of the code are not both zeros",
+      "qudt:dataType": "varchar"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "namelsad",
+      "description": "Census translated legal/statistical area description and the census tract name",
+      "qudt:dataType": "varchar"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "mtfcc",
+      "description": "maf/tiger feature class code",
+      "qudt:dataType": "varchar"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "funcstat",
+      "description": "Census functional status",
+      "qudt:dataType": "varchar"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "aland",
+      "description": "Census land area",
+      "qudt:dataType": "numeric",
+      "minValue": "0.00",
+      "maxValue": "2841267929.00"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "awater",
+      "description": "Census water area",
+      "qudt:dataType": "numeric",
+      "minValue": "0.00",
+      "maxValue": "3353801841.00"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "intplat",
+      "description": "Census latitude of the internal point",
+      "qudt:dataType": "string"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "intplon",
+      "description": "Census longitude of the internal point",
+      "qudt:dataType": "string"
+    }
+  ],
+  "distribution": "/data/fl_2019_tl_tract/",
+  "dateModified": "2026-10-17 13:24:48",
+  "version": "2026-10-17"
 }

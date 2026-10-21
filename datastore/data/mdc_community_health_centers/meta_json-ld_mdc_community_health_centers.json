@@ -1,610 +1,426 @@
 {
   "@context": {
     "@vocab": "https://schema.org/",
-    "schema": "https://schema.org/",
-    "@language": "en",
-    "dct": "http://purl.org/dc/terms/"
+    "dct": "http://purl.org/dc/terms/",
+    "qudt": "http://qudt.org/schema/qudt/",
+    "quantitykind": "http://qudt.org/vocab/quantitykind/",
+    "unit": "http://qudt.org/vocab/unit/",
+    "xsd": "http://www.w3.org/2001/XMLSchema",
+    "extendedConstraintProperty": "http://codata.org/vocab/extendedConstraintProperty",
+    "sdmx": "https://sdmx.org"
   },
-  "@graph": [
+  "@type": "Dataset",
+  "@id": "https://gdsc.idsc.miami.edu/detail/mdc_community_health_centers",
+  "includedInDataCatalog": [
     {
-      "@type": "schema:Dataset",
-      "@id": "https://gdsc.idsc.miami.edu/detail/mdc_community_health_centers",
-      "name": "Miami-Dade Community Health Centers",
-      "description": "A point feature class of community health centers in Miami-Dade County. Derived as a subset of all commercial properties within Miami-Dade County with the \"DOR Desc\" of \"CHARITABLE - EXEMPT: HEALTH CARE\"",
-      "url": "https://gis-mdc.opendata.arcgis.com/datasets/MDC::commercial-property/about",
-      "inLanguage": "en",
-      "datePublished": "2018-06-05",
-      "dateModified": "2026-10-17 22:28:27",
-      "creator": [
-        {
-          "@type": "Role",
-          "roleName": "creator",
-          "creator": {
-            "@type": "Organization",
-            "name": "University of Miami GDSC"
-          }
-        }
-      ],
-      "provider": {
-        "@type": "Organization",
-        "name": "Miami-Dade County"
-      },
-      "spatialCoverage": {
-        "@type": "Place",
-        "name": "Miami-Dade County",
-        "additionalProperty": [
+      "@type": "DataCatalog",
+      "@id": "https://gdsc.idsc.miami.edu",
+      "name": "Geospatial Digital Special Collections",
+      "url": "https://gdsc.idsc.miami.edu"
+    },
+    {
+      "@type": "DataCatalog",
+      "name": "displacement-vulnerability-mitigation-tool",
+      "@id": "https://gdsc.idsc.miami.edu/?collection=displacement-vulnerability-mitigation-tool",
+      "url": "https://gdsc.idsc.miami.edu/?collection=displacement-vulnerability-mitigation-tool"
+    }
+  ],
+  "name": "Miami-Dade Community Health Centers",
+  "creator": [
+    {
+      "@type": "Organization",
+      "sameAs": "https://ror.org/02dgjyy92",
+      "@id": "https://ror.org/02dgjyy92",
+      "identifier": "https://ror.org/02dgjyy92",
+      "name": "University of Miami GDSC"
+    }
+  ],
+  "url": "https://gis-mdc.opendata.arcgis.com/datasets/MDC::commercial-property/about",
+  "provider": [
+    {
+      "@type": "Organization",
+      "name": "Miami-Dade County"
+    }
+  ],
+  "spatialCoverage": [
+    {
+      "@id": "https://www.geonames.org/4164238",
+      "@type": "Place",
+      "name": "Miami-Dade County"
+    },
+    {
+      "@type": "Place",
+      "name": "bbox",
+      "geo": {
+        "@type": "GeoShape",
+        "polygon": "2913609.9319 -8976260.5448 2913609.9319 -8918917.2292 2995906.1114 -8918917.2292 2995906.1114 -8976260.5448 2913609.9319 -8976260.5448"
+      }
+    }
+  ],
+  "type": "Vector Dataset",
+  "datePublished": "2018-06-05",
+  "description": "A point feature class of community health centers in Miami-Dade County. Derived as a subset of all commercial properties within Miami-Dade County with the \"DOR Desc\" of \"CHARITABLE - EXEMPT: HEALTH CARE\"",
+  "keywords": [
+    "Florida",
+    "Miami-Dade County",
+    "MDC",
+    "Property",
+    "Commercial Property",
+    "Property Characteristics\n",
+    "Infrastructure\n "
+  ],
+  "@language": "en",
+  "measurementTechnique": [
+    {
+      "@type": "DefinedTerm",
+      "description": "GIS Data Structure for Representation",
+      "inDefinedTermSet": {
+        "@type": "DefinedTermSet",
+        "name": "dataRepresentation",
+        "hasDefinedTerm": [
           {
-            "@type": "PropertyValue",
-            "name": "geonames",
-            "value": "4164238",
-            "url": "https://www.geonames.org/4164238"
+            "@type": "DefinedTerm",
+            "termCode": "raster"
           },
           {
-            "@type": "PropertyValue",
-            "name": "Spatial Reference System",
-            "value": "http://www.opengis.net/def/crs/EPSG/0/4326"
+            "@type": "DefinedTerm",
+            "termCode": "vector"
           },
           {
-            "@type": "PropertyValue",
-            "name": "extent",
-            "value": "ENVELOPE(-8976260.5448,-8918917.2292,2995906.1114,2913609.9319)"
+            "@type": "DefinedTerm",
+            "termCode": "table"
           }
         ]
       },
-      "keywords": [
-        "Florida",
-        "Miami-Dade County",
-        "MDC",
-        "Property",
-        "Commercial Property",
-        "Property Characteristics\n    ",
-        "Infrastructure\n     "
-      ],
-      "includedInDataCatalog": [
-        {
-          "@type": "DataCatalog",
-          "@id": "https://gdsc.idsc.miami.edu",
-          "name": "Geospatial Digital Special Collections",
-          "url": "https://gdsc.idsc.miami.edu"
-        },
-        {
-          "@type": "DataCatalog",
-          "name": "displacement-vulnerability-mitigation-tool",
-          "@id": "https://gdsc.idsc.miami.edu/?collection=displacement-vulnerability-mitigation-tool",
-          "url": "https://gdsc.idsc.miami.edu/?collection=displacement-vulnerability-mitigation-tool"
-        }
-      ],
-      "measurementTechnique": [
-        {
-          "@type": "DefinedTerm",
-          "name": "GIS Data Structure",
-          "termCode": "vector",
-          "inDefinedTermSet": {
-            "@type": "DefinedTermSet",
-            "name": "dataRepresentation",
-            "url": "https://gdsc.idsc.miami.edu/vocab/dataRepresentation"
+      "termCode": "vector"
+    },
+    {
+      "@type": "DefinedTerm",
+      "description": "GIS Vector Geometery",
+      "inDefinedTermSet": {
+        "@type": "DefinedTermSet",
+        "name": "vectorGeometry",
+        "hasDefinedTerm": [
+          {
+            "@type": "DefinedTerm",
+            "termCode": "point"
+          },
+          {
+            "@type": "DefinedTerm",
+            "termCode": "line"
+          },
+          {
+            "@type": "DefinedTerm",
+            "termCode": "polygon"
           }
-        },
-        {
-          "@type": "DefinedTerm",
-          "name": "GIS Vector Geometry",
-          "termCode": "point",
-          "inDefinedTermSet": {
-            "@type": "DefinedTermSet",
-            "name": "vectorGeometry",
-            "url": "https://gdsc.idsc.miami.edu/vocab/vectorGeometry"
-          }
-        },
-        {
-          "@type": "DefinedTerm",
-          "name": "Data Processing Level",
-          "termCode": "derived",
-          "inDefinedTermSet": {
-            "@type": "DefinedTermSet",
-            "name": "dataProcessingLevel",
-            "url": "https://gdsc.idsc.miami.edu/vocab/dataProcessingLevel"
-          }
-        }
-      ],
-      "distribution": [
-        {
-          "@type": "DataDownload",
-          "name": "Source distribution",
-          "contentUrl": "https://services.arcgis.com/8Pc9XBTAsYuxx9Ny/arcgis/rest/services/PaGISView_gdb/FeatureServer/0/query?where=DOR_DESC=%27CHARITABLE%20-%20EXEMPT%20:%20HEALTH%20CARE%27&outFields=*&outSR=4326&f=json&orderBy=ObjectId",
-          "encodingFormat": "application/geo+json"
-        }
-      ],
-      "additionalProperty": [
-        {
-          "@type": "PropertyValue",
-          "name": "postgis_table",
-          "value": "mdc_community_health_centers"
-        },
-        {
-          "@type": "PropertyValue",
-          "name": "kobo_record_id",
-          "value": "34"
-        },
-        {
-          "@type": "PropertyValue",
-          "name": "creator_type",
-          "value": "organization"
-        },
-        {
-          "@type": "PropertyValue",
-          "name": "process_step",
-          "value": "#########\n  # GDSC ETL is performed in two steps: shell script to ETL data into postgres\n  # and then additional transformations with SQL in postGIS (if needed).\n  ####\n  \n  #########\n  # Step 1 - bash script (pseudo code)\n  ####\n  \n  # create directory structure and move into it\n  mkdir -p /data/mdc_community_health_centers/download -p /data/mdc_community_health_centers/etl\n  chmod -R 777 /data/mdc_community_health_centers\n  cd /data/mdc_community_health_centers\n  \n  # set update flag based on last update and update frequency\n  do_update=0 if date() < last_update + update_frequency else do_update = 1\n  \n  # download if update flag is set:\n  if do_update == 1 then\n  ogr2ogr -nln mdc_community_health_centers download/mdc_community_health_centers.geojson 'https://services.arcgis.com/8Pc9XBTAsYuxx9Ny/arcgis/rest/services/PaGISView_gdb/FeatureServer/0/query?where=DOR_DESC=%27CHARITABLE%20-%20EXEMPT%20:%20HEALTH%20CARE%27&outFields=*&outSR=4326&f=json&orderBy=ObjectId 2>&1'\n  \n  # load into postGIS with:\n  ogr2ogr -lco GEOMETRY_NAME=geom -f PostgreSQL PG:\"<postgres connection>\" download/mdc_community_health_centers.geojson -nlt point -nln mdc_community_health_centers\n  echo success: mdc_community_health_centers.geojson loaded with ogr2ogr\n  \n  \n  #########\n  # Step 2 - SQL script (pseudo code):\n  ####\n  \n  # remove duplicate points and make geometries valid:\n  UPDATE mdc_community_health_centers\n    SET geom=ST_MakeValid(ST_RemoveRepeatedPoints(geom));\n  \n  # add local geometry column and reproject existing geometries into local EPSG:\n  ALTER TABLE mdc_community_health_centers DROP COLUMN IF EXISTS geom_local CASCADE;\n  SELECT AddGeometryColumn (\n    'mdc_community_health_centers',\n    'geom_local', 2236, 'point', 2\n  );\n  UPDATE mdc_community_health_centers\n    SET geom_local=ST_MakeValid(ST_RemoveRepeatedPoints(ST_Transform(geom,2236)));\n  CREATE INDEX mdc_community_health_centers_geom_local_idx\n    ON mdc_community_health_centers\n    USING GIST (geom_local);\n  NOTIFY pgrst, 'reload schema';\n  # Move into corrrect directory and create derivative directory in data package on osgeo\n  cd /data/mdc_community_health_centers/\n  mkdir -p derived\n  \n  # Move into correct directory\n  cd /data/mdc_community_health_centers/\n  \n  # Create pg_dump of table SQL in derivate directory on postgis.\n  pg_dump <postgres opts> -h gaia-db -t mdc_community_health_centers > derived/mdc_community_health_centers.sql\n  \n  # Create downloadable tarfile of SQL in derivative directory on postgis\n  rm -f derived/mdc_community_health_centers.sql.tar.gz\n  tar -czf derived/mdc_community_health_centers.sql.tar.gz meta_dcat_mdc_community_health_centers.json -C derived mdc_community_health_centers.sql"
-        },
-        {
-          "@type": "PropertyValue",
-          "name": "processor",
-          "value": "GDSC automation (see Process Step)"
-        },
-        {
-          "@type": "PropertyValue",
-          "name": "cartography_label_field",
-          "value": "true_owner1"
-        },
-        {
-          "@type": "PropertyValue",
-          "name": "analytic_function",
-          "value": "gdsc_count_within gdsc_nearest_neighbor"
-        },
-        {
-          "@type": "PropertyValue",
-          "name": "Spatial Reference System",
-          "value": "http://www.opengis.net/def/crs/EPSG/0/2236"
-        },
-        {
-          "@type": "PropertyValue",
-          "name": "derivatives",
-          "value": "sql"
-        },
-        {
-          "@type": "PropertyValue",
-          "name": "download_method",
-          "value": "esri_recursive_ogr"
-        },
-        {
-          "@type": "PropertyValue",
-          "name": "source_file",
-          "value": "{'etl_group/file_name_group/file_name_value': 'mdc_community_health_centers'}"
-        },
-        {
-          "@type": "PropertyValue",
-          "name": "podid",
-          "value": "gaia-db"
-        },
-        {
-          "@type": "PropertyValue",
-          "name": "up",
-          "value": "true"
-        },
-        {
-          "@type": "PropertyValue",
-          "name": "serviceDefinition",
-          "value": "mdc_community_health_centers.sd"
-        },
-        {
-          "@type": "PropertyValue",
-          "name": "derivativeUrl",
-          "value": "/data/mdc_community_health_centers/"
-        },
-        {
-          "@type": "PropertyValue",
-          "name": "pointOfContact",
-          "value": "{'iso_group/point_of_contact_group/contact_affiliation': 'University of Miami Libraries, Frost Institute for Data Science and Computing', 'iso_group/point_of_contact_group/contact_affiliation_identifier': 'https://ror.org/02dgjyy92', 'iso_group/point_of_contact_group/contact_affiliation_schema': 'ror', 'iso_group/point_of_contact_group/contact_affiliation_schema_uri': 'https://ror.org/', 'iso_group/point_of_contact_group/contact_email': 'tnorris@miami.edu', 'iso_group/point_of_contact_group/contact_first_name': 'Timothy', 'iso_group/point_of_contact_group/contact_identifier': 'https://orcid.org/0000-0002-0898-3027', 'iso_group/point_of_contact_group/contact_identifier_schema': 'orcid', 'iso_group/point_of_contact_group/contact_identifier_schema_uri': 'https://orcid.org/', 'iso_group/point_of_contact_group/contact_last_name': 'Norris', 'iso_group/point_of_contact_group/contact_name': 'Timothy B. Norris'}"
-        }
-      ],
-      "dct:accrualPeriodicity": "1 week",
-      "variableMeasured": [
-        {
-          "@type": "PropertyValue",
-          "name": "folio",
-          "description": "Folio identifier",
-          "qudt:dataType": "xsd:string",
-          "sourceOrganization": {
-            "@type": "Organization",
-            "name": "MDC"
-          }
-        },
-        {
-          "@type": "PropertyValue",
-          "name": "ttrrss",
-          "description": "Township-range-section",
-          "qudt:dataType": "xsd:string",
-          "sourceOrganization": {
-            "@type": "Organization",
-            "name": "MDC"
-          }
-        },
-        {
-          "@type": "PropertyValue",
-          "name": "x_coord",
-          "description": "X-coordinate",
-          "qudt:dataType": "xsd:float",
-          "sourceOrganization": {
-            "@type": "Organization",
-            "name": "MDC"
-          }
-        },
-        {
-          "@type": "PropertyValue",
-          "name": "y_coord",
-          "description": "Y-coordinate",
-          "qudt:dataType": "xsd:float",
-          "sourceOrganization": {
-            "@type": "Organization",
-            "name": "MDC"
-          }
-        },
-        {
-          "@type": "PropertyValue",
-          "name": "true_site_addr",
-          "description": "Site address",
-          "qudt:dataType": "xsd:string",
-          "sourceOrganization": {
-            "@type": "Organization",
-            "name": "MDC"
-          }
-        },
-        {
-          "@type": "PropertyValue",
-          "name": "true_site_unit",
-          "description": " Site unit",
-          "qudt:dataType": "xsd:string",
-          "sourceOrganization": {
-            "@type": "Organization",
-            "name": "MDC"
-          }
-        },
-        {
-          "@type": "PropertyValue",
-          "name": "true_site_city",
-          "description": "Site city",
-          "qudt:dataType": "xsd:string",
-          "sourceOrganization": {
-            "@type": "Organization",
-            "name": "MDC"
-          }
-        },
-        {
-          "@type": "PropertyValue",
-          "name": "true_site_zip_code",
-          "description": "Site zipcode",
-          "qudt:dataType": "xsd:string",
-          "sourceOrganization": {
-            "@type": "Organization",
-            "name": "MDC"
-          }
-        },
-        {
-          "@type": "PropertyValue",
-          "name": "true_mailing_addr1",
-          "description": "True mailing address 1",
-          "qudt:dataType": "xsd:string",
-          "sourceOrganization": {
-            "@type": "Organization",
-            "name": "MDC"
-          }
-        },
-        {
-          "@type": "PropertyValue",
-          "name": "true_mailing_addr2",
-          "description": "True mailing address 2",
-          "qudt:dataType": "xsd:string",
-          "sourceOrganization": {
-            "@type": "Organization",
-            "name": "MDC"
-          }
-        },
-        {
-          "@type": "PropertyValue",
-          "name": "true_mailing_addr3",
-          "description": "True mailing address 3",
-          "qudt:dataType": "xsd:string",
-          "sourceOrganization": {
-            "@type": "Organization",
-            "name": "MDC"
-          }
-        },
-        {
-          "@type": "PropertyValue",
-          "name": "true_mailing_city",
-          "description": " True mailing city",
-          "qudt:dataType": "xsd:string",
-          "sourceOrganization": {
-            "@type": "Organization",
-            "name": "MDC"
-          }
-        },
-        {
-          "@type": "PropertyValue",
-          "name": "true_mailing_state",
-          "description": "True mailing state",
-          "qudt:dataType": "xsd:string",
-          "sourceOrganization": {
-            "@type": "Organization",
-            "name": "MDC"
-          }
-        },
-        {
-          "@type": "PropertyValue",
-          "name": "true_mailing_zip_code",
-          "description": "True mailing zipcode",
-          "qudt:dataType": "xsd:string",
-          "sourceOrganization": {
-            "@type": "Organization",
-            "name": "MDC"
-          }
-        },
-        {
-          "@type": "PropertyValue",
-          "name": "true_mailing_country",
-          "description": "True mailing country",
-          "qudt:dataType": "xsd:string",
-          "sourceOrganization": {
-            "@type": "Organization",
-            "name": "MDC"
-          }
-        },
-        {
-          "@type": "PropertyValue",
-          "name": "true_owner1",
-          "description": " Owner's name 1",
-          "qudt:dataType": "xsd:string",
-          "sourceOrganization": {
-            "@type": "Organization",
-            "name": "MDC"
-          }
-        },
-        {
-          "@type": "PropertyValue",
-          "name": "true_owner2",
-          "description": "Owner's name 2",
-          "qudt:dataType": "xsd:string",
-          "sourceOrganization": {
-            "@type": "Organization",
-            "name": "MDC"
-          }
-        },
-        {
-          "@type": "PropertyValue",
-          "name": "true_owner3",
-          "description": "Owner's name 3",
-          "qudt:dataType": "xsd:string",
-          "sourceOrganization": {
-            "@type": "Organization",
-            "name": "MDC"
-          }
-        },
-        {
-          "@type": "PropertyValue",
-          "name": "condo_flag",
-          "description": "Condo flag",
-          "qudt:dataType": "xsd:string",
-          "sourceOrganization": {
-            "@type": "Organization",
-            "name": "MDC"
-          }
-        },
-        {
-          "@type": "PropertyValue",
-          "name": "parent_folio",
-          "description": "Parent folio identifier",
-          "qudt:dataType": "xsd:string",
-          "sourceOrganization": {
-            "@type": "Organization",
-            "name": "MDC"
-          }
-        },
-        {
-          "@type": "PropertyValue",
-          "name": "dor_code_cur",
-          "description": "Current DOR (Department of Revenue) Code that idenitifies the land use",
-          "qudt:dataType": "xsd:string",
-          "sourceOrganization": {
-            "@type": "Organization",
-            "name": "DOR"
-          }
-        },
-        {
-          "@type": "PropertyValue",
-          "name": "dor_desc",
-          "description": "Department of Revenue classification description",
-          "qudt:dataType": "xsd:string",
-          "sourceOrganization": {
-            "@type": "Organization",
-            "name": "DOR"
-          }
-        },
-        {
-          "@type": "PropertyValue",
-          "name": "subdivision",
-          "description": "Subdivision",
-          "qudt:dataType": "xsd:string"
-        },
-        {
-          "@type": "PropertyValue",
-          "name": "bedroom_count",
-          "description": " Number of bedrooms",
-          "qudt:dataType": "xsd:long",
-          "unitText": "bedrooms",
-          "sourceOrganization": {
-            "@type": "Organization",
-            "name": "MDC"
-          }
-        },
-        {
-          "@type": "PropertyValue",
-          "name": "bathroom_count",
-          "description": "Number of bathrooms",
-          "qudt:dataType": "xsd:float",
-          "unitText": "bathrooms",
-          "sourceOrganization": {
-            "@type": "Organization",
-            "name": "MDC"
-          }
-        },
-        {
-          "@type": "PropertyValue",
-          "name": "half_bathroom_count",
-          "description": "Number of half bathrooms",
-          "qudt:dataType": "xsd:long",
-          "unitText": "half bathrooms",
-          "sourceOrganization": {
-            "@type": "Organization",
-            "name": "MDC"
-          }
-        },
-        {
-          "@type": "PropertyValue",
-          "name": "floor_count",
-          "description": "Number of floors",
-          "qudt:dataType": "xsd:long",
-          "unitText": "floors",
-          "sourceOrganization": {
-            "@type": "Organization",
-            "name": "MDC"
-          }
-        },
-        {
-          "@type": "PropertyValue",
-          "name": "unit_count",
-          "description": "Number of units",
-          "qudt:dataType": "xsd:long",
-          "unitText": "units",
-          "sourceOrganization": {
-            "@type": "Organization",
-            "name": "MDC"
-          }
-        },
-        {
-          "@type": "PropertyValue",
-          "name": "building_actual_area",
-          "description": "Actual area of building",
-          "qudt:dataType": "xsd:float",
-          "sourceOrganization": {
-            "@type": "Organization",
-            "name": "MDC"
-          }
-        },
-        {
-          "@type": "PropertyValue",
-          "name": "building_heated_area",
-          "description": "Heated area of building",
-          "qudt:dataType": "xsd:float",
-          "sourceOrganization": {
-            "@type": "Organization",
-            "name": "MDC"
-          }
-        },
-        {
-          "@type": "PropertyValue",
-          "name": "lot_size",
-          "description": "Land Lot Size - in Square Feet",
-          "qudt:dataType": "xsd:float",
-          "sourceOrganization": {
-            "@type": "Organization",
-            "name": "MDC"
-          }
-        },
-        {
-          "@type": "PropertyValue",
-          "name": "year_built",
-          "description": "Year built",
-          "qudt:dataType": "xsd:int2",
-          "sourceOrganization": {
-            "@type": "Organization",
-            "name": "MDC"
-          }
-        },
-        {
-          "@type": "PropertyValue",
-          "name": "assessment_year_cur",
-          "description": "Current assessment year",
-          "qudt:dataType": "xsd:long",
-          "sourceOrganization": {
-            "@type": "Organization",
-            "name": "MDC"
-          }
-        },
-        {
-          "@type": "PropertyValue",
-          "name": "assessed_val_cur",
-          "description": "Current assessed value",
-          "qudt:dataType": "xsd:float",
-          "sourceOrganization": {
-            "@type": "Organization",
-            "name": "MDC"
-          }
-        },
-        {
-          "@type": "PropertyValue",
-          "name": "dos_1",
-          "description": "Date of sale",
-          "qudt:dataType": "xsd:string"
-        },
-        {
-          "@type": "PropertyValue",
-          "name": "price_1",
-          "description": "Price of sale",
-          "qudt:dataType": "xsd:float"
-        },
-        {
-          "@type": "PropertyValue",
-          "name": "legal",
-          "description": "Legal representation",
-          "qudt:dataType": "xsd:string"
-        },
-        {
-          "@type": "PropertyValue",
-          "name": "mdc_county_zone",
-          "description": "County zone from mdc_county zones provided by Miami-Dade County",
-          "qudt:dataType": "xsd:string",
-          "sourceOrganization": {
-            "@type": "Organization",
-            "name": "spatial join parcel within mdc_county_zones"
-          }
-        },
-        {
-          "@type": "PropertyValue",
-          "name": "pid",
-          "description": "Property identification number",
-          "qudt:dataType": "xsd:integer",
-          "sourceOrganization": {
-            "@type": "Organization",
-            "name": "MDC"
-          }
-        },
-        {
-          "@type": "PropertyValue",
-          "name": "dateofsale_utc",
-          "description": "Sell Date (UTC Time Zone)",
-          "qudt:dataType": "xsd:date",
-          "sourceOrganization": {
-            "@type": "Organization",
-            "name": "MDC"
-          }
-        }
-      ],
-      "isAccessibleForFree": false,
-      "dct:provenance": " direct from source",
-      "additionalType": "Vector Dataset",
-      "funder": [
-        {
-          "@type": "Organization",
-          "name": "IDSC",
-          "url": "https://idsc.miami.edu"
-        },
-        {
-          "@type": "Organization",
-          "name": "Library",
-          "url": "https://www.library.miami.edu"
-        }
-      ],
-      "disambiguatingDescription": "The University of Miami provides this data for use \"as is\". The areas depicted by this map/data are approximate, and are not accurate to surveying or engineering standards. The maps/data shown here are for illustration purposes only and are not suitable for site-specific decision making. Information found here should not be used for making financial or any other commitments. Miami-Dade County provides this information with the understanding that it is not guaranteed to be accurate, correct or complete and conclusions drawn from such information are the sole responsibility of the user. While every effort has been made to ensure the accuracy, correctness and timeliness of materials presented, Miami-Dade County assumes no responsibility for errors or omissions, even if Miami-Dade County is advised of the possibility of such damage.",
-      "image": "published"
+        ]
+      },
+      "termCode": "point"
     }
-  ]
+  ],
+  "additionalProperty": [
+    {
+      "@type": "PropertyValue",
+      "propertyID": "http://dbpedia.org/resource/Spatial_reference_system",
+      "value": "https://epsg.io/4326"
+    }
+  ],
+  "about": [
+    {
+      "@type": "Event",
+      "description": " direct from source",
+      "name": "ETL process for Miami-Dade Community Health Centers",
+      "potentialAction": {
+        "@type": "Action",
+        "name": "Pseudo Code",
+        "description": "TODO",
+        "result": {
+          "@type": "Dataset",
+          "encodingFormat": "sql",
+          "url": "https://gdsc.idsc.miami.edu/download/data/mdc_community_health_centers/?file=mdc_community_health_centers&format=sql"
+        }
+      }
+    },
+    {
+      "@type": "Event",
+      "description": " direct from source",
+      "name": "ETL process for Miami-Dade Community Health Centers",
+      "potentialAction": {
+        "@type": "Action",
+        "name": "esri_recursive_ogr",
+        "description": "ETL process for Miami-Dade Community Health Centers",
+        "object": {
+          "@type": "Dataset",
+          "name": " direct from source",
+          "producer": "University of Miami GDSC",
+          "url": "https://gis-mdc.opendata.arcgis.com/datasets/MDC::commercial-property/about"
+        },
+        "instrument": {
+          "@type": "SoftwareApplication",
+          "@id": "https://github.com/Geospatial-Digital-Special-Collections/tools",
+          "featureList": "esri_recursive_ogr",
+          "downloadUrl": "https://github.com/Geospatial-Digital-Special-Collections/tools.git"
+        },
+        "result": {
+          "@type": "Dataset",
+          "name": "Miami-Dade Community Health Centers",
+          "description": "A point feature class of community health centers in Miami-Dade County. Derived as a subset of all commercial properties within Miami-Dade County with the \"DOR Desc\" of \"CHARITABLE - EXEMPT: HEALTH CARE\"",
+          "encodingFormat": "sql",
+          "url": "https://gdsc.idsc.miami.edu/download/data/mdc_community_health_centers/?file=mdc_community_health_centers&format=sql"
+        }
+      }
+    }
+  ],
+  "variableMeasured": [
+    {
+      "@type": "PropertyValue",
+      "name": "folio",
+      "description": "Folio identifier",
+      "qudt:dataType": "string"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "ttrrss",
+      "description": "Township-range-section",
+      "qudt:dataType": "string"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "x_coord",
+      "description": "X-coordinate",
+      "qudt:dataType": "double"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "y_coord",
+      "description": "Y-coordinate",
+      "qudt:dataType": "double"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "true_site_addr",
+      "description": "Site address",
+      "qudt:dataType": "string"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "true_site_unit",
+      "description": " Site unit",
+      "qudt:dataType": "string"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "true_site_city",
+      "description": "Site city",
+      "qudt:dataType": "string"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "true_site_zip_code",
+      "description": "Site zipcode",
+      "qudt:dataType": "string"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "true_mailing_addr1",
+      "description": "True mailing address 1",
+      "qudt:dataType": "string"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "true_mailing_addr2",
+      "description": "True mailing address 2",
+      "qudt:dataType": "string"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "true_mailing_addr3",
+      "description": "True mailing address 3",
+      "qudt:dataType": "string"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "true_mailing_city",
+      "description": " True mailing city",
+      "qudt:dataType": "string"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "true_mailing_state",
+      "description": "True mailing state",
+      "qudt:dataType": "string"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "true_mailing_zip_code",
+      "description": "True mailing zipcode",
+      "qudt:dataType": "string"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "true_mailing_country",
+      "description": "True mailing country",
+      "qudt:dataType": "string"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "true_owner1",
+      "description": " Owner's name 1",
+      "qudt:dataType": "string"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "true_owner2",
+      "description": "Owner's name 2",
+      "qudt:dataType": "string"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "true_owner3",
+      "description": "Owner's name 3",
+      "qudt:dataType": "string"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "condo_flag",
+      "description": "Condo flag",
+      "qudt:dataType": "string"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "parent_folio",
+      "description": "Parent folio identifier",
+      "qudt:dataType": "string"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "dor_code_cur",
+      "description": "Current DOR (Department of Revenue) Code that idenitifies the land use",
+      "qudt:dataType": "string"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "dor_desc",
+      "description": "Department of Revenue classification description",
+      "qudt:dataType": "string"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "subdivision",
+      "description": "Subdivision",
+      "qudt:dataType": "string"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "bedroom_count",
+      "description": " Number of bedrooms",
+      "qudt:dataType": "long",
+      "unitText": "bedrooms"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "bathroom_count",
+      "description": "Number of bathrooms",
+      "qudt:dataType": "double",
+      "unitText": "bathrooms"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "half_bathroom_count",
+      "description": "Number of half bathrooms",
+      "qudt:dataType": "long",
+      "unitText": "half bathrooms"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "floor_count",
+      "description": "Number of floors",
+      "qudt:dataType": "long",
+      "unitText": "floors"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "unit_count",
+      "description": "Number of units",
+      "qudt:dataType": "long",
+      "unitText": "units"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "building_actual_area",
+      "description": "Actual area of building",
+      "qudt:dataType": "double"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "building_heated_area",
+      "description": "Heated area of building",
+      "qudt:dataType": "double"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "lot_size",
+      "description": "Land Lot Size - in Square Feet",
+      "qudt:dataType": "double"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "year_built",
+      "description": "Year built",
+      "qudt:dataType": "int2"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "assessment_year_cur",
+      "description": "Current assessment year",
+      "qudt:dataType": "long"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "assessed_val_cur",
+      "description": "Current assessed value",
+      "qudt:dataType": "double"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "dos_1",
+      "description": "Date of sale",
+      "qudt:dataType": "string"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "price_1",
+      "description": "Price of sale",
+      "qudt:dataType": "double"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "legal",
+      "description": "Legal representation",
+      "qudt:dataType": "string"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "mdc_county_zone",
+      "description": "County zone from mdc_county zones provided by Miami-Dade County",
+      "qudt:dataType": "string"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "pid",
+      "description": "Property identification number",
+      "qudt:dataType": "integer"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "dateofsale_utc",
+      "description": "Sell Date (UTC Time Zone)",
+      "qudt:dataType": "date"
+    }
+  ],
+  "distribution": [
+    "https://gdsc.idsc.miami.edu/download/data/mdc_community_health_centers/?file=mdc_community_health_centers&format=sql"
+  ],
+  "dateModified": "2026-10-17 22:28:27",
+  "version": "2026-10-17"
 }

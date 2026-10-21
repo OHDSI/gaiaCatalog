@@ -1,238 +1,193 @@
 {
   "@context": {
     "@vocab": "https://schema.org/",
-    "schema": "https://schema.org/",
-    "@language": "en",
-    "dct": "http://purl.org/dc/terms/"
+    "dct": "http://purl.org/dc/terms/",
+    "qudt": "http://qudt.org/schema/qudt/",
+    "quantitykind": "http://qudt.org/vocab/quantitykind/",
+    "unit": "http://qudt.org/vocab/unit/",
+    "xsd": "http://www.w3.org/2001/XMLSchema",
+    "extendedConstraintProperty": "http://codata.org/vocab/extendedConstraintProperty",
+    "sdmx": "https://sdmx.org"
   },
-  "@graph": [
+  "@type": "Dataset",
+  "@id": "https://gdsc.idsc.miami.edu/detail/hh_red_vial_osm",
+  "includedInDataCatalog": [
     {
-      "@type": "schema:Dataset",
-      "@id": "https://gdsc.idsc.miami.edu/detail/hh_red_vial_osm",
-      "name": "OSM Huayhuash Red Vial",
-      "description": "A line feature set for the walking trails of the Cordillera Huayhuash sourced from OpenStreetMap with a query that includes roads, tracks, and other transport networks",
-      "url": "https://www.openstreetmap.org/",
-      "license": "odbl",
-      "inLanguage": "es",
-      "datePublished": "2025-04-23",
-      "dateModified": "2026-10-17 22:44:51",
-      "creator": [
-        {
-          "@type": "Role",
-          "roleName": "creator",
-          "creator": {
-            "@type": "Organization",
-            "name": "OpenStreetMap contributors"
-          }
-        }
-      ],
-      "provider": {
-        "@type": "Organization",
-        "name": "OpenStreetMap"
-      },
-      "spatialCoverage": {
-        "@type": "Place",
-        "name": "Cordillera Huayhuash",
-        "additionalProperty": [
+      "@type": "DataCatalog",
+      "@id": "https://gdsc.idsc.miami.edu",
+      "name": "Geospatial Digital Special Collections",
+      "url": "https://gdsc.idsc.miami.edu"
+    },
+    {
+      "@type": "DataCatalog",
+      "name": "hh-conservacion",
+      "@id": "https://gdsc.idsc.miami.edu/?collection=hh-conservacion",
+      "url": "https://gdsc.idsc.miami.edu/?collection=hh-conservacion"
+    }
+  ],
+  "name": "OSM Huayhuash Red Vial",
+  "creator": [
+    {
+      "name": "OpenStreetMap contributors"
+    }
+  ],
+  "url": "https://www.openstreetmap.org/",
+  "provider": [
+    {
+      "@type": "Organization",
+      "name": "OpenStreetMap"
+    }
+  ],
+  "license": "odbl",
+  "spatialCoverage": [
+    {
+      "@id": "https://www.geonames.org/3938961",
+      "@type": "Place",
+      "name": "Cordillera Huayhuash"
+    },
+    {
+      "@type": "Place",
+      "name": "bbox",
+      "geo": {
+        "@type": "GeoShape",
+        "polygon": "-10.7 -77.33 -10.7 -76.55 -9.8 -76.55 -9.8 -77.33 -10.7 -77.33"
+      }
+    }
+  ],
+  "type": "Vector Dataset",
+  "datePublished": "2025-04-23",
+  "description": "A line feature set for the walking trails of the Cordillera Huayhuash sourced from OpenStreetMap with a query that includes roads, tracks, and other transport networks",
+  "keywords": [
+    "Per\u00fa",
+    "Huayhuash",
+    "Turismo",
+    "Transportaci\u00f3n"
+  ],
+  "@language": "es",
+  "measurementTechnique": [
+    {
+      "@type": "DefinedTerm",
+      "description": "GIS Data Structure for Representation",
+      "inDefinedTermSet": {
+        "@type": "DefinedTermSet",
+        "name": "dataRepresentation",
+        "hasDefinedTerm": [
           {
-            "@type": "PropertyValue",
-            "name": "geonames",
-            "value": "3938961",
-            "url": "https://www.geonames.org/3938961"
+            "@type": "DefinedTerm",
+            "termCode": "raster"
           },
           {
-            "@type": "PropertyValue",
-            "name": "Spatial Reference System",
-            "value": "http://www.opengis.net/def/crs/EPSG/0/4326"
+            "@type": "DefinedTerm",
+            "termCode": "vector"
           },
           {
-            "@type": "PropertyValue",
-            "name": "extent",
-            "value": "ENVELOPE(-77.33,-76.55,-9.8,-10.7)"
+            "@type": "DefinedTerm",
+            "termCode": "table"
           }
         ]
       },
-      "keywords": [
-        "Per\u00fa",
-        "Huayhuash",
-        "Turismo",
-        "Transportaci\u00f3n"
-      ],
-      "includedInDataCatalog": [
-        {
-          "@type": "DataCatalog",
-          "@id": "https://gdsc.idsc.miami.edu",
-          "name": "Geospatial Digital Special Collections",
-          "url": "https://gdsc.idsc.miami.edu"
-        },
-        {
-          "@type": "DataCatalog",
-          "name": "hh-conservacion",
-          "@id": "https://gdsc.idsc.miami.edu/?collection=hh-conservacion",
-          "url": "https://gdsc.idsc.miami.edu/?collection=hh-conservacion"
-        }
-      ],
-      "measurementTechnique": [
-        {
-          "@type": "DefinedTerm",
-          "name": "GIS Data Structure",
-          "termCode": "vector",
-          "inDefinedTermSet": {
-            "@type": "DefinedTermSet",
-            "name": "dataRepresentation",
-            "url": "https://gdsc.idsc.miami.edu/vocab/dataRepresentation"
+      "termCode": "vector"
+    },
+    {
+      "@type": "DefinedTerm",
+      "description": "GIS Vector Geometery",
+      "inDefinedTermSet": {
+        "@type": "DefinedTermSet",
+        "name": "vectorGeometry",
+        "hasDefinedTerm": [
+          {
+            "@type": "DefinedTerm",
+            "termCode": "point"
+          },
+          {
+            "@type": "DefinedTerm",
+            "termCode": "line"
+          },
+          {
+            "@type": "DefinedTerm",
+            "termCode": "polygon"
           }
-        },
-        {
-          "@type": "DefinedTerm",
-          "name": "GIS Vector Geometry",
-          "termCode": "multilinestring",
-          "inDefinedTermSet": {
-            "@type": "DefinedTermSet",
-            "name": "vectorGeometry",
-            "url": "https://gdsc.idsc.miami.edu/vocab/vectorGeometry"
-          }
-        },
-        {
-          "@type": "DefinedTerm",
-          "name": "Data Processing Level",
-          "termCode": "observed",
-          "inDefinedTermSet": {
-            "@type": "DefinedTermSet",
-            "name": "dataProcessingLevel",
-            "url": "https://gdsc.idsc.miami.edu/vocab/dataProcessingLevel"
-          }
-        }
-      ],
-      "distribution": [
-        {
-          "@type": "DataDownload",
-          "name": "Source distribution",
-          "contentUrl": "https://overpass-api.de/api/interpreter?data=%28nwr%5B%22highway%22~%22primary|secondary|tertiary|unclassified|residential|service|track%22%5D%28-10.7,-77.33,-9.8,-76.55%29;%29;%28._;%3E;%29;out;",
-          "encodingFormat": "osm"
-        }
-      ],
-      "additionalProperty": [
-        {
-          "@type": "PropertyValue",
-          "name": "postgis_table",
-          "value": "hh_red_vial_osm"
-        },
-        {
-          "@type": "PropertyValue",
-          "name": "kobo_record_id",
-          "value": "318"
-        },
-        {
-          "@type": "PropertyValue",
-          "name": "process_step",
-          "value": "#########\n  # GDSC ETL is performed in two steps: shell script to ETL data into postgres\n  # and then additional transformations with SQL in postGIS (if needed).\n  ####\n  \n  #########\n  # Step 1 - bash script (pseudo code)\n  ####\n  \n  # create directory structure and move into it\n  mkdir -p /data/hh_red_vial_osm/download -p /data/hh_red_vial_osm/etl\n  chmod -R 777 /data/hh_red_vial_osm\n  cd /data/hh_red_vial_osm\n  \n  # set update flag based on last update and update frequency\n  do_update=0 if date() < last_update + update_frequency else do_update = 1\n  \n  # download if update flag is set:\n  if do_update == 1 then\n  curl -o download/hh_red_vial_osm.osm 'https://overpass-api.de/api/interpreter?data=%28nwr%5B%22highway%22~%22primary|secondary|tertiary|unclassified|residential|service|track%22%5D%28-10.7,-77.33,-9.8,-76.55%29;%29;%28._;%3E;%29;out;' 2>&1\n  \n  # load into postGIS with:\n  ogr2ogr -lco GEOMETRY_NAME=geom -f PostgreSQL PG:\"<postgres connection>\" download/hh_red_vial_osm.osm\n  echo success: hh_red_vial_osm.osm loaded with ogr2ogr\n  \n  \n  #########\n  # Step 2 - SQL script (pseudo code):\n  ####\n  \n  # Select proper geometry into the named table\n  psql -d $POSTGRES_DB -U $POSTGRES_USER -p $POSTGRES_PORT -h gaia-db -c \"\n  SELECT * INTO hh_red_vial_osm FROM lines;\n  DROP TABLE IF EXISTS lines;\n  DROP TABLE IF EXISTS multilinestrings;\n  DROP TABLE IF EXISTS multipolygons;\n  DROP TABLE IF EXISTS other_relations;\n  DROP TABLE IF EXISTS points;\"\n  \n  # remove duplicate points and make geometries valid:\n  UPDATE hh_red_vial_osm\n    SET geom=ST_MakeValid(ST_RemoveRepeatedPoints(geom));\n  \n  # add local geometry column and reproject existing geometries into local EPSG:\n  ALTER TABLE hh_red_vial_osm DROP COLUMN IF EXISTS geom_local CASCADE;\n  SELECT AddGeometryColumn (\n    'hh_red_vial_osm',\n    'geom_local', 5387, 'multilinestring', 2\n  );\n  UPDATE hh_red_vial_osm\n    SET geom_local=ST_MakeValid(ST_RemoveRepeatedPoints(ST_Transform(ST_Multi(geom),5387)));\n  CREATE INDEX hh_red_vial_osm_geom_local_idx\n    ON hh_red_vial_osm\n    USING GIST (geom_local);\n  NOTIFY pgrst, 'reload schema';\n  # Move into corrrect directory and create derivative directory in data package on osgeo\n  cd /data/hh_red_vial_osm/\n  mkdir -p derived\n  \n  # Create shapefile of table in derivate directory on osgeo \n  ogr2ogr -f \"ESRI Shapefile\" -overwrite derived/hh_red_vial_osm.shp PG:\"<postgres connection>\" hh_red_vial_osm\n  \n  # Create downloadable tarfile of shp in derivative directory on osgeo\n  rm -f derived/hh_red_vial_osm.shp.tar.gz\n  tar -czf derived/hh_red_vial_osm.shp.tar.gz meta_dcat_hh_red_vial_osm.json -C derived hh_red_vial_osm.shp hh_red_vial_osm.prj hh_red_vial_osm.shx hh_red_vial_osm.dbf\n  \n  # Create gpkg of table in derivate directory on osgeo \n  rm -f derived/hh_red_vial_osm.gpkg\n  ogr2ogr -f GPKG -overwrite derived/hh_red_vial_osm.gpkg PG:\"<postgres connection>\" -select \"osm_id,name,highway,other_tags,geom\" hh_red_vial_osm\n  \n  # Create downloadable tarfile of gpkg in derivative directory on osgeo\n  rm -f derived/hh_red_vial_osm.gpkg.tar.gz\n  tar -czf derived/hh_red_vial_osm.gpkg.tar.gz meta_dcat_hh_red_vial_osm.json -C derived hh_red_vial_osm.gpkg\n  \n  # Create geojson of table in derivate directory on osgeo \n  rm -f derived/hh_red_vial_osm.json\n  ogr2ogr -f GeoJSON -overwrite derived/hh_red_vial_osm.json PG:\"<postgres connection>\" -select \"osm_id,name,highway,other_tags,geom\" hh_red_vial_osm\n  \n  # Create downloadable tarfile of geojson in derivative directory on osgeo\n  rm -f derived/hh_red_vial_osm.geojson.tar.gz\n  tar -czf derived/hh_red_vial_osm.geojson.tar.gz meta_dcat_hh_red_vial_osm.json -C derived hh_red_vial_osm.json\n  \n  # Move into correct directory\n  cd /data/hh_red_vial_osm/"
-        },
-        {
-          "@type": "PropertyValue",
-          "name": "processor",
-          "value": "GDSC automation (see Process Step)"
-        },
-        {
-          "@type": "PropertyValue",
-          "name": "cartography_label_field",
-          "value": "name"
-        },
-        {
-          "@type": "PropertyValue",
-          "name": "cartography_value_field",
-          "value": "osm_id"
-        },
-        {
-          "@type": "PropertyValue",
-          "name": "Spatial Reference System",
-          "value": "http://www.opengis.net/def/crs/EPSG/0/5387"
-        },
-        {
-          "@type": "PropertyValue",
-          "name": "derivatives",
-          "value": "shp geojson gpkg"
-        },
-        {
-          "@type": "PropertyValue",
-          "name": "download_method",
-          "value": "curl"
-        },
-        {
-          "@type": "PropertyValue",
-          "name": "source_file",
-          "value": "{'etl_group/file_name_group/file_name_value': 'hh_red_vial_osm'}"
-        },
-        {
-          "@type": "PropertyValue",
-          "name": "podid",
-          "value": "gaia-db"
-        },
-        {
-          "@type": "PropertyValue",
-          "name": "up",
-          "value": "true"
-        },
-        {
-          "@type": "PropertyValue",
-          "name": "derivativeUrl",
-          "value": "/data/hh_red_vial_osm/"
-        },
-        {
-          "@type": "PropertyValue",
-          "name": "etlParameters",
-          "value": "lines"
-        },
-        {
-          "@type": "PropertyValue",
-          "name": "pointOfContact",
-          "value": "{'iso_group/point_of_contact_group/contact_affiliation': 'University of Miami Libraries, Frost Institute for Data Science and Computing', 'iso_group/point_of_contact_group/contact_affiliation_identifier': 'https://ror.org/02dgjyy92', 'iso_group/point_of_contact_group/contact_affiliation_schema': 'ror', 'iso_group/point_of_contact_group/contact_affiliation_schema_uri': 'https://ror.org/', 'iso_group/point_of_contact_group/contact_email': 'tnorris@miami.edu', 'iso_group/point_of_contact_group/contact_first_name': 'Timothy', 'iso_group/point_of_contact_group/contact_identifier': 'https://orcid.org/0000-0002-0898-3027', 'iso_group/point_of_contact_group/contact_identifier_schema': 'orcid', 'iso_group/point_of_contact_group/contact_identifier_schema_uri': 'https://orcid.org/', 'iso_group/point_of_contact_group/contact_last_name': 'Norris', 'iso_group/point_of_contact_group/contact_name': 'Timothy B. Norris'}"
-        }
-      ],
-      "dct:accrualPeriodicity": "As Needed",
-      "variableMeasured": [
-        {
-          "@type": "PropertyValue",
-          "name": "osm_id",
-          "description": ""
-        },
-        {
-          "@type": "PropertyValue",
-          "name": "name",
-          "description": ""
-        },
-        {
-          "@type": "PropertyValue",
-          "name": "highway",
-          "description": ""
-        },
-        {
-          "@type": "PropertyValue",
-          "name": "other_tags",
-          "description": ""
-        }
-      ],
-      "isAccessibleForFree": false,
-      "usageInfo": [
-        "OpenStreetMap\u00ae is open data, licensed under the [Open Data Commons Open Database License](https://opendatacommons.org/licenses/odbl/) (ODbL) by the [OpenStreetMap Foundation](https://osmfoundation.org/) (OSMF).",
-        "You are free to copy, distribute, transmit and adapt our data, as long as you credit OpenStreetMap and its contributors. If you alter or build upon our data, you may distribute the result only under the same licence."
-      ],
-      "dct:provenance": "Direct from source.",
-      "additionalType": "Vector Dataset",
-      "funder": [
-        {
-          "@type": "Organization",
-          "name": "IDSC",
-          "url": "https://idsc.miami.edu"
-        },
-        {
-          "@type": "Organization",
-          "name": "Library",
-          "url": "https://www.library.miami.edu"
-        }
-      ],
-      "creativeWorkStatus": "draft",
-      "disambiguatingDescription": "The Database is licensed by the Licensor \u201cas is\u201d and without any warranty of any kind, either express, implied, or arising by statute, custom, course of dealing, or trade usage. Licensor specifically disclaims any and all implied warranties or conditions of title, non-infringement, accuracy or completeness, the presence or absence of errors, fitness for a particular purpose, merchantability, or otherwise. Some jurisdictions do not allow the exclusion of implied warranties, so this exclusion may not apply to You.\n  \n  Subject to any liability that may not be excluded or limited by law, the Licensor is not liable for, and expressly excludes, all liability for loss or damage however and whenever caused to anyone by any use under this License, whether by You or by anyone else, and whether caused by any fault on the part of the Licensor or not. This exclusion of liability includes, but is not limited to, any special, incidental, consequential, punitive, or exemplary damages such as loss of revenue, data, anticipated profits, and lost business. This exclusion applies even if the Licensor has been advised of the possibility of such damages. \n  \n  If liability may not be excluded by law, it is limited to actual and direct financial loss to the extent it is caused by proved negligence on the part of the Licensor."
+        ]
+      },
+      "termCode": "multilinestring"
     }
-  ]
+  ],
+  "additionalProperty": [
+    {
+      "@type": "PropertyValue",
+      "propertyID": "http://dbpedia.org/resource/Spatial_reference_system",
+      "value": "https://epsg.io/4326"
+    }
+  ],
+  "about": [
+    {
+      "@type": "Event",
+      "description": "Direct from source.",
+      "name": "ETL process for OSM Huayhuash Red Vial",
+      "potentialAction": {
+        "@type": "Action",
+        "name": "Pseudo Code",
+        "description": "TODO",
+        "result": {
+          "@type": "Dataset",
+          "encodingFormat": "shp",
+          "url": "https://gdsc.idsc.miami.edu/download/data/hh_red_vial_osm/?file=hh_red_vial_osm&format=shp"
+        }
+      }
+    },
+    {
+      "@type": "Event",
+      "description": "Direct from source.",
+      "name": "ETL process for OSM Huayhuash Red Vial",
+      "potentialAction": {
+        "@type": "Action",
+        "name": "curl",
+        "description": "ETL process for OSM Huayhuash Red Vial",
+        "object": {
+          "@type": "Dataset",
+          "name": "Direct from source.",
+          "producer": "OpenStreetMap contributors",
+          "url": "https://www.openstreetmap.org/"
+        },
+        "instrument": {
+          "@type": "SoftwareApplication",
+          "@id": "https://github.com/Geospatial-Digital-Special-Collections/tools",
+          "featureList": "curl",
+          "downloadUrl": "https://github.com/Geospatial-Digital-Special-Collections/tools.git"
+        },
+        "result": {
+          "@type": "Dataset",
+          "name": "OSM Huayhuash Red Vial",
+          "description": "A line feature set for the walking trails of the Cordillera Huayhuash sourced from OpenStreetMap with a query that includes roads, tracks, and other transport networks",
+          "encodingFormat": "shp",
+          "url": "https://gdsc.idsc.miami.edu/download/data/hh_red_vial_osm/?file=hh_red_vial_osm&format=shp"
+        }
+      }
+    }
+  ],
+  "variableMeasured": [
+    {
+      "@type": "PropertyValue",
+      "name": "osm_id"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "name"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "highway"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "other_tags"
+    }
+  ],
+  "distribution": [
+    "https://gdsc.idsc.miami.edu/download/data/hh_red_vial_osm/?file=hh_red_vial_osm&format=shp",
+    "https://gdsc.idsc.miami.edu/download/data/hh_red_vial_osm/?file=hh_red_vial_osm&format=geojson",
+    "https://gdsc.idsc.miami.edu/download/data/hh_red_vial_osm/?file=hh_red_vial_osm&format=gpkg"
+  ],
+  "dateModified": "2026-10-17 22:44:51",
+  "version": "2026-10-17"
 }

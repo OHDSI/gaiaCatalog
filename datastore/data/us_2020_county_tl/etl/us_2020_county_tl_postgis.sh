@@ -6,7 +6,7 @@
 # Data source: ftp://ftp2.census.gov/geo/tiger/TIGER2020/COUNTY/tl_2020_us_county.zip
 # Destination postGIS table: us_2020_county_tl
 #
-# Created by etl() on 2026-10-19 08:27:29
+# Created by etl() on 2026-10-10 20:56:09
 # Do not edit directly
 
 # set credentials from postgres defaults and secret files

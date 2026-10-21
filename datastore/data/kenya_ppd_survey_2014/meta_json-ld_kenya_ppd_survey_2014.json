@@ -1,993 +1,443 @@
 {
   "@context": {
     "@vocab": "https://schema.org/",
-    "schema": "https://schema.org/",
-    "@language": "en",
-    "dct": "http://purl.org/dc/terms/"
+    "dct": "http://purl.org/dc/terms/",
+    "qudt": "http://qudt.org/schema/qudt/",
+    "quantitykind": "http://qudt.org/vocab/quantitykind/",
+    "unit": "http://qudt.org/vocab/unit/",
+    "xsd": "http://www.w3.org/2001/XMLSchema",
+    "extendedConstraintProperty": "http://codata.org/vocab/extendedConstraintProperty",
+    "sdmx": "https://sdmx.org"
   },
-  "@graph": [
+  "@type": "Dataset",
+  "@id": "https://gdsc.idsc.miami.edu/detail/kenya_ppd_survey_2014",
+  "includedInDataCatalog": [
     {
-      "@type": "schema:Dataset",
-      "@id": "https://gdsc.idsc.miami.edu/detail/kenya_ppd_survey_2014",
-      "name": "Demographic, psychosocial and clinical factors associated with postpartum depression in Kenyan women",
-      "description": "Demographic, psychosocial and clinical factors associated with postpartum depression in Kenyan women",
-      "identifier": {
-        "@type": "PropertyValue",
-        "propertyID": "https://registry.identifiers.org/registry/doi",
-        "value": "doi:10.1186/s12888-018-1904-7",
-        "url": "https://doi.org/10.1186/s12888-018-1904-7"
-      },
-      "url": "https://doi.org/10.1186/s12888-018-1904-7",
-      "inLanguage": "en",
-      "dateModified": "not known",
-      "creator": [
-        {
-          "@type": "Role",
-          "roleName": "creator",
-          "creator": {
-            "@type": "Organization",
-            "name": "APHRC"
-          }
-        }
-      ],
-      "provider": {
-        "@type": "Organization",
-        "name": "APHRC"
-      },
-      "spatialCoverage": {
-        "@type": "Place",
-        "name": "Kenya",
-        "additionalProperty": [
+      "@type": "DataCatalog",
+      "@id": "https://gdsc.idsc.miami.edu",
+      "name": "Geospatial Digital Special Collections",
+      "url": "https://gdsc.idsc.miami.edu"
+    },
+    {
+      "@type": "DataCatalog",
+      "name": "aphrc",
+      "@id": "https://gdsc.idsc.miami.edu/?collection=aphrc",
+      "url": "https://gdsc.idsc.miami.edu/?collection=aphrc"
+    }
+  ],
+  "name": "Demographic, psychosocial and clinical factors associated with postpartum depression in Kenyan women",
+  "creator": [
+    {
+      "name": "APHRC"
+    }
+  ],
+  "url": "https://doi.org/10.1186/s12888-018-1904-7",
+  "provider": [
+    {
+      "@type": "Organization",
+      "name": "APHRC"
+    }
+  ],
+  "spatialCoverage": [
+    {
+      "@id": "https://www.geonames.org/192950",
+      "@type": "Place",
+      "name": "Kenya"
+    },
+    {
+      "@type": "Place",
+      "name": "bbox",
+      "geo": {
+        "@type": "GeoShape",
+        "polygon": "TBD"
+      }
+    }
+  ],
+  "temporalCoverage": "2014-03-15/2014-12-15",
+  "type": "Statistical Dataset",
+  "description": "Demographic, psychosocial and clinical factors associated with postpartum depression in Kenyan women",
+  "keywords": [
+    "Postpartum Depression",
+    "Maternal Health",
+    "Kenya",
+    "Risk Factors",
+    "Edinburgh Postnatal Depression Scale (EPDS)",
+    "Perinatal Depression",
+    "Urban Health"
+  ],
+  "@language": "en",
+  "measurementTechnique": [
+    {
+      "@type": "DefinedTerm",
+      "description": "GIS Data Structure for Representation",
+      "inDefinedTermSet": {
+        "@type": "DefinedTermSet",
+        "name": "dataRepresentation",
+        "hasDefinedTerm": [
           {
-            "@type": "PropertyValue",
-            "name": "geonames",
-            "value": "192950",
-            "url": "https://www.geonames.org/192950"
+            "@type": "DefinedTerm",
+            "termCode": "raster"
           },
           {
-            "@type": "PropertyValue",
-            "name": "extent",
-            "value": "TBD"
+            "@type": "DefinedTerm",
+            "termCode": "vector"
+          },
+          {
+            "@type": "DefinedTerm",
+            "termCode": "table"
           }
         ]
       },
-      "keywords": [
-        "Postpartum Depression",
-        "Maternal Health",
-        "Kenya",
-        "Risk Factors",
-        "Edinburgh Postnatal Depression Scale (EPDS)",
-        "Perinatal Depression",
-        "Urban Health"
-      ],
-      "includedInDataCatalog": [
-        {
-          "@type": "DataCatalog",
-          "@id": "https://gdsc.idsc.miami.edu",
-          "name": "Geospatial Digital Special Collections",
-          "url": "https://gdsc.idsc.miami.edu"
-        },
-        {
-          "@type": "DataCatalog",
-          "name": "aphrc",
-          "@id": "https://gdsc.idsc.miami.edu/?collection=aphrc",
-          "url": "https://gdsc.idsc.miami.edu/?collection=aphrc"
-        }
-      ],
-      "measurementTechnique": [
-        {
-          "@type": "DefinedTerm",
-          "name": "GIS Data Structure",
-          "termCode": "table",
-          "inDefinedTermSet": {
-            "@type": "DefinedTermSet",
-            "name": "dataRepresentation",
-            "url": "https://gdsc.idsc.miami.edu/vocab/dataRepresentation"
-          }
-        },
-        {
-          "@type": "DefinedTerm",
-          "name": "Data Processing Level",
-          "termCode": "observed",
-          "inDefinedTermSet": {
-            "@type": "DefinedTermSet",
-            "name": "dataProcessingLevel",
-            "url": "https://gdsc.idsc.miami.edu/vocab/dataProcessingLevel"
-          }
-        }
-      ],
-      "distribution": [
-        {
-          "@type": "DataDownload",
-          "name": "Source distribution",
-          "contentUrl": "local file",
-          "encodingFormat": "text/csv"
-        }
-      ],
-      "additionalProperty": [
-        {
-          "@type": "PropertyValue",
-          "name": "postgis_table",
-          "value": "kenya_ppd_survey_2014"
-        },
-        {
-          "@type": "PropertyValue",
-          "name": "kobo_record_id",
-          "value": "242"
-        },
-        {
-          "@type": "PropertyValue",
-          "name": "process_step",
-          "value": "#########\n  # GDSC ETL is performed in two steps: shell script to ETL data into postgres\n  # and then additional transformations with SQL in postGIS (if needed).\n  ####\n  \n  #########\n  # Step 1 - bash script (pseudo code)\n  ####\n  \n  # create directory structure and move into it\n  mkdir -p /data/kenya_ppd_survey_2014/download -p /data/kenya_ppd_survey_2014/etl\n  chmod -R 777 /data/kenya_ppd_survey_2014\n  cd /data/kenya_ppd_survey_2014\n  \n  # set update flag based on last update and update frequency\n  do_update=0 if date() < last_update + update_frequency else do_update = 1\n  \n  # remove spaces, periods, and leading numerical digits in column headers (if needed)\n    if (head -n 1 download/kenya_ppd_survey_2014.csv | grep -qE '\\s|\\.|\\\"[0-9]'); then\n      sed -i '1s/ /_/g; 1s/\\.//g; 1s/\\\"\\([0-9]\\)/\\\"n\\1/g' download/kenya_ppd_survey_2014.csv 2>&1\n    fi\n  \n  # load into postGIS with:\n  ogr2ogr -lco GEOMETRY_NAME=geom -f PostgreSQL PG:\"<postgres connection>\" download/kenya_ppd_survey_2014.csv -nln kenya_ppd_survey_2014\n  echo success: kenya_ppd_survey_2014.csv loaded with ogr2ogr"
-        },
-        {
-          "@type": "PropertyValue",
-          "name": "processor",
-          "value": "GDSC automation (see Process Step)"
-        },
-        {
-          "@type": "PropertyValue",
-          "name": "download_method",
-          "value": "local"
-        },
-        {
-          "@type": "PropertyValue",
-          "name": "source_file",
-          "value": "{'etl_group/file_name_group/file_name_value': 'kenya_ppd_survey_2014'}"
-        },
-        {
-          "@type": "PropertyValue",
-          "name": "timePeriodStart",
-          "value": "2014-03-15"
-        },
-        {
-          "@type": "PropertyValue",
-          "name": "timePeriodEnd",
-          "value": "2014-12-15"
-        },
-        {
-          "@type": "PropertyValue",
-          "name": "podid",
-          "value": "gaia-db"
-        },
-        {
-          "@type": "PropertyValue",
-          "name": "up",
-          "value": "false"
-        },
-        {
-          "@type": "PropertyValue",
-          "name": "derivativeUrl",
-          "value": "/data/kenya_ppd_survey_2014/"
-        },
-        {
-          "@type": "PropertyValue",
-          "name": "pointOfContact",
-          "value": "{'iso_group/point_of_contact_group/contact_affiliation': 'University of Miami Libraries, Frost Institute for Data Science and Computing', 'iso_group/point_of_contact_group/contact_affiliation_identifier': 'https://ror.org/02dgjyy92', 'iso_group/point_of_contact_group/contact_affiliation_schema': 'ror', 'iso_group/point_of_contact_group/contact_affiliation_schema_uri': 'https://ror.org/', 'iso_group/point_of_contact_group/contact_email': 'tnorris@miami.edu', 'iso_group/point_of_contact_group/contact_first_name': 'Timothy', 'iso_group/point_of_contact_group/contact_identifier': 'https://orcid.org/0000-0002-0898-3027', 'iso_group/point_of_contact_group/contact_identifier_schema': 'orcid', 'iso_group/point_of_contact_group/contact_identifier_schema_uri': 'https://orcid.org/', 'iso_group/point_of_contact_group/contact_last_name': 'Norris', 'iso_group/point_of_contact_group/contact_name': 'Timothy B. Norris'}"
-        }
-      ],
-      "dct:accrualPeriodicity": "As Needed",
-      "variableMeasured": [
-        {
-          "@type": "PropertyValue",
-          "name": "fact_id",
-          "description": "Primary key for each observation row in the fact table",
-          "qudt:dataType": "xsd:integer",
-          "sourceOrganization": {
-            "@type": "Organization",
-            "name": "longitudinal_population_study_fact"
-          },
-          "identifier": {
-            "@type": "PropertyValue",
-            "propertyID": "https://gdsc.idsc.miami.edu/terms/gaia-attribute-id",
-            "value": "wave 1"
-          },
-          "additionalProperty": [
-            {
-              "@type": "PropertyValue",
-              "name": "temporal_interval",
-              "value": "2008-02-15/2008-12-15"
-            }
-          ]
-        },
-        {
-          "@type": "PropertyValue",
-          "name": "individual_id",
-          "description": "Unique identifier for an individual participant",
-          "qudt:dataType": "xsd:integer",
-          "sourceOrganization": {
-            "@type": "Organization",
-            "name": "individual"
-          },
-          "identifier": {
-            "@type": "PropertyValue",
-            "propertyID": "https://gdsc.idsc.miami.edu/terms/gaia-attribute-id",
-            "value": "wave 1"
-          },
-          "additionalProperty": [
-            {
-              "@type": "PropertyValue",
-              "name": "temporal_interval",
-              "value": "2008-02-15/2008-12-15"
-            }
-          ]
-        },
-        {
-          "@type": "PropertyValue",
-          "name": "interview_id",
-          "description": "Unique identifier for an interview",
-          "qudt:dataType": "xsd:integer",
-          "sourceOrganization": {
-            "@type": "Organization",
-            "name": "interview"
-          },
-          "identifier": {
-            "@type": "PropertyValue",
-            "propertyID": "https://gdsc.idsc.miami.edu/terms/gaia-attribute-id",
-            "value": "wave 1"
-          },
-          "additionalProperty": [
-            {
-              "@type": "PropertyValue",
-              "name": "temporal_interval",
-              "value": "2008-02-15/2008-12-15"
-            }
-          ]
-        },
-        {
-          "@type": "PropertyValue",
-          "name": "resident_episode_id",
-          "description": "Unique identifier for a residency episode (person/household at a location within a wave)",
-          "qudt:dataType": "xsd:integer",
-          "sourceOrganization": {
-            "@type": "Organization",
-            "name": "resident_episode"
-          },
-          "additionalProperty": [
-            {
-              "@type": "PropertyValue",
-              "name": "temporal_interval",
-              "value": "2008-02-15/2008-12-15"
-            }
-          ]
-        },
-        {
-          "@type": "PropertyValue",
-          "name": "population_study_id",
-          "description": "Unique identifier for each population study",
-          "qudt:dataType": "xsd:integer",
-          "sourceOrganization": {
-            "@type": "Organization",
-            "name": "population study"
-          },
-          "identifier": {
-            "@type": "PropertyValue",
-            "propertyID": "https://gdsc.idsc.miami.edu/terms/gaia-attribute-id",
-            "value": "wave 1"
-          },
-          "additionalProperty": [
-            {
-              "@type": "PropertyValue",
-              "name": "temporal_interval",
-              "value": "2008-02-15/2008-12-15"
-            }
-          ]
-        },
-        {
-          "@type": "PropertyValue",
-          "name": "instrument_id",
-          "description": "Unique identifier for each instrument (questionnaire/scale/form)",
-          "qudt:dataType": "xsd:integer",
-          "sourceOrganization": {
-            "@type": "Organization",
-            "name": "instrument"
-          },
-          "identifier": {
-            "@type": "PropertyValue",
-            "propertyID": "https://gdsc.idsc.miami.edu/terms/gaia-attribute-id",
-            "value": "wave 1"
-          },
-          "additionalProperty": [
-            {
-              "@type": "PropertyValue",
-              "name": "temporal_interval",
-              "value": "2008-02-15/2008-12-15"
-            }
-          ]
-        },
-        {
-          "@type": "PropertyValue",
-          "name": "instrument_item_id",
-          "description": "Unique identifier for each item (question) in an instrument",
-          "qudt:dataType": "xsd:integer",
-          "sourceOrganization": {
-            "@type": "Organization",
-            "name": "instrument_item"
-          },
-          "identifier": {
-            "@type": "PropertyValue",
-            "propertyID": "https://gdsc.idsc.miami.edu/terms/gaia-attribute-id",
-            "value": "wave 1"
-          },
-          "additionalProperty": [
-            {
-              "@type": "PropertyValue",
-              "name": "temporal_interval",
-              "value": "2008-02-15/2008-12-15"
-            }
-          ]
-        },
-        {
-          "@type": "PropertyValue",
-          "name": "concept_id",
-          "description": "The concept id of the answer to a question",
-          "qudt:dataType": "xsd:integer",
-          "sourceOrganization": {
-            "@type": "Organization",
-            "name": "concept"
-          },
-          "additionalProperty": [
-            {
-              "@type": "PropertyValue",
-              "name": "temporal_interval",
-              "value": "2008-02-15/2008-12-15"
-            }
-          ]
-        },
-        {
-          "@type": "PropertyValue",
-          "name": "value_type_concept_id",
-          "description": "The concept id of the question",
-          "qudt:dataType": "xsd:integer",
-          "sourceOrganization": {
-            "@type": "Organization",
-            "name": "concept"
-          },
-          "identifier": {
-            "@type": "PropertyValue",
-            "propertyID": "https://gdsc.idsc.miami.edu/terms/gaia-attribute-id",
-            "value": "wave 1"
-          },
-          "additionalProperty": [
-            {
-              "@type": "PropertyValue",
-              "name": "temporal_interval",
-              "value": "2008-02-15/2008-12-15"
-            }
-          ]
-        },
-        {
-          "@type": "PropertyValue",
-          "name": "value_as_char",
-          "description": "The actual answer of a question",
-          "qudt:dataType": "xsd:string",
-          "sourceOrganization": {
-            "@type": "Organization",
-            "name": "concept"
-          },
-          "additionalProperty": [
-            {
-              "@type": "PropertyValue",
-              "name": "temporal_interval",
-              "value": "2008-02-15/2008-12-15"
-            }
-          ]
-        },
-        {
-          "@type": "PropertyValue",
-          "name": "value_as_num",
-          "description": "The actual answer of a question",
-          "qudt:dataType": "xsd:integer",
-          "sourceOrganization": {
-            "@type": "Organization",
-            "name": "concept"
-          },
-          "identifier": {
-            "@type": "PropertyValue",
-            "propertyID": "https://gdsc.idsc.miami.edu/terms/gaia-attribute-id",
-            "value": "wave 1"
-          },
-          "additionalProperty": [
-            {
-              "@type": "PropertyValue",
-              "name": "temporal_interval",
-              "value": "2008-02-15/2008-12-15"
-            }
-          ]
-        },
-        {
-          "@type": "PropertyValue",
-          "name": "value_as_concept",
-          "description": "The inspire concept id of the answer to a question",
-          "qudt:dataType": "xsd:integer",
-          "sourceOrganization": {
-            "@type": "Organization",
-            "name": "concept"
-          },
-          "identifier": {
-            "@type": "PropertyValue",
-            "propertyID": "https://gdsc.idsc.miami.edu/terms/gaia-attribute-id",
-            "value": "wave 1"
-          },
-          "additionalProperty": [
-            {
-              "@type": "PropertyValue",
-              "name": "temporal_interval",
-              "value": "2008-02-15/2008-12-15"
-            }
-          ]
-        },
-        {
-          "@type": "PropertyValue",
-          "name": "individual_demographics_id",
-          "description": "Unique ID of the an individual demographic",
-          "qudt:dataType": "xsd:integer",
-          "sourceOrganization": {
-            "@type": "Organization",
-            "name": "individual demographics"
-          },
-          "identifier": {
-            "@type": "PropertyValue",
-            "propertyID": "https://gdsc.idsc.miami.edu/terms/gaia-attribute-id",
-            "value": "wave 1"
-          },
-          "additionalProperty": [
-            {
-              "@type": "PropertyValue",
-              "name": "temporal_interval",
-              "value": "2008-02-15/2008-12-15"
-            }
-          ]
-        },
-        {
-          "@type": "PropertyValue",
-          "name": "individual_concept_id",
-          "description": "individual demographics concepts (marital status, level of education,etc.)",
-          "qudt:dataType": "xsd:integer",
-          "sourceOrganization": {
-            "@type": "Organization",
-            "name": "individual demographics"
-          },
-          "identifier": {
-            "@type": "PropertyValue",
-            "propertyID": "https://gdsc.idsc.miami.edu/terms/gaia-attribute-id",
-            "value": "wave 1"
-          },
-          "additionalProperty": [
-            {
-              "@type": "PropertyValue",
-              "name": "temporal_interval",
-              "value": "2008-02-15/2008-12-15"
-            }
-          ]
-        },
-        {
-          "@type": "PropertyValue",
-          "name": "individual_concept_id_text",
-          "description": "Text label for individual demographics",
-          "qudt:dataType": "xsd:string",
-          "sourceOrganization": {
-            "@type": "Organization",
-            "name": "individual_demographics"
-          },
-          "additionalProperty": [
-            {
-              "@type": "PropertyValue",
-              "name": "temporal_interval",
-              "value": "2008-02-15/2008-12-15"
-            }
-          ]
-        },
-        {
-          "@type": "PropertyValue",
-          "name": "household_id",
-          "description": "Unique ID of the household",
-          "qudt:dataType": "xsd:integer",
-          "sourceOrganization": {
-            "@type": "Organization",
-            "name": "household"
-          },
-          "identifier": {
-            "@type": "PropertyValue",
-            "propertyID": "https://gdsc.idsc.miami.edu/terms/gaia-attribute-id",
-            "value": "wave 1"
-          },
-          "additionalProperty": [
-            {
-              "@type": "PropertyValue",
-              "name": "temporal_interval",
-              "value": "2008-02-15/2008-12-15"
-            }
-          ]
-        },
-        {
-          "@type": "PropertyValue",
-          "name": "household_characteristics_concept_id",
-          "description": "Household characteristic concepts (WIQ, family size,etc.)",
-          "qudt:dataType": "xsd:integer",
-          "sourceOrganization": {
-            "@type": "Organization",
-            "name": "household_characteristics"
-          },
-          "identifier": {
-            "@type": "PropertyValue",
-            "propertyID": "https://gdsc.idsc.miami.edu/terms/gaia-attribute-id",
-            "value": "wave 1"
-          },
-          "additionalProperty": [
-            {
-              "@type": "PropertyValue",
-              "name": "temporal_interval",
-              "value": "2008-02-15/2008-12-15"
-            }
-          ]
-        },
-        {
-          "@type": "PropertyValue",
-          "name": "household_characteristics_concept_text",
-          "description": "Text label for household characteristic",
-          "qudt:dataType": "xsd:string",
-          "sourceOrganization": {
-            "@type": "Organization",
-            "name": "household_characteristics"
-          },
-          "identifier": {
-            "@type": "PropertyValue",
-            "propertyID": "https://gdsc.idsc.miami.edu/terms/gaia-attribute-id",
-            "value": "wave 1"
-          },
-          "additionalProperty": [
-            {
-              "@type": "PropertyValue",
-              "name": "temporal_interval",
-              "value": "2008-02-15/2008-12-15"
-            }
-          ]
-        },
-        {
-          "@type": "PropertyValue",
-          "name": "interview_id",
-          "description": "Unique identifier for an interview",
-          "qudt:dataType": "xsd:integer",
-          "sourceOrganization": {
-            "@type": "Organization",
-            "name": "interview"
-          },
-          "identifier": {
-            "@type": "PropertyValue",
-            "propertyID": "https://gdsc.idsc.miami.edu/terms/gaia-attribute-id",
-            "value": "wave 2"
-          },
-          "additionalProperty": [
-            {
-              "@type": "PropertyValue",
-              "name": "temporal_interval",
-              "value": "2010-05-15/2011-09-15"
-            }
-          ]
-        },
-        {
-          "@type": "PropertyValue",
-          "name": "resident_episode_id",
-          "description": "Unique identifier for a residency episode",
-          "qudt:dataType": "xsd:integer",
-          "sourceOrganization": {
-            "@type": "Organization",
-            "name": "resident_episode"
-          },
-          "identifier": {
-            "@type": "PropertyValue",
-            "propertyID": "https://gdsc.idsc.miami.edu/terms/gaia-attribute-id",
-            "value": "wave 2"
-          },
-          "additionalProperty": [
-            {
-              "@type": "PropertyValue",
-              "name": "temporal_interval",
-              "value": "2010-05-15/2011-09-15"
-            }
-          ]
-        },
-        {
-          "@type": "PropertyValue",
-          "name": "value_as_char",
-          "description": "The actual answer of a question",
-          "qudt:dataType": "xsd:string",
-          "sourceOrganization": {
-            "@type": "Organization",
-            "name": "concept"
-          },
-          "identifier": {
-            "@type": "PropertyValue",
-            "propertyID": "https://gdsc.idsc.miami.edu/terms/gaia-attribute-id",
-            "value": "wave 2"
-          },
-          "additionalProperty": [
-            {
-              "@type": "PropertyValue",
-              "name": "temporal_interval",
-              "value": "2010-05-15/2011-09-15"
-            }
-          ]
-        },
-        {
-          "@type": "PropertyValue",
-          "name": "value_as_num",
-          "description": "The actual answer of a question",
-          "qudt:dataType": "xsd:integer",
-          "sourceOrganization": {
-            "@type": "Organization",
-            "name": "concept"
-          },
-          "identifier": {
-            "@type": "PropertyValue",
-            "propertyID": "https://gdsc.idsc.miami.edu/terms/gaia-attribute-id",
-            "value": "wave 2"
-          },
-          "additionalProperty": [
-            {
-              "@type": "PropertyValue",
-              "name": "temporal_interval",
-              "value": "2010-05-15/2011-09-15"
-            }
-          ]
-        },
-        {
-          "@type": "PropertyValue",
-          "name": "value_as_concept",
-          "description": "The inspire concept id of the answer to a question (Wave 2)",
-          "qudt:dataType": "xsd:integer",
-          "sourceOrganization": {
-            "@type": "Organization",
-            "name": "concept"
-          },
-          "additionalProperty": [
-            {
-              "@type": "PropertyValue",
-              "name": "temporal_interval",
-              "value": "2010-05-15/2011-09-15"
-            }
-          ]
-        },
-        {
-          "@type": "PropertyValue",
-          "name": "household_characteristics_concept_text",
-          "description": "Text label for household characteristic",
-          "qudt:dataType": "xsd:string",
-          "sourceOrganization": {
-            "@type": "Organization",
-            "name": "household_characteristics"
-          },
-          "identifier": {
-            "@type": "PropertyValue",
-            "propertyID": "https://gdsc.idsc.miami.edu/terms/gaia-attribute-id",
-            "value": "wave 2"
-          },
-          "additionalProperty": [
-            {
-              "@type": "PropertyValue",
-              "name": "temporal_interval",
-              "value": "2010-05-15/2011-09-15"
-            }
-          ]
-        },
-        {
-          "@type": "PropertyValue",
-          "name": "household_characteristics_concept_id",
-          "description": "Household characteristic concepts",
-          "qudt:dataType": "xsd:integer",
-          "sourceOrganization": {
-            "@type": "Organization",
-            "name": "household_characteristics"
-          },
-          "identifier": {
-            "@type": "PropertyValue",
-            "propertyID": "https://gdsc.idsc.miami.edu/terms/gaia-attribute-id",
-            "value": "wave 2"
-          },
-          "additionalProperty": [
-            {
-              "@type": "PropertyValue",
-              "name": "temporal_interval",
-              "value": "2010-05-15/2011-09-15"
-            }
-          ]
-        },
-        {
-          "@type": "PropertyValue",
-          "name": "individual_concept_id_text",
-          "description": "Text label for individual demographics",
-          "qudt:dataType": "xsd:string",
-          "sourceOrganization": {
-            "@type": "Organization",
-            "name": "individual_demographics"
-          },
-          "identifier": {
-            "@type": "PropertyValue",
-            "propertyID": "https://gdsc.idsc.miami.edu/terms/gaia-attribute-id",
-            "value": "wave 2"
-          },
-          "additionalProperty": [
-            {
-              "@type": "PropertyValue",
-              "name": "temporal_interval",
-              "value": "2010-05-15/2011-09-15"
-            }
-          ]
-        },
-        {
-          "@type": "PropertyValue",
-          "name": "individual_concept_id",
-          "description": "Individual demographics concepts",
-          "qudt:dataType": "xsd:integer",
-          "sourceOrganization": {
-            "@type": "Organization",
-            "name": "individual_demographics"
-          },
-          "identifier": {
-            "@type": "PropertyValue",
-            "propertyID": "https://gdsc.idsc.miami.edu/terms/gaia-attribute-id",
-            "value": "wave 2"
-          },
-          "additionalProperty": [
-            {
-              "@type": "PropertyValue",
-              "name": "temporal_interval",
-              "value": "2010-05-15/2011-09-15"
-            }
-          ]
-        },
-        {
-          "@type": "PropertyValue",
-          "name": "concept_id",
-          "description": "The concept id of the answer to a question",
-          "qudt:dataType": "xsd:integer",
-          "sourceOrganization": {
-            "@type": "Organization",
-            "name": "concept"
-          },
-          "identifier": {
-            "@type": "PropertyValue",
-            "propertyID": "https://gdsc.idsc.miami.edu/terms/gaia-attribute-id",
-            "value": "wave 2"
-          },
-          "additionalProperty": [
-            {
-              "@type": "PropertyValue",
-              "name": "temporal_interval",
-              "value": "2010-05-15/2011-09-15"
-            }
-          ]
-        },
-        {
-          "@type": "PropertyValue",
-          "name": "interview_id",
-          "description": "Unique identifier for an interview",
-          "qudt:dataType": "xsd:integer",
-          "sourceOrganization": {
-            "@type": "Organization",
-            "name": "interview"
-          },
-          "identifier": {
-            "@type": "PropertyValue",
-            "propertyID": "https://gdsc.idsc.miami.edu/terms/gaia-attribute-id",
-            "value": "wave 3"
-          },
-          "additionalProperty": [
-            {
-              "@type": "PropertyValue",
-              "name": "temporal_interval",
-              "value": "2012-05-15/2012-12-15"
-            }
-          ]
-        },
-        {
-          "@type": "PropertyValue",
-          "name": "resident_episode_id",
-          "description": "Unique identifier for a residency episode",
-          "qudt:dataType": "xsd:integer",
-          "sourceOrganization": {
-            "@type": "Organization",
-            "name": "resident_episode"
-          },
-          "identifier": {
-            "@type": "PropertyValue",
-            "propertyID": "https://gdsc.idsc.miami.edu/terms/gaia-attribute-id",
-            "value": "wave 3"
-          },
-          "additionalProperty": [
-            {
-              "@type": "PropertyValue",
-              "name": "temporal_interval",
-              "value": "2012-05-15/2012-12-15"
-            }
-          ]
-        },
-        {
-          "@type": "PropertyValue",
-          "name": "value_as_char",
-          "description": "The actual answer of a question",
-          "qudt:dataType": "xsd:string",
-          "sourceOrganization": {
-            "@type": "Organization",
-            "name": "concept"
-          },
-          "identifier": {
-            "@type": "PropertyValue",
-            "propertyID": "https://gdsc.idsc.miami.edu/terms/gaia-attribute-id",
-            "value": "wave 3"
-          },
-          "additionalProperty": [
-            {
-              "@type": "PropertyValue",
-              "name": "temporal_interval",
-              "value": "2012-05-15/2012-12-15"
-            }
-          ]
-        },
-        {
-          "@type": "PropertyValue",
-          "name": "value_as_num",
-          "description": "The actual answer of a question",
-          "qudt:dataType": "xsd:integer",
-          "sourceOrganization": {
-            "@type": "Organization",
-            "name": "concept"
-          },
-          "identifier": {
-            "@type": "PropertyValue",
-            "propertyID": "https://gdsc.idsc.miami.edu/terms/gaia-attribute-id",
-            "value": "wave 3"
-          },
-          "additionalProperty": [
-            {
-              "@type": "PropertyValue",
-              "name": "temporal_interval",
-              "value": "2012-05-15/2012-12-15"
-            }
-          ]
-        },
-        {
-          "@type": "PropertyValue",
-          "name": "value_as_concept",
-          "description": "The inspire concept id of the answer to a question",
-          "qudt:dataType": "xsd:integer",
-          "sourceOrganization": {
-            "@type": "Organization",
-            "name": "concept"
-          },
-          "identifier": {
-            "@type": "PropertyValue",
-            "propertyID": "https://gdsc.idsc.miami.edu/terms/gaia-attribute-id",
-            "value": "wave 3"
-          },
-          "additionalProperty": [
-            {
-              "@type": "PropertyValue",
-              "name": "temporal_interval",
-              "value": "2012-05-15/2012-12-15"
-            }
-          ]
-        },
-        {
-          "@type": "PropertyValue",
-          "name": "household_characteristics_concept_text",
-          "description": "Text label for household characteristic ",
-          "qudt:dataType": "xsd:string",
-          "sourceOrganization": {
-            "@type": "Organization",
-            "name": "household_characteristics"
-          },
-          "identifier": {
-            "@type": "PropertyValue",
-            "propertyID": "https://gdsc.idsc.miami.edu/terms/gaia-attribute-id",
-            "value": "wave 3"
-          },
-          "additionalProperty": [
-            {
-              "@type": "PropertyValue",
-              "name": "temporal_interval",
-              "value": "2012-05-15/2012-12-15"
-            }
-          ]
-        },
-        {
-          "@type": "PropertyValue",
-          "name": "household_characteristics_concept_id",
-          "description": "Household characteristic concepts",
-          "qudt:dataType": "xsd:integer",
-          "sourceOrganization": {
-            "@type": "Organization",
-            "name": "household_characteristics"
-          },
-          "identifier": {
-            "@type": "PropertyValue",
-            "propertyID": "https://gdsc.idsc.miami.edu/terms/gaia-attribute-id",
-            "value": "wave 3"
-          },
-          "additionalProperty": [
-            {
-              "@type": "PropertyValue",
-              "name": "temporal_interval",
-              "value": "2012-05-15/2012-12-15"
-            }
-          ]
-        },
-        {
-          "@type": "PropertyValue",
-          "name": "individual_concept_id_text",
-          "description": "Text label for individual demographics",
-          "qudt:dataType": "xsd:string",
-          "sourceOrganization": {
-            "@type": "Organization",
-            "name": "individual_demographics"
-          },
-          "identifier": {
-            "@type": "PropertyValue",
-            "propertyID": "https://gdsc.idsc.miami.edu/terms/gaia-attribute-id",
-            "value": "wave 3"
-          },
-          "additionalProperty": [
-            {
-              "@type": "PropertyValue",
-              "name": "temporal_interval",
-              "value": "2012-05-15/2012-12-15"
-            }
-          ]
-        },
-        {
-          "@type": "PropertyValue",
-          "name": "individual_concept_id",
-          "description": "Individual demographics concepts",
-          "qudt:dataType": "xsd:integer",
-          "sourceOrganization": {
-            "@type": "Organization",
-            "name": "individual_demographics"
-          },
-          "identifier": {
-            "@type": "PropertyValue",
-            "propertyID": "https://gdsc.idsc.miami.edu/terms/gaia-attribute-id",
-            "value": "wave 3"
-          },
-          "additionalProperty": [
-            {
-              "@type": "PropertyValue",
-              "name": "temporal_interval",
-              "value": "2012-05-15/2012-12-15"
-            }
-          ]
-        },
-        {
-          "@type": "PropertyValue",
-          "name": "concept_id",
-          "description": "The concept id of the answer to a question",
-          "qudt:dataType": "xsd:integer",
-          "sourceOrganization": {
-            "@type": "Organization",
-            "name": "concept"
-          },
-          "identifier": {
-            "@type": "PropertyValue",
-            "propertyID": "https://gdsc.idsc.miami.edu/terms/gaia-attribute-id",
-            "value": "wave 3"
-          },
-          "additionalProperty": [
-            {
-              "@type": "PropertyValue",
-              "name": "temporal_interval",
-              "value": "2012-05-15/2012-12-15"
-            }
-          ]
-        }
-      ],
-      "temporalCoverage": "2008-02-15/2012-12-15",
-      "isAccessibleForFree": false,
-      "usageInfo": [
-        "Controlled access author permission required",
-        "This data is available on request"
-      ],
-      "dct:provenance": " direct from source",
-      "additionalType": "Statistical Dataset"
+      "termCode": "table"
     }
-  ]
+  ],
+  "about": [
+    {
+      "@type": "Event",
+      "description": " direct from source",
+      "name": "ETL process for Demographic, psychosocial and clinical factors associated with postpartum depression in Kenyan women",
+      "potentialAction": {
+        "@type": "Action",
+        "name": "Pseudo Code",
+        "description": "TODO"
+      }
+    },
+    {
+      "@type": "Event",
+      "description": " direct from source",
+      "name": "ETL process for Demographic, psychosocial and clinical factors associated with postpartum depression in Kenyan women",
+      "potentialAction": {
+        "@type": "Action",
+        "name": "local",
+        "description": "ETL process for Demographic, psychosocial and clinical factors associated with postpartum depression in Kenyan women",
+        "object": {
+          "@type": "Dataset",
+          "name": " direct from source",
+          "producer": "APHRC",
+          "url": "https://doi.org/10.1186/s12888-018-1904-7"
+        },
+        "instrument": {
+          "@type": "SoftwareApplication",
+          "@id": "https://github.com/Geospatial-Digital-Special-Collections/tools",
+          "featureList": "local",
+          "downloadUrl": "https://github.com/Geospatial-Digital-Special-Collections/tools.git"
+        },
+        "result": {
+          "@type": "Dataset",
+          "name": "Demographic, psychosocial and clinical factors associated with postpartum depression in Kenyan women",
+          "description": "Demographic, psychosocial and clinical factors associated with postpartum depression in Kenyan women",
+          "encodingFormat": "csv"
+        }
+      }
+    }
+  ],
+  "variableMeasured": [
+    {
+      "@type": "PropertyValue",
+      "name": "fact_id",
+      "description": "Primary key for each observation row in the fact table",
+      "qudt:dataType": "integer",
+      "startDate": "2008-02-15",
+      "endDate": "2008-12-15"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "individual_id",
+      "description": "Unique identifier for an individual participant",
+      "qudt:dataType": "integer",
+      "startDate": "2008-02-15",
+      "endDate": "2008-12-15"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "interview_id",
+      "description": "Unique identifier for an interview",
+      "qudt:dataType": "integer",
+      "startDate": "2008-02-15",
+      "endDate": "2008-12-15"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "resident_episode_id",
+      "description": "Unique identifier for a residency episode (person/household at a location within a wave)",
+      "qudt:dataType": "integer",
+      "startDate": "2008-02-15",
+      "endDate": "2008-12-15"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "population_study_id",
+      "description": "Unique identifier for each population study",
+      "qudt:dataType": "integer",
+      "startDate": "2008-02-15",
+      "endDate": "2008-12-15"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "instrument_id",
+      "description": "Unique identifier for each instrument (questionnaire/scale/form)",
+      "qudt:dataType": "integer",
+      "startDate": "2008-02-15",
+      "endDate": "2008-12-15"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "instrument_item_id",
+      "description": "Unique identifier for each item (question) in an instrument",
+      "qudt:dataType": "integer",
+      "startDate": "2008-02-15",
+      "endDate": "2008-12-15"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "concept_id",
+      "description": "The concept id of the answer to a question",
+      "qudt:dataType": "integer",
+      "startDate": "2008-02-15",
+      "endDate": "2008-12-15"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "value_type_concept_id",
+      "description": "The concept id of the question",
+      "qudt:dataType": "integer",
+      "startDate": "2008-02-15",
+      "endDate": "2008-12-15"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "value_as_char",
+      "description": "The actual answer of a question",
+      "qudt:dataType": "string",
+      "startDate": "2008-02-15",
+      "endDate": "2008-12-15"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "value_as_num",
+      "description": "The actual answer of a question",
+      "qudt:dataType": "integer",
+      "startDate": "2008-02-15",
+      "endDate": "2008-12-15"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "value_as_concept",
+      "description": "The inspire concept id of the answer to a question",
+      "qudt:dataType": "integer",
+      "startDate": "2008-02-15",
+      "endDate": "2008-12-15"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "individual_demographics_id",
+      "description": "Unique ID of the an individual demographic",
+      "qudt:dataType": "integer",
+      "startDate": "2008-02-15",
+      "endDate": "2008-12-15"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "individual_concept_id",
+      "description": "individual demographics concepts (marital status, level of education,etc.)",
+      "qudt:dataType": "integer",
+      "startDate": "2008-02-15",
+      "endDate": "2008-12-15"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "individual_concept_id_text",
+      "description": "Text label for individual demographics",
+      "qudt:dataType": "string",
+      "startDate": "2008-02-15",
+      "endDate": "2008-12-15"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "household_id",
+      "description": "Unique ID of the household",
+      "qudt:dataType": "integer",
+      "startDate": "2008-02-15",
+      "endDate": "2008-12-15"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "household_characteristics_concept_id",
+      "description": "Household characteristic concepts (WIQ, family size,etc.)",
+      "qudt:dataType": "integer",
+      "startDate": "2008-02-15",
+      "endDate": "2008-12-15"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "household_characteristics_concept_text",
+      "description": "Text label for household characteristic",
+      "qudt:dataType": "string",
+      "startDate": "2008-02-15",
+      "endDate": "2008-12-15"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "interview_id",
+      "description": "Unique identifier for an interview",
+      "qudt:dataType": "integer",
+      "startDate": "2010-05-15",
+      "endDate": "2011-09-15"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "resident_episode_id",
+      "description": "Unique identifier for a residency episode",
+      "qudt:dataType": "integer",
+      "startDate": "2010-05-15",
+      "endDate": "2011-09-15"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "value_as_char",
+      "description": "The actual answer of a question",
+      "qudt:dataType": "string",
+      "startDate": "2010-05-15",
+      "endDate": "2011-09-15"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "value_as_num",
+      "description": "The actual answer of a question",
+      "qudt:dataType": "integer",
+      "startDate": "2010-05-15",
+      "endDate": "2011-09-15"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "value_as_concept",
+      "description": "The inspire concept id of the answer to a question (Wave 2)",
+      "qudt:dataType": "integer",
+      "startDate": "2010-05-15",
+      "endDate": "2011-09-15"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "household_characteristics_concept_text",
+      "description": "Text label for household characteristic",
+      "qudt:dataType": "string",
+      "startDate": "2010-05-15",
+      "endDate": "2011-09-15"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "household_characteristics_concept_id",
+      "description": "Household characteristic concepts",
+      "qudt:dataType": "integer",
+      "startDate": "2010-05-15",
+      "endDate": "2011-09-15"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "individual_concept_id_text",
+      "description": "Text label for individual demographics",
+      "qudt:dataType": "string",
+      "startDate": "2010-05-15",
+      "endDate": "2011-09-15"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "individual_concept_id",
+      "description": "Individual demographics concepts",
+      "qudt:dataType": "integer",
+      "startDate": "2010-05-15",
+      "endDate": "2011-09-15"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "concept_id",
+      "description": "The concept id of the answer to a question",
+      "qudt:dataType": "integer",
+      "startDate": "2010-05-15",
+      "endDate": "2011-09-15"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "interview_id",
+      "description": "Unique identifier for an interview",
+      "qudt:dataType": "integer",
+      "startDate": "2012-05-15",
+      "endDate": "2012-12-15"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "resident_episode_id",
+      "description": "Unique identifier for a residency episode",
+      "qudt:dataType": "integer",
+      "startDate": "2012-05-15",
+      "endDate": "2012-12-15"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "value_as_char",
+      "description": "The actual answer of a question",
+      "qudt:dataType": "string",
+      "startDate": "2012-05-15",
+      "endDate": "2012-12-15"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "value_as_num",
+      "description": "The actual answer of a question",
+      "qudt:dataType": "integer",
+      "startDate": "2012-05-15",
+      "endDate": "2012-12-15"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "value_as_concept",
+      "description": "The inspire concept id of the answer to a question",
+      "qudt:dataType": "integer",
+      "startDate": "2012-05-15",
+      "endDate": "2012-12-15"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "household_characteristics_concept_text",
+      "description": "Text label for household characteristic ",
+      "qudt:dataType": "string",
+      "startDate": "2012-05-15",
+      "endDate": "2012-12-15"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "household_characteristics_concept_id",
+      "description": "Household characteristic concepts",
+      "qudt:dataType": "integer",
+      "startDate": "2012-05-15",
+      "endDate": "2012-12-15"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "individual_concept_id_text",
+      "description": "Text label for individual demographics",
+      "qudt:dataType": "string",
+      "startDate": "2012-05-15",
+      "endDate": "2012-12-15"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "individual_concept_id",
+      "description": "Individual demographics concepts",
+      "qudt:dataType": "integer",
+      "startDate": "2012-05-15",
+      "endDate": "2012-12-15"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "concept_id",
+      "description": "The concept id of the answer to a question",
+      "qudt:dataType": "integer",
+      "startDate": "2012-05-15",
+      "endDate": "2012-12-15"
+    }
+  ],
+  "distribution": "/data/kenya_ppd_survey_2014/",
+  "dateModified": "not known",
+  "version": "2026-10-09"
 }

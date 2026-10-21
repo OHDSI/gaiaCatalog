@@ -6,7 +6,7 @@
 # Data source: https://svi.cdc.gov/Documents/Data/2018/db/states/Florida.zip
 # Destination postGIS table: mdc_2018_svi_tract
 #
-# Created by etl() on 2026-10-19 08:49:52
+# Created by etl() on 2026-10-09 22:51:44
 # Do not edit directly
 
 # set credentials from postgres defaults and secret files

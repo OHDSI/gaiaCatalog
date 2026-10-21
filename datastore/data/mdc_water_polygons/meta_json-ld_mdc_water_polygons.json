@@ -1,288 +1,207 @@
 {
   "@context": {
     "@vocab": "https://schema.org/",
-    "schema": "https://schema.org/",
-    "@language": "en",
-    "dct": "http://purl.org/dc/terms/"
+    "dct": "http://purl.org/dc/terms/",
+    "qudt": "http://qudt.org/schema/qudt/",
+    "quantitykind": "http://qudt.org/vocab/quantitykind/",
+    "unit": "http://qudt.org/vocab/unit/",
+    "xsd": "http://www.w3.org/2001/XMLSchema",
+    "extendedConstraintProperty": "http://codata.org/vocab/extendedConstraintProperty",
+    "sdmx": "https://sdmx.org"
   },
-  "@graph": [
+  "@type": "Dataset",
+  "@id": "https://gdsc.idsc.miami.edu/detail/mdc_water_polygons",
+  "includedInDataCatalog": [
     {
-      "@type": "schema:Dataset",
-      "@id": "https://gdsc.idsc.miami.edu/detail/mdc_water_polygons",
-      "name": "Miami-Dade Bodies of Water",
-      "description": "This feature class has been created to illustrate the water bodies within the Urban Development Boundary (UDB) and outside the UDB, approximately 938 square miles.\n  \n  A collection of vector polygon features for water bodies within the Urban Development Boundary (UDB) and outside the UDB, approximately 938 square miles. The planimetric layer for Miami-Dade County was previously digitized in 2001 by Woolpert, in 2012 by GPI Geospatial (GPI), and in 2020 by GPI. GPIs 2022 update utilized a Geodatabase provided by ITD for Miami-Dade County containing two layers to be updated: Water and Edge of Pavement. GPI used the recent set of county orthoimages, produced by Woolpert in 2022, to perform the update of the various feature classes. The feature classes were clipped into smaller blocks. Compilers made adjustments or recollected any missing features. The corresponding attributes were assigned to each separate shapefile as adjustments and new collection occurred. The shapefiles were then merged back together into a full file. Topological checks were performed to make sure the linework did not cross unexpectedly, ends dangled, or strange gaps exist in the collected features. Depending on the layer, different checks were done using the existing data layer to evaluate the completeness of the overall collection. The final layers were quality checked for formatting and file corruption before being sent to the client for review. Personnel that collected this data are either photogrammetrists trained in stereo collection or editors trained in ortho-photography based collection. Items included in the feature class WATER BODIES (Polygons) are: Water bodies and water-under-the-bridge features Definition of particular fields in the Water feature class: Water = {0,1} where 0 = Feature does not represent water; 1 = Water feature. Type = {'', 'B'} where B = Water under the bridge. Where '' marks water locations without bridges. Possible combinations of these fields are: 0,''; 1,'';1, 'B'.",
-      "url": "https://gis-mdc.opendata.arcgis.com/datasets/MDC::water-p/about",
-      "inLanguage": "en",
-      "datePublished": "2020-11-24",
-      "dateModified": "2026-10-17 22:37:14",
-      "creator": [
-        {
-          "@type": "Role",
-          "roleName": "creator",
-          "creator": {
-            "@type": "Organization",
-            "name": "Miami-Dade County Open Data Hub"
-          }
-        },
-        {
-          "@type": "Role",
-          "roleName": "creator",
-          "creator": {
-            "@type": "Organization",
-            "name": "Information Technology Department"
-          }
-        }
-      ],
-      "provider": {
-        "@type": "Organization",
-        "name": "Miami-Dade County"
-      },
-      "spatialCoverage": {
-        "@type": "Place",
-        "name": "Miami-Dade County",
-        "additionalProperty": [
+      "@type": "DataCatalog",
+      "@id": "https://gdsc.idsc.miami.edu",
+      "name": "Geospatial Digital Special Collections",
+      "url": "https://gdsc.idsc.miami.edu"
+    },
+    {
+      "@type": "DataCatalog",
+      "name": "mdc-climate-resilience",
+      "@id": "https://gdsc.idsc.miami.edu/?collection=mdc-climate-resilience",
+      "url": "https://gdsc.idsc.miami.edu/?collection=mdc-climate-resilience"
+    }
+  ],
+  "name": "Miami-Dade Bodies of Water",
+  "creator": [
+    {
+      "@type": "Organization",
+      "name": "Miami-Dade County Open Data Hub"
+    },
+    {
+      "@type": "Organization",
+      "name": "Information Technology Department"
+    }
+  ],
+  "url": "https://gis-mdc.opendata.arcgis.com/datasets/MDC::water-p/about",
+  "provider": [
+    {
+      "@type": "Organization",
+      "name": "Miami-Dade County"
+    }
+  ],
+  "spatialCoverage": [
+    {
+      "@id": "https://www.geonames.org/4164238",
+      "@type": "Place",
+      "name": "Miami-Dade County"
+    },
+    {
+      "@type": "Place",
+      "name": "bbox",
+      "geo": {
+        "@type": "GeoShape",
+        "polygon": "2891839.2926 -9008606.0344 2891839.2926 -8915320.499 2996516.889 -8915320.499 2996516.889 -9008606.0344 2891839.2926 -9008606.0344"
+      }
+    }
+  ],
+  "type": "Vector Dataset",
+  "datePublished": "2020-11-24",
+  "description": "This feature class has been created to illustrate the water bodies within the Urban Development Boundary (UDB) and outside the UDB, approximately 938 square miles.\n\nA collection of vector polygon features for water bodies within the Urban Development Boundary (UDB) and outside the UDB, approximately 938 square miles. The planimetric layer for Miami-Dade County was previously digitized in 2001 by Woolpert, in 2012 by GPI Geospatial (GPI), and in 2020 by GPI. GPIs 2022 update utilized a Geodatabase provided by ITD for Miami-Dade County containing two layers to be updated: Water and Edge of Pavement. GPI used the recent set of county orthoimages, produced by Woolpert in 2022, to perform the update of the various feature classes. The feature classes were clipped into smaller blocks. Compilers made adjustments or recollected any missing features. The corresponding attributes were assigned to each separate shapefile as adjustments and new collection occurred. The shapefiles were then merged back together into a full file. Topological checks were performed to make sure the linework did not cross unexpectedly, ends dangled, or strange gaps exist in the collected features. Depending on the layer, different checks were done using the existing data layer to evaluate the completeness of the overall collection. The final layers were quality checked for formatting and file corruption before being sent to the client for review. Personnel that collected this data are either photogrammetrists trained in stereo collection or editors trained in ortho-photography based collection. Items included in the feature class WATER BODIES (Polygons) are: Water bodies and water-under-the-bridge features Definition of particular fields in the Water feature class: Water = {0,1} where 0 = Feature does not represent water; 1 = Water feature. Type = {'', 'B'} where B = Water under the bridge. Where '' marks water locations without bridges. Possible combinations of these fields are: 0,''; 1,'';1, 'B'.",
+  "keywords": [
+    "Florida",
+    "Miami-Dade County",
+    "MDC",
+    "Environment"
+  ],
+  "@language": "en",
+  "measurementTechnique": [
+    {
+      "@type": "DefinedTerm",
+      "description": "GIS Data Structure for Representation",
+      "inDefinedTermSet": {
+        "@type": "DefinedTermSet",
+        "name": "dataRepresentation",
+        "hasDefinedTerm": [
           {
-            "@type": "PropertyValue",
-            "name": "geonames",
-            "value": "4164238",
-            "url": "https://www.geonames.org/4164238"
+            "@type": "DefinedTerm",
+            "termCode": "raster"
           },
           {
-            "@type": "PropertyValue",
-            "name": "Spatial Reference System",
-            "value": "http://www.opengis.net/def/crs/EPSG/0/4326"
+            "@type": "DefinedTerm",
+            "termCode": "vector"
           },
           {
-            "@type": "PropertyValue",
-            "name": "extent",
-            "value": "ENVELOPE(-9008606.0344,-8915320.499,2996516.889,2891839.2926)"
+            "@type": "DefinedTerm",
+            "termCode": "table"
           }
         ]
       },
-      "keywords": [
-        "Florida",
-        "Miami-Dade County",
-        "MDC",
-        "Environment"
-      ],
-      "includedInDataCatalog": [
-        {
-          "@type": "DataCatalog",
-          "@id": "https://gdsc.idsc.miami.edu",
-          "name": "Geospatial Digital Special Collections",
-          "url": "https://gdsc.idsc.miami.edu"
-        },
-        {
-          "@type": "DataCatalog",
-          "name": "mdc-climate-resilience",
-          "@id": "https://gdsc.idsc.miami.edu/?collection=mdc-climate-resilience",
-          "url": "https://gdsc.idsc.miami.edu/?collection=mdc-climate-resilience"
-        },
-        {
-          "@type": "DataCatalog",
-          "name": "mdc-health-outcomes",
-          "@id": "https://gdsc.idsc.miami.edu/?collection=mdc-health-outcomes",
-          "url": "https://gdsc.idsc.miami.edu/?collection=mdc-health-outcomes"
-        },
-        {
-          "@type": "DataCatalog",
-          "name": "mdc-sleep-outcomes",
-          "@id": "https://gdsc.idsc.miami.edu/?collection=mdc-sleep-outcomes",
-          "url": "https://gdsc.idsc.miami.edu/?collection=mdc-sleep-outcomes"
-        }
-      ],
-      "measurementTechnique": [
-        {
-          "@type": "DefinedTerm",
-          "name": "GIS Data Structure",
-          "termCode": "vector",
-          "inDefinedTermSet": {
-            "@type": "DefinedTermSet",
-            "name": "dataRepresentation",
-            "url": "https://gdsc.idsc.miami.edu/vocab/dataRepresentation"
+      "termCode": "vector"
+    },
+    {
+      "@type": "DefinedTerm",
+      "description": "GIS Vector Geometery",
+      "inDefinedTermSet": {
+        "@type": "DefinedTermSet",
+        "name": "vectorGeometry",
+        "hasDefinedTerm": [
+          {
+            "@type": "DefinedTerm",
+            "termCode": "point"
+          },
+          {
+            "@type": "DefinedTerm",
+            "termCode": "line"
+          },
+          {
+            "@type": "DefinedTerm",
+            "termCode": "polygon"
           }
-        },
-        {
-          "@type": "DefinedTerm",
-          "name": "GIS Vector Geometry",
-          "termCode": "multipolygon",
-          "inDefinedTermSet": {
-            "@type": "DefinedTermSet",
-            "name": "vectorGeometry",
-            "url": "https://gdsc.idsc.miami.edu/vocab/vectorGeometry"
-          }
-        },
-        {
-          "@type": "DefinedTerm",
-          "name": "Data Processing Level",
-          "termCode": "derived",
-          "inDefinedTermSet": {
-            "@type": "DefinedTermSet",
-            "name": "dataProcessingLevel",
-            "url": "https://gdsc.idsc.miami.edu/vocab/dataProcessingLevel"
-          }
-        }
-      ],
-      "distribution": [
-        {
-          "@type": "DataDownload",
-          "name": "Source distribution",
-          "contentUrl": "https://services.arcgis.com/8Pc9XBTAsYuxx9Ny/arcgis/rest/services/WaterP_gdb/FeatureServer/0/query?outFields=*&where=1%3D1&outSR=4326&f=geojson",
-          "encodingFormat": "application/geo+json"
-        }
-      ],
-      "additionalProperty": [
-        {
-          "@type": "PropertyValue",
-          "name": "postgis_table",
-          "value": "mdc_water_polygons"
-        },
-        {
-          "@type": "PropertyValue",
-          "name": "kobo_record_id",
-          "value": "89"
-        },
-        {
-          "@type": "PropertyValue",
-          "name": "creator_type",
-          "value": "organization"
-        },
-        {
-          "@type": "PropertyValue",
-          "name": "process_step",
-          "value": "#########\n  # GDSC ETL is performed in two steps: shell script to ETL data into postgres\n  # and then additional transformations with SQL in postGIS (if needed).\n  ####\n  \n  #########\n  # Step 1 - bash script (pseudo code)\n  ####\n  \n  # create directory structure and move into it\n  mkdir -p /data/mdc_water_polygons/download -p /data/mdc_water_polygons/etl\n  chmod -R 777 /data/mdc_water_polygons\n  cd /data/mdc_water_polygons\n  \n  # set update flag based on last update and update frequency\n  do_update=0 if date() < last_update + update_frequency else do_update = 1\n  \n  # download if update flag is set:\n  if do_update == 1 then\n  ogr2ogr -nln mdc_water_polygons download/mdc_water_polygons.geojson 'https://services.arcgis.com/8Pc9XBTAsYuxx9Ny/arcgis/rest/services/WaterP_gdb/FeatureServer/0/query?outFields=*&where=1%3D1&outSR=4326&f=geojson 2>&1'\n  \n  # load into postGIS with:\n  ogr2ogr -lco GEOMETRY_NAME=geom -f PostgreSQL PG:\"<postgres connection>\" download/mdc_water_polygons.geojson -nlt multipolygon -nln mdc_water_polygons\n  echo success: mdc_water_polygons.geojson loaded with ogr2ogr\n  \n  \n  #########\n  # Step 2 - SQL script (pseudo code):\n  ####\n  \n  # remove duplicate points and make geometries valid:\n  UPDATE mdc_water_polygons\n    SET geom=ST_MakeValid(ST_RemoveRepeatedPoints(geom));\n  \n  # add local geometry column and reproject existing geometries into local EPSG:\n  ALTER TABLE mdc_water_polygons DROP COLUMN IF EXISTS geom_local CASCADE;\n  SELECT AddGeometryColumn (\n    'mdc_water_polygons',\n    'geom_local', 2236, 'multipolygon', 2\n  );\n  UPDATE mdc_water_polygons\n    SET geom_local=ST_MakeValid(ST_RemoveRepeatedPoints(ST_Transform(ST_Multi(geom),2236)));\n  CREATE INDEX mdc_water_polygons_geom_local_idx\n    ON mdc_water_polygons\n    USING GIST (geom_local);\n  NOTIFY pgrst, 'reload schema';"
-        },
-        {
-          "@type": "PropertyValue",
-          "name": "processor",
-          "value": "GDSC automation (see Process Step)"
-        },
-        {
-          "@type": "PropertyValue",
-          "name": "cartography_label_field",
-          "value": "objectid"
-        },
-        {
-          "@type": "PropertyValue",
-          "name": "analytic_function",
-          "value": "gdsc_nearest_neighbor"
-        },
-        {
-          "@type": "PropertyValue",
-          "name": "Spatial Reference System",
-          "value": "http://www.opengis.net/def/crs/EPSG/0/2236"
-        },
-        {
-          "@type": "PropertyValue",
-          "name": "download_method",
-          "value": "esri_recursive_ogr"
-        },
-        {
-          "@type": "PropertyValue",
-          "name": "source_file",
-          "value": "{'etl_group/file_name_group/file_name_value': 'mdc_water_polygons'}"
-        },
-        {
-          "@type": "PropertyValue",
-          "name": "podid",
-          "value": "gaia-db"
-        },
-        {
-          "@type": "PropertyValue",
-          "name": "up",
-          "value": "true"
-        },
-        {
-          "@type": "PropertyValue",
-          "name": "derivativeUrl",
-          "value": "/data/mdc_water_polygons/"
-        },
-        {
-          "@type": "PropertyValue",
-          "name": "pointOfContact",
-          "value": "{'iso_group/point_of_contact_group/contact_affiliation': 'University of Miami Libraries, Frost Institute for Data Science and Computing', 'iso_group/point_of_contact_group/contact_affiliation_identifier': 'https://ror.org/02dgjyy92', 'iso_group/point_of_contact_group/contact_affiliation_schema': 'ror', 'iso_group/point_of_contact_group/contact_affiliation_schema_uri': 'https://ror.org/', 'iso_group/point_of_contact_group/contact_email': 'tnorris@miami.edu', 'iso_group/point_of_contact_group/contact_first_name': 'Timothy', 'iso_group/point_of_contact_group/contact_identifier': 'https://orcid.org/0000-0002-0898-3027', 'iso_group/point_of_contact_group/contact_identifier_schema': 'orcid', 'iso_group/point_of_contact_group/contact_identifier_schema_uri': 'https://orcid.org/', 'iso_group/point_of_contact_group/contact_last_name': 'Norris', 'iso_group/point_of_contact_group/contact_name': 'Timothy B. Norris'}"
-        }
-      ],
-      "dct:accrualPeriodicity": "As Needed",
-      "variableMeasured": [
-        {
-          "@type": "PropertyValue",
-          "name": "objectid",
-          "description": "Internal feature number",
-          "qudt:dataType": "xsd:oid",
-          "sourceOrganization": {
-            "@type": "Organization",
-            "name": "Esri"
-          }
-        },
-        {
-          "@type": "PropertyValue",
-          "name": "water",
-          "description": "Water = 0 for no water and 1 for water present",
-          "qudt:dataType": "xsd:boolean",
-          "sourceOrganization": {
-            "@type": "Organization",
-            "name": "MDC"
-          }
-        },
-        {
-          "@type": "PropertyValue",
-          "name": "type",
-          "description": "Type =\"\" for open water and 'B' for locations that water flows under structure  and is blocked from the orthos view",
-          "qudt:dataType": "xsd:string",
-          "sourceOrganization": {
-            "@type": "Organization",
-            "name": "MDC"
-          }
-        },
-        {
-          "@type": "PropertyValue",
-          "name": "last_updated",
-          "description": "Year date that feature was last revised",
-          "qudt:dataType": "xsd:int4",
-          "sourceOrganization": {
-            "@type": "Organization",
-            "name": "MDC"
-          }
-        },
-        {
-          "@type": "PropertyValue",
-          "name": "shape_area",
-          "description": "area of feature",
-          "qudt:dataType": "xsd:float",
-          "sourceOrganization": {
-            "@type": "Organization",
-            "name": "Esri"
-          }
-        },
-        {
-          "@type": "PropertyValue",
-          "name": "shape_length",
-          "description": "length of feature",
-          "qudt:dataType": "xsd:float",
-          "sourceOrganization": {
-            "@type": "Organization",
-            "name": "Esri"
-          }
-        }
-      ],
-      "isAccessibleForFree": false,
-      "dct:provenance": "direct from source",
-      "additionalType": "Vector Dataset",
-      "funder": [
-        {
-          "@type": "Organization",
-          "name": "IDSC",
-          "url": "https://idsc.miami.edu"
-        },
-        {
-          "@type": "Organization",
-          "name": "Library",
-          "url": "https://www.library.miami.edu"
-        }
-      ],
-      "creativeWorkStatus": "draft",
-      "disambiguatingDescription": "Miami-Dade County provides this data for use \"as is\". The areas depicted by this map/data are approximate, and are not accurate to surveying or engineering standards. The maps/data shown here are for illustration purposes only and are not suitable for site-specific decision making. Information found here should not be used for making financial or any other commitments. Miami-Dade County provides this information with the understanding that it is not guaranteed to be accurate, correct or complete and conclusions drawn from such information are the sole responsibility of the user. While every effort has been made to ensure the accuracy, correctness and timeliness of materials presented, Miami-Dade County assumes no responsibility for errors or omissions, even if Miami-Dade County is advised of the possibility of such damage."
+        ]
+      },
+      "termCode": "multipolygon"
     }
-  ]
+  ],
+  "additionalProperty": [
+    {
+      "@type": "PropertyValue",
+      "propertyID": "http://dbpedia.org/resource/Spatial_reference_system",
+      "value": "https://epsg.io/4326"
+    }
+  ],
+  "about": [
+    {
+      "@type": "Event",
+      "description": "direct from source",
+      "name": "ETL process for Miami-Dade Bodies of Water",
+      "potentialAction": {
+        "@type": "Action",
+        "name": "Pseudo Code",
+        "description": "TODO"
+      }
+    },
+    {
+      "@type": "Event",
+      "description": "direct from source",
+      "name": "ETL process for Miami-Dade Bodies of Water",
+      "potentialAction": {
+        "@type": "Action",
+        "name": "esri_recursive_ogr",
+        "description": "ETL process for Miami-Dade Bodies of Water",
+        "object": {
+          "@type": "Dataset",
+          "name": "direct from source",
+          "producer": "Miami-Dade County Open Data Hub",
+          "url": "https://gis-mdc.opendata.arcgis.com/datasets/MDC::water-p/about"
+        },
+        "instrument": {
+          "@type": "SoftwareApplication",
+          "@id": "https://github.com/Geospatial-Digital-Special-Collections/tools",
+          "featureList": "esri_recursive_ogr",
+          "downloadUrl": "https://github.com/Geospatial-Digital-Special-Collections/tools.git"
+        },
+        "result": {
+          "@type": "Dataset",
+          "name": "Miami-Dade Bodies of Water",
+          "description": "This feature class has been created to illustrate the water bodies within the Urban Development Boundary (UDB) and outside the UDB, approximately 938 square miles.\n\nA collection of vector polygon features for water bodies within the Urban Development Boundary (UDB) and outside the UDB, approximately 938 square miles. The planimetric layer for Miami-Dade County was previously digitized in 2001 by Woolpert, in 2012 by GPI Geospatial (GPI), and in 2020 by GPI. GPIs 2022 update utilized a Geodatabase provided by ITD for Miami-Dade County containing two layers to be updated: Water and Edge of Pavement. GPI used the recent set of county orthoimages, produced by Woolpert in 2022, to perform the update of the various feature classes. The feature classes were clipped into smaller blocks. Compilers made adjustments or recollected any missing features. The corresponding attributes were assigned to each separate shapefile as adjustments and new collection occurred. The shapefiles were then merged back together into a full file. Topological checks were performed to make sure the linework did not cross unexpectedly, ends dangled, or strange gaps exist in the collected features. Depending on the layer, different checks were done using the existing data layer to evaluate the completeness of the overall collection. The final layers were quality checked for formatting and file corruption before being sent to the client for review. Personnel that collected this data are either photogrammetrists trained in stereo collection or editors trained in ortho-photography based collection. Items included in the feature class WATER BODIES (Polygons) are: Water bodies and water-under-the-bridge features Definition of particular fields in the Water feature class: Water = {0,1} where 0 = Feature does not represent water; 1 = Water feature. Type = {'', 'B'} where B = Water under the bridge. Where '' marks water locations without bridges. Possible combinations of these fields are: 0,''; 1,'';1, 'B'.",
+          "encodingFormat": "geojson"
+        }
+      }
+    }
+  ],
+  "variableMeasured": [
+    {
+      "@type": "PropertyValue",
+      "name": "objectid",
+      "description": "Internal feature number",
+      "qudt:dataType": "oid"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "water",
+      "description": "Water = 0 for no water and 1 for water present",
+      "qudt:dataType": "boolean"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "type",
+      "description": "Type =\"\" for open water and 'B' for locations that water flows under structure  and is blocked from the orthos view",
+      "qudt:dataType": "string"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "last_updated",
+      "description": "Year date that feature was last revised",
+      "qudt:dataType": "int4"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "shape_area",
+      "description": "area of feature",
+      "qudt:dataType": "double"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "shape_length",
+      "description": "length of feature",
+      "qudt:dataType": "double"
+    }
+  ],
+  "distribution": "/data/mdc_water_polygons/",
+  "dateModified": "2026-10-17 22:37:14",
+  "version": "2026-10-17"
 }

@@ -1,373 +1,267 @@
 {
   "@context": {
     "@vocab": "https://schema.org/",
-    "schema": "https://schema.org/",
-    "@language": "en",
-    "dct": "http://purl.org/dc/terms/"
+    "dct": "http://purl.org/dc/terms/",
+    "qudt": "http://qudt.org/schema/qudt/",
+    "quantitykind": "http://qudt.org/vocab/quantitykind/",
+    "unit": "http://qudt.org/vocab/unit/",
+    "xsd": "http://www.w3.org/2001/XMLSchema",
+    "extendedConstraintProperty": "http://codata.org/vocab/extendedConstraintProperty",
+    "sdmx": "https://sdmx.org"
   },
-  "@graph": [
+  "@type": "Dataset",
+  "@id": "https://gdsc.idsc.miami.edu/detail/mdc_2021_ndvi_greenness_30m",
+  "includedInDataCatalog": [
     {
-      "@type": "schema:Dataset",
-      "@id": "https://gdsc.idsc.miami.edu/detail/mdc_2021_ndvi_greenness_30m",
-      "name": "2021 Miami-Dade NDVI",
-      "description": "Greenness measured as a recentered NDVI (Normalized Difference Vegetation Index) moved from -1:1 to 1-100.",
-      "identifier": {
-        "@type": "PropertyValue",
-        "propertyID": "https://registry.identifiers.org/registry/doi",
-        "value": "doi:10.17604/p318-6n41",
-        "url": "https://doi.org/10.17604/p318-6n41"
+      "@type": "DataCatalog",
+      "@id": "https://gdsc.idsc.miami.edu",
+      "name": "Geospatial Digital Special Collections",
+      "url": "https://gdsc.idsc.miami.edu"
+    },
+    {
+      "@type": "DataCatalog",
+      "name": "climate-change",
+      "@id": "https://gdsc.idsc.miami.edu/?collection=climate-change",
+      "url": "https://gdsc.idsc.miami.edu/?collection=climate-change"
+    }
+  ],
+  "name": "2021 Miami-Dade NDVI",
+  "creator": [
+    {
+      "@type": "Person",
+      "givenName": "Tyler",
+      "familyName": "Harrison",
+      "affiliation": {
+        "@type": "Organization",
+        "@id": "https://ror.org/02dgjyy92",
+        "identifier": "https://ror.org/02dgjyy92",
+        "name": "School of Communication, University of Miami"
       },
-      "url": "https://scholarship.miami.edu/esploro/outputs/991031655220702976",
-      "license": "odc_by",
-      "inLanguage": "en",
-      "datePublished": "2021-11-07",
-      "dateModified": "2026-10-05 21:40:39",
-      "creator": [
-        {
-          "@type": "Role",
-          "roleName": "creator",
-          "creator": {
-            "@type": "Organization",
-            "name": "Tyler Harrison",
-            "description": "School of Communication, University of Miami"
-          }
-        },
-        {
-          "@type": "Role",
-          "roleName": "creator",
-          "creator": {
-            "@type": "Organization",
-            "name": "Amy C Clement",
-            "description": "Atmospheric Sciences, Rosenstiel School, University of Miami"
-          }
-        },
-        {
-          "@type": "Role",
-          "roleName": "creator",
-          "creator": {
-            "@type": "Organization",
-            "name": "Gina L. Maranto"
-          }
-        },
-        {
-          "@type": "Role",
-          "roleName": "creator",
-          "creator": {
-            "@type": "Organization",
-            "name": "Sam Purkis"
-          }
-        },
-        {
-          "@type": "Role",
-          "roleName": "creator",
-          "creator": {
-            "@type": "Organization",
-            "name": "Joanna L. Lombard"
-          }
-        },
-        {
-          "@type": "Role",
-          "roleName": "creator",
-          "creator": {
-            "@type": "Organization",
-            "name": "Angela C. Clark-Hughes",
-            "description": "Rosenstiel School Library, University of Miami"
-          }
-        },
-        {
-          "@type": "Role",
-          "roleName": "creator",
-          "creator": {
-            "@type": "Organization",
-            "name": "Abraham K Parrish"
-          }
-        },
-        {
-          "@type": "Role",
-          "roleName": "creator",
-          "creator": {
-            "@type": "Organization",
-            "name": "Marcus B. Reamer"
-          }
-        },
-        {
-          "@type": "Role",
-          "roleName": "creator",
-          "creator": {
-            "@type": "Organization",
-            "name": "Olivia Collins"
-          }
-        },
-        {
-          "@type": "Role",
-          "roleName": "creator",
-          "creator": {
-            "@type": "Organization",
-            "name": "Caroline Lewis"
-          }
-        },
-        {
-          "@type": "Role",
-          "roleName": "creator",
-          "creator": {
-            "@type": "Organization",
-            "name": "Mayra Cruz"
-          }
-        },
-        {
-          "@type": "Role",
-          "roleName": "creator",
-          "creator": {
-            "@type": "Organization",
-            "name": "Anaruth Solace"
-          }
-        }
-      ],
-      "provider": [
-        {
-          "@type": "Organization",
-          "name": "University of Miami"
-        },
-        {
-          "@type": "Organization",
-          "name": "Otto G. Richter Library"
-        }
-      ],
-      "spatialCoverage": {
-        "@type": "Place",
-        "name": "Miami-Dade County",
-        "additionalProperty": [
+      "sameAs": "https://orcid.org/0000-0002-0635-5967",
+      "@id": "https://orcid.org/0000-0002-0635-5967",
+      "identifier": "https://orcid.org/0000-0002-0635-5967",
+      "name": "Tyler Harrison"
+    },
+    {
+      "@type": "Person",
+      "givenName": "Amy C",
+      "familyName": "Clement",
+      "affiliation": {
+        "@type": "Organization",
+        "@id": "https://ror.org/02dgjyy92",
+        "identifier": "https://ror.org/02dgjyy92",
+        "name": "Atmospheric Sciences, Rosenstiel School, University of Miami"
+      },
+      "sameAs": "https://orcid.org/0000-0002-0105-0961",
+      "@id": "https://orcid.org/0000-0002-0105-0961",
+      "identifier": "https://orcid.org/0000-0002-0105-0961",
+      "name": "Amy C Clement"
+    },
+    {
+      "@type": "Person",
+      "givenName": "Gina L.",
+      "familyName": "Maranto",
+      "name": "Gina L. Maranto"
+    },
+    {
+      "@type": "Person",
+      "givenName": "Sam",
+      "familyName": "Purkis",
+      "name": "Sam Purkis"
+    },
+    {
+      "@type": "Person",
+      "givenName": "Joanna L.",
+      "familyName": "Lombard",
+      "name": "Joanna L. Lombard"
+    },
+    {
+      "@type": "Person",
+      "givenName": "Angela C",
+      "familyName": "Clark-Hughes",
+      "affiliation": {
+        "@type": "Organization",
+        "@id": "https://ror.org/02dgjyy92",
+        "identifier": "https://ror.org/02dgjyy92",
+        "name": "Rosenstiel School Library, University of Miami"
+      },
+      "sameAs": "https://orcid.org/0000-0003-0445-5830",
+      "@id": "https://orcid.org/0000-0003-0445-5830",
+      "identifier": "https://orcid.org/0000-0003-0445-5830",
+      "name": "Angela C. Clark-Hughes"
+    },
+    {
+      "@type": "Person",
+      "givenName": "Abraham K",
+      "familyName": "Parrish",
+      "name": "Abraham K Parrish"
+    },
+    {
+      "@type": "Person",
+      "givenName": "Marcus B.",
+      "familyName": "Reamer",
+      "name": "Marcus B. Reamer"
+    },
+    {
+      "@type": "Person",
+      "givenName": "Olivia",
+      "familyName": "Collins",
+      "name": "Olivia Collins"
+    },
+    {
+      "@type": "Person",
+      "givenName": "Caroline",
+      "familyName": "Lewis",
+      "name": "Caroline Lewis"
+    },
+    {
+      "@type": "Person",
+      "givenName": "Mayra",
+      "familyName": "Cruz",
+      "name": "Mayra Cruz"
+    },
+    {
+      "@type": "Person",
+      "givenName": "Anaruth",
+      "familyName": "Solace",
+      "name": "Anaruth Solace"
+    }
+  ],
+  "url": "https://scholarship.miami.edu/esploro/outputs/991031655220702976",
+  "provider": [
+    {
+      "@type": "Organization",
+      "name": "University of Miami"
+    },
+    {
+      "@type": "Organization",
+      "name": "Otto G. Richter Library"
+    }
+  ],
+  "license": "odc_by",
+  "spatialCoverage": [
+    {
+      "@id": "https://www.geonames.org/4164238",
+      "@type": "Place",
+      "name": "Miami-Dade County"
+    },
+    {
+      "@type": "Place",
+      "name": "bbox",
+      "geo": {
+        "@type": "GeoShape",
+        "polygon": "25.137447 -80.873813 25.137447 -80.117611 25.979615 -80.117611 25.979615 -80.873813 25.137447 -80.873813"
+      }
+    }
+  ],
+  "type": "Raster Dataset",
+  "datePublished": "2021-11-07",
+  "description": "Greenness measured as a recentered NDVI (Normalized Difference Vegetation Index) moved from -1:1 to 1-100.",
+  "keywords": [
+    "Florida",
+    "Miami-Dade County",
+    "MDC",
+    "Miami-Dade County",
+    "Environment",
+    "NDVI",
+    "Hylo",
+    "Homestead",
+    "Little River",
+    "Public-Safety"
+  ],
+  "@language": "en",
+  "measurementTechnique": [
+    {
+      "@type": "DefinedTerm",
+      "description": "GIS Data Structure for Representation",
+      "inDefinedTermSet": {
+        "@type": "DefinedTermSet",
+        "name": "dataRepresentation",
+        "hasDefinedTerm": [
           {
-            "@type": "PropertyValue",
-            "name": "geonames",
-            "value": "4164238",
-            "url": "https://www.geonames.org/4164238"
+            "@type": "DefinedTerm",
+            "termCode": "raster"
           },
           {
-            "@type": "PropertyValue",
-            "name": "Spatial Reference System",
-            "value": "http://www.opengis.net/def/crs/EPSG/0/3857"
+            "@type": "DefinedTerm",
+            "termCode": "vector"
           },
           {
-            "@type": "PropertyValue",
-            "name": "extent",
-            "value": "ENVELOPE(-80.873813,-80.117611,25.979615,25.137447)"
+            "@type": "DefinedTerm",
+            "termCode": "table"
           }
         ]
       },
-      "keywords": [
-        "Florida",
-        "Miami-Dade County",
-        "MDC",
-        "Miami-Dade County",
-        "Environment",
-        "NDVI",
-        "Hylo",
-        "Homestead",
-        "Little River",
-        "Public-Safety"
-      ],
-      "includedInDataCatalog": [
-        {
-          "@type": "DataCatalog",
-          "@id": "https://gdsc.idsc.miami.edu",
-          "name": "Geospatial Digital Special Collections",
-          "url": "https://gdsc.idsc.miami.edu"
+      "termCode": "raster"
+    }
+  ],
+  "additionalProperty": [
+    {
+      "@type": "PropertyValue",
+      "name": "https://dbpedia.org/resource/Ground_sample_distance",
+      "value": 30.0,
+      "unitText": "meters"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "http://dbpedia.org/resource/Spatial_reference_system",
+      "value": "https://epsg.io/3857"
+    }
+  ],
+  "about": [
+    {
+      "@type": "Event",
+      "description": "Miami Dade County NDVI raster derived from USDA NAIP (National Agriculture Imagery Program). Export NAIP NDVI downsampled to 30 meter resolution from ESRI Living Atlas.",
+      "name": "ETL process for 2021 Miami-Dade NDVI",
+      "potentialAction": {
+        "@type": "Action",
+        "name": "Pseudo Code",
+        "description": "TODO"
+      }
+    },
+    {
+      "@type": "Event",
+      "description": "Miami Dade County NDVI raster derived from USDA NAIP (National Agriculture Imagery Program). Export NAIP NDVI downsampled to 30 meter resolution from ESRI Living Atlas.",
+      "name": "ETL process for 2021 Miami-Dade NDVI",
+      "potentialAction": {
+        "@type": "Action",
+        "name": "wget",
+        "description": "ETL process for 2021 Miami-Dade NDVI",
+        "object": {
+          "@type": "Dataset",
+          "name": "Miami Dade County NDVI raster derived from USDA NAIP (National Agriculture Imagery Program). Export NAIP NDVI downsampled to 30 meter resolution from ESRI Living Atlas.",
+          "producer": "Tyler Harrison",
+          "url": "https://scholarship.miami.edu/esploro/outputs/991031655220702976"
         },
-        {
-          "@type": "DataCatalog",
-          "name": "climate-change",
-          "@id": "https://gdsc.idsc.miami.edu/?collection=climate-change",
-          "url": "https://gdsc.idsc.miami.edu/?collection=climate-change"
+        "instrument": {
+          "@type": "SoftwareApplication",
+          "@id": "https://github.com/Geospatial-Digital-Special-Collections/tools",
+          "featureList": "wget",
+          "downloadUrl": "https://github.com/Geospatial-Digital-Special-Collections/tools.git"
         },
-        {
-          "@type": "DataCatalog",
-          "name": "vulnerability",
-          "@id": "https://gdsc.idsc.miami.edu/?collection=vulnerability",
-          "url": "https://gdsc.idsc.miami.edu/?collection=vulnerability"
-        },
-        {
-          "@type": "DataCatalog",
-          "name": "climate-and-equity-mapping-program",
-          "@id": "https://gdsc.idsc.miami.edu/?collection=climate-and-equity-mapping-program",
-          "url": "https://gdsc.idsc.miami.edu/?collection=climate-and-equity-mapping-program"
-        },
-        {
-          "@type": "DataCatalog",
-          "name": "miami-affordability-project",
-          "@id": "https://gdsc.idsc.miami.edu/?collection=miami-affordability-project",
-          "url": "https://gdsc.idsc.miami.edu/?collection=miami-affordability-project"
-        },
-        {
-          "@type": "DataCatalog",
-          "name": "mdc-sleep-outcomes",
-          "@id": "https://gdsc.idsc.miami.edu/?collection=mdc-sleep-outcomes",
-          "url": "https://gdsc.idsc.miami.edu/?collection=mdc-sleep-outcomes"
-        }
-      ],
-      "measurementTechnique": [
-        {
-          "@type": "DefinedTerm",
-          "name": "GIS Data Structure",
-          "termCode": "raster",
-          "inDefinedTermSet": {
-            "@type": "DefinedTermSet",
-            "name": "dataRepresentation",
-            "url": "https://gdsc.idsc.miami.edu/vocab/dataRepresentation"
-          }
-        },
-        {
-          "@type": "DefinedTerm",
-          "name": "Data Processing Level",
-          "termCode": "derived",
-          "inDefinedTermSet": {
-            "@type": "DefinedTermSet",
-            "name": "dataProcessingLevel",
-            "url": "https://gdsc.idsc.miami.edu/vocab/dataProcessingLevel"
-          }
-        }
-      ],
-      "distribution": [
-        {
-          "@type": "DataDownload",
-          "name": "Source distribution",
-          "contentUrl": "https://scholarship.miami.edu/view/fileRedirect?instCode=01UOML_INST&filePid=13395678880002976&download=true",
+        "result": {
+          "@type": "Dataset",
+          "name": "2021 Miami-Dade NDVI",
+          "description": "Greenness measured as a recentered NDVI (Normalized Difference Vegetation Index) moved from -1:1 to 1-100.",
           "encodingFormat": "tif"
         }
-      ],
-      "additionalProperty": [
-        {
-          "@type": "PropertyValue",
-          "name": "postgis_table",
-          "value": "mdc_2021_ndvi_greenness_30m"
-        },
-        {
-          "@type": "PropertyValue",
-          "name": "kobo_record_id",
-          "value": "15"
-        },
-        {
-          "@type": "PropertyValue",
-          "name": "creator_type",
-          "value": "person"
-        },
-        {
-          "@type": "PropertyValue",
-          "name": "process_step",
-          "value": "#########\n  # GDSC ETL is performed in two steps: shell script to ETL data into postgres\n  # and then additional transformations with SQL in postGIS (if needed).\n  ####\n  \n  #########\n  # Step 1 - bash script (pseudo code)\n  ####\n  \n  # create directory structure and move into it\n  mkdir -p /data/mdc_2021_hylo/download -p /data/mdc_2021_hylo/mdc_2021_ndvi_greenness_30m/etl\n  chmod -R 777 /data/mdc_2021_hylo\n  cd /data/mdc_2021_hylo\n  \n  # set update flag based on last update and update frequency\n  do_update=0 if date() < last_update + update_frequency else do_update = 1\n  \n  # download if update flag is set:\n  if do_update == 1 then\n  wget --retry-connrefused --waitretry=1 --read-timeout=20 --timeout=15 -t 10 -O download/mdc_2021_hylo.zip 'https://scholarship.miami.edu/view/fileRedirect?instCode=01UOML_INST&filePid=13395678880002976&download=true' 2>&1\n  \n  # unzip to download directory if update flag is set\n  if do_update == 1 then\n  unzip -o download/mdc_2021_hylo.zip -d download && rm download/mdc_2021_hylo.zip 2>&1\n  \n  # load raster into postGIS with:\n      raster2pgsql -s 3857 -d -C -I -t 48x48 GeoTIFF_Rasters/Greenness_30m_MDC.tif -F mdc_2021_ndvi_greenness_30m > load_raster.sql\n  psql <connection options> < load_raster.sql\n  rm load_raster.sql\n  \n  # create color raster\n  mkdir -p /tiles/raster/mdc_2021_ndvi_greenness_30m\n  mkdir -p /data/mdc_2021_hylo/mdc_2021_ndvi_greenness_30m/derived\n  cd /data/mdc_2021_hylo\n  cat > /data/mdc_2021_hylo/mdc_2021_ndvi_greenness_30m/derived/mdc_2021_ndvi_greenness_30m_color_ramp.txt <<_EOF\n  nv 0 0 0 0\n  178 0 68 27 255\n  160.2 0 109 44 255\n  142.4 29 134 65 255\n  124.6 53 159 84 255\n  106.8 85 181 103 255\n  89 123 199 124 255\n  71.2 158 215 152 255\n  53.4 187 228 181 255\n  35.6 213 239 207 255\n  17.8 233 247 229 255\n  1 247 252 245 255\n  0 0 0 0 0\n  _EOF\n  gdaldem color-relief download/GeoTIFF_Rasters/Greenness_30m_MDC.tif /data/mdc_2021_hylo/mdc_2021_ndvi_greenness_30m/derived/mdc_2021_ndvi_greenness_30m_color_ramp.txt /data/mdc_2021_hylo/mdc_2021_ndvi_greenness_30m/derived/mdc_2021_ndvi_greenness_30m_color.tif -alpha\n  # create color raster and render raster tiles \n  mkdir -p /data/mdc_2021_hylo/mdc_2021_ndvi_greenness_30m/derived\n  mkdir -p /tiles/raster/mdc_2021_ndvi_greenness_30m\n  cd /data/mdc_2021_hylo\n  echo \"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\" | base64 -d > /data/mdc_2021_hylo/mdc_2021_ndvi_greenness_30m/derived/mdc_2021_ndvi_greenness_30m_legend.png\n  cp /data/mdc_2021_hylo/mdc_2021_ndvi_greenness_30m/derived/mdc_2021_ndvi_greenness_30m_legend.png /tiles/raster/mdc_2021_ndvi_greenness_30m/\n  # render raster tiles \n  cd /data/mdc_2021_hylo/mdc_2021_ndvi_greenness_30m/\n  gdal2tiles.py -ex --xyz -z 8-16 /data/mdc_2021_hylo/mdc_2021_ndvi_greenness_30m/derived/mdc_2021_ndvi_greenness_30m_color.tif /tiles/raster/mdc_2021_ndvi_greenness_30m"
-        },
-        {
-          "@type": "PropertyValue",
-          "name": "processor",
-          "value": "GDSC automation (see Process Step)"
-        },
-        {
-          "@type": "PropertyValue",
-          "name": "analytic_function",
-          "value": "gdsc_zonal_statistics"
-        },
-        {
-          "@type": "PropertyValue",
-          "name": "Spatial Reference System",
-          "value": "http://www.opengis.net/def/crs/EPSG/0/2236"
-        },
-        {
-          "@type": "PropertyValue",
-          "name": "download_method",
-          "value": "wget"
-        },
-        {
-          "@type": "PropertyValue",
-          "name": "source_file",
-          "value": "{'etl_group/file_name_group/file_inside_archive': 'GeoTIFF_Rasters/Greenness_30m_MDC', 'etl_group/file_name_group/file_name_value': 'mdc_2021_hylo'}"
-        },
-        {
-          "@type": "PropertyValue",
-          "name": "band",
-          "value": "{'iso_group/band_group/band_name': '30-meter Derived NDVI'}"
-        },
-        {
-          "@type": "PropertyValue",
-          "name": "pixelDimension",
-          "value": "30.0"
-        },
-        {
-          "@type": "PropertyValue",
-          "name": "dimensionUnits",
-          "value": "meters"
-        },
-        {
-          "@type": "PropertyValue",
-          "name": "podid",
-          "value": "gaia-db"
-        },
-        {
-          "@type": "PropertyValue",
-          "name": "up",
-          "value": "true"
-        },
-        {
-          "@type": "PropertyValue",
-          "name": "colorRamp",
-          "value": "nv 0 0 0 0\n  178 0 68 27 255\n  160.2 0 109 44 255\n  142.4 29 134 65 255\n  124.6 53 159 84 255\n  106.8 85 181 103 255\n  89 123 199 124 255\n  71.2 158 215 152 255\n  53.4 187 228 181 255\n  35.6 213 239 207 255\n  17.8 233 247 229 255\n  1 247 252 245 255\n  0 0 0 0 0"
-        },
-        {
-          "@type": "PropertyValue",
-          "name": "tileBaseUrl",
-          "value": "{'cartography_group/tile_url_group/tile_base_url': 'https://gdsc.idsc.miami.edu/rastertiles/mdc_2021_ndvi_greenness_30m/'}"
-        },
-        {
-          "@type": "PropertyValue",
-          "name": "tileMinZoom",
-          "value": "{'cartography_group/tile_zoom_group/tile_min_zoom': '8'}"
-        },
-        {
-          "@type": "PropertyValue",
-          "name": "derivativeUrl",
-          "value": "/data/mdc_2021_hylo/mdc_2021_ndvi_greenness_30m/"
-        },
-        {
-          "@type": "PropertyValue",
-          "name": "etlParameters",
-          "value": "-t 48x48"
-        },
-        {
-          "@type": "PropertyValue",
-          "name": "pointOfContact",
-          "value": "{'iso_group/point_of_contact_group/contact_affiliation': 'University of Miami Libraries, Frost Institute for Data Science and Computing', 'iso_group/point_of_contact_group/contact_affiliation_identifier': 'https://ror.org/02dgjyy92', 'iso_group/point_of_contact_group/contact_affiliation_schema': 'ror', 'iso_group/point_of_contact_group/contact_affiliation_schema_uri': 'https://ror.org/', 'iso_group/point_of_contact_group/contact_email': 'tnorris@miami.edu', 'iso_group/point_of_contact_group/contact_first_name': 'Timothy', 'iso_group/point_of_contact_group/contact_identifier': 'https://orcid.org/0000-0002-0898-3027', 'iso_group/point_of_contact_group/contact_identifier_schema': 'orcid', 'iso_group/point_of_contact_group/contact_identifier_schema_uri': 'https://orcid.org/', 'iso_group/point_of_contact_group/contact_last_name': 'Norris', 'iso_group/point_of_contact_group/contact_name': 'Timothy B. Norris'}"
-        }
-      ],
-      "dct:accrualPeriodicity": "Never",
-      "variableMeasured": [
-        {
-          "@type": "PropertyValue",
-          "name": "NDVI",
-          "description": "Normalized Difference Vegetation Index recentered from -1:1 to 1-200",
-          "qudt:dataType": "xsd:int8",
-          "unitText": "-1:1 ~ 0-200",
-          "unitCode": "0",
-          "sourceOrganization": {
-            "@type": "Organization",
-            "name": "derived from LandSat"
-          }
-        }
-      ],
-      "isAccessibleForFree": false,
-      "usageInfo": "All data are made available under the Open Data Commons Attribution License: http://opendatacommons.org/licenses/by/1.0/ with the exception of the PhotoVoice photos in the Hylo_Photovoice_Data.pdf file which are for viewing and analysis only. They may not be altered or reproduced in any way.",
-      "dct:provenance": "Miami Dade County NDVI raster derived from USDA NAIP (National Agriculture Imagery Program). Export NAIP NDVI downsampled to 30 meter resolution from ESRI Living Atlas.",
-      "additionalType": "Raster Dataset",
-      "funder": [
-        {
-          "@type": "Organization",
-          "name": "IDSC",
-          "url": "https://idsc.miami.edu"
-        },
-        {
-          "@type": "Organization",
-          "name": "Library",
-          "url": "https://www.library.miami.edu"
-        }
-      ]
+      }
     }
-  ]
+  ],
+  "variableMeasured": [
+    {
+      "@type": "PropertyValue",
+      "name": "NDVI",
+      "description": "Normalized Difference Vegetation Index recentered from -1:1 to 1-200",
+      "qudt:dataType": "int8",
+      "unitCode": "0",
+      "unitText": "-1:1 ~ 0-200",
+      "minValue": "0",
+      "maxValue": "184",
+      "startDate": "2023"
+    }
+  ],
+  "distribution": "/data/mdc_2021_hylo/mdc_2021_ndvi_greenness_30m/",
+  "dateModified": "2026-10-05 21:40:39",
+  "version": "2026-10-09"
 }

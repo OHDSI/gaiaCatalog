@@ -6,7 +6,7 @@
 # Data source: ftp://ftp2.census.gov/geo/tiger/TIGER2022/COUSUB/tl_2022_12_cousub.zip
 # Destination postGIS table: fl_2022_tl_cousub
 #
-# Created by etl() on 2026-10-19 08:24:32
+# Created by etl() on 2026-10-09 22:52:40
 # Do not edit directly
 
 # set credentials from postgres defaults and secret files
