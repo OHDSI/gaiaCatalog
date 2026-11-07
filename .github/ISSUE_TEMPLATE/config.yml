@@ -1,0 +1,5 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Propose a use case
+    url: https://github.com/OHDSI/GIS/issues/new?template=use-case.yaml
+    about: Use cases are tracked in the OHDSI/GIS repository.
