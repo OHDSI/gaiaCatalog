@@ -1,0 +1,101 @@
+{
+  "@context": {
+    "@vocab": "https://schema.org/",
+    "dct": "http://purl.org/dc/terms/",
+    "qudt": "http://qudt.org/schema/qudt/"
+  },
+  "@type": "Dataset",
+  "@id": "https://github.com/OHDSI/gaiaCatalog/tree/main/datastore/data/synthetic_monitors_20",
+  "name": "20 simulated PM2.5 monitors, annual PM2.5 per monitor",
+  "creator": [
+    {
+      "@type": "Organization",
+      "name": "OHDSI GIS Working Group"
+    }
+  ],
+  "url": "https://github.com/OHDSI/GIS/tree/main/syntheticDataGIS/monitors",
+  "provider": [
+    {
+      "@type": "Organization",
+      "name": "OHDSI GIS Working Group"
+    }
+  ],
+  "license": "cc0-1.0",
+  "spatialCoverage": [
+    {
+      "@type": "Place",
+      "name": "Los Angeles, California, United States (10 km window)"
+    }
+  ],
+  "temporalCoverage": "2014-01-01/2019-12-31",
+  "type": "Vector Dataset",
+  "datePublished": "2026-11-13",
+  "dateModified": "2026-11-13",
+  "description": "SIMULATED network of 20 PM2.5 monitors placed at random (at least 150 m apart) in a 10 km window around downtown Los Angeles, the first 20 of a nested series of networks of 20, 60 and 200. A monitor reads the simulated exposure field of the OHDSI GIS raster example at its site plus noise (SD 0.3 ug/m3), one annual mean per year 2014-2019. It is not a measurement of any real exposure.",
+  "keywords": [
+    "simulated",
+    "synthetic",
+    "monitors",
+    "Voronoi",
+    "tessellation",
+    "OHDSI benchmark"
+  ],
+  "@language": "en",
+  "measurementTechnique": [
+    {
+      "@type": "DefinedTerm",
+      "description": "GIS Data Structure for Representation",
+      "inDefinedTermSet": {
+        "@type": "DefinedTermSet",
+        "name": "dataRepresentation"
+      },
+      "termCode": "vector"
+    },
+    {
+      "@type": "DefinedTerm",
+      "description": "GIS Vector Geometery",
+      "inDefinedTermSet": {
+        "@type": "DefinedTermSet",
+        "name": "vectorGeometry"
+      },
+      "termCode": "point"
+    }
+  ],
+  "additionalProperty": [
+    {
+      "@type": "PropertyValue",
+      "propertyID": "http://dbpedia.org/resource/Spatial_reference_system",
+      "value": "https://epsg.io/4269"
+    }
+  ],
+  "about": [
+    {
+      "@type": "Event",
+      "name": "ETL process for the simulated monitor network",
+      "description": "The CSV (WKT point plus an annual jsonb series) is published by the monitors generator and loaded into a raw table with ogr2ogr; the postgis step builds the typed table."
+    }
+  ],
+  "variableMeasured": [
+    {
+      "@type": "PropertyValue",
+      "name": "monitor_id",
+      "description": "Monitor identifier",
+      "qudt:dataType": "integer"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "pm25_monitor",
+      "description": "Annual mean PM2.5 reading of the monitor, stored as a jsonb object keyed by startDate/endDate (YYYY-MM-DD/YYYY-MM-DD) with the PM2.5 value for each year.",
+      "propertyID": "2052499839",
+      "qudt:dataType": "jsonb",
+      "unitCode": "32964",
+      "unitText": "micrograms/cubic meter",
+      "startDate": "2014-01-01",
+      "endDate": "2019-12-31"
+    }
+  ],
+  "version": "1",
+  "distribution": [
+    "https://raw.githubusercontent.com/OHDSI/GIS/main/syntheticDataGIS/monitors/data/monitors_20.csv"
+  ]
+}

@@ -1,0 +1,40 @@
+{
+  "rights": "CC0-1.0",
+  "temporal_extent": [
+    "2014-01-01",
+    "2019-12-31"
+  ],
+  "structure": "vector",
+  "geometry": "point",
+  "temporal_dimension": "1 year",
+  "epsg": "EPSG:4269",
+  "fields": [
+    "monitor_id",
+    "pm25_monitor"
+  ],
+  "attributes": [
+    "monitor_id;Monitor identifier;OHDSI GIS tutorial data generator (simulated);integer;;;;",
+    "pm25_monitor;Annual mean PM2.5 reading of the monitor, stored as a jsonb object keyed by startDate/endDate;OHDSI GIS tutorial data generator (simulated);jsonb;micrograms/cubic meter;;;;2014-01-01;2019-12-31;2052499839"
+  ],
+  "local_epsg": "EPSG:4269",
+  "derive": [],
+  "service": [
+    "file"
+  ],
+  "source": "https://raw.githubusercontent.com/OHDSI/GIS/main/syntheticDataGIS/monitors/data/monitors_60.csv",
+  "file": [
+    "synthetic_monitors_60"
+  ],
+  "extension": "csv",
+  "download": "wget",
+  "table": "synthetic_monitors_60",
+  "format": "csv",
+  "dependency": [],
+  "etl_parameters": "",
+  "custom_etl": "",
+  "custom_parameters": "",
+  "up": "true",
+  "podID": "gaia-db",
+  "update_frequency": "Never",
+  "checksum": "TBD"
+}

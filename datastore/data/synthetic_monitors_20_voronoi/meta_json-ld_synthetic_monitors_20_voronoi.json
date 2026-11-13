@@ -1,0 +1,108 @@
+{
+  "@context": {
+    "@vocab": "https://schema.org/",
+    "dct": "http://purl.org/dc/terms/",
+    "qudt": "http://qudt.org/schema/qudt/"
+  },
+  "@type": "Dataset",
+  "@id": "https://github.com/OHDSI/gaiaCatalog/tree/main/datastore/data/synthetic_monitors_20_voronoi",
+  "name": "Voronoi cells of 20 simulated PM2.5 monitors, annual PM2.5 per cell",
+  "creator": [
+    {
+      "@type": "Organization",
+      "name": "OHDSI GIS Working Group"
+    }
+  ],
+  "url": "https://github.com/OHDSI/GIS/tree/main/syntheticDataGIS/monitors",
+  "provider": [
+    {
+      "@type": "Organization",
+      "name": "OHDSI GIS Working Group"
+    }
+  ],
+  "license": "cc0-1.0",
+  "spatialCoverage": [
+    {
+      "@type": "Place",
+      "name": "Los Angeles, California, United States (10 km window)"
+    }
+  ],
+  "temporalCoverage": "2014-01-01/2019-12-31",
+  "type": "Vector Dataset",
+  "datePublished": "2026-11-13",
+  "dateModified": "2026-11-13",
+  "description": "SIMULATED. The Voronoi (Thiessen) tessellation of the 20 monitors of synthetic_monitors_20, clipped to the 10 km window: each cell is the set of locations whose nearest monitor is that monitor, and carries the monitor's annual PM2.5 series. Built from synthetic_monitors_20 in the postgis step.",
+  "keywords": [
+    "simulated",
+    "synthetic",
+    "monitors",
+    "Voronoi",
+    "tessellation",
+    "OHDSI benchmark"
+  ],
+  "@language": "en",
+  "measurementTechnique": [
+    {
+      "@type": "DefinedTerm",
+      "description": "GIS Data Structure for Representation",
+      "inDefinedTermSet": {
+        "@type": "DefinedTermSet",
+        "name": "dataRepresentation"
+      },
+      "termCode": "vector"
+    },
+    {
+      "@type": "DefinedTerm",
+      "description": "GIS Vector Geometery",
+      "inDefinedTermSet": {
+        "@type": "DefinedTermSet",
+        "name": "vectorGeometry"
+      },
+      "termCode": "multipolygon"
+    }
+  ],
+  "additionalProperty": [
+    {
+      "@type": "PropertyValue",
+      "propertyID": "http://dbpedia.org/resource/Spatial_reference_system",
+      "value": "https://epsg.io/4269"
+    }
+  ],
+  "about": [
+    {
+      "@type": "Event",
+      "name": "ETL process for the simulated monitor cells",
+      "description": "The cells are the Voronoi tessellation (ST_VoronoiPolygons, in EPSG:5070) of the monitors of the dependency, clipped to the window; each cell keeps the series of its monitor."
+    }
+  ],
+  "variableMeasured": [
+    {
+      "@type": "PropertyValue",
+      "name": "monitor_id",
+      "description": "Monitor identifier",
+      "qudt:dataType": "integer"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "pm25_monitor",
+      "description": "Annual mean PM2.5 reading of the monitor, stored as a jsonb object keyed by startDate/endDate (YYYY-MM-DD/YYYY-MM-DD) with the PM2.5 value for each year.",
+      "propertyID": "2052499839",
+      "qudt:dataType": "jsonb",
+      "unitCode": "32964",
+      "unitText": "micrograms/cubic meter",
+      "startDate": "2014-01-01",
+      "endDate": "2019-12-31"
+    }
+  ],
+  "version": "1",
+  "distribution": [
+    "/data/synthetic_monitors_20_voronoi/"
+  ],
+  "isBasedOn": [
+    {
+      "@id": "https://github.com/OHDSI/gaiaCatalog/tree/main/datastore/data/synthetic_monitors_20",
+      "@type": "Dataset",
+      "name": "synthetic_monitors_20"
+    }
+  ]
+}
