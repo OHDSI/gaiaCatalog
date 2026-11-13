@@ -112,9 +112,10 @@
         "attribute_type": "float",
         "attribute_unit": "percent",
         "attribute_unit_concept_id": "0",
-        "attribute_min_value": "100",
-        "attribute_max_value": "2021",
-        "attribute_start_date": "2024"
+        "attribute_min_value": "0",
+        "attribute_max_value": "100",
+        "attribute_start_date": "1/1/21",
+        "attribute_end_date": "12/31/21"
       }
     ],
     "no_data_group": [

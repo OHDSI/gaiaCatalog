@@ -1,0 +1,79 @@
+{
+  "rights": "CC0-1.0",
+  "temporal_extent": [
+    "2014-01-01",
+    "2019-12-31"
+  ],
+  "structure": "raster",
+  "temporal_dimension": "1 year",
+  "bands": [
+    "pm25_annual"
+  ],
+  "pixel_size": 250.0,
+  "pixel_dimension": "meters",
+  "epsg": "EPSG:5070",
+  "attributes": [
+    "pm25_annual;Simulated annual exposure at the cell centre. One layer per calendar year; the layer's period is in raster_layers of the ETL metadata.;OHDSI GIS tutorial data generator (simulated);float;micrograms/cubic meter;;;2014-01-01;2019-12-31;2052499839"
+  ],
+  "nodata": [
+    "float",
+    "-9999"
+  ],
+  "local_epsg": "EPSG:5070",
+  "service": [
+    "file"
+  ],
+  "source": "https://raw.githubusercontent.com/OHDSI/GIS/main/syntheticDataGIS/raster/data",
+  "file": [
+    "synthetic_raster_annual_2014",
+    "synthetic_raster_annual_2015",
+    "synthetic_raster_annual_2016",
+    "synthetic_raster_annual_2017",
+    "synthetic_raster_annual_2018",
+    "synthetic_raster_annual_2019"
+  ],
+  "extension": "tif",
+  "download": "wget",
+  "table": "synthetic_raster_annual",
+  "format": "tif",
+  "dependency": [],
+  "etl_parameters": "-t 64x64",
+  "custom_etl": "",
+  "custom_parameters": "",
+  "up": "true",
+  "podID": "gaia-db",
+  "update_frequency": "Never",
+  "checksum": "TBD",
+  "raster_layers": [
+    {
+      "filename": "synthetic_raster_annual_2014.tif",
+      "start_date": "2014-01-01",
+      "end_date": "2014-12-31"
+    },
+    {
+      "filename": "synthetic_raster_annual_2015.tif",
+      "start_date": "2015-01-01",
+      "end_date": "2015-12-31"
+    },
+    {
+      "filename": "synthetic_raster_annual_2016.tif",
+      "start_date": "2016-01-01",
+      "end_date": "2016-12-31"
+    },
+    {
+      "filename": "synthetic_raster_annual_2017.tif",
+      "start_date": "2017-01-01",
+      "end_date": "2017-12-31"
+    },
+    {
+      "filename": "synthetic_raster_annual_2018.tif",
+      "start_date": "2018-01-01",
+      "end_date": "2018-12-31"
+    },
+    {
+      "filename": "synthetic_raster_annual_2019.tif",
+      "start_date": "2019-01-01",
+      "end_date": "2019-12-31"
+    }
+  ]
+}

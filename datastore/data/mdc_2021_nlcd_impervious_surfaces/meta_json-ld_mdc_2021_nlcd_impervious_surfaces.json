@@ -152,7 +152,8 @@
       "qudt:dataType": "float",
       "unitCode": "0",
       "unitText": "percent",
-      "minValue": "100"
+      "minValue": "0",
+      "maxValue": "100"
     }
   ],
   "distribution": "/data/mdc_2021_nlcd_impervious_surfaces/",

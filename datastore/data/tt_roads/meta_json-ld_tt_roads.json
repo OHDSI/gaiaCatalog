@@ -116,6 +116,11 @@
   "additionalProperty": [
     {
       "@type": "PropertyValue",
+      "name": "temporalDimension",
+      "value": "static"
+    },
+    {
+      "@type": "PropertyValue",
       "propertyID": "http://dbpedia.org/resource/Spatial_reference_system",
       "value": "https://epsg.io/4326"
     }

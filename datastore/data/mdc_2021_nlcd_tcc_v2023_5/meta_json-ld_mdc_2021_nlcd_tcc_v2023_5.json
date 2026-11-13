@@ -153,9 +153,10 @@
       "qudt:dataType": "float",
       "unitCode": "0",
       "unitText": "percent",
-      "minValue": "100",
-      "maxValue": "2021",
-      "startDate": "2024"
+      "minValue": "0",
+      "maxValue": "100",
+      "startDate": "2021-01-01",
+      "endDate": "2021-12-31"
     }
   ],
   "distribution": "/data/mdc_2021_nlcd_tcc_v2023_5/",

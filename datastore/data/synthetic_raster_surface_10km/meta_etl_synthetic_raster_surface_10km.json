@@ -1,0 +1,42 @@
+{
+  "rights": "CC0-1.0",
+  "temporal_extent": [
+    "2014-01-01",
+    "2019-12-31"
+  ],
+  "structure": "raster",
+  "temporal_dimension": "static",
+  "bands": [
+    "pm25_surface"
+  ],
+  "pixel_size": 2500.0,
+  "pixel_dimension": "meters",
+  "epsg": "EPSG:5070",
+  "attributes": [
+    "pm25_surface;Simulated exposure at the cell centre. Static over 2014-2019.;OHDSI GIS tutorial data generator (simulated);float;micrograms/cubic meter;;;2014-01-01;2019-12-31;2052499839"
+  ],
+  "nodata": [
+    "float",
+    "-9999"
+  ],
+  "local_epsg": "EPSG:5070",
+  "service": [
+    "file"
+  ],
+  "source": "https://raw.githubusercontent.com/OHDSI/GIS/main/syntheticDataGIS/raster/data",
+  "file": [
+    "synthetic_raster_surface_10km"
+  ],
+  "extension": "tif",
+  "download": "wget",
+  "table": "synthetic_raster_surface_10km",
+  "format": "tif",
+  "dependency": [],
+  "etl_parameters": "-t 64x64",
+  "custom_etl": "",
+  "custom_parameters": "",
+  "up": "true",
+  "podID": "gaia-db",
+  "update_frequency": "Never",
+  "checksum": "TBD"
+}

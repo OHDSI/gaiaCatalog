@@ -1,0 +1,94 @@
+{
+  "@context": {
+    "@vocab": "https://schema.org/",
+    "dct": "http://purl.org/dc/terms/",
+    "qudt": "http://qudt.org/schema/qudt/"
+  },
+  "@type": "Dataset",
+  "@id": "https://github.com/OHDSI/gaiaCatalog/tree/main/datastore/data/synthetic_raster_annual",
+  "name": "Simulated annual exposure rasters",
+  "creator": [
+    {
+      "@type": "Organization",
+      "name": "OHDSI GIS Working Group"
+    }
+  ],
+  "url": "https://github.com/OHDSI/GIS/tree/main/syntheticDataGIS/raster",
+  "provider": [
+    {
+      "@type": "Organization",
+      "name": "OHDSI GIS Working Group"
+    }
+  ],
+  "license": "cc0-1.0",
+  "spatialCoverage": [
+    {
+      "@type": "Place",
+      "name": "Los Angeles, California, United States (10 km window)"
+    }
+  ],
+  "temporalCoverage": "2014-01-01/2019-12-31",
+  "type": "Raster Dataset",
+  "datePublished": "2026-11-13",
+  "dateModified": "2026-11-13",
+  "description": "SIMULATED annual exposure layers, one 250 m raster per calendar year 2014-2019 over a 10 km window around downtown Los Angeles: the 1 km Gaussian random field plus a trend of 0.30 ug/m3 per year in the west rising to 0.50 in the east. A 3 x 3 cell nodata hole (-9999) lies 1 km east and 1 km south of the centre. The year of each layer is the calendar year of its file; the files are loaded into one table with a filename column. Not a measurement of any real exposure.",
+  "keywords": [
+    "simulated",
+    "synthetic",
+    "raster",
+    "OHDSI benchmark"
+  ],
+  "@language": "en",
+  "measurementTechnique": [
+    {
+      "@type": "DefinedTerm",
+      "description": "GIS Data Structure for Representation",
+      "inDefinedTermSet": {
+        "@type": "DefinedTermSet",
+        "name": "dataRepresentation"
+      },
+      "termCode": "raster"
+    }
+  ],
+  "additionalProperty": [
+    {
+      "@type": "PropertyValue",
+      "name": "https://dbpedia.org/resource/Ground_sample_distance",
+      "value": 250.0,
+      "unitText": "meters"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "http://dbpedia.org/resource/Spatial_reference_system",
+      "value": "https://epsg.io/5070"
+    }
+  ],
+  "about": [
+    {
+      "@type": "Event",
+      "name": "ETL process for the simulated raster",
+      "description": "The GeoTIFF file(s) are downloaded and loaded into postGIS with raster2pgsql (EPSG:5070, 64 x 64 cell tiles, filename column)."
+    }
+  ],
+  "variableMeasured": [
+    {
+      "@type": "PropertyValue",
+      "name": "pm25_annual",
+      "description": "Simulated annual exposure at the cell centre. One layer per calendar year; the layer's period is in raster_layers of the ETL metadata.",
+      "qudt:dataType": "float",
+      "startDate": "2014-01-01",
+      "endDate": "2019-12-31",
+      "unitText": "micrograms/cubic meter",
+      "propertyID": "2052499839"
+    }
+  ],
+  "version": "1",
+  "distribution": [
+    "https://raw.githubusercontent.com/OHDSI/GIS/main/syntheticDataGIS/raster/data/synthetic_raster_annual_2014.tif",
+    "https://raw.githubusercontent.com/OHDSI/GIS/main/syntheticDataGIS/raster/data/synthetic_raster_annual_2015.tif",
+    "https://raw.githubusercontent.com/OHDSI/GIS/main/syntheticDataGIS/raster/data/synthetic_raster_annual_2016.tif",
+    "https://raw.githubusercontent.com/OHDSI/GIS/main/syntheticDataGIS/raster/data/synthetic_raster_annual_2017.tif",
+    "https://raw.githubusercontent.com/OHDSI/GIS/main/syntheticDataGIS/raster/data/synthetic_raster_annual_2018.tif",
+    "https://raw.githubusercontent.com/OHDSI/GIS/main/syntheticDataGIS/raster/data/synthetic_raster_annual_2019.tif"
+  ]
+}

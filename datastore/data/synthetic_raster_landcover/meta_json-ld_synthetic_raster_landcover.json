@@ -1,0 +1,87 @@
+{
+  "@context": {
+    "@vocab": "https://schema.org/",
+    "dct": "http://purl.org/dc/terms/",
+    "qudt": "http://qudt.org/schema/qudt/"
+  },
+  "@type": "Dataset",
+  "@id": "https://github.com/OHDSI/gaiaCatalog/tree/main/datastore/data/synthetic_raster_landcover",
+  "name": "Simulated land cover raster",
+  "creator": [
+    {
+      "@type": "Organization",
+      "name": "OHDSI GIS Working Group"
+    }
+  ],
+  "url": "https://github.com/OHDSI/GIS/tree/main/syntheticDataGIS/raster",
+  "provider": [
+    {
+      "@type": "Organization",
+      "name": "OHDSI GIS Working Group"
+    }
+  ],
+  "license": "cc0-1.0",
+  "spatialCoverage": [
+    {
+      "@type": "Place",
+      "name": "Los Angeles, California, United States (10 km window)"
+    }
+  ],
+  "temporalCoverage": "2019-01-01/2019-12-31",
+  "type": "Raster Dataset",
+  "datePublished": "2026-11-13",
+  "dateModified": "2026-11-13",
+  "description": "SIMULATED land cover classes with NLCD codes (11 Open Water; 21 Developed, Open Space; 41 Deciduous Forest; 81 Pasture/Hay) on a 100 m grid over a 10 km window around downtown Los Angeles, for testing categorical raster values and class fractions in a buffer. Nodata is 255. Not a map of any real land cover.",
+  "keywords": [
+    "simulated",
+    "synthetic",
+    "raster",
+    "OHDSI benchmark"
+  ],
+  "@language": "en",
+  "measurementTechnique": [
+    {
+      "@type": "DefinedTerm",
+      "description": "GIS Data Structure for Representation",
+      "inDefinedTermSet": {
+        "@type": "DefinedTermSet",
+        "name": "dataRepresentation"
+      },
+      "termCode": "raster"
+    }
+  ],
+  "additionalProperty": [
+    {
+      "@type": "PropertyValue",
+      "name": "https://dbpedia.org/resource/Ground_sample_distance",
+      "value": 100.0,
+      "unitText": "meters"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "http://dbpedia.org/resource/Spatial_reference_system",
+      "value": "https://epsg.io/5070"
+    }
+  ],
+  "about": [
+    {
+      "@type": "Event",
+      "name": "ETL process for the simulated raster",
+      "description": "The GeoTIFF file(s) are downloaded and loaded into postGIS with raster2pgsql (EPSG:5070, 64 x 64 cell tiles, filename column)."
+    }
+  ],
+  "variableMeasured": [
+    {
+      "@type": "PropertyValue",
+      "name": "land_cover",
+      "description": "Simulated land cover class (NLCD code) at the cell centre, 2019.",
+      "qudt:dataType": "integer",
+      "startDate": "2019-01-01",
+      "endDate": "2019-12-31"
+    }
+  ],
+  "version": "1",
+  "distribution": [
+    "https://raw.githubusercontent.com/OHDSI/GIS/main/syntheticDataGIS/raster/data/synthetic_raster_landcover.tif"
+  ]
+}

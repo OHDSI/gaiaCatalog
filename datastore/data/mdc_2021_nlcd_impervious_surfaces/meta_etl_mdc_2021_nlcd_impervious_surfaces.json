@@ -6,7 +6,7 @@
   "pixel_dimension": "meters",
   "epsg": "EPSG:4326",
   "extent": "ENVELOPE(-2493045.000000,2342655.000000,3310005.000000,177285.000000)",
-  "attributes": ["impervious;Percent impervious;derived from LandSat;float;percent;0;100"],
+  "attributes": ["impervious;Percent impervious;derived from LandSat;float;percent;0;0;100"],
   "nodata": ["integer", "255"],
   "tile_url": ["https://gdsc.idsc.miami.edu/rastertiles/mdc_2021_nlcd_impervious_surfaces/", "{z}/{x}/{y}.png", "leaflet.html"],
   "color_ramp": "nv 0 0 0 0\n255 255 255 255 0\n100 158 31 235 255\n90 197 79 235 255\n80 235 130 235 255\n70 235 57 57 255\n60 234 81 81 255\n50 232 104 104 255\n40 223 121 121 255\n30 221 146 146 255\n20 219 168 168 255\n10 210 184 184 255\n1 209 209 209 255\n0 255 255 255 0",
