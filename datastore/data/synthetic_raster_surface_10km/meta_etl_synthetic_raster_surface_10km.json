@@ -38,5 +38,7 @@
   "up": "true",
   "podID": "gaia-db",
   "update_frequency": "Never",
-  "checksum": "TBD"
+  "checksum": {
+    "synthetic_raster_surface_10km.tif": "sha256:1d06ddc2e107afa02719680f97799e87e67dafcaf0ffc5e030e0e2d8f380ef6c"
+  }
 }

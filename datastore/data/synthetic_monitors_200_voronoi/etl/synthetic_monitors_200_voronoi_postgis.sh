@@ -7,5 +7,5 @@
 
 PGOPTIONS='-c client_min_messages=warning' psql -d $POSTGRES_DB -U $POSTGRES_USER -p $POSTGRES_PORT -h gaia-db -v ON_ERROR_STOP=1 -c "
 SELECT backbone.create_voronoi_source('synthetic_monitors_200', 'synthetic_monitors_200_voronoi',
-  ST_Expand(ST_Transform(ST_SetSRID(ST_MakePoint(-118.25, 34.05), 4326), 5070), 5000), 5070);
+  ST_Expand(ST_Transform(ST_SetSRID(ST_MakePoint(-118.25, 34.05), 4326), 5070), 5000), 5070, 100);
 "

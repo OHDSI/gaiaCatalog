@@ -36,5 +36,7 @@
   "up": "true",
   "podID": "gaia-db",
   "update_frequency": "Never",
-  "checksum": "TBD"
+  "checksum": {
+    "monitors_60.csv": "sha256:1747e83d462afe757ed9de512b3c26ba9fa947d5fbd3d6d7b130b13dbb511ad3"
+  }
 }

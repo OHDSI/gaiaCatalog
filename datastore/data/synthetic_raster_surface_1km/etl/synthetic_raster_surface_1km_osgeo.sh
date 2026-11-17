@@ -21,5 +21,6 @@ if [[ $do_update = 1 ]]; then
     ((attempts++))
     if (( attempts > 3 )); then echo $?; exit 1; fi
   done
+  echo '051106e0a7d0b45feac217e34a84d90418754e192c18d9791e9fbfc3da72889a  download/synthetic_raster_surface_1km.tif' | sha256sum -c - || exit 1
   echo $(date '+%F %T') > datestamp
 fi
