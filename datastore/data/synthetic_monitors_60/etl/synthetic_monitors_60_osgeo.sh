@@ -22,7 +22,7 @@ if [[ $do_update = 1 ]]; then
     ((attempts++))
     if (( attempts > 3 )); then echo $?; break; fi
   done
-  echo '1747e83d462afe757ed9de512b3c26ba9fa947d5fbd3d6d7b130b13dbb511ad3  download/synthetic_monitors_60.csv' | sha256sum -c - || exit 1
+  echo '2f735ff585e1d3783762bd7b92055148a8152b805110dc0aca043495b506a57c  download/synthetic_monitors_60.csv' | sha256sum -c - || exit 1
   echo $(date '+%F %T') > datestamp
 fi
 

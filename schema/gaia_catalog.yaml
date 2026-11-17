@@ -1,0 +1,470 @@
+id: https://w3id.org/ohdsi/gaiacatalog/schema
+name: gaia_catalog
+title: Gaia Catalog dataset metadata
+description: >-
+  LinkML description of the flat schema.org JSON-LD documents that the catalog
+  keeps in datastore/data/<table_id>/meta_json-ld_<table_id>.json and that
+  gaiaDB ingests with backbone.ingest_jsonld_metadata.
+
+  Structural rules live here (required slots, types, patterns, enums).
+  Rules that span several values (for example "a vector dataset needs a
+  geometry term") are in architecture/defs/validate_catalog.py.
+
+  Severity: a slot marked required is an ERROR when missing. A slot marked
+  recommended is a WARNING when missing. A slot annotated severity=warning
+  reports format problems as warnings instead of errors.
+license: Apache-2.0
+
+prefixes:
+  linkml: https://w3id.org/linkml/
+  sdo: https://schema.org/
+  dct: http://purl.org/dc/terms/
+  qudt: http://qudt.org/schema/qudt/
+  gaia: https://w3id.org/ohdsi/gaiacatalog/
+default_prefix: gaia
+default_range: string
+
+imports:
+  - linkml:types
+
+# ---------------------------------------------------------------------------
+# types
+# ---------------------------------------------------------------------------
+types:
+  IsoDate:
+    typeof: string
+    description: A calendar date, YYYY-MM-DD.
+    pattern: '^\d{4}-\d{2}-\d{2}$'
+  IsoDateOrTimestamp:
+    typeof: string
+    description: A date, or a date and time (YYYY-MM-DD HH:MM:SS).
+    pattern: '^\d{4}-\d{2}-\d{2}([ T]\d{2}:\d{2}:\d{2}Z?)?$'
+  PartialDate:
+    typeof: string
+    description: >-
+      An ISO date, or only a month (YYYY-MM) or year (YYYY), which gaiaDB
+      reads as the whole period.
+    pattern: '^\d{4}(-\d{2}(-\d{2})?)?$'
+  TemporalCoverage:
+    typeof: string
+    description: A date or period written start/end, each end a PartialDate.
+    pattern: '^\d{4}(-\d{2}(-\d{2})?)?(/\d{4}(-\d{2}(-\d{2})?)?)?$'
+  VersionString:
+    typeof: string
+    description: A release date (YYYY-MM-DD).
+    pattern: '^\d{4}-\d{2}-\d{2}$'
+  NumberText:
+    typeof: string
+    description: A number written as text, as the catalog stores minValue and maxValue.
+    pattern: '^-?\d+(\.\d+)?([eE][-+]?\d+)?$'
+  ConceptIdText:
+    typeof: string
+    description: An OMOP concept id written as text.
+    pattern: '^\d+$'
+  HttpUri:
+    typeof: string
+    description: An absolute http or https URL.
+    pattern: '^https?://\S+$'
+  LanguageCode:
+    typeof: string
+    description: A language tag such as en or es.
+    pattern: '^[a-z]{2,3}(-[A-Za-z]{2,4})?$'
+
+# ---------------------------------------------------------------------------
+# enums
+# ---------------------------------------------------------------------------
+enums:
+  StructureEnum:
+    description: The kind of data (dataRepresentation term).
+    permissible_values:
+      vector:
+      raster:
+      table:
+  GeometryEnum:
+    description: The geometry of a vector dataset (vectorGeometry term).
+    permissible_values:
+      point:
+      multipoint:
+      linestring:
+      multilinestring:
+      polygon:
+      multipolygon:
+  DatasetTypeEnum:
+    description: The catalog's own dataset type label (the "type" key).
+    permissible_values:
+      Vector Dataset:
+      Raster Dataset:
+      Table Dataset:
+      Statistical Dataset:
+      API:
+  LicenseEnum:
+    description: A short license identifier.
+    permissible_values:
+      cc0-1.0:
+      cc_by:
+      odbl:
+      odc_by:
+  DataTypeEnum:
+    description: A variable data type (PostgreSQL names, plus the generic names the catalog also uses).
+    permissible_values:
+      varchar:
+      string:
+      text:
+      uuid:
+      date:
+      boolean:
+      int2:
+      int4:
+      int8:
+      integer:
+      long:
+      int16:
+      float4:
+      float8:
+      float:
+      double:
+      numeric:
+      jsonb:
+      oid:
+  AgentTypeEnum:
+    permissible_values:
+      Organization:
+      Person:
+
+# ---------------------------------------------------------------------------
+# slots
+# ---------------------------------------------------------------------------
+slots:
+  # JSON-LD keywords. "alias" is the key written in the documents.
+  jsonld_id:
+    alias: '@id'
+    slot_uri: sdo:identifier
+    description: The identifier of the node.
+  jsonld_type:
+    alias: '@type'
+    description: The schema.org type of the node.
+  jsonld_context:
+    alias: '@context'
+    range: Any
+    description: The JSON-LD context. Checked further by validate_catalog.py.
+  jsonld_language:
+    alias: '@language'
+    range: LanguageCode
+
+  name:
+    slot_uri: sdo:name
+  description:
+    slot_uri: sdo:description
+  url:
+    slot_uri: sdo:url
+    range: HttpUri
+  identifier:
+    slot_uri: sdo:identifier
+  same_as:
+    alias: sameAs
+    slot_uri: sdo:sameAs
+  given_name:
+    alias: givenName
+  family_name:
+    alias: familyName
+  affiliation:
+    slot_uri: sdo:affiliation
+    range: Agent
+
+  # Dataset
+  version:
+    slot_uri: sdo:version
+    range: VersionString
+  creator:
+    slot_uri: sdo:creator
+    range: Agent
+    multivalued: true
+    inlined_as_list: true
+    minimum_cardinality: 1
+  provider:
+    slot_uri: sdo:provider
+    range: Agent
+    multivalued: true
+    inlined_as_list: true
+    minimum_cardinality: 1
+  license:
+    slot_uri: sdo:license
+    range: LicenseEnum
+    annotations:
+      severity: warning
+  spatial_coverage:
+    alias: spatialCoverage
+    slot_uri: sdo:spatialCoverage
+    range: Place
+    multivalued: true
+    inlined_as_list: true
+    minimum_cardinality: 1
+  date_published:
+    alias: datePublished
+    slot_uri: sdo:datePublished
+    range: IsoDate
+  date_modified:
+    alias: dateModified
+    slot_uri: sdo:dateModified
+    range: IsoDateOrTimestamp
+    annotations:
+      severity: warning
+  temporal_coverage:
+    alias: temporalCoverage
+    slot_uri: sdo:temporalCoverage
+    range: TemporalCoverage
+  keywords:
+    slot_uri: sdo:keywords
+    multivalued: true
+    minimum_cardinality: 1
+  dataset_type:
+    alias: type
+    range: DatasetTypeEnum
+    description: Catalog label such as "Vector Dataset" (not the JSON-LD @type).
+  about:
+    slot_uri: sdo:about
+    range: Event
+    multivalued: true
+    inlined_as_list: true
+  measurement_technique:
+    alias: measurementTechnique
+    slot_uri: sdo:measurementTechnique
+    range: DefinedTerm
+    multivalued: true
+    inlined_as_list: true
+    minimum_cardinality: 1
+  additional_property:
+    alias: additionalProperty
+    slot_uri: sdo:additionalProperty
+    range: PropertyValue
+    multivalued: true
+    inlined_as_list: true
+  variable_measured:
+    alias: variableMeasured
+    slot_uri: sdo:variableMeasured
+    range: Variable
+    multivalued: true
+    inlined_as_list: true
+    minimum_cardinality: 1
+  distribution:
+    slot_uri: sdo:distribution
+    multivalued: true
+    annotations:
+      severity: warning
+  included_in_data_catalog:
+    alias: includedInDataCatalog
+    slot_uri: sdo:includedInDataCatalog
+    range: DataCatalog
+    multivalued: true
+    inlined_as_list: true
+  is_based_on:
+    alias: isBasedOn
+    slot_uri: sdo:isBasedOn
+    range: CreativeWork
+    multivalued: true
+    inlined_as_list: true
+
+  # Place
+  geo:
+    slot_uri: sdo:geo
+    range: GeoShape
+  polygon:
+    slot_uri: sdo:polygon
+
+  # DefinedTerm
+  term_code:
+    alias: termCode
+    slot_uri: sdo:termCode
+  in_defined_term_set:
+    alias: inDefinedTermSet
+    slot_uri: sdo:inDefinedTermSet
+    range: DefinedTermSet
+  has_defined_term:
+    alias: hasDefinedTerm
+    slot_uri: sdo:hasDefinedTerm
+    range: DefinedTerm
+    multivalued: true
+    inlined_as_list: true
+
+  # PropertyValue / Variable
+  property_id:
+    alias: propertyID
+    slot_uri: sdo:propertyID
+  value:
+    slot_uri: sdo:value
+    range: Any
+  unit_text:
+    alias: unitText
+    slot_uri: sdo:unitText
+  unit_code:
+    alias: unitCode
+    slot_uri: sdo:unitCode
+  min_value:
+    alias: minValue
+    slot_uri: sdo:minValue
+    range: NumberText
+  max_value:
+    alias: maxValue
+    slot_uri: sdo:maxValue
+    range: NumberText
+  start_date:
+    alias: startDate
+    slot_uri: sdo:startDate
+    range: PartialDate
+    annotations:
+      severity: warning
+  end_date:
+    alias: endDate
+    slot_uri: sdo:endDate
+    range: PartialDate
+    annotations:
+      severity: warning
+  data_type:
+    alias: 'qudt:dataType'
+    slot_uri: qudt:dataType
+    range: DataTypeEnum
+
+  # Event
+  potential_action:
+    alias: potentialAction
+    slot_uri: sdo:potentialAction
+    range: Any
+
+# ---------------------------------------------------------------------------
+# classes
+# ---------------------------------------------------------------------------
+classes:
+  Any:
+    class_uri: linkml:Any
+    description: Any JSON value.
+
+  Dataset:
+    description: One catalog entry (a schema.org Dataset).
+    tree_root: true
+    slots:
+      - jsonld_context
+      - jsonld_id
+      - jsonld_type
+      - jsonld_language
+      - name
+      - description
+      - version
+      - url
+      - creator
+      - provider
+      - license
+      - spatial_coverage
+      - date_published
+      - date_modified
+      - temporal_coverage
+      - keywords
+      - dataset_type
+      - about
+      - measurement_technique
+      - additional_property
+      - variable_measured
+      - distribution
+      - included_in_data_catalog
+      - is_based_on
+    slot_usage:
+      jsonld_context: {required: true}
+      jsonld_id: {required: true, range: HttpUri}
+      jsonld_type: {required: true, equals_string: Dataset}
+      jsonld_language: {recommended: true}
+      name: {required: true}
+      description: {required: true}
+      version: {required: true}
+      url: {required: true}
+      creator: {required: true}
+      provider: {required: true}
+      license: {required: true}
+      spatial_coverage: {required: true}
+      date_published: {required: true}
+      date_modified: {recommended: true}
+      temporal_coverage: {recommended: true}
+      keywords: {required: true}
+      dataset_type: {recommended: true}
+      about: {recommended: true}
+      measurement_technique: {required: true}
+      additional_property: {required: true}
+      variable_measured: {required: true}
+      distribution: {recommended: true}
+      included_in_data_catalog: {recommended: true}
+
+  Agent:
+    description: An organization or person (creator, provider).
+    slots: [jsonld_id, jsonld_type, name, identifier, same_as, given_name, family_name, affiliation]
+    slot_usage:
+      name: {required: true}
+      jsonld_type: {recommended: true, range: AgentTypeEnum}
+      jsonld_id: {range: HttpUri}
+
+  Place:
+    description: A named place.
+    slots: [jsonld_id, jsonld_type, name, geo]
+    slot_usage:
+      name: {required: true}
+
+  GeoShape:
+    slots: [jsonld_type, polygon]
+    slot_usage:
+      polygon: {required: true}
+
+  DefinedTermSet:
+    slots: [jsonld_type, name, has_defined_term]
+    slot_usage:
+      name: {required: true}
+
+  DefinedTerm:
+    description: >-
+      A term from a named set, as used by measurementTechnique to give the
+      data representation (vector, raster, table) and the geometry.
+    slots: [jsonld_type, name, description, term_code, in_defined_term_set]
+    slot_usage:
+      term_code: {required: true}
+
+  PropertyValue:
+    description: >-
+      A named value, such as the EPSG code or the temporal dimension. Needs a
+      name or a propertyID (checked in validate_catalog.py).
+    slots: [jsonld_type, property_id, name, unit_text, value]
+    slot_usage:
+      value: {required: true}
+
+  Variable:
+    description: One variable of the dataset (an entry of variableMeasured).
+    slots:
+      - jsonld_type
+      - name
+      - description
+      - property_id
+      - data_type
+      - unit_text
+      - unit_code
+      - min_value
+      - max_value
+      - start_date
+      - end_date
+    slot_usage:
+      name: {required: true}
+      data_type: {required: true}
+      description: {recommended: true}
+      property_id: {range: ConceptIdText}
+      jsonld_type: {equals_string: PropertyValue}
+
+  Event:
+    description: A step of the ETL provenance (an entry of about).
+    slots: [jsonld_type, name, description, potential_action]
+    slot_usage:
+      name: {required: true}
+
+  DataCatalog:
+    slots: [jsonld_id, jsonld_type, name, url]
+    slot_usage:
+      name: {required: true}
+
+  CreativeWork:
+    description: A source the dataset is derived from (isBasedOn).
+    slots: [jsonld_id, jsonld_type, name, url]
+    slot_usage:
+      name: {required: true}

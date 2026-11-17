@@ -37,6 +37,6 @@
   "podID": "gaia-db",
   "update_frequency": "Never",
   "checksum": {
-    "monitors_20.csv": "sha256:6cd9887617e2e24640e79572cffbb180f787397e290364ab30473e1f2e6a5e6e"
+    "monitors_20.csv": "sha256:77366bd8eaacea89d8c5db8374155626dcb247eac9467a44a645529e445cea4e"
   }
 }
