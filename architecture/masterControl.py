@@ -11,6 +11,7 @@ from defs import lance_utils
 from defs import pdf2markdown
 from defs import gliner2lance
 from defs import jsonld2ntfile
+from defs import validate_ingest
 
 def main(args: List[str]) -> int:
     """Main entry point for the program."""
@@ -57,6 +58,9 @@ def main(args: List[str]) -> int:
     parser_jld2nt.add_argument("--input_dir", type=str, required=True, help="Path to jsonld director")
     parser_jld2nt.add_argument("--output_file", type=str, required=True, help="Output file path")
 
+    # Subparsers for validate_ingest and ingest_report
+    validate_ingest.add_subcommands(subparsers)
+
     # Parse arguments
     parsed_args = parser.parse_args(args)
 
@@ -75,7 +79,8 @@ def main(args: List[str]) -> int:
         gliner2lance.processor(parsed_args.db_path, parsed_args.source_table, parsed_args.output_table)
     elif parsed_args.command == "jsonld2ntfile":
         jsonld2ntfile.jsonld2ntfile(parsed_args.input_dir, parsed_args.output_file)
-
+    elif parsed_args.command in ("validate_ingest", "ingest_report"):
+        return validate_ingest.dispatch(parsed_args)
 
     return 0
 

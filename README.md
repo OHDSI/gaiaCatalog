@@ -92,3 +92,21 @@ Please use the [GitHub issue tracker](https://github.com/OHDSI/gaiaCatalog/issue
 - Open an issue before starting significant work
 - Create a feature branch and submit a Pull Request when ready
 - PRs require review before merge to `main`
+## Ingest status
+
+A scheduled check ingests every source in `datastore/data` into a fresh
+[gaiaDB](https://github.com/OHDSI/gaiaDB) container using
+`backbone.ingest_datasource` and reports whether it succeeded. To run it locally
+(requires Docker and the `ohdsi/gaia-db` image):
+
+```
+python architecture/masterControl.py validate_ingest --data_dir ./datastore/data \
+    --results_file ./ingest_results.json --readme ./README.md
+```
+
+Use `--source <name>` (repeatable) to check selected sources only. The table
+below is rewritten by that command; do not edit it by hand.
+
+<!-- ingest-report:start -->
+No report has been generated yet.
+<!-- ingest-report:end -->
