@@ -586,7 +586,9 @@
         "attribute_type": "int4",
         "attribute_unit": "persons",
         "attribute_min_value": "960",
-        "attribute_max_value": "536564"
+        "attribute_max_value": "536564",
+        "attribute_start_date": "2020-01-01",
+        "attribute_end_date": "2020-12-31"
       },
       {
         "attribute_name": "e_age17",
@@ -595,7 +597,9 @@
         "attribute_type": "int4",
         "attribute_unit": "persons",
         "attribute_min_value": "1524",
-        "attribute_max_value": "552057"
+        "attribute_max_value": "552057",
+        "attribute_start_date": "2020-01-01",
+        "attribute_end_date": "2020-12-31"
       },
       {
         "attribute_name": "e_age65",
@@ -604,7 +608,9 @@
         "attribute_type": "int4",
         "attribute_unit": "persons",
         "attribute_min_value": "1198",
-        "attribute_max_value": "440203"
+        "attribute_max_value": "440203",
+        "attribute_start_date": "2020-01-01",
+        "attribute_end_date": "2020-12-31"
       },
       {
         "attribute_name": "e_aian",
@@ -613,7 +619,9 @@
         "attribute_type": "int4",
         "attribute_unit": "persons",
         "attribute_min_value": "0",
-        "attribute_max_value": "3208"
+        "attribute_max_value": "3208",
+        "attribute_start_date": "2020-01-01",
+        "attribute_end_date": "2020-12-31"
       },
       {
         "attribute_name": "e_asian",
@@ -622,7 +630,9 @@
         "attribute_type": "int4",
         "attribute_unit": "persons",
         "attribute_min_value": "0",
-        "attribute_max_value": "71394"
+        "attribute_max_value": "71394",
+        "attribute_start_date": "2020-01-01",
+        "attribute_end_date": "2020-12-31"
       },
       {
         "attribute_name": "e_crowd",
@@ -631,7 +641,9 @@
         "attribute_type": "int4",
         "attribute_unit": "housing units",
         "attribute_min_value": "27",
-        "attribute_max_value": "56832"
+        "attribute_max_value": "56832",
+        "attribute_start_date": "2020-01-01",
+        "attribute_end_date": "2020-12-31"
       },
       {
         "attribute_name": "e_daypop",
@@ -639,7 +651,9 @@
         "attribute_type": "int4",
         "attribute_unit": "persons",
         "attribute_min_value": "6572",
-        "attribute_max_value": "2645564"
+        "attribute_max_value": "2645564",
+        "attribute_start_date": "2020-01-01",
+        "attribute_end_date": "2020-12-31"
       },
       {
         "attribute_name": "e_disabl",
@@ -648,7 +662,9 @@
         "attribute_type": "int4",
         "attribute_unit": "persons",
         "attribute_min_value": "1218",
-        "attribute_max_value": "273538"
+        "attribute_max_value": "273538",
+        "attribute_start_date": "2020-01-01",
+        "attribute_end_date": "2020-12-31"
       },
       {
         "attribute_name": "e_groupq",
@@ -657,7 +673,9 @@
         "attribute_type": "int4",
         "attribute_unit": "persons",
         "attribute_min_value": "370",
-        "attribute_max_value": "45209"
+        "attribute_max_value": "45209",
+        "attribute_start_date": "2020-01-01",
+        "attribute_end_date": "2020-12-31"
       },
       {
         "attribute_name": "e_hburd",
@@ -666,7 +684,9 @@
         "attribute_type": "int4",
         "attribute_unit": "housing units",
         "attribute_min_value": "385",
-        "attribute_max_value": "381497"
+        "attribute_max_value": "381497",
+        "attribute_start_date": "2020-01-01",
+        "attribute_end_date": "2020-12-31"
       },
       {
         "attribute_name": "e_hh",
@@ -675,7 +695,9 @@
         "attribute_type": "int4",
         "attribute_unit": "households",
         "attribute_min_value": "2315",
-        "attribute_max_value": "902200"
+        "attribute_max_value": "902200",
+        "attribute_start_date": "2020-01-01",
+        "attribute_end_date": "2020-12-31"
       },
       {
         "attribute_name": "e_hisp",
@@ -684,7 +706,9 @@
         "attribute_type": "int4",
         "attribute_unit": "persons",
         "attribute_min_value": "381",
-        "attribute_max_value": "1843676"
+        "attribute_max_value": "1843676",
+        "attribute_start_date": "2020-01-01",
+        "attribute_end_date": "2020-12-31"
       },
       {
         "attribute_name": "e_hu",
@@ -693,7 +717,9 @@
         "attribute_type": "int4",
         "attribute_unit": "housing units",
         "attribute_min_value": "3344",
-        "attribute_max_value": "1032310"
+        "attribute_max_value": "1032310",
+        "attribute_start_date": "2020-01-01",
+        "attribute_end_date": "2020-12-31"
       },
       {
         "attribute_name": "e_limeng",
@@ -702,7 +728,9 @@
         "attribute_type": "int4",
         "attribute_unit": "persons",
         "attribute_min_value": "35",
-        "attribute_max_value": "540189"
+        "attribute_max_value": "540189",
+        "attribute_start_date": "2020-01-01",
+        "attribute_end_date": "2020-12-31"
       },
       {
         "attribute_name": "e_minrty",
@@ -711,7 +739,9 @@
         "attribute_type": "int4",
         "attribute_unit": "persons",
         "attribute_min_value": "2082",
-        "attribute_max_value": "2339622"
+        "attribute_max_value": "2339622",
+        "attribute_start_date": "2020-01-01",
+        "attribute_end_date": "2020-12-31"
       },
       {
         "attribute_name": "e_mobile",
@@ -720,7 +750,9 @@
         "attribute_type": "int4",
         "attribute_unit": "mobile homes",
         "attribute_min_value": "1435",
-        "attribute_max_value": "64676"
+        "attribute_max_value": "64676",
+        "attribute_start_date": "2020-01-01",
+        "attribute_end_date": "2020-12-31"
       },
       {
         "attribute_name": "e_munit",
@@ -729,7 +761,9 @@
         "attribute_type": "int4",
         "attribute_unit": "structures",
         "attribute_min_value": "0",
-        "attribute_max_value": "402480"
+        "attribute_max_value": "402480",
+        "attribute_start_date": "2020-01-01",
+        "attribute_end_date": "2020-12-31"
       },
       {
         "attribute_name": "e_nhpi",
@@ -738,7 +772,9 @@
         "attribute_type": "int4",
         "attribute_unit": "persons",
         "attribute_min_value": "0",
-        "attribute_max_value": "985"
+        "attribute_max_value": "985",
+        "attribute_start_date": "2020-01-01",
+        "attribute_end_date": "2020-12-31"
       },
       {
         "attribute_name": "e_nohsdp",
@@ -747,7 +783,9 @@
         "attribute_type": "int4",
         "attribute_unit": "persons",
         "attribute_min_value": "1228",
-        "attribute_max_value": "349764"
+        "attribute_max_value": "349764",
+        "attribute_start_date": "2020-01-01",
+        "attribute_end_date": "2020-12-31"
       },
       {
         "attribute_name": "e_noint",
@@ -756,7 +794,9 @@
         "attribute_type": "int4",
         "attribute_unit": "households",
         "attribute_min_value": "1187",
-        "attribute_max_value": "424356"
+        "attribute_max_value": "424356",
+        "attribute_start_date": "2020-01-01",
+        "attribute_end_date": "2020-12-31"
       },
       {
         "attribute_name": "e_noveh",
@@ -765,7 +805,9 @@
         "attribute_type": "int4",
         "attribute_unit": "households",
         "attribute_min_value": "86",
-        "attribute_max_value": "90752"
+        "attribute_max_value": "90752",
+        "attribute_start_date": "2020-01-01",
+        "attribute_end_date": "2020-12-31"
       },
       {
         "attribute_name": "e_otherrace",
@@ -774,7 +816,9 @@
         "attribute_type": "int4",
         "attribute_unit": "persons",
         "attribute_min_value": "0",
-        "attribute_max_value": "12860"
+        "attribute_max_value": "12860",
+        "attribute_start_date": "2020-01-01",
+        "attribute_end_date": "2020-12-31"
       },
       {
         "attribute_name": "e_pov150",
@@ -783,7 +827,9 @@
         "attribute_type": "int4",
         "attribute_unit": "households",
         "attribute_min_value": "2110",
-        "attribute_max_value": "740838"
+        "attribute_max_value": "740838",
+        "attribute_start_date": "2020-01-01",
+        "attribute_end_date": "2020-12-31"
       },
       {
         "attribute_name": "e_sngpnt",
@@ -792,7 +838,9 @@
         "attribute_type": "int4",
         "attribute_unit": "persons",
         "attribute_min_value": "42",
-        "attribute_max_value": "69735"
+        "attribute_max_value": "69735",
+        "attribute_start_date": "2020-01-01",
+        "attribute_end_date": "2020-12-31"
       },
       {
         "attribute_name": "e_totpop",
@@ -801,7 +849,9 @@
         "attribute_type": "int4",
         "attribute_unit": "persons",
         "attribute_min_value": "8333",
-        "attribute_max_value": "2705528"
+        "attribute_max_value": "2705528",
+        "attribute_start_date": "2020-01-01",
+        "attribute_end_date": "2020-12-31"
       },
       {
         "attribute_name": "e_twomore",
@@ -810,7 +860,9 @@
         "attribute_type": "int4",
         "attribute_unit": "persons",
         "attribute_min_value": "85",
-        "attribute_max_value": "43730"
+        "attribute_max_value": "43730",
+        "attribute_start_date": "2020-01-01",
+        "attribute_end_date": "2020-12-31"
       },
       {
         "attribute_name": "e_unemp",
@@ -819,7 +871,9 @@
         "attribute_type": "int4",
         "attribute_unit": "persons",
         "attribute_min_value": "121",
-        "attribute_max_value": "70536"
+        "attribute_max_value": "70536",
+        "attribute_start_date": "2020-01-01",
+        "attribute_end_date": "2020-12-31"
       },
       {
         "attribute_name": "e_uninsur",
@@ -828,7 +882,9 @@
         "attribute_type": "int4",
         "attribute_unit": "persons",
         "attribute_min_value": "918",
-        "attribute_max_value": "433554"
+        "attribute_max_value": "433554",
+        "attribute_start_date": "2020-01-01",
+        "attribute_end_date": "2020-12-31"
       },
       {
         "attribute_name": "ep_afam",
@@ -837,7 +893,9 @@
         "attribute_type": "float8",
         "attribute_unit": "percent",
         "attribute_min_value": "2.6",
-        "attribute_max_value": "55.3"
+        "attribute_max_value": "55.3",
+        "attribute_start_date": "2020-01-01",
+        "attribute_end_date": "2020-12-31"
       },
       {
         "attribute_name": "ep_age17",
@@ -846,7 +904,9 @@
         "attribute_type": "float8",
         "attribute_unit": "percent",
         "attribute_min_value": "7.3",
-        "attribute_max_value": "26.8"
+        "attribute_max_value": "26.8",
+        "attribute_start_date": "2020-01-01",
+        "attribute_end_date": "2020-12-31"
       },
       {
         "attribute_name": "ep_age65",
@@ -855,7 +915,9 @@
         "attribute_type": "float8",
         "attribute_unit": "percent",
         "attribute_min_value": "11.9",
-        "attribute_max_value": "57.8"
+        "attribute_max_value": "57.8",
+        "attribute_start_date": "2020-01-01",
+        "attribute_end_date": "2020-12-31"
       },
       {
         "attribute_name": "ep_aian",
@@ -864,7 +926,9 @@
         "attribute_type": "float8",
         "attribute_unit": "percent",
         "attribute_min_value": "0",
-        "attribute_max_value": "3.9"
+        "attribute_max_value": "3.9",
+        "attribute_start_date": "2020-01-01",
+        "attribute_end_date": "2020-12-31"
       },
       {
         "attribute_name": "ep_asian",
@@ -873,7 +937,9 @@
         "attribute_type": "float8",
         "attribute_unit": "percent",
         "attribute_min_value": "0",
-        "attribute_max_value": "6"
+        "attribute_max_value": "6",
+        "attribute_start_date": "2020-01-01",
+        "attribute_end_date": "2020-12-31"
       },
       {
         "attribute_name": "ep_crowd",
@@ -882,7 +948,9 @@
         "attribute_type": "float8",
         "attribute_unit": "percent",
         "attribute_min_value": "0.8",
-        "attribute_max_value": "9.4"
+        "attribute_max_value": "9.4",
+        "attribute_start_date": "2020-01-01",
+        "attribute_end_date": "2020-12-31"
       },
       {
         "attribute_name": "ep_disabl",
@@ -891,7 +959,9 @@
         "attribute_type": "float8",
         "attribute_unit": "percent",
         "attribute_min_value": "10.2",
-        "attribute_max_value": "25.4"
+        "attribute_max_value": "25.4",
+        "attribute_start_date": "2020-01-01",
+        "attribute_end_date": "2020-12-31"
       },
       {
         "attribute_name": "ep_groupq",
@@ -900,7 +970,9 @@
         "attribute_type": "float8",
         "attribute_unit": "percent",
         "attribute_min_value": "0.5",
-        "attribute_max_value": "38.2"
+        "attribute_max_value": "38.2",
+        "attribute_start_date": "2020-01-01",
+        "attribute_end_date": "2020-12-31"
       },
       {
         "attribute_name": "ep_hburd",
@@ -909,7 +981,9 @@
         "attribute_type": "float8",
         "attribute_unit": "percent",
         "attribute_min_value": "12.6",
-        "attribute_max_value": "42.3"
+        "attribute_max_value": "42.3",
+        "attribute_start_date": "2020-01-01",
+        "attribute_end_date": "2020-12-31"
       },
       {
         "attribute_name": "ep_hisp",
@@ -918,7 +992,9 @@
         "attribute_type": "float8",
         "attribute_unit": "percent",
         "attribute_min_value": "2.7",
-        "attribute_max_value": "68.1"
+        "attribute_max_value": "68.1",
+        "attribute_start_date": "2020-01-01",
+        "attribute_end_date": "2020-12-31"
       },
       {
         "attribute_name": "ep_limeng",
@@ -927,7 +1003,9 @@
         "attribute_type": "float8",
         "attribute_unit": "percent",
         "attribute_min_value": "0.2",
-        "attribute_max_value": "21.2"
+        "attribute_max_value": "21.2",
+        "attribute_start_date": "2020-01-01",
+        "attribute_end_date": "2020-12-31"
       },
       {
         "attribute_name": "ep_minrty",
@@ -936,7 +1014,9 @@
         "attribute_type": "float8",
         "attribute_unit": "percent",
         "attribute_min_value": "12.4",
-        "attribute_max_value": "86.5"
+        "attribute_max_value": "86.5",
+        "attribute_start_date": "2020-01-01",
+        "attribute_end_date": "2020-12-31"
       },
       {
         "attribute_name": "ep_mobile",
@@ -945,7 +1025,9 @@
         "attribute_type": "float8",
         "attribute_unit": "percent",
         "attribute_min_value": "1.2",
-        "attribute_max_value": "52.3"
+        "attribute_max_value": "52.3",
+        "attribute_start_date": "2020-01-01",
+        "attribute_end_date": "2020-12-31"
       },
       {
         "attribute_name": "ep_munit",
@@ -954,7 +1036,9 @@
         "attribute_type": "float8",
         "attribute_unit": "percent",
         "attribute_min_value": "0",
-        "attribute_max_value": "39"
+        "attribute_max_value": "39",
+        "attribute_start_date": "2020-01-01",
+        "attribute_end_date": "2020-12-31"
       },
       {
         "attribute_name": "ep_nhpi",
@@ -963,7 +1047,9 @@
         "attribute_type": "float8",
         "attribute_unit": "percent",
         "attribute_min_value": "0",
-        "attribute_max_value": "1.1"
+        "attribute_max_value": "1.1",
+        "attribute_start_date": "2020-01-01",
+        "attribute_end_date": "2020-12-31"
       },
       {
         "attribute_name": "ep_nohsdp",
@@ -972,7 +1058,9 @@
         "attribute_type": "float8",
         "attribute_unit": "percent",
         "attribute_min_value": "5.2",
-        "attribute_max_value": "30.9"
+        "attribute_max_value": "30.9",
+        "attribute_start_date": "2020-01-01",
+        "attribute_end_date": "2020-12-31"
       },
       {
         "attribute_name": "ep_noint",
@@ -981,7 +1069,9 @@
         "attribute_type": "float8",
         "attribute_unit": "percent",
         "attribute_min_value": "6.3",
-        "attribute_max_value": "36.1"
+        "attribute_max_value": "36.1",
+        "attribute_start_date": "2020-01-01",
+        "attribute_end_date": "2020-12-31"
       },
       {
         "attribute_name": "ep_noveh",
@@ -990,7 +1080,9 @@
         "attribute_type": "float8",
         "attribute_unit": "percent",
         "attribute_min_value": "2",
-        "attribute_max_value": "10.1"
+        "attribute_max_value": "10.1",
+        "attribute_start_date": "2020-01-01",
+        "attribute_end_date": "2020-12-31"
       },
       {
         "attribute_name": "ep_otherrace",
@@ -999,7 +1091,9 @@
         "attribute_type": "float8",
         "attribute_unit": "percent",
         "attribute_min_value": "0",
-        "attribute_max_value": "1.2"
+        "attribute_max_value": "1.2",
+        "attribute_start_date": "2020-01-01",
+        "attribute_end_date": "2020-12-31"
       },
       {
         "attribute_name": "ep_pov150",
@@ -1008,7 +1102,9 @@
         "attribute_type": "float8",
         "attribute_unit": "percent",
         "attribute_min_value": "12.5",
-        "attribute_max_value": "41.4"
+        "attribute_max_value": "41.4",
+        "attribute_start_date": "2020-01-01",
+        "attribute_end_date": "2020-12-31"
       },
       {
         "attribute_name": "ep_sngpnt",
@@ -1017,7 +1113,9 @@
         "attribute_type": "float8",
         "attribute_unit": "percent",
         "attribute_min_value": "1.8",
-        "attribute_max_value": "11"
+        "attribute_max_value": "11",
+        "attribute_start_date": "2020-01-01",
+        "attribute_end_date": "2020-12-31"
       },
       {
         "attribute_name": "ep_twomore",
@@ -1026,7 +1124,9 @@
         "attribute_type": "float8",
         "attribute_unit": "percent",
         "attribute_min_value": "0.7",
-        "attribute_max_value": "4.9"
+        "attribute_max_value": "4.9",
+        "attribute_start_date": "2020-01-01",
+        "attribute_end_date": "2020-12-31"
       },
       {
         "attribute_name": "ep_unemp",
@@ -1035,7 +1135,9 @@
         "attribute_type": "float8",
         "attribute_unit": "percent",
         "attribute_min_value": "3",
-        "attribute_max_value": "10.7"
+        "attribute_max_value": "10.7",
+        "attribute_start_date": "2020-01-01",
+        "attribute_end_date": "2020-12-31"
       },
       {
         "attribute_name": "ep_uninsur",
@@ -1044,7 +1146,9 @@
         "attribute_type": "float8",
         "attribute_unit": "percent",
         "attribute_min_value": "5.7",
-        "attribute_max_value": "24.3"
+        "attribute_max_value": "24.3",
+        "attribute_start_date": "2020-01-01",
+        "attribute_end_date": "2020-12-31"
       },
       {
         "attribute_name": "epl_age17",
@@ -1053,7 +1157,9 @@
         "attribute_type": "float8",
         "attribute_unit": "percentile",
         "attribute_min_value": "0",
-        "attribute_max_value": "1"
+        "attribute_max_value": "1",
+        "attribute_start_date": "2020-01-01",
+        "attribute_end_date": "2020-12-31"
       },
       {
         "attribute_name": "epl_age65",
@@ -1062,7 +1168,9 @@
         "attribute_type": "float8",
         "attribute_unit": "percentile",
         "attribute_min_value": "0",
-        "attribute_max_value": "1"
+        "attribute_max_value": "1",
+        "attribute_start_date": "2020-01-01",
+        "attribute_end_date": "2020-12-31"
       },
       {
         "attribute_name": "epl_crowd",
@@ -1071,7 +1179,9 @@
         "attribute_type": "float8",
         "attribute_unit": "percentile",
         "attribute_min_value": "0",
-        "attribute_max_value": "1"
+        "attribute_max_value": "1",
+        "attribute_start_date": "2020-01-01",
+        "attribute_end_date": "2020-12-31"
       },
       {
         "attribute_name": "epl_disabl",
@@ -1080,7 +1190,9 @@
         "attribute_type": "float8",
         "attribute_unit": "percentile",
         "attribute_min_value": "0",
-        "attribute_max_value": "1"
+        "attribute_max_value": "1",
+        "attribute_start_date": "2020-01-01",
+        "attribute_end_date": "2020-12-31"
       },
       {
         "attribute_name": "epl_groupq",
@@ -1089,7 +1201,9 @@
         "attribute_type": "float8",
         "attribute_unit": "percentile",
         "attribute_min_value": "0",
-        "attribute_max_value": "1"
+        "attribute_max_value": "1",
+        "attribute_start_date": "2020-01-01",
+        "attribute_end_date": "2020-12-31"
       },
       {
         "attribute_name": "epl_hburd",
@@ -1098,7 +1212,9 @@
         "attribute_type": "float8",
         "attribute_unit": "percentile",
         "attribute_min_value": "0",
-        "attribute_max_value": "1"
+        "attribute_max_value": "1",
+        "attribute_start_date": "2020-01-01",
+        "attribute_end_date": "2020-12-31"
       },
       {
         "attribute_name": "epl_limeng",
@@ -1107,7 +1223,9 @@
         "attribute_type": "float8",
         "attribute_unit": "percentile",
         "attribute_min_value": "0",
-        "attribute_max_value": "1"
+        "attribute_max_value": "1",
+        "attribute_start_date": "2020-01-01",
+        "attribute_end_date": "2020-12-31"
       },
       {
         "attribute_name": "epl_minrty",
@@ -1116,7 +1234,9 @@
         "attribute_type": "float8",
         "attribute_unit": "percentile",
         "attribute_min_value": "0",
-        "attribute_max_value": "1"
+        "attribute_max_value": "1",
+        "attribute_start_date": "2020-01-01",
+        "attribute_end_date": "2020-12-31"
       },
       {
         "attribute_name": "epl_mobile",
@@ -1125,7 +1245,9 @@
         "attribute_type": "float8",
         "attribute_unit": "percentile",
         "attribute_min_value": "0",
-        "attribute_max_value": "1"
+        "attribute_max_value": "1",
+        "attribute_start_date": "2020-01-01",
+        "attribute_end_date": "2020-12-31"
       },
       {
         "attribute_name": "epl_munit",
@@ -1134,7 +1256,9 @@
         "attribute_type": "float8",
         "attribute_unit": "percentile",
         "attribute_min_value": "0",
-        "attribute_max_value": "1"
+        "attribute_max_value": "1",
+        "attribute_start_date": "2020-01-01",
+        "attribute_end_date": "2020-12-31"
       },
       {
         "attribute_name": "epl_nohsdp",
@@ -1143,7 +1267,9 @@
         "attribute_type": "float8",
         "attribute_unit": "percentile",
         "attribute_min_value": "0",
-        "attribute_max_value": "1"
+        "attribute_max_value": "1",
+        "attribute_start_date": "2020-01-01",
+        "attribute_end_date": "2020-12-31"
       },
       {
         "attribute_name": "epl_noveh",
@@ -1152,7 +1278,9 @@
         "attribute_type": "float8",
         "attribute_unit": "percentile",
         "attribute_min_value": "0",
-        "attribute_max_value": "1"
+        "attribute_max_value": "1",
+        "attribute_start_date": "2020-01-01",
+        "attribute_end_date": "2020-12-31"
       },
       {
         "attribute_name": "epl_pov150",
@@ -1161,7 +1289,9 @@
         "attribute_type": "float8",
         "attribute_unit": "percentile",
         "attribute_min_value": "0",
-        "attribute_max_value": "1"
+        "attribute_max_value": "1",
+        "attribute_start_date": "2020-01-01",
+        "attribute_end_date": "2020-12-31"
       },
       {
         "attribute_name": "epl_sngpnt",
@@ -1170,7 +1300,9 @@
         "attribute_type": "float8",
         "attribute_unit": "percentile",
         "attribute_min_value": "0",
-        "attribute_max_value": "1"
+        "attribute_max_value": "1",
+        "attribute_start_date": "2020-01-01",
+        "attribute_end_date": "2020-12-31"
       },
       {
         "attribute_name": "epl_unemp",
@@ -1179,7 +1311,9 @@
         "attribute_type": "float8",
         "attribute_unit": "percentile",
         "attribute_min_value": "0",
-        "attribute_max_value": "1"
+        "attribute_max_value": "1",
+        "attribute_start_date": "2020-01-01",
+        "attribute_end_date": "2020-12-31"
       },
       {
         "attribute_name": "epl_uninsur",
@@ -1188,7 +1322,9 @@
         "attribute_type": "float8",
         "attribute_unit": "percentile",
         "attribute_min_value": "0",
-        "attribute_max_value": "1"
+        "attribute_max_value": "1",
+        "attribute_start_date": "2020-01-01",
+        "attribute_end_date": "2020-12-31"
       },
       {
         "attribute_name": "f_age17",
@@ -1196,7 +1332,9 @@
         "attribute_source": "EPL_AGE17 >= 0.90",
         "attribute_type": "int2",
         "attribute_min_value": "0",
-        "attribute_max_value": "1"
+        "attribute_max_value": "1",
+        "attribute_start_date": "2020-01-01",
+        "attribute_end_date": "2020-12-31"
       },
       {
         "attribute_name": "f_age65",
@@ -1204,7 +1342,9 @@
         "attribute_source": "EPL_AGE65 >= 0.90",
         "attribute_type": "int2",
         "attribute_min_value": "0",
-        "attribute_max_value": "1"
+        "attribute_max_value": "1",
+        "attribute_start_date": "2020-01-01",
+        "attribute_end_date": "2020-12-31"
       },
       {
         "attribute_name": "f_crowd",
@@ -1212,7 +1352,9 @@
         "attribute_source": "EPL_CROWD >= 0.90",
         "attribute_type": "int2",
         "attribute_min_value": "0",
-        "attribute_max_value": "1"
+        "attribute_max_value": "1",
+        "attribute_start_date": "2020-01-01",
+        "attribute_end_date": "2020-12-31"
       },
       {
         "attribute_name": "f_disabl",
@@ -1220,7 +1362,9 @@
         "attribute_source": "EPL_DISABL >= 0.90",
         "attribute_type": "int2",
         "attribute_min_value": "0",
-        "attribute_max_value": "1"
+        "attribute_max_value": "1",
+        "attribute_start_date": "2020-01-01",
+        "attribute_end_date": "2020-12-31"
       },
       {
         "attribute_name": "f_groupq",
@@ -1228,7 +1372,9 @@
         "attribute_source": "EPL_GROUPQ >= 0.90",
         "attribute_type": "int2",
         "attribute_min_value": "0",
-        "attribute_max_value": "1"
+        "attribute_max_value": "1",
+        "attribute_start_date": "2020-01-01",
+        "attribute_end_date": "2020-12-31"
       },
       {
         "attribute_name": "f_hburd",
@@ -1236,7 +1382,9 @@
         "attribute_source": "EPL_HBURD >= 0.90",
         "attribute_type": "int2",
         "attribute_min_value": "0",
-        "attribute_max_value": "1"
+        "attribute_max_value": "1",
+        "attribute_start_date": "2020-01-01",
+        "attribute_end_date": "2020-12-31"
       },
       {
         "attribute_name": "f_limeng",
@@ -1244,7 +1392,9 @@
         "attribute_source": "EPL_LIMENG >= 0.90",
         "attribute_type": "int2",
         "attribute_min_value": "0",
-        "attribute_max_value": "1"
+        "attribute_max_value": "1",
+        "attribute_start_date": "2020-01-01",
+        "attribute_end_date": "2020-12-31"
       },
       {
         "attribute_name": "f_minrty",
@@ -1252,7 +1402,9 @@
         "attribute_source": "EPL_MINRTY >= 0.90",
         "attribute_type": "int2",
         "attribute_min_value": "0",
-        "attribute_max_value": "1"
+        "attribute_max_value": "1",
+        "attribute_start_date": "2020-01-01",
+        "attribute_end_date": "2020-12-31"
       },
       {
         "attribute_name": "f_mobile",
@@ -1260,7 +1412,9 @@
         "attribute_source": "EPL_MOBILE >= 0.90",
         "attribute_type": "int2",
         "attribute_min_value": "0",
-        "attribute_max_value": "1"
+        "attribute_max_value": "1",
+        "attribute_start_date": "2020-01-01",
+        "attribute_end_date": "2020-12-31"
       },
       {
         "attribute_name": "f_munit",
@@ -1268,7 +1422,9 @@
         "attribute_source": "EPL_MUNIT >= 0.90",
         "attribute_type": "int2",
         "attribute_min_value": "0",
-        "attribute_max_value": "1"
+        "attribute_max_value": "1",
+        "attribute_start_date": "2020-01-01",
+        "attribute_end_date": "2020-12-31"
       },
       {
         "attribute_name": "f_nohsdp",
@@ -1276,7 +1432,9 @@
         "attribute_source": "EPL_NOHSDP >= 0.90",
         "attribute_type": "int2",
         "attribute_min_value": "0",
-        "attribute_max_value": "1"
+        "attribute_max_value": "1",
+        "attribute_start_date": "2020-01-01",
+        "attribute_end_date": "2020-12-31"
       },
       {
         "attribute_name": "f_noveh",
@@ -1284,7 +1442,9 @@
         "attribute_source": "EPL_NOVEH >= 0.90",
         "attribute_type": "int2",
         "attribute_min_value": "0",
-        "attribute_max_value": "1"
+        "attribute_max_value": "1",
+        "attribute_start_date": "2020-01-01",
+        "attribute_end_date": "2020-12-31"
       },
       {
         "attribute_name": "f_pov150",
@@ -1292,7 +1452,9 @@
         "attribute_source": "EPL_POV150 >= 0.90",
         "attribute_type": "int2",
         "attribute_min_value": "0",
-        "attribute_max_value": "1"
+        "attribute_max_value": "1",
+        "attribute_start_date": "2020-01-01",
+        "attribute_end_date": "2020-12-31"
       },
       {
         "attribute_name": "f_sngpnt",
@@ -1300,7 +1462,9 @@
         "attribute_source": "EPL_SNGPNT >= 0.90",
         "attribute_type": "int2",
         "attribute_min_value": "0",
-        "attribute_max_value": "1"
+        "attribute_max_value": "1",
+        "attribute_start_date": "2020-01-01",
+        "attribute_end_date": "2020-12-31"
       },
       {
         "attribute_name": "f_theme1",
@@ -1308,7 +1472,9 @@
         "attribute_source": "F_POV150 + F_UNEMP + F_HBURD + F_NOHSDP + F_UNINSUR",
         "attribute_type": "int2",
         "attribute_min_value": "0",
-        "attribute_max_value": "4"
+        "attribute_max_value": "4",
+        "attribute_start_date": "2020-01-01",
+        "attribute_end_date": "2020-12-31"
       },
       {
         "attribute_name": "f_theme2",
@@ -1316,7 +1482,9 @@
         "attribute_source": "F_AGE65 + F_AGE17 + F_DISABL + F_SNGPNT + F_LIMENG",
         "attribute_type": "int2",
         "attribute_min_value": "0",
-        "attribute_max_value": "3"
+        "attribute_max_value": "3",
+        "attribute_start_date": "2020-01-01",
+        "attribute_end_date": "2020-12-31"
       },
       {
         "attribute_name": "f_theme3",
@@ -1324,7 +1492,9 @@
         "attribute_source": "F_MINRTY",
         "attribute_type": "int2",
         "attribute_min_value": "0",
-        "attribute_max_value": "1"
+        "attribute_max_value": "1",
+        "attribute_start_date": "2020-01-01",
+        "attribute_end_date": "2020-12-31"
       },
       {
         "attribute_name": "f_theme4",
@@ -1332,7 +1502,9 @@
         "attribute_source": "F_MUNIT + F_MOBILE + F_CROWD + F_NOVEH + F_GROUPQ",
         "attribute_type": "int2",
         "attribute_min_value": "0",
-        "attribute_max_value": "3"
+        "attribute_max_value": "3",
+        "attribute_start_date": "2020-01-01",
+        "attribute_end_date": "2020-12-31"
       },
       {
         "attribute_name": "f_total",
@@ -1340,7 +1512,9 @@
         "attribute_source": "F_THEME1 + F_THEME2 + F_THEME3 + F_THEME4",
         "attribute_type": "int2",
         "attribute_min_value": "0",
-        "attribute_max_value": "8"
+        "attribute_max_value": "8",
+        "attribute_start_date": "2020-01-01",
+        "attribute_end_date": "2020-12-31"
       },
       {
         "attribute_name": "f_unemp",
@@ -1348,7 +1522,9 @@
         "attribute_source": "EPL_UNEMP >= 0.90",
         "attribute_type": "int2",
         "attribute_min_value": "0",
-        "attribute_max_value": "1"
+        "attribute_max_value": "1",
+        "attribute_start_date": "2020-01-01",
+        "attribute_end_date": "2020-12-31"
       },
       {
         "attribute_name": "f_uninsur",
@@ -1356,7 +1532,9 @@
         "attribute_source": "EPL_UNINSUR >= 0.90",
         "attribute_type": "int2",
         "attribute_min_value": "0",
-        "attribute_max_value": "1"
+        "attribute_max_value": "1",
+        "attribute_start_date": "2020-01-01",
+        "attribute_end_date": "2020-12-31"
       },
       {
         "attribute_name": "fips",
@@ -1377,7 +1555,9 @@
         "attribute_type": "int4",
         "attribute_unit": "moe",
         "attribute_min_value": "73",
-        "attribute_max_value": "3710"
+        "attribute_max_value": "3710",
+        "attribute_start_date": "2020-01-01",
+        "attribute_end_date": "2020-12-31"
       },
       {
         "attribute_name": "m_age17",
@@ -1386,7 +1566,9 @@
         "attribute_type": "int4",
         "attribute_unit": "moe",
         "attribute_min_value": "0",
-        "attribute_max_value": "428"
+        "attribute_max_value": "428",
+        "attribute_start_date": "2020-01-01",
+        "attribute_end_date": "2020-12-31"
       },
       {
         "attribute_name": "m_age65",
@@ -1395,7 +1577,9 @@
         "attribute_type": "int4",
         "attribute_unit": "moe",
         "attribute_min_value": "0",
-        "attribute_max_value": "280"
+        "attribute_max_value": "280",
+        "attribute_start_date": "2020-01-01",
+        "attribute_end_date": "2020-12-31"
       },
       {
         "attribute_name": "m_aian",
@@ -1404,7 +1588,9 @@
         "attribute_type": "int4",
         "attribute_unit": "moe",
         "attribute_min_value": "2",
-        "attribute_max_value": "467"
+        "attribute_max_value": "467",
+        "attribute_start_date": "2020-01-01",
+        "attribute_end_date": "2020-12-31"
       },
       {
         "attribute_name": "m_asian",
@@ -1413,7 +1599,9 @@
         "attribute_type": "int4",
         "attribute_unit": "moe",
         "attribute_min_value": "11",
-        "attribute_max_value": "1320"
+        "attribute_max_value": "1320",
+        "attribute_start_date": "2020-01-01",
+        "attribute_end_date": "2020-12-31"
       },
       {
         "attribute_name": "m_crowd",
@@ -1422,7 +1610,9 @@
         "attribute_type": "int4",
         "attribute_unit": "moe",
         "attribute_min_value": "28",
-        "attribute_max_value": "1896"
+        "attribute_max_value": "1896",
+        "attribute_start_date": "2020-01-01",
+        "attribute_end_date": "2020-12-31"
       },
       {
         "attribute_name": "m_disabl",
@@ -1431,7 +1621,9 @@
         "attribute_type": "int4",
         "attribute_unit": "moe",
         "attribute_min_value": "267",
-        "attribute_max_value": "5144"
+        "attribute_max_value": "5144",
+        "attribute_start_date": "2020-01-01",
+        "attribute_end_date": "2020-12-31"
       },
       {
         "attribute_name": "m_groupq",
@@ -1440,7 +1632,9 @@
         "attribute_type": "int4",
         "attribute_unit": "moe",
         "attribute_min_value": "115",
-        "attribute_max_value": "1926"
+        "attribute_max_value": "1926",
+        "attribute_start_date": "2020-01-01",
+        "attribute_end_date": "2020-12-31"
       },
       {
         "attribute_name": "m_hburd",
@@ -1449,7 +1643,9 @@
         "attribute_type": "int4",
         "attribute_unit": "moe",
         "attribute_min_value": "136",
-        "attribute_max_value": "5418"
+        "attribute_max_value": "5418",
+        "attribute_start_date": "2020-01-01",
+        "attribute_end_date": "2020-12-31"
       },
       {
         "attribute_name": "m_hh",
@@ -1458,7 +1654,9 @@
         "attribute_type": "int4",
         "attribute_unit": "moe",
         "attribute_min_value": "197",
-        "attribute_max_value": "3223"
+        "attribute_max_value": "3223",
+        "attribute_start_date": "2020-01-01",
+        "attribute_end_date": "2020-12-31"
       },
       {
         "attribute_name": "m_hisp",
@@ -1467,7 +1665,9 @@
         "attribute_type": "int4",
         "attribute_unit": "moe",
         "attribute_min_value": "0",
-        "attribute_max_value": "160"
+        "attribute_max_value": "160",
+        "attribute_start_date": "2020-01-01",
+        "attribute_end_date": "2020-12-31"
       },
       {
         "attribute_name": "m_hu",
@@ -1476,7 +1676,9 @@
         "attribute_type": "int4",
         "attribute_unit": "moe",
         "attribute_min_value": "60",
-        "attribute_max_value": "765"
+        "attribute_max_value": "765",
+        "attribute_start_date": "2020-01-01",
+        "attribute_end_date": "2020-12-31"
       },
       {
         "attribute_name": "m_limeng",
@@ -1485,7 +1687,9 @@
         "attribute_type": "int4",
         "attribute_unit": "moe",
         "attribute_min_value": "76",
-        "attribute_max_value": "7674"
+        "attribute_max_value": "7674",
+        "attribute_start_date": "2020-01-01",
+        "attribute_end_date": "2020-12-31"
       },
       {
         "attribute_name": "m_minrty",
@@ -1494,7 +1698,9 @@
         "attribute_type": "int4",
         "attribute_unit": "moe",
         "attribute_min_value": "156",
-        "attribute_max_value": "5623"
+        "attribute_max_value": "5623",
+        "attribute_start_date": "2020-01-01",
+        "attribute_end_date": "2020-12-31"
       },
       {
         "attribute_name": "m_mobile",
@@ -1503,7 +1709,9 @@
         "attribute_type": "int4",
         "attribute_unit": "moe",
         "attribute_min_value": "196",
-        "attribute_max_value": "1632"
+        "attribute_max_value": "1632",
+        "attribute_start_date": "2020-01-01",
+        "attribute_end_date": "2020-12-31"
       },
       {
         "attribute_name": "m_munit",
@@ -1512,7 +1720,9 @@
         "attribute_type": "int4",
         "attribute_unit": "moe",
         "attribute_min_value": "20",
-        "attribute_max_value": "4208"
+        "attribute_max_value": "4208",
+        "attribute_start_date": "2020-01-01",
+        "attribute_end_date": "2020-12-31"
       },
       {
         "attribute_name": "m_nhpi",
@@ -1521,7 +1731,9 @@
         "attribute_type": "int4",
         "attribute_unit": "moe",
         "attribute_min_value": "3",
-        "attribute_max_value": "434"
+        "attribute_max_value": "434",
+        "attribute_start_date": "2020-01-01",
+        "attribute_end_date": "2020-12-31"
       },
       {
         "attribute_name": "m_nohsdp",
@@ -1530,7 +1742,9 @@
         "attribute_type": "int4",
         "attribute_unit": "moe",
         "attribute_min_value": "218",
-        "attribute_max_value": "5381"
+        "attribute_max_value": "5381",
+        "attribute_start_date": "2020-01-01",
+        "attribute_end_date": "2020-12-31"
       },
       {
         "attribute_name": "m_noint",
@@ -1539,7 +1753,9 @@
         "attribute_type": "int4",
         "attribute_unit": "moe",
         "attribute_min_value": "402",
-        "attribute_max_value": "11297"
+        "attribute_max_value": "11297",
+        "attribute_start_date": "2020-01-01",
+        "attribute_end_date": "2020-12-31"
       },
       {
         "attribute_name": "m_noveh",
@@ -1548,7 +1764,9 @@
         "attribute_type": "int4",
         "attribute_unit": "moe",
         "attribute_min_value": "72",
-        "attribute_max_value": "2799"
+        "attribute_max_value": "2799",
+        "attribute_start_date": "2020-01-01",
+        "attribute_end_date": "2020-12-31"
       },
       {
         "attribute_name": "m_otherrace",
@@ -1557,7 +1775,9 @@
         "attribute_type": "int4",
         "attribute_unit": "moe",
         "attribute_min_value": "0",
-        "attribute_max_value": "12860"
+        "attribute_max_value": "12860",
+        "attribute_start_date": "2020-01-01",
+        "attribute_end_date": "2020-12-31"
       },
       {
         "attribute_name": "m_pov150",
@@ -1566,7 +1786,9 @@
         "attribute_type": "int4",
         "attribute_unit": "moe",
         "attribute_min_value": "388",
-        "attribute_max_value": "10534"
+        "attribute_max_value": "10534",
+        "attribute_start_date": "2020-01-01",
+        "attribute_end_date": "2020-12-31"
       },
       {
         "attribute_name": "m_sngpnt",
@@ -1575,7 +1797,9 @@
         "attribute_type": "int4",
         "attribute_unit": "moe",
         "attribute_min_value": "50",
-        "attribute_max_value": "2385"
+        "attribute_max_value": "2385",
+        "attribute_start_date": "2020-01-01",
+        "attribute_end_date": "2020-12-31"
       },
       {
         "attribute_name": "m_totpop",
@@ -1584,7 +1808,9 @@
         "attribute_type": "int4",
         "attribute_unit": "moe",
         "attribute_min_value": "0",
-        "attribute_max_value": "0"
+        "attribute_max_value": "0",
+        "attribute_start_date": "2020-01-01",
+        "attribute_end_date": "2020-12-31"
       },
       {
         "attribute_name": "m_twomore",
@@ -1593,7 +1819,9 @@
         "attribute_type": "int4",
         "attribute_unit": "moe",
         "attribute_min_value": "59",
-        "attribute_max_value": "3537"
+        "attribute_max_value": "3537",
+        "attribute_start_date": "2020-01-01",
+        "attribute_end_date": "2020-12-31"
       },
       {
         "attribute_name": "m_unemp",
@@ -1602,7 +1830,9 @@
         "attribute_type": "int4",
         "attribute_unit": "moe",
         "attribute_min_value": "59",
-        "attribute_max_value": "2629"
+        "attribute_max_value": "2629",
+        "attribute_start_date": "2020-01-01",
+        "attribute_end_date": "2020-12-31"
       },
       {
         "attribute_name": "m_uninsur",
@@ -1611,7 +1841,9 @@
         "attribute_type": "int4",
         "attribute_unit": "moe",
         "attribute_min_value": "211",
-        "attribute_max_value": "8496"
+        "attribute_max_value": "8496",
+        "attribute_start_date": "2020-01-01",
+        "attribute_end_date": "2020-12-31"
       },
       {
         "attribute_name": "mp_afam",
@@ -1620,7 +1852,9 @@
         "attribute_type": "float8",
         "attribute_unit": "moe",
         "attribute_min_value": "0.1",
-        "attribute_max_value": "4.4"
+        "attribute_max_value": "4.4",
+        "attribute_start_date": "2020-01-01",
+        "attribute_end_date": "2020-12-31"
       },
       {
         "attribute_name": "mp_age17",
@@ -1629,7 +1863,9 @@
         "attribute_type": "float8",
         "attribute_unit": "moe",
         "attribute_min_value": "0",
-        "attribute_max_value": "2.8"
+        "attribute_max_value": "2.8",
+        "attribute_start_date": "2020-01-01",
+        "attribute_end_date": "2020-12-31"
       },
       {
         "attribute_name": "mp_age65",
@@ -1638,7 +1874,9 @@
         "attribute_type": "float8",
         "attribute_unit": "moe",
         "attribute_min_value": "0",
-        "attribute_max_value": "3"
+        "attribute_max_value": "3",
+        "attribute_start_date": "2020-01-01",
+        "attribute_end_date": "2020-12-31"
       },
       {
         "attribute_name": "mp_aian",
@@ -1647,7 +1885,9 @@
         "attribute_type": "float8",
         "attribute_unit": "moe",
         "attribute_min_value": "0.1",
-        "attribute_max_value": "1.7"
+        "attribute_max_value": "1.7",
+        "attribute_start_date": "2020-01-01",
+        "attribute_end_date": "2020-12-31"
       },
       {
         "attribute_name": "mp_asian",
@@ -1656,7 +1896,9 @@
         "attribute_type": "float8",
         "attribute_unit": "moe",
         "attribute_min_value": "0.1",
-        "attribute_max_value": "0.9"
+        "attribute_max_value": "0.9",
+        "attribute_start_date": "2020-01-01",
+        "attribute_end_date": "2020-12-31"
       },
       {
         "attribute_name": "mp_crowd",
@@ -1665,7 +1907,9 @@
         "attribute_type": "float8",
         "attribute_unit": "moe",
         "attribute_min_value": "0.2",
-        "attribute_max_value": "4.2"
+        "attribute_max_value": "4.2",
+        "attribute_start_date": "2020-01-01",
+        "attribute_end_date": "2020-12-31"
       },
       {
         "attribute_name": "mp_disabl",
@@ -1674,7 +1918,9 @@
         "attribute_type": "float8",
         "attribute_unit": "moe",
         "attribute_min_value": "0.2",
-        "attribute_max_value": "5.5"
+        "attribute_max_value": "5.5",
+        "attribute_start_date": "2020-01-01",
+        "attribute_end_date": "2020-12-31"
       },
       {
         "attribute_name": "mp_groupq",
@@ -1683,7 +1929,9 @@
         "attribute_type": "float8",
         "attribute_unit": "moe",
         "attribute_min_value": "0.1",
-        "attribute_max_value": "10.6"
+        "attribute_max_value": "10.6",
+        "attribute_start_date": "2020-01-01",
+        "attribute_end_date": "2020-12-31"
       },
       {
         "attribute_name": "mp_hburd",
@@ -1692,7 +1940,9 @@
         "attribute_type": "float8",
         "attribute_unit": "moe",
         "attribute_min_value": "0.6",
-        "attribute_max_value": "6.4"
+        "attribute_max_value": "6.4",
+        "attribute_start_date": "2020-01-01",
+        "attribute_end_date": "2020-12-31"
       },
       {
         "attribute_name": "mp_hisp",
@@ -1701,7 +1951,9 @@
         "attribute_type": "float8",
         "attribute_unit": "moe",
         "attribute_min_value": "0",
-        "attribute_max_value": "1.9"
+        "attribute_max_value": "1.9",
+        "attribute_start_date": "2020-01-01",
+        "attribute_end_date": "2020-12-31"
       },
       {
         "attribute_name": "mp_limeng",
@@ -1710,7 +1962,9 @@
         "attribute_type": "float8",
         "attribute_unit": "moe",
         "attribute_min_value": "0.2",
-        "attribute_max_value": "2.4"
+        "attribute_max_value": "2.4",
+        "attribute_start_date": "2020-01-01",
+        "attribute_end_date": "2020-12-31"
       },
       {
         "attribute_name": "mp_minrty",
@@ -1719,7 +1973,9 @@
         "attribute_type": "float8",
         "attribute_unit": "moe",
         "attribute_min_value": "0.1",
-        "attribute_max_value": "5.1"
+        "attribute_max_value": "5.1",
+        "attribute_start_date": "2020-01-01",
+        "attribute_end_date": "2020-12-31"
       },
       {
         "attribute_name": "mp_mobile",
@@ -1728,7 +1984,9 @@
         "attribute_type": "float8",
         "attribute_unit": "moe",
         "attribute_min_value": "0.1",
-        "attribute_max_value": "9.8"
+        "attribute_max_value": "9.8",
+        "attribute_start_date": "2020-01-01",
+        "attribute_end_date": "2020-12-31"
       },
       {
         "attribute_name": "mp_munit",
@@ -1737,7 +1995,9 @@
         "attribute_type": "float8",
         "attribute_unit": "moe",
         "attribute_min_value": "0.3",
-        "attribute_max_value": "2"
+        "attribute_max_value": "2",
+        "attribute_start_date": "2020-01-01",
+        "attribute_end_date": "2020-12-31"
       },
       {
         "attribute_name": "mp_nhpi",
@@ -1746,7 +2006,9 @@
         "attribute_type": "float8",
         "attribute_unit": "moe",
         "attribute_min_value": "0.1",
-        "attribute_max_value": "1.6"
+        "attribute_max_value": "1.6",
+        "attribute_start_date": "2020-01-01",
+        "attribute_end_date": "2020-12-31"
       },
       {
         "attribute_name": "mp_nohsdp",
@@ -1755,7 +2017,9 @@
         "attribute_type": "float8",
         "attribute_unit": "moe",
         "attribute_min_value": "0.3",
-        "attribute_max_value": "5.3"
+        "attribute_max_value": "5.3",
+        "attribute_start_date": "2020-01-01",
+        "attribute_end_date": "2020-12-31"
       },
       {
         "attribute_name": "mp_noint",
@@ -1764,7 +2028,9 @@
         "attribute_type": "float8",
         "attribute_unit": "moe",
         "attribute_min_value": "0",
-        "attribute_max_value": "2.3"
+        "attribute_max_value": "2.3",
+        "attribute_start_date": "2020-01-01",
+        "attribute_end_date": "2020-12-31"
       },
       {
         "attribute_name": "mp_noveh",
@@ -1773,7 +2039,9 @@
         "attribute_type": "float8",
         "attribute_unit": "moe",
         "attribute_min_value": "0.3",
-        "attribute_max_value": "3.5"
+        "attribute_max_value": "3.5",
+        "attribute_start_date": "2020-01-01",
+        "attribute_end_date": "2020-12-31"
       },
       {
         "attribute_name": "mp_otherrace",
@@ -1782,7 +2050,9 @@
         "attribute_type": "float8",
         "attribute_unit": "moe",
         "attribute_min_value": "0.1",
-        "attribute_max_value": "1.3"
+        "attribute_max_value": "1.3",
+        "attribute_start_date": "2020-01-01",
+        "attribute_end_date": "2020-12-31"
       },
       {
         "attribute_name": "mp_pov150",
@@ -1791,7 +2061,9 @@
         "attribute_type": "float8",
         "attribute_unit": "moe",
         "attribute_min_value": "0.4",
-        "attribute_max_value": "9.4"
+        "attribute_max_value": "9.4",
+        "attribute_start_date": "2020-01-01",
+        "attribute_end_date": "2020-12-31"
       },
       {
         "attribute_name": "mp_sngpnt",
@@ -1800,7 +2072,9 @@
         "attribute_type": "float8",
         "attribute_unit": "moe",
         "attribute_min_value": "0.2",
-        "attribute_max_value": "3.3"
+        "attribute_max_value": "3.3",
+        "attribute_start_date": "2020-01-01",
+        "attribute_end_date": "2020-12-31"
       },
       {
         "attribute_name": "mp_twomore",
@@ -1809,7 +2083,9 @@
         "attribute_type": "float8",
         "attribute_unit": "moe",
         "attribute_min_value": "0.1",
-        "attribute_max_value": "2.5"
+        "attribute_max_value": "2.5",
+        "attribute_start_date": "2020-01-01",
+        "attribute_end_date": "2020-12-31"
       },
       {
         "attribute_name": "mp_unemp",
@@ -1818,7 +2094,9 @@
         "attribute_type": "float8",
         "attribute_unit": "moe",
         "attribute_min_value": "0.2",
-        "attribute_max_value": "7.6"
+        "attribute_max_value": "7.6",
+        "attribute_start_date": "2020-01-01",
+        "attribute_end_date": "2020-12-31"
       },
       {
         "attribute_name": "mp_uninsur",
@@ -1827,7 +2105,9 @@
         "attribute_type": "float8",
         "attribute_unit": "moe",
         "attribute_min_value": "0.3",
-        "attribute_max_value": "4.6"
+        "attribute_max_value": "4.6",
+        "attribute_start_date": "2020-01-01",
+        "attribute_end_date": "2020-12-31"
       },
       {
         "attribute_name": "rpl_theme1",
@@ -1836,7 +2116,9 @@
         "attribute_type": "float8",
         "attribute_unit": "moe",
         "attribute_min_value": "0",
-        "attribute_max_value": "1"
+        "attribute_max_value": "1",
+        "attribute_start_date": "2020-01-01",
+        "attribute_end_date": "2020-12-31"
       },
       {
         "attribute_name": "rpl_theme2",
@@ -1845,7 +2127,9 @@
         "attribute_type": "float8",
         "attribute_unit": "percentile",
         "attribute_min_value": "0",
-        "attribute_max_value": "1"
+        "attribute_max_value": "1",
+        "attribute_start_date": "2020-01-01",
+        "attribute_end_date": "2020-12-31"
       },
       {
         "attribute_name": "rpl_theme3",
@@ -1854,7 +2138,9 @@
         "attribute_type": "float8",
         "attribute_unit": "percentile",
         "attribute_min_value": "0",
-        "attribute_max_value": "1"
+        "attribute_max_value": "1",
+        "attribute_start_date": "2020-01-01",
+        "attribute_end_date": "2020-12-31"
       },
       {
         "attribute_name": "rpl_theme4",
@@ -1863,7 +2149,9 @@
         "attribute_type": "float8",
         "attribute_unit": "percentile",
         "attribute_min_value": "0",
-        "attribute_max_value": "1"
+        "attribute_max_value": "1",
+        "attribute_start_date": "2020-01-01",
+        "attribute_end_date": "2020-12-31"
       },
       {
         "attribute_name": "rpl_themes",
@@ -1872,7 +2160,9 @@
         "attribute_type": "float8",
         "attribute_unit": "percentile",
         "attribute_min_value": "0",
-        "attribute_max_value": "1"
+        "attribute_max_value": "1",
+        "attribute_start_date": "2020-01-01",
+        "attribute_end_date": "2020-12-31"
       },
       {
         "attribute_name": "spl_theme1",
@@ -1881,7 +2171,9 @@
         "attribute_type": "float8",
         "attribute_unit": "svi index",
         "attribute_min_value": "0.5303",
-        "attribute_max_value": "4.5454"
+        "attribute_max_value": "4.5454",
+        "attribute_start_date": "2020-01-01",
+        "attribute_end_date": "2020-12-31"
       },
       {
         "attribute_name": "spl_theme2",
@@ -1890,7 +2182,9 @@
         "attribute_type": "float8",
         "attribute_unit": "svi index",
         "attribute_min_value": "1.2728",
-        "attribute_max_value": "3.4546"
+        "attribute_max_value": "3.4546",
+        "attribute_start_date": "2020-01-01",
+        "attribute_end_date": "2020-12-31"
       },
       {
         "attribute_name": "spl_theme3",
@@ -1899,7 +2193,9 @@
         "attribute_type": "float8",
         "attribute_unit": "svi index",
         "attribute_min_value": "0",
-        "attribute_max_value": "1"
+        "attribute_max_value": "1",
+        "attribute_start_date": "2020-01-01",
+        "attribute_end_date": "2020-12-31"
       },
       {
         "attribute_name": "spl_theme4",
@@ -1908,7 +2204,9 @@
         "attribute_type": "float8",
         "attribute_unit": "svi index",
         "attribute_min_value": "0.7425",
-        "attribute_max_value": "3.7878"
+        "attribute_max_value": "3.7878",
+        "attribute_start_date": "2020-01-01",
+        "attribute_end_date": "2020-12-31"
       },
       {
         "attribute_name": "spl_themes",
@@ -1917,7 +2215,9 @@
         "attribute_type": "float8",
         "attribute_unit": "svi index",
         "attribute_min_value": "3.6062",
-        "attribute_max_value": "12.0454"
+        "attribute_max_value": "12.0454",
+        "attribute_start_date": "2020-01-01",
+        "attribute_end_date": "2020-12-31"
       },
       {
         "attribute_name": "st",

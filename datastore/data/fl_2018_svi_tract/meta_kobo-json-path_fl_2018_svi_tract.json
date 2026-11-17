@@ -487,7 +487,9 @@
         "attribute_type": "int4",
         "attribute_unit": "persons",
         "attribute_min_value": "0",
-        "attribute_max_value": "8762"
+        "attribute_max_value": "8762",
+        "attribute_start_date": "2018-01-01",
+        "attribute_end_date": "2018-12-31"
       },
       {
         "attribute_name": "e_age65",
@@ -495,7 +497,9 @@
         "attribute_type": "int4",
         "attribute_unit": "persons",
         "attribute_min_value": "0",
-        "attribute_max_value": "31071"
+        "attribute_max_value": "31071",
+        "attribute_start_date": "2018-01-01",
+        "attribute_end_date": "2018-12-31"
       },
       {
         "attribute_name": "e_crowd",
@@ -503,7 +507,9 @@
         "attribute_type": "int4",
         "attribute_unit": "households",
         "attribute_min_value": "0",
-        "attribute_max_value": "622"
+        "attribute_max_value": "622",
+        "attribute_start_date": "2018-01-01",
+        "attribute_end_date": "2018-12-31"
       },
       {
         "attribute_name": "e_daypop",
@@ -511,7 +517,9 @@
         "attribute_type": "int4",
         "attribute_unit": "persons",
         "attribute_min_value": "0",
-        "attribute_max_value": "86001"
+        "attribute_max_value": "86001",
+        "attribute_start_date": "2018-01-01",
+        "attribute_end_date": "2018-12-31"
       },
       {
         "attribute_name": "e_disabl",
@@ -519,7 +527,9 @@
         "attribute_type": "int4",
         "attribute_unit": "persons",
         "attribute_min_value": "0",
-        "attribute_max_value": "7419"
+        "attribute_max_value": "7419",
+        "attribute_start_date": "2018-01-01",
+        "attribute_end_date": "2018-12-31"
       },
       {
         "attribute_name": "e_groupq",
@@ -527,7 +537,9 @@
         "attribute_type": "int4",
         "attribute_unit": "persons",
         "attribute_min_value": "0",
-        "attribute_max_value": "12369"
+        "attribute_max_value": "12369",
+        "attribute_start_date": "2018-01-01",
+        "attribute_end_date": "2018-12-31"
       },
       {
         "attribute_name": "e_hh",
@@ -535,7 +547,9 @@
         "attribute_type": "int4",
         "attribute_unit": "households",
         "attribute_min_value": "0",
-        "attribute_max_value": "21337"
+        "attribute_max_value": "21337",
+        "attribute_start_date": "2018-01-01",
+        "attribute_end_date": "2018-12-31"
       },
       {
         "attribute_name": "e_hu",
@@ -543,7 +557,9 @@
         "attribute_type": "int4",
         "attribute_unit": "housing units",
         "attribute_min_value": "0",
-        "attribute_max_value": "26436"
+        "attribute_max_value": "26436",
+        "attribute_start_date": "2018-01-01",
+        "attribute_end_date": "2018-12-31"
       },
       {
         "attribute_name": "e_limeng",
@@ -551,7 +567,9 @@
         "attribute_type": "int4",
         "attribute_unit": "persons",
         "attribute_min_value": "0",
-        "attribute_max_value": "4573"
+        "attribute_max_value": "4573",
+        "attribute_start_date": "2018-01-01",
+        "attribute_end_date": "2018-12-31"
       },
       {
         "attribute_name": "e_minrty",
@@ -559,7 +577,9 @@
         "attribute_type": "int4",
         "attribute_unit": "persons",
         "attribute_min_value": "0",
-        "attribute_max_value": "18431"
+        "attribute_max_value": "18431",
+        "attribute_start_date": "2018-01-01",
+        "attribute_end_date": "2018-12-31"
       },
       {
         "attribute_name": "e_mobile",
@@ -567,7 +587,9 @@
         "attribute_type": "int4",
         "attribute_unit": "mobile homes",
         "attribute_min_value": "0",
-        "attribute_max_value": "2994"
+        "attribute_max_value": "2994",
+        "attribute_start_date": "2018-01-01",
+        "attribute_end_date": "2018-12-31"
       },
       {
         "attribute_name": "e_munit",
@@ -575,7 +597,9 @@
         "attribute_type": "int4",
         "attribute_unit": "structures",
         "attribute_min_value": "0",
-        "attribute_max_value": "6894"
+        "attribute_max_value": "6894",
+        "attribute_start_date": "2018-01-01",
+        "attribute_end_date": "2018-12-31"
       },
       {
         "attribute_name": "e_nohsdp",
@@ -583,7 +607,9 @@
         "attribute_type": "int4",
         "attribute_unit": "persons",
         "attribute_min_value": "0",
-        "attribute_max_value": "3033"
+        "attribute_max_value": "3033",
+        "attribute_start_date": "2018-01-01",
+        "attribute_end_date": "2018-12-31"
       },
       {
         "attribute_name": "e_noveh",
@@ -591,7 +617,9 @@
         "attribute_type": "int4",
         "attribute_unit": "households",
         "attribute_min_value": "0",
-        "attribute_max_value": "1302"
+        "attribute_max_value": "1302",
+        "attribute_start_date": "2018-01-01",
+        "attribute_end_date": "2018-12-31"
       },
       {
         "attribute_name": "e_pci",
@@ -599,7 +627,9 @@
         "attribute_type": "int4",
         "attribute_unit": "US dollars",
         "attribute_min_value": "1446",
-        "attribute_max_value": "221602"
+        "attribute_max_value": "221602",
+        "attribute_start_date": "2018-01-01",
+        "attribute_end_date": "2018-12-31"
       },
       {
         "attribute_name": "e_pov",
@@ -607,7 +637,9 @@
         "attribute_type": "int4",
         "attribute_unit": "persons",
         "attribute_min_value": "0",
-        "attribute_max_value": "4740"
+        "attribute_max_value": "4740",
+        "attribute_start_date": "2018-01-01",
+        "attribute_end_date": "2018-12-31"
       },
       {
         "attribute_name": "e_sngpnt",
@@ -615,7 +647,9 @@
         "attribute_type": "int4",
         "attribute_unit": "households",
         "attribute_min_value": "0",
-        "attribute_max_value": "1228"
+        "attribute_max_value": "1228",
+        "attribute_start_date": "2018-01-01",
+        "attribute_end_date": "2018-12-31"
       },
       {
         "attribute_name": "e_totpop",
@@ -623,7 +657,9 @@
         "attribute_type": "int4",
         "attribute_unit": "persons",
         "attribute_min_value": "0",
-        "attribute_max_value": "39919"
+        "attribute_max_value": "39919",
+        "attribute_start_date": "2018-01-01",
+        "attribute_end_date": "2018-12-31"
       },
       {
         "attribute_name": "e_unemp",
@@ -631,7 +667,9 @@
         "attribute_type": "int4",
         "attribute_unit": "persons",
         "attribute_min_value": "0",
-        "attribute_max_value": "1060"
+        "attribute_max_value": "1060",
+        "attribute_start_date": "2018-01-01",
+        "attribute_end_date": "2018-12-31"
       },
       {
         "attribute_name": "e_uninsur",
@@ -639,7 +677,9 @@
         "attribute_type": "int4",
         "attribute_unit": "persons",
         "attribute_min_value": "0",
-        "attribute_max_value": "5543"
+        "attribute_max_value": "5543",
+        "attribute_start_date": "2018-01-01",
+        "attribute_end_date": "2018-12-31"
       },
       {
         "attribute_name": "ep_age17",
@@ -647,7 +687,9 @@
         "attribute_type": "float8",
         "attribute_unit": "percentage",
         "attribute_min_value": "0",
-        "attribute_max_value": "54.4"
+        "attribute_max_value": "54.4",
+        "attribute_start_date": "2018-01-01",
+        "attribute_end_date": "2018-12-31"
       },
       {
         "attribute_name": "ep_age65",
@@ -655,7 +697,9 @@
         "attribute_type": "float8",
         "attribute_unit": "percentage",
         "attribute_min_value": "0",
-        "attribute_max_value": "88.3"
+        "attribute_max_value": "88.3",
+        "attribute_start_date": "2018-01-01",
+        "attribute_end_date": "2018-12-31"
       },
       {
         "attribute_name": "ep_crowd",
@@ -663,7 +707,9 @@
         "attribute_type": "float8",
         "attribute_unit": "percentage",
         "attribute_min_value": "0",
-        "attribute_max_value": "100"
+        "attribute_max_value": "100",
+        "attribute_start_date": "2018-01-01",
+        "attribute_end_date": "2018-12-31"
       },
       {
         "attribute_name": "ep_disabl",
@@ -671,7 +717,9 @@
         "attribute_type": "float8",
         "attribute_unit": "percentage",
         "attribute_min_value": "0",
-        "attribute_max_value": "44.8"
+        "attribute_max_value": "44.8",
+        "attribute_start_date": "2018-01-01",
+        "attribute_end_date": "2018-12-31"
       },
       {
         "attribute_name": "ep_groupq",
@@ -679,7 +727,9 @@
         "attribute_type": "float8",
         "attribute_unit": "percentage",
         "attribute_min_value": "0",
-        "attribute_max_value": "100"
+        "attribute_max_value": "100",
+        "attribute_start_date": "2018-01-01",
+        "attribute_end_date": "2018-12-31"
       },
       {
         "attribute_name": "ep_limeng",
@@ -687,7 +737,9 @@
         "attribute_type": "float8",
         "attribute_unit": "percentage",
         "attribute_min_value": "0",
-        "attribute_max_value": "61.6"
+        "attribute_max_value": "61.6",
+        "attribute_start_date": "2018-01-01",
+        "attribute_end_date": "2018-12-31"
       },
       {
         "attribute_name": "ep_minrty",
@@ -695,7 +747,9 @@
         "attribute_type": "float8",
         "attribute_unit": "percentage",
         "attribute_min_value": "0",
-        "attribute_max_value": "100"
+        "attribute_max_value": "100",
+        "attribute_start_date": "2018-01-01",
+        "attribute_end_date": "2018-12-31"
       },
       {
         "attribute_name": "ep_mobile",
@@ -703,7 +757,9 @@
         "attribute_type": "float8",
         "attribute_unit": "percentage",
         "attribute_min_value": "0",
-        "attribute_max_value": "92.9"
+        "attribute_max_value": "92.9",
+        "attribute_start_date": "2018-01-01",
+        "attribute_end_date": "2018-12-31"
       },
       {
         "attribute_name": "ep_munit",
@@ -711,7 +767,9 @@
         "attribute_type": "float8",
         "attribute_unit": "percentage",
         "attribute_min_value": "0",
-        "attribute_max_value": "100"
+        "attribute_max_value": "100",
+        "attribute_start_date": "2018-01-01",
+        "attribute_end_date": "2018-12-31"
       },
       {
         "attribute_name": "ep_nohsdp",
@@ -719,7 +777,9 @@
         "attribute_type": "float8",
         "attribute_unit": "percentage",
         "attribute_min_value": "0",
-        "attribute_max_value": "69.6"
+        "attribute_max_value": "69.6",
+        "attribute_start_date": "2018-01-01",
+        "attribute_end_date": "2018-12-31"
       },
       {
         "attribute_name": "ep_noveh",
@@ -727,7 +787,9 @@
         "attribute_type": "float8",
         "attribute_unit": "percentage",
         "attribute_min_value": "0",
-        "attribute_max_value": "62.1"
+        "attribute_max_value": "62.1",
+        "attribute_start_date": "2018-01-01",
+        "attribute_end_date": "2018-12-31"
       },
       {
         "attribute_name": "ep_pci",
@@ -735,7 +797,9 @@
         "attribute_type": "float8",
         "attribute_unit": "US dollars",
         "attribute_min_value": "1446",
-        "attribute_max_value": "221602"
+        "attribute_max_value": "221602",
+        "attribute_start_date": "2018-01-01",
+        "attribute_end_date": "2018-12-31"
       },
       {
         "attribute_name": "ep_pov",
@@ -743,7 +807,9 @@
         "attribute_type": "float8",
         "attribute_unit": "percentage",
         "attribute_min_value": "0",
-        "attribute_max_value": "100"
+        "attribute_max_value": "100",
+        "attribute_start_date": "2018-01-01",
+        "attribute_end_date": "2018-12-31"
       },
       {
         "attribute_name": "ep_sngpnt",
@@ -751,7 +817,9 @@
         "attribute_type": "float8",
         "attribute_unit": "percentage",
         "attribute_min_value": "0",
-        "attribute_max_value": "82.2"
+        "attribute_max_value": "82.2",
+        "attribute_start_date": "2018-01-01",
+        "attribute_end_date": "2018-12-31"
       },
       {
         "attribute_name": "ep_unemp",
@@ -759,7 +827,9 @@
         "attribute_type": "float8",
         "attribute_unit": "percentage",
         "attribute_min_value": "0",
-        "attribute_max_value": "52"
+        "attribute_max_value": "52",
+        "attribute_start_date": "2018-01-01",
+        "attribute_end_date": "2018-12-31"
       },
       {
         "attribute_name": "ep_uninsur",
@@ -767,7 +837,9 @@
         "attribute_type": "float8",
         "attribute_unit": "percentage",
         "attribute_min_value": "0",
-        "attribute_max_value": "58.9"
+        "attribute_max_value": "58.9",
+        "attribute_start_date": "2018-01-01",
+        "attribute_end_date": "2018-12-31"
       },
       {
         "attribute_name": "epl_age17",
@@ -775,7 +847,9 @@
         "attribute_type": "float8",
         "attribute_unit": "percentile",
         "attribute_min_value": "0",
-        "attribute_max_value": "1"
+        "attribute_max_value": "1",
+        "attribute_start_date": "2018-01-01",
+        "attribute_end_date": "2018-12-31"
       },
       {
         "attribute_name": "epl_age65",
@@ -783,7 +857,9 @@
         "attribute_type": "float8",
         "attribute_unit": "percentile",
         "attribute_min_value": "0",
-        "attribute_max_value": "1"
+        "attribute_max_value": "1",
+        "attribute_start_date": "2018-01-01",
+        "attribute_end_date": "2018-12-31"
       },
       {
         "attribute_name": "epl_crowd",
@@ -791,7 +867,9 @@
         "attribute_type": "float8",
         "attribute_unit": "percentile",
         "attribute_min_value": "0",
-        "attribute_max_value": "1"
+        "attribute_max_value": "1",
+        "attribute_start_date": "2018-01-01",
+        "attribute_end_date": "2018-12-31"
       },
       {
         "attribute_name": "epl_disabl",
@@ -799,7 +877,9 @@
         "attribute_type": "float8",
         "attribute_unit": "percentile",
         "attribute_min_value": "0",
-        "attribute_max_value": "1"
+        "attribute_max_value": "1",
+        "attribute_start_date": "2018-01-01",
+        "attribute_end_date": "2018-12-31"
       },
       {
         "attribute_name": "epl_groupq",
@@ -807,7 +887,9 @@
         "attribute_type": "float8",
         "attribute_unit": "percentile",
         "attribute_min_value": "0",
-        "attribute_max_value": "0.9988"
+        "attribute_max_value": "0.9988",
+        "attribute_start_date": "2018-01-01",
+        "attribute_end_date": "2018-12-31"
       },
       {
         "attribute_name": "epl_limeng",
@@ -815,7 +897,9 @@
         "attribute_type": "float8",
         "attribute_unit": "percentile",
         "attribute_min_value": "0",
-        "attribute_max_value": "1"
+        "attribute_max_value": "1",
+        "attribute_start_date": "2018-01-01",
+        "attribute_end_date": "2018-12-31"
       },
       {
         "attribute_name": "epl_minrty",
@@ -823,7 +907,9 @@
         "attribute_type": "float8",
         "attribute_unit": "percentile",
         "attribute_min_value": "0",
-        "attribute_max_value": "0.9986"
+        "attribute_max_value": "0.9986",
+        "attribute_start_date": "2018-01-01",
+        "attribute_end_date": "2018-12-31"
       },
       {
         "attribute_name": "epl_mobile",
@@ -831,7 +917,9 @@
         "attribute_type": "float8",
         "attribute_unit": "percentile",
         "attribute_min_value": "0",
-        "attribute_max_value": "1"
+        "attribute_max_value": "1",
+        "attribute_start_date": "2018-01-01",
+        "attribute_end_date": "2018-12-31"
       },
       {
         "attribute_name": "epl_munit",
@@ -839,7 +927,9 @@
         "attribute_type": "float8",
         "attribute_unit": "percentile",
         "attribute_min_value": "0",
-        "attribute_max_value": "0.9998"
+        "attribute_max_value": "0.9998",
+        "attribute_start_date": "2018-01-01",
+        "attribute_end_date": "2018-12-31"
       },
       {
         "attribute_name": "epl_nohsdp",
@@ -847,7 +937,9 @@
         "attribute_type": "float8",
         "attribute_unit": "percentile",
         "attribute_min_value": "0",
-        "attribute_max_value": "1"
+        "attribute_max_value": "1",
+        "attribute_start_date": "2018-01-01",
+        "attribute_end_date": "2018-12-31"
       },
       {
         "attribute_name": "epl_noveh",
@@ -855,7 +947,9 @@
         "attribute_type": "float8",
         "attribute_unit": "percentile",
         "attribute_min_value": "0",
-        "attribute_max_value": "1"
+        "attribute_max_value": "1",
+        "attribute_start_date": "2018-01-01",
+        "attribute_end_date": "2018-12-31"
       },
       {
         "attribute_name": "epl_pci",
@@ -863,7 +957,9 @@
         "attribute_type": "float8",
         "attribute_unit": "percentile",
         "attribute_min_value": "0",
-        "attribute_max_value": "1"
+        "attribute_max_value": "1",
+        "attribute_start_date": "2018-01-01",
+        "attribute_end_date": "2018-12-31"
       },
       {
         "attribute_name": "epl_pov",
@@ -871,7 +967,9 @@
         "attribute_type": "float8",
         "attribute_unit": "percentile",
         "attribute_min_value": "0",
-        "attribute_max_value": "1"
+        "attribute_max_value": "1",
+        "attribute_start_date": "2018-01-01",
+        "attribute_end_date": "2018-12-31"
       },
       {
         "attribute_name": "epl_sngpnt",
@@ -879,7 +977,9 @@
         "attribute_type": "float8",
         "attribute_unit": "percentile",
         "attribute_min_value": "0",
-        "attribute_max_value": "1"
+        "attribute_max_value": "1",
+        "attribute_start_date": "2018-01-01",
+        "attribute_end_date": "2018-12-31"
       },
       {
         "attribute_name": "epl_unemp",
@@ -887,147 +987,189 @@
         "attribute_type": "float8",
         "attribute_unit": "percentile",
         "attribute_min_value": "0",
-        "attribute_max_value": "1"
+        "attribute_max_value": "1",
+        "attribute_start_date": "2018-01-01",
+        "attribute_end_date": "2018-12-31"
       },
       {
         "attribute_name": "f_age17",
         "attribute_description": "Flag - the percentage of persons aged 17 and younger is in the 90th percentile (1 = yes, 0 = no)",
         "attribute_type": "int2",
         "attribute_min_value": "0",
-        "attribute_max_value": "1"
+        "attribute_max_value": "1",
+        "attribute_start_date": "2018-01-01",
+        "attribute_end_date": "2018-12-31"
       },
       {
         "attribute_name": "f_age65",
         "attribute_description": "Flag - the percentage of persons aged 65 and older is in the 90th percentile (1 = yes, 0 = no)",
         "attribute_type": "int2",
         "attribute_min_value": "0",
-        "attribute_max_value": "1"
+        "attribute_max_value": "1",
+        "attribute_start_date": "2018-01-01",
+        "attribute_end_date": "2018-12-31"
       },
       {
         "attribute_name": "f_crowd",
         "attribute_description": "Flag - the percentage of crowded households is in the 90th percentile (1 = yes, 0 = no)",
         "attribute_type": "int2",
         "attribute_min_value": "0",
-        "attribute_max_value": "1"
+        "attribute_max_value": "1",
+        "attribute_start_date": "2018-01-01",
+        "attribute_end_date": "2018-12-31"
       },
       {
         "attribute_name": "f_disabl",
         "attribute_description": "Flag - the percentage of persons with a disability is in the 90th percentile (1 = yes, 0 = no)",
         "attribute_type": "int2",
         "attribute_min_value": "0",
-        "attribute_max_value": "1"
+        "attribute_max_value": "1",
+        "attribute_start_date": "2018-01-01",
+        "attribute_end_date": "2018-12-31"
       },
       {
         "attribute_name": "f_groupq",
         "attribute_description": "Flag - the percentage of persons in institutionalize d group quarters is in the 90th percentile (1 = yes, 0 = no)",
         "attribute_type": "int2",
         "attribute_min_value": "0",
-        "attribute_max_value": "1"
+        "attribute_max_value": "1",
+        "attribute_start_date": "2018-01-01",
+        "attribute_end_date": "2018-12-31"
       },
       {
         "attribute_name": "f_limeng",
         "attribute_description": "Flag - the percentage those with limited English is in the 90th percentile (1 = yes, 0 = no)",
         "attribute_type": "int2",
         "attribute_min_value": "0",
-        "attribute_max_value": "1"
+        "attribute_max_value": "1",
+        "attribute_start_date": "2018-01-01",
+        "attribute_end_date": "2018-12-31"
       },
       {
         "attribute_name": "f_minrty",
         "attribute_description": "Flag - the percentage of minority is in the 90th percentile (1 = yes, 0 = no)",
         "attribute_type": "int2",
         "attribute_min_value": "0",
-        "attribute_max_value": "1"
+        "attribute_max_value": "1",
+        "attribute_start_date": "2018-01-01",
+        "attribute_end_date": "2018-12-31"
       },
       {
         "attribute_name": "f_mobile",
         "attribute_description": "Flag - the percentage of mobile homes is in the 90th percentile (1 = yes, 0 = no)",
         "attribute_type": "int2",
         "attribute_min_value": "0",
-        "attribute_max_value": "1"
+        "attribute_max_value": "1",
+        "attribute_start_date": "2018-01-01",
+        "attribute_end_date": "2018-12-31"
       },
       {
         "attribute_name": "f_munit",
         "attribute_description": "Flag - the percentage of households in multi-unit housing is in the 90th percentile (1 = yes, 0 = no)",
         "attribute_type": "int2",
         "attribute_min_value": "0",
-        "attribute_max_value": "1"
+        "attribute_max_value": "1",
+        "attribute_start_date": "2018-01-01",
+        "attribute_end_date": "2018-12-31"
       },
       {
         "attribute_name": "f_nohsdp",
         "attribute_description": "Flag - the percentage of persons with no high school diploma is in the 90th percentile (1 = yes, 0 = no)",
         "attribute_type": "int2",
         "attribute_min_value": "0",
-        "attribute_max_value": "1"
+        "attribute_max_value": "1",
+        "attribute_start_date": "2018-01-01",
+        "attribute_end_date": "2018-12-31"
       },
       {
         "attribute_name": "f_noveh",
         "attribute_description": "Flag - the percentage of households with no vehicles is in the 90th percentile (1 = yes, 0 = no)",
         "attribute_type": "int2",
         "attribute_min_value": "0",
-        "attribute_max_value": "1"
+        "attribute_max_value": "1",
+        "attribute_start_date": "2018-01-01",
+        "attribute_end_date": "2018-12-31"
       },
       {
         "attribute_name": "f_pci",
         "attribute_description": "Flag - per capita income is in the 90th percentile (1 = yes, 0 = no)",
         "attribute_type": "int2",
         "attribute_min_value": "0",
-        "attribute_max_value": "1"
+        "attribute_max_value": "1",
+        "attribute_start_date": "2018-01-01",
+        "attribute_end_date": "2018-12-31"
       },
       {
         "attribute_name": "f_pov",
         "attribute_description": "Flag - the percentage of persons in poverty is in the 90th percentile (1 = yes, 0 = no)",
         "attribute_type": "int2",
         "attribute_min_value": "0",
-        "attribute_max_value": "1"
+        "attribute_max_value": "1",
+        "attribute_start_date": "2018-01-01",
+        "attribute_end_date": "2018-12-31"
       },
       {
         "attribute_name": "f_sngpnt",
         "attribute_description": "Flag - the percentage of single parent households is in the 90th percentile (1 = yes, 0 = no)",
         "attribute_type": "int2",
         "attribute_min_value": "0",
-        "attribute_max_value": "1"
+        "attribute_max_value": "1",
+        "attribute_start_date": "2018-01-01",
+        "attribute_end_date": "2018-12-31"
       },
       {
         "attribute_name": "f_theme1",
         "attribute_description": "Sum of flags for Socioeconomic Status theme",
         "attribute_type": "int2",
         "attribute_min_value": "0",
-        "attribute_max_value": "4"
+        "attribute_max_value": "4",
+        "attribute_start_date": "2018-01-01",
+        "attribute_end_date": "2018-12-31"
       },
       {
         "attribute_name": "f_theme2",
         "attribute_description": "Sum of flags for Household Composition theme",
         "attribute_type": "int2",
         "attribute_min_value": "0",
-        "attribute_max_value": "3"
+        "attribute_max_value": "3",
+        "attribute_start_date": "2018-01-01",
+        "attribute_end_date": "2018-12-31"
       },
       {
         "attribute_name": "f_theme3",
         "attribute_description": "Sum of flags for Minority Status/Languag e theme",
         "attribute_type": "int2",
         "attribute_min_value": "0",
-        "attribute_max_value": "2"
+        "attribute_max_value": "2",
+        "attribute_start_date": "2018-01-01",
+        "attribute_end_date": "2018-12-31"
       },
       {
         "attribute_name": "f_theme4",
         "attribute_description": "Sum of flags for Housing Type/ Transportation theme",
         "attribute_type": "int2",
         "attribute_min_value": "0",
-        "attribute_max_value": "4"
+        "attribute_max_value": "4",
+        "attribute_start_date": "2018-01-01",
+        "attribute_end_date": "2018-12-31"
       },
       {
         "attribute_name": "f_total",
         "attribute_description": "Sum of flags for the four themes",
         "attribute_type": "int2",
         "attribute_min_value": "0",
-        "attribute_max_value": "11"
+        "attribute_max_value": "11",
+        "attribute_start_date": "2018-01-01",
+        "attribute_end_date": "2018-12-31"
       },
       {
         "attribute_name": "f_unemp",
         "attribute_description": "Flag - the percentage of civilian unemployed is in the 90th percentile (1 = yes, 0 = no)",
         "attribute_type": "int2",
         "attribute_min_value": "0",
-        "attribute_max_value": "1"
+        "attribute_max_value": "1",
+        "attribute_start_date": "2018-01-01",
+        "attribute_end_date": "2018-12-31"
       },
       {
         "attribute_name": "fips",
@@ -1045,7 +1187,9 @@
         "attribute_type": "int4",
         "attribute_unit": "persons",
         "attribute_min_value": "3",
-        "attribute_max_value": "1345"
+        "attribute_max_value": "1345",
+        "attribute_start_date": "2018-01-01",
+        "attribute_end_date": "2018-12-31"
       },
       {
         "attribute_name": "m_age65",
@@ -1053,7 +1197,9 @@
         "attribute_type": "int4",
         "attribute_unit": "persons",
         "attribute_min_value": "2",
-        "attribute_max_value": "1142"
+        "attribute_max_value": "1142",
+        "attribute_start_date": "2018-01-01",
+        "attribute_end_date": "2018-12-31"
       },
       {
         "attribute_name": "m_crowd",
@@ -1061,7 +1207,9 @@
         "attribute_type": "int4",
         "attribute_unit": "housing units",
         "attribute_min_value": "5",
-        "attribute_max_value": "282"
+        "attribute_max_value": "282",
+        "attribute_start_date": "2018-01-01",
+        "attribute_end_date": "2018-12-31"
       },
       {
         "attribute_name": "m_disabl",
@@ -1069,7 +1217,9 @@
         "attribute_type": "int4",
         "attribute_unit": "persons",
         "attribute_min_value": "13",
-        "attribute_max_value": "1270"
+        "attribute_max_value": "1270",
+        "attribute_start_date": "2018-01-01",
+        "attribute_end_date": "2018-12-31"
       },
       {
         "attribute_name": "m_groupq",
@@ -1077,7 +1227,9 @@
         "attribute_type": "int4",
         "attribute_unit": "persons",
         "attribute_min_value": "2",
-        "attribute_max_value": "1253"
+        "attribute_max_value": "1253",
+        "attribute_start_date": "2018-01-01",
+        "attribute_end_date": "2018-12-31"
       },
       {
         "attribute_name": "m_hh",
@@ -1085,7 +1237,9 @@
         "attribute_type": "int4",
         "attribute_unit": "households",
         "attribute_min_value": "5",
-        "attribute_max_value": "642"
+        "attribute_max_value": "642",
+        "attribute_start_date": "2018-01-01",
+        "attribute_end_date": "2018-12-31"
       },
       {
         "attribute_name": "m_hu",
@@ -1093,7 +1247,9 @@
         "attribute_type": "int4",
         "attribute_unit": "housing units",
         "attribute_min_value": "5",
-        "attribute_max_value": "541"
+        "attribute_max_value": "541",
+        "attribute_start_date": "2018-01-01",
+        "attribute_end_date": "2018-12-31"
       },
       {
         "attribute_name": "m_limeng",
@@ -1101,7 +1257,9 @@
         "attribute_type": "int4",
         "attribute_unit": "persons",
         "attribute_min_value": "47",
-        "attribute_max_value": "1023"
+        "attribute_max_value": "1023",
+        "attribute_start_date": "2018-01-01",
+        "attribute_end_date": "2018-12-31"
       },
       {
         "attribute_name": "m_minrty",
@@ -1109,7 +1267,9 @@
         "attribute_type": "int4",
         "attribute_unit": "persons",
         "attribute_min_value": "17",
-        "attribute_max_value": "3164"
+        "attribute_max_value": "3164",
+        "attribute_start_date": "2018-01-01",
+        "attribute_end_date": "2018-12-31"
       },
       {
         "attribute_name": "m_mobile",
@@ -1117,7 +1277,9 @@
         "attribute_type": "int4",
         "attribute_unit": "mobile homes",
         "attribute_min_value": "3",
-        "attribute_max_value": "409"
+        "attribute_max_value": "409",
+        "attribute_start_date": "2018-01-01",
+        "attribute_end_date": "2018-12-31"
       },
       {
         "attribute_name": "m_munit",
@@ -1125,7 +1287,9 @@
         "attribute_type": "int4",
         "attribute_unit": "housing units",
         "attribute_min_value": "7",
-        "attribute_max_value": "775"
+        "attribute_max_value": "775",
+        "attribute_start_date": "2018-01-01",
+        "attribute_end_date": "2018-12-31"
       },
       {
         "attribute_name": "m_nohsdp",
@@ -1133,7 +1297,9 @@
         "attribute_type": "int4",
         "attribute_unit": "persons",
         "attribute_min_value": "4",
-        "attribute_max_value": "934"
+        "attribute_max_value": "934",
+        "attribute_start_date": "2018-01-01",
+        "attribute_end_date": "2018-12-31"
       },
       {
         "attribute_name": "m_noveh",
@@ -1141,7 +1307,9 @@
         "attribute_type": "int4",
         "attribute_unit": "households",
         "attribute_min_value": "2",
-        "attribute_max_value": "377"
+        "attribute_max_value": "377",
+        "attribute_start_date": "2018-01-01",
+        "attribute_end_date": "2018-12-31"
       },
       {
         "attribute_name": "m_pci",
@@ -1149,7 +1317,9 @@
         "attribute_type": "int4",
         "attribute_unit": "US dollars",
         "attribute_min_value": "232",
-        "attribute_max_value": "83593"
+        "attribute_max_value": "83593",
+        "attribute_start_date": "2018-01-01",
+        "attribute_end_date": "2018-12-31"
       },
       {
         "attribute_name": "m_pov",
@@ -1157,7 +1327,9 @@
         "attribute_type": "int4",
         "attribute_unit": "persons",
         "attribute_min_value": "6",
-        "attribute_max_value": "1610"
+        "attribute_max_value": "1610",
+        "attribute_start_date": "2018-01-01",
+        "attribute_end_date": "2018-12-31"
       },
       {
         "attribute_name": "m_sngpnt",
@@ -1165,7 +1337,9 @@
         "attribute_type": "int4",
         "attribute_unit": "households",
         "attribute_min_value": "10",
-        "attribute_max_value": "498"
+        "attribute_max_value": "498",
+        "attribute_start_date": "2018-01-01",
+        "attribute_end_date": "2018-12-31"
       },
       {
         "attribute_name": "m_totpop",
@@ -1173,7 +1347,9 @@
         "attribute_type": "int4",
         "attribute_unit": "persons",
         "attribute_min_value": "12",
-        "attribute_max_value": "2433"
+        "attribute_max_value": "2433",
+        "attribute_start_date": "2018-01-01",
+        "attribute_end_date": "2018-12-31"
       },
       {
         "attribute_name": "m_unemp",
@@ -1181,7 +1357,9 @@
         "attribute_type": "int4",
         "attribute_unit": "persons",
         "attribute_min_value": "4",
-        "attribute_max_value": "605"
+        "attribute_max_value": "605",
+        "attribute_start_date": "2018-01-01",
+        "attribute_end_date": "2018-12-31"
       },
       {
         "attribute_name": "m_uninsur",
@@ -1189,7 +1367,9 @@
         "attribute_type": "int4",
         "attribute_unit": "persons",
         "attribute_min_value": "5",
-        "attribute_max_value": "1632"
+        "attribute_max_value": "1632",
+        "attribute_start_date": "2018-01-01",
+        "attribute_end_date": "2018-12-31"
       },
       {
         "attribute_name": "mp_age17",
@@ -1197,7 +1377,9 @@
         "attribute_type": "float8",
         "attribute_unit": "percentage",
         "attribute_min_value": "0.1",
-        "attribute_max_value": "144.4"
+        "attribute_max_value": "144.4",
+        "attribute_start_date": "2018-01-01",
+        "attribute_end_date": "2018-12-31"
       },
       {
         "attribute_name": "mp_age65",
@@ -1205,7 +1387,9 @@
         "attribute_type": "float8",
         "attribute_unit": "percentage",
         "attribute_min_value": "0.1",
-        "attribute_max_value": "100"
+        "attribute_max_value": "100",
+        "attribute_start_date": "2018-01-01",
+        "attribute_end_date": "2018-12-31"
       },
       {
         "attribute_name": "mp_crowd",
@@ -1213,7 +1397,9 @@
         "attribute_type": "float8",
         "attribute_unit": "percentage",
         "attribute_min_value": "0.2",
-        "attribute_max_value": "306.7"
+        "attribute_max_value": "306.7",
+        "attribute_start_date": "2018-01-01",
+        "attribute_end_date": "2018-12-31"
       },
       {
         "attribute_name": "mp_disabl",
@@ -1221,7 +1407,9 @@
         "attribute_type": "float8",
         "attribute_unit": "percentage",
         "attribute_min_value": "0.9",
-        "attribute_max_value": "100"
+        "attribute_max_value": "100",
+        "attribute_start_date": "2018-01-01",
+        "attribute_end_date": "2018-12-31"
       },
       {
         "attribute_name": "mp_groupq",
@@ -1229,7 +1417,9 @@
         "attribute_type": "float8",
         "attribute_unit": "percentage",
         "attribute_min_value": "0",
-        "attribute_max_value": "144.4"
+        "attribute_max_value": "144.4",
+        "attribute_start_date": "2018-01-01",
+        "attribute_end_date": "2018-12-31"
       },
       {
         "attribute_name": "mp_limeng",
@@ -1237,7 +1427,9 @@
         "attribute_type": "float8",
         "attribute_unit": "percentage",
         "attribute_min_value": "0.3",
-        "attribute_max_value": "560.5"
+        "attribute_max_value": "560.5",
+        "attribute_start_date": "2018-01-01",
+        "attribute_end_date": "2018-12-31"
       },
       {
         "attribute_name": "mp_minrty",
@@ -1245,7 +1437,9 @@
         "attribute_type": "float8",
         "attribute_unit": "percentage",
         "attribute_min_value": "0",
-        "attribute_max_value": "144.6"
+        "attribute_max_value": "144.6",
+        "attribute_start_date": "2018-01-01",
+        "attribute_end_date": "2018-12-31"
       },
       {
         "attribute_name": "mp_mobile",
@@ -1253,7 +1447,9 @@
         "attribute_type": "float8",
         "attribute_unit": "percentage",
         "attribute_min_value": "0.1",
-        "attribute_max_value": "100"
+        "attribute_max_value": "100",
+        "attribute_start_date": "2018-01-01",
+        "attribute_end_date": "2018-12-31"
       },
       {
         "attribute_name": "mp_munit",
@@ -1261,7 +1457,9 @@
         "attribute_type": "float8",
         "attribute_unit": "percentage",
         "attribute_min_value": "0.2",
-        "attribute_max_value": "368"
+        "attribute_max_value": "368",
+        "attribute_start_date": "2018-01-01",
+        "attribute_end_date": "2018-12-31"
       },
       {
         "attribute_name": "mp_nohsdp",
@@ -1269,7 +1467,9 @@
         "attribute_type": "float8",
         "attribute_unit": "percentage",
         "attribute_min_value": "0.3",
-        "attribute_max_value": "100"
+        "attribute_max_value": "100",
+        "attribute_start_date": "2018-01-01",
+        "attribute_end_date": "2018-12-31"
       },
       {
         "attribute_name": "mp_noveh",
@@ -1277,7 +1477,9 @@
         "attribute_type": "float8",
         "attribute_unit": "percentage",
         "attribute_min_value": "0.4",
-        "attribute_max_value": "100"
+        "attribute_max_value": "100",
+        "attribute_start_date": "2018-01-01",
+        "attribute_end_date": "2018-12-31"
       },
       {
         "attribute_name": "mp_pci",
@@ -1285,7 +1487,9 @@
         "attribute_type": "float8",
         "attribute_unit": "US dollars",
         "attribute_min_value": "232",
-        "attribute_max_value": "83593"
+        "attribute_max_value": "83593",
+        "attribute_start_date": "2018-01-01",
+        "attribute_end_date": "2018-12-31"
       },
       {
         "attribute_name": "mp_pov",
@@ -1293,7 +1497,9 @@
         "attribute_type": "float8",
         "attribute_unit": "percentage",
         "attribute_min_value": "0.2",
-        "attribute_max_value": "100"
+        "attribute_max_value": "100",
+        "attribute_start_date": "2018-01-01",
+        "attribute_end_date": "2018-12-31"
       },
       {
         "attribute_name": "mp_sngpnt",
@@ -1301,7 +1507,9 @@
         "attribute_type": "float8",
         "attribute_unit": "percentage",
         "attribute_min_value": "0.6",
-        "attribute_max_value": "368"
+        "attribute_max_value": "368",
+        "attribute_start_date": "2018-01-01",
+        "attribute_end_date": "2018-12-31"
       },
       {
         "attribute_name": "mp_unemp",
@@ -1309,7 +1517,9 @@
         "attribute_type": "float8",
         "attribute_unit": "percentage",
         "attribute_min_value": "0.4",
-        "attribute_max_value": "100"
+        "attribute_max_value": "100",
+        "attribute_start_date": "2018-01-01",
+        "attribute_end_date": "2018-12-31"
       },
       {
         "attribute_name": "mp_uninsur",
@@ -1317,7 +1527,9 @@
         "attribute_type": "float8",
         "attribute_unit": "percentage",
         "attribute_min_value": "0.3",
-        "attribute_max_value": "100"
+        "attribute_max_value": "100",
+        "attribute_start_date": "2018-01-01",
+        "attribute_end_date": "2018-12-31"
       },
       {
         "attribute_name": "rpl_theme1",
@@ -1325,7 +1537,9 @@
         "attribute_type": "float8",
         "attribute_unit": "percentile",
         "attribute_min_value": "0",
-        "attribute_max_value": "1"
+        "attribute_max_value": "1",
+        "attribute_start_date": "2018-01-01",
+        "attribute_end_date": "2018-12-31"
       },
       {
         "attribute_name": "rpl_theme2",
@@ -1333,7 +1547,9 @@
         "attribute_type": "float8",
         "attribute_unit": "percentile",
         "attribute_min_value": "0",
-        "attribute_max_value": "1"
+        "attribute_max_value": "1",
+        "attribute_start_date": "2018-01-01",
+        "attribute_end_date": "2018-12-31"
       },
       {
         "attribute_name": "rpl_theme3",
@@ -1341,7 +1557,9 @@
         "attribute_type": "float8",
         "attribute_unit": "percentile",
         "attribute_min_value": "0",
-        "attribute_max_value": "1"
+        "attribute_max_value": "1",
+        "attribute_start_date": "2018-01-01",
+        "attribute_end_date": "2018-12-31"
       },
       {
         "attribute_name": "rpl_theme4",
@@ -1349,7 +1567,9 @@
         "attribute_type": "float8",
         "attribute_unit": "percentile",
         "attribute_min_value": "0",
-        "attribute_max_value": "1"
+        "attribute_max_value": "1",
+        "attribute_start_date": "2018-01-01",
+        "attribute_end_date": "2018-12-31"
       },
       {
         "attribute_name": "rpl_themes",
@@ -1357,7 +1577,9 @@
         "attribute_type": "float8",
         "attribute_unit": "percentile",
         "attribute_min_value": "0",
-        "attribute_max_value": "1"
+        "attribute_max_value": "1",
+        "attribute_start_date": "2018-01-01",
+        "attribute_end_date": "2018-12-31"
       },
       {
         "attribute_name": "spl_theme1",
@@ -1365,7 +1587,9 @@
         "attribute_type": "float8",
         "attribute_unit": "svi index",
         "attribute_min_value": "0.0127",
-        "attribute_max_value": "3.9847"
+        "attribute_max_value": "3.9847",
+        "attribute_start_date": "2018-01-01",
+        "attribute_end_date": "2018-12-31"
       },
       {
         "attribute_name": "spl_theme2",
@@ -1373,7 +1597,9 @@
         "attribute_type": "float8",
         "attribute_unit": "svi index",
         "attribute_min_value": "0",
-        "attribute_max_value": "3.4374"
+        "attribute_max_value": "3.4374",
+        "attribute_start_date": "2018-01-01",
+        "attribute_end_date": "2018-12-31"
       },
       {
         "attribute_name": "spl_theme3",
@@ -1381,7 +1607,9 @@
         "attribute_type": "float8",
         "attribute_unit": "svi index",
         "attribute_min_value": "0",
-        "attribute_max_value": "1.9959"
+        "attribute_max_value": "1.9959",
+        "attribute_start_date": "2018-01-01",
+        "attribute_end_date": "2018-12-31"
       },
       {
         "attribute_name": "spl_theme4",
@@ -1389,7 +1617,9 @@
         "attribute_type": "float8",
         "attribute_unit": "svi index",
         "attribute_min_value": "0",
-        "attribute_max_value": "4.3727"
+        "attribute_max_value": "4.3727",
+        "attribute_start_date": "2018-01-01",
+        "attribute_end_date": "2018-12-31"
       },
       {
         "attribute_name": "spl_themes",
@@ -1397,7 +1627,9 @@
         "attribute_type": "float8",
         "attribute_unit": "svi index",
         "attribute_min_value": "1.7614",
-        "attribute_max_value": "13.1523"
+        "attribute_max_value": "13.1523",
+        "attribute_start_date": "2018-01-01",
+        "attribute_end_date": "2018-12-31"
       },
       {
         "attribute_name": "st",

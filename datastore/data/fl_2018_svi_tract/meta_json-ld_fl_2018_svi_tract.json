@@ -187,7 +187,9 @@
       "qudt:dataType": "int4",
       "unitText": "persons",
       "minValue": "0",
-      "maxValue": "8762"
+      "maxValue": "8762",
+      "startDate": "2018-01-01",
+      "endDate": "2018-12-31"
     },
     {
       "@type": "PropertyValue",
@@ -196,7 +198,9 @@
       "qudt:dataType": "int4",
       "unitText": "persons",
       "minValue": "0",
-      "maxValue": "31071"
+      "maxValue": "31071",
+      "startDate": "2018-01-01",
+      "endDate": "2018-12-31"
     },
     {
       "@type": "PropertyValue",
@@ -205,7 +209,9 @@
       "qudt:dataType": "int4",
       "unitText": "households",
       "minValue": "0",
-      "maxValue": "622"
+      "maxValue": "622",
+      "startDate": "2018-01-01",
+      "endDate": "2018-12-31"
     },
     {
       "@type": "PropertyValue",
@@ -214,7 +220,9 @@
       "qudt:dataType": "int4",
       "unitText": "persons",
       "minValue": "0",
-      "maxValue": "86001"
+      "maxValue": "86001",
+      "startDate": "2018-01-01",
+      "endDate": "2018-12-31"
     },
     {
       "@type": "PropertyValue",
@@ -223,7 +231,9 @@
       "qudt:dataType": "int4",
       "unitText": "persons",
       "minValue": "0",
-      "maxValue": "7419"
+      "maxValue": "7419",
+      "startDate": "2018-01-01",
+      "endDate": "2018-12-31"
     },
     {
       "@type": "PropertyValue",
@@ -232,7 +242,9 @@
       "qudt:dataType": "int4",
       "unitText": "persons",
       "minValue": "0",
-      "maxValue": "12369"
+      "maxValue": "12369",
+      "startDate": "2018-01-01",
+      "endDate": "2018-12-31"
     },
     {
       "@type": "PropertyValue",
@@ -241,7 +253,9 @@
       "qudt:dataType": "int4",
       "unitText": "households",
       "minValue": "0",
-      "maxValue": "21337"
+      "maxValue": "21337",
+      "startDate": "2018-01-01",
+      "endDate": "2018-12-31"
     },
     {
       "@type": "PropertyValue",
@@ -250,7 +264,9 @@
       "qudt:dataType": "int4",
       "unitText": "housing units",
       "minValue": "0",
-      "maxValue": "26436"
+      "maxValue": "26436",
+      "startDate": "2018-01-01",
+      "endDate": "2018-12-31"
     },
     {
       "@type": "PropertyValue",
@@ -259,7 +275,9 @@
       "qudt:dataType": "int4",
       "unitText": "persons",
       "minValue": "0",
-      "maxValue": "4573"
+      "maxValue": "4573",
+      "startDate": "2018-01-01",
+      "endDate": "2018-12-31"
     },
     {
       "@type": "PropertyValue",
@@ -268,7 +286,9 @@
       "qudt:dataType": "int4",
       "unitText": "persons",
       "minValue": "0",
-      "maxValue": "18431"
+      "maxValue": "18431",
+      "startDate": "2018-01-01",
+      "endDate": "2018-12-31"
     },
     {
       "@type": "PropertyValue",
@@ -277,7 +297,9 @@
       "qudt:dataType": "int4",
       "unitText": "mobile homes",
       "minValue": "0",
-      "maxValue": "2994"
+      "maxValue": "2994",
+      "startDate": "2018-01-01",
+      "endDate": "2018-12-31"
     },
     {
       "@type": "PropertyValue",
@@ -286,7 +308,9 @@
       "qudt:dataType": "int4",
       "unitText": "structures",
       "minValue": "0",
-      "maxValue": "6894"
+      "maxValue": "6894",
+      "startDate": "2018-01-01",
+      "endDate": "2018-12-31"
     },
     {
       "@type": "PropertyValue",
@@ -295,7 +319,9 @@
       "qudt:dataType": "int4",
       "unitText": "persons",
       "minValue": "0",
-      "maxValue": "3033"
+      "maxValue": "3033",
+      "startDate": "2018-01-01",
+      "endDate": "2018-12-31"
     },
     {
       "@type": "PropertyValue",
@@ -304,7 +330,9 @@
       "qudt:dataType": "int4",
       "unitText": "households",
       "minValue": "0",
-      "maxValue": "1302"
+      "maxValue": "1302",
+      "startDate": "2018-01-01",
+      "endDate": "2018-12-31"
     },
     {
       "@type": "PropertyValue",
@@ -313,7 +341,9 @@
       "qudt:dataType": "int4",
       "unitText": "US dollars",
       "minValue": "1446",
-      "maxValue": "221602"
+      "maxValue": "221602",
+      "startDate": "2018-01-01",
+      "endDate": "2018-12-31"
     },
     {
       "@type": "PropertyValue",
@@ -322,7 +352,9 @@
       "qudt:dataType": "int4",
       "unitText": "persons",
       "minValue": "0",
-      "maxValue": "4740"
+      "maxValue": "4740",
+      "startDate": "2018-01-01",
+      "endDate": "2018-12-31"
     },
     {
       "@type": "PropertyValue",
@@ -331,7 +363,9 @@
       "qudt:dataType": "int4",
       "unitText": "households",
       "minValue": "0",
-      "maxValue": "1228"
+      "maxValue": "1228",
+      "startDate": "2018-01-01",
+      "endDate": "2018-12-31"
     },
     {
       "@type": "PropertyValue",
@@ -340,7 +374,9 @@
       "qudt:dataType": "int4",
       "unitText": "persons",
       "minValue": "0",
-      "maxValue": "39919"
+      "maxValue": "39919",
+      "startDate": "2018-01-01",
+      "endDate": "2018-12-31"
     },
     {
       "@type": "PropertyValue",
@@ -349,7 +385,9 @@
       "qudt:dataType": "int4",
       "unitText": "persons",
       "minValue": "0",
-      "maxValue": "1060"
+      "maxValue": "1060",
+      "startDate": "2018-01-01",
+      "endDate": "2018-12-31"
     },
     {
       "@type": "PropertyValue",
@@ -358,7 +396,9 @@
       "qudt:dataType": "int4",
       "unitText": "persons",
       "minValue": "0",
-      "maxValue": "5543"
+      "maxValue": "5543",
+      "startDate": "2018-01-01",
+      "endDate": "2018-12-31"
     },
     {
       "@type": "PropertyValue",
@@ -367,7 +407,9 @@
       "qudt:dataType": "float8",
       "unitText": "percentage",
       "minValue": "0",
-      "maxValue": "54.4"
+      "maxValue": "54.4",
+      "startDate": "2018-01-01",
+      "endDate": "2018-12-31"
     },
     {
       "@type": "PropertyValue",
@@ -376,7 +418,9 @@
       "qudt:dataType": "float8",
       "unitText": "percentage",
       "minValue": "0",
-      "maxValue": "88.3"
+      "maxValue": "88.3",
+      "startDate": "2018-01-01",
+      "endDate": "2018-12-31"
     },
     {
       "@type": "PropertyValue",
@@ -385,7 +429,9 @@
       "qudt:dataType": "float8",
       "unitText": "percentage",
       "minValue": "0",
-      "maxValue": "100"
+      "maxValue": "100",
+      "startDate": "2018-01-01",
+      "endDate": "2018-12-31"
     },
     {
       "@type": "PropertyValue",
@@ -394,7 +440,9 @@
       "qudt:dataType": "float8",
       "unitText": "percentage",
       "minValue": "0",
-      "maxValue": "44.8"
+      "maxValue": "44.8",
+      "startDate": "2018-01-01",
+      "endDate": "2018-12-31"
     },
     {
       "@type": "PropertyValue",
@@ -403,7 +451,9 @@
       "qudt:dataType": "float8",
       "unitText": "percentage",
       "minValue": "0",
-      "maxValue": "100"
+      "maxValue": "100",
+      "startDate": "2018-01-01",
+      "endDate": "2018-12-31"
     },
     {
       "@type": "PropertyValue",
@@ -412,7 +462,9 @@
       "qudt:dataType": "float8",
       "unitText": "percentage",
       "minValue": "0",
-      "maxValue": "61.6"
+      "maxValue": "61.6",
+      "startDate": "2018-01-01",
+      "endDate": "2018-12-31"
     },
     {
       "@type": "PropertyValue",
@@ -421,7 +473,9 @@
       "qudt:dataType": "float8",
       "unitText": "percentage",
       "minValue": "0",
-      "maxValue": "100"
+      "maxValue": "100",
+      "startDate": "2018-01-01",
+      "endDate": "2018-12-31"
     },
     {
       "@type": "PropertyValue",
@@ -430,7 +484,9 @@
       "qudt:dataType": "float8",
       "unitText": "percentage",
       "minValue": "0",
-      "maxValue": "92.9"
+      "maxValue": "92.9",
+      "startDate": "2018-01-01",
+      "endDate": "2018-12-31"
     },
     {
       "@type": "PropertyValue",
@@ -439,7 +495,9 @@
       "qudt:dataType": "float8",
       "unitText": "percentage",
       "minValue": "0",
-      "maxValue": "100"
+      "maxValue": "100",
+      "startDate": "2018-01-01",
+      "endDate": "2018-12-31"
     },
     {
       "@type": "PropertyValue",
@@ -448,7 +506,9 @@
       "qudt:dataType": "float8",
       "unitText": "percentage",
       "minValue": "0",
-      "maxValue": "69.6"
+      "maxValue": "69.6",
+      "startDate": "2018-01-01",
+      "endDate": "2018-12-31"
     },
     {
       "@type": "PropertyValue",
@@ -457,7 +517,9 @@
       "qudt:dataType": "float8",
       "unitText": "percentage",
       "minValue": "0",
-      "maxValue": "62.1"
+      "maxValue": "62.1",
+      "startDate": "2018-01-01",
+      "endDate": "2018-12-31"
     },
     {
       "@type": "PropertyValue",
@@ -466,7 +528,9 @@
       "qudt:dataType": "float8",
       "unitText": "US dollars",
       "minValue": "1446",
-      "maxValue": "221602"
+      "maxValue": "221602",
+      "startDate": "2018-01-01",
+      "endDate": "2018-12-31"
     },
     {
       "@type": "PropertyValue",
@@ -475,7 +539,9 @@
       "qudt:dataType": "float8",
       "unitText": "percentage",
       "minValue": "0",
-      "maxValue": "100"
+      "maxValue": "100",
+      "startDate": "2018-01-01",
+      "endDate": "2018-12-31"
     },
     {
       "@type": "PropertyValue",
@@ -484,7 +550,9 @@
       "qudt:dataType": "float8",
       "unitText": "percentage",
       "minValue": "0",
-      "maxValue": "82.2"
+      "maxValue": "82.2",
+      "startDate": "2018-01-01",
+      "endDate": "2018-12-31"
     },
     {
       "@type": "PropertyValue",
@@ -493,7 +561,9 @@
       "qudt:dataType": "float8",
       "unitText": "percentage",
       "minValue": "0",
-      "maxValue": "52"
+      "maxValue": "52",
+      "startDate": "2018-01-01",
+      "endDate": "2018-12-31"
     },
     {
       "@type": "PropertyValue",
@@ -502,7 +572,9 @@
       "qudt:dataType": "float8",
       "unitText": "percentage",
       "minValue": "0",
-      "maxValue": "58.9"
+      "maxValue": "58.9",
+      "startDate": "2018-01-01",
+      "endDate": "2018-12-31"
     },
     {
       "@type": "PropertyValue",
@@ -511,7 +583,9 @@
       "qudt:dataType": "float8",
       "unitText": "percentile",
       "minValue": "0",
-      "maxValue": "1"
+      "maxValue": "1",
+      "startDate": "2018-01-01",
+      "endDate": "2018-12-31"
     },
     {
       "@type": "PropertyValue",
@@ -520,7 +594,9 @@
       "qudt:dataType": "float8",
       "unitText": "percentile",
       "minValue": "0",
-      "maxValue": "1"
+      "maxValue": "1",
+      "startDate": "2018-01-01",
+      "endDate": "2018-12-31"
     },
     {
       "@type": "PropertyValue",
@@ -529,7 +605,9 @@
       "qudt:dataType": "float8",
       "unitText": "percentile",
       "minValue": "0",
-      "maxValue": "1"
+      "maxValue": "1",
+      "startDate": "2018-01-01",
+      "endDate": "2018-12-31"
     },
     {
       "@type": "PropertyValue",
@@ -538,7 +616,9 @@
       "qudt:dataType": "float8",
       "unitText": "percentile",
       "minValue": "0",
-      "maxValue": "1"
+      "maxValue": "1",
+      "startDate": "2018-01-01",
+      "endDate": "2018-12-31"
     },
     {
       "@type": "PropertyValue",
@@ -547,7 +627,9 @@
       "qudt:dataType": "float8",
       "unitText": "percentile",
       "minValue": "0",
-      "maxValue": "0.9988"
+      "maxValue": "0.9988",
+      "startDate": "2018-01-01",
+      "endDate": "2018-12-31"
     },
     {
       "@type": "PropertyValue",
@@ -556,7 +638,9 @@
       "qudt:dataType": "float8",
       "unitText": "percentile",
       "minValue": "0",
-      "maxValue": "1"
+      "maxValue": "1",
+      "startDate": "2018-01-01",
+      "endDate": "2018-12-31"
     },
     {
       "@type": "PropertyValue",
@@ -565,7 +649,9 @@
       "qudt:dataType": "float8",
       "unitText": "percentile",
       "minValue": "0",
-      "maxValue": "0.9986"
+      "maxValue": "0.9986",
+      "startDate": "2018-01-01",
+      "endDate": "2018-12-31"
     },
     {
       "@type": "PropertyValue",
@@ -574,7 +660,9 @@
       "qudt:dataType": "float8",
       "unitText": "percentile",
       "minValue": "0",
-      "maxValue": "1"
+      "maxValue": "1",
+      "startDate": "2018-01-01",
+      "endDate": "2018-12-31"
     },
     {
       "@type": "PropertyValue",
@@ -583,7 +671,9 @@
       "qudt:dataType": "float8",
       "unitText": "percentile",
       "minValue": "0",
-      "maxValue": "0.9998"
+      "maxValue": "0.9998",
+      "startDate": "2018-01-01",
+      "endDate": "2018-12-31"
     },
     {
       "@type": "PropertyValue",
@@ -592,7 +682,9 @@
       "qudt:dataType": "float8",
       "unitText": "percentile",
       "minValue": "0",
-      "maxValue": "1"
+      "maxValue": "1",
+      "startDate": "2018-01-01",
+      "endDate": "2018-12-31"
     },
     {
       "@type": "PropertyValue",
@@ -601,7 +693,9 @@
       "qudt:dataType": "float8",
       "unitText": "percentile",
       "minValue": "0",
-      "maxValue": "1"
+      "maxValue": "1",
+      "startDate": "2018-01-01",
+      "endDate": "2018-12-31"
     },
     {
       "@type": "PropertyValue",
@@ -610,7 +704,9 @@
       "qudt:dataType": "float8",
       "unitText": "percentile",
       "minValue": "0",
-      "maxValue": "1"
+      "maxValue": "1",
+      "startDate": "2018-01-01",
+      "endDate": "2018-12-31"
     },
     {
       "@type": "PropertyValue",
@@ -619,7 +715,9 @@
       "qudt:dataType": "float8",
       "unitText": "percentile",
       "minValue": "0",
-      "maxValue": "1"
+      "maxValue": "1",
+      "startDate": "2018-01-01",
+      "endDate": "2018-12-31"
     },
     {
       "@type": "PropertyValue",
@@ -628,7 +726,9 @@
       "qudt:dataType": "float8",
       "unitText": "percentile",
       "minValue": "0",
-      "maxValue": "1"
+      "maxValue": "1",
+      "startDate": "2018-01-01",
+      "endDate": "2018-12-31"
     },
     {
       "@type": "PropertyValue",
@@ -637,7 +737,9 @@
       "qudt:dataType": "float8",
       "unitText": "percentile",
       "minValue": "0",
-      "maxValue": "1"
+      "maxValue": "1",
+      "startDate": "2018-01-01",
+      "endDate": "2018-12-31"
     },
     {
       "@type": "PropertyValue",
@@ -645,7 +747,9 @@
       "description": "Flag - the percentage of persons aged 17 and younger is in the 90th percentile (1 = yes, 0 = no)",
       "qudt:dataType": "int2",
       "minValue": "0",
-      "maxValue": "1"
+      "maxValue": "1",
+      "startDate": "2018-01-01",
+      "endDate": "2018-12-31"
     },
     {
       "@type": "PropertyValue",
@@ -653,7 +757,9 @@
       "description": "Flag - the percentage of persons aged 65 and older is in the 90th percentile (1 = yes, 0 = no)",
       "qudt:dataType": "int2",
       "minValue": "0",
-      "maxValue": "1"
+      "maxValue": "1",
+      "startDate": "2018-01-01",
+      "endDate": "2018-12-31"
     },
     {
       "@type": "PropertyValue",
@@ -661,7 +767,9 @@
       "description": "Flag - the percentage of crowded households is in the 90th percentile (1 = yes, 0 = no)",
       "qudt:dataType": "int2",
       "minValue": "0",
-      "maxValue": "1"
+      "maxValue": "1",
+      "startDate": "2018-01-01",
+      "endDate": "2018-12-31"
     },
     {
       "@type": "PropertyValue",
@@ -669,7 +777,9 @@
       "description": "Flag - the percentage of persons with a disability is in the 90th percentile (1 = yes, 0 = no)",
       "qudt:dataType": "int2",
       "minValue": "0",
-      "maxValue": "1"
+      "maxValue": "1",
+      "startDate": "2018-01-01",
+      "endDate": "2018-12-31"
     },
     {
       "@type": "PropertyValue",
@@ -677,7 +787,9 @@
       "description": "Flag - the percentage of persons in institutionalize d group quarters is in the 90th percentile (1 = yes, 0 = no)",
       "qudt:dataType": "int2",
       "minValue": "0",
-      "maxValue": "1"
+      "maxValue": "1",
+      "startDate": "2018-01-01",
+      "endDate": "2018-12-31"
     },
     {
       "@type": "PropertyValue",
@@ -685,7 +797,9 @@
       "description": "Flag - the percentage those with limited English is in the 90th percentile (1 = yes, 0 = no)",
       "qudt:dataType": "int2",
       "minValue": "0",
-      "maxValue": "1"
+      "maxValue": "1",
+      "startDate": "2018-01-01",
+      "endDate": "2018-12-31"
     },
     {
       "@type": "PropertyValue",
@@ -693,7 +807,9 @@
       "description": "Flag - the percentage of minority is in the 90th percentile (1 = yes, 0 = no)",
       "qudt:dataType": "int2",
       "minValue": "0",
-      "maxValue": "1"
+      "maxValue": "1",
+      "startDate": "2018-01-01",
+      "endDate": "2018-12-31"
     },
     {
       "@type": "PropertyValue",
@@ -701,7 +817,9 @@
       "description": "Flag - the percentage of mobile homes is in the 90th percentile (1 = yes, 0 = no)",
       "qudt:dataType": "int2",
       "minValue": "0",
-      "maxValue": "1"
+      "maxValue": "1",
+      "startDate": "2018-01-01",
+      "endDate": "2018-12-31"
     },
     {
       "@type": "PropertyValue",
@@ -709,7 +827,9 @@
       "description": "Flag - the percentage of households in multi-unit housing is in the 90th percentile (1 = yes, 0 = no)",
       "qudt:dataType": "int2",
       "minValue": "0",
-      "maxValue": "1"
+      "maxValue": "1",
+      "startDate": "2018-01-01",
+      "endDate": "2018-12-31"
     },
     {
       "@type": "PropertyValue",
@@ -717,7 +837,9 @@
       "description": "Flag - the percentage of persons with no high school diploma is in the 90th percentile (1 = yes, 0 = no)",
       "qudt:dataType": "int2",
       "minValue": "0",
-      "maxValue": "1"
+      "maxValue": "1",
+      "startDate": "2018-01-01",
+      "endDate": "2018-12-31"
     },
     {
       "@type": "PropertyValue",
@@ -725,7 +847,9 @@
       "description": "Flag - the percentage of households with no vehicles is in the 90th percentile (1 = yes, 0 = no)",
       "qudt:dataType": "int2",
       "minValue": "0",
-      "maxValue": "1"
+      "maxValue": "1",
+      "startDate": "2018-01-01",
+      "endDate": "2018-12-31"
     },
     {
       "@type": "PropertyValue",
@@ -733,7 +857,9 @@
       "description": "Flag - per capita income is in the 90th percentile (1 = yes, 0 = no)",
       "qudt:dataType": "int2",
       "minValue": "0",
-      "maxValue": "1"
+      "maxValue": "1",
+      "startDate": "2018-01-01",
+      "endDate": "2018-12-31"
     },
     {
       "@type": "PropertyValue",
@@ -741,7 +867,9 @@
       "description": "Flag - the percentage of persons in poverty is in the 90th percentile (1 = yes, 0 = no)",
       "qudt:dataType": "int2",
       "minValue": "0",
-      "maxValue": "1"
+      "maxValue": "1",
+      "startDate": "2018-01-01",
+      "endDate": "2018-12-31"
     },
     {
       "@type": "PropertyValue",
@@ -749,7 +877,9 @@
       "description": "Flag - the percentage of single parent households is in the 90th percentile (1 = yes, 0 = no)",
       "qudt:dataType": "int2",
       "minValue": "0",
-      "maxValue": "1"
+      "maxValue": "1",
+      "startDate": "2018-01-01",
+      "endDate": "2018-12-31"
     },
     {
       "@type": "PropertyValue",
@@ -757,7 +887,9 @@
       "description": "Sum of flags for Socioeconomic Status theme",
       "qudt:dataType": "int2",
       "minValue": "0",
-      "maxValue": "4"
+      "maxValue": "4",
+      "startDate": "2018-01-01",
+      "endDate": "2018-12-31"
     },
     {
       "@type": "PropertyValue",
@@ -765,7 +897,9 @@
       "description": "Sum of flags for Household Composition theme",
       "qudt:dataType": "int2",
       "minValue": "0",
-      "maxValue": "3"
+      "maxValue": "3",
+      "startDate": "2018-01-01",
+      "endDate": "2018-12-31"
     },
     {
       "@type": "PropertyValue",
@@ -773,7 +907,9 @@
       "description": "Sum of flags for Minority Status/Languag e theme",
       "qudt:dataType": "int2",
       "minValue": "0",
-      "maxValue": "2"
+      "maxValue": "2",
+      "startDate": "2018-01-01",
+      "endDate": "2018-12-31"
     },
     {
       "@type": "PropertyValue",
@@ -781,7 +917,9 @@
       "description": "Sum of flags for Housing Type/ Transportation theme",
       "qudt:dataType": "int2",
       "minValue": "0",
-      "maxValue": "4"
+      "maxValue": "4",
+      "startDate": "2018-01-01",
+      "endDate": "2018-12-31"
     },
     {
       "@type": "PropertyValue",
@@ -789,7 +927,9 @@
       "description": "Sum of flags for the four themes",
       "qudt:dataType": "int2",
       "minValue": "0",
-      "maxValue": "11"
+      "maxValue": "11",
+      "startDate": "2018-01-01",
+      "endDate": "2018-12-31"
     },
     {
       "@type": "PropertyValue",
@@ -797,7 +937,9 @@
       "description": "Flag - the percentage of civilian unemployed is in the 90th percentile (1 = yes, 0 = no)",
       "qudt:dataType": "int2",
       "minValue": "0",
-      "maxValue": "1"
+      "maxValue": "1",
+      "startDate": "2018-01-01",
+      "endDate": "2018-12-31"
     },
     {
       "@type": "PropertyValue",
@@ -818,7 +960,9 @@
       "qudt:dataType": "int4",
       "unitText": "persons",
       "minValue": "3",
-      "maxValue": "1345"
+      "maxValue": "1345",
+      "startDate": "2018-01-01",
+      "endDate": "2018-12-31"
     },
     {
       "@type": "PropertyValue",
@@ -827,7 +971,9 @@
       "qudt:dataType": "int4",
       "unitText": "persons",
       "minValue": "2",
-      "maxValue": "1142"
+      "maxValue": "1142",
+      "startDate": "2018-01-01",
+      "endDate": "2018-12-31"
     },
     {
       "@type": "PropertyValue",
@@ -836,7 +982,9 @@
       "qudt:dataType": "int4",
       "unitText": "housing units",
       "minValue": "5",
-      "maxValue": "282"
+      "maxValue": "282",
+      "startDate": "2018-01-01",
+      "endDate": "2018-12-31"
     },
     {
       "@type": "PropertyValue",
@@ -845,7 +993,9 @@
       "qudt:dataType": "int4",
       "unitText": "persons",
       "minValue": "13",
-      "maxValue": "1270"
+      "maxValue": "1270",
+      "startDate": "2018-01-01",
+      "endDate": "2018-12-31"
     },
     {
       "@type": "PropertyValue",
@@ -854,7 +1004,9 @@
       "qudt:dataType": "int4",
       "unitText": "persons",
       "minValue": "2",
-      "maxValue": "1253"
+      "maxValue": "1253",
+      "startDate": "2018-01-01",
+      "endDate": "2018-12-31"
     },
     {
       "@type": "PropertyValue",
@@ -863,7 +1015,9 @@
       "qudt:dataType": "int4",
       "unitText": "households",
       "minValue": "5",
-      "maxValue": "642"
+      "maxValue": "642",
+      "startDate": "2018-01-01",
+      "endDate": "2018-12-31"
     },
     {
       "@type": "PropertyValue",
@@ -872,7 +1026,9 @@
       "qudt:dataType": "int4",
       "unitText": "housing units",
       "minValue": "5",
-      "maxValue": "541"
+      "maxValue": "541",
+      "startDate": "2018-01-01",
+      "endDate": "2018-12-31"
     },
     {
       "@type": "PropertyValue",
@@ -881,7 +1037,9 @@
       "qudt:dataType": "int4",
       "unitText": "persons",
       "minValue": "47",
-      "maxValue": "1023"
+      "maxValue": "1023",
+      "startDate": "2018-01-01",
+      "endDate": "2018-12-31"
     },
     {
       "@type": "PropertyValue",
@@ -890,7 +1048,9 @@
       "qudt:dataType": "int4",
       "unitText": "persons",
       "minValue": "17",
-      "maxValue": "3164"
+      "maxValue": "3164",
+      "startDate": "2018-01-01",
+      "endDate": "2018-12-31"
     },
     {
       "@type": "PropertyValue",
@@ -899,7 +1059,9 @@
       "qudt:dataType": "int4",
       "unitText": "mobile homes",
       "minValue": "3",
-      "maxValue": "409"
+      "maxValue": "409",
+      "startDate": "2018-01-01",
+      "endDate": "2018-12-31"
     },
     {
       "@type": "PropertyValue",
@@ -908,7 +1070,9 @@
       "qudt:dataType": "int4",
       "unitText": "housing units",
       "minValue": "7",
-      "maxValue": "775"
+      "maxValue": "775",
+      "startDate": "2018-01-01",
+      "endDate": "2018-12-31"
     },
     {
       "@type": "PropertyValue",
@@ -917,7 +1081,9 @@
       "qudt:dataType": "int4",
       "unitText": "persons",
       "minValue": "4",
-      "maxValue": "934"
+      "maxValue": "934",
+      "startDate": "2018-01-01",
+      "endDate": "2018-12-31"
     },
     {
       "@type": "PropertyValue",
@@ -926,7 +1092,9 @@
       "qudt:dataType": "int4",
       "unitText": "households",
       "minValue": "2",
-      "maxValue": "377"
+      "maxValue": "377",
+      "startDate": "2018-01-01",
+      "endDate": "2018-12-31"
     },
     {
       "@type": "PropertyValue",
@@ -935,7 +1103,9 @@
       "qudt:dataType": "int4",
       "unitText": "US dollars",
       "minValue": "232",
-      "maxValue": "83593"
+      "maxValue": "83593",
+      "startDate": "2018-01-01",
+      "endDate": "2018-12-31"
     },
     {
       "@type": "PropertyValue",
@@ -944,7 +1114,9 @@
       "qudt:dataType": "int4",
       "unitText": "persons",
       "minValue": "6",
-      "maxValue": "1610"
+      "maxValue": "1610",
+      "startDate": "2018-01-01",
+      "endDate": "2018-12-31"
     },
     {
       "@type": "PropertyValue",
@@ -953,7 +1125,9 @@
       "qudt:dataType": "int4",
       "unitText": "households",
       "minValue": "10",
-      "maxValue": "498"
+      "maxValue": "498",
+      "startDate": "2018-01-01",
+      "endDate": "2018-12-31"
     },
     {
       "@type": "PropertyValue",
@@ -962,7 +1136,9 @@
       "qudt:dataType": "int4",
       "unitText": "persons",
       "minValue": "12",
-      "maxValue": "2433"
+      "maxValue": "2433",
+      "startDate": "2018-01-01",
+      "endDate": "2018-12-31"
     },
     {
       "@type": "PropertyValue",
@@ -971,7 +1147,9 @@
       "qudt:dataType": "int4",
       "unitText": "persons",
       "minValue": "4",
-      "maxValue": "605"
+      "maxValue": "605",
+      "startDate": "2018-01-01",
+      "endDate": "2018-12-31"
     },
     {
       "@type": "PropertyValue",
@@ -980,7 +1158,9 @@
       "qudt:dataType": "int4",
       "unitText": "persons",
       "minValue": "5",
-      "maxValue": "1632"
+      "maxValue": "1632",
+      "startDate": "2018-01-01",
+      "endDate": "2018-12-31"
     },
     {
       "@type": "PropertyValue",
@@ -989,7 +1169,9 @@
       "qudt:dataType": "float8",
       "unitText": "percentage",
       "minValue": "0.1",
-      "maxValue": "144.4"
+      "maxValue": "144.4",
+      "startDate": "2018-01-01",
+      "endDate": "2018-12-31"
     },
     {
       "@type": "PropertyValue",
@@ -998,7 +1180,9 @@
       "qudt:dataType": "float8",
       "unitText": "percentage",
       "minValue": "0.1",
-      "maxValue": "100"
+      "maxValue": "100",
+      "startDate": "2018-01-01",
+      "endDate": "2018-12-31"
     },
     {
       "@type": "PropertyValue",
@@ -1007,7 +1191,9 @@
       "qudt:dataType": "float8",
       "unitText": "percentage",
       "minValue": "0.2",
-      "maxValue": "306.7"
+      "maxValue": "306.7",
+      "startDate": "2018-01-01",
+      "endDate": "2018-12-31"
     },
     {
       "@type": "PropertyValue",
@@ -1016,7 +1202,9 @@
       "qudt:dataType": "float8",
       "unitText": "percentage",
       "minValue": "0.9",
-      "maxValue": "100"
+      "maxValue": "100",
+      "startDate": "2018-01-01",
+      "endDate": "2018-12-31"
     },
     {
       "@type": "PropertyValue",
@@ -1025,7 +1213,9 @@
       "qudt:dataType": "float8",
       "unitText": "percentage",
       "minValue": "0",
-      "maxValue": "144.4"
+      "maxValue": "144.4",
+      "startDate": "2018-01-01",
+      "endDate": "2018-12-31"
     },
     {
       "@type": "PropertyValue",
@@ -1034,7 +1224,9 @@
       "qudt:dataType": "float8",
       "unitText": "percentage",
       "minValue": "0.3",
-      "maxValue": "560.5"
+      "maxValue": "560.5",
+      "startDate": "2018-01-01",
+      "endDate": "2018-12-31"
     },
     {
       "@type": "PropertyValue",
@@ -1043,7 +1235,9 @@
       "qudt:dataType": "float8",
       "unitText": "percentage",
       "minValue": "0",
-      "maxValue": "144.6"
+      "maxValue": "144.6",
+      "startDate": "2018-01-01",
+      "endDate": "2018-12-31"
     },
     {
       "@type": "PropertyValue",
@@ -1052,7 +1246,9 @@
       "qudt:dataType": "float8",
       "unitText": "percentage",
       "minValue": "0.1",
-      "maxValue": "100"
+      "maxValue": "100",
+      "startDate": "2018-01-01",
+      "endDate": "2018-12-31"
     },
     {
       "@type": "PropertyValue",
@@ -1061,7 +1257,9 @@
       "qudt:dataType": "float8",
       "unitText": "percentage",
       "minValue": "0.2",
-      "maxValue": "368"
+      "maxValue": "368",
+      "startDate": "2018-01-01",
+      "endDate": "2018-12-31"
     },
     {
       "@type": "PropertyValue",
@@ -1070,7 +1268,9 @@
       "qudt:dataType": "float8",
       "unitText": "percentage",
       "minValue": "0.3",
-      "maxValue": "100"
+      "maxValue": "100",
+      "startDate": "2018-01-01",
+      "endDate": "2018-12-31"
     },
     {
       "@type": "PropertyValue",
@@ -1079,7 +1279,9 @@
       "qudt:dataType": "float8",
       "unitText": "percentage",
       "minValue": "0.4",
-      "maxValue": "100"
+      "maxValue": "100",
+      "startDate": "2018-01-01",
+      "endDate": "2018-12-31"
     },
     {
       "@type": "PropertyValue",
@@ -1088,7 +1290,9 @@
       "qudt:dataType": "float8",
       "unitText": "US dollars",
       "minValue": "232",
-      "maxValue": "83593"
+      "maxValue": "83593",
+      "startDate": "2018-01-01",
+      "endDate": "2018-12-31"
     },
     {
       "@type": "PropertyValue",
@@ -1097,7 +1301,9 @@
       "qudt:dataType": "float8",
       "unitText": "percentage",
       "minValue": "0.2",
-      "maxValue": "100"
+      "maxValue": "100",
+      "startDate": "2018-01-01",
+      "endDate": "2018-12-31"
     },
     {
       "@type": "PropertyValue",
@@ -1106,7 +1312,9 @@
       "qudt:dataType": "float8",
       "unitText": "percentage",
       "minValue": "0.6",
-      "maxValue": "368"
+      "maxValue": "368",
+      "startDate": "2018-01-01",
+      "endDate": "2018-12-31"
     },
     {
       "@type": "PropertyValue",
@@ -1115,7 +1323,9 @@
       "qudt:dataType": "float8",
       "unitText": "percentage",
       "minValue": "0.4",
-      "maxValue": "100"
+      "maxValue": "100",
+      "startDate": "2018-01-01",
+      "endDate": "2018-12-31"
     },
     {
       "@type": "PropertyValue",
@@ -1124,7 +1334,9 @@
       "qudt:dataType": "float8",
       "unitText": "percentage",
       "minValue": "0.3",
-      "maxValue": "100"
+      "maxValue": "100",
+      "startDate": "2018-01-01",
+      "endDate": "2018-12-31"
     },
     {
       "@type": "PropertyValue",
@@ -1133,7 +1345,9 @@
       "qudt:dataType": "float8",
       "unitText": "percentile",
       "minValue": "0",
-      "maxValue": "1"
+      "maxValue": "1",
+      "startDate": "2018-01-01",
+      "endDate": "2018-12-31"
     },
     {
       "@type": "PropertyValue",
@@ -1142,7 +1356,9 @@
       "qudt:dataType": "float8",
       "unitText": "percentile",
       "minValue": "0",
-      "maxValue": "1"
+      "maxValue": "1",
+      "startDate": "2018-01-01",
+      "endDate": "2018-12-31"
     },
     {
       "@type": "PropertyValue",
@@ -1151,7 +1367,9 @@
       "qudt:dataType": "float8",
       "unitText": "percentile",
       "minValue": "0",
-      "maxValue": "1"
+      "maxValue": "1",
+      "startDate": "2018-01-01",
+      "endDate": "2018-12-31"
     },
     {
       "@type": "PropertyValue",
@@ -1160,7 +1378,9 @@
       "qudt:dataType": "float8",
       "unitText": "percentile",
       "minValue": "0",
-      "maxValue": "1"
+      "maxValue": "1",
+      "startDate": "2018-01-01",
+      "endDate": "2018-12-31"
     },
     {
       "@type": "PropertyValue",
@@ -1169,7 +1389,9 @@
       "qudt:dataType": "float8",
       "unitText": "percentile",
       "minValue": "0",
-      "maxValue": "1"
+      "maxValue": "1",
+      "startDate": "2018-01-01",
+      "endDate": "2018-12-31"
     },
     {
       "@type": "PropertyValue",
@@ -1178,7 +1400,9 @@
       "qudt:dataType": "float8",
       "unitText": "svi index",
       "minValue": "0.0127",
-      "maxValue": "3.9847"
+      "maxValue": "3.9847",
+      "startDate": "2018-01-01",
+      "endDate": "2018-12-31"
     },
     {
       "@type": "PropertyValue",
@@ -1187,7 +1411,9 @@
       "qudt:dataType": "float8",
       "unitText": "svi index",
       "minValue": "0",
-      "maxValue": "3.4374"
+      "maxValue": "3.4374",
+      "startDate": "2018-01-01",
+      "endDate": "2018-12-31"
     },
     {
       "@type": "PropertyValue",
@@ -1196,7 +1422,9 @@
       "qudt:dataType": "float8",
       "unitText": "svi index",
       "minValue": "0",
-      "maxValue": "1.9959"
+      "maxValue": "1.9959",
+      "startDate": "2018-01-01",
+      "endDate": "2018-12-31"
     },
     {
       "@type": "PropertyValue",
@@ -1205,7 +1433,9 @@
       "qudt:dataType": "float8",
       "unitText": "svi index",
       "minValue": "0",
-      "maxValue": "4.3727"
+      "maxValue": "4.3727",
+      "startDate": "2018-01-01",
+      "endDate": "2018-12-31"
     },
     {
       "@type": "PropertyValue",
@@ -1214,7 +1444,9 @@
       "qudt:dataType": "float8",
       "unitText": "svi index",
       "minValue": "1.7614",
-      "maxValue": "13.1523"
+      "maxValue": "13.1523",
+      "startDate": "2018-01-01",
+      "endDate": "2018-12-31"
     },
     {
       "@type": "PropertyValue",

@@ -577,57 +577,69 @@
       },
       {
         "attribute_name": "e_afam",
-        "attribute_description": "Adjunct variable - Black/African American, not Hispanic or Latino persons estimate, 2016-2020 ACS",
+        "attribute_description": "Adjunct variable - Black/African American, not Hispanic or Latino persons estimate, 2018-2022 ACS",
         "attribute_source": "DP05_0078E",
         "attribute_type": "int4",
         "attribute_unit": "persons",
         "attribute_min_value": "0",
-        "attribute_max_value": "8323"
+        "attribute_max_value": "8323",
+        "attribute_start_date": "2022-01-01",
+        "attribute_end_date": "2022-12-31"
       },
       {
         "attribute_name": "e_age17",
-        "attribute_description": "Persons aged 17 and younger estimate, 2016-2020 ACS",
+        "attribute_description": "Persons aged 17 and younger estimate, 2018-2022 ACS",
         "attribute_source": "B09001_001E",
         "attribute_type": "int4",
         "attribute_unit": "persons",
         "attribute_min_value": "0",
-        "attribute_max_value": "8445"
+        "attribute_max_value": "8445",
+        "attribute_start_date": "2022-01-01",
+        "attribute_end_date": "2022-12-31"
       },
       {
         "attribute_name": "e_age65",
-        "attribute_description": "Persons aged 65 and older estimate, 2016-2020 ACS",
+        "attribute_description": "Persons aged 65 and older estimate, 2018-2022 ACS",
         "attribute_source": "S0101_C01_030E",
         "attribute_type": "int4",
         "attribute_unit": "persons",
         "attribute_min_value": "0",
-        "attribute_max_value": "9894"
+        "attribute_max_value": "9894",
+        "attribute_start_date": "2022-01-01",
+        "attribute_end_date": "2022-12-31"
       },
       {
         "attribute_name": "e_aian",
-        "attribute_description": "Adjunct variable - American Indian or Alaska Native, not Hispanic or Latino persons estimate, 2016-2020 ACS",
+        "attribute_description": "Adjunct variable - American Indian or Alaska Native, not Hispanic or Latino persons estimate, 2018-2022 ACS",
         "attribute_source": "DP05_0079E",
         "attribute_type": "int4",
         "attribute_unit": "persons",
         "attribute_min_value": "0",
-        "attribute_max_value": "425"
+        "attribute_max_value": "425",
+        "attribute_start_date": "2022-01-01",
+        "attribute_end_date": "2022-12-31"
       },
       {
         "attribute_name": "e_asian",
-        "attribute_description": "Adjunct variable - Asian, not Hispanic or Latino persons estimate, 2016-2020 ACS",
+        "attribute_description": "Adjunct variable - Asian, not Hispanic or Latino persons estimate, 2018-2022 ACS",
         "attribute_source": "DP05_0080E",
         "attribute_type": "int4",
         "attribute_unit": "persons",
         "attribute_min_value": "0",
-        "attribute_max_value": "1917"
+        "attribute_max_value": "1917",
+        "attribute_start_date": "2022-01-01",
+        "attribute_end_date": "2022-12-31"
       },
       {
         "attribute_name": "e_crowd",
-        "attribute_description": "At household level (occupied housing units), more people than rooms estimate, 2016-2020 ACS",
+        "attribute_description": "At household level (occupied housing units), more people than rooms estimate, 2018-2022 ACS",
         "attribute_source": "DP04_0078E + DP04_0079E",
         "attribute_type": "int4",
         "attribute_unit": "housing units",
         "attribute_min_value": "0",
-        "attribute_max_value": "799"
+        "attribute_max_value": "799",
+        "attribute_start_date": "2022-01-01",
+        "attribute_end_date": "2022-12-31"
       },
       {
         "attribute_name": "e_daypop",
@@ -635,241 +647,295 @@
         "attribute_type": "int4",
         "attribute_unit": "persons",
         "attribute_min_value": "0",
-        "attribute_max_value": "108633"
+        "attribute_max_value": "108633",
+        "attribute_start_date": "2022-01-01",
+        "attribute_end_date": "2022-12-31"
       },
       {
         "attribute_name": "e_disabl",
-        "attribute_description": "Civilian noninstitutionalized population with a disability estimate, 2016-2020 ACS",
+        "attribute_description": "Civilian noninstitutionalized population with a disability estimate, 2018-2022 ACS",
         "attribute_source": "DP02_0072E",
         "attribute_type": "int4",
         "attribute_unit": "persons",
         "attribute_min_value": "0",
-        "attribute_max_value": "2576"
+        "attribute_max_value": "2576",
+        "attribute_start_date": "2022-01-01",
+        "attribute_end_date": "2022-12-31"
       },
       {
         "attribute_name": "e_groupq",
-        "attribute_description": "Persons in group quarters estimate, 2016-2020 ACS",
+        "attribute_description": "Persons in group quarters estimate, 2018-2022 ACS",
         "attribute_source": "B26001_001E",
         "attribute_type": "int4",
         "attribute_unit": "persons",
         "attribute_min_value": "0",
-        "attribute_max_value": "13835"
+        "attribute_max_value": "13835",
+        "attribute_start_date": "2022-01-01",
+        "attribute_end_date": "2022-12-31"
       },
       {
         "attribute_name": "e_hburd",
-        "attribute_description": "Housing cost-burdened occupied housing units with annual income less than 5,000 (30%+ of income spent on housing costs) estimate, 2016-2020 ACS",
+        "attribute_description": "Housing cost-burdened occupied housing units with annual income less than 5,000 (30%+ of income spent on housing costs) estimate, 2018-2022 ACS",
         "attribute_source": "S2503_C01_028E + S2503_C01_032E + S2503_C01_036E + S2503_C01_040E",
         "attribute_type": "int4",
         "attribute_unit": "housing units",
         "attribute_min_value": "0",
-        "attribute_max_value": "2363"
+        "attribute_max_value": "2363",
+        "attribute_start_date": "2022-01-01",
+        "attribute_end_date": "2022-12-31"
       },
       {
         "attribute_name": "e_hh",
-        "attribute_description": "Households estimate, 2016-2020 ACS",
+        "attribute_description": "Households estimate, 2018-2022 ACS",
         "attribute_source": "DP02_0001E",
         "attribute_type": "int4",
         "attribute_unit": "households",
         "attribute_min_value": "0",
-        "attribute_max_value": "7737"
+        "attribute_max_value": "7737",
+        "attribute_start_date": "2022-01-01",
+        "attribute_end_date": "2022-12-31"
       },
       {
         "attribute_name": "e_hisp",
-        "attribute_description": "Adjunct variable - Hispanic or Latino persons estimate, 2016-2020 ACS",
+        "attribute_description": "Adjunct variable - Hispanic or Latino persons estimate, 2018-2022 ACS",
         "attribute_source": "DP05_0071E",
         "attribute_type": "int4",
         "attribute_unit": "persons",
         "attribute_min_value": "0",
-        "attribute_max_value": "10379"
+        "attribute_max_value": "10379",
+        "attribute_start_date": "2022-01-01",
+        "attribute_end_date": "2022-12-31"
       },
       {
         "attribute_name": "e_hu",
-        "attribute_description": "Housing units estimate, 2016-2020 ACS",
+        "attribute_description": "Housing units estimate, 2018-2022 ACS",
         "attribute_source": "DP04_0001E",
         "attribute_type": "int4",
         "attribute_unit": "housing units",
         "attribute_min_value": "0",
-        "attribute_max_value": "8790"
+        "attribute_max_value": "8790",
+        "attribute_start_date": "2022-01-01",
+        "attribute_end_date": "2022-12-31"
       },
       {
         "attribute_name": "e_limeng",
-        "attribute_description": "Persons (age 5+) who speak English \"less than well\" estimate, 2016-2020 ACS",
+        "attribute_description": "Persons (age 5+) who speak English \"less than well\" estimate, 2018-2022 ACS",
         "attribute_source": "B16005_007E + B16005_008E + B16005_012E + B16005_013E + B16005_017E + B16005_018E + B16005_022E + B16005_023E + B16005_029E + B16005_030E + B16005_034E + B16005_035E + B16005_039E + B16005_040E + B16005_044E + B16005_045E",
         "attribute_type": "int4",
         "attribute_unit": "persons",
         "attribute_min_value": "0",
-        "attribute_max_value": "3015"
+        "attribute_max_value": "3015",
+        "attribute_start_date": "2022-01-01",
+        "attribute_end_date": "2022-12-31"
       },
       {
         "attribute_name": "e_minrty",
-        "attribute_description": "Minority (Hispanic or Latino (of any race) -- Black and African American, Not Hispanic or Latino -- American Indian and Alaska Native, Not Hispanic or Latino -- Asian, Not Hispanic or Latino -- Native Hawaiian and Other Pacific Islander, Not Hispanic or Latino -- Two or More Races, Not Hispanic or Latino -- Other Races, Not Hispanic or Latino) estimate, 2016-2020 ACS",
+        "attribute_description": "Minority (Hispanic or Latino (of any race) -- Black and African American, Not Hispanic or Latino -- American Indian and Alaska Native, Not Hispanic or Latino -- Asian, Not Hispanic or Latino -- Native Hawaiian and Other Pacific Islander, Not Hispanic or Latino -- Two or More Races, Not Hispanic or Latino -- Other Races, Not Hispanic or Latino) estimate, 2018-2022 ACS",
         "attribute_source": "DP05_0071E + DP05_0078E + DP05_0079E + DP05_0080E + DP05_0081E + DP05_0082E + DP05_0083E",
         "attribute_type": "int4",
         "attribute_unit": "persons",
         "attribute_min_value": "0",
-        "attribute_max_value": "12360"
+        "attribute_max_value": "12360",
+        "attribute_start_date": "2022-01-01",
+        "attribute_end_date": "2022-12-31"
       },
       {
         "attribute_name": "e_mobile",
-        "attribute_description": "Mobile homes estimate, 2016-2020 ACS",
+        "attribute_description": "Mobile homes estimate, 2018-2022 ACS",
         "attribute_source": "DP04_0014E",
         "attribute_type": "int4",
         "attribute_unit": "mobile homes",
         "attribute_min_value": "0",
-        "attribute_max_value": "3027"
+        "attribute_max_value": "3027",
+        "attribute_start_date": "2022-01-01",
+        "attribute_end_date": "2022-12-31"
       },
       {
         "attribute_name": "e_munit",
-        "attribute_description": "Housing in structures with 10 or more units estimate, 2016-2020 ACS",
+        "attribute_description": "Housing in structures with 10 or more units estimate, 2018-2022 ACS",
         "attribute_source": "DP04_0012E + DP04_0013E",
         "attribute_type": "int4",
         "attribute_unit": "structures",
         "attribute_min_value": "0",
-        "attribute_max_value": "6733"
+        "attribute_max_value": "6733",
+        "attribute_start_date": "2022-01-01",
+        "attribute_end_date": "2022-12-31"
       },
       {
         "attribute_name": "e_nhpi",
-        "attribute_description": "Adjunct variable - Native Hawaiian or Other Pacific Islander, not Hispanic or Latino persons estimate, 2016-2020 ACS",
+        "attribute_description": "Adjunct variable - Native Hawaiian or Other Pacific Islander, not Hispanic or Latino persons estimate, 2018-2022 ACS",
         "attribute_source": "DP05_0081E",
         "attribute_type": "int4",
         "attribute_unit": "persons",
         "attribute_min_value": "0",
-        "attribute_max_value": "478"
+        "attribute_max_value": "478",
+        "attribute_start_date": "2022-01-01",
+        "attribute_end_date": "2022-12-31"
       },
       {
         "attribute_name": "e_nohsdp",
-        "attribute_description": "Persons (age 25+) with no high school diploma estimate, 2016-2020 ACS",
+        "attribute_description": "Persons (age 25+) with no high school diploma estimate, 2018-2022 ACS",
         "attribute_source": "B06009_002E",
         "attribute_type": "int4",
         "attribute_unit": "persons",
         "attribute_min_value": "0",
-        "attribute_max_value": "2825"
+        "attribute_max_value": "2825",
+        "attribute_start_date": "2022-01-01",
+        "attribute_end_date": "2022-12-31"
       },
       {
         "attribute_name": "e_noint",
-        "attribute_description": "Adjunct variable - Households without a computer with a broadband Internet subscription estimate, 2016-2020 ACS",
+        "attribute_description": "Adjunct variable - Households without a computer with a broadband Internet subscription estimate, 2018-2022 ACS",
         "attribute_source": "S2802_C01_001E - S2802_C02_001E",
         "attribute_type": "int4",
         "attribute_unit": "households",
         "attribute_min_value": "0",
-        "attribute_max_value": "1311"
+        "attribute_max_value": "1311",
+        "attribute_start_date": "2022-01-01",
+        "attribute_end_date": "2022-12-31"
       },
       {
         "attribute_name": "e_noveh",
-        "attribute_description": "Households with no vehicle available estimate, 2016-2020 ACS",
+        "attribute_description": "Households with no vehicle available estimate, 2018-2022 ACS",
         "attribute_source": "DP04_0058E",
         "attribute_type": "int4",
         "attribute_unit": "households",
         "attribute_min_value": "0",
-        "attribute_max_value": "941"
+        "attribute_max_value": "941",
+        "attribute_start_date": "2022-01-01",
+        "attribute_end_date": "2022-12-31"
       },
       {
         "attribute_name": "e_otherrace",
-        "attribute_description": "Adjunct variable - Some other race, not Hispanic or Latino persons estimate, 2016-2020 ACS",
+        "attribute_description": "Adjunct variable - Some other race, not Hispanic or Latino persons estimate, 2018-2022 ACS",
         "attribute_source": "DP05_0082E",
         "attribute_type": "int4",
         "attribute_unit": "persons",
         "attribute_min_value": "0",
-        "attribute_max_value": "805"
+        "attribute_max_value": "805",
+        "attribute_start_date": "2022-01-01",
+        "attribute_end_date": "2022-12-31"
       },
       {
         "attribute_name": "e_pov150",
-        "attribute_description": "Persons below 150% poverty estimate, 2016-2020 ACS",
+        "attribute_description": "Persons below 150% poverty estimate, 2018-2022 ACS",
         "attribute_source": "S1701_C01_040E",
         "attribute_type": "int4",
         "attribute_unit": "households",
         "attribute_min_value": "0",
-        "attribute_max_value": "5471"
+        "attribute_max_value": "5471",
+        "attribute_start_date": "2022-01-01",
+        "attribute_end_date": "2022-12-31"
       },
       {
         "attribute_name": "e_sngpnt",
-        "attribute_description": "Single-parent household with children under 18 estimate, 2016-2020 ACS",
+        "attribute_description": "Single-parent household with children under 18 estimate, 2018-2022 ACS",
         "attribute_source": "B11012_010E + B11012_015E",
         "attribute_type": "int4",
         "attribute_unit": "persons",
         "attribute_min_value": "0",
-        "attribute_max_value": "767"
+        "attribute_max_value": "767",
+        "attribute_start_date": "2022-01-01",
+        "attribute_end_date": "2022-12-31"
       },
       {
         "attribute_name": "e_totpop",
-        "attribute_description": "Population estimate, 2016-2020 ACS",
+        "attribute_description": "Population estimate, 2018-2022 ACS",
         "attribute_source": "S0601_C01_001E",
         "attribute_type": "int4",
         "attribute_unit": "persons",
         "attribute_min_value": "0",
-        "attribute_max_value": "23706"
+        "attribute_max_value": "23706",
+        "attribute_start_date": "2022-01-01",
+        "attribute_end_date": "2022-12-31"
       },
       {
         "attribute_name": "e_twomore",
-        "attribute_description": "Adjunct variable - Two or more races, not Hispanic or Latino persons estimate, 2016-2020 ACS",
+        "attribute_description": "Adjunct variable - Two or more races, not Hispanic or Latino persons estimate, 2018-2022 ACS",
         "attribute_source": "DP05_0083E",
         "attribute_type": "int4",
         "attribute_unit": "persons",
         "attribute_min_value": "0",
-        "attribute_max_value": "3260"
+        "attribute_max_value": "3260",
+        "attribute_start_date": "2022-01-01",
+        "attribute_end_date": "2022-12-31"
       },
       {
         "attribute_name": "e_unemp",
-        "attribute_description": "Civilian (age 16+) unemployed estimate, 2016-2020 ACS",
+        "attribute_description": "Civilian (age 16+) unemployed estimate, 2018-2022 ACS",
         "attribute_source": "DP03_0005E",
         "attribute_type": "int4",
         "attribute_unit": "persons",
         "attribute_min_value": "0",
-        "attribute_max_value": "915"
+        "attribute_max_value": "915",
+        "attribute_start_date": "2022-01-01",
+        "attribute_end_date": "2022-12-31"
       },
       {
         "attribute_name": "e_uninsur",
-        "attribute_description": "Uninsured in the total civilian noninstitutionalized population estimate, 2016-2020 ACS",
+        "attribute_description": "Uninsured in the total civilian noninstitutionalized population estimate, 2018-2022 ACS",
         "attribute_source": "S2701_C04_001E",
         "attribute_type": "int4",
         "attribute_unit": "persons",
         "attribute_min_value": "0",
-        "attribute_max_value": "4031"
+        "attribute_max_value": "4031",
+        "attribute_start_date": "2022-01-01",
+        "attribute_end_date": "2022-12-31"
       },
       {
         "attribute_name": "ep_afam",
-        "attribute_description": "Adjunct variable - Percentage of Black/African American, not Hispanic or Latino persons estimate, 2016-2020 ACS",
+        "attribute_description": "Adjunct variable - Percentage of Black/African American, not Hispanic or Latino persons estimate, 2018-2022 ACS",
         "attribute_source": "DP05_0078PE",
         "attribute_type": "float8",
         "attribute_unit": "percent",
         "attribute_min_value": "-999",
-        "attribute_max_value": "98.8"
+        "attribute_max_value": "98.8",
+        "attribute_start_date": "2022-01-01",
+        "attribute_end_date": "2022-12-31"
       },
       {
         "attribute_name": "ep_age17",
-        "attribute_description": "Percentage of persons aged 17 and younger estimate, 2016-2020 ACS",
+        "attribute_description": "Percentage of persons aged 17 and younger estimate, 2018-2022 ACS",
         "attribute_source": "(E_AGE17 / E_TOTPOP) * 100",
         "attribute_type": "float8",
         "attribute_unit": "percent",
         "attribute_min_value": "-999",
-        "attribute_max_value": "48.5"
+        "attribute_max_value": "48.5",
+        "attribute_start_date": "2022-01-01",
+        "attribute_end_date": "2022-12-31"
       },
       {
         "attribute_name": "ep_age65",
-        "attribute_description": "Percentage of persons aged 65 and older estimate, 2016-2020 ACS",
+        "attribute_description": "Percentage of persons aged 65 and older estimate, 2018-2022 ACS",
         "attribute_source": "S0101_C02_030E",
         "attribute_type": "float8",
         "attribute_unit": "percent",
         "attribute_min_value": "-999",
-        "attribute_max_value": "95.4"
+        "attribute_max_value": "95.4",
+        "attribute_start_date": "2022-01-01",
+        "attribute_end_date": "2022-12-31"
       },
       {
         "attribute_name": "ep_aian",
-        "attribute_description": "Adjunct variable - Percentage of American Indian or Alaska Native, not Hispanic or Latino persons estimate, 2016-2020 ACS",
+        "attribute_description": "Adjunct variable - Percentage of American Indian or Alaska Native, not Hispanic or Latino persons estimate, 2018-2022 ACS",
         "attribute_source": "DP05_0079PE",
         "attribute_type": "float8",
         "attribute_unit": "percent",
         "attribute_min_value": "-999",
-        "attribute_max_value": "36.7"
+        "attribute_max_value": "36.7",
+        "attribute_start_date": "2022-01-01",
+        "attribute_end_date": "2022-12-31"
       },
       {
         "attribute_name": "ep_asian",
-        "attribute_description": "Adjunct variable - Percentage of Asian, not Hispanic or Latino persons estimate, 2016-2020 ACS",
+        "attribute_description": "Adjunct variable - Percentage of Asian, not Hispanic or Latino persons estimate, 2018-2022 ACS",
         "attribute_source": "DP05_0080PE",
         "attribute_type": "float8",
         "attribute_unit": "percent",
         "attribute_min_value": "-999",
-        "attribute_max_value": "32.5"
+        "attribute_max_value": "32.5",
+        "attribute_start_date": "2022-01-01",
+        "attribute_end_date": "2022-12-31"
       },
       {
         "attribute_name": "ep_crowd",
@@ -878,61 +944,75 @@
         "attribute_type": "float8",
         "attribute_unit": "percent",
         "attribute_min_value": "-999",
-        "attribute_max_value": "100"
+        "attribute_max_value": "100",
+        "attribute_start_date": "2022-01-01",
+        "attribute_end_date": "2022-12-31"
       },
       {
         "attribute_name": "ep_disabl",
-        "attribute_description": "Percentage of civilian noninstitutionalized population with a disability estimate, 2016-2020 ACS",
+        "attribute_description": "Percentage of civilian noninstitutionalized population with a disability estimate, 2018-2022 ACS",
         "attribute_source": "DP02_0072PE",
         "attribute_type": "float8",
         "attribute_unit": "percent",
         "attribute_min_value": "-999",
-        "attribute_max_value": "71.7"
+        "attribute_max_value": "71.7",
+        "attribute_start_date": "2022-01-01",
+        "attribute_end_date": "2022-12-31"
       },
       {
         "attribute_name": "ep_groupq",
-        "attribute_description": "Percentage of persons in group quarters estimate, 2016-2020 ACS",
+        "attribute_description": "Percentage of persons in group quarters estimate, 2018-2022 ACS",
         "attribute_source": "(E_GROUPQ / E_TOTPOP) * 100",
         "attribute_type": "float8",
         "attribute_unit": "percent",
         "attribute_min_value": "-999",
-        "attribute_max_value": "100"
+        "attribute_max_value": "100",
+        "attribute_start_date": "2022-01-01",
+        "attribute_end_date": "2022-12-31"
       },
       {
         "attribute_name": "ep_hburd",
-        "attribute_description": "Percentage of housing cost-burdened occupied housing units with annual income less than 5,000 (30%+ of income spent on housing costs) estimate, 2016-2020 ACS estimate, 2016-2020 ACS",
+        "attribute_description": "Percentage of housing cost-burdened occupied housing units with annual income less than 5,000 (30%+ of income spent on housing costs) estimate, 2018-2022 ACS estimate, 2018-2022 ACS",
         "attribute_source": "(E_HBURD / S2503_C01_001E) * 100",
         "attribute_type": "float8",
         "attribute_unit": "percent",
         "attribute_min_value": "-999",
-        "attribute_max_value": "100"
+        "attribute_max_value": "100",
+        "attribute_start_date": "2022-01-01",
+        "attribute_end_date": "2022-12-31"
       },
       {
         "attribute_name": "ep_hisp",
-        "attribute_description": "Adjunct variable - Percentage of Hispanic or Latino persons estimate, 2016-2020 ACS",
+        "attribute_description": "Adjunct variable - Percentage of Hispanic or Latino persons estimate, 2018-2022 ACS",
         "attribute_source": "DP05_0071PE",
         "attribute_type": "float8",
         "attribute_unit": "percent",
         "attribute_min_value": "-999",
-        "attribute_max_value": "100"
+        "attribute_max_value": "100",
+        "attribute_start_date": "2022-01-01",
+        "attribute_end_date": "2022-12-31"
       },
       {
         "attribute_name": "ep_limeng",
-        "attribute_description": "Percentage of persons (age 5+) who speak English \"less than well\" estimate, 2016-2020 ACS",
+        "attribute_description": "Percentage of persons (age 5+) who speak English \"less than well\" estimate, 2018-2022 ACS",
         "attribute_source": "(E_LIMENG / B16005_001E) * 100",
         "attribute_type": "float8",
         "attribute_unit": "percent",
         "attribute_min_value": "-999",
-        "attribute_max_value": "100"
+        "attribute_max_value": "100",
+        "attribute_start_date": "2022-01-01",
+        "attribute_end_date": "2022-12-31"
       },
       {
         "attribute_name": "ep_minrty",
-        "attribute_description": "Percentage minority (Hispanic or Latino (of any race) -- Black and African American, Not Hispanic or Latino -- American Indian and Alaska Native, Not Hispanic or Latino -- Asian, Not Hispanic or Latino -- Native Hawaiian and Other Pacific Islander, Not Hispanic or Latino -- Two or More Races, Not Hispanic or Latino -- Other Races, Not Hispanic or Latino) estimate, 2016-2020 ACS",
+        "attribute_description": "Percentage minority (Hispanic or Latino (of any race) -- Black and African American, Not Hispanic or Latino -- American Indian and Alaska Native, Not Hispanic or Latino -- Asian, Not Hispanic or Latino -- Native Hawaiian and Other Pacific Islander, Not Hispanic or Latino -- Two or More Races, Not Hispanic or Latino -- Other Races, Not Hispanic or Latino) estimate, 2018-2022 ACS",
         "attribute_source": "(E_MINRTY / E_TOTPOP) * 100",
         "attribute_type": "float8",
         "attribute_unit": "percent",
         "attribute_min_value": "-999",
-        "attribute_max_value": "100"
+        "attribute_max_value": "100",
+        "attribute_start_date": "2022-01-01",
+        "attribute_end_date": "2022-12-31"
       },
       {
         "attribute_name": "ep_mobile",
@@ -941,7 +1021,9 @@
         "attribute_type": "float8",
         "attribute_unit": "percent",
         "attribute_min_value": "-999",
-        "attribute_max_value": "98.5"
+        "attribute_max_value": "98.5",
+        "attribute_start_date": "2022-01-01",
+        "attribute_end_date": "2022-12-31"
       },
       {
         "attribute_name": "ep_munit",
@@ -950,16 +1032,20 @@
         "attribute_type": "float8",
         "attribute_unit": "percent",
         "attribute_min_value": "-999",
-        "attribute_max_value": "99.7"
+        "attribute_max_value": "99.7",
+        "attribute_start_date": "2022-01-01",
+        "attribute_end_date": "2022-12-31"
       },
       {
         "attribute_name": "ep_nhpi",
-        "attribute_description": "Adjunct variable - Percentage of Native Hawaiian or Other Pacific Islander, not Hispanic or Latino persons estimate, 2016-2020 ACS",
+        "attribute_description": "Adjunct variable - Percentage of Native Hawaiian or Other Pacific Islander, not Hispanic or Latino persons estimate, 2018-2022 ACS",
         "attribute_source": "DP05_0081PE",
         "attribute_type": "float8",
         "attribute_unit": "percent",
         "attribute_min_value": "-999",
-        "attribute_max_value": "6.4"
+        "attribute_max_value": "6.4",
+        "attribute_start_date": "2022-01-01",
+        "attribute_end_date": "2022-12-31"
       },
       {
         "attribute_name": "ep_nohsdp",
@@ -968,16 +1054,20 @@
         "attribute_type": "float8",
         "attribute_unit": "percent",
         "attribute_min_value": "-999",
-        "attribute_max_value": "100"
+        "attribute_max_value": "100",
+        "attribute_start_date": "2022-01-01",
+        "attribute_end_date": "2022-12-31"
       },
       {
         "attribute_name": "ep_noint",
-        "attribute_description": "Adjunct variable - Percentage of households without a computer with a broadband Internet subscription estimate, 2016-2020 ACS",
+        "attribute_description": "Adjunct variable - Percentage of households without a computer with a broadband Internet subscription estimate, 2018-2022 ACS",
         "attribute_source": "(E_NOINT / S2802_C01_001E) * 100 ",
         "attribute_type": "float8",
         "attribute_unit": "percent",
         "attribute_min_value": "-999",
-        "attribute_max_value": "68.1"
+        "attribute_max_value": "68.1",
+        "attribute_start_date": "2022-01-01",
+        "attribute_end_date": "2022-12-31"
       },
       {
         "attribute_name": "ep_noveh",
@@ -986,16 +1076,20 @@
         "attribute_type": "float8",
         "attribute_unit": "percent",
         "attribute_min_value": "-999",
-        "attribute_max_value": "88"
+        "attribute_max_value": "88",
+        "attribute_start_date": "2022-01-01",
+        "attribute_end_date": "2022-12-31"
       },
       {
         "attribute_name": "ep_otherrace",
-        "attribute_description": "Adjunct variable - Percentage of some other race, not Hispanic or Latino persons estimate, 2016-2020 ACS",
+        "attribute_description": "Adjunct variable - Percentage of some other race, not Hispanic or Latino persons estimate, 2018-2022 ACS",
         "attribute_source": "DP05_0082PE",
         "attribute_type": "float8",
         "attribute_unit": "percent",
         "attribute_min_value": "-999",
-        "attribute_max_value": "17.4"
+        "attribute_max_value": "17.4",
+        "attribute_start_date": "2022-01-01",
+        "attribute_end_date": "2022-12-31"
       },
       {
         "attribute_name": "ep_pov150",
@@ -1004,25 +1098,31 @@
         "attribute_type": "float8",
         "attribute_unit": "percent",
         "attribute_min_value": "-999",
-        "attribute_max_value": "100"
+        "attribute_max_value": "100",
+        "attribute_start_date": "2022-01-01",
+        "attribute_end_date": "2022-12-31"
       },
       {
         "attribute_name": "ep_sngpnt",
-        "attribute_description": "Percentage of single-parent households with children under 18 estimate, 2016-2020 ACS",
+        "attribute_description": "Percentage of single-parent households with children under 18 estimate, 2018-2022 ACS",
         "attribute_source": "(E_SNGPNT/E_HH) * 100",
         "attribute_type": "float8",
         "attribute_unit": "percent",
         "attribute_min_value": "-999",
-        "attribute_max_value": "79"
+        "attribute_max_value": "79",
+        "attribute_start_date": "2022-01-01",
+        "attribute_end_date": "2022-12-31"
       },
       {
         "attribute_name": "ep_twomore",
-        "attribute_description": "Adjunct variable - Percentage of two or more races, not Hispanic or Latino persons estimate, 2016-2020 ACS",
+        "attribute_description": "Adjunct variable - Percentage of two or more races, not Hispanic or Latino persons estimate, 2018-2022 ACS",
         "attribute_source": "DP05_0083PE",
         "attribute_type": "float8",
         "attribute_unit": "percent",
         "attribute_min_value": "-999",
-        "attribute_max_value": "28.3"
+        "attribute_max_value": "28.3",
+        "attribute_start_date": "2022-01-01",
+        "attribute_end_date": "2022-12-31"
       },
       {
         "attribute_name": "ep_unemp",
@@ -1031,16 +1131,20 @@
         "attribute_type": "float8",
         "attribute_unit": "percent",
         "attribute_min_value": "-999",
-        "attribute_max_value": "50"
+        "attribute_max_value": "50",
+        "attribute_start_date": "2022-01-01",
+        "attribute_end_date": "2022-12-31"
       },
       {
         "attribute_name": "ep_uninsur",
-        "attribute_description": "Percentage uninsured in the total civilian noninstitutionalized population estimate, 2016-2020 ACS",
+        "attribute_description": "Percentage uninsured in the total civilian noninstitutionalized population estimate, 2018-2022 ACS",
         "attribute_source": "S2701_C05_001E",
         "attribute_type": "float8",
         "attribute_unit": "percent",
         "attribute_min_value": "-999",
-        "attribute_max_value": "100"
+        "attribute_max_value": "100",
+        "attribute_start_date": "2022-01-01",
+        "attribute_end_date": "2022-12-31"
       },
       {
         "attribute_name": "epl_age17",
@@ -1049,7 +1153,9 @@
         "attribute_type": "float8",
         "attribute_unit": "percentile",
         "attribute_min_value": "-999",
-        "attribute_max_value": "1"
+        "attribute_max_value": "1",
+        "attribute_start_date": "2022-01-01",
+        "attribute_end_date": "2022-12-31"
       },
       {
         "attribute_name": "epl_age65",
@@ -1058,7 +1164,9 @@
         "attribute_type": "float8",
         "attribute_unit": "percentile",
         "attribute_min_value": "-999",
-        "attribute_max_value": "1"
+        "attribute_max_value": "1",
+        "attribute_start_date": "2022-01-01",
+        "attribute_end_date": "2022-12-31"
       },
       {
         "attribute_name": "epl_crowd",
@@ -1067,7 +1175,9 @@
         "attribute_type": "float8",
         "attribute_unit": "percentile",
         "attribute_min_value": "-999",
-        "attribute_max_value": "1"
+        "attribute_max_value": "1",
+        "attribute_start_date": "2022-01-01",
+        "attribute_end_date": "2022-12-31"
       },
       {
         "attribute_name": "epl_disabl",
@@ -1076,7 +1186,9 @@
         "attribute_type": "float8",
         "attribute_unit": "percentile",
         "attribute_min_value": "-999",
-        "attribute_max_value": "1"
+        "attribute_max_value": "1",
+        "attribute_start_date": "2022-01-01",
+        "attribute_end_date": "2022-12-31"
       },
       {
         "attribute_name": "epl_groupq",
@@ -1085,7 +1197,9 @@
         "attribute_type": "float8",
         "attribute_unit": "percentile",
         "attribute_min_value": "-999",
-        "attribute_max_value": "0.9982"
+        "attribute_max_value": "0.9982",
+        "attribute_start_date": "2022-01-01",
+        "attribute_end_date": "2022-12-31"
       },
       {
         "attribute_name": "epl_hburd",
@@ -1094,7 +1208,9 @@
         "attribute_type": "float8",
         "attribute_unit": "percentile",
         "attribute_min_value": "-999",
-        "attribute_max_value": "0.9998"
+        "attribute_max_value": "0.9998",
+        "attribute_start_date": "2022-01-01",
+        "attribute_end_date": "2022-12-31"
       },
       {
         "attribute_name": "epl_limeng",
@@ -1103,7 +1219,9 @@
         "attribute_type": "float8",
         "attribute_unit": "percentile",
         "attribute_min_value": "-999",
-        "attribute_max_value": "1"
+        "attribute_max_value": "1",
+        "attribute_start_date": "2022-01-01",
+        "attribute_end_date": "2022-12-31"
       },
       {
         "attribute_name": "epl_minrty",
@@ -1112,7 +1230,9 @@
         "attribute_type": "float8",
         "attribute_unit": "percentile",
         "attribute_min_value": "-999",
-        "attribute_max_value": "0.9978"
+        "attribute_max_value": "0.9978",
+        "attribute_start_date": "2022-01-01",
+        "attribute_end_date": "2022-12-31"
       },
       {
         "attribute_name": "epl_mobile",
@@ -1121,7 +1241,9 @@
         "attribute_type": "float8",
         "attribute_unit": "percentile",
         "attribute_min_value": "-999",
-        "attribute_max_value": "1"
+        "attribute_max_value": "1",
+        "attribute_start_date": "2022-01-01",
+        "attribute_end_date": "2022-12-31"
       },
       {
         "attribute_name": "epl_munit",
@@ -1130,7 +1252,9 @@
         "attribute_type": "float8",
         "attribute_unit": "percentile",
         "attribute_min_value": "-999",
-        "attribute_max_value": "0.9998"
+        "attribute_max_value": "0.9998",
+        "attribute_start_date": "2022-01-01",
+        "attribute_end_date": "2022-12-31"
       },
       {
         "attribute_name": "epl_nohsdp",
@@ -1139,7 +1263,9 @@
         "attribute_type": "float8",
         "attribute_unit": "percentile",
         "attribute_min_value": "-999",
-        "attribute_max_value": "1"
+        "attribute_max_value": "1",
+        "attribute_start_date": "2022-01-01",
+        "attribute_end_date": "2022-12-31"
       },
       {
         "attribute_name": "epl_noveh",
@@ -1148,7 +1274,9 @@
         "attribute_type": "float8",
         "attribute_unit": "percentile",
         "attribute_min_value": "-999",
-        "attribute_max_value": "1"
+        "attribute_max_value": "1",
+        "attribute_start_date": "2022-01-01",
+        "attribute_end_date": "2022-12-31"
       },
       {
         "attribute_name": "epl_pov150",
@@ -1157,7 +1285,9 @@
         "attribute_type": "float8",
         "attribute_unit": "percentile",
         "attribute_min_value": "-999",
-        "attribute_max_value": "0.9996"
+        "attribute_max_value": "0.9996",
+        "attribute_start_date": "2022-01-01",
+        "attribute_end_date": "2022-12-31"
       },
       {
         "attribute_name": "epl_sngpnt",
@@ -1166,7 +1296,9 @@
         "attribute_type": "float8",
         "attribute_unit": "percentile",
         "attribute_min_value": "-999",
-        "attribute_max_value": "1"
+        "attribute_max_value": "1",
+        "attribute_start_date": "2022-01-01",
+        "attribute_end_date": "2022-12-31"
       },
       {
         "attribute_name": "epl_unemp",
@@ -1175,7 +1307,9 @@
         "attribute_type": "float8",
         "attribute_unit": "percentile",
         "attribute_min_value": "-999",
-        "attribute_max_value": "1"
+        "attribute_max_value": "1",
+        "attribute_start_date": "2022-01-01",
+        "attribute_end_date": "2022-12-31"
       },
       {
         "attribute_name": "epl_uninsur",
@@ -1184,7 +1318,9 @@
         "attribute_type": "float8",
         "attribute_unit": "percentile",
         "attribute_min_value": "-999",
-        "attribute_max_value": "1"
+        "attribute_max_value": "1",
+        "attribute_start_date": "2022-01-01",
+        "attribute_end_date": "2022-12-31"
       },
       {
         "attribute_name": "f_age17",
@@ -1192,7 +1328,9 @@
         "attribute_source": "EPL_AGE17 >= 0.90",
         "attribute_type": "int2",
         "attribute_min_value": "-999",
-        "attribute_max_value": "1"
+        "attribute_max_value": "1",
+        "attribute_start_date": "2022-01-01",
+        "attribute_end_date": "2022-12-31"
       },
       {
         "attribute_name": "f_age65",
@@ -1200,7 +1338,9 @@
         "attribute_source": "EPL_AGE65 >= 0.90",
         "attribute_type": "int2",
         "attribute_min_value": "-999",
-        "attribute_max_value": "1"
+        "attribute_max_value": "1",
+        "attribute_start_date": "2022-01-01",
+        "attribute_end_date": "2022-12-31"
       },
       {
         "attribute_name": "f_crowd",
@@ -1208,7 +1348,9 @@
         "attribute_source": "EPL_CROWD >= 0.90",
         "attribute_type": "int2",
         "attribute_min_value": "-999",
-        "attribute_max_value": "1"
+        "attribute_max_value": "1",
+        "attribute_start_date": "2022-01-01",
+        "attribute_end_date": "2022-12-31"
       },
       {
         "attribute_name": "f_disabl",
@@ -1216,7 +1358,9 @@
         "attribute_source": "EPL_DISABL >= 0.90",
         "attribute_type": "int2",
         "attribute_min_value": "-999",
-        "attribute_max_value": "1"
+        "attribute_max_value": "1",
+        "attribute_start_date": "2022-01-01",
+        "attribute_end_date": "2022-12-31"
       },
       {
         "attribute_name": "f_groupq",
@@ -1224,7 +1368,9 @@
         "attribute_source": "EPL_GROUPQ >= 0.90",
         "attribute_type": "int2",
         "attribute_min_value": "-999",
-        "attribute_max_value": "1"
+        "attribute_max_value": "1",
+        "attribute_start_date": "2022-01-01",
+        "attribute_end_date": "2022-12-31"
       },
       {
         "attribute_name": "f_hburd",
@@ -1232,7 +1378,9 @@
         "attribute_source": "EPL_HBURD >= 0.90",
         "attribute_type": "int2",
         "attribute_min_value": "-999",
-        "attribute_max_value": "1"
+        "attribute_max_value": "1",
+        "attribute_start_date": "2022-01-01",
+        "attribute_end_date": "2022-12-31"
       },
       {
         "attribute_name": "f_limeng",
@@ -1240,7 +1388,9 @@
         "attribute_source": "EPL_LIMENG >= 0.90",
         "attribute_type": "int2",
         "attribute_min_value": "-999",
-        "attribute_max_value": "1"
+        "attribute_max_value": "1",
+        "attribute_start_date": "2022-01-01",
+        "attribute_end_date": "2022-12-31"
       },
       {
         "attribute_name": "f_minrty",
@@ -1248,7 +1398,9 @@
         "attribute_source": "EPL_MINRTY >= 0.90",
         "attribute_type": "int2",
         "attribute_min_value": "-999",
-        "attribute_max_value": "1"
+        "attribute_max_value": "1",
+        "attribute_start_date": "2022-01-01",
+        "attribute_end_date": "2022-12-31"
       },
       {
         "attribute_name": "f_mobile",
@@ -1256,7 +1408,9 @@
         "attribute_source": "EPL_MOBILE >= 0.90",
         "attribute_type": "int2",
         "attribute_min_value": "-999",
-        "attribute_max_value": "1"
+        "attribute_max_value": "1",
+        "attribute_start_date": "2022-01-01",
+        "attribute_end_date": "2022-12-31"
       },
       {
         "attribute_name": "f_munit",
@@ -1264,7 +1418,9 @@
         "attribute_source": "EPL_MUNIT >= 0.90",
         "attribute_type": "int2",
         "attribute_min_value": "-999",
-        "attribute_max_value": "1"
+        "attribute_max_value": "1",
+        "attribute_start_date": "2022-01-01",
+        "attribute_end_date": "2022-12-31"
       },
       {
         "attribute_name": "f_nohsdp",
@@ -1272,7 +1428,9 @@
         "attribute_source": "EPL_NOHSDP >= 0.90",
         "attribute_type": "int2",
         "attribute_min_value": "-999",
-        "attribute_max_value": "1"
+        "attribute_max_value": "1",
+        "attribute_start_date": "2022-01-01",
+        "attribute_end_date": "2022-12-31"
       },
       {
         "attribute_name": "f_noveh",
@@ -1280,7 +1438,9 @@
         "attribute_source": "EPL_NOVEH >= 0.90",
         "attribute_type": "int2",
         "attribute_min_value": "-999",
-        "attribute_max_value": "1"
+        "attribute_max_value": "1",
+        "attribute_start_date": "2022-01-01",
+        "attribute_end_date": "2022-12-31"
       },
       {
         "attribute_name": "f_pov150",
@@ -1288,7 +1448,9 @@
         "attribute_source": "EPL_POV150 >= 0.90",
         "attribute_type": "int2",
         "attribute_min_value": "-999",
-        "attribute_max_value": "1"
+        "attribute_max_value": "1",
+        "attribute_start_date": "2022-01-01",
+        "attribute_end_date": "2022-12-31"
       },
       {
         "attribute_name": "f_sngpnt",
@@ -1296,7 +1458,9 @@
         "attribute_source": "EPL_SNGPNT >= 0.90",
         "attribute_type": "int2",
         "attribute_min_value": "-999",
-        "attribute_max_value": "1"
+        "attribute_max_value": "1",
+        "attribute_start_date": "2022-01-01",
+        "attribute_end_date": "2022-12-31"
       },
       {
         "attribute_name": "f_theme1",
@@ -1304,7 +1468,9 @@
         "attribute_source": "F_POV150 + F_UNEMP + F_HBURD + F_NOHSDP + F_UNINSUR",
         "attribute_type": "int2",
         "attribute_min_value": "-999",
-        "attribute_max_value": "5"
+        "attribute_max_value": "5",
+        "attribute_start_date": "2022-01-01",
+        "attribute_end_date": "2022-12-31"
       },
       {
         "attribute_name": "f_theme2",
@@ -1312,7 +1478,9 @@
         "attribute_source": "F_AGE65 + F_AGE17 + F_DISABL + F_SNGPNT + F_LIMENG",
         "attribute_type": "int2",
         "attribute_min_value": "-999",
-        "attribute_max_value": "3"
+        "attribute_max_value": "3",
+        "attribute_start_date": "2022-01-01",
+        "attribute_end_date": "2022-12-31"
       },
       {
         "attribute_name": "f_theme3",
@@ -1320,7 +1488,9 @@
         "attribute_source": "F_MINRTY",
         "attribute_type": "int2",
         "attribute_min_value": "-999",
-        "attribute_max_value": "1"
+        "attribute_max_value": "1",
+        "attribute_start_date": "2022-01-01",
+        "attribute_end_date": "2022-12-31"
       },
       {
         "attribute_name": "f_theme4",
@@ -1328,7 +1498,9 @@
         "attribute_source": "F_MUNIT + F_MOBILE + F_CROWD + F_NOVEH + F_GROUPQ",
         "attribute_type": "int2",
         "attribute_min_value": "-999",
-        "attribute_max_value": "4"
+        "attribute_max_value": "4",
+        "attribute_start_date": "2022-01-01",
+        "attribute_end_date": "2022-12-31"
       },
       {
         "attribute_name": "f_total",
@@ -1336,7 +1508,9 @@
         "attribute_source": "F_THEME1 + F_THEME2 + F_THEME3 + F_THEME4",
         "attribute_type": "int2",
         "attribute_min_value": "-999",
-        "attribute_max_value": "11"
+        "attribute_max_value": "11",
+        "attribute_start_date": "2022-01-01",
+        "attribute_end_date": "2022-12-31"
       },
       {
         "attribute_name": "f_unemp",
@@ -1344,7 +1518,9 @@
         "attribute_source": "EPL_UNEMP >= 0.90",
         "attribute_type": "int2",
         "attribute_min_value": "-999",
-        "attribute_max_value": "1"
+        "attribute_max_value": "1",
+        "attribute_start_date": "2022-01-01",
+        "attribute_end_date": "2022-12-31"
       },
       {
         "attribute_name": "f_uninsur",
@@ -1352,7 +1528,9 @@
         "attribute_source": "EPL_UNINSUR >= 0.90",
         "attribute_type": "int2",
         "attribute_min_value": "-999",
-        "attribute_max_value": "1"
+        "attribute_max_value": "1",
+        "attribute_start_date": "2022-01-01",
+        "attribute_end_date": "2022-12-31"
       },
       {
         "attribute_name": "fips",
@@ -1368,291 +1546,355 @@
       },
       {
         "attribute_name": "m_afam",
-        "attribute_description": "Adjunct variable - Black/African American, not Hispanic or Latino persons estimate MOE, 2016-2020 ACS",
+        "attribute_description": "Adjunct variable - Black/African American, not Hispanic or Latino persons estimate MOE, 2018-2022 ACS",
         "attribute_source": "DP05_0078M",
         "attribute_type": "int4",
         "attribute_unit": "moe",
         "attribute_min_value": "1",
-        "attribute_max_value": "2273"
+        "attribute_max_value": "2273",
+        "attribute_start_date": "2022-01-01",
+        "attribute_end_date": "2022-12-31"
       },
       {
         "attribute_name": "m_age17",
-        "attribute_description": "Persons aged 17 and younger estimate MOE, 2016-2020 ACS",
+        "attribute_description": "Persons aged 17 and younger estimate MOE, 2018-2022 ACS",
         "attribute_source": "B09001_001M",
         "attribute_type": "int4",
         "attribute_unit": "moe",
         "attribute_min_value": "2",
-        "attribute_max_value": "2103"
+        "attribute_max_value": "2103",
+        "attribute_start_date": "2022-01-01",
+        "attribute_end_date": "2022-12-31"
       },
       {
         "attribute_name": "m_age65",
-        "attribute_description": "Persons aged 65 and older estimate MOE, 2016-2020 ACS",
+        "attribute_description": "Persons aged 65 and older estimate MOE, 2018-2022 ACS",
         "attribute_source": "S0101_C01_030M",
         "attribute_type": "int4",
         "attribute_unit": "moe",
         "attribute_min_value": "3",
-        "attribute_max_value": "1331"
+        "attribute_max_value": "1331",
+        "attribute_start_date": "2022-01-01",
+        "attribute_end_date": "2022-12-31"
       },
       {
         "attribute_name": "m_aian",
-        "attribute_description": "Adjunct variable - American Indian or Alaska Native, not Hispanic or Latino persons estimate MOE, 2016-2020 ACS",
+        "attribute_description": "Adjunct variable - American Indian or Alaska Native, not Hispanic or Latino persons estimate MOE, 2018-2022 ACS",
         "attribute_source": "DP05_0079M",
         "attribute_type": "int4",
         "attribute_unit": "moe",
         "attribute_min_value": "1",
-        "attribute_max_value": "320"
+        "attribute_max_value": "320",
+        "attribute_start_date": "2022-01-01",
+        "attribute_end_date": "2022-12-31"
       },
       {
         "attribute_name": "m_asian",
-        "attribute_description": "Adjunct variable - Asian, not Hispanic or Latino persons estimate MOE, 2016-2020 ACS",
+        "attribute_description": "Adjunct variable - Asian, not Hispanic or Latino persons estimate MOE, 2018-2022 ACS",
         "attribute_source": "DP05_0080M",
         "attribute_type": "int4",
         "attribute_unit": "moe",
         "attribute_min_value": "1",
-        "attribute_max_value": "1377"
+        "attribute_max_value": "1377",
+        "attribute_start_date": "2022-01-01",
+        "attribute_end_date": "2022-12-31"
       },
       {
         "attribute_name": "m_crowd",
-        "attribute_description": "At household level (occupied housing units), more people than rooms estimate MOE, 2016-2020 ACS",
+        "attribute_description": "At household level (occupied housing units), more people than rooms estimate MOE, 2018-2022 ACS",
         "attribute_source": "SQRT (DP04_0078M ^2 + DP04_0079M ^2)",
         "attribute_type": "int4",
         "attribute_unit": "moe",
         "attribute_min_value": "4",
-        "attribute_max_value": "541"
+        "attribute_max_value": "541",
+        "attribute_start_date": "2022-01-01",
+        "attribute_end_date": "2022-12-31"
       },
       {
         "attribute_name": "m_disabl",
-        "attribute_description": "Civilian noninstitutionalized population with a disability estimate MOE, 2016-2020 ACS",
+        "attribute_description": "Civilian noninstitutionalized population with a disability estimate MOE, 2018-2022 ACS",
         "attribute_source": "DP02_0072M",
         "attribute_type": "int4",
         "attribute_unit": "moe",
         "attribute_min_value": "3",
-        "attribute_max_value": "1716"
+        "attribute_max_value": "1716",
+        "attribute_start_date": "2022-01-01",
+        "attribute_end_date": "2022-12-31"
       },
       {
         "attribute_name": "m_groupq",
-        "attribute_description": "Persons in group quarters estimate MOE, 2016-2020 ACS",
+        "attribute_description": "Persons in group quarters estimate MOE, 2018-2022 ACS",
         "attribute_source": "B26001_001M",
         "attribute_type": "int4",
         "attribute_unit": "moe",
         "attribute_min_value": "1",
-        "attribute_max_value": "530"
+        "attribute_max_value": "530",
+        "attribute_start_date": "2022-01-01",
+        "attribute_end_date": "2022-12-31"
       },
       {
         "attribute_name": "m_hburd",
-        "attribute_description": "Housing cost-burdened occupied housing units with annual income less than 5,000 (30%+ of income spent on housing costs) estimate MOE, 2016-2020 ACS",
+        "attribute_description": "Housing cost-burdened occupied housing units with annual income less than 5,000 (30%+ of income spent on housing costs) estimate MOE, 2018-2022 ACS",
         "attribute_source": "SQRT (S2503_C01_028M ^2 + S2503_C01_032M ^2 + S2503_C01_036M ^2 + S2503_C01_040M ^2) ",
         "attribute_type": "int4",
         "attribute_unit": "moe",
         "attribute_min_value": "17",
-        "attribute_max_value": "785"
+        "attribute_max_value": "785",
+        "attribute_start_date": "2022-01-01",
+        "attribute_end_date": "2022-12-31"
       },
       {
         "attribute_name": "m_hh",
-        "attribute_description": "Households estimate MOE, 2016-2020 ACS",
+        "attribute_description": "Households estimate MOE, 2018-2022 ACS",
         "attribute_source": "DP02_0001M",
         "attribute_type": "int4",
         "attribute_unit": "moe",
         "attribute_min_value": "5",
-        "attribute_max_value": "855"
+        "attribute_max_value": "855",
+        "attribute_start_date": "2022-01-01",
+        "attribute_end_date": "2022-12-31"
       },
       {
         "attribute_name": "m_hisp",
-        "attribute_description": "Adjunct variable - Hispanic or Latino persons estimate MOE, 2016-2020 ACS",
+        "attribute_description": "Adjunct variable - Hispanic or Latino persons estimate MOE, 2018-2022 ACS",
         "attribute_source": "DP05_0071M",
         "attribute_type": "int4",
         "attribute_unit": "moe",
         "attribute_min_value": "1",
-        "attribute_max_value": "3695"
+        "attribute_max_value": "3695",
+        "attribute_start_date": "2022-01-01",
+        "attribute_end_date": "2022-12-31"
       },
       {
         "attribute_name": "m_hu",
-        "attribute_description": "Housing units estimate MOE, 2016-2020 ACS",
+        "attribute_description": "Housing units estimate MOE, 2018-2022 ACS",
         "attribute_source": "DP04_0001M",
         "attribute_type": "int4",
         "attribute_unit": "moe",
         "attribute_min_value": "6",
-        "attribute_max_value": "841"
+        "attribute_max_value": "841",
+        "attribute_start_date": "2022-01-01",
+        "attribute_end_date": "2022-12-31"
       },
       {
         "attribute_name": "m_limeng",
-        "attribute_description": "Persons (age 5+) who speak English \"less than well\" estimate MOE, 2016-2020 ACS",
+        "attribute_description": "Persons (age 5+) who speak English \"less than well\" estimate MOE, 2018-2022 ACS",
         "attribute_source": "SQRT (B16005_007M ^2 + B16005_008M ^2 + B16005_012M ^2 + B16005_013M ^2 + B16005_017M ^2 + B16005_018M ^2 + B16005_022M ^2 + B16005_023M ^2 + B16005_029M ^2 + B16005_030M ^2 + B16005_034M ^2 + B16005_035M ^2 + B16005_039M ^2 + B16005_040M ^2 + B16005_044M ^2 + B16005_045M ^2)",
         "attribute_type": "int4",
         "attribute_unit": "moe",
         "attribute_min_value": "53",
-        "attribute_max_value": "1327"
+        "attribute_max_value": "1327",
+        "attribute_start_date": "2022-01-01",
+        "attribute_end_date": "2022-12-31"
       },
       {
         "attribute_name": "m_minrty",
-        "attribute_description": "Minority (Hispanic or Latino (of any race) -- Black and African American, Not Hispanic or Latino -- American Indian and Alaska Native, Not Hispanic or Latino -- Asian, Not Hispanic or Latino -- Native Hawaiian and Other Pacific Islander, Not Hispanic or Latino -- Two or More Races, Not Hispanic or Latino -- Other Races, Not Hispanic or Latino) estimate MOE, 2016-2020 ACS",
+        "attribute_description": "Minority (Hispanic or Latino (of any race) -- Black and African American, Not Hispanic or Latino -- American Indian and Alaska Native, Not Hispanic or Latino -- Asian, Not Hispanic or Latino -- Native Hawaiian and Other Pacific Islander, Not Hispanic or Latino -- Two or More Races, Not Hispanic or Latino -- Other Races, Not Hispanic or Latino) estimate MOE, 2018-2022 ACS",
         "attribute_source": "SQRT (DP05_0071M ^2 + DP05_0078M ^2 + DP05_0079M ^2 + DP05_0080M ^2 + DP05_0081M ^2 + DP05_0082M ^2 + DP05_0083M ^2) ",
         "attribute_type": "int4",
         "attribute_unit": "moe",
         "attribute_min_value": "3",
-        "attribute_max_value": "3932"
+        "attribute_max_value": "3932",
+        "attribute_start_date": "2022-01-01",
+        "attribute_end_date": "2022-12-31"
       },
       {
         "attribute_name": "m_mobile",
-        "attribute_description": "Mobile homes estimate MOE, 2016-2020 ACS",
+        "attribute_description": "Mobile homes estimate MOE, 2018-2022 ACS",
         "attribute_source": "DP04_0014M",
         "attribute_type": "int4",
         "attribute_unit": "moe",
         "attribute_min_value": "2",
-        "attribute_max_value": "595"
+        "attribute_max_value": "595",
+        "attribute_start_date": "2022-01-01",
+        "attribute_end_date": "2022-12-31"
       },
       {
         "attribute_name": "m_munit",
-        "attribute_description": "Housing in structures with 10 or more units estimate MOE, 2016-2020 ACS",
+        "attribute_description": "Housing in structures with 10 or more units estimate MOE, 2018-2022 ACS",
         "attribute_source": "SQRT (DP04_0012M ^2 + DP04_0013M ^2) ",
         "attribute_type": "int4",
         "attribute_unit": "moe",
         "attribute_min_value": "9",
-        "attribute_max_value": "860"
+        "attribute_max_value": "860",
+        "attribute_start_date": "2022-01-01",
+        "attribute_end_date": "2022-12-31"
       },
       {
         "attribute_name": "m_nhpi",
-        "attribute_description": "Adjunct variable - Native Hawaiian or Other Pacific Islander, not Hispanic or Latino persons estimate MOE, 2016-2020 ACS",
+        "attribute_description": "Adjunct variable - Native Hawaiian or Other Pacific Islander, not Hispanic or Latino persons estimate MOE, 2018-2022 ACS",
         "attribute_source": "DP05_0081M",
         "attribute_type": "int4",
         "attribute_unit": "moe",
         "attribute_min_value": "3",
-        "attribute_max_value": "314"
+        "attribute_max_value": "314",
+        "attribute_start_date": "2022-01-01",
+        "attribute_end_date": "2022-12-31"
       },
       {
         "attribute_name": "m_nohsdp",
-        "attribute_description": "Persons (age 25+) with no high school diploma estimate MOE, 2016-2020 ACS",
+        "attribute_description": "Persons (age 25+) with no high school diploma estimate MOE, 2018-2022 ACS",
         "attribute_source": "B06009_002M",
         "attribute_type": "int4",
         "attribute_unit": "moe",
         "attribute_min_value": "1",
-        "attribute_max_value": "968"
+        "attribute_max_value": "968",
+        "attribute_start_date": "2022-01-01",
+        "attribute_end_date": "2022-12-31"
       },
       {
         "attribute_name": "m_noint",
-        "attribute_description": "Adjunct variable - Households without a computer with a broadband Internet subscription estimate MOE, 2016-2020 ACS",
+        "attribute_description": "Adjunct variable - Households without a computer with a broadband Internet subscription estimate MOE, 2018-2022 ACS",
         "attribute_source": "SQRT (S2802_C01_001M ^2 - S2802_C02_001M ^2)",
         "attribute_type": "int4",
         "attribute_unit": "moe",
         "attribute_min_value": "2",
-        "attribute_max_value": "642"
+        "attribute_max_value": "642",
+        "attribute_start_date": "2022-01-01",
+        "attribute_end_date": "2022-12-31"
       },
       {
         "attribute_name": "m_noveh",
-        "attribute_description": "Households with no vehicle available estimate MOE, 2016-2020 ACS",
+        "attribute_description": "Households with no vehicle available estimate MOE, 2018-2022 ACS",
         "attribute_source": "DP04_0058M",
         "attribute_type": "int4",
         "attribute_unit": "moe",
         "attribute_min_value": "3",
-        "attribute_max_value": "572"
+        "attribute_max_value": "572",
+        "attribute_start_date": "2022-01-01",
+        "attribute_end_date": "2022-12-31"
       },
       {
         "attribute_name": "m_otherrace",
-        "attribute_description": "Adjunct variable - Some other race, not Hispanic or Latino persons estimate MOE, 2016-2020 ACS",
+        "attribute_description": "Adjunct variable - Some other race, not Hispanic or Latino persons estimate MOE, 2018-2022 ACS",
         "attribute_source": "DP05_0082M",
         "attribute_type": "int4",
         "attribute_unit": "moe",
         "attribute_min_value": "3",
-        "attribute_max_value": "1062"
+        "attribute_max_value": "1062",
+        "attribute_start_date": "2022-01-01",
+        "attribute_end_date": "2022-12-31"
       },
       {
         "attribute_name": "m_pov150",
-        "attribute_description": "Persons below 150% poverty estimate MOE, 2016-2020 ACS",
+        "attribute_description": "Persons below 150% poverty estimate MOE, 2018-2022 ACS",
         "attribute_source": "S1701_C01_040M",
         "attribute_type": "int4",
         "attribute_unit": "moe",
         "attribute_min_value": "1",
-        "attribute_max_value": "2488"
+        "attribute_max_value": "2488",
+        "attribute_start_date": "2022-01-01",
+        "attribute_end_date": "2022-12-31"
       },
       {
         "attribute_name": "m_sngpnt",
-        "attribute_description": "Single-parent household with children under 18 estimate MOE, 2016-2020 ACS",
+        "attribute_description": "Single-parent household with children under 18 estimate MOE, 2018-2022 ACS",
         "attribute_source": "SQRT (B11012_010M ^2 + B11012_015M ^2) ",
         "attribute_type": "int4",
         "attribute_unit": "moe",
         "attribute_min_value": "10",
-        "attribute_max_value": "490"
+        "attribute_max_value": "490",
+        "attribute_start_date": "2022-01-01",
+        "attribute_end_date": "2022-12-31"
       },
       {
         "attribute_name": "m_totpop",
-        "attribute_description": "Population estimate MOE, 2016-2020 ACS",
+        "attribute_description": "Population estimate MOE, 2018-2022 ACS",
         "attribute_source": "S0601_C01_001M",
         "attribute_type": "int4",
         "attribute_unit": "moe",
         "attribute_min_value": "1",
-        "attribute_max_value": "3807"
+        "attribute_max_value": "3807",
+        "attribute_start_date": "2022-01-01",
+        "attribute_end_date": "2022-12-31"
       },
       {
         "attribute_name": "m_twomore",
-        "attribute_description": "Adjunct variable - Two or more races, not Hispanic or Latino persons estimate MOE, 2016-2020 ACS",
+        "attribute_description": "Adjunct variable - Two or more races, not Hispanic or Latino persons estimate MOE, 2018-2022 ACS",
         "attribute_source": "DP05_0083M",
         "attribute_type": "int4",
         "attribute_unit": "moe",
         "attribute_min_value": "1",
-        "attribute_max_value": "1615"
+        "attribute_max_value": "1615",
+        "attribute_start_date": "2022-01-01",
+        "attribute_end_date": "2022-12-31"
       },
       {
         "attribute_name": "m_unemp",
-        "attribute_description": "Civilian (age 16+) unemployed estimate MOE, 2016-2020 ACS",
+        "attribute_description": "Civilian (age 16+) unemployed estimate MOE, 2018-2022 ACS",
         "attribute_source": "DP03_0005M",
         "attribute_type": "int4",
         "attribute_unit": "moe",
         "attribute_min_value": "2",
-        "attribute_max_value": "862"
+        "attribute_max_value": "862",
+        "attribute_start_date": "2022-01-01",
+        "attribute_end_date": "2022-12-31"
       },
       {
         "attribute_name": "m_uninsur",
-        "attribute_description": "Uninsured in the total civilian noninstitutionalized population estimate MOE, 2016-2020 ACS",
+        "attribute_description": "Uninsured in the total civilian noninstitutionalized population estimate MOE, 2018-2022 ACS",
         "attribute_source": "S2701_C04_001M",
         "attribute_type": "int4",
         "attribute_unit": "moe",
         "attribute_min_value": "1",
-        "attribute_max_value": "2078"
+        "attribute_max_value": "2078",
+        "attribute_start_date": "2022-01-01",
+        "attribute_end_date": "2022-12-31"
       },
       {
         "attribute_name": "mp_afam",
-        "attribute_description": "Adjunct variable - Percentage of Black/African American, not Hispanic or Latino persons estimate MOE, 2016-2020 ACS",
+        "attribute_description": "Adjunct variable - Percentage of Black/African American, not Hispanic or Latino persons estimate MOE, 2018-2022 ACS",
         "attribute_source": "DP05_0078PM",
         "attribute_type": "float8",
         "attribute_unit": "moe",
         "attribute_min_value": "-999",
-        "attribute_max_value": "100"
+        "attribute_max_value": "100",
+        "attribute_start_date": "2022-01-01",
+        "attribute_end_date": "2022-12-31"
       },
       {
         "attribute_name": "mp_age17",
-        "attribute_description": "Percentage of persons aged 17 and younger estimate MOE, 2016-2020 ACS",
+        "attribute_description": "Percentage of persons aged 17 and younger estimate MOE, 2018-2022 ACS",
         "attribute_source": "((SQRT (M_AGE17^2 - ((EP_AGE17 / 100)^2 * M_TOTPOP^2))) / E_TOTPOP) * 100",
         "attribute_type": "float8",
         "attribute_unit": "moe",
         "attribute_min_value": "-999",
-        "attribute_max_value": "100"
+        "attribute_max_value": "100",
+        "attribute_start_date": "2022-01-01",
+        "attribute_end_date": "2022-12-31"
       },
       {
         "attribute_name": "mp_age65",
-        "attribute_description": "Percentage of persons aged 65 and older estimate MOE, 2016-2020 ACS",
+        "attribute_description": "Percentage of persons aged 65 and older estimate MOE, 2018-2022 ACS",
         "attribute_source": "S0101_C02_030M",
         "attribute_type": "float8",
         "attribute_unit": "moe",
         "attribute_min_value": "-999",
-        "attribute_max_value": "100"
+        "attribute_max_value": "100",
+        "attribute_start_date": "2022-01-01",
+        "attribute_end_date": "2022-12-31"
       },
       {
         "attribute_name": "mp_aian",
-        "attribute_description": "Adjunct variable - Percentage of American Indian or Alaska Native, not Hispanic or Latino persons estimate MOE, 2016-2020 ACS",
+        "attribute_description": "Adjunct variable - Percentage of American Indian or Alaska Native, not Hispanic or Latino persons estimate MOE, 2018-2022 ACS",
         "attribute_source": "DP05_0079PM",
         "attribute_type": "float8",
         "attribute_unit": "moe",
         "attribute_min_value": "-999",
-        "attribute_max_value": "100"
+        "attribute_max_value": "100",
+        "attribute_start_date": "2022-01-01",
+        "attribute_end_date": "2022-12-31"
       },
       {
         "attribute_name": "mp_asian",
-        "attribute_description": "Adjunct variable - Percentage of Asian, not Hispanic or Latino persons estimate MOE, 2016-2020 ACS",
+        "attribute_description": "Adjunct variable - Percentage of Asian, not Hispanic or Latino persons estimate MOE, 2018-2022 ACS",
         "attribute_source": "DP05_0080PM",
         "attribute_type": "float8",
         "attribute_unit": "moe",
         "attribute_min_value": "-999",
-        "attribute_max_value": "100"
+        "attribute_max_value": "100",
+        "attribute_start_date": "2022-01-01",
+        "attribute_end_date": "2022-12-31"
       },
       {
         "attribute_name": "mp_crowd",
@@ -1661,61 +1903,75 @@
         "attribute_type": "float8",
         "attribute_unit": "moe",
         "attribute_min_value": "-999",
-        "attribute_max_value": "100"
+        "attribute_max_value": "100",
+        "attribute_start_date": "2022-01-01",
+        "attribute_end_date": "2022-12-31"
       },
       {
         "attribute_name": "mp_disabl",
-        "attribute_description": "Percentage of civilian noninstitutionalized population with a disability estimate MOE, 2016-2020 ACS",
+        "attribute_description": "Percentage of civilian noninstitutionalized population with a disability estimate MOE, 2018-2022 ACS",
         "attribute_source": "DP02_0072PM",
         "attribute_type": "float8",
         "attribute_unit": "moe",
         "attribute_min_value": "-999",
-        "attribute_max_value": "100"
+        "attribute_max_value": "100",
+        "attribute_start_date": "2022-01-01",
+        "attribute_end_date": "2022-12-31"
       },
       {
         "attribute_name": "mp_groupq",
-        "attribute_description": "Percentage of persons in group quarters estimate MOE, 2016-2020 ACS",
+        "attribute_description": "Percentage of persons in group quarters estimate MOE, 2018-2022 ACS",
         "attribute_source": "((SQRT (M_GROUPQ^2 - ((EP_GROUPQ / 100)^2 * M_TOTPOP^2))) / E_TOTPOP) * 100",
         "attribute_type": "float8",
         "attribute_unit": "moe",
         "attribute_min_value": "-999",
-        "attribute_max_value": "62.5"
+        "attribute_max_value": "62.5",
+        "attribute_start_date": "2022-01-01",
+        "attribute_end_date": "2022-12-31"
       },
       {
         "attribute_name": "mp_hburd",
-        "attribute_description": "Percentage of housing cost-burdened occupied housing units with annual income less than 5,000 (30%+ of income spent on housing costs) estimate MOE, 2016-2020 ACS",
+        "attribute_description": "Percentage of housing cost-burdened occupied housing units with annual income less than 5,000 (30%+ of income spent on housing costs) estimate MOE, 2018-2022 ACS",
         "attribute_source": "((SQRT (M_HBURD^2 - ((EP_HBURD / 100)^2 * S2503_C01_001M ^2))) / S2503_C01_001E) * 100",
         "attribute_type": "float8",
         "attribute_unit": "moe",
         "attribute_min_value": "-999",
-        "attribute_max_value": "100"
+        "attribute_max_value": "100",
+        "attribute_start_date": "2022-01-01",
+        "attribute_end_date": "2022-12-31"
       },
       {
         "attribute_name": "mp_hisp",
-        "attribute_description": "Adjunct variable - Percentage of Hispanic or Latino persons estimate MOE, 2016-2020 ACS",
+        "attribute_description": "Adjunct variable - Percentage of Hispanic or Latino persons estimate MOE, 2018-2022 ACS",
         "attribute_source": "DP05_0071PM",
         "attribute_type": "float8",
         "attribute_unit": "moe",
         "attribute_min_value": "-999",
-        "attribute_max_value": "100"
+        "attribute_max_value": "100",
+        "attribute_start_date": "2022-01-01",
+        "attribute_end_date": "2022-12-31"
       },
       {
         "attribute_name": "mp_limeng",
-        "attribute_description": "Percentage of persons (age 5+) who speak English \"less than well\" estimate MOE, 2016-2020 ACS",
+        "attribute_description": "Percentage of persons (age 5+) who speak English \"less than well\" estimate MOE, 2018-2022 ACS",
         "attribute_source": "((SQRT (M_LIMENG^2 - ((EP_LIMENG / 100)^2 * B16005_001M ^2))) / B16005_001E) * 100",
         "attribute_type": "float8",
         "attribute_unit": "moe",
         "attribute_min_value": "-999",
-        "attribute_max_value": "100"
+        "attribute_max_value": "100",
+        "attribute_start_date": "2022-01-01",
+        "attribute_end_date": "2022-12-31"
       },
       {
         "attribute_name": "mp_minrty",
-        "attribute_description": "Percentage minority (Hispanic or Latino (of any race) -- Black and African American, Not Hispanic or Latino -- American Indian and Alaska Native, Not Hispanic or Latino -- Asian, Not Hispanic or Latino -- Native Hawaiian and Other Pacific Islander, Not Hispanic or Latino -- Two or More Races, Not Hispanic or Latino -- Other Races, Not Hispanic or Latino) estimate MOE, 2016-2020 ACS",
+        "attribute_description": "Percentage minority (Hispanic or Latino (of any race) -- Black and African American, Not Hispanic or Latino -- American Indian and Alaska Native, Not Hispanic or Latino -- Asian, Not Hispanic or Latino -- Native Hawaiian and Other Pacific Islander, Not Hispanic or Latino -- Two or More Races, Not Hispanic or Latino -- Other Races, Not Hispanic or Latino) estimate MOE, 2018-2022 ACS",
         "attribute_source": "((SQRT (M_MINRTY^2 - ((EP_MINRTY / 100)^2 * M_TOTPOP^2))) / E_TOTPOP) * 100",
         "attribute_type": "float8",
         "attribute_unit": "moe",
         "attribute_min_value": "-999",
-        "attribute_max_value": "100"
+        "attribute_max_value": "100",
+        "attribute_start_date": "2022-01-01",
+        "attribute_end_date": "2022-12-31"
       },
       {
         "attribute_name": "mp_mobile",
@@ -1724,7 +1980,9 @@
         "attribute_type": "float8",
         "attribute_unit": "moe",
         "attribute_min_value": "-999",
-        "attribute_max_value": "100"
+        "attribute_max_value": "100",
+        "attribute_start_date": "2022-01-01",
+        "attribute_end_date": "2022-12-31"
       },
       {
         "attribute_name": "mp_munit",
@@ -1733,16 +1991,20 @@
         "attribute_type": "float8",
         "attribute_unit": "moe",
         "attribute_min_value": "-999",
-        "attribute_max_value": "100"
+        "attribute_max_value": "100",
+        "attribute_start_date": "2022-01-01",
+        "attribute_end_date": "2022-12-31"
       },
       {
         "attribute_name": "mp_nhpi",
-        "attribute_description": "Adjunct variable - Percentage of Native Hawaiian or Other Pacific Islander, not Hispanic or Latino persons estimate MOE, 2016-2020 ACS",
+        "attribute_description": "Adjunct variable - Percentage of Native Hawaiian or Other Pacific Islander, not Hispanic or Latino persons estimate MOE, 2018-2022 ACS",
         "attribute_source": "DP05_0081PM",
         "attribute_type": "float8",
         "attribute_unit": "moe",
         "attribute_min_value": "-999",
-        "attribute_max_value": "100"
+        "attribute_max_value": "100",
+        "attribute_start_date": "2022-01-01",
+        "attribute_end_date": "2022-12-31"
       },
       {
         "attribute_name": "mp_nohsdp",
@@ -1751,16 +2013,20 @@
         "attribute_type": "float8",
         "attribute_unit": "moe",
         "attribute_min_value": "-999",
-        "attribute_max_value": "100"
+        "attribute_max_value": "100",
+        "attribute_start_date": "2022-01-01",
+        "attribute_end_date": "2022-12-31"
       },
       {
         "attribute_name": "mp_noint",
-        "attribute_description": "Adjunct variable - Percentage of households without a computer with a broadband Internet subscription estimate MOE, 2016-2020 ACS",
+        "attribute_description": "Adjunct variable - Percentage of households without a computer with a broadband Internet subscription estimate MOE, 2018-2022 ACS",
         "attribute_source": "((SQRT (M_NOINT^2 - ((EP_NOINT / 100)^2 * S2802_C01_001M^2))) / S2802_C01_001M) * 100",
         "attribute_type": "float8",
         "attribute_unit": "moe",
         "attribute_min_value": "-999",
-        "attribute_max_value": "100"
+        "attribute_max_value": "100",
+        "attribute_start_date": "2022-01-01",
+        "attribute_end_date": "2022-12-31"
       },
       {
         "attribute_name": "mp_noveh",
@@ -1769,16 +2035,20 @@
         "attribute_type": "float8",
         "attribute_unit": "moe",
         "attribute_min_value": "-999",
-        "attribute_max_value": "100"
+        "attribute_max_value": "100",
+        "attribute_start_date": "2022-01-01",
+        "attribute_end_date": "2022-12-31"
       },
       {
         "attribute_name": "mp_otherrace",
-        "attribute_description": "Adjunct variable - Percentage of some other race, not Hispanic or Latino persons estimate MOE, 2016-2020 ACS",
+        "attribute_description": "Adjunct variable - Percentage of some other race, not Hispanic or Latino persons estimate MOE, 2018-2022 ACS",
         "attribute_source": "DP05_0082PM",
         "attribute_type": "float8",
         "attribute_unit": "moe",
         "attribute_min_value": "-999",
-        "attribute_max_value": "100"
+        "attribute_max_value": "100",
+        "attribute_start_date": "2022-01-01",
+        "attribute_end_date": "2022-12-31"
       },
       {
         "attribute_name": "mp_pov150",
@@ -1787,25 +2057,31 @@
         "attribute_type": "float8",
         "attribute_unit": "moe",
         "attribute_min_value": "-999",
-        "attribute_max_value": "66.1"
+        "attribute_max_value": "66.1",
+        "attribute_start_date": "2022-01-01",
+        "attribute_end_date": "2022-12-31"
       },
       {
         "attribute_name": "mp_sngpnt",
-        "attribute_description": "Percentage of single-parent households with children under 18 estimate MOE, 2016-2020 ACS",
+        "attribute_description": "Percentage of single-parent households with children under 18 estimate MOE, 2018-2022 ACS",
         "attribute_source": "((SQRT (M_SNGPNT^2 - ((EP_SNGPNT / 100)^2 * M_HH^2))) / E_HH) * 100",
         "attribute_type": "float8",
         "attribute_unit": "moe",
         "attribute_min_value": "-999",
-        "attribute_max_value": "100"
+        "attribute_max_value": "100",
+        "attribute_start_date": "2022-01-01",
+        "attribute_end_date": "2022-12-31"
       },
       {
         "attribute_name": "mp_twomore",
-        "attribute_description": "Adjunct variable - Percentage of two or more races, not Hispanic or Latino persons estimate MOE, 2016-2020 ACS",
+        "attribute_description": "Adjunct variable - Percentage of two or more races, not Hispanic or Latino persons estimate MOE, 2018-2022 ACS",
         "attribute_source": "DP05_0083PM",
         "attribute_type": "float8",
         "attribute_unit": "moe",
         "attribute_min_value": "-999",
-        "attribute_max_value": "100"
+        "attribute_max_value": "100",
+        "attribute_start_date": "2022-01-01",
+        "attribute_end_date": "2022-12-31"
       },
       {
         "attribute_name": "mp_unemp",
@@ -1814,16 +2090,20 @@
         "attribute_type": "float8",
         "attribute_unit": "moe",
         "attribute_min_value": "-999",
-        "attribute_max_value": "100"
+        "attribute_max_value": "100",
+        "attribute_start_date": "2022-01-01",
+        "attribute_end_date": "2022-12-31"
       },
       {
         "attribute_name": "mp_uninsur",
-        "attribute_description": "Percentage uninsured in the total civilian noninstitutionalized population estimate MOE, 2016-2020 ACS",
+        "attribute_description": "Percentage uninsured in the total civilian noninstitutionalized population estimate MOE, 2018-2022 ACS",
         "attribute_source": "S2701_C05_001M",
         "attribute_type": "float8",
         "attribute_unit": "moe",
         "attribute_min_value": "-999",
-        "attribute_max_value": "100"
+        "attribute_max_value": "100",
+        "attribute_start_date": "2022-01-01",
+        "attribute_end_date": "2022-12-31"
       },
       {
         "attribute_name": "rpl_theme1",
@@ -1832,7 +2112,9 @@
         "attribute_type": "float8",
         "attribute_unit": "moe",
         "attribute_min_value": "-999",
-        "attribute_max_value": "1"
+        "attribute_max_value": "1",
+        "attribute_start_date": "2022-01-01",
+        "attribute_end_date": "2022-12-31"
       },
       {
         "attribute_name": "rpl_theme2",
@@ -1841,7 +2123,9 @@
         "attribute_type": "float8",
         "attribute_unit": "percentile",
         "attribute_min_value": "-999",
-        "attribute_max_value": "1"
+        "attribute_max_value": "1",
+        "attribute_start_date": "2022-01-01",
+        "attribute_end_date": "2022-12-31"
       },
       {
         "attribute_name": "rpl_theme3",
@@ -1850,7 +2134,9 @@
         "attribute_type": "float8",
         "attribute_unit": "percentile",
         "attribute_min_value": "-999",
-        "attribute_max_value": "0.9978"
+        "attribute_max_value": "0.9978",
+        "attribute_start_date": "2022-01-01",
+        "attribute_end_date": "2022-12-31"
       },
       {
         "attribute_name": "rpl_theme4",
@@ -1859,7 +2145,9 @@
         "attribute_type": "float8",
         "attribute_unit": "percentile",
         "attribute_min_value": "-999",
-        "attribute_max_value": "1"
+        "attribute_max_value": "1",
+        "attribute_start_date": "2022-01-01",
+        "attribute_end_date": "2022-12-31"
       },
       {
         "attribute_name": "rpl_themes",
@@ -1868,7 +2156,9 @@
         "attribute_type": "float8",
         "attribute_unit": "percentile",
         "attribute_min_value": "-999",
-        "attribute_max_value": "1"
+        "attribute_max_value": "1",
+        "attribute_start_date": "2022-01-01",
+        "attribute_end_date": "2022-12-31"
       },
       {
         "attribute_name": "spl_theme1",
@@ -1877,7 +2167,9 @@
         "attribute_type": "float8",
         "attribute_unit": "svi index",
         "attribute_min_value": "-999",
-        "attribute_max_value": "4.9313"
+        "attribute_max_value": "4.9313",
+        "attribute_start_date": "2022-01-01",
+        "attribute_end_date": "2022-12-31"
       },
       {
         "attribute_name": "spl_theme2",
@@ -1886,7 +2178,9 @@
         "attribute_type": "float8",
         "attribute_unit": "svi index",
         "attribute_min_value": "-999",
-        "attribute_max_value": "4.223"
+        "attribute_max_value": "4.223",
+        "attribute_start_date": "2022-01-01",
+        "attribute_end_date": "2022-12-31"
       },
       {
         "attribute_name": "spl_theme3",
@@ -1895,7 +2189,9 @@
         "attribute_type": "float8",
         "attribute_unit": "svi index",
         "attribute_min_value": "-999",
-        "attribute_max_value": "0.9978"
+        "attribute_max_value": "0.9978",
+        "attribute_start_date": "2022-01-01",
+        "attribute_end_date": "2022-12-31"
       },
       {
         "attribute_name": "spl_theme4",
@@ -1904,7 +2200,9 @@
         "attribute_type": "float8",
         "attribute_unit": "svi index",
         "attribute_min_value": "-999",
-        "attribute_max_value": "4.5078"
+        "attribute_max_value": "4.5078",
+        "attribute_start_date": "2022-01-01",
+        "attribute_end_date": "2022-12-31"
       },
       {
         "attribute_name": "spl_themes",
@@ -1913,7 +2211,9 @@
         "attribute_type": "float8",
         "attribute_unit": "svi index",
         "attribute_min_value": "-999",
-        "attribute_max_value": "13.889"
+        "attribute_max_value": "13.889",
+        "attribute_start_date": "2022-01-01",
+        "attribute_end_date": "2022-12-31"
       },
       {
         "attribute_name": "st",

@@ -191,74 +191,74 @@
     {
       "@type": "PropertyValue",
       "name": "e_afam",
-      "description": "Adjunct variable - Black/African American, not Hispanic or Latino persons estimate, 2016-2020 ACS",
+      "description": "Adjunct variable - Black/African American, not Hispanic or Latino persons estimate, 2018-2022 ACS",
       "propertyID": "2052499783",
       "qudt:dataType": "int4",
       "unitText": "persons",
       "minValue": "0",
       "maxValue": "5835",
-      "startDate": "2020-01-01",
-      "endDate": "2020-12-31"
+      "startDate": "2022-01-01",
+      "endDate": "2022-12-31"
     },
     {
       "@type": "PropertyValue",
       "name": "e_age17",
-      "description": "Persons aged 17 and younger estimate, 2016-2020 ACS",
+      "description": "Persons aged 17 and younger estimate, 2018-2022 ACS",
       "propertyID": "2052498115",
       "qudt:dataType": "int4",
       "unitText": "persons",
       "minValue": "0",
       "maxValue": "2415",
-      "startDate": "2020-01-01",
-      "endDate": "2020-12-31"
+      "startDate": "2022-01-01",
+      "endDate": "2022-12-31"
     },
     {
       "@type": "PropertyValue",
       "name": "e_age65",
-      "description": "Persons aged 65 and older estimate, 2016-2020 ACS",
+      "description": "Persons aged 65 and older estimate, 2018-2022 ACS",
       "propertyID": "2052498113",
       "qudt:dataType": "int4",
       "unitText": "persons",
       "minValue": "0",
       "maxValue": "3082",
-      "startDate": "2020-01-01",
-      "endDate": "2020-12-31"
+      "startDate": "2022-01-01",
+      "endDate": "2022-12-31"
     },
     {
       "@type": "PropertyValue",
       "name": "e_aian",
-      "description": "Adjunct variable - American Indian or Alaska Native, not Hispanic or Latino persons estimate, 2016-2020 ACS",
+      "description": "Adjunct variable - American Indian or Alaska Native, not Hispanic or Latino persons estimate, 2018-2022 ACS",
       "propertyID": "2052499861",
       "qudt:dataType": "int4",
       "unitText": "persons",
       "minValue": "0",
       "maxValue": "218",
-      "startDate": "2020-01-01",
-      "endDate": "2020-12-31"
+      "startDate": "2022-01-01",
+      "endDate": "2022-12-31"
     },
     {
       "@type": "PropertyValue",
       "name": "e_asian",
-      "description": "Adjunct variable - Asian, not Hispanic or Latino persons estimate, 2016-2020 ACS",
+      "description": "Adjunct variable - Asian, not Hispanic or Latino persons estimate, 2018-2022 ACS",
       "propertyID": "2052499833",
       "qudt:dataType": "int4",
       "unitText": "persons",
       "minValue": "0",
       "maxValue": "2982",
-      "startDate": "2020-01-01",
-      "endDate": "2020-12-31"
+      "startDate": "2022-01-01",
+      "endDate": "2022-12-31"
     },
     {
       "@type": "PropertyValue",
       "name": "e_crowd",
-      "description": "At household level (occupied housing units), more people than rooms estimate, 2016-2020 ACS",
+      "description": "At household level (occupied housing units), more people than rooms estimate, 2018-2022 ACS",
       "propertyID": "2052499828",
       "qudt:dataType": "int4",
       "unitText": "housing units",
       "minValue": "0",
       "maxValue": "438",
-      "startDate": "2020-01-01",
-      "endDate": "2020-12-31"
+      "startDate": "2022-01-01",
+      "endDate": "2022-12-31"
     },
     {
       "@type": "PropertyValue",
@@ -269,320 +269,320 @@
       "unitText": "persons",
       "minValue": "0",
       "maxValue": "91121",
-      "startDate": "2020-01-01",
-      "endDate": "2020-12-31"
+      "startDate": "2022-01-01",
+      "endDate": "2022-12-31"
     },
     {
       "@type": "PropertyValue",
       "name": "e_disabl",
-      "description": "Civilian noninstitutionalized population with a disability estimate, 2016-2020 ACS",
+      "description": "Civilian noninstitutionalized population with a disability estimate, 2018-2022 ACS",
       "propertyID": "2052499669",
       "qudt:dataType": "int4",
       "unitText": "persons",
       "minValue": "0",
       "maxValue": "1976",
-      "startDate": "2020-01-01",
-      "endDate": "2020-12-31"
+      "startDate": "2022-01-01",
+      "endDate": "2022-12-31"
     },
     {
       "@type": "PropertyValue",
       "name": "e_groupq",
-      "description": "Persons in group quarters estimate, 2016-2020 ACS",
+      "description": "Persons in group quarters estimate, 2018-2022 ACS",
       "propertyID": "2052498109",
       "qudt:dataType": "int4",
       "unitText": "persons",
       "minValue": "0",
       "maxValue": "11854",
-      "startDate": "2020-01-01",
-      "endDate": "2020-12-31"
+      "startDate": "2022-01-01",
+      "endDate": "2022-12-31"
     },
     {
       "@type": "PropertyValue",
       "name": "e_hburd",
-      "description": "Housing cost-burdened occupied housing units with annual income less than 5,000 (30%+ of income spent on housing costs) estimate, 2016-2020 ACS",
+      "description": "Housing cost-burdened occupied housing units with annual income less than 5,000 (30%+ of income spent on housing costs) estimate, 2018-2022 ACS",
       "propertyID": "2052499085",
       "qudt:dataType": "int4",
       "unitText": "housing units",
       "minValue": "0",
       "maxValue": "1875",
-      "startDate": "2020-01-01",
-      "endDate": "2020-12-31"
+      "startDate": "2022-01-01",
+      "endDate": "2022-12-31"
     },
     {
       "@type": "PropertyValue",
       "name": "e_hh",
-      "description": "Households estimate, 2016-2020 ACS",
+      "description": "Households estimate, 2018-2022 ACS",
       "propertyID": "2052499093",
       "qudt:dataType": "int4",
       "unitText": "households",
       "minValue": "0",
       "maxValue": "4117",
-      "startDate": "2020-01-01",
-      "endDate": "2020-12-31"
+      "startDate": "2022-01-01",
+      "endDate": "2022-12-31"
     },
     {
       "@type": "PropertyValue",
       "name": "e_hisp",
-      "description": "Adjunct variable - Hispanic or Latino persons estimate, 2016-2020 ACS",
+      "description": "Adjunct variable - Hispanic or Latino persons estimate, 2018-2022 ACS",
       "propertyID": "2052499104",
       "qudt:dataType": "int4",
       "unitText": "persons",
       "minValue": "0",
       "maxValue": "6732",
-      "startDate": "2020-01-01",
-      "endDate": "2020-12-31"
+      "startDate": "2022-01-01",
+      "endDate": "2022-12-31"
     },
     {
       "@type": "PropertyValue",
       "name": "e_hu",
-      "description": "Housing units estimate, 2016-2020 ACS",
+      "description": "Housing units estimate, 2018-2022 ACS",
       "propertyID": "2052499075",
       "qudt:dataType": "int4",
       "unitText": "housing units",
       "minValue": "0",
       "maxValue": "5176",
-      "startDate": "2020-01-01",
-      "endDate": "2020-12-31"
+      "startDate": "2022-01-01",
+      "endDate": "2022-12-31"
     },
     {
       "@type": "PropertyValue",
       "name": "e_limeng",
-      "description": "Persons (age 5+) who speak English \"less than well\" estimate, 2016-2020 ACS",
+      "description": "Persons (age 5+) who speak English \"less than well\" estimate, 2018-2022 ACS",
       "propertyID": "2052498117",
       "qudt:dataType": "int4",
       "unitText": "persons",
       "minValue": "0",
       "maxValue": "2424",
-      "startDate": "2020-01-01",
-      "endDate": "2020-12-31"
+      "startDate": "2022-01-01",
+      "endDate": "2022-12-31"
     },
     {
       "@type": "PropertyValue",
       "name": "e_minrty",
-      "description": "Minority (Hispanic or Latino (of any race) -- Black and African American, Not Hispanic or Latino -- American Indian and Alaska Native, Not Hispanic or Latino -- Asian, Not Hispanic or Latino -- Native Hawaiian and Other Pacific Islander, Not Hispanic or Latino -- Two or More Races, Not Hispanic or Latino -- Other Races, Not Hispanic or Latino) estimate, 2016-2020 ACS",
+      "description": "Minority (Hispanic or Latino (of any race) -- Black and African American, Not Hispanic or Latino -- American Indian and Alaska Native, Not Hispanic or Latino -- Asian, Not Hispanic or Latino -- Native Hawaiian and Other Pacific Islander, Not Hispanic or Latino -- Two or More Races, Not Hispanic or Latino -- Other Races, Not Hispanic or Latino) estimate, 2018-2022 ACS",
       "propertyID": "2052498841",
       "qudt:dataType": "int4",
       "unitText": "persons",
       "minValue": "0",
       "maxValue": "8430",
-      "startDate": "2020-01-01",
-      "endDate": "2020-12-31"
+      "startDate": "2022-01-01",
+      "endDate": "2022-12-31"
     },
     {
       "@type": "PropertyValue",
       "name": "e_mobile",
-      "description": "Mobile homes estimate, 2016-2020 ACS",
+      "description": "Mobile homes estimate, 2018-2022 ACS",
       "propertyID": "2052498834",
       "qudt:dataType": "int4",
       "unitText": "mobile homes",
       "minValue": "0",
       "maxValue": "885",
-      "startDate": "2020-01-01",
-      "endDate": "2020-12-31"
+      "startDate": "2022-01-01",
+      "endDate": "2022-12-31"
     },
     {
       "@type": "PropertyValue",
       "name": "e_munit",
-      "description": "Housing in structures with 10 or more units estimate, 2016-2020 ACS",
+      "description": "Housing in structures with 10 or more units estimate, 2018-2022 ACS",
       "propertyID": "2052499082",
       "qudt:dataType": "int4",
       "unitText": "structures",
       "minValue": "0",
       "maxValue": "2709",
-      "startDate": "2020-01-01",
-      "endDate": "2020-12-31"
+      "startDate": "2022-01-01",
+      "endDate": "2022-12-31"
     },
     {
       "@type": "PropertyValue",
       "name": "e_nhpi",
-      "description": "Adjunct variable - Native Hawaiian or Other Pacific Islander, not Hispanic or Latino persons estimate, 2016-2020 ACS",
+      "description": "Adjunct variable - Native Hawaiian or Other Pacific Islander, not Hispanic or Latino persons estimate, 2018-2022 ACS",
       "propertyID": "2052498764",
       "qudt:dataType": "int4",
       "unitText": "persons",
       "minValue": "0",
       "maxValue": "126",
-      "startDate": "2020-01-01",
-      "endDate": "2020-12-31"
+      "startDate": "2022-01-01",
+      "endDate": "2022-12-31"
     },
     {
       "@type": "PropertyValue",
       "name": "e_nohsdp",
-      "description": "Persons (age 25+) with no high school diploma estimate, 2016-2020 ACS",
+      "description": "Persons (age 25+) with no high school diploma estimate, 2018-2022 ACS",
       "propertyID": "2052498119",
       "qudt:dataType": "int4",
       "unitText": "persons",
       "minValue": "0",
       "maxValue": "1702",
-      "startDate": "2020-01-01",
-      "endDate": "2020-12-31"
+      "startDate": "2022-01-01",
+      "endDate": "2022-12-31"
     },
     {
       "@type": "PropertyValue",
       "name": "e_noint",
-      "description": "Adjunct variable - Households without a computer with a broadband Internet subscription estimate, 2016-2020 ACS",
+      "description": "Adjunct variable - Households without a computer with a broadband Internet subscription estimate, 2018-2022 ACS",
       "propertyID": "2052499089",
       "qudt:dataType": "int4",
       "unitText": "households",
       "minValue": "0",
       "maxValue": "888",
-      "startDate": "2020-01-01",
-      "endDate": "2020-12-31"
+      "startDate": "2022-01-01",
+      "endDate": "2022-12-31"
     },
     {
       "@type": "PropertyValue",
       "name": "e_noveh",
-      "description": "Households with no vehicle available estimate, 2016-2020 ACS",
+      "description": "Households with no vehicle available estimate, 2018-2022 ACS",
       "propertyID": "2052499091",
       "qudt:dataType": "int4",
       "unitText": "households",
       "minValue": "0",
       "maxValue": "1586",
-      "startDate": "2020-01-01",
-      "endDate": "2020-12-31"
+      "startDate": "2022-01-01",
+      "endDate": "2022-12-31"
     },
     {
       "@type": "PropertyValue",
       "name": "e_otherrace",
-      "description": "Adjunct variable - Some other race, not Hispanic or Latino persons estimate, 2016-2020 ACS",
+      "description": "Adjunct variable - Some other race, not Hispanic or Latino persons estimate, 2018-2022 ACS",
       "propertyID": "2052497741",
       "qudt:dataType": "int4",
       "unitText": "persons",
       "minValue": "0",
       "maxValue": "856",
-      "startDate": "2020-01-01",
-      "endDate": "2020-12-31"
+      "startDate": "2022-01-01",
+      "endDate": "2022-12-31"
     },
     {
       "@type": "PropertyValue",
       "name": "e_pov150",
-      "description": "Persons below 150% poverty estimate, 2016-2020 ACS",
+      "description": "Persons below 150% poverty estimate, 2018-2022 ACS",
       "propertyID": "2052498111",
       "qudt:dataType": "int4",
       "unitText": "households",
       "minValue": "0",
       "maxValue": "3302",
-      "startDate": "2020-01-01",
-      "endDate": "2020-12-31"
+      "startDate": "2022-01-01",
+      "endDate": "2022-12-31"
     },
     {
       "@type": "PropertyValue",
       "name": "e_sngpnt",
-      "description": "Single-parent household with children under 18 estimate, 2016-2020 ACS",
+      "description": "Single-parent household with children under 18 estimate, 2018-2022 ACS",
       "propertyID": "2052497778",
       "qudt:dataType": "int4",
       "unitText": "persons",
       "minValue": "0",
       "maxValue": "717",
-      "startDate": "2020-01-01",
-      "endDate": "2020-12-31"
+      "startDate": "2022-01-01",
+      "endDate": "2022-12-31"
     },
     {
       "@type": "PropertyValue",
       "name": "e_totpop",
-      "description": "Population estimate, 2016-2020 ACS",
+      "description": "Population estimate, 2018-2022 ACS",
       "propertyID": "2052498091",
       "qudt:dataType": "int4",
       "unitText": "persons",
       "minValue": "0",
       "maxValue": "11895",
-      "startDate": "2020-01-01",
-      "endDate": "2020-12-31"
+      "startDate": "2022-01-01",
+      "endDate": "2022-12-31"
     },
     {
       "@type": "PropertyValue",
       "name": "e_twomore",
-      "description": "Adjunct variable - Two or more races, not Hispanic or Latino persons estimate, 2016-2020 ACS",
+      "description": "Adjunct variable - Two or more races, not Hispanic or Latino persons estimate, 2018-2022 ACS",
       "propertyID": "2052497160",
       "qudt:dataType": "int4",
       "unitText": "persons",
       "minValue": "0",
       "maxValue": "1271",
-      "startDate": "2020-01-01",
-      "endDate": "2020-12-31"
+      "startDate": "2022-01-01",
+      "endDate": "2022-12-31"
     },
     {
       "@type": "PropertyValue",
       "name": "e_unemp",
-      "description": "Civilian (age 16+) unemployed estimate, 2016-2020 ACS",
+      "description": "Civilian (age 16+) unemployed estimate, 2018-2022 ACS",
       "propertyID": "2052499671",
       "qudt:dataType": "int4",
       "unitText": "persons",
       "minValue": "0",
       "maxValue": "746",
-      "startDate": "2020-01-01",
-      "endDate": "2020-12-31"
+      "startDate": "2022-01-01",
+      "endDate": "2022-12-31"
     },
     {
       "@type": "PropertyValue",
       "name": "e_uninsur",
-      "description": "Uninsured in the total civilian noninstitutionalized population estimate, 2016-2020 ACS",
+      "description": "Uninsured in the total civilian noninstitutionalized population estimate, 2018-2022 ACS",
       "propertyID": "2052497149",
       "qudt:dataType": "int4",
       "unitText": "persons",
       "minValue": "0",
       "maxValue": "1276",
-      "startDate": "2020-01-01",
-      "endDate": "2020-12-31"
+      "startDate": "2022-01-01",
+      "endDate": "2022-12-31"
     },
     {
       "@type": "PropertyValue",
       "name": "ep_afam",
-      "description": "Adjunct variable - Percentage of Black/African American, not Hispanic or Latino persons estimate, 2016-2020 ACS",
+      "description": "Adjunct variable - Percentage of Black/African American, not Hispanic or Latino persons estimate, 2018-2022 ACS",
       "propertyID": "2052498571",
       "qudt:dataType": "float8",
       "unitText": "percent",
       "minValue": "0",
       "maxValue": "76.7",
-      "startDate": "2020-01-01",
-      "endDate": "2020-12-31"
+      "startDate": "2022-01-01",
+      "endDate": "2022-12-31"
     },
     {
       "@type": "PropertyValue",
       "name": "ep_age17",
-      "description": "Percentage of persons aged 17 and younger estimate, 2016-2020 ACS",
+      "description": "Percentage of persons aged 17 and younger estimate, 2018-2022 ACS",
       "propertyID": "2052498382",
       "qudt:dataType": "float8",
       "unitText": "percent",
       "minValue": "0",
       "maxValue": "45",
-      "startDate": "2020-01-01",
-      "endDate": "2020-12-31"
+      "startDate": "2022-01-01",
+      "endDate": "2022-12-31"
     },
     {
       "@type": "PropertyValue",
       "name": "ep_age65",
-      "description": "Percentage of persons aged 65 and older estimate, 2016-2020 ACS",
+      "description": "Percentage of persons aged 65 and older estimate, 2018-2022 ACS",
       "propertyID": "2052498380",
       "qudt:dataType": "float8",
       "unitText": "percent",
       "minValue": "0",
       "maxValue": "100",
-      "startDate": "2020-01-01",
-      "endDate": "2020-12-31"
+      "startDate": "2022-01-01",
+      "endDate": "2022-12-31"
     },
     {
       "@type": "PropertyValue",
       "name": "ep_aian",
-      "description": "Adjunct variable - Percentage of American Indian or Alaska Native, not Hispanic or Latino persons estimate, 2016-2020 ACS",
+      "description": "Adjunct variable - Percentage of American Indian or Alaska Native, not Hispanic or Latino persons estimate, 2018-2022 ACS",
       "propertyID": "2052498581",
       "qudt:dataType": "float8",
       "unitText": "percent",
       "minValue": "0",
       "maxValue": "5.9",
-      "startDate": "2020-01-01",
-      "endDate": "2020-12-31"
+      "startDate": "2022-01-01",
+      "endDate": "2022-12-31"
     },
     {
       "@type": "PropertyValue",
       "name": "ep_asian",
-      "description": "Adjunct variable - Percentage of Asian, not Hispanic or Latino persons estimate, 2016-2020 ACS",
+      "description": "Adjunct variable - Percentage of Asian, not Hispanic or Latino persons estimate, 2018-2022 ACS",
       "propertyID": "2052498576",
       "qudt:dataType": "float8",
       "unitText": "percent",
       "minValue": "0",
       "maxValue": "60.3",
-      "startDate": "2020-01-01",
-      "endDate": "2020-12-31"
+      "startDate": "2022-01-01",
+      "endDate": "2022-12-31"
     },
     {
       "@type": "PropertyValue",
@@ -593,80 +593,80 @@
       "unitText": "percent",
       "minValue": "0",
       "maxValue": "27.3",
-      "startDate": "2020-01-01",
-      "endDate": "2020-12-31"
+      "startDate": "2022-01-01",
+      "endDate": "2022-12-31"
     },
     {
       "@type": "PropertyValue",
       "name": "ep_disabl",
-      "description": "Percentage of civilian noninstitutionalized population with a disability estimate, 2016-2020 ACS",
+      "description": "Percentage of civilian noninstitutionalized population with a disability estimate, 2018-2022 ACS",
       "propertyID": "2052498558",
       "qudt:dataType": "float8",
       "unitText": "percent",
       "minValue": "0",
       "maxValue": "100",
-      "startDate": "2020-01-01",
-      "endDate": "2020-12-31"
+      "startDate": "2022-01-01",
+      "endDate": "2022-12-31"
     },
     {
       "@type": "PropertyValue",
       "name": "ep_groupq",
-      "description": "Percentage of persons in group quarters estimate, 2016-2020 ACS",
+      "description": "Percentage of persons in group quarters estimate, 2018-2022 ACS",
       "propertyID": "2052498376",
       "qudt:dataType": "float8",
       "unitText": "percent",
       "minValue": "0",
       "maxValue": "100",
-      "startDate": "2020-01-01",
-      "endDate": "2020-12-31"
+      "startDate": "2022-01-01",
+      "endDate": "2022-12-31"
     },
     {
       "@type": "PropertyValue",
       "name": "ep_hburd",
-      "description": "Percentage of housing cost-burdened occupied housing units with annual income less than 5,000 (30%+ of income spent on housing costs) estimate, 2016-2020 ACS estimate, 2016-2020 ACS",
+      "description": "Percentage of housing cost-burdened occupied housing units with annual income less than 5,000 (30%+ of income spent on housing costs) estimate, 2018-2022 ACS estimate, 2018-2022 ACS",
       "propertyID": "2052498464",
       "qudt:dataType": "float8",
       "unitText": "percent",
       "minValue": "0",
       "maxValue": "87.5",
-      "startDate": "2020-01-01",
-      "endDate": "2020-12-31"
+      "startDate": "2022-01-01",
+      "endDate": "2022-12-31"
     },
     {
       "@type": "PropertyValue",
       "name": "ep_hisp",
-      "description": "Adjunct variable - Percentage of Hispanic or Latino persons estimate, 2016-2020 ACS",
+      "description": "Adjunct variable - Percentage of Hispanic or Latino persons estimate, 2018-2022 ACS",
       "propertyID": "2052498520",
       "qudt:dataType": "float8",
       "unitText": "percent",
       "minValue": "0",
       "maxValue": "97.4",
-      "startDate": "2020-01-01",
-      "endDate": "2020-12-31"
+      "startDate": "2022-01-01",
+      "endDate": "2022-12-31"
     },
     {
       "@type": "PropertyValue",
       "name": "ep_limeng",
-      "description": "Percentage of persons (age 5+) who speak English \"less than well\" estimate, 2016-2020 ACS",
+      "description": "Percentage of persons (age 5+) who speak English \"less than well\" estimate, 2018-2022 ACS",
       "propertyID": "2052498385",
       "qudt:dataType": "float8",
       "unitText": "percent",
       "minValue": "0",
       "maxValue": "46",
-      "startDate": "2020-01-01",
-      "endDate": "2020-12-31"
+      "startDate": "2022-01-01",
+      "endDate": "2022-12-31"
     },
     {
       "@type": "PropertyValue",
       "name": "ep_minrty",
-      "description": "Percentage minority (Hispanic or Latino (of any race) -- Black and African American, Not Hispanic or Latino -- American Indian and Alaska Native, Not Hispanic or Latino -- Asian, Not Hispanic or Latino -- Native Hawaiian and Other Pacific Islander, Not Hispanic or Latino -- Two or More Races, Not Hispanic or Latino -- Other Races, Not Hispanic or Latino) estimate, 2016-2020 ACS",
+      "description": "Percentage minority (Hispanic or Latino (of any race) -- Black and African American, Not Hispanic or Latino -- American Indian and Alaska Native, Not Hispanic or Latino -- Asian, Not Hispanic or Latino -- Native Hawaiian and Other Pacific Islander, Not Hispanic or Latino -- Two or More Races, Not Hispanic or Latino -- Other Races, Not Hispanic or Latino) estimate, 2018-2022 ACS",
       "propertyID": "2052498423",
       "qudt:dataType": "float8",
       "unitText": "percent",
       "minValue": "0",
       "maxValue": "99.9",
-      "startDate": "2020-01-01",
-      "endDate": "2020-12-31"
+      "startDate": "2022-01-01",
+      "endDate": "2022-12-31"
     },
     {
       "@type": "PropertyValue",
@@ -677,8 +677,8 @@
       "unitText": "percent",
       "minValue": "0",
       "maxValue": "31.7",
-      "startDate": "2020-01-01",
-      "endDate": "2020-12-31"
+      "startDate": "2022-01-01",
+      "endDate": "2022-12-31"
     },
     {
       "@type": "PropertyValue",
@@ -689,20 +689,20 @@
       "unitText": "percent",
       "minValue": "0",
       "maxValue": "100",
-      "startDate": "2020-01-01",
-      "endDate": "2020-12-31"
+      "startDate": "2022-01-01",
+      "endDate": "2022-12-31"
     },
     {
       "@type": "PropertyValue",
       "name": "ep_nhpi",
-      "description": "Adjunct variable - Percentage of Native Hawaiian or Other Pacific Islander, not Hispanic or Latino persons estimate, 2016-2020 ACS",
+      "description": "Adjunct variable - Percentage of Native Hawaiian or Other Pacific Islander, not Hispanic or Latino persons estimate, 2018-2022 ACS",
       "propertyID": "2052498418",
       "qudt:dataType": "float8",
       "unitText": "percent",
       "minValue": "0",
       "maxValue": "4.8",
-      "startDate": "2020-01-01",
-      "endDate": "2020-12-31"
+      "startDate": "2022-01-01",
+      "endDate": "2022-12-31"
     },
     {
       "@type": "PropertyValue",
@@ -713,20 +713,20 @@
       "unitText": "percent",
       "minValue": "0",
       "maxValue": "54",
-      "startDate": "2020-01-01",
-      "endDate": "2020-12-31"
+      "startDate": "2022-01-01",
+      "endDate": "2022-12-31"
     },
     {
       "@type": "PropertyValue",
       "name": "ep_noint",
-      "description": "Adjunct variable - Percentage of households without a computer with a broadband Internet subscription estimate, 2016-2020 ACS",
+      "description": "Adjunct variable - Percentage of households without a computer with a broadband Internet subscription estimate, 2018-2022 ACS",
       "propertyID": "2052498468",
       "qudt:dataType": "float8",
       "unitText": "percent",
       "minValue": "0",
       "maxValue": "51.1",
-      "startDate": "2020-01-01",
-      "endDate": "2020-12-31"
+      "startDate": "2022-01-01",
+      "endDate": "2022-12-31"
     },
     {
       "@type": "PropertyValue",
@@ -737,20 +737,20 @@
       "unitText": "percent",
       "minValue": "0",
       "maxValue": "100",
-      "startDate": "2020-01-01",
-      "endDate": "2020-12-31"
+      "startDate": "2022-01-01",
+      "endDate": "2022-12-31"
     },
     {
       "@type": "PropertyValue",
       "name": "ep_otherrace",
-      "description": "Adjunct variable - Percentage of some other race, not Hispanic or Latino persons estimate, 2016-2020 ACS",
+      "description": "Adjunct variable - Percentage of some other race, not Hispanic or Latino persons estimate, 2018-2022 ACS",
       "propertyID": "2052498246",
       "qudt:dataType": "float8",
       "unitText": "percent",
       "minValue": "0",
       "maxValue": "23.6",
-      "startDate": "2020-01-01",
-      "endDate": "2020-12-31"
+      "startDate": "2022-01-01",
+      "endDate": "2022-12-31"
     },
     {
       "@type": "PropertyValue",
@@ -761,32 +761,32 @@
       "unitText": "percent",
       "minValue": "0",
       "maxValue": "100",
-      "startDate": "2020-01-01",
-      "endDate": "2020-12-31"
+      "startDate": "2022-01-01",
+      "endDate": "2022-12-31"
     },
     {
       "@type": "PropertyValue",
       "name": "ep_sngpnt",
-      "description": "Percentage of single-parent households with children under 18 estimate, 2016-2020 ACS",
+      "description": "Percentage of single-parent households with children under 18 estimate, 2018-2022 ACS",
       "propertyID": "2052498249",
       "qudt:dataType": "float8",
       "unitText": "percent",
       "minValue": "0",
       "maxValue": "46.4",
-      "startDate": "2020-01-01",
-      "endDate": "2020-12-31"
+      "startDate": "2022-01-01",
+      "endDate": "2022-12-31"
     },
     {
       "@type": "PropertyValue",
       "name": "ep_twomore",
-      "description": "Adjunct variable - Percentage of two or more races, not Hispanic or Latino persons estimate, 2016-2020 ACS",
+      "description": "Adjunct variable - Percentage of two or more races, not Hispanic or Latino persons estimate, 2018-2022 ACS",
       "propertyID": "2052498228",
       "qudt:dataType": "float8",
       "unitText": "percent",
       "minValue": "0",
       "maxValue": "39.1",
-      "startDate": "2020-01-01",
-      "endDate": "2020-12-31"
+      "startDate": "2022-01-01",
+      "endDate": "2022-12-31"
     },
     {
       "@type": "PropertyValue",
@@ -797,20 +797,20 @@
       "unitText": "percent",
       "minValue": "0",
       "maxValue": "62.6",
-      "startDate": "2020-01-01",
-      "endDate": "2020-12-31"
+      "startDate": "2022-01-01",
+      "endDate": "2022-12-31"
     },
     {
       "@type": "PropertyValue",
       "name": "ep_uninsur",
-      "description": "Percentage uninsured in the total civilian noninstitutionalized population estimate, 2016-2020 ACS",
+      "description": "Percentage uninsured in the total civilian noninstitutionalized population estimate, 2018-2022 ACS",
       "propertyID": "2052498200",
       "qudt:dataType": "float8",
       "unitText": "percent",
       "minValue": "0",
       "maxValue": "22.3",
-      "startDate": "2020-01-01",
-      "endDate": "2020-12-31"
+      "startDate": "2022-01-01",
+      "endDate": "2022-12-31"
     },
     {
       "@type": "PropertyValue",
@@ -821,8 +821,8 @@
       "unitText": "percentile",
       "minValue": "0",
       "maxValue": "1",
-      "startDate": "2020-01-01",
-      "endDate": "2020-12-31"
+      "startDate": "2022-01-01",
+      "endDate": "2022-12-31"
     },
     {
       "@type": "PropertyValue",
@@ -833,8 +833,8 @@
       "unitText": "percentile",
       "minValue": "0",
       "maxValue": "1",
-      "startDate": "2020-01-01",
-      "endDate": "2020-12-31"
+      "startDate": "2022-01-01",
+      "endDate": "2022-12-31"
     },
     {
       "@type": "PropertyValue",
@@ -845,8 +845,8 @@
       "unitText": "percentile",
       "minValue": "0",
       "maxValue": "1",
-      "startDate": "2020-01-01",
-      "endDate": "2020-12-31"
+      "startDate": "2022-01-01",
+      "endDate": "2022-12-31"
     },
     {
       "@type": "PropertyValue",
@@ -857,8 +857,8 @@
       "unitText": "percentile",
       "minValue": "0",
       "maxValue": "1",
-      "startDate": "2020-01-01",
-      "endDate": "2020-12-31"
+      "startDate": "2022-01-01",
+      "endDate": "2022-12-31"
     },
     {
       "@type": "PropertyValue",
@@ -869,8 +869,8 @@
       "unitText": "percentile",
       "minValue": "0",
       "maxValue": "0.9956",
-      "startDate": "2020-01-01",
-      "endDate": "2020-12-31"
+      "startDate": "2022-01-01",
+      "endDate": "2022-12-31"
     },
     {
       "@type": "PropertyValue",
@@ -881,8 +881,8 @@
       "unitText": "percentile",
       "minValue": "0",
       "maxValue": "1",
-      "startDate": "2020-01-01",
-      "endDate": "2020-12-31"
+      "startDate": "2022-01-01",
+      "endDate": "2022-12-31"
     },
     {
       "@type": "PropertyValue",
@@ -893,8 +893,8 @@
       "unitText": "percentile",
       "minValue": "0",
       "maxValue": "1",
-      "startDate": "2020-01-01",
-      "endDate": "2020-12-31"
+      "startDate": "2022-01-01",
+      "endDate": "2022-12-31"
     },
     {
       "@type": "PropertyValue",
@@ -905,8 +905,8 @@
       "unitText": "percentile",
       "minValue": "0",
       "maxValue": "1",
-      "startDate": "2020-01-01",
-      "endDate": "2020-12-31"
+      "startDate": "2022-01-01",
+      "endDate": "2022-12-31"
     },
     {
       "@type": "PropertyValue",
@@ -917,8 +917,8 @@
       "unitText": "percentile",
       "minValue": "0",
       "maxValue": "1",
-      "startDate": "2020-01-01",
-      "endDate": "2020-12-31"
+      "startDate": "2022-01-01",
+      "endDate": "2022-12-31"
     },
     {
       "@type": "PropertyValue",
@@ -929,8 +929,8 @@
       "unitText": "percentile",
       "minValue": "0",
       "maxValue": "0.9994",
-      "startDate": "2020-01-01",
-      "endDate": "2020-12-31"
+      "startDate": "2022-01-01",
+      "endDate": "2022-12-31"
     },
     {
       "@type": "PropertyValue",
@@ -941,8 +941,8 @@
       "unitText": "percentile",
       "minValue": "0",
       "maxValue": "1",
-      "startDate": "2020-01-01",
-      "endDate": "2020-12-31"
+      "startDate": "2022-01-01",
+      "endDate": "2022-12-31"
     },
     {
       "@type": "PropertyValue",
@@ -953,8 +953,8 @@
       "unitText": "percentile",
       "minValue": "0",
       "maxValue": "1",
-      "startDate": "2020-01-01",
-      "endDate": "2020-12-31"
+      "startDate": "2022-01-01",
+      "endDate": "2022-12-31"
     },
     {
       "@type": "PropertyValue",
@@ -965,8 +965,8 @@
       "unitText": "percentile",
       "minValue": "0",
       "maxValue": "1",
-      "startDate": "2020-01-01",
-      "endDate": "2020-12-31"
+      "startDate": "2022-01-01",
+      "endDate": "2022-12-31"
     },
     {
       "@type": "PropertyValue",
@@ -977,8 +977,8 @@
       "unitText": "percentile",
       "minValue": "0",
       "maxValue": "1",
-      "startDate": "2020-01-01",
-      "endDate": "2020-12-31"
+      "startDate": "2022-01-01",
+      "endDate": "2022-12-31"
     },
     {
       "@type": "PropertyValue",
@@ -989,8 +989,8 @@
       "unitText": "percentile",
       "minValue": "0",
       "maxValue": "1",
-      "startDate": "2020-01-01",
-      "endDate": "2020-12-31"
+      "startDate": "2022-01-01",
+      "endDate": "2022-12-31"
     },
     {
       "@type": "PropertyValue",
@@ -1001,8 +1001,8 @@
       "unitText": "percentile",
       "minValue": "0",
       "maxValue": "1",
-      "startDate": "2020-01-01",
-      "endDate": "2020-12-31"
+      "startDate": "2022-01-01",
+      "endDate": "2022-12-31"
     },
     {
       "@type": "PropertyValue",
@@ -1012,8 +1012,8 @@
       "qudt:dataType": "int2",
       "minValue": "0",
       "maxValue": "1",
-      "startDate": "2020-01-01",
-      "endDate": "2020-12-31"
+      "startDate": "2022-01-01",
+      "endDate": "2022-12-31"
     },
     {
       "@type": "PropertyValue",
@@ -1023,8 +1023,8 @@
       "qudt:dataType": "int2",
       "minValue": "0",
       "maxValue": "1",
-      "startDate": "2020-01-01",
-      "endDate": "2020-12-31"
+      "startDate": "2022-01-01",
+      "endDate": "2022-12-31"
     },
     {
       "@type": "PropertyValue",
@@ -1034,8 +1034,8 @@
       "qudt:dataType": "int2",
       "minValue": "0",
       "maxValue": "1",
-      "startDate": "2020-01-01",
-      "endDate": "2020-12-31"
+      "startDate": "2022-01-01",
+      "endDate": "2022-12-31"
     },
     {
       "@type": "PropertyValue",
@@ -1045,8 +1045,8 @@
       "qudt:dataType": "int2",
       "minValue": "0",
       "maxValue": "1",
-      "startDate": "2020-01-01",
-      "endDate": "2020-12-31"
+      "startDate": "2022-01-01",
+      "endDate": "2022-12-31"
     },
     {
       "@type": "PropertyValue",
@@ -1056,8 +1056,8 @@
       "qudt:dataType": "int2",
       "minValue": "0",
       "maxValue": "1",
-      "startDate": "2020-01-01",
-      "endDate": "2020-12-31"
+      "startDate": "2022-01-01",
+      "endDate": "2022-12-31"
     },
     {
       "@type": "PropertyValue",
@@ -1067,8 +1067,8 @@
       "qudt:dataType": "int2",
       "minValue": "0",
       "maxValue": "1",
-      "startDate": "2020-01-01",
-      "endDate": "2020-12-31"
+      "startDate": "2022-01-01",
+      "endDate": "2022-12-31"
     },
     {
       "@type": "PropertyValue",
@@ -1078,8 +1078,8 @@
       "qudt:dataType": "int2",
       "minValue": "0",
       "maxValue": "1",
-      "startDate": "2020-01-01",
-      "endDate": "2020-12-31"
+      "startDate": "2022-01-01",
+      "endDate": "2022-12-31"
     },
     {
       "@type": "PropertyValue",
@@ -1089,8 +1089,8 @@
       "qudt:dataType": "int2",
       "minValue": "0",
       "maxValue": "1",
-      "startDate": "2020-01-01",
-      "endDate": "2020-12-31"
+      "startDate": "2022-01-01",
+      "endDate": "2022-12-31"
     },
     {
       "@type": "PropertyValue",
@@ -1100,8 +1100,8 @@
       "qudt:dataType": "int2",
       "minValue": "0",
       "maxValue": "1",
-      "startDate": "2020-01-01",
-      "endDate": "2020-12-31"
+      "startDate": "2022-01-01",
+      "endDate": "2022-12-31"
     },
     {
       "@type": "PropertyValue",
@@ -1111,8 +1111,8 @@
       "qudt:dataType": "int2",
       "minValue": "0",
       "maxValue": "1",
-      "startDate": "2020-01-01",
-      "endDate": "2020-12-31"
+      "startDate": "2022-01-01",
+      "endDate": "2022-12-31"
     },
     {
       "@type": "PropertyValue",
@@ -1122,8 +1122,8 @@
       "qudt:dataType": "int2",
       "minValue": "0",
       "maxValue": "1",
-      "startDate": "2020-01-01",
-      "endDate": "2020-12-31"
+      "startDate": "2022-01-01",
+      "endDate": "2022-12-31"
     },
     {
       "@type": "PropertyValue",
@@ -1133,8 +1133,8 @@
       "qudt:dataType": "int2",
       "minValue": "0",
       "maxValue": "1",
-      "startDate": "2020-01-01",
-      "endDate": "2020-12-31"
+      "startDate": "2022-01-01",
+      "endDate": "2022-12-31"
     },
     {
       "@type": "PropertyValue",
@@ -1144,8 +1144,8 @@
       "qudt:dataType": "int2",
       "minValue": "0",
       "maxValue": "1",
-      "startDate": "2020-01-01",
-      "endDate": "2020-12-31"
+      "startDate": "2022-01-01",
+      "endDate": "2022-12-31"
     },
     {
       "@type": "PropertyValue",
@@ -1155,8 +1155,8 @@
       "qudt:dataType": "int2",
       "minValue": "0",
       "maxValue": "1",
-      "startDate": "2020-01-01",
-      "endDate": "2020-12-31"
+      "startDate": "2022-01-01",
+      "endDate": "2022-12-31"
     },
     {
       "@type": "PropertyValue",
@@ -1166,8 +1166,8 @@
       "qudt:dataType": "int2",
       "minValue": "0",
       "maxValue": "5",
-      "startDate": "2020-01-01",
-      "endDate": "2020-12-31"
+      "startDate": "2022-01-01",
+      "endDate": "2022-12-31"
     },
     {
       "@type": "PropertyValue",
@@ -1177,8 +1177,8 @@
       "qudt:dataType": "int2",
       "minValue": "0",
       "maxValue": "4",
-      "startDate": "2020-01-01",
-      "endDate": "2020-12-31"
+      "startDate": "2022-01-01",
+      "endDate": "2022-12-31"
     },
     {
       "@type": "PropertyValue",
@@ -1188,8 +1188,8 @@
       "qudt:dataType": "int2",
       "minValue": "0",
       "maxValue": "1",
-      "startDate": "2020-01-01",
-      "endDate": "2020-12-31"
+      "startDate": "2022-01-01",
+      "endDate": "2022-12-31"
     },
     {
       "@type": "PropertyValue",
@@ -1199,8 +1199,8 @@
       "qudt:dataType": "int2",
       "minValue": "0",
       "maxValue": "4",
-      "startDate": "2020-01-01",
-      "endDate": "2020-12-31"
+      "startDate": "2022-01-01",
+      "endDate": "2022-12-31"
     },
     {
       "@type": "PropertyValue",
@@ -1210,8 +1210,8 @@
       "qudt:dataType": "int2",
       "minValue": "0",
       "maxValue": "12",
-      "startDate": "2020-01-01",
-      "endDate": "2020-12-31"
+      "startDate": "2022-01-01",
+      "endDate": "2022-12-31"
     },
     {
       "@type": "PropertyValue",
@@ -1221,8 +1221,8 @@
       "qudt:dataType": "int2",
       "minValue": "0",
       "maxValue": "1",
-      "startDate": "2020-01-01",
-      "endDate": "2020-12-31"
+      "startDate": "2022-01-01",
+      "endDate": "2022-12-31"
     },
     {
       "@type": "PropertyValue",
@@ -1232,8 +1232,8 @@
       "qudt:dataType": "int2",
       "minValue": "0",
       "maxValue": "1",
-      "startDate": "2020-01-01",
-      "endDate": "2020-12-31"
+      "startDate": "2022-01-01",
+      "endDate": "2022-12-31"
     },
     {
       "@type": "PropertyValue",
@@ -1241,400 +1241,400 @@
       "description": "Tract-level FIPS code",
       "propertyID": "2052497174",
       "qudt:dataType": "varchar",
-      "startDate": "2020-01-01",
-      "endDate": "2020-12-31"
+      "startDate": "2022-01-01",
+      "endDate": "2022-12-31"
     },
     {
       "@type": "PropertyValue",
       "name": "location",
       "description": "Text description of tract, county, state",
       "qudt:dataType": "varchar",
-      "startDate": "2020-01-01",
-      "endDate": "2020-12-31"
+      "startDate": "2022-01-01",
+      "endDate": "2022-12-31"
     },
     {
       "@type": "PropertyValue",
       "name": "m_afam",
-      "description": "Adjunct variable - Black/African American, not Hispanic or Latino persons estimate MOE, 2016-2020 ACS",
+      "description": "Adjunct variable - Black/African American, not Hispanic or Latino persons estimate MOE, 2018-2022 ACS",
       "propertyID": "2052499782",
       "qudt:dataType": "int4",
       "unitText": "moe",
       "minValue": "2",
       "maxValue": "1217",
-      "startDate": "2020-01-01",
-      "endDate": "2020-12-31"
+      "startDate": "2022-01-01",
+      "endDate": "2022-12-31"
     },
     {
       "@type": "PropertyValue",
       "name": "m_age17",
-      "description": "Persons aged 17 and younger estimate MOE, 2016-2020 ACS",
+      "description": "Persons aged 17 and younger estimate MOE, 2018-2022 ACS",
       "propertyID": "2052498114",
       "qudt:dataType": "int4",
       "unitText": "moe",
       "minValue": "2",
       "maxValue": "781",
-      "startDate": "2020-01-01",
-      "endDate": "2020-12-31"
+      "startDate": "2022-01-01",
+      "endDate": "2022-12-31"
     },
     {
       "@type": "PropertyValue",
       "name": "m_age65",
-      "description": "Persons aged 65 and older estimate MOE, 2016-2020 ACS",
+      "description": "Persons aged 65 and older estimate MOE, 2018-2022 ACS",
       "propertyID": "2052498112",
       "qudt:dataType": "int4",
       "unitText": "moe",
       "minValue": "2",
       "maxValue": "730",
-      "startDate": "2020-01-01",
-      "endDate": "2020-12-31"
+      "startDate": "2022-01-01",
+      "endDate": "2022-12-31"
     },
     {
       "@type": "PropertyValue",
       "name": "m_aian",
-      "description": "Adjunct variable - American Indian or Alaska Native, not Hispanic or Latino persons estimate MOE, 2016-2020 ACS",
+      "description": "Adjunct variable - American Indian or Alaska Native, not Hispanic or Latino persons estimate MOE, 2018-2022 ACS",
       "propertyID": "2052499860",
       "qudt:dataType": "int4",
       "unitText": "moe",
       "minValue": "1",
       "maxValue": "174",
-      "startDate": "2020-01-01",
-      "endDate": "2020-12-31"
+      "startDate": "2022-01-01",
+      "endDate": "2022-12-31"
     },
     {
       "@type": "PropertyValue",
       "name": "m_asian",
-      "description": "Adjunct variable - Asian, not Hispanic or Latino persons estimate MOE, 2016-2020 ACS",
+      "description": "Adjunct variable - Asian, not Hispanic or Latino persons estimate MOE, 2018-2022 ACS",
       "propertyID": "2052499832",
       "qudt:dataType": "int4",
       "unitText": "moe",
       "minValue": "2",
       "maxValue": "1027",
-      "startDate": "2020-01-01",
-      "endDate": "2020-12-31"
+      "startDate": "2022-01-01",
+      "endDate": "2022-12-31"
     },
     {
       "@type": "PropertyValue",
       "name": "m_crowd",
-      "description": "At household level (occupied housing units), more people than rooms estimate MOE, 2016-2020 ACS",
+      "description": "At household level (occupied housing units), more people than rooms estimate MOE, 2018-2022 ACS",
       "propertyID": "2052499827",
       "qudt:dataType": "int4",
       "unitText": "moe",
       "minValue": "5",
       "maxValue": "328",
-      "startDate": "2020-01-01",
-      "endDate": "2020-12-31"
+      "startDate": "2022-01-01",
+      "endDate": "2022-12-31"
     },
     {
       "@type": "PropertyValue",
       "name": "m_disabl",
-      "description": "Civilian noninstitutionalized population with a disability estimate MOE, 2016-2020 ACS",
+      "description": "Civilian noninstitutionalized population with a disability estimate MOE, 2018-2022 ACS",
       "propertyID": "2052499668",
       "qudt:dataType": "int4",
       "unitText": "moe",
       "minValue": "6",
       "maxValue": "800",
-      "startDate": "2020-01-01",
-      "endDate": "2020-12-31"
+      "startDate": "2022-01-01",
+      "endDate": "2022-12-31"
     },
     {
       "@type": "PropertyValue",
       "name": "m_groupq",
-      "description": "Persons in group quarters estimate MOE, 2016-2020 ACS",
+      "description": "Persons in group quarters estimate MOE, 2018-2022 ACS",
       "propertyID": "2052498108",
       "qudt:dataType": "int4",
       "unitText": "moe",
       "minValue": "1",
       "maxValue": "411",
-      "startDate": "2020-01-01",
-      "endDate": "2020-12-31"
+      "startDate": "2022-01-01",
+      "endDate": "2022-12-31"
     },
     {
       "@type": "PropertyValue",
       "name": "m_hburd",
-      "description": "Housing cost-burdened occupied housing units with annual income less than 5,000 (30%+ of income spent on housing costs) estimate MOE, 2016-2020 ACS",
+      "description": "Housing cost-burdened occupied housing units with annual income less than 5,000 (30%+ of income spent on housing costs) estimate MOE, 2018-2022 ACS",
       "propertyID": "2052499084",
       "qudt:dataType": "int4",
       "unitText": "moe",
       "minValue": "20",
       "maxValue": "506",
-      "startDate": "2020-01-01",
-      "endDate": "2020-12-31"
+      "startDate": "2022-01-01",
+      "endDate": "2022-12-31"
     },
     {
       "@type": "PropertyValue",
       "name": "m_hh",
-      "description": "Households estimate MOE, 2016-2020 ACS",
+      "description": "Households estimate MOE, 2018-2022 ACS",
       "propertyID": "2052499092",
       "qudt:dataType": "int4",
       "unitText": "moe",
       "minValue": "6",
       "maxValue": "518",
-      "startDate": "2020-01-01",
-      "endDate": "2020-12-31"
+      "startDate": "2022-01-01",
+      "endDate": "2022-12-31"
     },
     {
       "@type": "PropertyValue",
       "name": "m_hisp",
-      "description": "Adjunct variable - Hispanic or Latino persons estimate MOE, 2016-2020 ACS",
+      "description": "Adjunct variable - Hispanic or Latino persons estimate MOE, 2018-2022 ACS",
       "propertyID": "2052499103",
       "qudt:dataType": "int4",
       "unitText": "moe",
       "minValue": "2",
       "maxValue": "1505",
-      "startDate": "2020-01-01",
-      "endDate": "2020-12-31"
+      "startDate": "2022-01-01",
+      "endDate": "2022-12-31"
     },
     {
       "@type": "PropertyValue",
       "name": "m_hu",
-      "description": "Housing units estimate MOE, 2016-2020 ACS",
+      "description": "Housing units estimate MOE, 2018-2022 ACS",
       "propertyID": "2052499074",
       "qudt:dataType": "int4",
       "unitText": "moe",
       "minValue": "6",
       "maxValue": "513",
-      "startDate": "2020-01-01",
-      "endDate": "2020-12-31"
+      "startDate": "2022-01-01",
+      "endDate": "2022-12-31"
     },
     {
       "@type": "PropertyValue",
       "name": "m_limeng",
-      "description": "Persons (age 5+) who speak English \"less than well\" estimate MOE, 2016-2020 ACS",
+      "description": "Persons (age 5+) who speak English \"less than well\" estimate MOE, 2018-2022 ACS",
       "propertyID": "2052498116",
       "qudt:dataType": "int4",
       "unitText": "moe",
       "minValue": "50",
       "maxValue": "741",
-      "startDate": "2020-01-01",
-      "endDate": "2020-12-31"
+      "startDate": "2022-01-01",
+      "endDate": "2022-12-31"
     },
     {
       "@type": "PropertyValue",
       "name": "m_minrty",
-      "description": "Minority (Hispanic or Latino (of any race) -- Black and African American, Not Hispanic or Latino -- American Indian and Alaska Native, Not Hispanic or Latino -- Asian, Not Hispanic or Latino -- Native Hawaiian and Other Pacific Islander, Not Hispanic or Latino -- Two or More Races, Not Hispanic or Latino -- Other Races, Not Hispanic or Latino) estimate MOE, 2016-2020 ACS",
+      "description": "Minority (Hispanic or Latino (of any race) -- Black and African American, Not Hispanic or Latino -- American Indian and Alaska Native, Not Hispanic or Latino -- Asian, Not Hispanic or Latino -- Native Hawaiian and Other Pacific Islander, Not Hispanic or Latino -- Two or More Races, Not Hispanic or Latino -- Other Races, Not Hispanic or Latino) estimate MOE, 2018-2022 ACS",
       "propertyID": "2052490073",
       "qudt:dataType": "int4",
       "unitText": "moe",
       "minValue": "2",
       "maxValue": "2208",
-      "startDate": "2020-01-01",
-      "endDate": "2020-12-31"
+      "startDate": "2022-01-01",
+      "endDate": "2022-12-31"
     },
     {
       "@type": "PropertyValue",
       "name": "m_mobile",
-      "description": "Mobile homes estimate MOE, 2016-2020 ACS",
+      "description": "Mobile homes estimate MOE, 2018-2022 ACS",
       "propertyID": "2052498833",
       "qudt:dataType": "int4",
       "unitText": "moe",
       "minValue": "3",
       "maxValue": "259",
-      "startDate": "2020-01-01",
-      "endDate": "2020-12-31"
+      "startDate": "2022-01-01",
+      "endDate": "2022-12-31"
     },
     {
       "@type": "PropertyValue",
       "name": "m_munit",
-      "description": "Housing in structures with 10 or more units estimate MOE, 2016-2020 ACS",
+      "description": "Housing in structures with 10 or more units estimate MOE, 2018-2022 ACS",
       "propertyID": "2052499081",
       "qudt:dataType": "int4",
       "unitText": "moe",
       "minValue": "8",
       "maxValue": "540",
-      "startDate": "2020-01-01",
-      "endDate": "2020-12-31"
+      "startDate": "2022-01-01",
+      "endDate": "2022-12-31"
     },
     {
       "@type": "PropertyValue",
       "name": "m_nhpi",
-      "description": "Adjunct variable - Native Hawaiian or Other Pacific Islander, not Hispanic or Latino persons estimate MOE, 2016-2020 ACS",
+      "description": "Adjunct variable - Native Hawaiian or Other Pacific Islander, not Hispanic or Latino persons estimate MOE, 2018-2022 ACS",
       "propertyID": "2052498763",
       "qudt:dataType": "int4",
       "unitText": "moe",
       "minValue": "3",
       "maxValue": "156",
-      "startDate": "2020-01-01",
-      "endDate": "2020-12-31"
+      "startDate": "2022-01-01",
+      "endDate": "2022-12-31"
     },
     {
       "@type": "PropertyValue",
       "name": "m_nohsdp",
-      "description": "Persons (age 25+) with no high school diploma estimate MOE, 2016-2020 ACS",
+      "description": "Persons (age 25+) with no high school diploma estimate MOE, 2018-2022 ACS",
       "propertyID": "2052498118",
       "qudt:dataType": "int4",
       "unitText": "moe",
       "minValue": "2",
       "maxValue": "531",
-      "startDate": "2020-01-01",
-      "endDate": "2020-12-31"
+      "startDate": "2022-01-01",
+      "endDate": "2022-12-31"
     },
     {
       "@type": "PropertyValue",
       "name": "m_noint",
-      "description": "Adjunct variable - Households without a computer with a broadband Internet subscription estimate MOE, 2016-2020 ACS",
+      "description": "Adjunct variable - Households without a computer with a broadband Internet subscription estimate MOE, 2018-2022 ACS",
       "propertyID": "2052499088",
       "qudt:dataType": "int4",
       "unitText": "moe",
       "minValue": "6",
       "maxValue": "408",
-      "startDate": "2020-01-01",
-      "endDate": "2020-12-31"
+      "startDate": "2022-01-01",
+      "endDate": "2022-12-31"
     },
     {
       "@type": "PropertyValue",
       "name": "m_noveh",
-      "description": "Households with no vehicle available estimate MOE, 2016-2020 ACS",
+      "description": "Households with no vehicle available estimate MOE, 2018-2022 ACS",
       "propertyID": "2052499090",
       "qudt:dataType": "int4",
       "unitText": "moe",
       "minValue": "5",
       "maxValue": "493",
-      "startDate": "2020-01-01",
-      "endDate": "2020-12-31"
+      "startDate": "2022-01-01",
+      "endDate": "2022-12-31"
     },
     {
       "@type": "PropertyValue",
       "name": "m_otherrace",
-      "description": "Adjunct variable - Some other race, not Hispanic or Latino persons estimate MOE, 2016-2020 ACS",
+      "description": "Adjunct variable - Some other race, not Hispanic or Latino persons estimate MOE, 2018-2022 ACS",
       "propertyID": "2052497740",
       "qudt:dataType": "int4",
       "unitText": "moe",
       "minValue": "2",
       "maxValue": "892",
-      "startDate": "2020-01-01",
-      "endDate": "2020-12-31"
+      "startDate": "2022-01-01",
+      "endDate": "2022-12-31"
     },
     {
       "@type": "PropertyValue",
       "name": "m_pov150",
-      "description": "Persons below 150% poverty estimate MOE, 2016-2020 ACS",
+      "description": "Persons below 150% poverty estimate MOE, 2018-2022 ACS",
       "propertyID": "2052498110",
       "qudt:dataType": "int4",
       "unitText": "moe",
       "minValue": "2",
       "maxValue": "1127",
-      "startDate": "2020-01-01",
-      "endDate": "2020-12-31"
+      "startDate": "2022-01-01",
+      "endDate": "2022-12-31"
     },
     {
       "@type": "PropertyValue",
       "name": "m_sngpnt",
-      "description": "Single-parent household with children under 18 estimate MOE, 2016-2020 ACS",
+      "description": "Single-parent household with children under 18 estimate MOE, 2018-2022 ACS",
       "propertyID": "2052497777",
       "qudt:dataType": "int4",
       "unitText": "moe",
       "minValue": "6",
       "maxValue": "400",
-      "startDate": "2020-01-01",
-      "endDate": "2020-12-31"
+      "startDate": "2022-01-01",
+      "endDate": "2022-12-31"
     },
     {
       "@type": "PropertyValue",
       "name": "m_totpop",
-      "description": "Population estimate MOE, 2016-2020 ACS",
+      "description": "Population estimate MOE, 2018-2022 ACS",
       "propertyID": "2052498090",
       "qudt:dataType": "int4",
       "unitText": "moe",
       "minValue": "2",
       "maxValue": "1745",
-      "startDate": "2020-01-01",
-      "endDate": "2020-12-31"
+      "startDate": "2022-01-01",
+      "endDate": "2022-12-31"
     },
     {
       "@type": "PropertyValue",
       "name": "m_twomore",
-      "description": "Adjunct variable - Two or more races, not Hispanic or Latino persons estimate MOE, 2016-2020 ACS",
+      "description": "Adjunct variable - Two or more races, not Hispanic or Latino persons estimate MOE, 2018-2022 ACS",
       "propertyID": "2052497159",
       "qudt:dataType": "int4",
       "unitText": "moe",
       "minValue": "2",
       "maxValue": "1128",
-      "startDate": "2020-01-01",
-      "endDate": "2020-12-31"
+      "startDate": "2022-01-01",
+      "endDate": "2022-12-31"
     },
     {
       "@type": "PropertyValue",
       "name": "m_unemp",
-      "description": "Civilian (age 16+) unemployed estimate MOE, 2016-2020 ACS",
+      "description": "Civilian (age 16+) unemployed estimate MOE, 2018-2022 ACS",
       "propertyID": "2052499670",
       "qudt:dataType": "int4",
       "unitText": "moe",
       "minValue": "7",
       "maxValue": "440",
-      "startDate": "2020-01-01",
-      "endDate": "2020-12-31"
+      "startDate": "2022-01-01",
+      "endDate": "2022-12-31"
     },
     {
       "@type": "PropertyValue",
       "name": "m_uninsur",
-      "description": "Uninsured in the total civilian noninstitutionalized population estimate MOE, 2016-2020 ACS",
+      "description": "Uninsured in the total civilian noninstitutionalized population estimate MOE, 2018-2022 ACS",
       "propertyID": "2052497148",
       "qudt:dataType": "int4",
       "unitText": "moe",
       "minValue": "4",
       "maxValue": "927",
-      "startDate": "2020-01-01",
-      "endDate": "2020-12-31"
+      "startDate": "2022-01-01",
+      "endDate": "2022-12-31"
     },
     {
       "@type": "PropertyValue",
       "name": "mp_afam",
-      "description": "Adjunct variable - Percentage of Black/African American, not Hispanic or Latino persons estimate MOE, 2016-2020 ACS",
+      "description": "Adjunct variable - Percentage of Black/African American, not Hispanic or Latino persons estimate MOE, 2018-2022 ACS",
       "propertyID": "2052498570",
       "qudt:dataType": "float8",
       "unitText": "moe",
       "minValue": "0.1",
       "maxValue": "100",
-      "startDate": "2020-01-01",
-      "endDate": "2020-12-31"
+      "startDate": "2022-01-01",
+      "endDate": "2022-12-31"
     },
     {
       "@type": "PropertyValue",
       "name": "mp_age17",
-      "description": "Percentage of persons aged 17 and younger estimate MOE, 2016-2020 ACS",
+      "description": "Percentage of persons aged 17 and younger estimate MOE, 2018-2022 ACS",
       "propertyID": "2052498381",
       "qudt:dataType": "float8",
       "unitText": "moe",
       "minValue": "0.6",
       "maxValue": "100",
-      "startDate": "2020-01-01",
-      "endDate": "2020-12-31"
+      "startDate": "2022-01-01",
+      "endDate": "2022-12-31"
     },
     {
       "@type": "PropertyValue",
       "name": "mp_age65",
-      "description": "Percentage of persons aged 65 and older estimate MOE, 2016-2020 ACS",
+      "description": "Percentage of persons aged 65 and older estimate MOE, 2018-2022 ACS",
       "propertyID": "2052498379",
       "qudt:dataType": "float8",
       "unitText": "moe",
       "minValue": "0.1",
       "maxValue": "100",
-      "startDate": "2020-01-01",
-      "endDate": "2020-12-31"
+      "startDate": "2022-01-01",
+      "endDate": "2022-12-31"
     },
     {
       "@type": "PropertyValue",
       "name": "mp_aian",
-      "description": "Adjunct variable - Percentage of American Indian or Alaska Native, not Hispanic or Latino persons estimate MOE, 2016-2020 ACS",
+      "description": "Adjunct variable - Percentage of American Indian or Alaska Native, not Hispanic or Latino persons estimate MOE, 2018-2022 ACS",
       "propertyID": "2052498580",
       "qudt:dataType": "float8",
       "unitText": "moe",
       "minValue": "0.1",
       "maxValue": "100",
-      "startDate": "2020-01-01",
-      "endDate": "2020-12-31"
+      "startDate": "2022-01-01",
+      "endDate": "2022-12-31"
     },
     {
       "@type": "PropertyValue",
       "name": "mp_asian",
-      "description": "Adjunct variable - Percentage of Asian, not Hispanic or Latino persons estimate MOE, 2016-2020 ACS",
+      "description": "Adjunct variable - Percentage of Asian, not Hispanic or Latino persons estimate MOE, 2018-2022 ACS",
       "propertyID": "2052498575",
       "qudt:dataType": "float8",
       "unitText": "moe",
       "minValue": "0.1",
       "maxValue": "100",
-      "startDate": "2020-01-01",
-      "endDate": "2020-12-31"
+      "startDate": "2022-01-01",
+      "endDate": "2022-12-31"
     },
     {
       "@type": "PropertyValue",
@@ -1645,80 +1645,80 @@
       "unitText": "moe",
       "minValue": "0.3",
       "maxValue": "100",
-      "startDate": "2020-01-01",
-      "endDate": "2020-12-31"
+      "startDate": "2022-01-01",
+      "endDate": "2022-12-31"
     },
     {
       "@type": "PropertyValue",
       "name": "mp_disabl",
-      "description": "Percentage of civilian noninstitutionalized population with a disability estimate MOE, 2016-2020 ACS",
+      "description": "Percentage of civilian noninstitutionalized population with a disability estimate MOE, 2018-2022 ACS",
       "propertyID": "2052498557",
       "qudt:dataType": "float8",
       "unitText": "moe",
       "minValue": "0.9",
       "maxValue": "100",
-      "startDate": "2020-01-01",
-      "endDate": "2020-12-31"
+      "startDate": "2022-01-01",
+      "endDate": "2022-12-31"
     },
     {
       "@type": "PropertyValue",
       "name": "mp_groupq",
-      "description": "Percentage of persons in group quarters estimate MOE, 2016-2020 ACS",
+      "description": "Percentage of persons in group quarters estimate MOE, 2018-2022 ACS",
       "propertyID": "2052498375",
       "qudt:dataType": "float8",
       "unitText": "moe",
       "minValue": "0",
       "maxValue": "60.9",
-      "startDate": "2020-01-01",
-      "endDate": "2020-12-31"
+      "startDate": "2022-01-01",
+      "endDate": "2022-12-31"
     },
     {
       "@type": "PropertyValue",
       "name": "mp_hburd",
-      "description": "Percentage of housing cost-burdened occupied housing units with annual income less than 5,000 (30%+ of income spent on housing costs) estimate MOE, 2016-2020 ACS",
+      "description": "Percentage of housing cost-burdened occupied housing units with annual income less than 5,000 (30%+ of income spent on housing costs) estimate MOE, 2018-2022 ACS",
       "propertyID": "2052498463",
       "qudt:dataType": "float8",
       "unitText": "moe",
       "minValue": "2.4",
       "maxValue": "100",
-      "startDate": "2020-01-01",
-      "endDate": "2020-12-31"
+      "startDate": "2022-01-01",
+      "endDate": "2022-12-31"
     },
     {
       "@type": "PropertyValue",
       "name": "mp_hisp",
-      "description": "Adjunct variable - Percentage of Hispanic or Latino persons estimate MOE, 2016-2020 ACS",
+      "description": "Adjunct variable - Percentage of Hispanic or Latino persons estimate MOE, 2018-2022 ACS",
       "propertyID": "2052498519",
       "qudt:dataType": "float8",
       "unitText": "moe",
       "minValue": "0.1",
       "maxValue": "100",
-      "startDate": "2020-01-01",
-      "endDate": "2020-12-31"
+      "startDate": "2022-01-01",
+      "endDate": "2022-12-31"
     },
     {
       "@type": "PropertyValue",
       "name": "mp_limeng",
-      "description": "Percentage of persons (age 5+) who speak English \"less than well\" estimate MOE, 2016-2020 ACS",
+      "description": "Percentage of persons (age 5+) who speak English \"less than well\" estimate MOE, 2018-2022 ACS",
       "propertyID": "2052498383",
       "qudt:dataType": "float8",
       "unitText": "moe",
       "minValue": "0.7",
       "maxValue": "100",
-      "startDate": "2020-01-01",
-      "endDate": "2020-12-31"
+      "startDate": "2022-01-01",
+      "endDate": "2022-12-31"
     },
     {
       "@type": "PropertyValue",
       "name": "mp_minrty",
-      "description": "Percentage minority (Hispanic or Latino (of any race) -- Black and African American, Not Hispanic or Latino -- American Indian and Alaska Native, Not Hispanic or Latino -- Asian, Not Hispanic or Latino -- Native Hawaiian and Other Pacific Islander, Not Hispanic or Latino -- Two or More Races, Not Hispanic or Latino -- Other Races, Not Hispanic or Latino) estimate MOE, 2016-2020 ACS",
+      "description": "Percentage minority (Hispanic or Latino (of any race) -- Black and African American, Not Hispanic or Latino -- American Indian and Alaska Native, Not Hispanic or Latino -- Asian, Not Hispanic or Latino -- Native Hawaiian and Other Pacific Islander, Not Hispanic or Latino -- Two or More Races, Not Hispanic or Latino -- Other Races, Not Hispanic or Latino) estimate MOE, 2018-2022 ACS",
       "propertyID": "2052498609",
       "qudt:dataType": "float8",
       "unitText": "moe",
       "minValue": "0.8",
       "maxValue": "100",
-      "startDate": "2020-01-01",
-      "endDate": "2020-12-31"
+      "startDate": "2022-01-01",
+      "endDate": "2022-12-31"
     },
     {
       "@type": "PropertyValue",
@@ -1729,8 +1729,8 @@
       "unitText": "moe",
       "minValue": "0.1",
       "maxValue": "100",
-      "startDate": "2020-01-01",
-      "endDate": "2020-12-31"
+      "startDate": "2022-01-01",
+      "endDate": "2022-12-31"
     },
     {
       "@type": "PropertyValue",
@@ -1741,20 +1741,20 @@
       "unitText": "moe",
       "minValue": "0.2",
       "maxValue": "100",
-      "startDate": "2020-01-01",
-      "endDate": "2020-12-31"
+      "startDate": "2022-01-01",
+      "endDate": "2022-12-31"
     },
     {
       "@type": "PropertyValue",
       "name": "mp_nhpi",
-      "description": "Adjunct variable - Percentage of Native Hawaiian or Other Pacific Islander, not Hispanic or Latino persons estimate MOE, 2016-2020 ACS",
+      "description": "Adjunct variable - Percentage of Native Hawaiian or Other Pacific Islander, not Hispanic or Latino persons estimate MOE, 2018-2022 ACS",
       "propertyID": "2052498417",
       "qudt:dataType": "float8",
       "unitText": "moe",
       "minValue": "0.1",
       "maxValue": "100",
-      "startDate": "2020-01-01",
-      "endDate": "2020-12-31"
+      "startDate": "2022-01-01",
+      "endDate": "2022-12-31"
     },
     {
       "@type": "PropertyValue",
@@ -1765,20 +1765,20 @@
       "unitText": "moe",
       "minValue": "0.1",
       "maxValue": "100",
-      "startDate": "2020-01-01",
-      "endDate": "2020-12-31"
+      "startDate": "2022-01-01",
+      "endDate": "2022-12-31"
     },
     {
       "@type": "PropertyValue",
       "name": "mp_noint",
-      "description": "Adjunct variable - Percentage of households without a computer with a broadband Internet subscription estimate MOE, 2016-2020 ACS",
+      "description": "Adjunct variable - Percentage of households without a computer with a broadband Internet subscription estimate MOE, 2018-2022 ACS",
       "propertyID": "2052498467",
       "qudt:dataType": "float8",
       "unitText": "moe",
       "minValue": "0.5",
       "maxValue": "100",
-      "startDate": "2020-01-01",
-      "endDate": "2020-12-31"
+      "startDate": "2022-01-01",
+      "endDate": "2022-12-31"
     },
     {
       "@type": "PropertyValue",
@@ -1789,20 +1789,20 @@
       "unitText": "moe",
       "minValue": "0.4",
       "maxValue": "100",
-      "startDate": "2020-01-01",
-      "endDate": "2020-12-31"
+      "startDate": "2022-01-01",
+      "endDate": "2022-12-31"
     },
     {
       "@type": "PropertyValue",
       "name": "mp_otherrace",
-      "description": "Adjunct variable - Percentage of some other race, not Hispanic or Latino persons estimate MOE, 2016-2020 ACS",
+      "description": "Adjunct variable - Percentage of some other race, not Hispanic or Latino persons estimate MOE, 2018-2022 ACS",
       "propertyID": "2052498245",
       "qudt:dataType": "float8",
       "unitText": "moe",
       "minValue": "0.1",
       "maxValue": "100",
-      "startDate": "2020-01-01",
-      "endDate": "2020-12-31"
+      "startDate": "2022-01-01",
+      "endDate": "2022-12-31"
     },
     {
       "@type": "PropertyValue",
@@ -1813,32 +1813,32 @@
       "unitText": "moe",
       "minValue": "0",
       "maxValue": "100",
-      "startDate": "2020-01-01",
-      "endDate": "2020-12-31"
+      "startDate": "2022-01-01",
+      "endDate": "2022-12-31"
     },
     {
       "@type": "PropertyValue",
       "name": "mp_sngpnt",
-      "description": "Percentage of single-parent households with children under 18 estimate MOE, 2016-2020 ACS",
+      "description": "Percentage of single-parent households with children under 18 estimate MOE, 2018-2022 ACS",
       "propertyID": "2052498248",
       "qudt:dataType": "float8",
       "unitText": "moe",
       "minValue": "0.5",
       "maxValue": "100",
-      "startDate": "2020-01-01",
-      "endDate": "2020-12-31"
+      "startDate": "2022-01-01",
+      "endDate": "2022-12-31"
     },
     {
       "@type": "PropertyValue",
       "name": "mp_twomore",
-      "description": "Adjunct variable - Percentage of two or more races, not Hispanic or Latino persons estimate MOE, 2016-2020 ACS",
+      "description": "Adjunct variable - Percentage of two or more races, not Hispanic or Latino persons estimate MOE, 2018-2022 ACS",
       "propertyID": "2052498227",
       "qudt:dataType": "float8",
       "unitText": "moe",
       "minValue": "0.1",
       "maxValue": "100",
-      "startDate": "2020-01-01",
-      "endDate": "2020-12-31"
+      "startDate": "2022-01-01",
+      "endDate": "2022-12-31"
     },
     {
       "@type": "PropertyValue",
@@ -1849,20 +1849,20 @@
       "unitText": "moe",
       "minValue": "0.3",
       "maxValue": "100",
-      "startDate": "2020-01-01",
-      "endDate": "2020-12-31"
+      "startDate": "2022-01-01",
+      "endDate": "2022-12-31"
     },
     {
       "@type": "PropertyValue",
       "name": "mp_uninsur",
-      "description": "Percentage uninsured in the total civilian noninstitutionalized population estimate MOE, 2016-2020 ACS",
+      "description": "Percentage uninsured in the total civilian noninstitutionalized population estimate MOE, 2018-2022 ACS",
       "propertyID": "2052498199",
       "qudt:dataType": "float8",
       "unitText": "moe",
       "minValue": "0.1",
       "maxValue": "100",
-      "startDate": "2020-01-01",
-      "endDate": "2020-12-31"
+      "startDate": "2022-01-01",
+      "endDate": "2022-12-31"
     },
     {
       "@type": "PropertyValue",
@@ -1873,8 +1873,8 @@
       "unitText": "moe",
       "minValue": "0",
       "maxValue": "1",
-      "startDate": "2020-01-01",
-      "endDate": "2020-12-31"
+      "startDate": "2022-01-01",
+      "endDate": "2022-12-31"
     },
     {
       "@type": "PropertyValue",
@@ -1885,8 +1885,8 @@
       "unitText": "percentile",
       "minValue": "0",
       "maxValue": "1",
-      "startDate": "2020-01-01",
-      "endDate": "2020-12-31"
+      "startDate": "2022-01-01",
+      "endDate": "2022-12-31"
     },
     {
       "@type": "PropertyValue",
@@ -1897,8 +1897,8 @@
       "unitText": "percentile",
       "minValue": "0",
       "maxValue": "1",
-      "startDate": "2020-01-01",
-      "endDate": "2020-12-31"
+      "startDate": "2022-01-01",
+      "endDate": "2022-12-31"
     },
     {
       "@type": "PropertyValue",
@@ -1909,8 +1909,8 @@
       "unitText": "percentile",
       "minValue": "0",
       "maxValue": "1",
-      "startDate": "2020-01-01",
-      "endDate": "2020-12-31"
+      "startDate": "2022-01-01",
+      "endDate": "2022-12-31"
     },
     {
       "@type": "PropertyValue",
@@ -1921,8 +1921,8 @@
       "unitText": "percentile",
       "minValue": "0",
       "maxValue": "1",
-      "startDate": "2020-01-01",
-      "endDate": "2020-12-31"
+      "startDate": "2022-01-01",
+      "endDate": "2022-12-31"
     },
     {
       "@type": "PropertyValue",
@@ -1933,8 +1933,8 @@
       "unitText": "svi index",
       "minValue": "0",
       "maxValue": "4.9356",
-      "startDate": "2020-01-01",
-      "endDate": "2020-12-31"
+      "startDate": "2022-01-01",
+      "endDate": "2022-12-31"
     },
     {
       "@type": "PropertyValue",
@@ -1945,8 +1945,8 @@
       "unitText": "svi index",
       "minValue": "0",
       "maxValue": "4.6312",
-      "startDate": "2020-01-01",
-      "endDate": "2020-12-31"
+      "startDate": "2022-01-01",
+      "endDate": "2022-12-31"
     },
     {
       "@type": "PropertyValue",
@@ -1957,8 +1957,8 @@
       "unitText": "svi index",
       "minValue": "0",
       "maxValue": "1",
-      "startDate": "2020-01-01",
-      "endDate": "2020-12-31"
+      "startDate": "2022-01-01",
+      "endDate": "2022-12-31"
     },
     {
       "@type": "PropertyValue",
@@ -1969,8 +1969,8 @@
       "unitText": "svi index",
       "minValue": "0",
       "maxValue": "4.604",
-      "startDate": "2020-01-01",
-      "endDate": "2020-12-31"
+      "startDate": "2022-01-01",
+      "endDate": "2022-12-31"
     },
     {
       "@type": "PropertyValue",
@@ -1980,8 +1980,8 @@
       "unitText": "svi index",
       "minValue": "0",
       "maxValue": "14.3088",
-      "startDate": "2020-01-01",
-      "endDate": "2020-12-31"
+      "startDate": "2022-01-01",
+      "endDate": "2022-12-31"
     },
     {
       "@type": "PropertyValue",
