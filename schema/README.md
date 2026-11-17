@@ -29,11 +29,50 @@ Severity: a missing `required` slot or a wrong value is an ERROR. A missing
 `recommended` slot is a WARNING. A slot annotated `severity: warning` reports both its
 absence and value problems (a malformed date, a missing `license`) as warnings.
 
+## Two forms and the conversion
+
+| | v1 (flat) | v2 (graph) |
+|---|---|---|
+| Schema | `gaia_catalog.yaml` | `gaia_catalog_v2.yaml` |
+| Shape | one flat schema.org object | `{"@context", "@graph": [Dataset]}` |
+| Read by gaiaDB | yes | no, convert first |
+
+v2 is the form from commit `4589614`: creators carry roles, the place carries its
+reference system and extent, the distribution is a `DataDownload`, and each
+variable carries its reporting interval. It adds back what that commit dropped and
+gaiaDB reads: `version`, `about`, and each variable's `minValue` and `maxValue`
+(marked `origin: flat` in the schema).
+
+```
+# flat -> graph (add --etl to take update frequency and a few ETL settings from meta_etl)
+python3 architecture/defs/convert_catalog.py convert_catalog --direction v1_to_v2 \
+    --data_dir datastore/data --out_dir /tmp/v2
+# graph -> flat
+python3 architecture/defs/convert_catalog.py convert_catalog --direction v2_to_v1 \
+    --data_dir /tmp/v2 --out_dir /tmp/v1
+# check that flat -> graph -> flat gives back every entry
+python3 architecture/defs/convert_catalog.py convert_catalog --direction check \
+    --data_dir datastore/data
+# validate graph documents
+.venv-schema/bin/python architecture/defs/validate_catalog.py validate_catalog \
+    --form v2 --data_dir /tmp/v2
+```
+
+- **Flat to graph keeps everything.** Going back gives the same document in a
+  normal form: the context is the standard one, `distribution` is a list, the
+  measurement terms use the standard descriptions, and `additionalProperty` is
+  ordered with the EPSG entry first.
+- **Graph to flat is lossy.** `funder`, `usageInfo`, `identifier`, the ETL settings
+  in `additionalProperty`, the data-processing-level term and the variable source
+  are dropped. A missing `version` is taken from the date of `dateModified`.
+- The converter reads the single-object `provider` and `spatialCoverage` forms that
+  `4589614` wrote, and writes lists.
+
 ## Files
 
-- `gaia_catalog.yaml`: the schema.
-- `generated/gaia_catalog.schema.json`: JSON Schema produced by
-  `gen-json-schema schema/gaia_catalog.yaml`, for tools that do not use LinkML.
+- `gaia_catalog.yaml`, `gaia_catalog_v2.yaml`: the schemas.
+- `generated/*.schema.json`: JSON Schemas produced by `gen-json-schema`, for tools that
+  do not use LinkML.
 - `validation_report.md`: output of the last validation run.
 
 ## Notes on the model
@@ -42,5 +81,5 @@ absence and value problems (a malformed date, a missing `license`) as warnings.
   `jsonld_type` is `@type`.
 - `type` (for example "Vector Dataset") is the catalog's own label, separate from
   the JSON-LD `@type`, which is always `Dataset`.
-- The schema describes the flat form used today. The `@graph` form tried in
-  commit `4589614` is not modelled; gaiaDB does not read it.
+- `gaia_catalog.yaml` describes the flat form used today; gaiaDB does not read the
+  `@graph` form.

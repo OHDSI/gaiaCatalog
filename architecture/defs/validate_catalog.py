@@ -25,7 +25,9 @@ from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any, Dict, List, Optional, Set, Tuple
 
-DEFAULT_SCHEMA = Path(__file__).resolve().parents[2] / 'schema' / 'gaia_catalog.yaml'
+SCHEMA_DIR = Path(__file__).resolve().parents[2] / 'schema'
+DEFAULT_SCHEMA = SCHEMA_DIR / 'gaia_catalog.yaml'
+DEFAULT_SCHEMA_V2 = SCHEMA_DIR / 'gaia_catalog_v2.yaml'
 ERROR = 'ERROR'
 WARNING = 'WARNING'
 YEAR = re.compile(r'^(19|20)\d\d$')
@@ -61,7 +63,8 @@ class SourceReport:
 class SchemaChecker:
     """LinkML validation plus the recommended-slot walk."""
 
-    def __init__(self, schema: Path) -> None:
+    def __init__(self, schema: Path, target_class: str = 'Dataset') -> None:
+        self.target_class = target_class
         from linkml.validator import Validator
         from linkml.validator.plugins import JsonschemaValidationPlugin
         from linkml_runtime.utils.schemaview import SchemaView
@@ -81,7 +84,7 @@ class SchemaChecker:
     def validate(self, doc: Dict[str, Any]) -> List[Finding]:
         """Return the structural findings for one document."""
         findings = []
-        for result in self.validator.validate(doc, target_class='Dataset').results:
+        for result in self.validator.validate(doc, target_class=self.target_class).results:
             path, text = split_path(result.message)
             key = last_key(path) or required_name(text)
             severity = WARNING if key in self.warning_keys else ERROR
@@ -94,7 +97,7 @@ class SchemaChecker:
     def recommended(self, doc: Dict[str, Any]) -> List[Finding]:
         """Return a WARNING for each recommended slot that is absent."""
         findings: List[Finding] = []
-        self._walk(doc, 'Dataset', '', findings)
+        self._walk(doc, self.target_class, '', findings)
         return findings
 
     def _walk(self, node: Any, class_name: str, path: str, out: List[Finding]) -> None:
@@ -301,7 +304,9 @@ def read_json(path: Path) -> Optional[Dict[str, Any]]:
         return None
 
 
-def validate_source(checker: SchemaChecker, data_dir: Path, source: str) -> SourceReport:
+def validate_source(
+    checker: SchemaChecker, data_dir: Path, source: str, form: str = 'v1'
+) -> SourceReport:
     """Validate one source directory."""
     doc = read_json(data_dir / source / f'meta_json-ld_{source}.json')
     if doc is None:
@@ -310,7 +315,8 @@ def validate_source(checker: SchemaChecker, data_dir: Path, source: str) -> Sour
         return SourceReport(source, 'FAIL', 1, 0, [finding])
     etl = read_json(data_dir / source / f'meta_etl_{source}.json') or {}
     findings = checker.validate(doc) + checker.recommended(doc)
-    findings += check_semantics(doc, source, etl)
+    if form == 'v1':    # the cross-value rules are written for the flat form
+        findings += check_semantics(doc, source, etl)
     errors = sum(1 for f in findings if f.severity == ERROR)
     warnings = len(findings) - errors
     status = 'FAIL' if errors else 'WARN' if warnings else 'PASS'
@@ -319,16 +325,26 @@ def validate_source(checker: SchemaChecker, data_dir: Path, source: str) -> Sour
 
 def run_validation(
     data_dir: Path,
-    schema: Path = DEFAULT_SCHEMA,
+    schema: Optional[Path] = None,
     only: Optional[List[str]] = None,
+    form: str = 'v1',
 ) -> Dict[str, Any]:
-    """Validate every source and return the report dictionary."""
-    checker = SchemaChecker(schema)
+    """Validate every source and return the report dictionary.
+
+    Args:
+        data_dir: Directory holding <id>/meta_json-ld_<id>.json files.
+        schema: LinkML schema; defaults to the schema of the chosen form.
+        only: Source names to check; all when empty.
+        form: 'v1' (flat) or 'v2' (graph).
+    """
+    if schema is None:
+        schema = DEFAULT_SCHEMA_V2 if form == 'v2' else DEFAULT_SCHEMA
+    checker = SchemaChecker(schema, 'CatalogDocument' if form == 'v2' else 'Dataset')
     sources = sorted(
         p.name for p in data_dir.iterdir()
         if (p / f'meta_json-ld_{p.name}.json').exists() and (not only or p.name in only)
     )
-    reports = [validate_source(checker, data_dir, s) for s in sources]
+    reports = [validate_source(checker, data_dir, s, form) for s in sources]
     return {
         'generated_at': datetime.now(timezone.utc).strftime('%Y-%m-%d %H:%M UTC'),
         'schema': str(schema.name),
@@ -401,7 +417,9 @@ def add_subcommands(subparsers: Any) -> None:
         'validate_catalog', help='Validate catalog JSON-LD against the LinkML schema'
     )
     vc.add_argument('--data_dir', default='./datastore/data', help='Path to datastore/data')
-    vc.add_argument('--schema', default=str(DEFAULT_SCHEMA), help='LinkML schema file')
+    vc.add_argument('--form', choices=['v1', 'v2'], default='v1',
+                    help='flat (v1) or graph (v2) documents')
+    vc.add_argument('--schema', default=None, help='LinkML schema file (default: by form)')
     vc.add_argument('--results_file', default='./catalog_validation.json', help='JSON output')
     vc.add_argument('--report', default=None, help='Markdown report to write')
     vc.add_argument('--source', action='append', help='Only this source (repeatable)')
@@ -411,7 +429,8 @@ def add_subcommands(subparsers: Any) -> None:
 def dispatch(args: argparse.Namespace) -> int:
     """Run validate_catalog and return a process exit code."""
     logging.basicConfig(level=logging.INFO)
-    report = run_validation(Path(args.data_dir), Path(args.schema), args.source)
+    schema = Path(args.schema) if args.schema else None
+    report = run_validation(Path(args.data_dir), schema, args.source, args.form)
     Path(args.results_file).write_text(json.dumps(report, indent=2) + '\n')
     if args.report:
         Path(args.report).write_text(render_markdown(report))

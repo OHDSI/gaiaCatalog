@@ -11,6 +11,7 @@ from defs import lance_utils
 from defs import pdf2markdown
 from defs import gliner2lance
 from defs import jsonld2ntfile
+from defs import convert_catalog
 from defs import validate_catalog
 from defs import validate_ingest
 
@@ -65,6 +66,9 @@ def main(args: List[str]) -> int:
     # Subparser for validate_catalog (needs linkml, see schema/requirements.txt)
     validate_catalog.add_subcommands(subparsers)
 
+    # Subparser for convert_catalog (flat v1 <-> graph v2 JSON-LD)
+    convert_catalog.add_subcommands(subparsers)
+
     # Parse arguments
     parsed_args = parser.parse_args(args)
 
@@ -87,6 +91,8 @@ def main(args: List[str]) -> int:
         return validate_ingest.dispatch(parsed_args)
     elif parsed_args.command == "validate_catalog":
         return validate_catalog.dispatch(parsed_args)
+    elif parsed_args.command == "convert_catalog":
+        return convert_catalog.dispatch(parsed_args)
 
     return 0
 

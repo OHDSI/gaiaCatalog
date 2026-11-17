@@ -1,0 +1,407 @@
+id: https://w3id.org/ohdsi/gaiacatalog/schema/v2
+name: gaia_catalog_v2
+title: Gaia Catalog dataset metadata, v2 (graph form)
+description: >-
+  The richer JSON-LD form introduced by the metadata clean-up in commit 4589614:
+  each document is {"@context", "@graph": [Dataset]}, creators carry roles, the
+  place carries its reference system and extent, the distribution is a
+  DataDownload, variables carry their reporting interval as a property, and the
+  ETL settings are listed as additionalProperty entries.
+
+  This schema is Tim Norris's model with a few additions, marked with the
+  annotation origin=flat, that make a lossless conversion to and from the flat
+  form (gaia_catalog.yaml) possible. The 4589614 form dropped these values,
+  which gaiaDB reads: version, about, and the minimum and maximum of each
+  variable.
+
+  Conversion: architecture/defs/convert_catalog.py. Severity follows the same
+  rules as the flat schema (required is an ERROR, recommended a WARNING).
+license: Apache-2.0
+
+prefixes:
+  linkml: https://w3id.org/linkml/
+  sdo: https://schema.org/
+  dct: http://purl.org/dc/terms/
+  qudt: http://qudt.org/schema/qudt/
+  gaia: https://w3id.org/ohdsi/gaiacatalog/
+default_prefix: gaia
+default_range: string
+
+imports:
+  - linkml:types
+
+types:
+  IsoDate:
+    typeof: string
+    pattern: '^\d{4}-\d{2}-\d{2}$'
+  IsoDateOrTimestamp:
+    typeof: string
+    pattern: '^\d{4}-\d{2}-\d{2}([ T]\d{2}:\d{2}:\d{2}Z?)?$'
+  TemporalCoverage:
+    typeof: string
+    description: A date or period written start/end.
+    pattern: '^\d{4}(-\d{2}(-\d{2})?)?(/\d{4}(-\d{2}(-\d{2})?)?)?$'
+  HttpUri:
+    typeof: string
+    pattern: '^https?://\S+$'
+  LanguageCode:
+    typeof: string
+    pattern: '^[a-z]{2,3}(-[A-Za-z]{2,4})?$'
+  VersionString:
+    typeof: string
+    pattern: '^\d{4}-\d{2}-\d{2}$'
+  NumberText:
+    typeof: string
+    pattern: '^-?\d+(\.\d+)?([eE][-+]?\d+)?$'
+  XsdDataType:
+    typeof: string
+    description: A variable data type with the xsd prefix, for example xsd:float8.
+    pattern: '^xsd:[A-Za-z0-9_]+$'
+
+enums:
+  DatasetTypeEnum:
+    permissible_values:
+      Vector Dataset:
+      Raster Dataset:
+      Table Dataset:
+      Statistical Dataset:
+      API:
+  StatusEnum:
+    description: The creativeWorkStatus of the entry.
+    permissible_values:
+      draft:
+      published:
+      deprecated:
+  TermSetEnum:
+    description: The term sets that measurementTechnique draws on.
+    permissible_values:
+      dataRepresentation:
+      vectorGeometry:
+      dataProcessingLevel:
+
+slots:
+  jsonld_id:
+    alias: '@id'
+    range: HttpUri
+  jsonld_type:
+    alias: '@type'
+  jsonld_context:
+    alias: '@context'
+    range: Any
+  graph:
+    alias: '@graph'
+    range: Dataset
+    multivalued: true
+    inlined_as_list: true
+    required: true
+    minimum_cardinality: 1
+    maximum_cardinality: 1
+
+  name:
+    slot_uri: sdo:name
+  description:
+    slot_uri: sdo:description
+  url:
+    slot_uri: sdo:url
+    range: HttpUri
+  value:
+    range: Any
+  same_as:
+    alias: sameAs
+  given_name:
+    alias: givenName
+  family_name:
+    alias: familyName
+  affiliation:
+    range: Agent
+  role_name:
+    alias: roleName
+  role_agent:
+    alias: creator
+    range: Agent
+
+  # Dataset
+  disambiguating_description:
+    alias: disambiguatingDescription
+  identifier:
+    range: PropertyValue
+  in_language:
+    alias: inLanguage
+    range: LanguageCode
+  date_published:
+    alias: datePublished
+    range: IsoDate
+  date_modified:
+    alias: dateModified
+    range: IsoDateOrTimestamp
+  creator:
+    range: Role
+    multivalued: true
+    inlined_as_list: true
+    minimum_cardinality: 1
+  provider:
+    range: Agent
+    multivalued: true
+    inlined_as_list: true
+    minimum_cardinality: 1
+  funder:
+    range: Agent
+    multivalued: true
+    inlined_as_list: true
+  spatial_coverage:
+    alias: spatialCoverage
+    range: Place
+    multivalued: true
+    inlined_as_list: true
+    minimum_cardinality: 1
+    description: The first place carries the reference system and extent.
+  keywords:
+    multivalued: true
+    minimum_cardinality: 1
+  included_in_data_catalog:
+    alias: includedInDataCatalog
+    range: DataCatalog
+    multivalued: true
+    inlined_as_list: true
+  measurement_technique:
+    alias: measurementTechnique
+    range: DefinedTerm
+    multivalued: true
+    inlined_as_list: true
+    minimum_cardinality: 1
+  distribution:
+    range: DataDownload
+    multivalued: true
+    inlined_as_list: true
+  additional_property:
+    alias: additionalProperty
+    range: PropertyValue
+    multivalued: true
+    inlined_as_list: true
+  accrual_periodicity:
+    alias: 'dct:accrualPeriodicity'
+  provenance:
+    alias: 'dct:provenance'
+  is_accessible_for_free:
+    alias: isAccessibleForFree
+    range: boolean
+  additional_type:
+    alias: additionalType
+    range: DatasetTypeEnum
+  usage_info:
+    alias: usageInfo
+    multivalued: true
+  license:
+    description: A short license identifier.
+  creative_work_status:
+    alias: creativeWorkStatus
+    range: StatusEnum
+  is_related_to:
+    alias: isRelatedTo
+    multivalued: true
+  image:
+    range: HttpUri
+  temporal_coverage:
+    alias: temporalCoverage
+    range: TemporalCoverage
+  variable_measured:
+    alias: variableMeasured
+    range: Variable
+    multivalued: true
+    inlined_as_list: true
+    minimum_cardinality: 1
+  # additions that keep the conversion lossless
+  version:
+    range: VersionString
+    annotations: {origin: flat}
+  about:
+    range: Event
+    multivalued: true
+    inlined_as_list: true
+    annotations: {origin: flat}
+  is_based_on:
+    alias: isBasedOn
+    range: DataCatalog
+    multivalued: true
+    inlined_as_list: true
+    annotations: {origin: flat}
+
+  # parts
+  term_code:
+    alias: termCode
+  in_defined_term_set:
+    alias: inDefinedTermSet
+    range: DefinedTermSet
+  content_url:
+    alias: contentUrl
+  encoding_format:
+    alias: encodingFormat
+  property_id:
+    alias: propertyID
+  unit_text:
+    alias: unitText
+  unit_code:
+    alias: unitCode
+  alternate_name:
+    alias: alternateName
+    description: The OMOP concept id of the variable, as text.
+    pattern: '^\d+$'
+  source_organization:
+    alias: sourceOrganization
+    range: Agent
+  data_type:
+    alias: 'qudt:dataType'
+    range: XsdDataType
+  min_value:
+    alias: minValue
+    range: NumberText
+    annotations: {origin: flat}
+  max_value:
+    alias: maxValue
+    range: NumberText
+    annotations: {origin: flat}
+  potential_action:
+    alias: potentialAction
+    range: Any
+
+classes:
+  Any:
+    class_uri: linkml:Any
+
+  CatalogDocument:
+    description: One file holding an @context and an @graph with one Dataset.
+    tree_root: true
+    slots: [jsonld_context, graph]
+    slot_usage:
+      jsonld_context: {required: true}
+
+  Dataset:
+    slots:
+      - jsonld_type
+      - jsonld_id
+      - name
+      - description
+      - disambiguating_description
+      - identifier
+      - url
+      - in_language
+      - date_published
+      - date_modified
+      - creator
+      - provider
+      - funder
+      - spatial_coverage
+      - keywords
+      - included_in_data_catalog
+      - measurement_technique
+      - distribution
+      - additional_property
+      - accrual_periodicity
+      - provenance
+      - is_accessible_for_free
+      - additional_type
+      - usage_info
+      - license
+      - creative_work_status
+      - is_related_to
+      - image
+      - temporal_coverage
+      - variable_measured
+      - version
+      - about
+      - is_based_on
+    slot_usage:
+      jsonld_type: {required: true, equals_string: 'schema:Dataset'}
+      jsonld_id: {required: true}
+      name: {required: true}
+      description: {required: true}
+      url: {recommended: true}
+      in_language: {recommended: true}
+      date_published: {required: true}
+      date_modified: {recommended: true}
+      creator: {required: true}
+      provider: {required: true}
+      spatial_coverage: {required: true}
+      keywords: {required: true}
+      included_in_data_catalog: {recommended: true}
+      measurement_technique: {required: true}
+      additional_property: {recommended: true}
+      additional_type: {recommended: true}
+      license: {recommended: true}
+      variable_measured: {required: true}
+      version: {required: true}
+      temporal_coverage: {recommended: true}
+
+  Role:
+    slots: [jsonld_type, role_name, role_agent]
+    slot_usage:
+      jsonld_type: {equals_string: Role}
+      role_name: {required: true}
+      role_agent: {required: true}
+
+  Agent:
+    description: >-
+      An organization or person. same_as, given_name, family_name, affiliation and
+      a text identifier (a ROR or ORCID URL) are kept from the flat form.
+    slots: [jsonld_id, jsonld_type, name, url, description, identifier, same_as,
+            given_name, family_name, affiliation]
+    slot_usage:
+      name: {required: true}
+      identifier: {range: string}
+
+  Place:
+    slots: [jsonld_id, jsonld_type, name, additional_property]
+    slot_usage:
+      name: {required: true}
+
+  DataCatalog:
+    slots: [jsonld_id, jsonld_type, name, url]
+    slot_usage:
+      name: {required: true}
+
+  DefinedTermSet:
+    slots: [jsonld_type, name, url]
+    slot_usage:
+      name: {required: true, range: TermSetEnum}
+
+  DefinedTerm:
+    description: A measurementTechnique term (data structure, geometry, processing level).
+    slots: [jsonld_type, name, term_code, in_defined_term_set]
+    slot_usage:
+      term_code: {required: true}
+      in_defined_term_set: {required: true}
+
+  DataDownload:
+    slots: [jsonld_type, name, content_url, encoding_format]
+    slot_usage:
+      content_url: {required: true}
+
+  PropertyValue:
+    slots: [jsonld_type, name, property_id, value, url, unit_text]
+    slot_usage:
+      name: {recommended: true}
+
+  Variable:
+    description: One variable (an entry of variableMeasured).
+    slots:
+      - jsonld_type
+      - name
+      - description
+      - data_type
+      - unit_text
+      - unit_code
+      - alternate_name
+      - source_organization
+      - identifier
+      - additional_property
+      - min_value
+      - max_value
+    slot_usage:
+      name: {required: true}
+      data_type: {required: true}
+      description: {recommended: true}
+
+  Event:
+    slots: [jsonld_type, name, description, potential_action]
+    slot_usage:
+      name: {required: true}
