@@ -1,0 +1,112 @@
+{
+  "@context": {
+    "schema": "http://schema.org/",
+    "cdif": "https://w3id.org/cdif/",
+    "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
+    "geocr": "http://mlcommons.org/croissant/geocr/",
+    "geosparql": "http://www.opengis.net/ont/geosparql#",
+    "dcterms": "http://purl.org/dc/terms/",
+    "spdx": "http://spdx.org/rdf/terms#",
+    "gaia": "https://w3id.org/ohdsi/gaia/"
+  },
+  "@id": "https://w3id.org/ohdsi/gaia/recipe/mdc_hospitals",
+  "@type": [
+    "schema:Dataset"
+  ],
+  "schema:identifier": {
+    "@type": [
+      "schema:PropertyValue"
+    ],
+    "schema:propertyID": {
+      "@id": "https://w3id.org/ohdsi/gaia/recipe/"
+    },
+    "schema:value": "mdc_hospitals"
+  },
+  "schema:name": "Miami-Dade Hospitals",
+  "schema:version": "2026-10-17",
+  "schema:license": [
+    "https://creativecommons.org/publicdomain/mark/1.0/"
+  ],
+  "gaia:representation": "vector",
+  "geosparql:crs": {
+    "@id": "http://www.opengis.net/def/crs/EPSG/0/4326"
+  },
+  "gaia:geometryType": "point",
+  "gaia:labelColumn": "name",
+  "gaia:validity": {
+    "gaia:static": true
+  },
+  "gaia:updateFrequency": "as_needed",
+  "schema:variableMeasured": [
+    {
+      "@id": "https://w3id.org/ohdsi/gaia/recipe/mdc_hospitals/var/objectid",
+      "@type": [
+        "schema:PropertyValue",
+        "cdi:InstanceVariable"
+      ],
+      "schema:name": "objectid",
+      "cdif:role": "UnitIdentifier",
+      "cdif:physicalDataType": "int4",
+      "schema:minValue": 1,
+      "schema:maxValue": 28
+    },
+    {
+      "@id": "https://w3id.org/ohdsi/gaia/recipe/mdc_hospitals/var/name",
+      "@type": [
+        "schema:PropertyValue",
+        "cdi:InstanceVariable"
+      ],
+      "schema:name": "name",
+      "cdif:role": "Descriptor",
+      "cdif:physicalDataType": "varchar"
+    },
+    {
+      "@id": "https://w3id.org/ohdsi/gaia/recipe/mdc_hospitals/var/zipcode",
+      "@type": [
+        "schema:PropertyValue",
+        "cdi:InstanceVariable"
+      ],
+      "schema:name": "zipcode",
+      "cdif:role": "Attribute",
+      "cdif:physicalDataType": "int4",
+      "schema:minValue": 33012,
+      "schema:maxValue": 33189
+    }
+  ],
+  "cdif:hasPrimaryKey": {
+    "@type": [
+      "cdif:Key"
+    ],
+    "cdif:isComposedOf": [
+      {
+        "@type": [
+          "cdi:ComponentPosition"
+        ],
+        "cdi:indexes": {
+          "@id": "https://w3id.org/ohdsi/gaia/recipe/mdc_hospitals/var/objectid"
+        },
+        "cdi:value": 1
+      }
+    ]
+  },
+  "gaia:retrieval": {
+    "gaia:method": "arcgis_featureserver",
+    "gaia:url": "https://services.arcgis.com/8Pc9XBTAsYuxx9Ny/arcgis/rest/services/Hospital_gdb/FeatureServer/0/query?where=1%3D1&outFields=*&outSR=4326&f=json"
+  },
+  "schema:subjectOf": {
+    "dcterms:conformsTo": [
+      {
+        "@id": "https://w3id.org/cdif/core/2.0"
+      },
+      {
+        "@id": "https://w3id.org/cdif/discovery/2.0"
+      },
+      {
+        "@id": "https://w3id.org/cdif/data_description/2.0"
+      },
+      {
+        "@id": "https://w3id.org/ohdsi/gaia/recipe/0.1"
+      }
+    ]
+  }
+}

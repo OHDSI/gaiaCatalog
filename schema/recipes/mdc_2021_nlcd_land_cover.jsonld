@@ -1,0 +1,164 @@
+{
+  "@context": {
+    "schema": "http://schema.org/",
+    "cdif": "https://w3id.org/cdif/",
+    "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
+    "geocr": "http://mlcommons.org/croissant/geocr/",
+    "geosparql": "http://www.opengis.net/ont/geosparql#",
+    "dcterms": "http://purl.org/dc/terms/",
+    "spdx": "http://spdx.org/rdf/terms#",
+    "gaia": "https://w3id.org/ohdsi/gaia/"
+  },
+  "@id": "https://w3id.org/ohdsi/gaia/recipe/mdc_2021_nlcd_land_cover",
+  "@type": [
+    "schema:Dataset"
+  ],
+  "schema:identifier": {
+    "@type": [
+      "schema:PropertyValue"
+    ],
+    "schema:propertyID": {
+      "@id": "https://w3id.org/ohdsi/gaia/recipe/"
+    },
+    "schema:value": "mdc_2021_nlcd_land_cover"
+  },
+  "schema:name": "2021 Miami-Dade NLCD Land Cover",
+  "schema:version": "2026-10-17",
+  "schema:license": [
+    "https://creativecommons.org/publicdomain/mark/1.0/"
+  ],
+  "gaia:representation": "raster",
+  "geosparql:crs": {
+    "@id": "http://www.opengis.net/def/crs/EPSG/0/4326"
+  },
+  "geocr:spatialResolution": {
+    "schema:value": 30,
+    "schema:unitCode": "http://qudt.org/vocab/unit/M"
+  },
+  "gaia:validity": {
+    "gaia:start": "2021",
+    "gaia:end": "2021",
+    "gaia:layout": "single"
+  },
+  "gaia:updateFrequency": "never",
+  "schema:variableMeasured": [
+    {
+      "@id": "https://w3id.org/ohdsi/gaia/recipe/mdc_2021_nlcd_land_cover/var/lc",
+      "@type": [
+        "schema:PropertyValue",
+        "cdi:InstanceVariable"
+      ],
+      "schema:name": "lc",
+      "schema:description": "Classified land cover (NLCD 2021, contiguous US legend)",
+      "cdif:role": "Measure",
+      "cdif:physicalDataType": "uint8",
+      "gaia:band": 1,
+      "gaia:valueDomain": [
+        {
+          "gaia:code": "11",
+          "gaia:label": "Open Water"
+        },
+        {
+          "gaia:code": "12",
+          "gaia:label": "Perennial Ice/Snow"
+        },
+        {
+          "gaia:code": "21",
+          "gaia:label": "Developed, Open Space"
+        },
+        {
+          "gaia:code": "22",
+          "gaia:label": "Developed, Low Intensity"
+        },
+        {
+          "gaia:code": "23",
+          "gaia:label": "Developed, Medium Intensity"
+        },
+        {
+          "gaia:code": "24",
+          "gaia:label": "Developed, High Intensity"
+        },
+        {
+          "gaia:code": "31",
+          "gaia:label": "Barren Land"
+        },
+        {
+          "gaia:code": "41",
+          "gaia:label": "Deciduous Forest"
+        },
+        {
+          "gaia:code": "42",
+          "gaia:label": "Evergreen Forest"
+        },
+        {
+          "gaia:code": "43",
+          "gaia:label": "Mixed Forest"
+        },
+        {
+          "gaia:code": "52",
+          "gaia:label": "Shrub/Scrub"
+        },
+        {
+          "gaia:code": "71",
+          "gaia:label": "Grassland/Herbaceous"
+        },
+        {
+          "gaia:code": "81",
+          "gaia:label": "Pasture/Hay"
+        },
+        {
+          "gaia:code": "82",
+          "gaia:label": "Cultivated Crops"
+        },
+        {
+          "gaia:code": "90",
+          "gaia:label": "Woody Wetlands"
+        },
+        {
+          "gaia:code": "95",
+          "gaia:label": "Emergent Herbaceous Wetlands"
+        }
+      ]
+    }
+  ],
+  "gaia:files": [
+    {
+      "gaia:path": "mdc_2021_nlcd_land_cover.tif"
+    }
+  ],
+  "gaia:derivation": {
+    "gaia:method": "clip",
+    "gaia:inputs": [
+      "us_2021_nlcd_land_cover",
+      "fl_2022_tl_cousub"
+    ],
+    "gaia:parameters": {
+      "cutline": {
+        "recipe": "fl_2022_tl_cousub",
+        "filter": [
+          {
+            "column": "countyfp",
+            "operator": "=",
+            "value": "086"
+          }
+        ]
+      }
+    }
+  },
+  "schema:subjectOf": {
+    "dcterms:conformsTo": [
+      {
+        "@id": "https://w3id.org/cdif/core/2.0"
+      },
+      {
+        "@id": "https://w3id.org/cdif/discovery/2.0"
+      },
+      {
+        "@id": "https://w3id.org/cdif/data_description/2.0"
+      },
+      {
+        "@id": "https://w3id.org/ohdsi/gaia/recipe/0.1"
+      }
+    ]
+  }
+}

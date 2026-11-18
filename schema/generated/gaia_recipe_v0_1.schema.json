@@ -1,0 +1,1248 @@
+{
+  "$defs": {
+    "Any": {
+      "additionalProperties": true,
+      "description": "",
+      "title": "Any",
+      "type": [
+        "null",
+        "boolean",
+        "object",
+        "number",
+        "string"
+      ]
+    },
+    "CatalogRecord": {
+      "additionalProperties": false,
+      "description": "The catalog record, which says which profiles the recipe follows.",
+      "properties": {
+        "dcterms:conformsTo": {
+          "items": {
+            "$ref": "#/$defs/IriRef"
+          },
+          "minItems": 1,
+          "type": "array"
+        }
+      },
+      "required": [
+        "dcterms:conformsTo"
+      ],
+      "title": "CatalogRecord",
+      "type": "object"
+    },
+    "CodeLabel": {
+      "additionalProperties": false,
+      "description": "",
+      "properties": {
+        "gaia:code": {
+          "type": "string"
+        },
+        "gaia:label": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "gaia:code",
+        "gaia:label"
+      ],
+      "title": "CodeLabel",
+      "type": "object"
+    },
+    "ComponentPosition": {
+      "additionalProperties": false,
+      "description": "",
+      "properties": {
+        "@type": {
+          "items": {
+            "type": "string"
+          },
+          "type": [
+            "array",
+            "null"
+          ]
+        },
+        "cdi:indexes": {
+          "$ref": "#/$defs/IriRef"
+        },
+        "cdi:value": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "cdi:indexes",
+        "cdi:value"
+      ],
+      "title": "ComponentPosition",
+      "type": "object"
+    },
+    "CrsRef": {
+      "additionalProperties": false,
+      "description": "A reference to an EPSG coordinate reference system by URI.",
+      "properties": {
+        "@id": {
+          "pattern": "^http://www\\.opengis\\.net/def/crs/EPSG/0/\\d+$",
+          "type": "string"
+        }
+      },
+      "required": [
+        "@id"
+      ],
+      "title": "CrsRef",
+      "type": "object"
+    },
+    "DataDownload": {
+      "additionalProperties": false,
+      "description": "",
+      "properties": {
+        "@type": {
+          "items": {
+            "type": "string"
+          },
+          "type": [
+            "array",
+            "null"
+          ]
+        },
+        "schema:contentUrl": {
+          "type": "string"
+        },
+        "schema:encodingFormat": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "required": [
+        "schema:contentUrl"
+      ],
+      "title": "DataDownload",
+      "type": "object"
+    },
+    "Derivation": {
+      "additionalProperties": false,
+      "description": "",
+      "properties": {
+        "gaia:inputs": {
+          "items": {
+            "pattern": "^[a-z0-9_]+$",
+            "type": "string"
+          },
+          "minItems": 1,
+          "type": "array"
+        },
+        "gaia:method": {
+          "$ref": "#/$defs/DerivationMethodEnum"
+        },
+        "gaia:parameters": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/Any"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      },
+      "required": [
+        "gaia:method",
+        "gaia:inputs"
+      ],
+      "title": "Derivation",
+      "type": "object"
+    },
+    "DerivationMethodEnum": {
+      "description": "",
+      "enum": [
+        "subset",
+        "clip",
+        "voronoi",
+        "buffer",
+        "temporal_combine"
+      ],
+      "title": "DerivationMethodEnum",
+      "type": "string"
+    },
+    "FileEntry": {
+      "additionalProperties": false,
+      "description": "",
+      "properties": {
+        "gaia:band": {
+          "minimum": 1,
+          "type": [
+            "integer",
+            "null"
+          ]
+        },
+        "gaia:layer": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "gaia:path": {
+          "type": "string"
+        },
+        "gaia:period": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/PeriodValidity"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "spdx:checksum": {
+          "pattern": "^sha256:[0-9a-f]{64}$",
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "required": [
+        "gaia:path"
+      ],
+      "title": "FileEntry",
+      "type": "object"
+    },
+    "GeometryTypeEnum": {
+      "description": "",
+      "enum": [
+        "point",
+        "multipoint",
+        "multilinestring",
+        "multipolygon"
+      ],
+      "title": "GeometryTypeEnum",
+      "type": "string"
+    },
+    "Identifier": {
+      "additionalProperties": false,
+      "description": "",
+      "properties": {
+        "@type": {
+          "items": {
+            "type": "string"
+          },
+          "type": [
+            "array",
+            "null"
+          ]
+        },
+        "schema:propertyID": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/IriRef"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "schema:value": {
+          "$ref": "#/$defs/Any"
+        }
+      },
+      "required": [
+        "schema:value"
+      ],
+      "title": "Identifier",
+      "type": "object"
+    },
+    "IriRef": {
+      "additionalProperties": false,
+      "description": "A reference to another resource by IRI.",
+      "properties": {
+        "@id": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "@id"
+      ],
+      "title": "IriRef",
+      "type": "object"
+    },
+    "JoinsTo": {
+      "additionalProperties": false,
+      "description": "",
+      "properties": {
+        "gaia:joinKey": {
+          "pattern": "^\\S+$",
+          "type": "string"
+        },
+        "gaia:table": {
+          "pattern": "^[a-z0-9_]+$",
+          "type": "string"
+        },
+        "gaia:targetKey": {
+          "pattern": "^\\S+$",
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "required": [
+        "gaia:table",
+        "gaia:joinKey"
+      ],
+      "title": "JoinsTo",
+      "type": "object"
+    },
+    "Key": {
+      "additionalProperties": false,
+      "description": "",
+      "properties": {
+        "@type": {
+          "items": {
+            "type": "string"
+          },
+          "type": [
+            "array",
+            "null"
+          ]
+        },
+        "cdif:isComposedOf": {
+          "items": {
+            "$ref": "#/$defs/ComponentPosition"
+          },
+          "minItems": 1,
+          "type": "array"
+        }
+      },
+      "required": [
+        "cdif:isComposedOf"
+      ],
+      "title": "Key",
+      "type": "object"
+    },
+    "LayoutEnum": {
+      "description": "",
+      "enum": [
+        "single",
+        "column_per_period",
+        "long",
+        "jsonb_series",
+        "file_per_period"
+      ],
+      "title": "LayoutEnum",
+      "type": "string"
+    },
+    "PeriodValidity": {
+      "additionalProperties": false,
+      "description": "The period the values stand for.",
+      "properties": {
+        "gaia:end": {
+          "pattern": "^\\d{4}(-\\d{2}(-\\d{2})?)?$",
+          "type": "string"
+        },
+        "gaia:layout": {
+          "$ref": "#/$defs/LayoutEnum"
+        },
+        "gaia:start": {
+          "pattern": "^\\d{4}(-\\d{2}(-\\d{2})?)?$",
+          "type": "string"
+        }
+      },
+      "required": [
+        "gaia:start",
+        "gaia:end"
+      ],
+      "title": "PeriodValidity",
+      "type": "object"
+    },
+    "PhysicalDataTypeEnum": {
+      "description": "Database and raster value types (not QUDT or UCUM; units are separate).",
+      "enum": [
+        "varchar",
+        "text",
+        "int2",
+        "int4",
+        "int8",
+        "float4",
+        "float8",
+        "numeric",
+        "jsonb",
+        "date",
+        "timestamp",
+        "boolean",
+        "uint8",
+        "uint16",
+        "int16",
+        "float32"
+      ],
+      "title": "PhysicalDataTypeEnum",
+      "type": "string"
+    },
+    "Recipe": {
+      "additionalProperties": false,
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "gaia:representation": {
+                "const": "vector"
+              }
+            },
+            "required": [
+              "gaia:representation"
+            ]
+          },
+          "then": {
+            "properties": {
+              "geosparql:crs": {},
+              "gaia:geometryType": {},
+              "gaia:labelColumn": {}
+            },
+            "required": [
+              "gaia:geometryType",
+              "gaia:labelColumn",
+              "geosparql:crs"
+            ]
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "gaia:representation": {
+                "const": "raster"
+              }
+            },
+            "required": [
+              "gaia:representation"
+            ]
+          },
+          "then": {
+            "properties": {
+              "geosparql:crs": {},
+              "gaia:files": {}
+            },
+            "required": [
+              "geosparql:crs",
+              "gaia:files"
+            ]
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "gaia:representation": {
+                "const": "table"
+              }
+            },
+            "required": [
+              "gaia:representation"
+            ]
+          },
+          "then": {
+            "properties": {
+              "gaia:joinsTo": {}
+            },
+            "required": [
+              "gaia:joinsTo"
+            ]
+          }
+        }
+      ],
+      "description": "One recipe, a schema.org Dataset carrying the four layers.",
+      "properties": {
+        "@context": {
+          "$ref": "#/$defs/Any"
+        },
+        "@id": {
+          "type": "string"
+        },
+        "@type": {
+          "items": {
+            "type": "string"
+          },
+          "minItems": 1,
+          "type": "array"
+        },
+        "cdif:hasPrimaryKey": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/Key"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "gaia:derivation": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/Derivation"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "gaia:files": {
+          "items": {
+            "$ref": "#/$defs/FileEntry"
+          },
+          "minItems": 1,
+          "type": [
+            "array",
+            "null"
+          ]
+        },
+        "gaia:geometryType": {
+          "$ref": "#/$defs/GeometryTypeEnum"
+        },
+        "gaia:joinsTo": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/JoinsTo"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "gaia:labelColumn": {
+          "pattern": "^\\S+$",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "gaia:representation": {
+          "$ref": "#/$defs/RepresentationEnum"
+        },
+        "gaia:retrieval": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/Retrieval"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "gaia:updateFrequency": {
+          "$ref": "#/$defs/UpdateFrequencyEnum"
+        },
+        "gaia:validity": {
+          "$ref": "#/$defs/Any",
+          "anyOf": [
+            {
+              "$ref": "#/$defs/PeriodValidity"
+            },
+            {
+              "$ref": "#/$defs/StaticValidity"
+            }
+          ]
+        },
+        "geocr:spatialResolution": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/Resolution"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "geocr:temporalResolution": {
+          "pattern": "^P(\\d+Y)?(\\d+M)?(\\d+W)?(\\d+D)?$",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "geosparql:crs": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/CrsRef"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "schema:description": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "schema:distribution": {
+          "items": {
+            "$ref": "#/$defs/DataDownload"
+          },
+          "type": [
+            "array",
+            "null"
+          ]
+        },
+        "schema:identifier": {
+          "$ref": "#/$defs/Identifier"
+        },
+        "schema:license": {
+          "items": {
+            "type": "string"
+          },
+          "minItems": 1,
+          "type": "array"
+        },
+        "schema:name": {
+          "type": "string"
+        },
+        "schema:subjectOf": {
+          "$ref": "#/$defs/CatalogRecord"
+        },
+        "schema:variableMeasured": {
+          "items": {
+            "$ref": "#/$defs/Variable"
+          },
+          "minItems": 1,
+          "type": "array"
+        },
+        "schema:version": {
+          "pattern": "^\\d{4}-\\d{2}-\\d{2}$",
+          "type": "string"
+        }
+      },
+      "required": [
+        "@context",
+        "@id",
+        "@type",
+        "schema:identifier",
+        "schema:name",
+        "schema:version",
+        "schema:license",
+        "gaia:validity",
+        "gaia:updateFrequency",
+        "schema:variableMeasured",
+        "gaia:representation",
+        "schema:subjectOf"
+      ],
+      "title": "Recipe",
+      "type": "object",
+      "oneOf": [
+        {
+          "required": [
+            "gaia:retrieval"
+          ]
+        },
+        {
+          "required": [
+            "gaia:derivation"
+          ]
+        }
+      ]
+    },
+    "RepresentationEnum": {
+      "description": "",
+      "enum": [
+        "vector",
+        "raster",
+        "table"
+      ],
+      "title": "RepresentationEnum",
+      "type": "string"
+    },
+    "Resolution": {
+      "additionalProperties": false,
+      "description": "",
+      "properties": {
+        "schema:unitCode": {
+          "description": "A QUDT unit URI (or a UCUM code). Not an OMOP concept id.",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "schema:value": {
+          "type": "number"
+        }
+      },
+      "required": [
+        "schema:value"
+      ],
+      "title": "Resolution",
+      "type": "object"
+    },
+    "Retrieval": {
+      "additionalProperties": false,
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "gaia:method": {
+                "const": "download"
+              }
+            },
+            "required": [
+              "gaia:method"
+            ]
+          },
+          "then": {
+            "properties": {
+              "gaia:url": {}
+            },
+            "required": [
+              "gaia:url"
+            ]
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "gaia:method": {
+                "const": "download_unzip"
+              }
+            },
+            "required": [
+              "gaia:method"
+            ]
+          },
+          "then": {
+            "properties": {
+              "gaia:url": {}
+            },
+            "required": [
+              "gaia:url"
+            ]
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "gaia:method": {
+                "const": "api_query"
+              }
+            },
+            "required": [
+              "gaia:method"
+            ]
+          },
+          "then": {
+            "properties": {
+              "gaia:url": {}
+            },
+            "required": [
+              "gaia:url"
+            ]
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "gaia:method": {
+                "const": "arcgis_featureserver"
+              }
+            },
+            "required": [
+              "gaia:method"
+            ]
+          },
+          "then": {
+            "properties": {
+              "gaia:url": {}
+            },
+            "required": [
+              "gaia:url"
+            ]
+          }
+        }
+      ],
+      "description": "",
+      "properties": {
+        "gaia:credential": {
+          "pattern": "^[A-Z][A-Z0-9_]*$",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "gaia:method": {
+          "$ref": "#/$defs/RetrievalMethodEnum"
+        },
+        "gaia:transform": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/Transform"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "gaia:url": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "required": [
+        "gaia:method"
+      ],
+      "title": "Retrieval",
+      "type": "object"
+    },
+    "RetrievalMethodEnum": {
+      "description": "",
+      "enum": [
+        "download",
+        "download_unzip",
+        "api_query",
+        "arcgis_featureserver",
+        "manual"
+      ],
+      "title": "RetrievalMethodEnum",
+      "type": "string"
+    },
+    "RoleEnum": {
+      "description": "Variable role. Names as used in the review's CDIF record; check against the CDIF 2.0 vocabulary.",
+      "enum": [
+        "UnitIdentifier",
+        "Measure",
+        "Attribute",
+        "Dimension",
+        "Descriptor"
+      ],
+      "title": "RoleEnum",
+      "type": "string"
+    },
+    "StaticValidity": {
+      "additionalProperties": false,
+      "description": "The values do not change over time.",
+      "properties": {
+        "gaia:static": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "gaia:static"
+      ],
+      "title": "StaticValidity",
+      "type": "object"
+    },
+    "Transform": {
+      "additionalProperties": false,
+      "description": "The escape hatch for bespoke recipes. Reviewed, and warned about.",
+      "properties": {
+        "gaia:engine": {
+          "$ref": "#/$defs/TransformEngineEnum"
+        },
+        "gaia:reason": {
+          "type": "string"
+        },
+        "gaia:script": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "gaia:engine",
+        "gaia:reason",
+        "gaia:script"
+      ],
+      "title": "Transform",
+      "type": "object"
+    },
+    "TransformEngineEnum": {
+      "description": "",
+      "enum": [
+        "ogr2ogr_sqlite",
+        "sql"
+      ],
+      "title": "TransformEngineEnum",
+      "type": "string"
+    },
+    "UpdateFrequencyEnum": {
+      "description": "",
+      "enum": [
+        "never",
+        "annual",
+        "monthly",
+        "as_needed"
+      ],
+      "title": "UpdateFrequencyEnum",
+      "type": "string"
+    },
+    "Variable": {
+      "additionalProperties": false,
+      "description": "One variable, both a schema.org PropertyValue and a CDIF InstanceVariable.",
+      "properties": {
+        "@id": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "@type": {
+          "items": {
+            "type": "string"
+          },
+          "type": [
+            "array",
+            "null"
+          ]
+        },
+        "cdi:nullSequence": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/Any"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "description": "Sentinel value for a missing value, per variable."
+        },
+        "cdif:physicalDataType": {
+          "$ref": "#/$defs/PhysicalDataTypeEnum"
+        },
+        "cdif:role": {
+          "$ref": "#/$defs/RoleEnum"
+        },
+        "gaia:band": {
+          "minimum": 1,
+          "type": [
+            "integer",
+            "null"
+          ]
+        },
+        "gaia:validity": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/PeriodValidity"
+            },
+            {
+              "$ref": "#/$defs/StaticValidity"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "gaia:valueDomain": {
+          "description": "Class codes of a categorical variable.",
+          "items": {
+            "$ref": "#/$defs/CodeLabel"
+          },
+          "type": [
+            "array",
+            "null"
+          ]
+        },
+        "schema:description": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "schema:maxValue": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "schema:minValue": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "schema:name": {
+          "type": "string"
+        },
+        "schema:propertyID": {
+          "items": {
+            "$ref": "#/$defs/IriRef"
+          },
+          "type": [
+            "array",
+            "null"
+          ]
+        },
+        "schema:unitCode": {
+          "description": "A QUDT unit URI (or a UCUM code). Not an OMOP concept id.",
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "required": [
+        "schema:name",
+        "cdif:role",
+        "cdif:physicalDataType"
+      ],
+      "title": "Variable",
+      "type": "object"
+    }
+  },
+  "$id": "https://w3id.org/ohdsi/gaia/recipe/0.1",
+  "$schema": "https://json-schema.org/draft/2019-09/schema",
+  "additionalProperties": false,
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "gaia:representation": {
+            "const": "vector"
+          }
+        },
+        "required": [
+          "gaia:representation"
+        ]
+      },
+      "then": {
+        "properties": {
+          "geosparql:crs": {},
+          "gaia:geometryType": {},
+          "gaia:labelColumn": {}
+        },
+        "required": [
+          "gaia:geometryType",
+          "gaia:labelColumn",
+          "geosparql:crs"
+        ]
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "gaia:representation": {
+            "const": "raster"
+          }
+        },
+        "required": [
+          "gaia:representation"
+        ]
+      },
+      "then": {
+        "properties": {
+          "geosparql:crs": {},
+          "gaia:files": {}
+        },
+        "required": [
+          "geosparql:crs",
+          "gaia:files"
+        ]
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "gaia:representation": {
+            "const": "table"
+          }
+        },
+        "required": [
+          "gaia:representation"
+        ]
+      },
+      "then": {
+        "properties": {
+          "gaia:joinsTo": {}
+        },
+        "required": [
+          "gaia:joinsTo"
+        ]
+      }
+    }
+  ],
+  "description": "One recipe, a schema.org Dataset carrying the four layers.",
+  "metamodel_version": "1.7.0",
+  "properties": {
+    "@context": {
+      "$ref": "#/$defs/Any"
+    },
+    "@id": {
+      "type": "string"
+    },
+    "@type": {
+      "items": {
+        "type": "string"
+      },
+      "minItems": 1,
+      "type": "array"
+    },
+    "cdif:hasPrimaryKey": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/Key"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "gaia:derivation": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/Derivation"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "gaia:files": {
+      "items": {
+        "$ref": "#/$defs/FileEntry"
+      },
+      "minItems": 1,
+      "type": [
+        "array",
+        "null"
+      ]
+    },
+    "gaia:geometryType": {
+      "$ref": "#/$defs/GeometryTypeEnum"
+    },
+    "gaia:joinsTo": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/JoinsTo"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "gaia:labelColumn": {
+      "pattern": "^\\S+$",
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "gaia:representation": {
+      "$ref": "#/$defs/RepresentationEnum"
+    },
+    "gaia:retrieval": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/Retrieval"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "gaia:updateFrequency": {
+      "$ref": "#/$defs/UpdateFrequencyEnum"
+    },
+    "gaia:validity": {
+      "$ref": "#/$defs/Any",
+      "anyOf": [
+        {
+          "$ref": "#/$defs/PeriodValidity"
+        },
+        {
+          "$ref": "#/$defs/StaticValidity"
+        }
+      ]
+    },
+    "geocr:spatialResolution": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/Resolution"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "geocr:temporalResolution": {
+      "pattern": "^P(\\d+Y)?(\\d+M)?(\\d+W)?(\\d+D)?$",
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "geosparql:crs": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/CrsRef"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "schema:description": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "schema:distribution": {
+      "items": {
+        "$ref": "#/$defs/DataDownload"
+      },
+      "type": [
+        "array",
+        "null"
+      ]
+    },
+    "schema:identifier": {
+      "$ref": "#/$defs/Identifier"
+    },
+    "schema:license": {
+      "items": {
+        "type": "string"
+      },
+      "minItems": 1,
+      "type": "array"
+    },
+    "schema:name": {
+      "type": "string"
+    },
+    "schema:subjectOf": {
+      "$ref": "#/$defs/CatalogRecord"
+    },
+    "schema:variableMeasured": {
+      "items": {
+        "$ref": "#/$defs/Variable"
+      },
+      "minItems": 1,
+      "type": "array"
+    },
+    "schema:version": {
+      "pattern": "^\\d{4}-\\d{2}-\\d{2}$",
+      "type": "string"
+    }
+  },
+  "required": [
+    "@context",
+    "@id",
+    "@type",
+    "schema:identifier",
+    "schema:name",
+    "schema:version",
+    "schema:license",
+    "gaia:validity",
+    "gaia:updateFrequency",
+    "schema:variableMeasured",
+    "gaia:representation",
+    "schema:subjectOf"
+  ],
+  "title": "gaia_recipe_v0_1",
+  "type": "object",
+  "version": null,
+  "oneOf": [
+    {
+      "required": [
+        "gaia:retrieval"
+      ]
+    },
+    {
+      "required": [
+        "gaia:derivation"
+      ]
+    }
+  ]
+}
