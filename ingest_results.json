@@ -1,0 +1,1253 @@
+{
+  "generated_at": "2026-11-17 15:57 UTC",
+  "image": "ohdsi/gaia-db:main",
+  "image_id": "sha256:03ac6ba13d1932fb4fa44eb981ffd8e7ea93fa50cdcaa3e4f49eb905470ce733",
+  "results": [
+    {
+      "source": "bogota_2019_estratos_manzana_dane",
+      "structure": "vector",
+      "status": "TIMEOUT",
+      "failed_step": "ingest",
+      "message": "no result after 1800s",
+      "warnings": [],
+      "duration_s": 1814.7,
+      "rows": null
+    },
+    {
+      "source": "egom_2012_viirs_vnp46a4",
+      "structure": "raster",
+      "status": "FAIL",
+      "failed_step": "raster_register",
+      "message": "Raster registration failed: public.egom_2012_viirs_vnp46a4.rast not found. Has the raster been loaded with raster2pgsql (ingest_datasource)?",
+      "warnings": [],
+      "duration_s": 15.3,
+      "rows": null
+    },
+    {
+      "source": "egom_2013_viirs_vnp46a4",
+      "structure": "raster",
+      "status": "FAIL",
+      "failed_step": "raster_register",
+      "message": "Raster registration failed: public.egom_2013_viirs_vnp46a4.rast not found. Has the raster been loaded with raster2pgsql (ingest_datasource)?",
+      "warnings": [],
+      "duration_s": 15.4,
+      "rows": null
+    },
+    {
+      "source": "egom_2014_viirs_vnp46a4",
+      "structure": "raster",
+      "status": "FAIL",
+      "failed_step": "raster_register",
+      "message": "Raster registration failed: public.egom_2014_viirs_vnp46a4.rast not found. Has the raster been loaded with raster2pgsql (ingest_datasource)?",
+      "warnings": [],
+      "duration_s": 12.0,
+      "rows": null
+    },
+    {
+      "source": "egom_2015_viirs_vnp46a4",
+      "structure": "raster",
+      "status": "FAIL",
+      "failed_step": "raster_register",
+      "message": "Raster registration failed: public.egom_2015_viirs_vnp46a4.rast not found. Has the raster been loaded with raster2pgsql (ingest_datasource)?",
+      "warnings": [],
+      "duration_s": 12.0,
+      "rows": null
+    },
+    {
+      "source": "egom_2016_viirs_vnp46a4",
+      "structure": "raster",
+      "status": "FAIL",
+      "failed_step": "raster_register",
+      "message": "Raster registration failed: public.egom_2016_viirs_vnp46a4.rast not found. Has the raster been loaded with raster2pgsql (ingest_datasource)?",
+      "warnings": [],
+      "duration_s": 8.4,
+      "rows": null
+    },
+    {
+      "source": "egom_2017_viirs_vnp46a4",
+      "structure": "raster",
+      "status": "FAIL",
+      "failed_step": "raster_register",
+      "message": "Raster registration failed: public.egom_2017_viirs_vnp46a4.rast not found. Has the raster been loaded with raster2pgsql (ingest_datasource)?",
+      "warnings": [],
+      "duration_s": 8.4,
+      "rows": null
+    },
+    {
+      "source": "egom_2018_viirs_vnp46a4",
+      "structure": "raster",
+      "status": "FAIL",
+      "failed_step": "raster_register",
+      "message": "Raster registration failed: public.egom_2018_viirs_vnp46a4.rast not found. Has the raster been loaded with raster2pgsql (ingest_datasource)?",
+      "warnings": [],
+      "duration_s": 9.6,
+      "rows": null
+    },
+    {
+      "source": "egom_2019_viirs_vnp46a4",
+      "structure": "raster",
+      "status": "FAIL",
+      "failed_step": "raster_register",
+      "message": "Raster registration failed: public.egom_2019_viirs_vnp46a4.rast not found. Has the raster been loaded with raster2pgsql (ingest_datasource)?",
+      "warnings": [],
+      "duration_s": 9.4,
+      "rows": null
+    },
+    {
+      "source": "egom_2020_viirs_vnp46a4",
+      "structure": "raster",
+      "status": "FAIL",
+      "failed_step": "raster_register",
+      "message": "Raster registration failed: public.egom_2020_viirs_vnp46a4.rast not found. Has the raster been loaded with raster2pgsql (ingest_datasource)?",
+      "warnings": [],
+      "duration_s": 12.8,
+      "rows": null
+    },
+    {
+      "source": "egom_2021_viirs_vnp46a4",
+      "structure": "raster",
+      "status": "FAIL",
+      "failed_step": "raster_register",
+      "message": "Raster registration failed: public.egom_2021_viirs_vnp46a4.rast not found. Has the raster been loaded with raster2pgsql (ingest_datasource)?",
+      "warnings": [],
+      "duration_s": 12.6,
+      "rows": null
+    },
+    {
+      "source": "egom_2022_viirs_vnp46a4",
+      "structure": "raster",
+      "status": "FAIL",
+      "failed_step": "raster_register",
+      "message": "Raster registration failed: public.egom_2022_viirs_vnp46a4.rast not found. Has the raster been loaded with raster2pgsql (ingest_datasource)?",
+      "warnings": [],
+      "duration_s": 11.9,
+      "rows": null
+    },
+    {
+      "source": "egom_2023_viirs_vnp46a4",
+      "structure": "raster",
+      "status": "FAIL",
+      "failed_step": "raster_register",
+      "message": "Raster registration failed: public.egom_2023_viirs_vnp46a4.rast not found. Has the raster been loaded with raster2pgsql (ingest_datasource)?",
+      "warnings": [],
+      "duration_s": 11.7,
+      "rows": null
+    },
+    {
+      "source": "egom_2024_viirs_vnp46a4",
+      "structure": "raster",
+      "status": "FAIL",
+      "failed_step": "raster_register",
+      "message": "Raster registration failed: public.egom_2024_viirs_vnp46a4.rast not found. Has the raster been loaded with raster2pgsql (ingest_datasource)?",
+      "warnings": [],
+      "duration_s": 9.3,
+      "rows": null
+    },
+    {
+      "source": "fl_2018_svi_tract",
+      "structure": "vector",
+      "status": "PASS",
+      "failed_step": "",
+      "message": "Ingestion complete for 2018 Florida CDC Social Vulnerability Index (tracts)",
+      "warnings": [
+        "fields not in table: "
+      ],
+      "duration_s": 12.9,
+      "rows": 4212
+    },
+    {
+      "source": "fl_2019_tl_tract",
+      "structure": "vector",
+      "status": "PASS",
+      "failed_step": "",
+      "message": "Ingestion complete for 2019 Florida Census Tracts",
+      "warnings": [],
+      "duration_s": 41.7,
+      "rows": 4245
+    },
+    {
+      "source": "fl_2020_svi_county",
+      "structure": "vector",
+      "status": "PASS",
+      "failed_step": "",
+      "message": "Ingestion complete for 2020 Florida CDC Social Vulnerability Index (counties)",
+      "warnings": [],
+      "duration_s": 9.8,
+      "rows": 67
+    },
+    {
+      "source": "fl_2020_svi_tract",
+      "structure": "vector",
+      "status": "PASS",
+      "failed_step": "",
+      "message": "Ingestion complete for 2020 Florida CDC Social Vulnerability Index (tracts)",
+      "warnings": [],
+      "duration_s": 13.1,
+      "rows": 5122
+    },
+    {
+      "source": "fl_2020_tl_tract",
+      "structure": "vector",
+      "status": "PASS",
+      "failed_step": "",
+      "message": "Ingestion complete for 2020 Florida Census Tracts - Florida",
+      "warnings": [],
+      "duration_s": 44.8,
+      "rows": 5160
+    },
+    {
+      "source": "fl_2021_acs_5yr_tract_fsr",
+      "structure": "vector",
+      "status": "SKIPPED",
+      "failed_step": "deferred",
+      "message": "needs credentials or access, test later: ETL scripts use credentials (CENSUS_API_KEY)",
+      "warnings": [],
+      "duration_s": 0.0,
+      "rows": null
+    },
+    {
+      "source": "fl_2021_tl_tract",
+      "structure": "vector",
+      "status": "PASS",
+      "failed_step": "",
+      "message": "Ingestion complete for 2021 Florida Census Tracts - Florida",
+      "warnings": [],
+      "duration_s": 46.7,
+      "rows": 5160
+    },
+    {
+      "source": "fl_2022_svi_tract",
+      "structure": "vector",
+      "status": "PASS",
+      "failed_step": "",
+      "message": "Ingestion complete for 2022 Florida CDC Social Vulnerability Index (tracts)",
+      "warnings": [],
+      "duration_s": 14.0,
+      "rows": 5122
+    },
+    {
+      "source": "fl_2022_tl_cousub",
+      "structure": "vector",
+      "status": "PASS",
+      "failed_step": "",
+      "message": "Ingestion complete for TIGER/Line Shapefile, 2022, state, Florida, Current County Subdivision State-based",
+      "warnings": [],
+      "duration_s": 25.3,
+      "rows": 316
+    },
+    {
+      "source": "fl_2022_tl_tract",
+      "structure": "vector",
+      "status": "PASS",
+      "failed_step": "",
+      "message": "Ingestion complete for 2022 Florida Census Tracts - Florida",
+      "warnings": [],
+      "duration_s": 43.5,
+      "rows": 5160
+    },
+    {
+      "source": "fl_2023_tl_tract",
+      "structure": "vector",
+      "status": "PASS",
+      "failed_step": "",
+      "message": "Ingestion complete for 2023 Florida Census Tracts - Florida",
+      "warnings": [],
+      "duration_s": 43.1,
+      "rows": 5160
+    },
+    {
+      "source": "fl_2024_tl_tract",
+      "structure": "vector",
+      "status": "PASS",
+      "failed_step": "",
+      "message": "Ingestion complete for 2024 Florida Census Tracts - Florida",
+      "warnings": [],
+      "duration_s": 44.6,
+      "rows": 5160
+    },
+    {
+      "source": "fl_2025_tl_tract",
+      "structure": "vector",
+      "status": "PASS",
+      "failed_step": "",
+      "message": "Ingestion complete for 2025 Florida Census Tracts - Florida",
+      "warnings": [],
+      "duration_s": 44.6,
+      "rows": 5160
+    },
+    {
+      "source": "fl_2026_flma",
+      "structure": "vector",
+      "status": "TIMEOUT",
+      "failed_step": "ingest",
+      "message": "no result after 1800s",
+      "warnings": [],
+      "duration_s": 1807.6,
+      "rows": null
+    },
+    {
+      "source": "fl_superfund_waste_cleanup_sites",
+      "structure": "vector",
+      "status": "PASS",
+      "failed_step": "",
+      "message": "Ingestion complete for Florida Superfund Waste Cleanup Sites",
+      "warnings": [],
+      "duration_s": 10.7,
+      "rows": 50
+    },
+    {
+      "source": "global_pm25_concentration_1998_2016",
+      "structure": "vector",
+      "status": "TIMEOUT",
+      "failed_step": "ingest",
+      "message": "no result after 1800s",
+      "warnings": [],
+      "duration_s": 1807.9,
+      "rows": null
+    },
+    {
+      "source": "hh_2023_bofedales_inaigem",
+      "structure": "vector",
+      "status": "TIMEOUT",
+      "failed_step": "ingest",
+      "message": "no result after 1800s",
+      "warnings": [],
+      "duration_s": 1807.7,
+      "rows": null
+    },
+    {
+      "source": "hh_dem_copernicus",
+      "structure": "raster",
+      "status": "FAIL",
+      "failed_step": "raster_register",
+      "message": "Raster registration failed: public.hh_dem_copernicus.rast not found. Has the raster been loaded with raster2pgsql (ingest_datasource)?",
+      "warnings": [],
+      "duration_s": 8.1,
+      "rows": null
+    },
+    {
+      "source": "hh_dem_srtm",
+      "structure": "raster",
+      "status": "PASS",
+      "failed_step": "",
+      "message": "Ingestion complete for Huayhuash DEM (SRTM)",
+      "warnings": [],
+      "duration_s": 33.9,
+      "rows": 984
+    },
+    {
+      "source": "hh_glaciares_osm",
+      "structure": "vector",
+      "status": "FAIL",
+      "failed_step": "postgis",
+      "message": "postgis script failed: script exited with status 1; script output: LINE 2: SELECT * INTO hh_glaciares_osm FROM multipolygons; / ^ / ERROR:  relation \"hh_glaciares_osm\" does not exist; small download: <html> <head><title>406 Not Acceptable</title></head> <body> <center><h1>406 Not Acceptable</h1></center> <hr><center>nginx</center> </body> </html>",
+      "warnings": [],
+      "duration_s": 9.6,
+      "rows": null
+    },
+    {
+      "source": "hh_lagunas_ana",
+      "structure": "vector",
+      "status": "TIMEOUT",
+      "failed_step": "ingest",
+      "message": "no result after 1800s",
+      "warnings": [],
+      "duration_s": 1811.5,
+      "rows": null
+    },
+    {
+      "source": "hh_red_vial_osm",
+      "structure": "vector",
+      "status": "FAIL",
+      "failed_step": "postgis",
+      "message": "postgis script failed: script exited with status 1; script output: LINE 2: SELECT * INTO hh_red_vial_osm FROM lines; / ^ / ERROR:  relation \"hh_red_vial_osm\" does not exist; small download: <html> <head><title>406 Not Acceptable</title></head> <body> <center><h1>406 Not Acceptable</h1></center> <hr><center>nginx</center> </body> </html>",
+      "warnings": [],
+      "duration_s": 9.1,
+      "rows": null
+    },
+    {
+      "source": "hh_rios_ana",
+      "structure": "vector",
+      "status": "TIMEOUT",
+      "failed_step": "ingest",
+      "message": "no result after 1800s",
+      "warnings": [],
+      "duration_s": 1810.7,
+      "rows": null
+    },
+    {
+      "source": "hh_rios_arroyos_osm",
+      "structure": "vector",
+      "status": "FAIL",
+      "failed_step": "postgis",
+      "message": "postgis script failed: script exited with status 1; script output: LINE 2: SELECT * INTO hh_rios_arroyos_osm FROM lines; / ^ / ERROR:  relation \"hh_rios_arroyos_osm\" does not exist; small download: <html> <head><title>406 Not Acceptable</title></head> <body> <center><h1>406 Not Acceptable</h1></center> <hr><center>nginx</center> </body> </html>",
+      "warnings": [],
+      "duration_s": 13.9,
+      "rows": null
+    },
+    {
+      "source": "hh_rutas_pie_osm",
+      "structure": "vector",
+      "status": "FAIL",
+      "failed_step": "postgis",
+      "message": "postgis script failed: script exited with status 1; script output: LINE 2: SELECT * INTO hh_rutas_pie_osm FROM lines; / ^ / ERROR:  relation \"hh_rutas_pie_osm\" does not exist; small download: <html> <head><title>406 Not Acceptable</title></head> <body> <center><h1>406 Not Acceptable</h1></center> <hr><center>nginx</center> </body> </html>",
+      "warnings": [],
+      "duration_s": 14.0,
+      "rows": null
+    },
+    {
+      "source": "kenya_ppd_survey_2014",
+      "structure": "table",
+      "status": "FAIL",
+      "failed_step": "metadata_load",
+      "message": "Metadata load failed: invalid input syntax for type date: \"not known\"",
+      "warnings": [],
+      "duration_s": 14.6,
+      "rows": null
+    },
+    {
+      "source": "ma_2018_svi_tract",
+      "structure": "vector",
+      "status": "PASS",
+      "failed_step": "",
+      "message": "Ingestion complete for 2018 Massachusetts CDC Social Vulnerability Index (tracts)",
+      "warnings": [],
+      "duration_s": 15.0,
+      "rows": 1475
+    },
+    {
+      "source": "ma_2020_svi_tract",
+      "structure": "vector",
+      "status": "PASS",
+      "failed_step": "",
+      "message": "Ingestion complete for 2020 Massachusetts CDC Social Vulnerability Index (tracts)",
+      "warnings": [],
+      "duration_s": 16.3,
+      "rows": 1614
+    },
+    {
+      "source": "ma_2022_svi_tract",
+      "structure": "vector",
+      "status": "PASS",
+      "failed_step": "",
+      "message": "Ingestion complete for 2022 Massachusetts CDC Social Vulnerability Index (tracts)",
+      "warnings": [],
+      "duration_s": 16.2,
+      "rows": 1613
+    },
+    {
+      "source": "mdc_2012_viirs_vnp46a4",
+      "structure": "raster",
+      "status": "FAIL",
+      "failed_step": "egom_2012_viirs_vnp46a4: raster_register",
+      "message": "Raster registration failed: public.egom_2012_viirs_vnp46a4.rast not found. Has the raster been loaded with raster2pgsql (ingest_datasource)?",
+      "warnings": [],
+      "duration_s": 12.7,
+      "rows": null
+    },
+    {
+      "source": "mdc_2013_viirs_vnp46a4",
+      "structure": "raster",
+      "status": "FAIL",
+      "failed_step": "egom_2013_viirs_vnp46a4: raster_register",
+      "message": "Raster registration failed: public.egom_2013_viirs_vnp46a4.rast not found. Has the raster been loaded with raster2pgsql (ingest_datasource)?",
+      "warnings": [],
+      "duration_s": 12.8,
+      "rows": null
+    },
+    {
+      "source": "mdc_2014_viirs_vnp46a4",
+      "structure": "raster",
+      "status": "FAIL",
+      "failed_step": "egom_2014_viirs_vnp46a4: raster_register",
+      "message": "Raster registration failed: public.egom_2014_viirs_vnp46a4.rast not found. Has the raster been loaded with raster2pgsql (ingest_datasource)?",
+      "warnings": [],
+      "duration_s": 13.0,
+      "rows": null
+    },
+    {
+      "source": "mdc_2015_viirs_vnp46a4",
+      "structure": "raster",
+      "status": "FAIL",
+      "failed_step": "egom_2015_viirs_vnp46a4: raster_register",
+      "message": "Raster registration failed: public.egom_2015_viirs_vnp46a4.rast not found. Has the raster been loaded with raster2pgsql (ingest_datasource)?",
+      "warnings": [],
+      "duration_s": 12.7,
+      "rows": null
+    },
+    {
+      "source": "mdc_2016_viirs_vnp46a4",
+      "structure": "raster",
+      "status": "FAIL",
+      "failed_step": "egom_2016_viirs_vnp46a4: raster_register",
+      "message": "Raster registration failed: public.egom_2016_viirs_vnp46a4.rast not found. Has the raster been loaded with raster2pgsql (ingest_datasource)?",
+      "warnings": [],
+      "duration_s": 12.8,
+      "rows": null
+    },
+    {
+      "source": "mdc_2017_viirs_vnp46a4",
+      "structure": "raster",
+      "status": "FAIL",
+      "failed_step": "egom_2017_viirs_vnp46a4: raster_register",
+      "message": "Raster registration failed: public.egom_2017_viirs_vnp46a4.rast not found. Has the raster been loaded with raster2pgsql (ingest_datasource)?",
+      "warnings": [],
+      "duration_s": 13.2,
+      "rows": null
+    },
+    {
+      "source": "mdc_2018_svi_tract",
+      "structure": "vector",
+      "status": "PASS",
+      "failed_step": "",
+      "message": "Ingestion complete for 2018 Miami-Dade CDC Social Vulnerability Index (tracts)",
+      "warnings": [
+        "fields not in table: "
+      ],
+      "duration_s": 19.8,
+      "rows": 518
+    },
+    {
+      "source": "mdc_2018_viirs_vnp46a4",
+      "structure": "raster",
+      "status": "FAIL",
+      "failed_step": "egom_2018_viirs_vnp46a4: raster_register",
+      "message": "Raster registration failed: public.egom_2018_viirs_vnp46a4.rast not found. Has the raster been loaded with raster2pgsql (ingest_datasource)?",
+      "warnings": [],
+      "duration_s": 12.8,
+      "rows": null
+    },
+    {
+      "source": "mdc_2019_acs_5yr_tract_dvmt",
+      "structure": "vector",
+      "status": "SKIPPED",
+      "failed_step": "deferred",
+      "message": "needs credentials or access, test later: ETL scripts use credentials (CENSUS_API_KEY)",
+      "warnings": [],
+      "duration_s": 0.0,
+      "rows": null
+    },
+    {
+      "source": "mdc_2019_viirs_vnp46a4",
+      "structure": "raster",
+      "status": "FAIL",
+      "failed_step": "egom_2019_viirs_vnp46a4: raster_register",
+      "message": "Raster registration failed: public.egom_2019_viirs_vnp46a4.rast not found. Has the raster been loaded with raster2pgsql (ingest_datasource)?",
+      "warnings": [],
+      "duration_s": 12.7,
+      "rows": null
+    },
+    {
+      "source": "mdc_2020_2024_acs_5yr_trends_tract_dvmt",
+      "structure": "vector",
+      "status": "SKIPPED",
+      "failed_step": "deferred",
+      "message": "needs credentials or access, test later: ETL scripts use credentials (CENSUS_API_KEY)",
+      "warnings": [],
+      "duration_s": 0.0,
+      "rows": null
+    },
+    {
+      "source": "mdc_2020_acs_5yr_tract_dvmt",
+      "structure": "vector",
+      "status": "SKIPPED",
+      "failed_step": "deferred",
+      "message": "needs credentials or access, test later: ETL scripts use credentials (CENSUS_API_KEY)",
+      "warnings": [],
+      "duration_s": 0.0,
+      "rows": null
+    },
+    {
+      "source": "mdc_2020_svi_tract",
+      "structure": "vector",
+      "status": "PASS",
+      "failed_step": "",
+      "message": "Ingestion complete for 2020 Miami-Dade CDC Social Vulnerability Index (tracts)",
+      "warnings": [],
+      "duration_s": 21.2,
+      "rows": 706
+    },
+    {
+      "source": "mdc_2020_viirs_vnp46a4",
+      "structure": "raster",
+      "status": "FAIL",
+      "failed_step": "egom_2020_viirs_vnp46a4: raster_register",
+      "message": "Raster registration failed: public.egom_2020_viirs_vnp46a4.rast not found. Has the raster been loaded with raster2pgsql (ingest_datasource)?",
+      "warnings": [],
+      "duration_s": 12.9,
+      "rows": null
+    },
+    {
+      "source": "mdc_2020_zcta",
+      "structure": "vector",
+      "status": "PASS",
+      "failed_step": "",
+      "message": "Ingestion complete for Miami-Dade 2020 Zip Code Tabulation Areas",
+      "warnings": [],
+      "duration_s": 1465.9,
+      "rows": 88
+    },
+    {
+      "source": "mdc_2021_acs_5yr_tract_dvmt",
+      "structure": "vector",
+      "status": "SKIPPED",
+      "failed_step": "deferred",
+      "message": "needs credentials or access, test later: ETL scripts use credentials (CENSUS_API_KEY)",
+      "warnings": [],
+      "duration_s": 0.0,
+      "rows": null
+    },
+    {
+      "source": "mdc_2021_nlcd_impervious_surfaces",
+      "structure": "raster",
+      "status": "FAIL",
+      "failed_step": "dependency",
+      "message": "dependency directory missing: us_2021_nlcd_impervious_surfaces",
+      "warnings": [],
+      "duration_s": 0.0,
+      "rows": null
+    },
+    {
+      "source": "mdc_2021_nlcd_land_cover",
+      "structure": "raster",
+      "status": "FAIL",
+      "failed_step": "dependency",
+      "message": "dependency directory missing: us_2021_nlcd_land_cover",
+      "warnings": [],
+      "duration_s": 0.0,
+      "rows": null
+    },
+    {
+      "source": "mdc_2021_nlcd_tcc_v2023_5",
+      "structure": "raster",
+      "status": "FAIL",
+      "failed_step": "dependency",
+      "message": "dependency directory missing: us_2021_nlcd_tcc_v2023_5",
+      "warnings": [],
+      "duration_s": 0.0,
+      "rows": null
+    },
+    {
+      "source": "mdc_2021_nlcd_tcc_v4",
+      "structure": "raster",
+      "status": "FAIL",
+      "failed_step": "dependency",
+      "message": "dependency directory missing: us_2021_nlcd_tcc_v4",
+      "warnings": [],
+      "duration_s": 0.0,
+      "rows": null
+    },
+    {
+      "source": "mdc_2022_acs_5yr_tract_dvmt",
+      "structure": "vector",
+      "status": "SKIPPED",
+      "failed_step": "deferred",
+      "message": "needs credentials or access, test later: ETL scripts use credentials (CENSUS_API_KEY)",
+      "warnings": [],
+      "duration_s": 0.0,
+      "rows": null
+    },
+    {
+      "source": "mdc_2022_svi_tract",
+      "structure": "vector",
+      "status": "PASS",
+      "failed_step": "",
+      "message": "Ingestion complete for 2022 Miami-Dade CDC Social Vulnerability Index (tracts)",
+      "warnings": [],
+      "duration_s": 19.6,
+      "rows": 706
+    },
+    {
+      "source": "mdc_2023_acs_5yr_tract_dvmt",
+      "structure": "vector",
+      "status": "SKIPPED",
+      "failed_step": "deferred",
+      "message": "needs credentials or access, test later: ETL scripts use credentials (CENSUS_API_KEY)",
+      "warnings": [],
+      "duration_s": 0.0,
+      "rows": null
+    },
+    {
+      "source": "mdc_2023_viirs_vnp46a4",
+      "structure": "raster",
+      "status": "FAIL",
+      "failed_step": "egom_2023_viirs_vnp46a4: raster_register",
+      "message": "Raster registration failed: public.egom_2023_viirs_vnp46a4.rast not found. Has the raster been loaded with raster2pgsql (ingest_datasource)?",
+      "warnings": [],
+      "duration_s": 12.1,
+      "rows": null
+    },
+    {
+      "source": "mdc_2024_acs_5yr_tract_dvmt",
+      "structure": "vector",
+      "status": "SKIPPED",
+      "failed_step": "deferred",
+      "message": "needs credentials or access, test later: ETL scripts use credentials (CENSUS_API_KEY)",
+      "warnings": [],
+      "duration_s": 0.0,
+      "rows": null
+    },
+    {
+      "source": "mdc_2026_flma",
+      "structure": "vector",
+      "status": "TIMEOUT",
+      "failed_step": "ingest",
+      "message": "no result after 1800s",
+      "warnings": [],
+      "duration_s": 1808.9,
+      "rows": null
+    },
+    {
+      "source": "mdc_5000_addresses_normalized",
+      "structure": "vector",
+      "status": "FAIL",
+      "failed_step": "postgis",
+      "message": "postgis script failed: script exited with status 1; script output: LINE 2: UPDATE mdc_5000_addresses_normalized / ^ / ERROR:  relation \"mdc_5000_addresses_normalized\" does not exist",
+      "warnings": [],
+      "duration_s": 8.4,
+      "rows": null
+    },
+    {
+      "source": "mdc_brownfield_site",
+      "structure": "vector",
+      "status": "PASS",
+      "failed_step": "",
+      "message": "Ingestion complete for Miami-Dade Brownfield Sites",
+      "warnings": [],
+      "duration_s": 12.1,
+      "rows": 115
+    },
+    {
+      "source": "mdc_community_health_centers",
+      "structure": "vector",
+      "status": "TIMEOUT",
+      "failed_step": "ingest",
+      "message": "no result after 1800s",
+      "warnings": [],
+      "duration_s": 1807.6,
+      "rows": null
+    },
+    {
+      "source": "mdc_cooling_stations",
+      "structure": "vector",
+      "status": "PASS",
+      "failed_step": "",
+      "message": "Ingestion complete for Miami-Dade Cooling Stations",
+      "warnings": [],
+      "duration_s": 16.3,
+      "rows": 65
+    },
+    {
+      "source": "mdc_county_park_boundaries",
+      "structure": "vector",
+      "status": "FAIL",
+      "failed_step": "metadata_load",
+      "message": "Metadata load failed: invalid input syntax for type numeric: \"2025-02-01\"",
+      "warnings": [],
+      "duration_s": 11.0,
+      "rows": null
+    },
+    {
+      "source": "mdc_federally_qualified_health_centers",
+      "structure": "vector",
+      "status": "PASS",
+      "failed_step": "",
+      "message": "Ingestion complete for Miami-Dade Federally Qualified Health Centers",
+      "warnings": [],
+      "duration_s": 14.1,
+      "rows": 22
+    },
+    {
+      "source": "mdc_holc_redlining",
+      "structure": "vector",
+      "status": "TIMEOUT",
+      "failed_step": "ingest",
+      "message": "no result after 1800s",
+      "warnings": [],
+      "duration_s": 1811.2,
+      "rows": null
+    },
+    {
+      "source": "mdc_hospitals",
+      "structure": "vector",
+      "status": "PASS",
+      "failed_step": "",
+      "message": "Ingestion complete for Miami-Dade Hospitals",
+      "warnings": [],
+      "duration_s": 19.5,
+      "rows": 37
+    },
+    {
+      "source": "mdc_municipal_park_boundaries",
+      "structure": "vector",
+      "status": "FAIL",
+      "failed_step": "metadata_load",
+      "message": "Metadata load failed: invalid input syntax for type numeric: \"2018-06-01\"",
+      "warnings": [],
+      "duration_s": 15.3,
+      "rows": null
+    },
+    {
+      "source": "mdc_sexual_predators",
+      "structure": "vector",
+      "status": "TIMEOUT",
+      "failed_step": "ingest",
+      "message": "no result after 1800s",
+      "warnings": [],
+      "duration_s": 1815.0,
+      "rows": null
+    },
+    {
+      "source": "mdc_streets",
+      "structure": "vector",
+      "status": "TIMEOUT",
+      "failed_step": "ingest",
+      "message": "no result after 1800s",
+      "warnings": [],
+      "duration_s": 1818.5,
+      "rows": null
+    },
+    {
+      "source": "mdc_water_polygons",
+      "structure": "vector",
+      "status": "TIMEOUT",
+      "failed_step": "ingest",
+      "message": "no result after 1800s",
+      "warnings": [],
+      "duration_s": 1811.0,
+      "rows": null
+    },
+    {
+      "source": "synthetic_county_ses",
+      "structure": "vector",
+      "status": "PASS",
+      "failed_step": "",
+      "message": "Ingestion complete for Simulated county SES index for the OHDSI GIS tutorial",
+      "warnings": [],
+      "duration_s": 237.3,
+      "rows": 3235
+    },
+    {
+      "source": "synthetic_monitors_20",
+      "structure": "vector",
+      "status": "FAIL",
+      "failed_step": "ingestion",
+      "message": "Script failed: script exited with status 1; script output: 2026-11-17 15:26:53 (3.19 MB/s) - 'download/synthetic_monitors_20.csv' saved [4864/4864] / download/synthetic_monitors_20.csv: FAILED / sha256sum: WARNING: 1 computed checksum did NOT match",
+      "warnings": [],
+      "duration_s": 12.8,
+      "rows": null
+    },
+    {
+      "source": "synthetic_monitors_200",
+      "structure": "vector",
+      "status": "FAIL",
+      "failed_step": "ingestion",
+      "message": "Script failed: script exited with status 1; script output: 2026-11-17 15:27:06 (2.08 MB/s) - 'download/synthetic_monitors_200.csv' saved [48681/48681] / download/synthetic_monitors_200.csv: FAILED / sha256sum: WARNING: 1 computed checksum did NOT match",
+      "warnings": [],
+      "duration_s": 13.0,
+      "rows": null
+    },
+    {
+      "source": "synthetic_monitors_200_voronoi",
+      "structure": "vector",
+      "status": "FAIL",
+      "failed_step": "synthetic_monitors_200: ingestion",
+      "message": "Script failed: script exited with status 1",
+      "warnings": [],
+      "duration_s": 11.8,
+      "rows": null
+    },
+    {
+      "source": "synthetic_monitors_20_voronoi",
+      "structure": "vector",
+      "status": "FAIL",
+      "failed_step": "synthetic_monitors_20: ingestion",
+      "message": "Script failed: script exited with status 1",
+      "warnings": [],
+      "duration_s": 15.7,
+      "rows": null
+    },
+    {
+      "source": "synthetic_monitors_60",
+      "structure": "vector",
+      "status": "FAIL",
+      "failed_step": "ingestion",
+      "message": "Script failed: script exited with status 1; script output: 2026-11-17 15:27:47 (165 KB/s) - 'download/synthetic_monitors_60.csv' saved [14572/14572] / download/synthetic_monitors_60.csv: FAILED / sha256sum: WARNING: 1 computed checksum did NOT match",
+      "warnings": [],
+      "duration_s": 13.2,
+      "rows": null
+    },
+    {
+      "source": "synthetic_monitors_60_voronoi",
+      "structure": "vector",
+      "status": "FAIL",
+      "failed_step": "synthetic_monitors_60: ingestion",
+      "message": "Script failed: script exited with status 1",
+      "warnings": [],
+      "duration_s": 11.8,
+      "rows": null
+    },
+    {
+      "source": "synthetic_raster_annual",
+      "structure": "raster",
+      "status": "PASS",
+      "failed_step": "",
+      "message": "Ingestion complete for Simulated annual exposure rasters",
+      "warnings": [],
+      "duration_s": 16.3,
+      "rows": 6
+    },
+    {
+      "source": "synthetic_raster_landcover",
+      "structure": "raster",
+      "status": "PASS",
+      "failed_step": "",
+      "message": "Ingestion complete for Simulated land cover raster",
+      "warnings": [],
+      "duration_s": 14.1,
+      "rows": 4
+    },
+    {
+      "source": "synthetic_raster_surface_100m",
+      "structure": "raster",
+      "status": "PASS",
+      "failed_step": "",
+      "message": "Ingestion complete for Simulated exposure surface as a raster, correlation length 100 m",
+      "warnings": [],
+      "duration_s": 18.8,
+      "rows": 49
+    },
+    {
+      "source": "synthetic_raster_surface_10km",
+      "structure": "raster",
+      "status": "PASS",
+      "failed_step": "",
+      "message": "Ingestion complete for Simulated exposure surface as a raster, correlation length 10000 m",
+      "warnings": [],
+      "duration_s": 13.7,
+      "rows": 1
+    },
+    {
+      "source": "synthetic_raster_surface_1km",
+      "structure": "raster",
+      "status": "PASS",
+      "failed_step": "",
+      "message": "Ingestion complete for Simulated exposure surface as a raster, correlation length 1000 m",
+      "warnings": [],
+      "duration_s": 13.7,
+      "rows": 1
+    },
+    {
+      "source": "synthetic_road_proximity",
+      "structure": "vector",
+      "status": "PASS",
+      "failed_step": "",
+      "message": "Ingestion complete for Simulated near-road exposure increment (distance bands)",
+      "warnings": [],
+      "duration_s": 207.4,
+      "rows": 34762
+    },
+    {
+      "source": "synthetic_surface_100m",
+      "structure": "vector",
+      "status": "PASS",
+      "failed_step": "",
+      "message": "Ingestion complete for Simulated exposure surface, correlation length 100 m",
+      "warnings": [],
+      "duration_s": 114.5,
+      "rows": 160801
+    },
+    {
+      "source": "synthetic_surface_10km",
+      "structure": "vector",
+      "status": "PASS",
+      "failed_step": "",
+      "message": "Ingestion complete for Simulated exposure surface, correlation length 10000 m",
+      "warnings": [],
+      "duration_s": 20.2,
+      "rows": 25
+    },
+    {
+      "source": "synthetic_surface_1km",
+      "structure": "vector",
+      "status": "PASS",
+      "failed_step": "",
+      "message": "Ingestion complete for Simulated exposure surface, correlation length 1000 m",
+      "warnings": [],
+      "duration_s": 20.4,
+      "rows": 1681
+    },
+    {
+      "source": "synthetic_tract_ses",
+      "structure": "vector",
+      "status": "PASS",
+      "failed_step": "",
+      "message": "Ingestion complete for Simulated census tract SES index for the OHDSI GIS benchmark",
+      "warnings": [],
+      "duration_s": 30.1,
+      "rows": 1181
+    },
+    {
+      "source": "tt_ferry_routes",
+      "structure": "vector",
+      "status": "FAIL",
+      "failed_step": "postgis",
+      "message": "postgis script failed: script exited with status 1; script output: LINE 2: SELECT * INTO tt_ferry_routes FROM lines; / ^ / ERROR:  relation \"tt_ferry_routes\" does not exist; small download: <html> <head><title>406 Not Acceptable</title></head> <body> <center><h1>406 Not Acceptable</h1></center> <hr><center>nginx</center> </body> </html>",
+      "warnings": [],
+      "duration_s": 18.9,
+      "rows": null
+    },
+    {
+      "source": "tt_populated_places",
+      "structure": "vector",
+      "status": "FAIL",
+      "failed_step": "postgis",
+      "message": "postgis script failed: script exited with status 1; script output: LINE 2: SELECT * INTO tt_populated_places FROM points; / ^ / ERROR:  relation \"tt_populated_places\" does not exist; small download: <html> <head><title>406 Not Acceptable</title></head> <body> <center><h1>406 Not Acceptable</h1></center> <hr><center>nginx</center> </body> </html>",
+      "warnings": [],
+      "duration_s": 18.9,
+      "rows": null
+    },
+    {
+      "source": "tt_regions",
+      "structure": "vector",
+      "status": "FAIL",
+      "failed_step": "postgis",
+      "message": "postgis script failed: script exited with status 1; script output: LINE 2: SELECT * INTO tt_regions FROM multipolygons; / ^ / ERROR:  relation \"tt_regions\" does not exist; small download: <html> <head><title>406 Not Acceptable</title></head> <body> <center><h1>406 Not Acceptable</h1></center> <hr><center>nginx</center> </body> </html>",
+      "warnings": [],
+      "duration_s": 18.3,
+      "rows": null
+    },
+    {
+      "source": "tt_roads",
+      "structure": "vector",
+      "status": "FAIL",
+      "failed_step": "postgis",
+      "message": "postgis script failed: script exited with status 1; script output: LINE 2: SELECT * INTO tt_roads FROM lines; / ^ / ERROR:  relation \"tt_roads\" does not exist; small download: <html> <head><title>406 Not Acceptable</title></head> <body> <center><h1>406 Not Acceptable</h1></center> <hr><center>nginx</center> </body> </html>",
+      "warnings": [],
+      "duration_s": 14.3,
+      "rows": null
+    },
+    {
+      "source": "tz_1984_copernicus_avg_temp",
+      "structure": "raster",
+      "status": "FAIL",
+      "failed_step": "raster_register",
+      "message": "Raster registration failed: public.tz_1984_copernicus_avg_temp.rast not found. Has the raster been loaded with raster2pgsql (ingest_datasource)?",
+      "warnings": [],
+      "duration_s": 13.0,
+      "rows": null
+    },
+    {
+      "source": "tz_2022_nbs_magu_district",
+      "structure": "vector",
+      "status": "FAIL",
+      "failed_step": "dependency",
+      "message": "dependency directory missing: tz_2022_nbs_districts",
+      "warnings": [],
+      "duration_s": 0.0,
+      "rows": null
+    },
+    {
+      "source": "tz_magu_dem_srtm",
+      "structure": "raster",
+      "status": "PASS",
+      "failed_step": "",
+      "message": "Ingestion complete for Magu District DEM (SRTM)",
+      "warnings": [],
+      "duration_s": 51.9,
+      "rows": 529
+    },
+    {
+      "source": "tz_populated_places_osm",
+      "structure": "vector",
+      "status": "FAIL",
+      "failed_step": "postgis",
+      "message": "postgis script failed: script exited with status 1; script output: LINE 2: SELECT * INTO tz_populated_places_osm FROM points; / ^ / ERROR:  relation \"tz_populated_places_osm\" does not exist; small download: <html> <head><title>406 Not Acceptable</title></head> <body> <center><h1>406 Not Acceptable</h1></center> <hr><center>nginx</center> </body> </html>",
+      "warnings": [],
+      "duration_s": 17.2,
+      "rows": null
+    },
+    {
+      "source": "tz_regions_osm",
+      "structure": "vector",
+      "status": "FAIL",
+      "failed_step": "postgis",
+      "message": "postgis script failed: script exited with status 1; script output: LINE 2: SELECT * INTO tz_regions_osm FROM multipolygons; / ^ / ERROR:  relation \"tz_regions_osm\" does not exist; small download: <html> <head><title>406 Not Acceptable</title></head> <body> <center><h1>406 Not Acceptable</h1></center> <hr><center>nginx</center> </body> </html>",
+      "warnings": [],
+      "duration_s": 17.6,
+      "rows": null
+    },
+    {
+      "source": "us_2014_2019_monthly_pm25_by_county_cdc",
+      "structure": "vector",
+      "status": "SKIPPED",
+      "failed_step": "deferred",
+      "message": "needs credentials or access, test later: ETL scripts use credentials (CDC_APP_TOKEN)",
+      "warnings": [],
+      "duration_s": 0.0,
+      "rows": null
+    },
+    {
+      "source": "us_2014_2019_monthly_pm25_by_tract_cdc",
+      "structure": "vector",
+      "status": "SKIPPED",
+      "failed_step": "deferred",
+      "message": "needs credentials or access, test later: ETL scripts use credentials (CDC_APP_TOKEN)",
+      "warnings": [],
+      "duration_s": 0.0,
+      "rows": null
+    },
+    {
+      "source": "us_2018_svi_county",
+      "structure": "vector",
+      "status": "PASS",
+      "failed_step": "",
+      "message": "Ingestion complete for 2018 USA CDC Social Vulnerability Index (counties)",
+      "warnings": [
+        "fields not in table: , stcnty"
+      ],
+      "duration_s": 22.4,
+      "rows": 3142
+    },
+    {
+      "source": "us_2019_county_tl",
+      "structure": "vector",
+      "status": "PASS",
+      "failed_step": "",
+      "message": "Ingestion complete for TIGER/Line Shapefile, 2019, US, Current County",
+      "warnings": [],
+      "duration_s": 201.7,
+      "rows": 3233
+    },
+    {
+      "source": "us_2019_prisecroads_tl",
+      "structure": "vector",
+      "status": "PASS",
+      "failed_step": "",
+      "message": "Ingestion complete for TIGER/Line Shapefile, 2019, State(s), Primary and Secondary Roads",
+      "warnings": [],
+      "duration_s": 19.4,
+      "rows": 6504
+    },
+    {
+      "source": "us_2019_tract_tl",
+      "structure": "vector",
+      "status": "PASS",
+      "failed_step": "",
+      "message": "Ingestion complete for TIGER/Line Shapefile, 2019, State(s), Current Census Tract (2010 vintage)",
+      "warnings": [],
+      "duration_s": 18.9,
+      "rows": 1181
+    },
+    {
+      "source": "us_2020_census_county_fips",
+      "structure": "table",
+      "status": "SKIPPED",
+      "failed_step": "deferred",
+      "message": "needs credentials or access, test later: ETL scripts use credentials (CENSUS_API_KEY)",
+      "warnings": [],
+      "duration_s": 0.0,
+      "rows": null
+    },
+    {
+      "source": "us_2020_county_tl",
+      "structure": "vector",
+      "status": "PASS",
+      "failed_step": "",
+      "message": "Ingestion complete for TIGER/Line Shapefile, 2020, US, Current County",
+      "warnings": [],
+      "duration_s": 200.1,
+      "rows": 3234
+    },
+    {
+      "source": "us_2020_zcta",
+      "structure": "vector",
+      "status": "PASS",
+      "failed_step": "",
+      "message": "Ingestion complete for USA 2020 Zip Code Tabulation Areas",
+      "warnings": [],
+      "duration_s": 1196.7,
+      "rows": 33791
+    },
+    {
+      "source": "us_2022_annual_aqi_by_county",
+      "structure": "table",
+      "status": "SKIPPED",
+      "failed_step": "deferred",
+      "message": "needs credentials or access, test later: ETL scripts use credentials (CENSUS_API_KEY)",
+      "warnings": [],
+      "duration_s": 0.0,
+      "rows": null
+    },
+    {
+      "source": "us_2022_county_tl",
+      "structure": "vector",
+      "status": "PASS",
+      "failed_step": "",
+      "message": "Ingestion complete for TIGER/Line Shapefile, 2022, US, Current County",
+      "warnings": [],
+      "duration_s": 214.3,
+      "rows": 3235
+    },
+    {
+      "source": "us_2023_annual_aqi_by_county",
+      "structure": "table",
+      "status": "SKIPPED",
+      "failed_step": "deferred",
+      "message": "needs credentials or access, test later: ETL scripts use credentials (CENSUS_API_KEY)",
+      "warnings": [],
+      "duration_s": 0.0,
+      "rows": null
+    },
+    {
+      "source": "us_2023_county_tl",
+      "structure": "vector",
+      "status": "PASS",
+      "failed_step": "",
+      "message": "Ingestion complete for TIGER/Line Shapefile, 2023, US, Current County",
+      "warnings": [],
+      "duration_s": 205.5,
+      "rows": 3235
+    },
+    {
+      "source": "us_nuclear_power_plants",
+      "structure": "vector",
+      "status": "SKIPPED",
+      "failed_step": "deferred",
+      "message": "needs credentials or access, test later: us_nuclear_power_plants: ArcGIS endpoint now returns 'Token Required' (HTTP 200 with an error body)",
+      "warnings": [],
+      "duration_s": 0.0,
+      "rows": null
+    },
+    {
+      "source": "mdc_2013_2022_lst_30m",
+      "structure": "",
+      "status": "SKIPPED",
+      "failed_step": "metadata",
+      "message": "no meta_etl_mdc_2013_2022_lst_30m.json; not an ingestible source",
+      "warnings": [],
+      "duration_s": 0.0,
+      "rows": null
+    },
+    {
+      "source": "mdc_2021_hylo",
+      "structure": "",
+      "status": "SKIPPED",
+      "failed_step": "metadata",
+      "message": "no meta_etl_mdc_2021_hylo.json; not an ingestible source",
+      "warnings": [],
+      "duration_s": 0.0,
+      "rows": null
+    },
+    {
+      "source": "tz_2022_nbs",
+      "structure": "",
+      "status": "SKIPPED",
+      "failed_step": "metadata",
+      "message": "no meta_etl_tz_2022_nbs.json; not an ingestible source",
+      "warnings": [],
+      "duration_s": 0.0,
+      "rows": null
+    }
+  ]
+}

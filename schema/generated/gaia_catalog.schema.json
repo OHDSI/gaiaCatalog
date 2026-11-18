@@ -1,0 +1,878 @@
+{
+    "$defs": {
+        "Agent": {
+            "additionalProperties": false,
+            "description": "An organization or person (creator, provider).",
+            "properties": {
+                "@id": {
+                    "description": "The identifier of the node.",
+                    "pattern": "^https?://\\S+$",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "@type": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/AgentTypeEnum"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
+                    "description": "The schema.org type of the node."
+                },
+                "affiliation": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/Agent"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ]
+                },
+                "familyName": {
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "givenName": {
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "identifier": {
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "name": {
+                    "type": "string"
+                },
+                "sameAs": {
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                }
+            },
+            "required": [
+                "name"
+            ],
+            "title": "Agent",
+            "type": "object"
+        },
+        "AgentTypeEnum": {
+            "description": "",
+            "enum": [
+                "Organization",
+                "Person"
+            ],
+            "title": "AgentTypeEnum",
+            "type": "string"
+        },
+        "Any": {
+            "additionalProperties": true,
+            "description": "Any JSON value.",
+            "title": "Any",
+            "type": [
+                "null",
+                "boolean",
+                "object",
+                "number",
+                "string"
+            ]
+        },
+        "CreativeWork": {
+            "additionalProperties": false,
+            "description": "A source the dataset is derived from (isBasedOn).",
+            "properties": {
+                "@id": {
+                    "description": "The identifier of the node.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "@type": {
+                    "description": "The schema.org type of the node.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "name": {
+                    "type": "string"
+                },
+                "url": {
+                    "pattern": "^https?://\\S+$",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                }
+            },
+            "required": [
+                "name"
+            ],
+            "title": "CreativeWork",
+            "type": "object"
+        },
+        "DataCatalog": {
+            "additionalProperties": false,
+            "description": "",
+            "properties": {
+                "@id": {
+                    "description": "The identifier of the node.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "@type": {
+                    "description": "The schema.org type of the node.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "name": {
+                    "type": "string"
+                },
+                "url": {
+                    "pattern": "^https?://\\S+$",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                }
+            },
+            "required": [
+                "name"
+            ],
+            "title": "DataCatalog",
+            "type": "object"
+        },
+        "DataTypeEnum": {
+            "description": "A variable data type (PostgreSQL names, plus the generic names the catalog also uses).",
+            "enum": [
+                "varchar",
+                "string",
+                "text",
+                "uuid",
+                "date",
+                "boolean",
+                "int2",
+                "int4",
+                "int8",
+                "integer",
+                "long",
+                "int16",
+                "float4",
+                "float8",
+                "float",
+                "double",
+                "numeric",
+                "jsonb",
+                "oid"
+            ],
+            "title": "DataTypeEnum",
+            "type": "string"
+        },
+        "Dataset": {
+            "additionalProperties": false,
+            "description": "One catalog entry (a schema.org Dataset).",
+            "properties": {
+                "@context": {
+                    "$ref": "#/$defs/Any",
+                    "description": "The JSON-LD context. Checked further by validate_catalog.py."
+                },
+                "@id": {
+                    "description": "The identifier of the node.",
+                    "pattern": "^https?://\\S+$",
+                    "type": "string"
+                },
+                "@language": {
+                    "pattern": "^[a-z]{2,3}(-[A-Za-z]{2,4})?$",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "@type": {
+                    "const": "Dataset",
+                    "description": "The schema.org type of the node.",
+                    "type": "string"
+                },
+                "about": {
+                    "items": {
+                        "$ref": "#/$defs/Event"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "additionalProperty": {
+                    "items": {
+                        "$ref": "#/$defs/PropertyValue"
+                    },
+                    "type": "array"
+                },
+                "creator": {
+                    "items": {
+                        "$ref": "#/$defs/Agent"
+                    },
+                    "minItems": 1,
+                    "type": "array"
+                },
+                "dateModified": {
+                    "pattern": "^\\d{4}-\\d{2}-\\d{2}([ T]\\d{2}:\\d{2}:\\d{2}Z?)?$",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "datePublished": {
+                    "pattern": "^\\d{4}-\\d{2}-\\d{2}$",
+                    "type": "string"
+                },
+                "description": {
+                    "type": "string"
+                },
+                "distribution": {
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "includedInDataCatalog": {
+                    "items": {
+                        "$ref": "#/$defs/DataCatalog"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "isBasedOn": {
+                    "items": {
+                        "$ref": "#/$defs/CreativeWork"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "keywords": {
+                    "items": {
+                        "type": "string"
+                    },
+                    "minItems": 1,
+                    "type": "array"
+                },
+                "license": {
+                    "$ref": "#/$defs/LicenseEnum"
+                },
+                "measurementTechnique": {
+                    "items": {
+                        "$ref": "#/$defs/DefinedTerm"
+                    },
+                    "minItems": 1,
+                    "type": "array"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "provider": {
+                    "items": {
+                        "$ref": "#/$defs/Agent"
+                    },
+                    "minItems": 1,
+                    "type": "array"
+                },
+                "spatialCoverage": {
+                    "items": {
+                        "$ref": "#/$defs/Place"
+                    },
+                    "minItems": 1,
+                    "type": "array"
+                },
+                "temporalCoverage": {
+                    "pattern": "^\\d{4}(-\\d{2}(-\\d{2})?)?(/\\d{4}(-\\d{2}(-\\d{2})?)?)?$",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "type": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/DatasetTypeEnum"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
+                    "description": "Catalog label such as \"Vector Dataset\" (not the JSON-LD @type)."
+                },
+                "url": {
+                    "pattern": "^https?://\\S+$",
+                    "type": "string"
+                },
+                "variableMeasured": {
+                    "items": {
+                        "$ref": "#/$defs/Variable"
+                    },
+                    "minItems": 1,
+                    "type": "array"
+                },
+                "version": {
+                    "pattern": "^\\d{4}-\\d{2}-\\d{2}$",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "@context",
+                "@id",
+                "@type",
+                "name",
+                "description",
+                "version",
+                "url",
+                "creator",
+                "provider",
+                "license",
+                "spatialCoverage",
+                "datePublished",
+                "keywords",
+                "measurementTechnique",
+                "additionalProperty",
+                "variableMeasured"
+            ],
+            "title": "Dataset",
+            "type": "object"
+        },
+        "DatasetTypeEnum": {
+            "description": "The catalog's own dataset type label (the \"type\" key).",
+            "enum": [
+                "Vector Dataset",
+                "Raster Dataset",
+                "Table Dataset",
+                "Statistical Dataset",
+                "API"
+            ],
+            "title": "DatasetTypeEnum",
+            "type": "string"
+        },
+        "DefinedTerm": {
+            "additionalProperties": false,
+            "description": "A term from a named set, as used by measurementTechnique to give the data representation (vector, raster, table) and the geometry.",
+            "properties": {
+                "@type": {
+                    "description": "The schema.org type of the node.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "description": {
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "inDefinedTermSet": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/DefinedTermSet"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ]
+                },
+                "name": {
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "termCode": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "termCode"
+            ],
+            "title": "DefinedTerm",
+            "type": "object"
+        },
+        "DefinedTermSet": {
+            "additionalProperties": false,
+            "description": "",
+            "properties": {
+                "@type": {
+                    "description": "The schema.org type of the node.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "hasDefinedTerm": {
+                    "items": {
+                        "$ref": "#/$defs/DefinedTerm"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "name": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "name"
+            ],
+            "title": "DefinedTermSet",
+            "type": "object"
+        },
+        "Event": {
+            "additionalProperties": false,
+            "description": "A step of the ETL provenance (an entry of about).",
+            "properties": {
+                "@type": {
+                    "description": "The schema.org type of the node.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "description": {
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "name": {
+                    "type": "string"
+                },
+                "potentialAction": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/Any"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ]
+                }
+            },
+            "required": [
+                "name"
+            ],
+            "title": "Event",
+            "type": "object"
+        },
+        "GeoShape": {
+            "additionalProperties": false,
+            "description": "",
+            "properties": {
+                "@type": {
+                    "description": "The schema.org type of the node.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "polygon": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "polygon"
+            ],
+            "title": "GeoShape",
+            "type": "object"
+        },
+        "GeometryEnum": {
+            "description": "The geometry of a vector dataset (vectorGeometry term).",
+            "enum": [
+                "point",
+                "multipoint",
+                "linestring",
+                "multilinestring",
+                "polygon",
+                "multipolygon"
+            ],
+            "title": "GeometryEnum",
+            "type": "string"
+        },
+        "LicenseEnum": {
+            "description": "A short license identifier.",
+            "enum": [
+                "cc0-1.0",
+                "cc_by",
+                "odbl",
+                "odc_by"
+            ],
+            "title": "LicenseEnum",
+            "type": "string"
+        },
+        "Place": {
+            "additionalProperties": false,
+            "description": "A named place.",
+            "properties": {
+                "@id": {
+                    "description": "The identifier of the node.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "@type": {
+                    "description": "The schema.org type of the node.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "geo": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/GeoShape"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ]
+                },
+                "name": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "name"
+            ],
+            "title": "Place",
+            "type": "object"
+        },
+        "PropertyValue": {
+            "additionalProperties": false,
+            "description": "A named value, such as the EPSG code or the temporal dimension. Needs a name or a propertyID (checked in validate_catalog.py).",
+            "properties": {
+                "@type": {
+                    "description": "The schema.org type of the node.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "name": {
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "propertyID": {
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "unitText": {
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "value": {
+                    "$ref": "#/$defs/Any"
+                }
+            },
+            "required": [
+                "value"
+            ],
+            "title": "PropertyValue",
+            "type": "object"
+        },
+        "StructureEnum": {
+            "description": "The kind of data (dataRepresentation term).",
+            "enum": [
+                "vector",
+                "raster",
+                "table"
+            ],
+            "title": "StructureEnum",
+            "type": "string"
+        },
+        "Variable": {
+            "additionalProperties": false,
+            "description": "One variable of the dataset (an entry of variableMeasured).",
+            "properties": {
+                "@type": {
+                    "const": "PropertyValue",
+                    "description": "The schema.org type of the node.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "description": {
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "endDate": {
+                    "pattern": "^\\d{4}(-\\d{2}(-\\d{2})?)?$",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "maxValue": {
+                    "pattern": "^-?\\d+(\\.\\d+)?([eE][-+]?\\d+)?$",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "minValue": {
+                    "pattern": "^-?\\d+(\\.\\d+)?([eE][-+]?\\d+)?$",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "name": {
+                    "type": "string"
+                },
+                "propertyID": {
+                    "pattern": "^\\d+$",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "qudt:dataType": {
+                    "$ref": "#/$defs/DataTypeEnum"
+                },
+                "startDate": {
+                    "pattern": "^\\d{4}(-\\d{2}(-\\d{2})?)?$",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "unitCode": {
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "unitText": {
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                }
+            },
+            "required": [
+                "name",
+                "qudt:dataType"
+            ],
+            "title": "Variable",
+            "type": "object"
+        }
+    },
+    "$id": "https://w3id.org/ohdsi/gaiacatalog/schema",
+    "$schema": "https://json-schema.org/draft/2019-09/schema",
+    "additionalProperties": false,
+    "description": "One catalog entry (a schema.org Dataset).",
+    "metamodel_version": "1.12.0",
+    "properties": {
+        "@context": {
+            "$ref": "#/$defs/Any",
+            "description": "The JSON-LD context. Checked further by validate_catalog.py."
+        },
+        "@id": {
+            "description": "The identifier of the node.",
+            "pattern": "^https?://\\S+$",
+            "type": "string"
+        },
+        "@language": {
+            "pattern": "^[a-z]{2,3}(-[A-Za-z]{2,4})?$",
+            "type": [
+                "string",
+                "null"
+            ]
+        },
+        "@type": {
+            "const": "Dataset",
+            "description": "The schema.org type of the node.",
+            "type": "string"
+        },
+        "about": {
+            "items": {
+                "$ref": "#/$defs/Event"
+            },
+            "type": [
+                "array",
+                "null"
+            ]
+        },
+        "additionalProperty": {
+            "items": {
+                "$ref": "#/$defs/PropertyValue"
+            },
+            "type": "array"
+        },
+        "creator": {
+            "items": {
+                "$ref": "#/$defs/Agent"
+            },
+            "minItems": 1,
+            "type": "array"
+        },
+        "dateModified": {
+            "pattern": "^\\d{4}-\\d{2}-\\d{2}([ T]\\d{2}:\\d{2}:\\d{2}Z?)?$",
+            "type": [
+                "string",
+                "null"
+            ]
+        },
+        "datePublished": {
+            "pattern": "^\\d{4}-\\d{2}-\\d{2}$",
+            "type": "string"
+        },
+        "description": {
+            "type": "string"
+        },
+        "distribution": {
+            "items": {
+                "type": "string"
+            },
+            "type": [
+                "array",
+                "null"
+            ]
+        },
+        "includedInDataCatalog": {
+            "items": {
+                "$ref": "#/$defs/DataCatalog"
+            },
+            "type": [
+                "array",
+                "null"
+            ]
+        },
+        "isBasedOn": {
+            "items": {
+                "$ref": "#/$defs/CreativeWork"
+            },
+            "type": [
+                "array",
+                "null"
+            ]
+        },
+        "keywords": {
+            "items": {
+                "type": "string"
+            },
+            "minItems": 1,
+            "type": "array"
+        },
+        "license": {
+            "$ref": "#/$defs/LicenseEnum"
+        },
+        "measurementTechnique": {
+            "items": {
+                "$ref": "#/$defs/DefinedTerm"
+            },
+            "minItems": 1,
+            "type": "array"
+        },
+        "name": {
+            "type": "string"
+        },
+        "provider": {
+            "items": {
+                "$ref": "#/$defs/Agent"
+            },
+            "minItems": 1,
+            "type": "array"
+        },
+        "spatialCoverage": {
+            "items": {
+                "$ref": "#/$defs/Place"
+            },
+            "minItems": 1,
+            "type": "array"
+        },
+        "temporalCoverage": {
+            "pattern": "^\\d{4}(-\\d{2}(-\\d{2})?)?(/\\d{4}(-\\d{2}(-\\d{2})?)?)?$",
+            "type": [
+                "string",
+                "null"
+            ]
+        },
+        "type": {
+            "anyOf": [
+                {
+                    "$ref": "#/$defs/DatasetTypeEnum"
+                },
+                {
+                    "type": "null"
+                }
+            ],
+            "description": "Catalog label such as \"Vector Dataset\" (not the JSON-LD @type)."
+        },
+        "url": {
+            "pattern": "^https?://\\S+$",
+            "type": "string"
+        },
+        "variableMeasured": {
+            "items": {
+                "$ref": "#/$defs/Variable"
+            },
+            "minItems": 1,
+            "type": "array"
+        },
+        "version": {
+            "pattern": "^\\d{4}-\\d{2}-\\d{2}$",
+            "type": "string"
+        }
+    },
+    "required": [
+        "@context",
+        "@id",
+        "@type",
+        "name",
+        "description",
+        "version",
+        "url",
+        "creator",
+        "provider",
+        "license",
+        "spatialCoverage",
+        "datePublished",
+        "keywords",
+        "measurementTechnique",
+        "additionalProperty",
+        "variableMeasured"
+    ],
+    "title": "gaia_catalog",
+    "type": "object",
+    "version": null
+}
+

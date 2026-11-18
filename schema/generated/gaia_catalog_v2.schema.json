@@ -1,0 +1,789 @@
+{
+    "$defs": {
+        "Agent": {
+            "additionalProperties": false,
+            "description": "An organization or person. same_as, given_name, family_name, affiliation and a text identifier (a ROR or ORCID URL) are kept from the flat form.",
+            "properties": {
+                "@id": {
+                    "pattern": "^https?://\\S+$",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "@type": {
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "affiliation": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/Agent"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ]
+                },
+                "description": {
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "familyName": {
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "givenName": {
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "identifier": {
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "name": {
+                    "type": "string"
+                },
+                "sameAs": {
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "url": {
+                    "pattern": "^https?://\\S+$",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                }
+            },
+            "required": [
+                "name"
+            ],
+            "title": "Agent",
+            "type": "object"
+        },
+        "Any": {
+            "additionalProperties": true,
+            "description": "",
+            "title": "Any",
+            "type": [
+                "null",
+                "boolean",
+                "object",
+                "number",
+                "string"
+            ]
+        },
+        "CatalogDocument": {
+            "additionalProperties": false,
+            "description": "One file holding an @context and an @graph with one Dataset.",
+            "properties": {
+                "@context": {
+                    "$ref": "#/$defs/Any"
+                },
+                "@graph": {
+                    "items": {
+                        "$ref": "#/$defs/Dataset"
+                    },
+                    "maxItems": 1,
+                    "minItems": 1,
+                    "type": "array"
+                }
+            },
+            "required": [
+                "@context",
+                "@graph"
+            ],
+            "title": "CatalogDocument",
+            "type": "object"
+        },
+        "DataCatalog": {
+            "additionalProperties": false,
+            "description": "",
+            "properties": {
+                "@id": {
+                    "pattern": "^https?://\\S+$",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "@type": {
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "name": {
+                    "type": "string"
+                },
+                "url": {
+                    "pattern": "^https?://\\S+$",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                }
+            },
+            "required": [
+                "name"
+            ],
+            "title": "DataCatalog",
+            "type": "object"
+        },
+        "DataDownload": {
+            "additionalProperties": false,
+            "description": "",
+            "properties": {
+                "@type": {
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "contentUrl": {
+                    "type": "string"
+                },
+                "encodingFormat": {
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "name": {
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                }
+            },
+            "required": [
+                "contentUrl"
+            ],
+            "title": "DataDownload",
+            "type": "object"
+        },
+        "Dataset": {
+            "additionalProperties": false,
+            "description": "",
+            "properties": {
+                "@id": {
+                    "pattern": "^https?://\\S+$",
+                    "type": "string"
+                },
+                "@type": {
+                    "const": "schema:Dataset",
+                    "type": "string"
+                },
+                "about": {
+                    "items": {
+                        "$ref": "#/$defs/Event"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "additionalProperty": {
+                    "items": {
+                        "$ref": "#/$defs/PropertyValue"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "additionalType": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/DatasetTypeEnum"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ]
+                },
+                "creativeWorkStatus": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/StatusEnum"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ]
+                },
+                "creator": {
+                    "items": {
+                        "$ref": "#/$defs/Role"
+                    },
+                    "minItems": 1,
+                    "type": "array"
+                },
+                "dateModified": {
+                    "pattern": "^\\d{4}-\\d{2}-\\d{2}([ T]\\d{2}:\\d{2}:\\d{2}Z?)?$",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "datePublished": {
+                    "pattern": "^\\d{4}-\\d{2}-\\d{2}$",
+                    "type": "string"
+                },
+                "dct:accrualPeriodicity": {
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "dct:provenance": {
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "description": {
+                    "type": "string"
+                },
+                "disambiguatingDescription": {
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "distribution": {
+                    "items": {
+                        "$ref": "#/$defs/DataDownload"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "funder": {
+                    "items": {
+                        "$ref": "#/$defs/Agent"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "identifier": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/PropertyValue"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ]
+                },
+                "image": {
+                    "pattern": "^https?://\\S+$",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "inLanguage": {
+                    "pattern": "^[a-z]{2,3}(-[A-Za-z]{2,4})?$",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "includedInDataCatalog": {
+                    "items": {
+                        "$ref": "#/$defs/DataCatalog"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "isAccessibleForFree": {
+                    "type": [
+                        "boolean",
+                        "null"
+                    ]
+                },
+                "isBasedOn": {
+                    "items": {
+                        "$ref": "#/$defs/DataCatalog"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "isRelatedTo": {
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "keywords": {
+                    "items": {
+                        "type": "string"
+                    },
+                    "minItems": 1,
+                    "type": "array"
+                },
+                "license": {
+                    "description": "A short license identifier.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "measurementTechnique": {
+                    "items": {
+                        "$ref": "#/$defs/DefinedTerm"
+                    },
+                    "minItems": 1,
+                    "type": "array"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "provider": {
+                    "items": {
+                        "$ref": "#/$defs/Agent"
+                    },
+                    "minItems": 1,
+                    "type": "array"
+                },
+                "spatialCoverage": {
+                    "description": "The first place carries the reference system and extent.",
+                    "items": {
+                        "$ref": "#/$defs/Place"
+                    },
+                    "minItems": 1,
+                    "type": "array"
+                },
+                "temporalCoverage": {
+                    "pattern": "^\\d{4}(-\\d{2}(-\\d{2})?)?(/\\d{4}(-\\d{2}(-\\d{2})?)?)?$",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "url": {
+                    "pattern": "^https?://\\S+$",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "usageInfo": {
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "variableMeasured": {
+                    "items": {
+                        "$ref": "#/$defs/Variable"
+                    },
+                    "minItems": 1,
+                    "type": "array"
+                },
+                "version": {
+                    "pattern": "^\\d{4}-\\d{2}-\\d{2}$",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "@type",
+                "@id",
+                "name",
+                "description",
+                "datePublished",
+                "creator",
+                "provider",
+                "spatialCoverage",
+                "keywords",
+                "measurementTechnique",
+                "variableMeasured",
+                "version"
+            ],
+            "title": "Dataset",
+            "type": "object"
+        },
+        "DatasetTypeEnum": {
+            "description": "",
+            "enum": [
+                "Vector Dataset",
+                "Raster Dataset",
+                "Table Dataset",
+                "Statistical Dataset",
+                "API"
+            ],
+            "title": "DatasetTypeEnum",
+            "type": "string"
+        },
+        "DefinedTerm": {
+            "additionalProperties": false,
+            "description": "A measurementTechnique term (data structure, geometry, processing level).",
+            "properties": {
+                "@type": {
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "inDefinedTermSet": {
+                    "$ref": "#/$defs/DefinedTermSet"
+                },
+                "name": {
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "termCode": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "termCode",
+                "inDefinedTermSet"
+            ],
+            "title": "DefinedTerm",
+            "type": "object"
+        },
+        "DefinedTermSet": {
+            "additionalProperties": false,
+            "description": "",
+            "properties": {
+                "@type": {
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "name": {
+                    "$ref": "#/$defs/TermSetEnum"
+                },
+                "url": {
+                    "pattern": "^https?://\\S+$",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                }
+            },
+            "required": [
+                "name"
+            ],
+            "title": "DefinedTermSet",
+            "type": "object"
+        },
+        "Event": {
+            "additionalProperties": false,
+            "description": "",
+            "properties": {
+                "@type": {
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "description": {
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "name": {
+                    "type": "string"
+                },
+                "potentialAction": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/Any"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ]
+                }
+            },
+            "required": [
+                "name"
+            ],
+            "title": "Event",
+            "type": "object"
+        },
+        "Place": {
+            "additionalProperties": false,
+            "description": "",
+            "properties": {
+                "@id": {
+                    "pattern": "^https?://\\S+$",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "@type": {
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "additionalProperty": {
+                    "items": {
+                        "$ref": "#/$defs/PropertyValue"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "name": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "name"
+            ],
+            "title": "Place",
+            "type": "object"
+        },
+        "PropertyValue": {
+            "additionalProperties": false,
+            "description": "",
+            "properties": {
+                "@type": {
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "name": {
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "propertyID": {
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "unitText": {
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "url": {
+                    "pattern": "^https?://\\S+$",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "value": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/Any"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ]
+                }
+            },
+            "title": "PropertyValue",
+            "type": "object"
+        },
+        "Role": {
+            "additionalProperties": false,
+            "description": "",
+            "properties": {
+                "@type": {
+                    "const": "Role",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "creator": {
+                    "$ref": "#/$defs/Agent"
+                },
+                "roleName": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "roleName",
+                "creator"
+            ],
+            "title": "Role",
+            "type": "object"
+        },
+        "StatusEnum": {
+            "description": "The creativeWorkStatus of the entry.",
+            "enum": [
+                "draft",
+                "published",
+                "deprecated"
+            ],
+            "title": "StatusEnum",
+            "type": "string"
+        },
+        "TermSetEnum": {
+            "description": "The term sets that measurementTechnique draws on.",
+            "enum": [
+                "dataRepresentation",
+                "vectorGeometry",
+                "dataProcessingLevel"
+            ],
+            "title": "TermSetEnum",
+            "type": "string"
+        },
+        "Variable": {
+            "additionalProperties": false,
+            "description": "One variable (an entry of variableMeasured).",
+            "properties": {
+                "@type": {
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "additionalProperty": {
+                    "items": {
+                        "$ref": "#/$defs/PropertyValue"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "alternateName": {
+                    "description": "The OMOP concept id of the variable, as text.",
+                    "pattern": "^\\d+$",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "description": {
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "identifier": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/PropertyValue"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ]
+                },
+                "maxValue": {
+                    "pattern": "^-?\\d+(\\.\\d+)?([eE][-+]?\\d+)?$",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "minValue": {
+                    "pattern": "^-?\\d+(\\.\\d+)?([eE][-+]?\\d+)?$",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "name": {
+                    "type": "string"
+                },
+                "qudt:dataType": {
+                    "pattern": "^xsd:[A-Za-z0-9_]+$",
+                    "type": "string"
+                },
+                "sourceOrganization": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/Agent"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ]
+                },
+                "unitCode": {
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "unitText": {
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                }
+            },
+            "required": [
+                "name",
+                "qudt:dataType"
+            ],
+            "title": "Variable",
+            "type": "object"
+        }
+    },
+    "$id": "https://w3id.org/ohdsi/gaiacatalog/schema/v2",
+    "$schema": "https://json-schema.org/draft/2019-09/schema",
+    "additionalProperties": false,
+    "description": "One file holding an @context and an @graph with one Dataset.",
+    "metamodel_version": "1.12.0",
+    "properties": {
+        "@context": {
+            "$ref": "#/$defs/Any"
+        },
+        "@graph": {
+            "items": {
+                "$ref": "#/$defs/Dataset"
+            },
+            "maxItems": 1,
+            "minItems": 1,
+            "type": "array"
+        }
+    },
+    "required": [
+        "@context",
+        "@graph"
+    ],
+    "title": "gaia_catalog_v2",
+    "type": "object",
+    "version": null
+}
+

@@ -1,0 +1,23 @@
+# Validate catalog entries that a pull request adds or changes (not the existing ones)
+name: Catalog gate
+
+on:
+  pull_request:
+    branches: [ main ]
+    paths:
+      - 'datastore/data/*/meta_json-ld_*.json'
+      - 'schema/**'
+      - 'architecture/defs/validate_catalog.py'
+
+jobs:
+  validate-changed-entries:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: pip install -r schema/requirements.txt
+      - run: architecture/defs/check_changed_entries.sh "origin/${{ github.base_ref }}"
