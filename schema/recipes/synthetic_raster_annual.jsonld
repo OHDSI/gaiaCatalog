@@ -1,0 +1,136 @@
+{
+  "@context": {
+    "schema": "http://schema.org/",
+    "cdif": "https://w3id.org/cdif/",
+    "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
+    "geocr": "http://mlcommons.org/croissant/geocr/",
+    "geosparql": "http://www.opengis.net/ont/geosparql#",
+    "dcterms": "http://purl.org/dc/terms/",
+    "spdx": "http://spdx.org/rdf/terms#",
+    "gaia": "https://w3id.org/ohdsi/gaia/"
+  },
+  "@id": "https://w3id.org/ohdsi/gaia/recipe/synthetic_raster_annual",
+  "@type": [
+    "schema:Dataset"
+  ],
+  "schema:identifier": {
+    "@type": [
+      "schema:PropertyValue"
+    ],
+    "schema:propertyID": {
+      "@id": "https://w3id.org/ohdsi/gaia/recipe/"
+    },
+    "schema:value": "synthetic_raster_annual"
+  },
+  "schema:name": "Simulated annual exposure rasters",
+  "schema:version": "2026-11-13",
+  "schema:license": [
+    "https://creativecommons.org/publicdomain/zero/1.0/"
+  ],
+  "gaia:representation": "raster",
+  "geosparql:crs": {
+    "@id": "http://www.opengis.net/def/crs/EPSG/0/5070"
+  },
+  "geocr:spatialResolution": {
+    "schema:value": 250,
+    "schema:unitCode": "http://qudt.org/vocab/unit/M"
+  },
+  "geocr:temporalResolution": "P1Y",
+  "gaia:validity": {
+    "gaia:start": "2014",
+    "gaia:end": "2019",
+    "gaia:layout": "file_per_period"
+  },
+  "gaia:updateFrequency": "never",
+  "schema:variableMeasured": [
+    {
+      "@id": "https://w3id.org/ohdsi/gaia/recipe/synthetic_raster_annual/var/pm25_annual",
+      "@type": [
+        "schema:PropertyValue",
+        "cdi:InstanceVariable"
+      ],
+      "schema:name": "pm25_annual",
+      "schema:description": "Simulated annual exposure at the cell centre",
+      "schema:propertyID": [
+        {
+          "@id": "https://athena.ohdsi.org/search-terms/terms/2052499839"
+        }
+      ],
+      "cdif:role": "Measure",
+      "cdif:physicalDataType": "float32",
+      "schema:unitCode": "http://qudt.org/vocab/unit/MicroGM-PER-M3",
+      "cdi:nullSequence": -9999,
+      "gaia:band": 1
+    }
+  ],
+  "gaia:files": [
+    {
+      "gaia:path": "synthetic_raster_annual_2014.tif",
+      "gaia:period": {
+        "gaia:start": "2014",
+        "gaia:end": "2014"
+      },
+      "spdx:checksum": "sha256:ef213ba4c7a3e69aeeda46ddea813e65ab72a21466542859cf079c21a18e8b17"
+    },
+    {
+      "gaia:path": "synthetic_raster_annual_2015.tif",
+      "gaia:period": {
+        "gaia:start": "2015",
+        "gaia:end": "2015"
+      },
+      "spdx:checksum": "sha256:becb32b88479815d6ee9111bf3f2fb471bd91e393b32669c1badff72516b5059"
+    },
+    {
+      "gaia:path": "synthetic_raster_annual_2016.tif",
+      "gaia:period": {
+        "gaia:start": "2016",
+        "gaia:end": "2016"
+      },
+      "spdx:checksum": "sha256:7aabf051d8883140d28d493d474377b320c3fab2a168f8a971c0bb7ce52371a1"
+    },
+    {
+      "gaia:path": "synthetic_raster_annual_2017.tif",
+      "gaia:period": {
+        "gaia:start": "2017",
+        "gaia:end": "2017"
+      },
+      "spdx:checksum": "sha256:e781b81d588ddc6a18106fa65cbfdf27b0c64b7d18e37796095e98f7cf3cf943"
+    },
+    {
+      "gaia:path": "synthetic_raster_annual_2018.tif",
+      "gaia:period": {
+        "gaia:start": "2018",
+        "gaia:end": "2018"
+      },
+      "spdx:checksum": "sha256:27f274a846ee055f6aead084a3fcdc5cc131b5dda2acb44834a4453b774f384a"
+    },
+    {
+      "gaia:path": "synthetic_raster_annual_2019.tif",
+      "gaia:period": {
+        "gaia:start": "2019",
+        "gaia:end": "2019"
+      },
+      "spdx:checksum": "sha256:1f45681ec031daa2eb8c60dd12a96c2e7c27c05e8dc64abf3e70815d5e8e4c3a"
+    }
+  ],
+  "gaia:retrieval": {
+    "gaia:method": "download",
+    "gaia:url": "https://raw.githubusercontent.com/OHDSI/GIS/main/syntheticDataGIS/raster/data"
+  },
+  "schema:subjectOf": {
+    "dcterms:conformsTo": [
+      {
+        "@id": "https://w3id.org/cdif/core/2.0"
+      },
+      {
+        "@id": "https://w3id.org/cdif/discovery/2.0"
+      },
+      {
+        "@id": "https://w3id.org/cdif/data_description/2.0"
+      },
+      {
+        "@id": "https://w3id.org/ohdsi/gaia/recipe/0.1"
+      }
+    ]
+  }
+}

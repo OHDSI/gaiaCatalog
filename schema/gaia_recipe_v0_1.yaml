@@ -1,0 +1,596 @@
+id: https://w3id.org/ohdsi/gaia/recipe/0.1
+name: gaia_recipe_v0_1
+title: Gaia recipe profile, draft v0.1 (hybrid)
+description: >-
+  PROTOTYPE. One JSON-LD document per recipe: everything needed to go from a source to the
+  gaiaDB backbone tables, both what the dataset is and how to load it.
+
+  This is the "hybrid" of the recipe-format review of 2026-11-17: a LinkML schema written
+  with the term names of schema.org, CDIF (cdif:, cdi:), GeoCroissant (geocr:) and SPDX where
+  they exist, and with a gaia: term for the facts no standard carries. The JSON keys are the
+  prefixed names (see `alias`); `slot_uri` is the term the key stands for. Classes are
+  closed, so a misspelt gaia: key is an error, which CDIF's own schema would let through.
+
+  Layers: 1 dataset (schema.org, SOSO, CDIF discovery), 2 variables (CDIF data description),
+  3 physical structure (CDIF/GeoCroissant: files, bands, layout), 4 Gaia (geometry, joins,
+  retrieval, derivation). Draft term names; the open questions are in the review.
+license: Apache-2.0
+
+prefixes:
+  linkml: https://w3id.org/linkml/
+  schema: http://schema.org/
+  cdif: https://w3id.org/cdif/
+  cdi: http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/
+  geocr: http://mlcommons.org/croissant/geocr/
+  geosparql: http://www.opengis.net/ont/geosparql#
+  dcterms: http://purl.org/dc/terms/
+  spdx: http://spdx.org/rdf/terms#
+  gaia: https://w3id.org/ohdsi/gaia/
+default_prefix: gaia
+default_range: string
+
+imports:
+  - linkml:types
+
+types:
+  IsoDate:
+    typeof: string
+    pattern: '^\d{4}-\d{2}-\d{2}$'
+  Period:
+    typeof: string
+    description: A year, month or date (YYYY, YYYY-MM, YYYY-MM-DD).
+    pattern: '^\d{4}(-\d{2}(-\d{2})?)?$'
+  IsoDuration:
+    typeof: string
+    pattern: '^P(\d+Y)?(\d+M)?(\d+W)?(\d+D)?$'
+  EpsgUri:
+    typeof: uri
+    pattern: '^http://www\.opengis\.net/def/crs/EPSG/0/\d+$'
+  AthenaConceptUri:
+    typeof: uri
+    pattern: '^https?://athena\.ohdsi\.org/search-terms/terms/\d+$'
+  RecipeId:
+    typeof: string
+    description: The table id of a recipe (the folder name in datastore/data).
+    pattern: '^[a-z0-9_]+$'
+  ColumnName:
+    typeof: string
+    pattern: '^\S+$'
+  CredentialName:
+    typeof: string
+    description: The NAME of a credential (a secret file or variable), never its value.
+    pattern: '^[A-Z][A-Z0-9_]*$'
+  Sha256:
+    typeof: string
+    pattern: '^sha256:[0-9a-f]{64}$'
+
+enums:
+  RepresentationEnum:
+    permissible_values:
+      vector:
+      raster:
+      table:
+  GeometryTypeEnum:
+    permissible_values:
+      point:
+      multipoint:
+      multilinestring:
+      multipolygon:
+  RoleEnum:
+    description: Variable role. Names as used in the review's CDIF record; check against the CDIF 2.0 vocabulary.
+    permissible_values:
+      UnitIdentifier:
+      Measure:
+      Attribute:
+      Dimension:
+      Descriptor:
+  LayoutEnum:
+    permissible_values:
+      single:
+      column_per_period:
+      long:
+      jsonb_series:
+      file_per_period:
+  RetrievalMethodEnum:
+    permissible_values:
+      download:
+      download_unzip:
+      api_query:
+      arcgis_featureserver:
+      manual:
+  TransformEngineEnum:
+    permissible_values:
+      ogr2ogr_sqlite:
+      sql:
+  DerivationMethodEnum:
+    permissible_values:
+      subset:
+      clip:
+      voronoi:
+      buffer:
+      temporal_combine:
+  UpdateFrequencyEnum:
+    permissible_values:
+      never:
+      annual:
+      monthly:
+      as_needed:
+  PhysicalDataTypeEnum:
+    description: Database and raster value types (not QUDT or UCUM; units are separate).
+    permissible_values:
+      varchar:
+      text:
+      int2:
+      int4:
+      int8:
+      float4:
+      float8:
+      numeric:
+      jsonb:
+      date:
+      timestamp:
+      boolean:
+      uint8:
+      uint16:
+      int16:
+      float32:
+
+slots:
+  # --- JSON-LD keywords
+  jsonld_context:
+    alias: '@context'
+    range: Any
+  jsonld_id:
+    alias: '@id'
+    range: uriorcurie
+  crs_id:
+    alias: '@id'
+    range: EpsgUri
+  jsonld_type:
+    alias: '@type'
+    multivalued: true
+    range: string
+
+  # --- layer 1: dataset (schema.org, SOSO, CDIF discovery)
+  name:
+    alias: 'schema:name'
+    slot_uri: schema:name
+  description:
+    alias: 'schema:description'
+    slot_uri: schema:description
+  identifier:
+    alias: 'schema:identifier'
+    slot_uri: schema:identifier
+    range: Identifier
+  version:
+    alias: 'schema:version'
+    slot_uri: schema:version
+    range: IsoDate
+  license:
+    alias: 'schema:license'
+    slot_uri: schema:license
+    range: uri
+    multivalued: true
+    minimum_cardinality: 1
+  crs:
+    alias: 'geosparql:crs'
+    slot_uri: geosparql:crs
+    range: CrsRef
+  temporal_resolution:
+    alias: 'geocr:temporalResolution'
+    slot_uri: geocr:temporalResolution
+    range: IsoDuration
+  spatial_resolution:
+    alias: 'geocr:spatialResolution'
+    slot_uri: geocr:spatialResolution
+    range: Resolution
+  distribution:
+    alias: 'schema:distribution'
+    slot_uri: schema:distribution
+    range: DataDownload
+    multivalued: true
+    inlined_as_list: true
+  subject_of:
+    alias: 'schema:subjectOf'
+    slot_uri: schema:subjectOf
+    range: CatalogRecord
+  conforms_to:
+    alias: 'dcterms:conformsTo'
+    slot_uri: dcterms:conformsTo
+    range: IriRef
+    multivalued: true
+    inlined_as_list: true
+    minimum_cardinality: 1
+  update_frequency:
+    alias: 'gaia:updateFrequency'
+    range: UpdateFrequencyEnum
+
+  # --- layer 2: variables (CDIF data description)
+  variable_measured:
+    alias: 'schema:variableMeasured'
+    slot_uri: schema:variableMeasured
+    range: Variable
+    multivalued: true
+    inlined_as_list: true
+    minimum_cardinality: 1
+  property_id:
+    alias: 'schema:propertyID'
+    slot_uri: schema:propertyID
+    range: IriRef
+    multivalued: true
+    inlined_as_list: true
+  role:
+    alias: 'cdif:role'
+    slot_uri: cdif:role
+    range: RoleEnum
+  physical_data_type:
+    alias: 'cdif:physicalDataType'
+    slot_uri: cdif:physicalDataType
+    range: PhysicalDataTypeEnum
+  unit_code:
+    alias: 'schema:unitCode'
+    slot_uri: schema:unitCode
+    description: A QUDT unit URI (or a UCUM code). Not an OMOP concept id.
+  min_value:
+    alias: 'schema:minValue'
+    slot_uri: schema:minValue
+    range: float
+  max_value:
+    alias: 'schema:maxValue'
+    slot_uri: schema:maxValue
+    range: float
+  nodata:
+    alias: 'cdi:nullSequence'
+    slot_uri: cdi:nullSequence
+    range: Any
+    description: Sentinel value for a missing value, per variable.
+  has_primary_key:
+    alias: 'cdif:hasPrimaryKey'
+    slot_uri: cdif:hasPrimaryKey
+    range: Key
+  is_composed_of:
+    alias: 'cdif:isComposedOf'
+    slot_uri: cdif:isComposedOf
+    range: ComponentPosition
+    multivalued: true
+    inlined_as_list: true
+    minimum_cardinality: 1
+  indexes:
+    alias: 'cdi:indexes'
+    slot_uri: cdi:indexes
+    range: IriRef
+  position:
+    alias: 'cdi:value'
+    slot_uri: cdi:value
+    range: integer
+  value_domain:
+    alias: 'gaia:valueDomain'
+    range: CodeLabel
+    multivalued: true
+    inlined_as_list: true
+    description: Class codes of a categorical variable.
+  code:
+    alias: 'gaia:code'
+    range: string
+  label:
+    alias: 'gaia:label'
+  band:
+    alias: 'gaia:band'
+    range: integer
+    minimum_value: 1
+  validity:
+    alias: 'gaia:validity'
+    range: Any
+    any_of:
+      - range: PeriodValidity
+      - range: StaticValidity
+  start:
+    alias: 'gaia:start'
+    range: Period
+  end:
+    alias: 'gaia:end'
+    range: Period
+  static:
+    alias: 'gaia:static'
+    range: boolean
+  layout:
+    alias: 'gaia:layout'
+    range: LayoutEnum
+
+  # --- layer 3: physical structure
+  files:
+    alias: 'gaia:files'
+    range: FileEntry
+    multivalued: true
+    inlined_as_list: true
+    minimum_cardinality: 1
+  path:
+    alias: 'gaia:path'
+  layer:
+    alias: 'gaia:layer'
+  period:
+    alias: 'gaia:period'
+    range: PeriodValidity
+  checksum:
+    alias: 'spdx:checksum'
+    slot_uri: spdx:checksum
+    range: Sha256
+  content_url:
+    alias: 'schema:contentUrl'
+    slot_uri: schema:contentUrl
+    range: uri
+  encoding_format:
+    alias: 'schema:encodingFormat'
+    slot_uri: schema:encodingFormat
+  value:
+    alias: 'schema:value'
+    slot_uri: schema:value
+    range: Any
+  identifier_namespace:
+    alias: 'schema:propertyID'
+    slot_uri: schema:propertyID
+    range: IriRef
+
+  # --- layer 4: Gaia
+  representation:
+    alias: 'gaia:representation'
+    range: RepresentationEnum
+  geometry_type:
+    alias: 'gaia:geometryType'
+    range: GeometryTypeEnum
+  label_column:
+    alias: 'gaia:labelColumn'
+    range: ColumnName
+  joins_to:
+    alias: 'gaia:joinsTo'
+    range: JoinsTo
+  table:
+    alias: 'gaia:table'
+    range: RecipeId
+  join_key:
+    alias: 'gaia:joinKey'
+    range: ColumnName
+  target_key:
+    alias: 'gaia:targetKey'
+    range: ColumnName
+  retrieval:
+    alias: 'gaia:retrieval'
+    range: Retrieval
+  method:
+    alias: 'gaia:method'
+  url:
+    alias: 'gaia:url'
+    range: uri
+  credential:
+    alias: 'gaia:credential'
+    range: CredentialName
+  transform:
+    alias: 'gaia:transform'
+    range: Transform
+  engine:
+    alias: 'gaia:engine'
+    range: TransformEngineEnum
+  reason:
+    alias: 'gaia:reason'
+  script:
+    alias: 'gaia:script'
+  derivation:
+    alias: 'gaia:derivation'
+    range: Derivation
+  inputs:
+    alias: 'gaia:inputs'
+    range: RecipeId
+    multivalued: true
+    minimum_cardinality: 1
+  parameters:
+    alias: 'gaia:parameters'
+    range: Any
+
+classes:
+  Any:
+    class_uri: linkml:Any
+
+  Recipe:
+    description: One recipe, a schema.org Dataset carrying the four layers.
+    tree_root: true
+    slots:
+      - jsonld_context
+      - jsonld_id
+      - jsonld_type
+      - identifier
+      - name
+      - description
+      - version
+      - license
+      - crs
+      - temporal_resolution
+      - spatial_resolution
+      - validity
+      - update_frequency
+      - variable_measured
+      - has_primary_key
+      - representation
+      - geometry_type
+      - label_column
+      - joins_to
+      - files
+      - retrieval
+      - derivation
+      - distribution
+      - subject_of
+    slot_usage:
+      jsonld_context: {required: true}
+      jsonld_id: {required: true}
+      jsonld_type: {required: true, minimum_cardinality: 1}
+      identifier: {required: true}
+      name: {required: true}
+      version: {required: true}
+      license: {required: true}
+      validity: {required: true}
+      update_frequency: {required: true}
+      variable_measured: {required: true}
+      representation: {required: true}
+      subject_of: {required: true}
+    exactly_one_of:
+      - description: A source is retrieved ...
+        slot_conditions:
+          retrieval: {required: true}
+      - description: ... or derived from other recipes (the URLs are then provenance on the inputs).
+        slot_conditions:
+          derivation: {required: true}
+    rules:
+      - description: A vector source names its geometry and the column that labels each feature, and has a CRS.
+        preconditions:
+          slot_conditions:
+            representation: {equals_string: vector}
+        postconditions:
+          slot_conditions:
+            geometry_type: {required: true}
+            label_column: {required: true}
+            crs: {required: true}
+      - description: A raster has a CRS and says which files hold it.
+        preconditions:
+          slot_conditions:
+            representation: {equals_string: raster}
+        postconditions:
+          slot_conditions:
+            crs: {required: true}
+            files: {required: true}
+      - description: A table has no geometry of its own, so it says which geometry it joins to.
+        preconditions:
+          slot_conditions:
+            representation: {equals_string: table}
+        postconditions:
+          slot_conditions:
+            joins_to: {required: true}
+
+  Identifier:
+    slots: [jsonld_type, identifier_namespace, value]
+    slot_usage:
+      value: {required: true}
+  IriRef:
+    description: A reference to another resource by IRI.
+    slots: [jsonld_id]
+    slot_usage:
+      jsonld_id: {required: true}
+  CrsRef:
+    description: A reference to an EPSG coordinate reference system by URI.
+    slots: [crs_id]
+    slot_usage:
+      crs_id: {required: true}
+  CatalogRecord:
+    description: The catalog record, which says which profiles the recipe follows.
+    slots: [conforms_to]
+    slot_usage:
+      conforms_to: {required: true}
+  Resolution:
+    slots: [value, unit_code]
+    slot_usage:
+      value: {required: true, range: float}
+  DataDownload:
+    slots: [jsonld_type, content_url, encoding_format]
+    slot_usage:
+      content_url: {required: true}
+
+  Variable:
+    description: One variable, both a schema.org PropertyValue and a CDIF InstanceVariable.
+    slots:
+      - jsonld_id
+      - jsonld_type
+      - name
+      - description
+      - property_id
+      - role
+      - physical_data_type
+      - unit_code
+      - min_value
+      - max_value
+      - nodata
+      - validity
+      - band
+      - value_domain
+    slot_usage:
+      name: {required: true}
+      physical_data_type: {required: true}
+      role: {required: true}
+  CodeLabel:
+    slots: [code, label]
+    slot_usage:
+      code: {required: true}
+      label: {required: true}
+  Key:
+    slots: [jsonld_type, is_composed_of]
+    slot_usage:
+      is_composed_of: {required: true}
+  ComponentPosition:
+    slots: [jsonld_type, indexes, position]
+    slot_usage:
+      indexes: {required: true}
+      position: {required: true}
+
+  PeriodValidity:
+    description: The period the values stand for.
+    slots: [start, end, layout]
+    slot_usage:
+      start: {required: true}
+      end: {required: true}
+  StaticValidity:
+    description: The values do not change over time.
+    slots: [static]
+    slot_usage:
+      static: {required: true}
+
+  FileEntry:
+    slots: [path, layer, period, band, checksum]
+    slot_usage:
+      path: {required: true}
+  JoinsTo:
+    slots: [table, join_key, target_key]
+    slot_usage:
+      table: {required: true}
+      join_key: {required: true}
+  Retrieval:
+    slots: [method, url, credential, transform]
+    slot_usage:
+      method: {required: true, range: RetrievalMethodEnum}
+    rules:
+      - description: Data that is not supplied by hand says where it comes from (download).
+        preconditions:
+          slot_conditions:
+            method: {equals_string: download}
+        postconditions:
+          slot_conditions:
+            url: {required: true}
+      - description: Same for download_unzip.
+        preconditions:
+          slot_conditions:
+            method: {equals_string: download_unzip}
+        postconditions:
+          slot_conditions:
+            url: {required: true}
+      - description: Same for api_query.
+        preconditions:
+          slot_conditions:
+            method: {equals_string: api_query}
+        postconditions:
+          slot_conditions:
+            url: {required: true}
+      - description: Same for arcgis_featureserver.
+        preconditions:
+          slot_conditions:
+            method: {equals_string: arcgis_featureserver}
+        postconditions:
+          slot_conditions:
+            url: {required: true}
+  Transform:
+    description: The escape hatch for bespoke recipes. Reviewed, and warned about.
+    slots: [engine, reason, script]
+    slot_usage:
+      engine: {required: true}
+      reason: {required: true}
+      script: {required: true}
+  Derivation:
+    slots: [method, inputs, parameters]
+    slot_usage:
+      method: {required: true, range: DerivationMethodEnum}
+      inputs: {required: true}
