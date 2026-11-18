@@ -59,6 +59,7 @@ class SourceResult:
     warnings: List[str] = field(default_factory=list)
     duration_s: float = 0.0
     rows: Optional[int] = None
+    attr_rows: Optional[int] = None
 
 
 def list_sources(data_dir: Path) -> Tuple[List[str], List[str]]:
@@ -379,6 +380,16 @@ def check_result(
     return rows, '', warnings
 
 
+def count_attr_index(name: str, table: str) -> int:
+    """Count the backbone.attr_index rows registered for a source.
+
+    A source can ingest cleanly and still register no variable (for example
+    when its JSON-LD gives no dates), in which case it can never be joined.
+    """
+    sql = f"select count(*) from backbone.attr_index where table_name = '{table}'"
+    return int(psql_rows(name, sql, 60)[0][0])
+
+
 def validate_source(
     data_dir: Path,
     source: str,
@@ -439,6 +450,12 @@ def validate_source(
             table = str(etl.get('table') or source)
             count, problem, warns = check_result(name, table, etl)
             result.rows, result.warnings = count, warns
+            if not problem and IDENT_RE.match(table):
+                result.attr_rows = count_attr_index(name, table)
+                if result.attr_rows == 0:
+                    result.warnings.append(
+                        'no attr_index rows: ingested but no variable can be joined'
+                    )
             if problem:
                 result.status = FAIL
                 result.failed_step = 'assert'

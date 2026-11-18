@@ -845,4 +845,6 @@ COLLECTIONS = OrderedDict(sorted(COLLECTIONS.items(), key=lambda i: i[0].lower()
  ##
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0',debug=True,use_reloader=True,port=5000)
+    # the Werkzeug debugger runs arbitrary code for anyone who can reach the port: debug only when asked for (FLASK_DEBUG=1)
+    debug = getenv('FLASK_DEBUG', '0') == '1'
+    app.run(host='0.0.0.0', debug=debug, use_reloader=debug, port=5000)
