@@ -21,6 +21,7 @@ from dataclasses import asdict, dataclass, field
 from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any, Dict, List, Optional, Tuple
+from xml.sax.saxutils import escape
 
 DEFAULT_IMAGE = 'ohdsi/gaia-db:main'
 PG_USER = 'postgres'
@@ -547,8 +548,92 @@ def _cell(text: str, limit: int = 200) -> str:
     return text if len(text) <= limit else text[: limit - 3] + '...'
 
 
-def render_table(report: Dict[str, Any]) -> str:
-    """Render the report as a markdown summary plus table."""
+STATUS_COLORS = {PASS: '#009E73', FAIL: '#D55E00', TIMEOUT: '#E69F00', SKIPPED: '#BBBBBB'}
+STATUS_MARKS = {PASS: '', FAIL: 'F', TIMEOUT: 'T', SKIPPED: 'S'}
+HEATMAP_PATH = Path('docs') / 'ingest_heatmap.svg'
+HEATMAP_COLUMNS = 24
+
+
+def _step_name(failed_step: str) -> str:
+    """Drop a leading "<source>: " from a failed step label."""
+    return re.sub(r'^[\w-]+: ', '', failed_step)
+
+
+def _cause(result: Dict[str, Any]) -> str:
+    """Reduce a result's message to a cause that sources of one problem share."""
+    message = ' '.join(result['message'].split())
+    if 'small download' in message:
+        return 'The download returned an error page, so the table was never created'
+    message = message.replace('deferred, test later: ', '')
+    message = message.replace(result['source'], '[id]')
+    message = re.sub(r'(?<![\w-])[a-z]+_\d{4}_\w+(?=[:\s/]|$)', '[id]', message)
+    message = re.sub(r'"[^"]*"', '"..."', message)
+    return _cell(message, 160)
+
+
+def _group_failures(results: List[Dict[str, Any]]) -> List[Tuple[str, str, str, List[str]]]:
+    """Group non-passing results into (status, step, cause, sources), largest first."""
+    groups: Dict[Tuple[str, str, str], List[str]] = {}
+    for r in results:
+        if r['status'] == PASS:
+            continue
+        key = (r['status'], _step_name(r['failed_step']), _cause(r))
+        groups.setdefault(key, []).append(r['source'])
+    order = {FAIL: 0, TIMEOUT: 1, SKIPPED: 2}
+    ranked = sorted(groups.items(), key=lambda kv: (order.get(kv[0][0], 9), -len(kv[1]), kv[0]))
+    return [(k[0], k[1], k[2], sorted(v)) for k, v in ranked]
+
+
+def render_heatmap(results: List[Dict[str, Any]]) -> str:
+    """Render one square per source, grouped by id prefix, as an SVG string."""
+    cell, gap, label_w, row_h = 16, 3, 92, 22
+    groups: Dict[str, List[Dict[str, Any]]] = {}
+    for r in sorted(results, key=lambda r: r['source']):
+        groups.setdefault(r['source'].split('_')[0], []).append(r)
+    rows: List[Tuple[str, List[Dict[str, Any]]]] = []
+    for prefix, items in sorted(groups.items()):
+        for i in range(0, len(items), HEATMAP_COLUMNS):
+            rows.append((prefix if i == 0 else '', items[i:i + HEATMAP_COLUMNS]))
+    width = label_w + HEATMAP_COLUMNS * (cell + gap) + 8
+    height = len(rows) * row_h + 40
+    out = [
+        f'<svg xmlns="http://www.w3.org/2000/svg" width="{width}" height="{height}" '
+        f'viewBox="0 0 {width} {height}" font-family="sans-serif" font-size="11" '
+        'role="img" aria-label="Ingest status of each catalog source">',
+        f'<rect width="{width}" height="{height}" fill="#ffffff"/>',
+    ]
+    for n, (prefix, items) in enumerate(rows):
+        y = 6 + n * row_h
+        out.append(f'<text x="{label_w - 8}" y="{y + 12}" text-anchor="end" '
+                   f'fill="#222222">{escape(prefix)}</text>')
+        for j, r in enumerate(items):
+            x = label_w + j * (cell + gap)
+            tip = f'{r["source"]}: {r["status"]}'
+            if r['status'] != PASS:
+                tip += f' ({_step_name(r["failed_step"])})'
+            color = STATUS_COLORS.get(r['status'], '#888888')
+            out.append(f'<g><title>{escape(tip)}</title>'
+                       f'<rect x="{x}" y="{y}" width="{cell}" height="{cell}" rx="2" '
+                       f'fill="{color}"/>')
+            mark = STATUS_MARKS.get(r['status'], '?')
+            if mark:
+                out.append(f'<text x="{x + cell / 2}" y="{y + 12}" text-anchor="middle" '
+                           f'font-weight="bold" fill="#000000">{mark}</text>')
+            out.append('</g>')
+    y = 6 + len(rows) * row_h + 10
+    x = label_w
+    for status, name in ((PASS, 'pass'), (FAIL, 'fail (F)'), (TIMEOUT, 'timeout (T)'),
+                         (SKIPPED, 'skipped (S)')):
+        out.append(f'<rect x="{x}" y="{y}" width="12" height="12" rx="2" '
+                   f'fill="{STATUS_COLORS[status]}"/>'
+                   f'<text x="{x + 17}" y="{y + 10}" fill="#222222">{name}</text>')
+        x += 110
+    out.append('</svg>')
+    return '\n'.join(out) + '\n'
+
+
+def render_table(report: Dict[str, Any], heatmap_ref: str = '') -> str:
+    """Render the report as a summary, heatmap, grouped problems and passing sources."""
     results = report.get('results', [])
     counts = {s: sum(1 for r in results if r['status'] == s)
               for s in (PASS, FAIL, TIMEOUT, SKIPPED)}
@@ -565,26 +650,39 @@ def render_table(report: Dict[str, Any]) -> str:
         f'Last run: {report.get("generated_at", "")} using '
         f'`{report.get("image", "")}` {image_id}',
         '',
-        '| Source | Structure | Status | Failed step | Message | Warnings |',
-        '|--------|-----------|--------|-------------|---------|----------|',
     ]
-    order = {FAIL: 0, TIMEOUT: 1, SKIPPED: 2, PASS: 3}
-    for r in sorted(results, key=lambda r: (order.get(r['status'], 9), r['source'])):
-        message = '' if r['status'] == PASS else _cell(r['message'])
-        lines.append(
-            f'| {r["source"]} | {r["structure"]} | {r["status"]} | '
-            f'{r["failed_step"]} | {message} | {_cell("; ".join(r["warnings"]), 60)} |'
-        )
+    if heatmap_ref:
+        lines += [f'![Ingest status of each source]({heatmap_ref})', '']
+    lines += [
+        '| Status | Step | Cause | Count | Sources |',
+        '|--------|------|-------|-------|---------|',
+    ]
+    for status, step, cause, sources in _group_failures(results):
+        lines.append(f'| {status} | {step} | {cause} | {len(sources)} | '
+                     f'{", ".join(sources)} |')
+    passing = sorted((r for r in results if r['status'] == PASS), key=lambda r: r['source'])
+    names = [
+        r['source'] + (f' ({_cell("; ".join(r["warnings"]), 60)})' if r['warnings'] else '')
+        for r in passing
+    ]
+    lines += ['', f'<details><summary>{len(passing)} sources pass</summary>', '',
+              ', '.join(names), '', '</details>']
     return '\n'.join(lines)
 
 
 def update_readme(report: Dict[str, Any], readme: Path) -> None:
-    """Replace the region between the ingest-report markers in the README."""
+    """Replace the region between the ingest-report markers in the README.
+
+    Also writes the heatmap SVG to docs/ingest_heatmap.svg next to the README.
+    """
     text = readme.read_text()
     start, end = text.find(README_START), text.find(README_END)
     if start == -1 or end == -1 or end < start:
         raise ValueError(f'{readme} has no {README_START} ... {README_END} markers')
-    block = f'{README_START}\n{render_table(report)}\n'
+    svg_path = readme.parent / HEATMAP_PATH
+    svg_path.parent.mkdir(parents=True, exist_ok=True)
+    svg_path.write_text(render_heatmap(report.get('results', [])))
+    block = f'{README_START}\n{render_table(report, HEATMAP_PATH.as_posix())}\n'
     readme.write_text(text[:start] + block + text[end:])
 
 
